@@ -1,10 +1,9 @@
 name: Update dropout study log
 
 on:
-  push:
+  pull_request:
     branches: [main]
-    paths:
-      - .github/workflows/update-dropout-study-log.yml
+    types: [opened]
 
 permissions:
   contents: write
@@ -13,9 +12,10 @@ jobs:
   update-log:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout main branch
         uses: actions/checkout@v4
         with:
+          ref: main
           fetch-depth: 0
 
       - name: Update study log
@@ -104,6 +104,4 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           git commit -m "docs: 记录暂退法学习日志并更新章节进度"
-          git push
-
-# trigger via merged pull request
+          git push origin main
