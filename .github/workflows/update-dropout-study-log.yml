@@ -105,3 +105,5 @@ jobs:
           git add -A
           git commit -m "docs: 记录暂退法学习日志并更新章节进度"
           git push
+
+# trigger via merged pull request
