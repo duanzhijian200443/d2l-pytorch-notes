@@ -1,9 +1,13 @@
 # 深度学习学习日志 (Study Log)
 
 ## 📌 当前学习进度 (Current Progress)
-- **最近更新时间**: 2026-07-20
-- **当前学习章节**: 4.6 暂退法（已完成）
+- **最近更新时间**: 2026-07-21
+- **当前学习章节**: 4.6 暂退法（包括简洁实现已完成）
 - **核心掌握概念**:
+  - `nn.Linear(256, 256)` 表示第二个隐藏层的映射，虽然维度不变但具有独立的权重与偏置，用于特征的非线性重组
+  - `net.apply(init_weights)` 配合 `isinstance(m, nn.Linear)` 对各全连接子模块进行定制化参数原地（In-place）初始化
+  - 随机初始化权重标准差 `std` 控制分布的离散程度以打破对称性，偏置通常初始化为 0
+  - Jupyter 内核重启后变量丢失导致的 `NameError`，以及多模型与多优化器一一绑定配置的工程规范
   - Dropout 使用伯努利随机掩码置零隐藏层激活值，并通过除以 `1-p` 保持激活值期望不变
   - `net.train()` / `net.eval()` 控制 Dropout 等层的训练与评估行为，`torch.no_grad()` 控制自动微分记录
   - 权重衰减与 L2 正则化的物理本质（高维控制台与高斯先验映射）
@@ -202,12 +206,15 @@
 | 交叉熵损失函数 | `nn.CrossEntropyLoss(reduction='none')` | 算子级缝合 Softmax 与 CrossEntropy，内置 LogSumExp 防溢出，`none` 强制返回各样本独立损失向量 |
 | 实例化随机梯度下降 | `torch.optim.SGD(net.parameters(), lr)` | 绑定网络可学习参数与步长，构建自动化梯度下降更新引擎 |
 | 激活非线性空间映射 | `torch.relu(x)` / `nn.ReLU()` | 应用修正线性单元激活函数，对空间进行分段线性折弯打破线性退化 |
+| 判断模块是否为全连接层 | `isinstance(m, nn.Linear)` | 避免对无 `weight` 成员的模块访问参数，用于条件初始化 |
+| 将偏置初始化为 0 | `nn.init.zeros_(m.bias)` | 原地（In-place）将偏置参数清零，显式统一初值 |
 
 ### 🛠️ d2l 工程辅助函数
 | 当你想要... | 用这个 | 核心物理动作 |
 |:---|:---|:---|
 | 实时动态绘制训练损失图表 | `animator = d2l.Animator(...)`<br>`animator.add(...)` | 初始化图表引擎并在指定 epoch 喂入真实坐标点渲染动画 |
 | 全量审计测试集平均误差 | `d2l.evaluate_loss(net, data_iter, loss)` | 冻结梯度计算，遍历整个迭代器求均值，给当前参数客观打分 |
+| 加载 Fashion-MNIST 数据集 | `d2l.load_data_fashion_mnist(batch_size)` | 获取 Fashion-MNIST 的训练集与测试集数据迭代器 |
 
 ---
 
@@ -1184,4 +1191,94 @@
   =\frac{M\odot\operatorname{ReLU}(Z)}{1-p}.
   $$
   因而在相同掩码下数学结果相同，工程代码更常写成 `Linear -> ReLU -> Dropout`。该结论不适用于 Sigmoid、Tanh、GELU 等一般非线性函数，因为它们不满足同样的正齐次性质。
+
+### [工单-175] ❓ 为什么网络中还要加入 `nn.Linear(256, 256)`？
+- **🧠 核心疑问**：第一隐藏层已经输出 256 维表示，为什么中间还要加入一个输入和输出均为 256 的全连接层？
+- **🧠 底层解释**：第一隐藏层输出为
+  \[
+  H_1=\operatorname{ReLU}(XW_1+b_1),\qquad H_1\in\mathbb{R}^{B\times256}.
+  \]
+  第二层继续计算
+  \[
+  H_2=\operatorname{ReLU}(H_1W_2^\top+b_2),\qquad H_2\in\mathbb{R}^{B\times256}.
+  \]
+  虽然输入和输出 Shape 都是 `(B, 256)`，但第二层具有一套独立的权重与偏置，会重新组合第一层的特征。维度相同不代表变换内容相同。
+- **💊 纠偏锚点**：`Linear(256, 256)` 是“256 维到另一套 256 维表示的可学习映射”，不是恒等映射，也不是 Dropout 的强制要求。
+
+### [工单-176] ❓ `init_weights` 与 `std=0.01` 分别有什么作用？
+- **🧠 核心疑问**：下面的初始化函数究竟修改了什么，`std=0.01` 又代表什么？
+  ```python
+  def init_weights(m):
+      if type(m) == nn.Linear:
+          nn.init.normal_(m.weight, std=0.01)
+
+  net.apply(init_weights)
+  ```
+- **🧠 底层解释**：
+  - `net.apply(init_weights)` 会递归访问网络中的所有模块。
+  - 当模块是 `nn.Linear` 时，用正态分布重新填充其权重：
+    \[
+    w_{ij}\sim\mathcal N(0,0.01^2).
+    \]
+  - `std=0.01` 是标准差，表示权重大多分布在 0 附近；正态分布没有严格上下界。
+  - 函数名 `normal_` 末尾的 `_` 表示原地修改权重张量。
+  - 当前代码只重置了 `weight`，没有显式重置 `bias`。
+- **💊 纠偏锚点**：`std=0.01` 控制随机初始化的离散程度，不是学习率，也不是权重的最大绝对值。
+
+### [工单-177] ❓ 初始化函数中的 `m` 是什么类型，为什么能访问 `m.weight`？
+- **🧠 核心疑问**：`m` 没有显式声明类型，为什么代码可以访问 `m.weight`？
+- **🧠 底层解释**：`m` 是 `net.apply()` 当前遍历到的模块对象，统一继承自 `nn.Module`，但运行时可能分别是：
+  ```text
+  Flatten
+  Linear
+  ReLU
+  Dropout
+  Sequential
+  ```
+  只有 `nn.Linear` 模块注册了 `weight` 和 `bias` 参数。因此代码先判断：
+  ```python
+  if type(m) == nn.Linear:
+  ```
+  判断成立后才访问：
+  ```python
+  m.weight
+  ```
+  对 `Linear(784, 256)`，权重 Shape 为：
+  ```python
+  m.weight.shape  # (256, 784)
+  ```
+  PyTorch 保存权重时采用 `(out_features, in_features)`，前向传播内部相当于：
+  \[
+  Y=XW^\top+b.
+  \]
+- **💊 纠偏锚点**：不是所有 `m` 都有 `weight`；条件判断保证只有 `Linear` 模块进入权重初始化分支。
+
+### [工单-178] 🐛 `train_iter` 未定义与优化器变量传错
+- **💻 触发代码**：
+  ```python
+  trainer1 = torch.optim.SGD(net1.parameters(), lr=lr)
+  trainer2 = torch.optim.SGD(net2.parameters(), lr=lr)
+
+  d2l.train_ch3(net1, train_iter, test_iter, loss, num_epochs, trainer)
+  d2l.train_ch3(net2, train_iter, test_iter, loss, num_epochs, trainer)
+  ```
+- **🩸 原始报错**：
+  ```text
+  NameError: name 'train_iter' is not defined
+  ```
+- **🧠 底层原因**：
+  1. `train_iter` 和 `test_iter` 尚未创建，或创建它们的 Jupyter 单元格没有重新运行。
+  2. 网络已经分别创建了 `trainer1`、`trainer2`，训练时却错误地传入了不存在的 `trainer`。
+- **💊 修复方案**：
+  ```python
+  batch_size = 256
+  train_iter, test_iter = d2l.load_data_fashion_mnist(batch_size)
+
+  trainer1 = torch.optim.SGD(net1.parameters(), lr=lr)
+  trainer2 = torch.optim.SGD(net2.parameters(), lr=lr)
+
+  d2l.train_ch3(net1, train_iter, test_iter, loss, num_epochs, trainer1)
+  d2l.train_ch3(net2, train_iter, test_iter, loss, num_epochs, trainer2)
+  ```
+- **💊 纠偏锚点**：先确认数据迭代器存在，再检查“网络—优化器”的一一对应关系。
 
