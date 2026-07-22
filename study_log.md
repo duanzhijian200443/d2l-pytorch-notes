@@ -1282,3 +1282,100 @@
   ```
 - **💊 纠偏锚点**：先确认数据迭代器存在，再检查“网络—优化器”的一一对应关系。
 
+
+### [工单-179] ❓ Dropout 没有提高测试准确率，是否说明它没用？
+- **核心疑问**: 使用 Dropout 后训练损失更高、训练准确率略低，但测试准确率与不使用 Dropout 基本相同，这是否说明 Dropout 没有作用？
+- **底层解释**: Dropout 是正则化方法，主要用于缓解“训练集表现明显好于测试集”的过拟合问题。如果无 Dropout 的模型本身没有明显过拟合，那么 Dropout 没有多少泛化缺口可以修复，测试准确率相近是合理结果。此时它可能只增加训练难度，而不会带来可见收益。
+- **纠偏锚点**: 判断正则化是否有效，先看 `train acc - test acc` 的间距，而不是默认要求测试准确率一定上升。
+
+### [工单-180] ❓ 为什么训练损失会在某一轮短暂反弹？
+- **核心疑问**: 不使用 Dropout 的模型在第 10～11 轮附近出现一次 loss 回升，是否代表训练失败？
+- **底层解释**: Mini-batch SGD 使用的是全量梯度的随机近似，单轮更新不保证损失严格单调下降；当学习率较大时，参数还可能暂时跨过较优区域。若损失随后恢复下降、测试准确率没有同步崩溃，这通常只是正常随机波动。
+- **纠偏锚点**: 观察整体趋势与测试指标，不要把单次局部反弹误判为训练失效。
+
+### [工单-181] ❓ 权重衰减与 Dropout 为什么可以同时使用？
+- **核心疑问**: 两者代码位置差异很大，如何组合到同一个模型中？
+- **底层解释**: 权重衰减作用于参数更新，在优化器中通过 `weight_decay` 约束权重；Dropout 作用于前向传播，在网络结构中随机置零隐藏层激活值。二者约束对象不同，因此可以同时存在：网络内部放 `nn.Dropout(p)`，优化器参数组中设置 `weight_decay=wd`。
+- **纠偏锚点**: 权重衰减修改“参数怎么更新”，Dropout 修改“训练时信息怎么传递”。
+
+### [工单-182] 🐛 使用 `net.eval()` 关闭 Dropout 被训练函数重新覆盖
+- **触发代码**:
+  ```python
+  if use_Dropout == False:
+      net.eval()
+  d2l.train_ch3(...)
+  ```
+- **原始报错**: 无显式报错，但对照实验逻辑失效，Dropout 在训练时仍会被重新开启。
+- **底层原因**: `d2l.train_ch3` 的训练流程会调用 `net.train()`，从而覆盖训练前设置的 `net.eval()`。`eval()` 用于评估阶段模式切换，不适合作为永久关闭 Dropout 的开关。
+- **修复方案**:
+  ```python
+  dropout1 = 0.2 if use_Dropout else 0
+  dropout2 = 0.5 if use_Dropout else 0
+  ```
+  再将它们传给 `nn.Dropout(dropout1)` 和 `nn.Dropout(dropout2)`；即使随后执行 `net.train()`，`Dropout(0)` 也不会丢弃激活值。
+
+### [工单-183] 🐛 `named_parameters()` 参数筛选与字符串方法拼写错误
+- **触发代码**:
+  ```python
+  for name, param in net.named_parameters():
+      if name.endwith('weight'):
+          decay_params.append(param)
+  ```
+- **原始报错**: `AttributeError: 'str' object has no attribute 'endwith'`
+- **底层原因**: 正确方法名是 `endswith()`。`named_parameters()` 返回 `(完整参数名, 参数对象)`，参数名通常类似 `1.weight`、`1.bias`，因此不能用 `name == 'weight'` 做完全匹配。
+- **修复方案**:
+  ```python
+  for name, param in net.named_parameters():
+      if name.endswith('weight'):
+          decay_params.append(param)
+      else:
+          no_decay_params.append(param)
+  ```
+  `decay_params` 中保存的是 `net` 内部原始 `nn.Parameter` 的引用，不是副本；优化器执行 `step()` 时修改的正是网络中的权重。
+
+### [工单-184] 🐛 优化器变量覆盖数据迭代器，并传入未定义的 `trainer1`
+- **触发代码**:
+  ```python
+  train_iter = torch.optim.SGD(...)
+  d2l.train_ch3(net, train_iter, test_iter, loss, num_epochs, trainer1)
+  ```
+- **原始报错**: 可能出现 `NameError: name 'trainer1' is not defined`，或训练函数无法从优化器中解包出 `(X, y)`。
+- **底层原因**: `train_iter` 应保持为训练数据迭代器，不能被 SGD 优化器覆盖；同时函数内部并未定义 `trainer1`。
+- **修复方案**:
+  ```python
+  trainer = torch.optim.SGD(
+      [
+          {'params': decay_params, 'weight_decay': wd},
+          {'params': no_decay_params, 'weight_decay': 0}
+      ],
+      lr=lr
+  )
+  d2l.train_ch3(net, train_iter, test_iter, loss, num_epochs, trainer)
+  ```
+
+### [工单-185] 🪤 两种参数初始化方式同时使用导致后写覆盖前写
+- **错误直觉**: `for param in net.parameters(): param.data.normal_()` 与 `net.apply(init_weights)` 都是初始化，因此可以叠加使用。
+- **认知盲区**: 两者都会直接改写同一批参数，后执行的初始化会覆盖前面的结果。前者默认把所有权重和偏置初始化为标准差 1 的正态分布；后者可按模块类型只初始化 `Linear.weight`，例如标准差 0.01。混用还可能造成权重和偏置采用不一致的尺度。
+- **纠偏锚点**: 参数初始化通常只选一种；普通 MLP/CNN 更适合使用 `net.apply(init_weights)` 按模块类型精细初始化，并避免直接操作 `.data`。
+
+### [工单-186] ❓ 为什么暂退法代码中看不到显式创建 `Animator`？
+- **核心疑问**: 权重衰减示例手动写了 `animator = d2l.Animator(...)`，暂退法示例为何没有？
+- **底层解释**: 暂退法示例调用了封装好的 `d2l.train_ch3(...)`，该函数内部已经负责训练循环、指标计算和动态图绘制；权重衰减示例自己编写训练循环，因此需要显式创建并调用 `Animator`。`Animator` 只负责监控和绘图，不参与反向传播或参数更新。
+- **纠偏锚点**: 是否显式写 `Animator` 取决于绘图逻辑有没有被训练函数封装，而不是取决于是否使用 Dropout。
+
+### [工单-187] 🐛 两层隐藏层 MLP 的第二个线性层后遗漏激活函数
+- **触发代码**:
+  ```python
+  nn.Linear(256, 256),
+  nn.Dropout(0.5),
+  nn.Linear(256, 10)
+  ```
+- **原始报错**: 无语法报错，但实验结构与教材基准模型不一致。
+- **底层原因**: 第二个隐藏层缺少 `ReLU`，使对应区间变成连续的仿射变换与 Dropout，改变了基础模型。进行正则化对照实验时，除正则化开关外应保持架构一致。
+- **修复方案**:
+  ```python
+  nn.Linear(256, 256),
+  nn.ReLU(),
+  nn.Dropout(dropout2),
+  nn.Linear(256, 10)
+  ```
