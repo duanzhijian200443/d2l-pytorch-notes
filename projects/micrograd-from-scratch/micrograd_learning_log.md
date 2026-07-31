@@ -2,11 +2,11 @@
 
 ## 📌 当前进度
 
-- **最近更新时间**：2026-07-29
+- **最近更新时间**：2026-08-01
 - **项目名称**：Micrograd From Scratch
-- **当前阶段**：完整自动反向传播闭环已跑通；准备进入常数兼容与更多运算符扩展
-- **当前里程碑**：M4（已完成）— 已独立手写并运行统一 `backward()`，通过 `draw_dot` 验证整张计算图的梯度回传；M5 即将进入常数自动包装与算子扩展
-- **代码状态**：本地 Notebook 已完成 `grad`、默认 `_backward`、加法/乘法/tanh 局部反向规则、DFS 拓扑排序与统一 `backward()`，并成功可视化验证梯度；Google Drive 中的 `micrograd.ipynb` 仍为 1658 B、最后修改于 2026-07-26，尚未同步本地最新代码
+- **当前阶段**：基础标量自动微分引擎已独立复现；已用基础算子组合实现 `tanh`，下一步进入 PyTorch API 对照学习
+- **当前里程碑**：M5（已完成）— 已实现常数自动包装、反向运算符、减法、幂、除法、`exp`、统一 `backward()` 与组合式 `tanh`，并通过计算图和数值结果验证
+- **代码状态**：当前本地 Notebook 中的最小 `Value` 引擎已可运行；本次仅生成更新后的日志文件，未上传或覆盖 Google Drive 文件
 
 ## 🎯 项目目标
 
@@ -310,56 +310,88 @@ _backward()  ：单个运算节点保存的局部求导规则
 使用 `=` 会覆盖已有路径的贡献；使用 `+=` 才能得到正确结果。
 
 
-### 13. 完整自动反向传播闭环验证
+### 13. 普通常数包装与反向运算符
 
-已独立手写并运行完整 `Value` 自动微分核心，包括：
-
-```text
-Value 基础属性
-→ 加法与乘法构图
-→ tanh 前向与局部反向规则
-→ DFS 后序拓扑排序
-→ reversed(topo) 统一调度
-→ 最终节点调用 backward()
-→ draw_dot 可视化梯度
-```
-
-本次验证计算图：
+已实现并理解普通数字与 `Value` 的兼容机制：
 
 ```python
-a = Value(-2.0, label='a')
-b = Value(3.0, label='b')
-c = Value(10.0, label='c')
-e = a * b
-d = e + c
-f = Value(-2.0, label='f')
-L = d + f
-H = L.tanh()
-
-H.backward()
-draw_dot(H)
+other = other if isinstance(other, Value) else Value(other)
 ```
 
-自动反向传播得到：
+由此可让普通 `int/float` 参与计算图运算。已理解：
+
+- `isinstance(other, Value)` 负责类型判断
+- 条件为假时将普通数字包装成常数 `Value`
+- `assert` 用于拒绝非法输入，不负责类型转换
+- `3 * a` 会先尝试左操作数的方法；失败后由 Python 调用 `a.__rmul__(3)`
+- 实例方法中的 `self` 始终绑定到实际调用该方法的对象
+
+已实现：
+
+```python
+def __rmul__(self, other):
+    return self * other
+```
+
+### 14. 扩展基础算子
+
+已实现并验证：
+
+```python
+def __sub__(self, other):
+    return self + other * (-1)
+
+def __pow__(self, other):
+    ...
+
+def __truediv__(self, other):
+    return self * other**(-1)
+
+def exp(self):
+    ...
+```
+
+核心理解：
+
+- 减法复用加法和乘法
+- 除法复用乘法和幂运算
+- `a / b` 被改写为 `a * b**(-1)`
+- Python 中 `**` 的优先级高于 `*`
+- `__pow__` 当前只支持常数指数 `int/float`
+- 所有局部反向规则必须使用 `+=` 累积梯度
+
+### 15. 用基础算子组合实现 `tanh`
+
+已不再为 `tanh` 单独手写局部导数，而是使用已有算子组合：
+
+```python
+def tanh(self):
+    t = (self * 2).exp()
+    return (t - 1) / (t + 1)
+```
+
+对应公式：
+
+\[
+\tanh(x)=\frac{e^{2x}-1}{e^{2x}+1}
+\]
+
+该实现会自动构建由乘法、指数、加减法、幂和除法组成的计算图，反向传播由各基础节点沿拓扑逆序自动完成。
+
+已验证：
 
 ```text
-H.grad = 1.0000
-L.grad ≈ 0.0707
-d.grad ≈ 0.0707
-f.grad ≈ 0.0707
-e.grad ≈ 0.0707
-c.grad ≈ 0.0707
-a.grad ≈ 0.2120
-b.grad ≈ -0.1413
+x = 2
+tanh(x) ≈ 0.96402758
+x.grad ≈ 0.07065082
 ```
 
-结果说明：
+其中：
 
-- `backward()` 应从最终输出节点 `H` 调用
-- `self.grad = 1.0` 正确设置了反向传播起点
-- `reversed(topo)` 保证下游节点先写入上游梯度
-- 加法、乘法与 `tanh` 的局部规则成功组合成完整链式法则
-- Graphviz 图中各节点梯度与预期一致，M4 自动微分核心闭环完成
+\[
+\frac{d}{dx}\tanh(x)=1-\tanh^2(x)
+\]
+
 
 ## 🧠 已掌握的关键理解
 
@@ -615,41 +647,160 @@ self.grad += (1 - t**2) * out.grad
 - 保存函数时不能写 `_backward()`，否则会提前执行并把返回值 `None` 存入节点
 
 
-### [Micrograd-021] 统一 `backward()` 应从哪个节点调用
+### [Micrograd-021] `__rmul__` 的自动调用与参数绑定
 
-- 应从需要求导的最终输出节点调用，例如 `H.backward()`
-- `backward()` 会以调用者 `self` 为根节点，沿 `_prev` 找回整张依赖图
-- 在中间节点调用只会对该中间结果之前的子图求导，不会包含其后续运算
+- Python 对 `3 * a` 先尝试左操作数的乘法实现
+- 左侧 `int` 无法处理 `Value` 时，解释器再尝试 `a.__rmul__(3)`
+- 此时 `self` 指向 `a`，`other` 指向 `3`
+- `return self * other` 将运算改写为 `a * 3`，进而复用 `Value.__mul__`
 
-### [Micrograd-022] 叶子节点缺少 `_backward` 导致统一遍历失败
+### [Micrograd-022] `isinstance` 与 `assert` 的职责不同
 
-若构造函数没有默认定义：
+- `isinstance(obj, type)` 返回 `True/False`，负责类型判断
+- `assert condition, message` 在条件为假时抛出 `AssertionError`
+- 需要把普通数字转换成 `Value` 时，应使用条件判断和重新赋值，而不是 `assert`
 
-```python
-self._backward = lambda: None
-```
+### [Micrograd-023] 闭包捕获的是对象引用，不是属性快照
 
-叶子节点在统一调度中执行 `node._backward()` 时会触发 `AttributeError`。默认空函数让所有节点拥有统一接口。
-
-### [Micrograd-023] `tanh` 局部梯度不能使用覆盖赋值
-
-错误写法：
+对于：
 
 ```python
-self.grad = (1 - t**2) * out.grad
+y = x.exp()
 ```
 
-正确语义是累加当前路径的梯度贡献：
+`exp()` 内部的 `out` 与外部的 `y` 指向同一个 `Value` 对象。闭包保存的是：
+
+```text
+self → x
+out  → y
+```
+
+下游节点修改 `y.grad` 后，闭包读取 `out.grad` 会看到同一个最新值。
+
+### [Micrograd-024] 局部 `_backward` 不应声明 `self` 形参
+
+错误：
 
 ```python
-self.grad += (1 - t**2) * out.grad
+def _backward(self):
+    ...
 ```
 
-使用 `=` 会覆盖同一节点从其他路径已经积累的梯度。
+报错：
 
-### [Micrograd-024] 重新定义类后旧计算图不会自动更新
+```text
+TypeError: Value.tanh.<locals>._backward() missing 1 required positional argument: 'self'
+```
 
-Jupyter 中重新运行 `class Value:` 只会更新类名当前指向的新类对象，之前创建的节点仍属于旧类版本。修改代码后应重新定义类、重新创建整张计算图，再调用最终节点的 `backward()`。
+局部 `_backward` 是普通闭包，应写为无参数函数；所需对象由闭包捕获。
+
+### [Micrograd-025] 取 `.data` 会切断计算图
+
+错误形式：
+
+```python
+t = math.exp(x.data)
+```
+
+结果是普通 `float`，不再拥有 `grad`、`label`、`_prev` 和 `_backward`。构建可微表达式时应始终使用 `Value` 运算与自定义算子。
+
+### [Micrograd-026] 修改类后 Jupyter 仍使用旧对象
+
+若已经定义 `exp()` 却出现：
+
+```text
+AttributeError: 'Value' object has no attribute 'exp'
+```
+
+应检查：
+
+- `exp` 是否缩进在 `class Value` 内
+- 是否误写成未被 Python 约定的 `__exp__`
+- 是否重新运行完整类定义单元格
+- 是否重新创建由新版 `Value` 类生成的对象
+
+### [Micrograd-027] 常数包装判断方向写反
+
+错误：
+
+```python
+other = other if isinstance(other, (int, float)) else Value(other)
+```
+
+这会保留普通数字，随后访问 `other.data` 时触发：
+
+```text
+AttributeError: 'int' object has no attribute 'data'
+```
+
+正确判断对象是否已经是 `Value`；不是时再包装。
+
+### [Micrograd-028] 乘法局部导数必须使用前向值
+
+对于：
+
+```python
+out = self * other
+```
+
+正确局部规则是：
+
+```python
+self.grad += other.data * out.grad
+other.grad += self.data * out.grad
+```
+
+不能使用 `other.grad` 或刚被修改后的 `self.grad` 代替局部导数。
+
+### [Micrograd-029] 拓扑递归必须访问 `child`
+
+错误：
+
+```python
+for child in v._prev:
+    build_topo(v)
+```
+
+`v` 已在 `visited` 中，会立即返回，导致前驱节点没有进入拓扑表。应递归处理循环得到的 `child`。
+
+### [Micrograd-030] `__repr__` 中再次创建 `Value` 会无限递归
+
+错误：
+
+```python
+def __repr__(self):
+    return f"{Value(self.data)}"
+```
+
+格式化新对象时会再次进入同一个 `__repr__`。应直接格式化当前对象的属性。
+
+### [Micrograd-031] 组合式 `tanh` 应复用中间节点
+
+低效写法：
+
+```python
+((self * 2).exp() - 1) / ((self * 2).exp() + 1)
+```
+
+会创建两套重复的 \(e^{2x}\) 子图。保存一次中间结果可减少重复计算，并让同一节点的多路径梯度累积更清晰。
+
+### [Micrograd-032] Graphviz 中出现两个数值相同的节点
+
+在 `2 * x` 中，普通数字 `2` 会被包装成独立的常数 `Value(2)`。当 `x.data` 也恰好为 `2` 时，图中会同时出现：
+
+- 带标签的变量节点 `x`
+- 无标签的常数节点 `2`
+
+二者数值相同，但对象身份和图中职责不同。
+
+### [Micrograd-033] Graphviz 插件警告不影响梯度计算
+
+```text
+Could not load ... gvplugin_pango.dll
+```
+
+属于 Graphviz 字体或渲染插件警告。只要计算图能正常生成，便不影响 `Value` 引擎的前向值与反向梯度。
+
 
 ## 🔁 当前学习方法
 
@@ -669,7 +820,7 @@ Jupyter 中重新运行 `class Value:` 只会更新类名当前指向的新类�
 - 自己手写，不直接复制完整源码
 - 一次只实现一个小功能
 - 每个算子先理解前向语义，再学习局部梯度
-- 报错时优先定位原因，只给分级最小提示；仅在明确要求答案时提供完整代码
+- 报错时优先定位原因，不直接替换成完整答案
 - 每个里程碑都用最小实验验证
 
 ## 🧭 后续里程碑
@@ -690,17 +841,17 @@ Jupyter 中重新运行 `class Value:` 只会更新类名当前指向的新类�
 - [x] M4：理解统一 `backward()` 的完整调度结构
 - [x] M4：完成拓扑顺序、反向顺序和分支梯度的手算练习
 - [x] M4：在 Notebook 中独立复现并运行统一 `backward()`
-- [x] M4：使用 `draw_dot` 验证完整计算图的梯度回传
 - [ ] M4：将最新代码同步到 Google Drive Notebook
 - [x] M5：理解 `tanh` 的前向公式与局部反向规则
-- [x] M5：在 Notebook 中独立实现并验证 `tanh`
-- [ ] M5：支持普通常数参与加法、乘法等运算
-- [ ] M5：实现 `exp`、幂运算、减法和除法等算子
+- [x] M5：在 Notebook 中独立实现并验证组合式 `tanh`
+- [x] M5：支持普通常数参与加法、乘法等运算
+- [x] M5：实现 `exp`、幂运算、减法和除法等算子
 - [ ] M6：实现 `Neuron`
 - [ ] M6：实现 `Layer`
 - [ ] M6：实现 `MLP`
 - [ ] M7：实现损失函数和训练循环
-- [ ] M7：与 PyTorch 梯度结果进行对照测试
+- [ ] M5：使用 PyTorch API 构造同一表达式并对照梯度
+- [ ] M7：与 PyTorch 梯度结果进行完整对照测试
 
 ## 📝 日志维护约定
 
