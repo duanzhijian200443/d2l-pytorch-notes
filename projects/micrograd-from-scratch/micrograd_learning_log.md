@@ -2,11 +2,12 @@
 
 ## 📌 当前进度
 
-- **最近更新时间**：2026-08-05
+- **最近更新时间**：2026-08-07
 - **项目名称**：Micrograd From Scratch
-- **当前阶段**：已完成 `Neuron`、`Layer` 与基础 `MLP` 的独立构造，已打通多层前向数据流与多输出计算图可视化；下一步进入损失函数、参数收集与训练循环
-- **当前里程碑**：M6（已完成）— 已实现 `Neuron`、`Layer`、`MLP`，掌握全连接结构、层间维度传递、局部变量重绑定、多输出梯度路径与完整计算图合并；准备进入 M7
-- **代码状态**：当前本地 Notebook 中的 `Value` 引擎、`Neuron`、`Layer` 与 `MLP` 均已可运行；已用单一汇总根节点绘制整个多输出网络的计算图。本次仅合并更新日志，未上传或覆盖 Google Drive 文件
+- **当前阶段**：核心项目已完结。已从零实现标量自动微分引擎、`Neuron`、`Layer`、`MLP`、分层参数收集、平方损失与完整训练循环，并验证参数更新后损失持续下降
+- **当前里程碑**：M7（已完成）— 已打通“前向传播 → 标量损失 → 梯度清零 → `backward()` → 参数更新 → 重建新计算图”的完整训练闭环，并理解参数、预测值、损失与梯度之间的依赖关系
+- **代码状态**：当前 `micrograd.ipynb` 已可独立运行 `Value` 引擎与 MLP 训练示例；`model.parameters()` 返回扁平的 `Value` 参数列表，训练循环能更新权重和偏置并观察 loss 下降。PyTorch 数值对照与单元测试保留为可选扩展，不再作为核心项目完结的阻塞项
+- **学习边界**：已掌握负梯度更新的操作含义；“负梯度是欧氏空间局部最速下降方向”的多元泰勒展开与方向导数严格证明暂缓，后续学习优化理论时再系统补全
 
 ## 🎯 项目目标
 
@@ -815,6 +816,295 @@ for n in out:
 会在同一组参数上连续执行多次反向传播并累积梯度；它不等价于先构造一个标量汇总根节点再统一 `backward()`。训练时通常应先定义一个标量损失节点，再调用一次 `loss.backward()`。
 
 
+
+### 23. 分层参数收集 `parameters()`
+
+已在三个层级实现统一参数接口：
+
+```python
+class Neuron:
+    def parameters(self):
+        return self.w + [self.b]
+
+class Layer:
+    def parameters(self):
+        return [
+            p
+            for neuron in self.neurons
+            for p in neuron.parameters()
+        ]
+
+class MLP:
+    def parameters(self):
+        return [
+            p
+            for layer in self.layers
+            for p in layer.parameters()
+        ]
+```
+
+层级关系为：
+
+```text
+MLP
+→ 遍历 self.layers
+→ 每个 Layer 遍历 self.neurons
+→ 每个 Neuron 返回 w 与 b
+→ 最终得到扁平的 [Value, Value, ...]
+```
+
+关键理解：
+
+- 参数真正只存放在各个 `Neuron` 的 `self.w` 与 `self.b` 中
+- `Layer.parameters()` 与 `MLP.parameters()` 不复制参数，只返回同一批 `Value` 对象的引用
+- Micrograd 的 `parameters()` 是“可训练参数清单/统一入口”，不是自动求梯度或自动更新参数的函数
+- 计算图决定某个参数能否获得梯度；`parameters()` 决定训练循环会清零和更新哪些对象
+- `p` 是一个参数 `Value` 对象；`p.data` 是当前权重或偏置数值，`p.grad` 是损失对该参数数值的导数
+
+### 24. 平方损失与参数梯度链路
+
+当前训练目标使用平方损失：
+
+```python
+ypred = [model(x)[0] for x in xs]
+loss = sum((y - yp) ** 2 for y, yp in zip(ys, ypred))
+```
+
+单个样本的损失为：
+
+\[
+L=(\hat y-y)^2
+\]
+
+其中 `yp` / \(\hat y\) 是预测节点，不是模型参数。完整依赖关系为：
+
+```text
+权重、偏置 p.data
+→ 前向传播得到预测值 ypred
+→ 与真实值比较得到 loss
+→ backward() 得到 p.grad
+```
+
+链式法则为：
+
+\[
+\frac{\partial L}{\partial p}
+=
+\frac{\partial L}{\partial \hat y}
+\frac{\partial \hat y}{\partial p}
+\]
+
+因此参数梯度同时综合：
+
+1. 当前预测应该升高还是降低
+2. 该参数增大时会怎样影响预测值
+
+预测偏低不代表所有参数都应增大。例如在线性节点 \(a=wx+b\) 中，若输入 \(x<0\)，减小 \(w\) 反而会使 \(wx\) 增大。
+
+### 25. 梯度下降更新公式
+
+当前使用：
+
+```python
+p.data -= study_rate * p.grad
+```
+
+它等价于：
+
+```python
+p.data += -study_rate * p.grad
+```
+
+其中：
+
+```text
+p.data     → 参数当前数值
+p.grad     → ∂loss/∂p，当前局部上坡方向与变化率
+study_rate → 学习率，控制本次步长
+负号       → 将上坡方向反转为下坡方向
+```
+
+必须避免把“减号”理解成“参数永远减小”：
+
+```text
+p.grad > 0 → 本轮 p.data 减小
+p.grad < 0 → 减去负数，本轮 p.data 增大
+p.grad = 0 → 本轮该参数不变
+```
+
+更新只直接修改权重和偏置的 `.data`。预测值与 loss 不会被直接修改；下一轮重新前向传播后，才会根据新参数生成新的预测与损失。
+
+### 26. 完整训练循环
+
+已独立写通：
+
+```python
+study_rate = 0.1
+steps = 10
+model = MLP(3, [4, 4, 1])
+
+for i in range(steps):
+    ypred = [model(x)[0] for x in xs]
+    loss = sum((y - yp) ** 2 for y, yp in zip(ys, ypred))
+
+    for p in model.parameters():
+        p.grad = 0
+
+    loss.backward()
+
+    for p in model.parameters():
+        p.data -= study_rate * p.grad
+
+    print(i, loss.data)
+```
+
+该循环每一步执行：
+
+```text
+使用当前参数重新前向传播并建立新计算图
+→ 计算当前标量 loss
+→ 清除参数上一轮梯度
+→ loss.backward() 计算本轮梯度
+→ 按负梯度方向更新参数
+```
+
+当前打印的 `loss.data` 是本轮参数更新前建立的旧 loss 数值。参数更新后旧节点不会自动刷新；下一轮重新前向传播时才得到更新后模型对应的新 loss。
+
+### 27. 为什么每轮必须重建计算图
+
+若把 `ypred` 与 `loss` 放在循环外，只反复执行旧 `loss.backward()`：
+
+- 旧 `loss.data` 不会反映新参数的效果
+- 旧图保存的是旧前向传播的中间节点
+- 参数 `.data` 已改变，但旧局部关系和中间数值没有重新计算
+- 只清零叶子参数的 `.grad`，不能清除旧图中间节点已经累积的梯度
+
+因此训练时应在每一轮重新计算：
+
+```python
+ypred = [model(x)[0] for x in xs]
+loss = ...
+```
+
+由当前参数动态建立一张新的计算图。
+
+### 28. Full batch、mini-batch、epoch 与 step
+
+当前数据集只有 4 个样本，每一步都使用全部 `xs`：
+
+```python
+ypred = [model(x)[0] for x in xs]
+```
+
+因此当前属于 full-batch gradient descent：
+
+```text
+一次使用全部训练样本
+→ 计算一次总损失与梯度
+→ 更新一次参数
+```
+
+术语区分：
+
+- `batch`：本次前向/反向使用的一批样本的统称
+- `mini-batch`：该批只包含训练集的一部分
+- `batch_size`：一批中的样本数量
+- `epoch`：完整遍历训练集一次
+- `step`：执行一次参数更新
+
+若数据集有 100 个样本、`batch_size=10`：
+
+```text
+1 epoch = 10 个 mini-batch = 10 次参数更新
+10 epochs = 100 次参数更新
+```
+
+平方损失可以求和，也可以取平均。取平均不会改变梯度方向，只会按批量大小缩放梯度，使不同 `batch_size` 下的梯度尺度更稳定。
+
+### 29. 多输出与梯度路径
+
+对于：
+
+```python
+model = MLP(3, [2, 4, 2])
+```
+
+模型返回两个输出。若只使用：
+
+```python
+model(x)[0]
+```
+
+则只有第一个最终输出参与 loss，第二个输出神经元独有的权重和偏置不在损失祖先图中，其梯度保持 0。切换为 `[1]` 只是改为训练第二个输出，不是同时训练两个输出。
+
+真正训练两个输出时，标签也必须提供两个目标，并让两个预测都进入同一个标量 loss：
+
+\[
+L=\sum_i\sum_j(\hat y_{ij}-y_{ij})^2
+\]
+
+当前任务每个样本只有一个 `1/-1` 标签，因此最终层使用一个输出更匹配：
+
+```python
+model = MLP(3, [4, 4, 1])
+```
+
+### 30. 随机初始化与可复现性
+
+每次重新执行：
+
+```python
+model = MLP(...)
+```
+
+都会调用 `random.uniform(-1, 1)` 生成新的初始权重和偏置，因此：
+
+```text
+初始参数不同
+→ 初始预测不同
+→ loss 与梯度轨迹不同
+```
+
+这属于正常现象。调试时可在创建模型前固定随机种子：
+
+```python
+random.seed(42)
+model = MLP(3, [4, 4, 1])
+```
+
+在 Jupyter 中，只重新运行训练循环而不重新创建模型，会从上次训练后的参数继续训练；要复现实验，需要重新设定种子并重新实例化模型。
+
+### 31. 与 PyTorch 自动微分的对应
+
+已通过 PyTorch 源码和自定义自动求导示例确认，Micrograd 的数学骨架与 PyTorch 一致。
+
+PyTorch 的 `tanh` 反向传播核心仍是：
+
+\[
+\text{grad\_input}
+=
+\text{grad\_output}\,(1-\text{output}^2)
+\]
+
+PyTorch 底层额外处理不同数据类型、CPU 向量化和性能优化；数学核心仍对应 Micrograd 中的局部 `_backward()`。
+
+通过继承：
+
+```python
+class MyFunction(torch.autograd.Function):
+    ...
+```
+
+可以定义自定义 `forward()` 与 `backward()`。其中 `ctx.save_for_backward(...)` 类似 Micrograd 闭包保存反向阶段需要的前向信息。
+
+必须区分：
+
+```text
+nn.Parameter / nn.Module 参数机制 → 注册和组织可训练参数
+model.parameters()                → 枚举已注册参数
+自定义 autograd.Function          → 定义一个运算的前向与反向规则
+```
+
 ## 🧠 已掌握的关键理解
 
 ### `self.data` 为什么可以访问
@@ -911,6 +1201,20 @@ out = n(x)     # 使用已有的 w、b 进行一次前向传播
 ```
 
 `Layer` 只是组织多个神经元，并不会自动把多个输出求和。把 `outs` 再执行 `sum(outs)` 会把一层的向量输出错误压缩为单个标量。
+
+### 训练闭环中的对象职责
+
+```text
+model.parameters() → 找到需要由训练循环管理的参数对象
+loss.backward()    → 沿当前计算图计算这些参数的梯度
+p.grad = 0         → 清除上一轮参数梯度
+p.data -= lr*p.grad→ 原地更新权重和偏置数值
+重新前向传播       → 用新参数生成新的预测值与 loss
+```
+
+### 梯度方向的当前掌握边界
+
+已掌握可直接用于训练和调试的结论：`p.grad` 表示参数增大时 loss 的局部变化率，训练应沿其反方向更新。多元泰勒展开、方向导数与“最速下降”的严格证明不作为本次项目完结条件，后续进入优化理论时再复习。
 
 
 ## 🗂️ 已解决问题记录
@@ -1406,6 +1710,120 @@ Jupyter 中将 `out` 放在单元格最后一行可自动显示；普通脚本�
 `draw_dot` 一次只接受一个根节点。将所有输出通过加法合成一个标量根节点，再对该根执行一次 `backward()` 与 `draw_dot()`，即可覆盖全部输出分支。不要为了可视化而依次对每个输出重复调用 `backward()`，否则参数梯度会跨多次反传累积。
 
 
+
+### [Micrograd-053] `parameters()` 是注册参数还是返回参数
+
+在当前 Micrograd 中，`parameters()` 更准确地说是返回一份“可训练参数清单”。参数对象实际存储在 `Neuron.w` 与 `Neuron.b` 中，`Layer` 和 `MLP` 逐层返回同一对象的引用。它本身不计算梯度、不清零梯度，也不更新参数。
+
+### [Micrograd-054] `parameters()` 返回嵌套列表导致 `p.grad` 报错
+
+原始报错：
+
+```text
+AttributeError: 'list' object has no attribute 'grad'
+```
+
+底层原因是某一级返回了：
+
+```text
+[[Value, Value, ...], [Value, Value, ...]]
+```
+
+训练循环取出的 `p` 是一整个列表，而不是单独的 `Value`。`Neuron.parameters()` 应返回 `self.w + [self.b]`，`Layer` 与 `MLP` 都需要使用两层遍历将下一级参数列表扁平化。
+
+### [Micrograd-055] 普通列表、`Layer` 与参数对象不能混淆
+
+两个典型错误：
+
+```text
+TypeError: 'Layer' object is not iterable
+AttributeError: 'list' object has no attribute 'parameters'
+```
+
+对象层级为：
+
+```text
+self.layers             → Python list，可直接遍历
+layer                   → Layer 对象，可调用 layer.parameters()
+layer.parameters()      → Value 列表，可继续遍历
+p                       → 最终 Value，不再调用 parameters()
+```
+
+### [Micrograd-056] 层宽使用浮点数导致 `range` 报错
+
+原始报错：
+
+```text
+TypeError: 'float' object cannot be interpreted as an integer
+```
+
+`nout` 会进入 `range(nout)`，层宽和神经元数量属于离散计数，应传入整数。例如 `MLP(3, [1, 2, 3])`，而不是浮点数版本。
+
+### [Micrograd-057] 梯度清零、反向传播与更新的顺序
+
+标准训练顺序为：
+
+```text
+使用当前参数前向传播并计算 loss
+→ 参数梯度清零
+→ loss.backward()
+→ 更新参数
+```
+
+清零必须位于本轮 `backward()` 之前；若在反传之后清零，会把刚得到的梯度抹掉。参数在模型构造时已经存在，不是前向传播后才生成。
+
+### [Micrograd-058] loss 非负不代表参数梯度非负
+
+平方损失：
+
+\[
+L=(\hat y-y)^2\ge 0
+\]
+
+但其对预测值的导数为：
+
+\[
+\frac{\partial L}{\partial \hat y}=2(\hat y-y)
+\]
+
+可正、可负。参数梯度还要乘上 \(\partial\hat y/\partial p\)，因此每个权重和偏置的梯度方向由完整链式法则决定。
+
+### [Micrograd-059] `p.data`、预测值与 loss 不是同一个对象
+
+- `p.data`：某个权重或偏置的当前数值
+- `ypred.data`：由整张网络前向计算出的预测值
+- `loss.data`：预测与标签比较后得到的损失
+
+训练只直接修改 `p.data`，然后通过下一次前向传播间接改变 `ypred` 与 `loss`。
+
+### [Micrograd-060] `p.data -= lr * p.grad` 为什么能双向调整参数
+
+该式不是让参数一律减小：梯度为正时参数减小，梯度为负时减去负数使参数增大。负号表达“沿梯度反方向移动”，学习率控制步长。
+
+### [Micrograd-061] 反复使用旧 loss 不能代表当前参数梯度
+
+更新参数后，旧 `ypred`、旧 `loss` 和旧计算图不会自动刷新。反复对旧 loss 反传得到的不是当前模型位置的正常梯度，而且旧图中间节点的 `.grad` 可能继续累积。每轮必须重新执行前向传播并建立新图。
+
+### [Micrograd-062] `batch` 变量误用为训练轮数
+
+若循环每次都使用全部训练数据，循环计数更准确地叫 `steps` 或 `epochs`，而不是 `batch`。`batch` 表示一次前向/反向使用的一组样本；`mini-batch` 是训练集的一部分。
+
+### [Micrograd-063] 为什么最后打印的参数梯度始终为 0
+
+`for p in model.parameters()` 结束后，变量 `p` 仍指向最后一个参数。若模型有两个输出但 loss 只使用 `model(x)[0]`，最后一个参数可能属于未参与 loss 的第二个输出神经元，因此其梯度保持 0。loss 持续下降说明其他参数仍在正常训练。
+
+### [Micrograd-064] 两个输出不能通过切换 `[0]` / `[1]` 同时训练
+
+`model(x)[0]` 只训练第一个输出，`model(x)[1]` 只训练第二个输出。要同时训练两个输出，两个预测都必须进入同一个标量 loss，且标签也应提供两个目标。当前单标签任务更适合单输出层。
+
+### [Micrograd-065] 每次运行训练结果不同
+
+重新创建模型时，`random.uniform` 会生成不同初始参数，因此训练轨迹不同。固定随机种子可复现实验；在 Jupyter 中只重跑训练循环而不重建模型，则会从上一次训练后的参数继续训练。
+
+### [Micrograd-066] PyTorch 的自定义自动求导类与参数注册不是一回事
+
+继承 `torch.autograd.Function` 是定义自定义运算的 `forward/backward` 规则；`nn.Parameter` / `nn.Module` 才负责可训练参数和子模块的注册。二者分别对应“运算如何求导”和“哪些对象是模型参数”。
+
 ## 🔁 当前学习方法
 
 采用以下循环，而不是看完整个视频后再集中照写：
@@ -1456,9 +1874,17 @@ Jupyter 中将 `out` 放在单元格最后一行可自动显示；普通脚本�
 - [x] M6：理解全连接层的完整连接关系与层间维度传递
 - [x] M6：使用汇总根节点绘制多输出 MLP 的完整计算图
 - [x] M6：理解隐藏层激活与输出层激活的设计边界
-- [ ] M7：实现损失函数和训练循环
-- [ ] M5：使用 PyTorch API 构造同一表达式并对照梯度
-- [ ] M7：与 PyTorch 梯度结果进行完整对照测试
+- [x] M7：在 `Neuron`、`Layer`、`MLP` 中实现分层 `parameters()`
+- [x] M7：保证 `model.parameters()` 返回扁平的 `Value` 参数列表
+- [x] M7：实现平方损失、参数梯度清零、反向传播与梯度下降更新
+- [x] M7：每轮重新前向传播并建立新计算图
+- [x] M7：验证训练过程中 loss 持续下降
+- [x] M7：理解 full batch、mini-batch、epoch、step 与梯度平均
+- [x] M7：理解单输出/多输出与损失图可达性的关系
+- [x] M7：理解随机初始化、随机种子与 Jupyter 连续训练状态
+- [x] 项目核心完结：从标量自动微分到可训练 MLP 的完整闭环
+- [ ] 可选扩展：使用 PyTorch 构造同一表达式并进行完整数值梯度对照
+- [ ] 可选扩展：补充自动化单元测试与极端输入测试
 
 ## 📝 日志维护约定
 
