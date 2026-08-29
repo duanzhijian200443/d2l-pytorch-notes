@@ -1,0 +1,109 @@
+name: Sync study log 6.3
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sync-study-log-6-3.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Patch study_log.md
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          p = Path('study_log.md')
+          s = p.read_text(encoding='utf-8')
+
+          old_date = '- **最近更新时间**: 2026-08-28'
+          new_date = '- **最近更新时间**: 2026-08-29'
+          s = s.replace(old_date, new_date, 1)
+
+          old_chapter = '- **当前学习章节**: 第6章「卷积神经网络」已完成 6.1「从全连接层到卷积」与 6.2「图像卷积」的核心学习，并完成一轮 6.2 综合巩固题与感受野纠偏；下一主线为 6.3「填充和步幅」。第5章 5.3「延后初始化」、5.6「GPU」与第4章 4.10 Kaggle 房价实战仍暂缓，后补。'
+          new_chapter = '- **当前学习章节**: 第6章「卷积神经网络」已完成 6.1「从全连接层到卷积」、6.2「图像卷积」与 6.3「填充和步幅」的核心学习；已能独立推导常见 padding / stride 下的输出 Shape，并理解 PyTorch `Conv2d` 中整数与二元组参数的含义。下一主线为 6.4「多输入多输出通道」。第5章 5.3「延后初始化」、5.6「GPU」与第4章 4.10 Kaggle 房价实战仍暂缓，后补。'
+          if old_chapter not in s:
+              raise SystemExit('old chapter marker not found')
+          s = s.replace(old_chapter, new_chapter, 1)
+
+          marker = '- **核心掌握概念**:\n'
+          additions = '''  - 6.3 填充与步幅：padding 通过在输入边界补元素（通常为 0）来控制输出空间尺寸并减少连续卷积时边缘像素被过早丢弃；stride 决定卷积窗口每次移动多少格，步幅增大相当于更稀疏的空间采样，可快速降低特征图高宽与计算量，但会牺牲更多细粒度位置信息。
+  - 卷积输出 Shape 的统一直觉是“先考虑 padding 后的有效输入尺寸，再减去 kernel 占用范围，按 stride 统计合法起点数，最后把起始位置本身计入”。一维形式可写成 $\\left\\lfloor\\frac{n+2p-k}{s}\\right\\rfloor+1$；二维时高度、宽度分别独立计算。
+  - `padding=1` 在 `nn.Conv2d` 中表示高度和宽度方向每侧各补 1，而不是总共只补 1；因此 `kernel_size=3, padding=1, stride=1` 时，单个方向满足 $n+2-3+1=n$，输入输出高宽相同。D2L 用 $p_h,p_w$ 表示两侧总填充量时，要和 PyTorch API 的“单侧 padding 参数”口径区分。
+  - 对奇数卷积核，想在 stride=1 时保持尺寸，通常可对称设置 `padding=(k-1)/2`；偶数核若要严格保持同尺寸，总填充量 $k-1$ 为奇数，无法上下/左右完全对称，需要采用不对称填充。奇数核因此更方便定义明确中心并对称 padding。
+  - PyTorch `nn.Conv2d` 中，标量参数会自动同时作用于高和宽：`kernel_size=3` 等价于 `(3,3)`，`padding=1` 等价于 `(1,1)`，`stride=2` 等价于 `(2,2)`；只有显式写成二元组如 `kernel_size=(5,3)`、`padding=(2,1)`、`stride=(3,4)` 时，高宽才采用不同设置。
+  - `comp_conv2d` 只是 D2L 为方便二维演示写的包装函数：先把 `(H,W)` reshape 为 `(N,C,H,W)=(1,1,H,W)`，调用 `conv2d(X)`，再去掉 batch/channel 维度。真正的 padding 与卷积由 `nn.Conv2d` 在 forward 中按配置执行；当前阶段无需追底层 C++/CUDA 实现。
+'''
+          if '  - 6.3 填充与步幅：' not in s:
+              if marker not in s:
+                  raise SystemExit('core concepts marker not found')
+              s = s.replace(marker, marker + additions, 1)
+
+          old_check = '- [ ] 6.3 填充和步幅（下一主线）'
+          new_check = '- [x] 6.3 填充和步幅\n- [ ] 6.4 多输入多输出通道（下一主线）'
+          if old_check not in s:
+              raise SystemExit('checklist marker not found')
+          s = s.replace(old_check, new_check, 1)
+
+          section = r'''## 📖 6.3 填充和步幅 — 核心概念与 Shape 日志
+
+### [工单-244] ❓ 为什么连续卷积会不断缩小特征图，padding 在解决什么？
+- **核心疑问**: 不填充时为什么 $32\times32$ 图像经过 $5\times5$ 卷积会变成 $28\times28$，多层卷积后尺寸越来越小？
+- **底层解释**: 无填充、stride=1 时，卷积核必须完整落在输入内部，单个方向只有 $n-k+1$ 个合法起点；因此 $32-5+1=28$。连续使用 $5\times5$ 卷积时，每层边长都会减少 4，边缘像素也会更快退出后续计算。padding 在输入边界补元素（D2L 通常补 0），既可以增加合法窗口位置、控制输出尺寸，也能让原图边缘区域更充分参与卷积。
+- **纠偏锚点**: padding 不会创造新的真实图像信息，更准确的作用是“控制边界与输出尺寸、减少边缘信息过早丢失”，而不是“提高信息保真度”。
+
+### [工单-245] ❓ `kernel_size=3, padding=1` 为什么能保持尺寸，`k-1=2` 又是什么意思？
+- **核心疑问**: 既然保持尺寸时总填充量应与 $k-1$ 对应，为什么 PyTorch 不是 `padding=2`？
+- **底层解释**: 要区分“总填充量”和 PyTorch `padding` 参数的单侧含义。对于 `kernel_size=3`、stride=1，单个方向需要总共补 $k-1=2$ 个位置；PyTorch `padding=1` 表示左/右（或上/下）各补 1，因此总量正好是 $1+1=2$。一维公式为 $n_{out}=n+2p-k+1$，代入 $p=1,k=3$ 得 $n_{out}=n$。
+- **纠偏锚点**: `k-1` 是两侧合计需要增加的长度；PyTorch 的对称 `padding=p` 是“每一侧补 p”。
+
+### [工单-246] ❓ 偶数卷积核想保持尺寸时为什么不能完全对称填充？
+- **核心疑问**: 奇数核可用 `padding=(k-1)/2`，若 $k=4$ 或 $6$ 应该怎么补？
+- **底层解释**: stride=1 且想严格保持尺寸时，两侧总填充量需要为 $k-1$。当 $k$ 为偶数时，$k-1$ 为奇数，例如 $4\times4$ 需要总共补 3，无法平均分成整数的“1.5 + 1.5”，因此必须采用如 2+1 或 1+2 的不对称填充。D2L 因此强调奇数核更方便：有明确中心，且 padding 可上下左右对称。
+- **纠偏锚点**: 偶数核不是不能用，而是“保持同尺寸 + 对称整数 padding”不能同时满足。
+
+### [工单-247] ❓ stride 什么时候增大，为什么步幅越大输出越小？
+- **核心疑问**: 步幅变大是不是信息损失更大，实际什么时候会故意使用 `stride>1`？
+- **底层解释**: stride 决定卷积窗口每次移动多少格。`stride=1` 对相邻位置逐格采样；`stride=2` 会跳过中间起点，使高宽通常快速下降，二维输出位置数近似按平方缩减，因此可显著降低后续计算量。代价是空间采样更稀疏、细粒度位置信息更容易丢失。实际网络通常在需要下采样、压缩冗余空间分辨率或进入新 stage 时使用较大步幅，而多数普通特征提取层仍保持 stride=1。
+- **纠偏锚点**: stride 是“主动下采样/换效率”的旋钮，不是越大越好；padding 和 stride 分别主要控制边界/尺寸与采样密度。
+
+### [工单-248] ❓ 带 padding 与 stride 的输出 Shape 公式怎么从“合法起点”推出？
+- **核心疑问**: 公式 $\left\lfloor\frac{n+2p-k}{s}\right\rfloor+1$ 中每一项是什么意思，最后为什么还要 `+1`？
+- **底层解释**: 先把原输入长度 $n$ 按两侧 padding 扩成 $n+2p$；长度为 $k$ 的卷积核最后一个合法起点与第一个起点之间可移动的最大距离为 $n+2p-k$；每次移动 $s$，因此完整可移动次数是 $\left\lfloor(n+2p-k)/s\right\rfloor$。这个数字只统计“移动了几次”，而初始位置本身也会产生一个输出，所以最后 `+1`。二维卷积对高度和宽度分别使用同样逻辑。
+- **纠偏锚点**: `+1` 不是补偿卷积核大小，而是把“第 0 个起始位置”本身计入输出位置总数。
+
+### [工单-249] ❓ `nn.Conv2d` 的标量参数和二元组参数分别表示什么？
+- **核心疑问**: `kernel_size=3` 是 $3\times3$ 还是 $3\times1$？`padding=1`、`stride=4` 是否也只作用于一个方向？
+- **底层解释**: 在 `nn.Conv2d` 中，单个整数会同时复制到高和宽两个空间维度：`kernel_size=3` 等价于 `(3,3)`，`padding=1` 等价于 `(1,1)`，`stride=4` 等价于 `(4,4)`。若希望高宽不同，则显式写二元组，例如 `kernel_size=(5,3)`、`padding=(2,1)`、`stride=(3,4)`。D2L 的 `comp_conv2d` 只负责临时补上 batch/channel 维度并在输出后去掉，真正的卷积配置仍来自 `nn.Conv2d`。
+- **纠偏锚点**: `Conv2d` 的空间参数顺序统一是 `(height, width)`；整数是“两个方向都取同一个值”。
+
+### [工单-250] 🧮 `kernel_size=(3,5), padding=1, stride=4` 为什么输出是 `(2,2)` 而不是 `(2,1)`？
+- **触发配置**:
+  ```python
+  conv2d = nn.Conv2d(1, 1, kernel_size=(3,5), padding=1, stride=4)
+  X = torch.rand(size=(8,8))
+  ```
+- **底层解释**: `padding=1` 等价于 `(1,1)`，`stride=4` 等价于 `(4,4)`。高度为 $\lfloor(8+2-3)/4\rfloor+1=1+1=2$；宽度为 $\lfloor(8+2-5)/4\rfloor+1=1+1=2$。宽度方向的 `5/4=1` 表示“从初始合法位置还能完整移动 1 次 stride”，初始位置自己也产生一个输出，因此仍需最后 `+1`，得到两个合法位置。
+- **纠偏锚点**: 公式除法部分统计“可移动次数”，输出元素数 = 可移动次数 + 初始位置。'''
+
+          if '## 📖 6.3 填充和步幅 — 核心概念与 Shape 日志' not in s:
+              s = s.rstrip() + '\n\n' + section.strip() + '\n'
+
+          p.write_text(s, encoding='utf-8')
+          PY
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git rm .github/workflows/sync-study-log-6-3.yml
+          git add study_log.md
+          git commit --amend --no-edit
+          git push --force-with-lease origin HEAD:main
