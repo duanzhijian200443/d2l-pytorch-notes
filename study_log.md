@@ -208,7 +208,7 @@
 ---
 
 ## 🛠️ API 速查表 (API Cheatsheet)
-> 按功能场景分组，持续更新。当前覆盖到 D2L 第 6 章 6.5「池化层」及 6.6「LeNet」前置结构理解。
+> 按功能场景分组，持续更新。当前覆盖到 D2L 第 6 章 6.6「LeNet」以及 Kaggle Digit Recognizer 首次端到端实践（数据读取、Dataset/DataLoader、训练/验证、GPU 推理与 submission）。
 
 ### 📐 Tensor 创建、Shape 与基础运算
 | 当你想要... | 用这个 | 核心作用 / Shape 直觉 |
@@ -231,6 +231,9 @@
 | 沿指定维度求和 | `x.sum(dim=0, keepdim=True)` | 可用 `keepdim=True` 保留该维为 1，便于后续广播 |
 | 沿指定维度累积求和 | `x.cumsum(dim=0)` | 累积求和，Shape 不变 |
 | 比较浮点数近似相等 | `torch.isclose(a, b)` | 避免直接比较浮点数带来的精度问题 |
+| 指定图像/连续特征浮点类型 | `dtype=torch.float32` | 常用于网络输入与参数计算 |
+| 指定分类标签整数类型 | `dtype=torch.long` | 等价 `torch.int64`；`CrossEntropyLoss` 的类别索引标签常用 |
+| 取指定维度最大值索引 | `x.argmax(dim=1)` | 分类 logits `(N,C)` 常变为预测类别 `(N,)` |
 
 ### 🧩 维度拼接、堆叠与切片
 | 当你想要... | 用这个 | 核心作用 / Shape 直觉 |
@@ -249,6 +252,7 @@
 | NumPy → Tensor | `torch.from_numpy(a)` | 通常与 NumPy 数组共享底层内存 |
 | 单元素 Tensor → Python 标量 | `x.item()` | 仅适用于单元素 Tensor，返回普通 Python 数值 |
 | Tensor → Python 列表 | `x.tolist()` | 返回嵌套 Python list |
+| GPU Tensor 搬回 CPU | `x.cpu()` | 把 CUDA Tensor 复制/迁移到 CPU，便于 Pandas / Python 后处理与写文件 |
 
 ### 🌊 梯度与自动微分
 | 当你想要... | 用这个 | 核心作用 |
@@ -260,6 +264,7 @@
 | 清空模型参数梯度 | `optimizer.zero_grad()` | 防止不同训练轮次的梯度继续累加 |
 | 关闭梯度跟踪 | `with torch.no_grad():` | 推理/评估时减少图构建与内存开销 |
 | 从计算图分离 | `x.detach()` | 返回不再继续追踪梯度的 Tensor 视图/张量表示 |
+| 纯推理模式 | `with torch.inference_mode():` | 关闭训练所需的 autograd 跟踪，并进一步省去部分推理期版本计数/视图跟踪开销；适合验证、测试与部署推理 |
 
 ### 🧹 Pandas 数据预处理
 | 当你想要... | 用这个 | 核心作用 |
@@ -269,6 +274,20 @@
 | 填补数值型 NaN | `df.fillna(df.mean(numeric_only=True))` | 用数值列均值补缺失值 |
 | 分类变量独热编码 | `pd.get_dummies(df, dummy_na=True)` | 将分类变量转换成 0/1 指示列 |
 | DataFrame → NumPy | `df.to_numpy(dtype=float)` | 去掉行列标签，转为纯数值数组 |
+| 读取 CSV 文件 | `pd.read_csv("train.csv")` | 读取为 Pandas `DataFrame`，Kaggle 表格数据常用入口 |
+| 按列名读取一列 | `df["label"]` | 取出标签列，通常得到 `Series` |
+| 删除指定列 | `df.drop(columns=["label"])` | 去掉标签列，保留特征列 |
+| 保存 CSV | `df.to_csv("submission.csv", index=False)` | 写出 CSV；`index=False` 防止额外保存 Pandas 行索引 |
+
+### 📦 Dataset、随机拆分与 DataLoader
+| 当你想要... | 用这个 | 核心作用 / Shape 直觉 |
+|:---|:---|:---|
+| 把输入和标签配成样本 | `TensorDataset(X, y)` | `dataset[i] -> (X[i], y[i])`，保证特征与标签一一对应 |
+| 随机拆分数据集 | `random_split(dataset, [n_train, n_val], generator=...)` | 从同一带标签数据集中拆出 train / validation 子集 |
+| 为某次随机操作固定序列 | `torch.Generator().manual_seed(42)` | 给 `random_split` 等显式传入独立随机生成器，便于复现实验划分 |
+| 按 batch 迭代 Dataset | `DataLoader(dataset, batch_size=256, shuffle=True)` | 将 Dataset 组织成 mini-batch；训练集常打乱，验证/测试通常不打乱 |
+| 取出第一个 batch 做检查 | `next(iter(train_iter))` | 快速核验 batch 的 Shape / dtype；如 `X:(256,1,28,28)`、`y:(256,)` |
+| 测试集只含输入时构造迭代器 | `DataLoader(X_test, batch_size=256, shuffle=False)` | Kaggle test 没有标签，可直接按 batch 读取 `X_test`；必须保持顺序 |
 
 ### 🧱 `nn.Module`、网络容器与参数管理
 | 当你想要... | 用这个 | 核心作用 |
@@ -282,6 +301,8 @@
 | 查看模型状态 | `net.state_dict()` | 返回“参数/缓冲区名字 → Tensor”的状态映射 |
 | 加载模型状态 | `net.load_state_dict(state)` | 把保存的参数值写回已有模型结构 |
 | 判断模块类型 | `isinstance(m, nn.Linear)` / `isinstance(m, nn.Conv2d)` | 常用于条件初始化 |
+| 切到训练模式 | `net.train()` | 让 Dropout / BatchNorm 等按训练行为工作；本身不负责开启梯度 |
+| 切到评估模式 | `net.eval()` | 让 Dropout / BatchNorm 等按评估行为工作；通常与 `inference_mode()` / `no_grad()` 配合 |
 
 ### 🎛️ 初始化、保存与恢复
 | 当你想要... | 用这个 | 核心作用 |
@@ -292,6 +313,7 @@
 | 批量递归初始化 | `net.apply(init_fn)` | 递归遍历子模块并调用初始化函数 |
 | 保存 Tensor / state_dict | `torch.save(obj, path)` | 序列化对象到文件 |
 | 加载保存对象 | `torch.load(path)` | 反序列化对象；模型结构通常仍需先在代码里创建 |
+| 固定 PyTorch 随机种子 | `torch.manual_seed(42)` | 固定模型初始化等 PyTorch 随机过程；应在创建/初始化模型之前调用，便于公平复现实验 |
 
 ### 🕸️ MLP、激活、损失与优化器
 | 当你想要... | 用这个 | 核心作用 |
@@ -300,6 +322,20 @@
 | ReLU 激活 | `nn.ReLU()` / `F.relu(x)` / `torch.relu(x)` | 将负值截为 0，引入非线性 |
 | 交叉熵损失 | `nn.CrossEntropyLoss(reduction='none')` | 分类常用；直接接 logits，不需要先手动 Softmax |
 | 随机梯度下降 | `torch.optim.SGD(net.parameters(), lr=...)` | 用模型参数和学习率构造优化器 |
+| 标准多分类交叉熵 | `nn.CrossEntropyLoss()` | 输入 raw logits `(N,C)` 与 `long` 类别标签 `(N,)`；默认返回当前 batch 的平均 loss |
+| 执行一次参数更新 | `optimizer.step()` | 根据已经写入参数 `.grad` 的梯度更新权重，通常位于 `backward()` 之后 |
+| 统计正确预测数 | `(pred == y).sum().item()` | 布尔比较 → 求和 → Python 标量，用于累计 classification accuracy |
+
+### 🖥️ Device / GPU
+| 当你想要... | 用这个 | 核心作用 |
+|:---|:---|:---|
+| 自动选择 CUDA 或 CPU | `torch.device("cuda" if torch.cuda.is_available() else "cpu")` | CUDA 可用时用 GPU，否则回退 CPU |
+| 检查 CUDA 是否可用 | `torch.cuda.is_available()` | 当前 Jupyter kernel / Python 进程能否正常初始化 CUDA |
+| 查看可见 GPU 数量 | `torch.cuda.device_count()` | 返回当前进程可见的 CUDA device 数量 |
+| 查看 GPU 名称 | `torch.cuda.get_device_name(0)` | 读取第 0 张 GPU 的设备名称 |
+| 模型迁移设备 | `net.to(device)` | 把模型参数/缓冲区迁移到目标设备 |
+| Tensor 迁移设备 | `X.to(device)` / `y.to(device)` | 输入、标签需与模型位于兼容设备才能参与同一计算 |
+| 查看模型参数所在设备 | `next(net.parameters()).device` | 快速确认模型实际位于 CPU 还是 `cuda:0` |
 
 ### 🖼️ CNN：二维卷积、多通道与 Shape
 | 当你想要... | 用这个 | 核心作用 / Shape 直觉 |
@@ -336,6 +372,16 @@
 | 测试代码运行时间 | `timer = Timer()` / `timer.stop()` | 记录一段代码耗时 |
 | 动态拼接变量与文本 | `f"{var:.5f} sec"` | Python f-string 格式化输出 |
 | 验证两个计算结果近似一致 | `assert float(torch.abs(Y1 - Y2).sum()) < 1e-6` | 常用于验证两种实现是否数值等价；断言成功默认无输出 |
+
+### 📤 Kaggle 推理、结果收集与 Submission
+| 当你想要... | 用这个 | 核心作用 |
+|:---|:---|:---|
+| 准备预测结果容器 | `predictions = []` | 在测试循环外创建一维 Python 列表，持续收集各 batch 的预测 |
+| 展开追加一个 batch 的预测 | `predictions.extend(pred.cpu().tolist())` | `CUDA Tensor → CPU Tensor → Python list`，再逐元素追加，避免得到嵌套列表 |
+| 检查预测数量 | `len(predictions)` | Digit Recognizer 中应为 `28000`，用于防止漏样本/重复样本 |
+| 读取 Kaggle 提交模板 | `pd.read_csv("sample_submission.csv")` | 保留官方 `ImageId` 顺序和列名 |
+| 写入预测列 | `submission["Label"] = predictions` | 将模型输出与模板行顺序一一对应 |
+| 保存最终提交文件 | `submission.to_csv("submission.csv", index=False)` | 只保存 `ImageId,Label` 等业务列，不输出 Pandas 行索引 |
 
 ### 🛠️ d2l 工程辅助函数
 | 当你想要... | 用这个 | 核心作用 |
@@ -2122,3 +2168,42 @@
 - **底层解释**: D2L 的 `Timer` 只包住每个训练 batch 的核心训练段，`timer.stop()` 之后的 `Animator.add(...)` 动态绘图以及每个 epoch 的测试集评估并不计入 `examples/sec`。VS Code Jupyter 反复刷新 Matplotlib 图可能非常慢，因此“训练吞吐量很高”和“整个 Notebook Cell 很慢”可以同时成立。本轮实际训练吞吐约 `78378 examples/sec on cuda:0`，说明 5060 的核心训练链路并不慢。
 - **纠偏锚点**: `examples/sec` 是训练核心段吞吐；Notebook Cell 时间是训练 + 测试 + 绘图 + Python/Jupyter 外围开销。
 
+
+## 📖 7.1 现代卷积神经网络（AlexNet）
+
+- **[工单-277] ❓ LeNet 到 AlexNet 的核心演进是什么？**
+  - **核心疑问**: AlexNet 相比 LeNet 为什么开启了现代深度学习视觉时代？
+  - **底层解释**: LeNet 主要面向小规模图像任务，而 AlexNet 面向 ImageNet 大规模视觉任务。AlexNet 通过更深的卷积结构、更大的通道数、ReLU 激活函数、Dropout 正则化以及 GPU 加速训练提升模型能力。两者本质都是通过卷积逐层提取并组合图像特征。
+  - **纠偏锚点**: AlexNet 的突破来自网络结构、数据规模和计算硬件的共同发展，而不是单纯增加网络层数。
+
+- **[工单-278] ❓ AlexNet 连续卷积层为什么有效？**
+  - **底层解释**: 多个小卷积层可以逐层扩大感受野，并通过非线性激活不断组合特征。浅层主要学习边缘、纹理等低级特征，深层逐渐学习更加抽象的结构表示。
+
+- **[工单-279] ❓ CNN 为什么可以看作特殊的 MLP？**
+  - **底层解释**: CNN 仍然由可学习参数、线性变换和非线性激活组成，因此属于神经网络的一种。区别在于 CNN 利用局部连接和权重共享引入图像空间先验，大幅减少参数数量。
+
+- **[工单-280] ❓ AlexNet 中 6400 个全连接输入如何计算？**
+  - **底层解释**: 全连接层前需要 Flatten。若最后卷积输出 Shape 为 `(256,5,5)`，则输入特征数量为：
+    \[
+    256\times5\times5=6400
+    \]
+    其中 `256` 是通道数，`5×5` 是空间尺寸。
+
+- **[工单-281] 🧪 AlexNet GPU 实验记录**
+  - **实验配置**:
+    - 数据集：Fashion-MNIST
+    - 输入尺寸：`resize=224×224`
+    - GPU：RTX 5060 8GB
+    - `batch_size=512`
+  - **实验观察**:
+    - 增大 `batch_size` 后 GPU 利用率明显提升。
+    - GPU 利用率接近 100%，显存占用约 5～6GB。
+    - 吞吐量约 `1443 examples/sec`。
+  - **底层解释**:
+    - Fashion-MNIST 原始尺寸为 `28×28`，resize 到 `224×224` 后像素数量增加：
+      \[
+      (224/28)^2=64
+      \]
+      因此计算量显著增加。
+    - 训练速度不仅由 GPU 决定，还受到 `batch_size`、数据加载流程和输入尺寸影响。
+  - **纠偏锚点**: 深度学习性能优化需要同时关注模型计算、数据流水线和硬件利用率。
