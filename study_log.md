@@ -1,8 +1,8 @@
 # 深度学习学习日志 (Study Log)
 
 ## 📌 当前学习进度 (Current Progress)
-- **最近更新时间**: 2026-09-24
-- **当前学习章节**: 第7章 7.4「含并行连结的网络（GoogLeNet）」已完成：已理解 Inception 四分支并行、多尺度特征提取、`1×1` 卷积的通道压缩/混合、`torch.cat(dim=1)` 的通道拼接、Stage/Block/Layer 层级，以及 GAP 与卷积分类头的取舍；已完成 D2L GoogLeNet 代码与分类头改造实验。下一主线为 7.5「批量规范化」。
+- **最近更新时间**: 2026-09-26
+- **当前学习章节**: 第7章 7.5「批量规范化（Batch Normalization）」已完成：已理解标准化公式、均值/方差与数值尺度、`γ/β` 可学习仿射参数、running statistics、momentum、训练/推理差异，以及 `BatchNorm1d/2d` 的 Shape 与统计维度；已读懂 D2L 从零实现与 PyTorch 简明实现。下一主线为 7.6「残差网络（ResNet）」。
 - **核心掌握概念**:
   - **张量与 Shape**：掌握广播、矩阵乘法、reshape/Flatten、batch 维与设备迁移；遇到网络报错优先沿 `(N,C,H,W)` 追踪维度。
   - **自动微分与训练循环**：理解计算图、链式法则/VJP、梯度累积，以及 `zero_grad → forward → loss → backward → step` 的训练链路；区分 `train()/eval()` 与 `no_grad()`。
@@ -12,6 +12,7 @@
   - **1×1 卷积与池化**：`1×1` 卷积在每个空间位置做通道线性重组，可升/降通道；池化负责空间下采样，GAP 将每个通道整张特征图压成一个值。
   - **经典 CNN 演进**：LeNet 建立“卷积特征提取 + 分类头”主线；AlexNet 强化深层 CNN；VGG 引入规则化重复 block；NiN 用 `1×1` 卷积增强逐位置非线性并推广 GAP。
   - **GoogLeNet / Inception**：同一输入完整送入多个并行分支，以 `1×1 / 3×3 / 5×5 / Pool` 提取多尺度特征；大卷积前用 `1×1` bottleneck 降计算，最后 `torch.cat(..., dim=1)` 沿通道拼接。
+  - **Batch Normalization**：训练时按 feature/channel 用 mini-batch 统计量标准化，再以可学习 `γ、β` 恢复表达自由度；推理时改用训练期累计的 running mean/var。
   - **分类头理解**：D2L 的 `GAP → Linear` 可改为 `1×1 Conv → GAP`；无额外非线性时二者可表示等价线性分类映射。GAP 会损失精确空间位置，但显著减少参数。
 
 ### 章节 Checklist
@@ -51,7 +52,8 @@
 - [x] 7.2 使用块的网络（VGG）
 - [x] 7.3 网络中的网络（NiN）（核心结构、1×1 卷积、GAP、分类头与代码排错已完成；修复后训练结果待确认）
 - [x] 7.4 含并行连结的网络（GoogLeNet）（Inception 多分支、1×1 bottleneck、通道拼接、GAP/卷积分类头与 Shape 排错已完成）
-- [ ] 7.5 批量规范化（下一主线）
+- [x] 7.5 批量规范化（标准化公式、全连接/卷积统计维度、γ/β、moving statistics、momentum、train/eval 与 PyTorch API 已完成）
+- [ ] 7.6 残差网络（ResNet）（下一主线）
 
 ---
 
@@ -70,7 +72,7 @@
 ---
 
 ## 🛠️ API 速查表 (API Cheatsheet)
-> 按功能场景分组，持续更新。当前覆盖到 D2L 第 6 章 6.6「LeNet」以及 Kaggle Digit Recognizer 首次端到端实践（数据读取、Dataset/DataLoader、训练/验证、GPU 推理与 submission）。
+> 按功能场景分组，持续更新。当前覆盖到 D2L 第 7 章 7.5「批量规范化」，并保留 Kaggle Digit Recognizer 端到端实践相关 API。
 
 ### 📐 Tensor 创建、Shape 与基础运算
 | 当你想要... | 用这个 | 核心作用 / Shape 直觉 |
@@ -187,6 +189,16 @@
 | 标准多分类交叉熵 | `nn.CrossEntropyLoss()` | 输入 raw logits `(N,C)` 与 `long` 类别标签 `(N,)`；默认返回当前 batch 的平均 loss |
 | 执行一次参数更新 | `optimizer.step()` | 根据已经写入参数 `.grad` 的梯度更新权重，通常位于 `backward()` 之后 |
 | 统计正确预测数 | `(pred == y).sum().item()` | 布尔比较 → 求和 → Python 标量，用于累计 classification accuracy |
+
+### 🧪 Batch Normalization
+| 当你想要... | 用这个 | 核心作用 / Shape 直觉 |
+|:---|:---|:---|
+| 对全连接特征做 BN | `nn.BatchNorm1d(D)` | 常见输入 `(N,D)`；每个 feature 独立统计 batch 维上的均值/方差 |
+| 对卷积特征图做 BN | `nn.BatchNorm2d(C)` | 输入 `(N,C,H,W)`；每个 channel 独立，对 `(N,H,W)` 汇总统计量 |
+| 手写 CNN-BN 均值 | `X.mean(dim=(0,2,3), keepdim=True)` | 消掉 `N,H,W`，保留 `C`；结果 Shape `(1,C,1,1)`，便于广播 |
+| 注册 BN 可学习参数 | `nn.Parameter(torch.ones/zeros(shape))` | `gamma` / `beta` 参与反向传播；running mean/var 是状态统计量，不靠梯度学习 |
+| 切换 BN 训练行为 | `net.train()` | 使用当前 mini-batch 的统计量并更新 running statistics |
+| 切换 BN 推理行为 | `net.eval()` | 使用训练阶段累计的 running mean / running var；通常与 `no_grad()` / `inference_mode()` 配合 |
 
 ### 🖥️ Device / GPU
 | 当你想要... | 用这个 | 核心作用 |
@@ -2399,3 +2411,86 @@ NiN 的主线可以压缩为：`普通卷积提取局部特征 → 1×1 卷积�
 
 ### GoogLeNet 小结
 GoogLeNet 的主线可压缩为：`同一输入 → 四条 Inception 分支并行提取不同尺度特征 → 1×1 卷积负责便宜的通道混合/降维 → cat 沿通道维汇总 → Stage 间逐步下采样 → GAP/分类头输出类别 logits`。本节最重要的不是背 9 个 Inception 的具体通道表，而是能解释并行、多尺度、bottleneck、通道拼接与 GAP，并能独立追踪每个模块的 Shape、定位通道不匹配错误。
+
+---
+
+## 📖 7.5 批量规范化（Batch Normalization）
+
+### [工单-310] ❓ BN 到底在解决什么问题？
+- **核心疑问**: Batch Normalization 为什么能让深层网络更容易训练？
+- **底层解释**: 网络训练时，前层参数会持续更新，因此后层每次接收到的中间激活数值范围也会变化。BN 在 `Linear/Conv → 激活函数` 之间，对当前 mini-batch 的中间激活做标准化，使其中心与尺度保持在较稳定的量级，从而改善优化稳定性、通常允许更积极的学习率并加快收敛。经典文献常用“内部协变量偏移（internal covariate shift）”解释这一现象，但更稳妥的理解是：BN 确实改变并平滑了优化过程，不能把其效果简单归结为单一机制。
+- **纠偏锚点**: “后层重新适应前层变化”不是网络在主动思考，而是下一轮前向/反向传播后，梯度下降自动继续更新后层参数。
+
+### [工单-311] ❓ 为什么 BN 要“减均值，再除以标准差”？
+- **核心疑问**: 只减均值、或者直接除以均值，为什么不够？
+- **底层解释**: 均值描述数据的“中心位置”，标准差描述数据围绕中心的“典型波动尺度”。减去均值只能把中心移动到 0，无法统一不同特征的离散程度；除以标准差才能把尺度调整到近似 1。直接除以均值既不能保证方差一致，而且均值可能为 0 或负数，无法稳定承担“尺度尺子”的角色。
+- **公式**:
+  $$
+  \hat X=\frac{X-\mu_B}{\sqrt{\sigma_B^2+\epsilon}}
+  $$
+  其中 `eps` 防止方差接近 0 时发生除零。
+- **纠偏锚点**: `μ` 管“中心”，`σ` 管“尺度”；要挪中心就减均值，要统一波动尺度就除标准差。
+
+### [工单-312] ❓ 标准化后为什么还需要可学习的 `γ` 和 `β`？
+- **核心疑问**: 如果已经把激活变成均值约 0、方差约 1，为什么还要再缩放和平移？
+- **底层解释**: 如果永久把每层限制在固定的 0 均值、1 方差，会压缩网络表达自由度。BN 因此在标准化后再执行
+  $$
+  Y=\gamma\hat X+\beta,
+  $$
+  其中 `gamma` 与 `beta` 是 `nn.Parameter`，通过反向传播学习。网络可以自行决定某个 feature/channel 最终需要多大的尺度、中心应位于哪里。
+- **纠偏锚点**: BN 是“先把尺度整理到稳定起点，再把缩放和平移的控制权还给网络”。
+
+### [工单-313] ❓ BN 与 Xavier 初始化为什么感觉很像？
+- **核心疑问**: 二者都在控制数值尺度，它们是否属于同一种方法？
+- **底层解释**: 目标有相似处，但作用时机完全不同。Xavier 根据 `fan_in/fan_out` 选择初始权重尺度，主要负责训练开始时避免前向激活和反向梯度快速放大/衰减；初始化完成后它不再动态干预。BN 则直接处理训练过程中的中间激活，每个 batch 都会根据实际统计量重新标准化。
+- **纠偏锚点**: Xavier 管“起跑线”，BN 管“训练跑起来以后”；两者可以同时使用。
+
+### [工单-314] ❓ BN 只能加快收敛，还是也会影响最终精度？
+- **核心疑问**: BN 是否只改变训练速度，而不会改变最终模型？
+- **底层解释**: BN 的核心价值首先是改善优化，但它会改变前向计算、梯度路径和整个训练轨迹；mini-batch 统计量还会引入随机扰动，因此最终参数与测试表现也可能变化。它可能提高泛化，也可能在 batch 太小、统计量不稳定等情况下效果变差，所以“BN 必然提高精度”是不成立的。
+- **纠偏锚点**: BN 不是只改变“训练多久”，它会改变“模型怎么学”；但最终精度提升不是保证。
+
+### [工单-315] ❓ BN 是训练策略，还是网络结构的一部分？
+- **核心疑问**: 能否把 BN 简单理解成训练时可选的小技巧？
+- **底层解释**: BN 是可选的归一化层/网络组件，会实际插入前向结构，例如 `Conv → BN → ReLU`。它包含可学习参数 `γ、β` 和运行统计量，因此不是像“调学习率”那样纯粹的外部训练策略。训练与推理时 BN 都存在，只是使用的统计量不同。
+- **纠偏锚点**: 可以说“BN 是训练深层网络时常用的稳定化组件”，但不要把它等同于纯超参数技巧。
+
+### [工单-316] ❓ `moving_mean / moving_var` 与 `momentum` 是什么？
+- **核心疑问**: 为什么训练时已经有当前 batch 的 mean/var，还要额外保存 moving statistics？
+- **底层解释**: 训练时可用当前 mini-batch 估计均值和方差，但推理时可能只输入单个样本，无法再可靠地现场估计统计量。因此训练阶段会持续维护 `moving_mean` 和 `moving_var`，作为长期统计。D2L 手写代码采用
+  $$
+  moving\_mean\leftarrow momentum\cdot moving\_mean+(1-momentum)\cdot batch\_mean.
+  $$
+  `momentum` 是超参数，控制历史信息与当前 batch 的权重。注意 PyTorch `nn.BatchNorm*` 的 `momentum` 记号采用“当前 batch 权重”的约定，与 D2L 手写公式的书写方向不同。
+- **纠偏锚点**: `γ、β` 由梯度学习；running/moving mean/var 是训练过程中累计的状态统计量，不由优化器通过梯度更新。
+
+### [工单-317] ❓ `BatchNorm1d` 和 `BatchNorm2d` 的本质区别是什么？
+- **核心疑问**: 二者公式相同，为什么全连接层和卷积层要使用不同 API？
+- **底层解释**:
+  - `BatchNorm1d(D)`：在当前学习场景中处理 `(N,D)` 全连接特征，每个 feature 独立，对 `N` 维求统计量。
+  - `BatchNorm2d(C)`：处理 `(N,C,H,W)` 卷积特征图，每个 channel 独立，对 `(N,H,W)` 中的所有元素求统计量。
+  对卷积输入 `X:(N,C,H,W)`，手写均值常写为：
+  ```python
+  mean = X.mean(dim=(0, 2, 3), keepdim=True)
+  var = ((X - mean) ** 2).mean(dim=(0, 2, 3), keepdim=True)
+  ```
+  输出统计量 Shape 为 `(1,C,1,1)`，之后通过广播作用到该 channel 的所有样本和空间位置。
+- **纠偏锚点**: CNN-BN 的记忆法是“保留 channel 维 `C`，其余 `N/H/W` 都参与统计”。
+
+### [工单-318] ❓ 手写 `BatchNorm` 类里的局部变量 `shape` 有什么用？
+- **核心疑问**: `shape` 后续没有作为成员变量使用，是否是无用代码？
+- **底层解释**: `shape` 是初始化 BN 状态张量时的一次性“模具”。全连接层使用 `(1,num_features)`；卷积层使用 `(1,num_features,1,1)`。它被立即用于创建 `gamma`、`beta`、`moving_mean`、`moving_var`。这些 Tensor 创建后已经各自保存自己的 Shape，因此没有必要再写成 `self.shape`。
+- **纠偏锚点**: `shape` 不是模型状态，而是“造参数张量时的临时尺寸模板”。
+
+### [工单-319] ❓ 训练模式和推理模式下 BN 为什么行为不同？
+- **核心疑问**: `net.train()` / `net.eval()` 对 BN 到底改变了什么？
+- **底层解释**: 训练时 BN 使用当前 mini-batch 的 mean/var 做标准化，并同步更新 running statistics；推理时模型参数已经固定，通常使用训练阶段累计的 running mean/var，从而让单样本预测也得到稳定、确定的结果。`net.eval()` 负责切换 BN/Dropout 等模块的行为，而 `torch.no_grad()` / `inference_mode()` 负责关闭 autograd，二者职责不同。
+- **纠偏锚点**: `eval()` 不等于“关闭梯度”；推理通常是 `net.eval()` 加 `no_grad()`/`inference_mode()`。
+
+### [工单-320] ❓ 有必要手搓 BN 吗？
+- **核心疑问**: 实际开发都能直接用 `nn.BatchNorm1d/2d`，为什么 D2L 还要从零实现？
+- **底层解释**: 手搓一次很有价值，因为它会强迫自己真正理解“统计维度、广播、γ/β、running statistics、train/eval”的对应关系；但工程中无需反复手写，框架实现更完整、更快，也会正确处理状态保存和设备迁移。
+- **纠偏锚点**: BN 值得从零实现一次用于理解，之后实际项目直接使用 `nn.BatchNorm*`。
+
+### BatchNorm 小结
+BN 的主线可压缩为：`Linear/Conv 输出 → 当前 mini-batch 按 feature/channel 统计 mean/var → 标准化到稳定尺度 → γ/β 学习恢复表达自由度`。训练时使用当前 batch 统计量并更新 running statistics；推理时切到累计统计量。对 CNN 输入 `(N,C,H,W)`，最关键的 Shape 直觉是“保留 `C`，沿 `N/H/W` 统计”。本节真正需要掌握的是公式的尺度意义、全连接/卷积统计维度、状态参数区别，以及 train/eval 行为差异，而不是背手写类的每一行代码。
