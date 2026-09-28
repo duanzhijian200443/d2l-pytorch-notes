@@ -1,8 +1,8 @@
 # 深度学习学习日志 (Study Log)
 
 ## 📌 当前学习进度 (Current Progress)
-- **最近更新时间**: 2026-09-26
-- **当前学习章节**: 第7章 7.5「批量规范化（Batch Normalization）」已完成：已理解标准化公式、均值/方差与数值尺度、`γ/β` 可学习仿射参数、running statistics、momentum、训练/推理差异，以及 `BatchNorm1d/2d` 的 Shape 与统计维度；已读懂 D2L 从零实现与 PyTorch 简明实现。下一主线为 7.6「残差网络（ResNet）」。
+- **最近更新时间**: 2026-09-28
+- **当前学习章节**: 第7章 7.6「残差网络（ResNet）」已完成：已理解残差映射 `H(x)=F(x)+x`、identity shortcut、`1×1 Conv` Shape 对齐、Basic Block 的 `Conv-BN-ReLU-Conv-BN + shortcut → ReLU`、stage 首块下采样与 `first_block` 逻辑，并已多轮手搓 `Residual` 与 `resnet_block`，能够读懂 `b1~b5` 的完整结构。下一阶段暂转入电动车购买预测（表格二分类）比赛实践，D2L 理论主线后续再继续。
 - **核心掌握概念**:
   - **张量与 Shape**：掌握广播、矩阵乘法、reshape/Flatten、batch 维与设备迁移；遇到网络报错优先沿 `(N,C,H,W)` 追踪维度。
   - **自动微分与训练循环**：理解计算图、链式法则/VJP、梯度累积，以及 `zero_grad → forward → loss → backward → step` 的训练链路；区分 `train()/eval()` 与 `no_grad()`。
@@ -13,6 +13,7 @@
   - **经典 CNN 演进**：LeNet 建立“卷积特征提取 + 分类头”主线；AlexNet 强化深层 CNN；VGG 引入规则化重复 block；NiN 用 `1×1` 卷积增强逐位置非线性并推广 GAP。
   - **GoogLeNet / Inception**：同一输入完整送入多个并行分支，以 `1×1 / 3×3 / 5×5 / Pool` 提取多尺度特征；大卷积前用 `1×1` bottleneck 降计算，最后 `torch.cat(..., dim=1)` 沿通道拼接。
   - **Batch Normalization**：训练时按 feature/channel 用 mini-batch 统计量标准化，再以可学习 `γ、β` 恢复表达自由度；推理时改用训练期累计的 running mean/var。
+  - **ResNet / 残差连接**：核心为 `H(x)=F(x)+x`；shortcut 能直接恒等传递时不额外变换，Shape 不一致时用 `1×1 Conv` 对齐；同一 stage 主要靠多个 Residual 逐层细化特征，后续 stage 的首个 Residual 负责通道翻倍与空间下采样。
   - **分类头理解**：D2L 的 `GAP → Linear` 可改为 `1×1 Conv → GAP`；无额外非线性时二者可表示等价线性分类映射。GAP 会损失精确空间位置，但显著减少参数。
 
 ### 章节 Checklist
@@ -53,7 +54,7 @@
 - [x] 7.3 网络中的网络（NiN）（核心结构、1×1 卷积、GAP、分类头与代码排错已完成；修复后训练结果待确认）
 - [x] 7.4 含并行连结的网络（GoogLeNet）（Inception 多分支、1×1 bottleneck、通道拼接、GAP/卷积分类头与 Shape 排错已完成）
 - [x] 7.5 批量规范化（标准化公式、全连接/卷积统计维度、γ/β、moving statistics、momentum、train/eval 与 PyTorch API 已完成）
-- [ ] 7.6 残差网络（ResNet）（下一主线）
+- [x] 7.6 残差网络（ResNet）（残差思想、Basic Block、identity/projection shortcut、`1×1 Conv` Shape 对齐、stage/`resnet_block`、`first_block` 与 `b1~b5` 结构已掌握；完成核心手搓与 Shape 推导）
 
 ---
 
@@ -72,7 +73,7 @@
 ---
 
 ## 🛠️ API 速查表 (API Cheatsheet)
-> 按功能场景分组，持续更新。当前覆盖到 D2L 第 7 章 7.5「批量规范化」，并保留 Kaggle Digit Recognizer 端到端实践相关 API。
+> 按功能场景分组，持续更新。当前覆盖到 D2L 第 7 章 7.6「残差网络（ResNet）」，并保留 Kaggle Digit Recognizer 端到端实践相关 API。
 
 ### 📐 Tensor 创建、Shape 与基础运算
 | 当你想要... | 用这个 | 核心作用 / Shape 直觉 |
@@ -199,6 +200,16 @@
 | 注册 BN 可学习参数 | `nn.Parameter(torch.ones/zeros(shape))` | `gamma` / `beta` 参与反向传播；running mean/var 是状态统计量，不靠梯度学习 |
 | 切换 BN 训练行为 | `net.train()` | 使用当前 mini-batch 的统计量并更新 running statistics |
 | 切换 BN 推理行为 | `net.eval()` | 使用训练阶段累计的 running mean / running var；通常与 `no_grad()` / `inference_mode()` 配合 |
+
+### 🧱 ResNet / Residual
+| 当你想要... | 用这个 | 核心作用 / Shape 直觉 |
+|:---|:---|:---|
+| 定义残差块 | `class Residual(nn.Module): ...` | 主分支学习 `F(x)`，shortcut 提供 `x`，最终计算 `H(x)=F(x)+x` |
+| shortcut 直接恒等传递 | `Y += X` | 仅当 `X` 与主分支输出 `Y` 的 `N,C,H,W` 完全一致时直接相加 |
+| shortcut 做投影对齐 | `nn.Conv2d(C_in, C_out, kernel_size=1, stride=s)` | Shape 不一致时调整通道；`stride=2` 可同步把 `H/W` 减半 |
+| 组合多个残差块 | `nn.Sequential(*resnet_block(...))` | stage 首块可负责“换挡”，后续块通常保持通道与分辨率继续提炼特征 |
+| 判断后续 stage 首块 | `if i == 0 and not first_block:` | D2L 中 b2 不再下采样；b3/b4/b5 的首个 Residual 使用投影 shortcut 与 `stride=2` |
+| 全局平均池化 | `nn.AdaptiveAvgPool2d((1,1))` | 将每个通道压成 `1×1`，再 Flatten 接分类头 |
 
 ### 🖥️ Device / GPU
 | 当你想要... | 用这个 | 核心作用 |
@@ -2494,3 +2505,88 @@ GoogLeNet 的主线可压缩为：`同一输入 → 四条 Inception 分支并�
 
 ### BatchNorm 小结
 BN 的主线可压缩为：`Linear/Conv 输出 → 当前 mini-batch 按 feature/channel 统计 mean/var → 标准化到稳定尺度 → γ/β 学习恢复表达自由度`。训练时使用当前 batch 统计量并更新 running statistics；推理时切到累计统计量。对 CNN 输入 `(N,C,H,W)`，最关键的 Shape 直觉是“保留 `C`，沿 `N/H/W` 统计”。本节真正需要掌握的是公式的尺度意义、全连接/卷积统计维度、状态参数区别，以及 train/eval 行为差异，而不是背手写类的每一行代码。
+
+---
+
+## 📖 7.6 残差网络（ResNet）
+
+### [工单-321] ❓ 为什么“网络更深”不一定自动更好？ResNet 为什么强调恒等映射？
+- **核心疑问**: 单纯增加层数为什么可能让优化变难，ResNet 的函数类思想解决了什么？
+- **底层解释**: 把一种网络结构能表示的函数集合记为函数类 `F`。如果更深网络至少能够把新增层学成恒等映射，那么旧网络能表示的函数仍然包含在新网络中，可形成嵌套的函数类。ResNet 通过 shortcut 让新增残差块在 `F(x)=0` 时容易退化成 `H(x)=x`，因此“加深”不必强迫网络破坏已经有用的映射。
+- **纠偏锚点**: `x` 是残差块的输入特征，不是“旧模型能力”；模型的表达范围更接近“函数类”的概念。
+
+### [工单-322] ❓ ResNet 里的“残差”到底是什么？
+- **核心疑问**: 为什么 `H(x)=F(x)+x` 中的 `F(x)` 叫残差？
+- **底层解释**: 如果目标映射是 `H(x)`，恒等基线是 `x`，那么需要学习的差值为 `F(x)=H(x)-x`，因此残差分支学习的是“在现有特征上还要补多少、减多少”。最终输出为 `H(x)=x+F(x)`。
+- **纠偏锚点**: 这里的残差不是监督学习里常说的 `y-ŷ` 预测误差，而是“目标映射相对恒等映射的修正量”。
+
+### [工单-323] ❓ Basic Residual Block 为什么是 `Conv-BN-ReLU-Conv-BN + X → ReLU`？
+- **核心疑问**: 第二个卷积后为什么不立刻 ReLU，而要先与 shortcut 相加？
+- **底层解释**: D2L 的基本块先计算 `Y=ReLU(BN1(Conv1(X)))`，再计算 `Y=BN2(Conv2(Y))`，随后执行 `Y+=X`，最后统一 `ReLU(Y)`。这样第二个卷积后的残差分支可以保留正负修正；若在相加前额外加 ReLU，会把负残差截成 0，使其不能直接表达“把原特征减小”的修正。
+- **纠偏锚点**: `ReLU(F(x))+x` 与 `ReLU(F(x)+x)` 不是同一个函数；标准块强调先保留完整残差，再与 identity 合并。
+
+### [工单-324] ❓ 第一次 ReLU 已经去掉负数，为什么第二个卷积后还会重新出现负数？
+- **核心疑问**: `ReLU` 输出非负，后面为什么还能得到负激活？
+- **底层解释**: ReLU 只保证“它那一刻的输出”非负。后续 `Conv2d` 的卷积权重可以为负，正输入经过带正负权重的加权求和仍可得到负值；随后 BN 还会执行减均值与可学习仿射变换，因此也可产生负值。
+- **纠偏锚点**: `ReLU` 不会让后续网络永久保持非负；Conv、Linear、BN 都可能重新产生负数。
+
+### [工单-325] ❓ `1×1 Conv` 和 `3×3, padding=1` 都能保持高宽，为什么 shortcut 偏爱 `1×1`？
+- **核心疑问**: 若两者都能保持 `H,W`，是否可以互相替代？
+- **底层解释**: 从 Shape 上可以做到相同输出，但功能和计算量不同。`1×1 Conv` 在每个空间位置只做通道线性混合，适合完成 `C_in→C_out` 的投影；`3×3 Conv` 还会混合邻域空间信息，并带来约 9 倍卷积核参数量。shortcut 的任务通常只是最小必要的 Shape 对齐，因此优先使用 `1×1`。
+- **纠偏锚点**: “Shape 能替代”不等于“功能等价”；shortcut 追求尽量干净、便宜的投影路径。
+
+### [工单-326] ❓ 什么时候 shortcut 必须使用 `1×1 Conv`？
+- **核心疑问**: `Y += X` 前到底检查哪些维度？
+- **底层解释**: 残差相加要求 `N,C,H,W` 完全一致。典型规则为：`C/H/W` 都不变时直接 identity；只改通道时使用 `1×1 Conv, stride=1`；通道改变且高宽减半时使用 `1×1 Conv, stride=2`。例如 `(N,64,56,56)→(N,128,28,28)` 时 shortcut 必须同步完成 `64→128` 与 `56→28`。
+- **纠偏锚点**: 是否需要 `1×1 Conv` 不是看“这是哪个 b 块”，而是看 shortcut 的 Shape 是否能直接与主分支相加。
+
+### [工单-327] ❓ 为什么 Basic Block 下采样通常只放在第一个 `3×3 Conv`？
+- **核心疑问**: 两个主分支卷积都设 `stride=2`，再把 shortcut 设 `stride=4`，Shape 也能对齐，为什么不这么做？
+- **底层解释**: 标准 Basic Block 通常让 `conv1` 负责一次下采样，`conv2` 保持 `stride=1`；shortcut 同步使用 `1×1, stride=2`。若主分支连续两次 `stride=2`，空间尺寸会在一个 block 内缩小 4 倍，需要 shortcut 用更激进的投影才能对齐，虽然数学上能运行，但已经改变了标准 ResNet 的 stage 节奏与信息保留方式。
+- **纠偏锚点**: “Shape 对得上”只是合法性条件，不代表结构设计合理；标准 Basic Block 一次只做一次 stage 下采样。
+
+### [工单-328] 🐛 手搓 `Residual` 时最容易出现哪些代码错误？
+- **本轮错误与修复**:
+  - `conv2` 的输入通道应为 `num_channels`，而不是继续写 `input_channels`；第一层已经把通道改成目标通道。
+  - `conv2` 应为 `3×3, padding=1, stride=1`；不要重复使用首层的下采样 stride。
+  - shortcut 的 `1×1 Conv` 默认 `padding=0`；误写 `padding=1` 会把如 `56→28` 变成 `56→29`，导致无法相加。
+  - `forward(self, X)` 不能漏 `X`；调用成员层要写 `self.conv*`；主分支不能漏掉 `conv1/conv2` 本身。
+- **纠偏锚点**: 手搓残差块时按数据流检查：`X → conv1 → bn1 → relu → conv2 → bn2` 与 `X → shortcut`，最后先核对两边 Shape 再相加。
+
+### [工单-329] ❓ `bn1` 和 `bn2` 都是 `BatchNorm2d(num_channels)`，为什么还要实例化两次？
+- **核心疑问**: 参数配置完全相同，能否共用同一个 BN？
+- **底层解释**: 两个 BN 处在不同网络位置，接收 `conv1` 与 `conv2` 的不同激活分布，因此各自需要独立的 `γ/β` 与 running mean/var。即使 Shape 相同，特征分布也不等价。分别调用两次 `nn.BatchNorm2d(num_channels)` 会创建两个独立模块。
+- **纠偏锚点**: “配置相同”不等于“参数共享”；Conv 和 BN 都遵循这一点。
+
+### [工单-330] ❓ `b1`、`b2~b5` 与 `first_block` 到底是什么关系？
+- **核心疑问**: `first_block=True` 为什么只出现在 `b2`，它是不是指“当前 Residual 是第一个”？
+- **底层解释**: `b1` 是 ResNet 的前置 stem：`7×7 Conv(stride=2) → BN → ReLU → MaxPool(stride=2)`，不是残差 stage。`b2~b5` 才由多个 Residual 组成。`first_block=True` 更准确地说是“这是整个网络的第一个残差 stage”，用来阻止 `b2` 的首个 Residual 再次下采样，因为 `b1` 已经做了两次空间缩小。
+- **纠偏锚点**: `first_block` 是 stage 级控制量，不是 `use_1x1conv` 的别名；在 b2 中它反而会让 `i==0 and not first_block` 条件失败。
+
+### [工单-331] ❓ 为什么一个 stage 里要放多个 Residual？通道数会一直变化吗？
+- **核心疑问**: `resnet_block(..., num_residuals=2)` 为什么会生成两个残差块，它们分别做什么？
+- **底层解释**: `num_residuals=2` 会循环 append 两个 `Residual`。在后续 stage 中，第一个块通常负责“换挡”：通道翻倍、`H/W` 减半；第二个及后续块保持同样的通道与分辨率，在同一尺度上继续进行非线性特征提炼和残差修正。多个块同时增加深度、非线性与有效感受野。
+- **纠偏锚点**: 同一 stage 的后续 Residual 通常保持通道数；主要变化集中在 stage 的第一个块。
+
+### [工单-332] ❓ 为什么 b2 不用 `1×1 Conv`，而 b3/b4/b5 的第一个 Residual 要用？
+- **核心疑问**: `b3 = resnet_block(64,128,2)` 的调用行里没写 `use_1x1conv=True`，这个布尔值从哪里来的？
+- **底层解释**: `use_1x1conv=True` 被封装在 `resnet_block()` 内部的 `if i==0 and not first_block` 分支中。b2 显式传 `first_block=True`，因此两个 Residual 都走普通 identity shortcut；b3/b4/b5 默认 `first_block=False`，其第一个 Residual 自动使用 `1×1 Conv + stride=2`，后续 Residual 则直接 identity。
+- **典型结构**: `b2: 64→64, 64→64`；`b3: 64→128(投影), 128→128`；`b4: 128→256(投影), 256→256`；`b5: 256→512(投影), 512→512`。
+- **纠偏锚点**: “首块投影、后块保持”是 stage 的常见模式。
+
+### [工单-333] ❓ b2 也强行加 `1×1 Conv` 可以吗？
+- **核心疑问**: 如果 `64→64`、高宽不变，给 shortcut 加 `1×1, stride=1` 好像也能运行，为什么标准结构不用？
+- **底层解释**: 可以运行，但会把纯 identity `x` 改成可学习投影 `W_s x`，增加参数与计算，并失去最干净的恒等路径；如果还沿用 `stride=2`，则会让 b2 额外下采样，明显改变网络结构。因此 shortcut 能直接走 identity 时通常不加投影。
+- **纠偏锚点**: `1×1 Conv` 是“必要时的投影工具”，不是每个 residual shortcut 的固定组件。
+
+### [工单-334] ❓ NaN、梯度爆炸/消失和余弦学习率分别是什么？
+- **核心疑问**: ResNet 讨论中顺带遇到 `NaN` 和 cosine learning rate，它们与训练稳定性有什么关系？
+- **底层解释**: `NaN` 是非法数值状态，不等同于“缺失数据”；训练中梯度爆炸可能先导致数值溢出为 `inf`，再传播成 `NaN`，而梯度消失通常表现为梯度趋近 0、学习停滞，不会直接产生 NaN。Cosine Annealing 则让学习率按余弦曲线平滑下降：
+  $$
+  \eta_t=\eta_{min}+\frac12(\eta_{max}-\eta_{min})(1+\cos(\pi t/T)).
+  $$
+- **纠偏锚点**: 梯度爆炸 = 太大；梯度消失 = 太小；NaN = 非法数值；余弦退火 = 学习率调度策略。
+
+### ResNet 阶段小结
+7.6 核心学习目标已完成。当前已能从 Shape 和代码两条线理解 Basic Residual Block：主分支学习 `F(x)`，shortcut 尽量保持 identity，只有 Shape 不一致时才用 `1×1 Conv` 投影；下采样通常由 stage 首个 Residual 的第一层卷积与 shortcut 同步完成。已多轮手搓 `Residual`，理解 `resnet_block()` 如何生成 stage、为何 b2 特殊、为何 b3~b5 首块负责换挡，并能读懂 `b1~b5 → GAP → Linear` 的整体结构。本轮不再要求重复手搓或额外实跑，ResNet 章节到此收尾；下一阶段转入电动车购买预测比赛实践。
+
