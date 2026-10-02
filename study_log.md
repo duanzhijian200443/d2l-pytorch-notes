@@ -2,7 +2,7 @@
 
 ## 📌 当前学习进度 (Current Progress)
 - **最近更新时间**: 2026-10-02
-- **当前学习章节**: 第8章 8.1「序列模型」学习中：已从 ResNet 正式切入序列建模，理解联合概率的自回归链式分解、马尔可夫假设与固定历史窗口 `τ`、潜变量/隐藏状态 `h_t` 表示历史信息的思路，并已掌握把一维时间序列映射成 `(过去 τ 个值 → 下一个值)` 监督学习样本的滑动窗口构造方法。当前继续沿“序列模型 → RNN/GRU/LSTM → Attention → Transformer → 0.1B GPT”主线推进。
+- **当前学习章节**: 第8章 8.2「文本预处理」已完成：在 8.1 序列模型基础上，已掌握原始文本读取与正则清洗、word/char 两种 tokenization、词汇表 `Vocab` 的构造与双向映射、词频统计与排序、`<unk>` 未知词机制，以及将整段文本编码为一维 token ID 语料 `corpus` 的完整流程。当前继续沿“语言模型 → RNN/GRU/LSTM → Attention → Transformer → 0.1B GPT”主线推进。
 - **核心掌握概念**:
   - **张量与 Shape**：掌握广播、矩阵乘法、reshape/Flatten、batch 维与设备迁移；遇到网络报错优先沿 `(N,C,H,W)` 追踪维度。
   - **自动微分与训练循环**：理解计算图、链式法则/VJP、梯度累积，以及 `zero_grad → forward → loss → backward → step` 的训练链路；区分 `train()/eval()` 与 `no_grad()`。
@@ -16,6 +16,10 @@
   - **ResNet / 残差连接**：核心为 `H(x)=F(x)+x`；shortcut 能直接恒等传递时不额外变换，Shape 不一致时用 `1×1 Conv` 对齐；同一 stage 主要靠多个 Residual 逐层细化特征，后续 stage 的首个 Residual 负责通道翻倍与空间下采样。
   - **序列模型 / 自回归建模**：理解联合概率可按时间顺序分解为 `p(x_1)·p(x_2|x_1)·...·p(x_t|x_{<t})`；马尔可夫假设用最近 `τ` 个历史点近似完整历史依赖，潜变量模型则用隐藏状态 `h_t` 汇总过去信息。
   - **滑动窗口数据映射**：`tau=τ` 时，将长度为 `T` 的一维序列构造成 `features.shape=(T-τ, τ)`、`labels.shape=(T-τ,1)`；每一行输入连续 `τ` 个历史值，标签为紧随其后的下一个值。
+  - **文本清洗与 Tokenization**：理解 `readlines()` 按行读取文本，使用 `re.sub('[^A-Za-z]+', ' ', line).strip().lower()` 做基础清洗；`tokenize(..., 'word')` 按词切分，`tokenize(..., 'char')` 按字符切分。
+  - **Vocabulary / Token ID**：理解 `Vocab` 的核心目标是建立 `token ↔ integer id` 双向映射；`token_to_idx` 为字典，`idx_to_token` 为列表，`<unk>` 用于承接词表外 token。
+  - **词频统计与排序**：理解 `collections.Counter`、`counter.items()`、`sorted(..., key=lambda x: x[1], reverse=True)` 的数据流；`lambda x: x[1]` 表示按 `(token, freq)` 中的词频排序。
+  - **Corpus 编码**：能解释 `corpus = [vocab[token] for line in tokens for token in line]` 同时完成二维 token 列表拍平与 token→ID 编码；字符级语料词表小但序列更长，词级语料序列短但词表更大。
   - **分类头理解**：D2L 的 `GAP → Linear` 可改为 `1×1 Conv → GAP`；无额外非线性时二者可表示等价线性分类映射。GAP 会损失精确空间位置，但显著减少参数。
 
 ### 章节 Checklist
@@ -57,7 +61,8 @@
 - [x] 7.4 含并行连结的网络（GoogLeNet）（Inception 多分支、1×1 bottleneck、通道拼接、GAP/卷积分类头与 Shape 排错已完成）
 - [x] 7.5 批量规范化（标准化公式、全连接/卷积统计维度、γ/β、moving statistics、momentum、train/eval 与 PyTorch API 已完成）
 - [x] 7.6 残差网络（ResNet）（残差思想、Basic Block、identity/projection shortcut、`1×1 Conv` Shape 对齐、stage/`resnet_block`、`first_block` 与 `b1~b5` 结构已掌握；完成核心手搓与 Shape 推导）
-- [ ] 8.1 序列模型（进行中：自回归链式分解、马尔可夫假设、潜变量/隐藏状态、固定窗口 `τ` 与滑动窗口监督学习数据映射已掌握）
+- [x] 8.1 序列模型（自回归链式分解、马尔可夫假设、潜变量/隐藏状态、固定窗口 `τ` 与滑动窗口监督学习数据映射已掌握）
+- [x] 8.2 文本预处理（文本读取/清洗、word/char 分词、Vocab、Counter/词频排序、`<unk>`、token↔ID 与 corpus 编码已掌握）
 
 ---
 
@@ -76,7 +81,7 @@
 ---
 
 ## 🛠️ API 速查表 (API Cheatsheet)
-> 按功能场景分组，持续更新。当前覆盖到 D2L 第 7 章 7.6「残差网络（ResNet）」，并保留 Kaggle Digit Recognizer 端到端实践相关 API。
+> 按功能场景分组，持续更新。当前覆盖到 D2L 第 8 章 8.2「文本预处理」，并保留 Kaggle Digit Recognizer 端到端实践相关 API。
 
 ### 📐 Tensor 创建、Shape 与基础运算
 | 当你想要... | 用这个 | 核心作用 / Shape 直觉 |
@@ -146,6 +151,23 @@
 | 按列名读取一列 | `df["label"]` | 取出标签列，通常得到 `Series` |
 | 删除指定列 | `df.drop(columns=["label"])` | 去掉标签列，保留特征列 |
 | 保存 CSV | `df.to_csv("submission.csv", index=False)` | 写出 CSV；`index=False` 防止额外保存 Pandas 行索引 |
+
+### 📝 文本预处理、Token 与 Vocabulary
+| 当你想要... | 用这个 | 核心作用 |
+|:---|:---|:---|
+| 按行读取文本文件 | `f.readlines()` | 返回“每一行一个字符串”的列表，常作为文本预处理入口 |
+| 用正则替换非字母字符 | `re.sub('[^A-Za-z]+', ' ', line)` | 把连续非英文字母字符替换为空格，便于后续切词 |
+| 去掉首尾空白 / 转小写 | `s.strip()` / `s.lower()` | 清理行首尾空白并统一大小写 |
+| 按单词切分 | `line.split()` | 按空白字符把一行字符串拆成 word tokens |
+| 按字符切分 | `list(line)` | 把字符串拆成 char tokens；空格也会保留为字符 token |
+| 统计 token 频率 | `collections.Counter(tokens)` | 得到 `token → frequency` 的计数映射 |
+| 取计数键值对 | `counter.items()` | 迭代得到 `(token, freq)` 元组 |
+| 按词频降序排序 | `sorted(counter.items(), key=lambda x: x[1], reverse=True)` | `key` 指定按词频排序，`reverse=True` 指定从大到小 |
+| 给可迭代对象附加编号 | `enumerate(items)` | 产生 `(index, item)`，可用于给 token 分配连续 ID |
+| 字典安全查询 | `mapping.get(key, default)` | key 不存在时返回默认值；Vocab 中常回退到 `<unk>` |
+| token → id | `vocab[token]` | 通过 `__getitem__` 查询 token 对应的整数索引 |
+| id → token | `vocab.to_tokens(index)` | 从 `idx_to_token` 反查原 token |
+| 二维 token 列表拍平并编码 | `[vocab[token] for line in tokens for token in line]` | 同时完成 flatten 与 token→ID，生成一维 `corpus` |
 
 ### 📦 Dataset、随机拆分与 DataLoader
 | 当你想要... | 用这个 | 核心作用 / Shape 直觉 |
@@ -2625,6 +2647,65 @@ BN 的主线可压缩为：`Linear/Conv 输出 → 当前 mini-batch 按 feature
 - **底层解释**: 第一行输入 `[x0,...,x_{τ-1}]` 的目标是 `x_τ`，第二行输入 `[x1,...,x_τ]` 的目标是 `x_{τ+1}`，依此类推，因此标签序列正好从 `x_τ` 开始直到 `x_{T-1}`。`reshape((-1,1))` 只是把一维 `(T-τ,)` 标签变成二维列向量 `(T-τ,1)`，便于与回归模型输出 Shape 对齐。
 - **纠偏锚点**: `features` 与 `labels` 的第 `i` 行始终是一一对应的“过去 `τ` 个值 → 下一个值”。
 
-### 序列模型阶段小结（当前）
-已完成 8.1 前半部分的核心概念与数据构造：从联合概率的自回归分解出发，区分了完整历史依赖、马尔可夫有限窗口与潜变量历史压缩三种视角；能够解释固定窗口 `τ` 的监督学习样本如何由一维时间序列生成，并能独立推导 `features.shape=(T-τ,τ)` 与 `labels.shape=(T-τ,1)`。下一步继续 8.1 后续模型训练/预测，再进入 RNN 相关章节。
+### 序列模型阶段小结
+8.1 核心学习目标已完成：从联合概率的自回归分解出发，区分了完整历史依赖、马尔可夫有限窗口与潜变量历史压缩三种视角；能够解释固定窗口 `τ` 的监督学习样本如何由一维时间序列生成，并能独立推导 `features.shape=(T-τ,τ)` 与 `labels.shape=(T-τ,1)`。已转入 8.2 文本预处理。
 
+## 📖 8.2 文本预处理
+
+### [工单-341] ❓ `read_time_machine()` 在文本预处理链路中做了什么？
+- **核心疑问**: 原始 `.txt` 文件如何变成后续可分词的 Python 字符串列表？
+- **底层解释**: `d2l.download()` 得到本地文件路径，`open(...,'r')` 以只读方式打开，`readlines()` 按行读取；随后对每一行执行 `re.sub('[^A-Za-z]+',' ',line).strip().lower()`，把连续非英文字母替换为空格、去除首尾空白并统一为小写。
+- **纠偏锚点**: 这一阶段是“清洗文本”，还没有把字符串切成 token。
+
+### [工单-342] ❓ `tokenize(lines, 'word')` 与 `tokenize(lines, 'char')` 有什么区别？
+- **核心疑问**: 为什么同一个文本可以按单词切，也可以按字符切？
+- **底层解释**: `'word'` 分支使用 `line.split()`，如 `"the time" → ['the','time']`；`'char'` 分支使用 `list(line)`，如 `"time" → ['t','i','m','e']`，其中空格本身也会成为字符 token。二者只是在定义不同的基本建模单位。
+- **纠偏锚点**: Tokenization 解决的是“文本怎么切”，数据清洗解决的是“文本是否规整”，两者属于连续但不同的步骤。
+
+### [工单-343] ❓ Vocabulary 为什么必须把 token 映射成整数 ID？
+- **核心疑问**: 分词后已经得到字符串列表，为什么还不能直接送进神经网络？
+- **底层解释**: 神经网络只能对数值张量执行矩阵运算，因此必须建立 `token → integer id` 的离散编码，例如 `the→1, time→19`。这些 ID 只是编号，本身没有大小或语义距离意义；后续还会通过 Embedding 等机制映射为连续向量表示。
+- **纠偏锚点**: `50 > 19` 不代表 token 50 的语义“更大”；ID 只是索引。
+
+### [工单-344] ❓ `token_to_idx` 与 `idx_to_token` 为什么一个用 dict、一个用 list？
+- **核心疑问**: 它们是不是两个相反的字典？
+- **底层解释**: 二者确实承担反向映射，但类型不同：`token_to_idx` 用字典完成 `token→id` 查询；`idx_to_token` 用列表完成 `id→token` 查询，因为 ID 是从 0 开始的连续整数，直接用列表下标即可 O(1) 访问。
+- **纠偏锚点**: 更准确的说法是“两个方向相反的映射”，而不是“两个相反的字典”。
+
+### [工单-345] ❓ `self.token_to_idx[token] = len(self.idx_to_token) - 1` 为什么能建立 ID？
+- **核心疑问**: 为什么刚 append 一个 token 后，用“列表长度减 1”就是它的索引？
+- **底层解释**: 每次先执行 `self.idx_to_token.append(token)`，新 token 一定被追加到列表末尾；Python 索引从 0 开始，因此长度为 `n` 的列表最后一个元素索引为 `n-1`。再把这个索引写入 `token_to_idx[token]`，即可同步建立双向映射。
+- **纠偏锚点**: `len(...)-1` 取的是“刚刚追加到末尾的元素索引”。
+
+### [工单-346] ❓ `__getitem__()`、`to_tokens()` 与 `<unk>` 如何完成双向查询？
+- **核心疑问**: `vocab['time']` 为什么可以直接返回整数，未知 token 又如何处理？
+- **底层解释**: `__getitem__` 让 `vocab[...]` 语法可用：单个 token 通过 `self.token_to_idx.get(tokens, self.unk)` 查询，找不到时回退到 `<unk>` 的索引 0；传入 list/tuple 时递归逐个转换。`to_tokens()` 则从 `idx_to_token` 反向完成 `id→token`。
+- **纠偏锚点**: `<unk>` 是词表外 token 的兜底索引，不是普通语义词。
+
+### [工单-347] ❓ `Counter`、`counter.items()`、`lambda x: x[1]` 和 `reverse=True` 是怎么配合的？
+- **核心疑问**: `sorted(counter.items(), key=lambda x: x[1], reverse=True)` 各部分分别负责什么？
+- **底层解释**: `Counter(tokens)` 统计 `token→频率`；`counter.items()` 产生 `(token,freq)` 元组；`key=lambda x:x[1]` 告诉 `sorted()` 对每个元组取第二项词频作为排序依据；`reverse=True` 决定按频率从大到小排序。
+- **纠偏锚点**: 可记为“`items()` 排谁、`key` 按谁排、`reverse` 往哪个方向排”。
+
+### [工单-348] ❓ `lambda x: x[1]` 里的 `x` 到底是什么？
+- **核心疑问**: `x` 是隐函数变量还是有特殊含义的对象？
+- **底层解释**: `lambda` 是 Python 匿名函数。这里 `x` 只是形参，每次接收 `counter.items()` 中的一个 `(token,freq)` 元组，例如 `('the',3)`；`x[1]` 就取出频率 `3`。写成 `lambda item: item[1]` 完全等价。
+- **纠偏锚点**: `lambda x:x[1]` 等价于 `def f(x): return x[1]`，不是数学里的隐函数。
+
+### [工单-349] ❓ `load_corpus_time_machine()` 为什么最终选择字符级 `char`？
+- **核心疑问**: 前面示例默认 `word`，为什么真正构造训练语料时改成 `char`？
+- **底层解释**: 前面的 `word` 主要用于演示分词直觉；后续字符级语言模型选择 `char` 是为了教学简化。字符级词表约为 `26字母 + 空格 + <unk> = 28`，词表很小、未知词问题少，但序列更长；词级则序列更短、词表更大。
+- **纠偏锚点**: `word` 与 `char` 没有绝对优劣，二者是在词表规模与序列长度之间做不同权衡。
+
+### [工单-350] ❓ `corpus = [vocab[token] for line in tokens for token in line]` 做了哪两件事？
+- **核心疑问**: 为什么一行列表推导式能把整本书变成一维数字序列？
+- **底层解释**: 两层 `for` 先遍历每一行、再遍历行内每个 token，相当于把二维 token 列表 flatten；同时每个 token 经 `vocab[token]` 映射成整数 ID，因此最终得到一维 `corpus`。例如 `[['t','h','e'],['i']] → [id_t,id_h,id_e,id_i]`。
+- **纠偏锚点**: 这里同时完成“二维拍平 + token→ID 编码”。
+
+### [工单-351] ❓ 极简词表代码中的 `enumerate(counter.items())` 与 corpus 编码怎么理解？
+- **核心疑问**: `token_to_idx = {token:i for i,(token,freq) in enumerate(counter.items())}` 在做什么？
+- **底层解释**: `counter.items()` 给出 `(token,freq)`，`enumerate(...)` 再给每一项附上连续编号 `i`，于是字典推导式建立 `token→id`；随后 `[token_to_idx[token] for token in tokens]` 按该映射把原 token 序列转换为整数序列。这个极简版本用于理解流程，不包含 `<unk>`、`min_freq`、频率排序等完整 Vocab 逻辑。
+- **纠偏锚点**: 第一行是在“建立编号规则”，第二行是在“按规则编码整段文本”。
+
+### 文本预处理阶段小结
+8.2 核心学习目标已完成。当前已能从原始文本文件出发，解释并手动追踪 `读取/清洗 → word/char tokenization → 词频统计 → Vocabulary → token↔ID → corpus` 的完整数据流；能够读懂 `Counter/items/sorted/lambda/enumerate` 等关键 Python 写法，并理解字符级与词级 tokenization 的工程权衡。D2L 这一节的具体 `Vocab` 工具类以“会读、会解释”为主，无需像 ResNet 一样反复整段手搓；后续进入语言模型/RNN 主线时继续复用这些概念。
