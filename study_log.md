@@ -1,8 +1,8 @@
 # 深度学习学习日志 (Study Log)
 
 ## 📌 当前学习进度 (Current Progress)
-- **最近更新时间**: 2026-10-02
-- **当前学习章节**: 第8章 8.2「文本预处理」已完成：在 8.1 序列模型基础上，已掌握原始文本读取与正则清洗、word/char 两种 tokenization、词汇表 `Vocab` 的构造与双向映射、词频统计与排序、`<unk>` 未知词机制，以及将整段文本编码为一维 token ID 语料 `corpus` 的完整流程。当前继续沿“语言模型 → RNN/GRU/LSTM → Attention → Transformer → 0.1B GPT”主线推进。
+- **最近更新时间**: 2026-10-03
+- **当前学习章节**: 第8章 8.3「语言模型」已完成：已掌握基于计数的 next-token 概率估计、bigram/trigram 等 N-gram 统计方式，以及随机采样与顺序分区两种长序列读取策略；能解释 `num_steps / num_subseqs / batch_size / num_batches`、`X/Y` 一位错位标签构造、随机偏移、尾部截断、`reshape(batch_size, -1)` 的 batch×time 组织方式与相邻 mini-batch 的连续性差异。下一步进入 8.4「循环神经网络（RNN）」。
 - **核心掌握概念**:
   - **张量与 Shape**：掌握广播、矩阵乘法、reshape/Flatten、batch 维与设备迁移；遇到网络报错优先沿 `(N,C,H,W)` 追踪维度。
   - **自动微分与训练循环**：理解计算图、链式法则/VJP、梯度累积，以及 `zero_grad → forward → loss → backward → step` 的训练链路；区分 `train()/eval()` 与 `no_grad()`。
@@ -20,6 +20,13 @@
   - **Vocabulary / Token ID**：理解 `Vocab` 的核心目标是建立 `token ↔ integer id` 双向映射；`token_to_idx` 为字典，`idx_to_token` 为列表，`<unk>` 用于承接词表外 token。
   - **词频统计与排序**：理解 `collections.Counter`、`counter.items()`、`sorted(..., key=lambda x: x[1], reverse=True)` 的数据流；`lambda x: x[1]` 表示按 `(token, freq)` 中的词频排序。
   - **Corpus 编码**：能解释 `corpus = [vocab[token] for line in tokens for token in line]` 同时完成二维 token 列表拍平与 token→ID 编码；字符级语料词表小但序列更长，词级语料序列短但词表更大。
+  - **计数语言模型 / N-gram**：理解 `p(x,x')=p(x)p(x'|x)`，并可用 `n(x)/n`、`n(x,x')/n(x)` 由语料频次估计概率；bigram/trigram 本质是统计连续 2/3 个 token 的共现。
+  - **随机序列采样**：理解随机偏移、完整子序列数 `num_subseqs=(len(corpus)-1)//num_steps`、起点集合与 `random.shuffle(initial_indices)`；打乱的是子序列顺序，不打乱子序列内部 token。
+  - **序列 Batch 与标签**：能区分 `num_steps`（每条序列长度）、`num_subseqs`（可用子序列总数）、`batch_size`（每批子序列条数）、`num_batches`（完整批次数）；语言模型中 `X,Y.shape=(batch_size,num_steps)`，`Y` 是 `X` 整体右移一位的目标序列。
+  - **随机采样的 Batch 独立性**：随机采样时不同 mini-batch 之间不保证沿原始 corpus 连续，因此不能默认把上一批的时间状态直接接到下一批；“独立”指批次间无固定连续关系，而非样本在概率论上独立。
+  - **顺序分区 / Sequential Partitioning**：理解顺序分区会先截取可被 `batch_size` 整除的有效 token，再 `reshape(batch_size, -1)` 成多条并行长链，随后沿时间维每次切 `num_steps`；因此相邻 mini-batch 的同一行在原始 corpus 中保持连续，可为后续 RNN 隐状态跨 batch 传递建立条件。
+  - **随机偏移与尾部截断**：随机采样通过直接切片 `corpus[offset:]` 隐式扣除偏移；顺序分区保留原 corpus，所以用 `len(corpus)-offset-1` 显式扣除。`(... // batch_size) * batch_size` 会向下截成 `batch_size` 的整数倍，以保证 reshape 合法。
+  - **SeqDataLoader 封装**：理解 `self.data_iter_fn = d2l.seq_data_iter_random` 保存的是函数本身而非调用结果；`__iter__()` 让对象可直接参与 `for X,Y in data_iter`，内部再调用选定的采样函数。
   - **分类头理解**：D2L 的 `GAP → Linear` 可改为 `1×1 Conv → GAP`；无额外非线性时二者可表示等价线性分类映射。GAP 会损失精确空间位置，但显著减少参数。
 
 ### 章节 Checklist
@@ -63,6 +70,8 @@
 - [x] 7.6 残差网络（ResNet）（残差思想、Basic Block、identity/projection shortcut、`1×1 Conv` Shape 对齐、stage/`resnet_block`、`first_block` 与 `b1~b5` 结构已掌握；完成核心手搓与 Shape 推导）
 - [x] 8.1 序列模型（自回归链式分解、马尔可夫假设、潜变量/隐藏状态、固定窗口 `τ` 与滑动窗口监督学习数据映射已掌握）
 - [x] 8.2 文本预处理（文本读取/清洗、word/char 分词、Vocab、Counter/词频排序、`<unk>`、token↔ID 与 corpus 编码已掌握）
+- [x] 8.3 语言模型（计数概率、N-gram、随机采样、顺序分区、序列 batch/标签构造与 `SeqDataLoader` 封装已掌握）
+- [ ] 8.4 循环神经网络（RNN）（下一步）
 
 ---
 
@@ -81,7 +90,7 @@
 ---
 
 ## 🛠️ API 速查表 (API Cheatsheet)
-> 按功能场景分组，持续更新。当前覆盖到 D2L 第 8 章 8.2「文本预处理」，并保留 Kaggle Digit Recognizer 端到端实践相关 API。
+> 按功能场景分组，持续更新。当前覆盖到 D2L 第 8 章 8.3「语言模型」（已完成），下一步进入 8.4「循环神经网络」，并保留 Kaggle Digit Recognizer 端到端实践相关 API。
 
 ### 📐 Tensor 创建、Shape 与基础运算
 | 当你想要... | 用这个 | 核心作用 / Shape 直觉 |
@@ -168,6 +177,25 @@
 | token → id | `vocab[token]` | 通过 `__getitem__` 查询 token 对应的整数索引 |
 | id → token | `vocab.to_tokens(index)` | 从 `idx_to_token` 反查原 token |
 | 二维 token 列表拍平并编码 | `[vocab[token] for line in tokens for token in line]` | 同时完成 flatten 与 token→ID，生成一维 `corpus` |
+
+### 🔤 语言模型与序列随机采样
+| 当你想要... | 用这个 | 核心作用 / Shape 直觉 |
+|:---|:---|:---|
+| 构造相邻 bigram | `zip(corpus[:-1], corpus[1:])` | 将同一序列错开 1 位后配对，得到连续 `(x_t, x_{t+1})` |
+| 随机选择起始偏移 | `random.randint(0, num_steps - 1)` | 让每轮切分边界不固定，增加随机性 |
+| 计算完整子序列数 | `(len(corpus)-1) // num_steps` | `-1` 为右移一位的 `Y` 留位置；整除会丢掉不足一整段的尾巴 |
+| 生成子序列起点 | `range(0, num_subseqs*num_steps, num_steps)` | 每隔 `num_steps` 记录一个完整子序列起点 |
+| 打乱子序列抽取顺序 | `random.shuffle(initial_indices)` | 只打乱“起点列表”，不打乱每条子序列内部 token 顺序 |
+| 从某起点截固定长度 | `corpus[pos:pos+num_steps]` | 得到长度为 `num_steps` 的一条输入子序列 |
+| 构造 next-token 标签 | `data(j+1)` 对应 `data(j)` | `Y` 比 `X` 整体右移 1；二者 Shape 都是 `(batch_size,num_steps)` |
+| 计算完整 batch 数 | `num_subseqs // batch_size` | 只保留能装满 `batch_size` 条子序列的完整 mini-batch |
+| 保存采样函数对象 | `self.data_iter_fn = d2l.seq_data_iter_random` | 不加 `()`，表示保存函数本身，稍后再调用 |
+| 让自定义对象可迭代 | `def __iter__(self): ...` | 使 `for X,Y in data_iter` 自动调用内部数据迭代函数 |
+| 顺序分区选择随机偏移 | `offset = random.randint(0, num_steps)` | 起点可随机，但后续 mini-batch 保持同一行沿 corpus 连续 |
+| 截取可按 batch 整分的 token 数 | `((len(corpus)-offset-1)//batch_size)*batch_size` | `-1` 给 `Y` 留下一位；整除再乘回去会丢弃不足 `batch_size` 的尾巴 |
+| 构造错位的一维 X/Y | `Xs=corpus[offset:offset+num_tokens]` / `Ys=corpus[offset+1:offset+1+num_tokens]` | `Y` 比 `X` 整体右移一位，长度相同 |
+| 把长序列分成并行时间流 | `Xs.reshape(batch_size, -1)` | 行表示 batch 中第几条序列，列表示时间位置；得到 `(batch_size, time)` |
+| 顺序切出 mini-batch | `Xs[:, i:i+num_steps]` | 所有行同时沿时间维向右切；相邻 mini-batch 的同一行连续 |
 
 ### 📦 Dataset、随机拆分与 DataLoader
 | 当你想要... | 用这个 | 核心作用 / Shape 直觉 |
@@ -2709,3 +2737,89 @@ BN 的主线可压缩为：`Linear/Conv 输出 → 当前 mini-batch 按 feature
 
 ### 文本预处理阶段小结
 8.2 核心学习目标已完成。当前已能从原始文本文件出发，解释并手动追踪 `读取/清洗 → word/char tokenization → 词频统计 → Vocabulary → token↔ID → corpus` 的完整数据流；能够读懂 `Counter/items/sorted/lambda/enumerate` 等关键 Python 写法，并理解字符级与词级 tokenization 的工程权衡。D2L 这一节的具体 `Vocab` 工具类以“会读、会解释”为主，无需像 ResNet 一样反复整段手搓；后续进入语言模型/RNN 主线时继续复用这些概念。
+
+## 📖 8.3 语言模型
+
+### [工单-352] ❓ 基于计数的语言模型如何估计 `p(x,x')`？
+- **核心疑问**: `n(x)=100`、`n(x,x')=60` 分别代表什么，为什么能得到条件概率？
+- **底层解释**: `n(x)` 是 token `x` 在语料中的总出现次数；`n(x,x')` 是“`x` 后面紧跟 `x'`”这个连续二元组的出现次数。因此 `p(x)≈n(x)/n`，`p(x'|x)≈n(x,x')/n(x)`，再由链式法则得到 `p(x,x')=p(x)p(x'|x)`。例如 `deep` 出现 100 次，其中 60 次后面紧跟 `learning`，则经验条件概率约为 `0.6`。
+- **纠偏锚点**: “两个词连续出现 60 次”不是两个词各出现 60 次，而是整个二元组合出现 60 次。
+
+### [工单-353] ❓ `zip(corpus[:-1], corpus[1:])` 为什么能生成 bigram？
+- **核心疑问**: 为什么把同一个序列切成两份再 `zip()` 就得到连续词对？
+- **底层解释**: `corpus[:-1]` 去掉最后一个 token，`corpus[1:]` 去掉第一个 token，两者长度相同且相差一个位置；逐位置 `zip` 后自然得到 `(x_0,x_1),(x_1,x_2),...`。例如 `['the','time','machine']` 会生成 `('the','time')`、`('time','machine')`。
+- **纠偏锚点**: N-gram 的核心操作是“对同一序列做位置错位，再把对应位置组合起来”；不是把 corpus 本身随机打乱。
+
+### [工单-354] ❓ 随机序列采样整体在做什么？
+- **核心疑问**: `seq_data_iter_random` 为什么要先切子序列、再打乱起点、再组成 batch？
+- **底层解释**: 目标是把一条很长的一维 token ID 序列拆成许多长度固定为 `num_steps` 的训练样本，并随机决定这些样本进入 mini-batch 的顺序。每条子序列内部仍保持原始顺序，随后用相同起点 `j` 构造 `X=data(j)`，用 `j+1` 构造 `Y=data(j+1)`。
+- **纠偏锚点**: 随机的是“子序列的抽取顺序”，不是 token 在子序列内部的先后顺序。
+
+### [工单-355] ❓ 为什么 `num_subseqs=(len(corpus)-1)//num_steps` 要先减 1？
+- **核心疑问**: corpus 明明有 `len(corpus)` 个 token，为什么只用 `len(corpus)-1` 来计算完整输入子序列？
+- **底层解释**: 语言模型的标签 `Y` 要比输入 `X` 整体右移一位。最后一个输入位置还需要“下一个 token”作为标签，因此必须预留 1 个位置。整除 `// num_steps` 再保证只统计长度完整的子序列。
+- **纠偏锚点**: `-1` 不是无故丢数据，而是给最后一位的 next-token 标签留位置。
+
+### [工单-356] ❓ 为什么生成起点时用 `num_subseqs * num_steps`，不能直接用 `len(corpus)-1`？
+- **核心疑问**: 已经知道可用长度是 `len(corpus)-1`，为什么还要绕回“子序列数 × 每段长度”？
+- **底层解释**: 当 `(len(corpus)-1)` 不能被 `num_steps` 整除时，尾部会剩下不足一整段的 token。`num_subseqs*num_steps` 得到的是所有“完整子序列”真正覆盖的长度，从而 `range(..., step=num_steps)` 只产生合法起点；直接用 `len(corpus)-1` 可能额外生成一个只能截出残缺序列的尾部起点。
+- **纠偏锚点**: `num_subseqs` 是完整段数，`num_subseqs*num_steps` 是完整段总覆盖长度。
+
+### [工单-357] ❓ `random.shuffle(initial_indices)` 为什么只打乱索引也能打乱子序列？
+- **核心疑问**: `initial_indices` 只是数字索引，打乱它为什么等于随机采样数据？
+- **底层解释**: 每个索引都代表一个子序列的起点，例如 `8 → corpus[8:8+num_steps]`。打乱起点列表会改变这些完整子序列进入 batch 的顺序，但不会修改 corpus 本身，也不会改变任一子序列内部 token 的先后关系。
+- **纠偏锚点**: 打乱“样本顺序”可以，打乱“样本内部时间顺序”不可以。
+
+### [工单-358] ❓ `num_steps`、`num_subseqs`、`batch_size`、`num_batches` 的关系是什么？
+- **核心疑问**: 这四个变量分别控制哪一层结构，哪些是人为给定、哪些是算出来的？
+- **底层解释**: `num_steps` 是每条子序列的 token 数，通常人为指定；`num_subseqs` 是 corpus 能切出的完整子序列总数，由数据长度和 `num_steps` 算出；`batch_size` 是每个 mini-batch 放几条子序列，人为指定；`num_batches=num_subseqs//batch_size` 是最终能组成的完整 batch 数。若无余数，则 `num_subseqs=num_batches*batch_size`。
+- **纠偏锚点**: `batch_size` 不是 batch 的数量；它是“一批装几条”，而 `num_batches` 才是“总共几批”。
+
+### [工单-359] ❓ 为什么语言模型里的 `Y` 也是一个序列而不是单个标签？
+- **核心疑问**: 监督学习里标签常是一列标量，为什么这里 `Y.shape` 与 `X.shape` 完全相同？
+- **底层解释**: 一条长度为 `num_steps` 的输入序列会同时产生 `num_steps` 个 next-token 预测任务。若 `X=[3,4,5,6,7]`，则 `Y=[4,5,6,7,8]`，每个位置都对应一个标签：`3→4, 4→5, ...`。因此 `X,Y.shape=(batch_size,num_steps)`。
+- **纠偏锚点**: `Y` 确实是标签/target，只不过这里是“每个时间步一个标签”，所以标签本身也是二维序列张量。
+
+### [工单-360] ❓ 为什么随机采样时说“不同 mini-batch 之间是独立的”？
+- **核心疑问**: batch 中的子序列明明都来自同一个 corpus，为什么还说各批次独立？
+- **底层解释**: 这里的“独立”是工程语义：由于子序列起点被 `random.shuffle()` 打乱，`batch_{k+1}` 不保证在原始 corpus 中紧接 `batch_k`。因此后续 RNN 若维护隐藏状态，不能默认把上一批末尾的状态直接当成下一批的历史。它并不是在声明这些样本满足概率论上的统计独立。
+- **纠偏锚点**: 子序列内部连续；随机采样后的 mini-batch 之间没有固定的时间连续关系。
+
+### [工单-361] ❓ `SeqDataLoader` 为什么要保存函数对象并实现 `__iter__()`？
+- **核心疑问**: `self.data_iter_fn = d2l.seq_data_iter_random` 后面为什么不加 `()`，`__iter__()` 又起什么作用？
+- **底层解释**: 不加括号表示把“函数本身”保存为对象属性，依据 `use_random_iter` 选择随机采样或顺序采样策略；等真正迭代时，`__iter__()` 再调用这个函数，并传入 `corpus / batch_size / num_steps`。因此外部可以直接写 `for X,Y in data_iter`，无需重复拼装采样函数参数。
+- **纠偏锚点**: `SeqDataLoader` 主要是工程封装层；当前阶段理解“选采样策略 + 保存参数 + 迭代时产出 `(X,Y)`”即可，不必背类代码。
+
+### [工单-362] ❓ 顺序分区是不是只要把随机采样里的 `shuffle` 删除？
+- **核心疑问**: 不执行 `random.shuffle(initial_indices)` 后，子序列已经按原始顺序排列，为什么还需要另一套实现？
+- **底层解释**: 仅删除 `shuffle` 仍然是“先切成很多长度为 `num_steps` 的小段，再按 `batch_size` 分组”。当 `batch_size>1` 时，上一批第 1 行的下一段可能被放到上一批第 2 行，导致相邻 mini-batch 的同一行并不连续。顺序分区必须先把长 corpus reshape 成 `batch_size` 条并行长链，再沿列方向按 `num_steps` 连续切片。
+- **纠偏锚点**: 顺序分区的关键不是“不打乱”，而是“同一 batch 行跨相邻 mini-batch 保持时间连续”。
+
+### [工单-363] ❓ 顺序分区为什么也可以从随机偏移量开始？
+- **核心疑问**: 起点既然也是随机的，为什么仍然叫“顺序”分区？
+- **底层解释**: “顺序”约束的是选定起点之后的读取方式，而不是要求起点固定为 0。随机偏移能改变每轮切分边界、增加覆盖性；一旦 offset 选定，后续同一行必须持续沿原始 corpus 向前读取，不能再随机打乱子序列顺序。
+- **纠偏锚点**: `随机起点 ≠ 随机采样`；顺序分区允许起点随机，但不允许后续时间链断裂。
+
+### [工单-364] ❓ 为什么随机采样不显式写 `len(corpus)-offset`，顺序分区却要减偏移量？
+- **核心疑问**: 两种采样都使用随机 offset，为什么长度公式写法不同？
+- **底层解释**: 随机采样先执行 `corpus = corpus[offset:]`，局部变量已经变成截短后的新序列，因此新的 `len(corpus)` 已经隐式扣除了 offset；顺序分区没有修改原 corpus，所以计算可用长度时必须显式写 `len(corpus)-offset-1`。
+- **纠偏锚点**: 随机采样是“先切再算长度”，顺序分区是“保留原序列、算长度时再扣 offset”。
+
+### [工单-365] ❓ 顺序分区中 token 数不能被 `batch_size` 整除怎么办？
+- **核心疑问**: `reshape(batch_size,-1)` 要求元素总数可整分，遇到余数怎么处理？
+- **底层解释**: `num_tokens=((len(corpus)-offset-1)//batch_size)*batch_size` 先整除再乘回去，把可用 token 数向下截成 `batch_size` 的整数倍。例如可用 33 个 token、`batch_size=2` 时只使用 32 个，最后 1 个丢弃，从而可以安全 reshape 为 `(2,16)`。
+- **纠偏锚点**: `// batch_size * batch_size` 就是一个“向下取到最近 batch 整数倍”的截断器。
+
+### [工单-366] ❓ 顺序分区为什么一定要先 `reshape(batch_size,-1)` 分成多行？
+- **核心疑问**: corpus 原本是一条长序列，为什么不能直接每次从一维序列中取 `num_steps`？
+- **底层解释**: `batch_size>1` 代表模型每次要并行处理多条序列，因此必须显式构造 batch 维。reshape 后每一行是一条独立的并行时间流，列方向是时间；随后 `Xs[:, i:i+num_steps]` 才能让每个 mini-batch 同时包含 `batch_size` 条长度为 `num_steps` 的序列，并确保下一批同一行接着上一批继续。
+- **纠偏锚点**: 行 = batch 中第几条序列；列 = 时间位置。分行是在构造真正的 `batch × time` 数据结构。
+
+### [工单-367] ❓ 随机采样与顺序分区的核心差异最终是什么？
+- **核心疑问**: 两者都有随机偏移、都生成 `(X,Y)`，到底应该抓住哪条本质区别？
+- **底层解释**: 随机采样把完整子序列作为独立样本并打乱进入 batch 的顺序，相邻 mini-batch 不保证时间连续；顺序分区先建立 `batch_size` 条长时间链，再沿时间维依次切块，所以相邻 mini-batch 的同一行在原始序列上连续。这个差异会直接影响后续 RNN 隐状态是否能跨 mini-batch 延续。
+- **纠偏锚点**: 随机采样强调“样本顺序随机”；顺序分区强调“时间链连续”。
+
+### 语言模型阶段小结
+8.3「语言模型」核心内容已完成。当前已能从计数语言模型与 N-gram 出发解释 next-token 概率建模，读懂 bigram 的错位 `zip` 构造，并完整追踪长 corpus 如何转换成 `(X,Y)` mini-batch。随机采样方面，已掌握随机偏移、`num_subseqs / batch_size / num_batches`、完整子序列起点与 `shuffle`；顺序分区方面，已掌握有效 token 截断、`reshape(batch_size,-1)` 构造并行时间流、沿列方向按 `num_steps` 切 batch，以及为什么相邻 mini-batch 的同一行保持连续。`SeqDataLoader` 以理解“选择采样策略 + 保存数据参数 + 迭代时产出 `(X,Y)`”为验收标准，不要求背诵封装代码。下一步正式进入 8.4 循环神经网络（RNN），重点开始理解隐藏状态如何沿时间递归传递。
+
