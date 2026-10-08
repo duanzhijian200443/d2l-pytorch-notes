@@ -1,8 +1,8 @@
 # 深度学习学习日志 (Study Log)
 
 ## 📌 当前学习进度 (Current Progress)
-- **最近更新时间**: 2026-10-04
-- **当前学习章节**: 第8章 8.4「循环神经网络（RNN）」理论部分已完成：已理解 RNN 通过隐藏状态 `h_t` 沿时间传递历史信息，能解释 `W_hx`（输入→隐藏）与 `W_hh`（隐藏→隐藏）的分工、跨时间步参数共享、困惑度（perplexity）以及梯度裁剪的作用与局限；并区分循环神经网络（Recurrent NN）、递归神经网络（Recursive NN）与图神经网络（GNN）的结构差异。下一步进入 RNN 的从零代码实现部分。
+- **最近更新时间**: 2026-10-07
+- **当前学习章节**: 第8章 8.5「循环神经网络的从零开始实现」已完成：已能从 `X.shape=(batch_size,num_steps)` 追踪到 `X.T → one_hot → (num_steps,batch_size,vocab_size)`，逐时间步推导 `X_t / H_t / Y_t` 的 Shape，理解 `W_xh/W_hh/W_hq` 的维度来源、隐藏状态 tuple 封装、时间步输出拼接、文本生成 warm-up、自回归预测、训练时标签对齐、顺序/随机采样下的状态管理与 `detach`、全局梯度裁剪及 `train_epoch_ch8 → train_ch8 → predict_ch8` 的函数层级。已完成从零 RNN 的完整训练与文本生成实跑，并排查了梯度裁剪变量误写与 Notebook 重复续训导致困惑度变化的问题。下一步进入 8.6「循环神经网络的简洁实现」。
 - **核心掌握概念**:
   - **张量与 Shape**：掌握广播、矩阵乘法、reshape/Flatten、batch 维与设备迁移；遇到网络报错优先沿 `(N,C,H,W)` 追踪维度。
   - **自动微分与训练循环**：理解计算图、链式法则/VJP、梯度累积，以及 `zero_grad → forward → loss → backward → step` 的训练链路；区分 `train()/eval()` 与 `no_grad()`。
@@ -33,6 +33,10 @@
   - **梯度裁剪**：理解 `g ← min(1, θ/||g||)·g` 会在梯度范数超过阈值时按比例缩短梯度、保持方向不变，主要用于抑制 RNN 时间链上的梯度爆炸；过度裁剪会压扁梯度幅度信息、拖慢优化，且不能解决梯度消失。
   - **LayerNorm 与梯度裁剪的互补**：理解 LayerNorm 主要稳定中间表示/隐藏状态的尺度，梯度裁剪主要限制反向传播时异常大的梯度，两者可以同时使用，作用机制不同、不能互相替代。
   - **Recurrent / Recursive / GNN 区分**：循环神经网络沿时间链传播状态，递归神经网络沿树结构递归组合节点，图神经网络则在一般图上通过邻居聚合/message passing 更新节点表示；链和树都可视为特殊图结构。
+  - **RNN 从零实现的 Shape 主线**：输入 `X.shape=(B,T)` 先转置为 `(T,B)`，再 One-Hot 为 `(T,B,V)`；循环中每个时间步 `X_t.shape=(B,V)`，隐藏状态 `H.shape=(B,H)`；`W_xh.shape=(V,H)`、`W_hh.shape=(H,H)`、`W_hq.shape=(H,V)`，因此 `Y_t.shape=(B,V)`，最终按时间优先拼成 `(T·B,V)`。
+  - **文本生成 / Warm-up**：`predict_ch8` 先用 `prefix[0]` 作为起始输入，再遍历 `prefix[1:]` 只更新隐藏状态、不使用模型预测，从而让 `H` 吸收完整已知前缀；之后每一步把上一轮输出 token 再喂回 RNN，并用 `argmax` 选择最高 logit 的 token ID。
+  - **RNN 训练中的标签与状态管理**：`Y.T.reshape(-1)` 将标签按“时间步优先”展平，与 `torch.cat(outputs, dim=0)` 的预测顺序严格对齐；顺序采样可跨 mini-batch 延续隐藏状态但需 `detach` 切断旧计算图，随机采样则每个 batch 重新初始化状态。
+  - **RNN 训练函数层级与模型生命周期**：`train_epoch_ch8` 负责一个 epoch 内的前向、loss、反传、裁剪与更新；`train_ch8` 负责多 epoch 调度并周期性调用 `predict_ch8` 展示生成效果。重复执行 `train_ch8(net,...)` 会继续训练同一个 `net`，不会自动重置参数；若要比较“全新模型训练 500 epoch”，必须先重新创建 `net`。
   - **分类头理解**：D2L 的 `GAP → Linear` 可改为 `1×1 Conv → GAP`；无额外非线性时二者可表示等价线性分类映射。GAP 会损失精确空间位置，但显著减少参数。
 
 ### 章节 Checklist
@@ -78,7 +82,8 @@
 - [x] 8.2 文本预处理（文本读取/清洗、word/char 分词、Vocab、Counter/词频排序、`<unk>`、token↔ID 与 corpus 编码已掌握）
 - [x] 8.3 语言模型（计数概率、N-gram、随机采样、顺序分区、序列 batch/标签构造与 `SeqDataLoader` 封装已掌握）
 - [x] 8.4 循环神经网络（RNN）（理论部分已完成：隐藏状态、参数共享、困惑度、梯度裁剪等）
-- [ ] 8.5 循环神经网络的从零开始实现（下一步）
+- [x] 8.5 循环神经网络的从零开始实现（One-Hot/时间步 Shape、隐藏状态、输出拼接、文本生成、训练循环、状态 detach、梯度裁剪与完整实跑已完成）
+- [ ] 8.6 循环神经网络的简洁实现（下一步）
 
 ---
 
@@ -97,7 +102,7 @@
 ---
 
 ## 🛠️ API 速查表 (API Cheatsheet)
-> 按功能场景分组，持续更新。当前覆盖到 D2L 第 8 章 8.4「循环神经网络（RNN）」理论部分（已完成），下一步进入 RNN 的从零代码实现，并保留 Kaggle Digit Recognizer 端到端实践相关 API。
+> 按功能场景分组，持续更新。当前覆盖到 D2L 第 8 章 8.5「循环神经网络的从零开始实现」（已完成），下一步进入 8.6 RNN 简洁实现，并保留 Kaggle Digit Recognizer 端到端实践相关 API。
 
 ### 📐 Tensor 创建、Shape 与基础运算
 | 当你想要... | 用这个 | 核心作用 / Shape 直觉 |
@@ -123,6 +128,8 @@
 | 指定图像/连续特征浮点类型 | `dtype=torch.float32` | 常用于网络输入与参数计算 |
 | 指定分类标签整数类型 | `dtype=torch.long` | 等价 `torch.int64`；`CrossEntropyLoss` 的类别索引标签常用 |
 | 取指定维度最大值索引 | `x.argmax(dim=1)` | 分类 logits `(N,C)` 常变为预测类别 `(N,)` |
+| One-Hot 编码类别 ID | `F.one_hot(x, num_classes)` | 将整数 ID 张量在末尾新增类别维；RNN 中 `(T,B) → (T,B,V)` |
+| 二维转置 | `x.T` | 交换二维张量的两个维度；RNN 中常把 `(B,T)` 变成 `(T,B)` 以按时间步遍历 |
 
 ### 🧩 维度拼接、堆叠与切片
 | 当你想要... | 用这个 | 核心作用 / Shape 直觉 |
@@ -153,6 +160,7 @@
 | 清空模型参数梯度 | `optimizer.zero_grad()` | 防止不同训练轮次的梯度继续累加 |
 | 关闭梯度跟踪 | `with torch.no_grad():` | 推理/评估时减少图构建与内存开销 |
 | 从计算图分离 | `x.detach()` | 返回不再继续追踪梯度的 Tensor 视图/张量表示 |
+| 原地切断历史计算图 | `x.detach_()` | 原地分离当前 Tensor；RNN 顺序采样中常用于保留隐藏状态数值但阻止梯度跨 mini-batch 继续回传 |
 | 纯推理模式 | `with torch.inference_mode():` | 关闭训练所需的 autograd 跟踪，并进一步省去部分推理期版本计数/视图跟踪开销；适合验证、测试与部署推理 |
 
 ### 🧹 Pandas 数据预处理
@@ -2830,8 +2838,6 @@ BN 的主线可压缩为：`Linear/Conv 输出 → 当前 mini-batch 按 feature
 ### 语言模型阶段小结
 8.3「语言模型」核心内容已完成。当前已能从计数语言模型与 N-gram 出发解释 next-token 概率建模，读懂 bigram 的错位 `zip` 构造，并完整追踪长 corpus 如何转换成 `(X,Y)` mini-batch。随机采样方面，已掌握随机偏移、`num_subseqs / batch_size / num_batches`、完整子序列起点与 `shuffle`；顺序分区方面，已掌握有效 token 截断、`reshape(batch_size,-1)` 构造并行时间流、沿列方向按 `num_steps` 切 batch，以及为什么相邻 mini-batch 的同一行保持连续。`SeqDataLoader` 以理解“选择采样策略 + 保存数据参数 + 迭代时产出 `(X,Y)`”为验收标准，不要求背诵封装代码。下一步正式进入 8.4 循环神经网络（RNN），重点开始理解隐藏状态如何沿时间递归传递。
 
-## 📖 8.4 RNN理论
-
 ### [工单-368] ❓ RNN 与 MLP 的本质区别是什么？
 - **核心疑问**: 循环神经网络相比普通 MLP 到底多了什么，为什么能处理序列历史？
 - **底层解释**: 基础 RNN 在当前时刻不仅接收 `x_t`，还接收上一时刻隐藏状态 `h_{t-1}`：`h_t = φ(W_hh h_{t-1} + W_hx x_t + b_h)`。其中 `W_hh h_{t-1}` 是时间递归通路；去掉这一项后，各时间步只根据当前输入独立计算，不再携带历史信息，结构上就退化为逐时间步应用同一个前馈映射。
@@ -2874,4 +2880,96 @@ BN 的主线可压缩为：`Linear/Conv 输出 → 当前 mini-batch 按 feature
 
 ### RNN 理论阶段小结
 8.4「循环神经网络（RNN）」理论部分已完成。当前已能从序列建模需求解释为什么需要隐藏状态，并理解 `W_hx` 与 `W_hh` 的分工、可学习性与跨时间步参数共享；能够用平均交叉熵解释困惑度，并理解梯度裁剪在长时间反向传播中的作用、局限和潜在副作用。对稳定训练方面，已明确 LayerNorm 与 gradient clipping 可以互补使用；术语上也能区分 Recurrent NN、Recursive NN 与 GNN。当前阶段先以“理论完成”记录，下一步进入 RNN 的从零代码实现，重点把隐藏状态初始化、时间步循环、输出拼接、参数注册与训练循环落到 PyTorch 代码。
+
+## 📖 8.5 循环神经网络的从零开始实现
+
+### [工单-376] ❓ 为什么 RNN 输入要从 `(batch,time)` 转成 `(time,batch)`？
+- **核心疑问**: 原始 `X.shape=(B,T)` 已经能表示一个 batch，为什么还要先 `X.T`？
+- **底层解释**: 从零实现的 `rnn(inputs,...)` 使用 `for X in inputs` 沿第 0 维循环，因此必须把“时间”放到第 0 维。`X.T` 将 `(B,T)` 变为 `(T,B)`，再经过 `F.one_hot(..., vocab_size)` 得到 `(T,B,V)`；此后每轮循环取出的 `X_t.shape=(B,V)`，正好表示“当前时间步下整个 batch 的输入”。
+- **纠偏锚点**: 转置不是为了改变样本内容，而是为了把遍历顺序从“按样本”改成“按时间步”。
+
+### [工单-377] ❓ `W_xh.shape=(vocab_size,num_hiddens)` 为什么必须这样设计？
+- **核心疑问**: 当前时间步的 One-Hot 输入是 `(B,V)`，为什么输入到隐藏层的权重就是 `(V,H)`？
+- **底层解释**: `W_xh` 负责把词表维度映射到隐藏维度。矩阵乘法要求 `(B,V) @ (V,H) → (B,H)`，因此第一维必须等于输入特征数 `V=vocab_size`，第二维必须等于隐藏单元数 `H=num_hiddens`。同理，`W_hh:(H,H)` 负责隐藏→隐藏，`W_hq:(H,V)` 负责隐藏→词表 logits。
+- **纠偏锚点**: 权重 Shape 由“输入维度 → 输出维度”决定，不是任意指定。
+
+### [工单-378] ❓ `Y = H @ W_hq + b_q` 与 `outputs.append(Y)` 分别表示什么？
+- **核心疑问**: `H` 已经是当前时间步的隐藏状态，为什么还要再算一个 `Y`，最后又为什么要拼接？
+- **底层解释**: `H.shape=(B,H)` 是历史与当前输入融合后的隐藏表示；乘 `W_hq.shape=(H,V)` 后得到 `Y.shape=(B,V)`，其中每一行是当前样本对“下一个 token 属于词表中各类别”的 raw logits。每个时间步都产生一个 `Y_t`，先用列表保存，再 `torch.cat(outputs, dim=0)` 按时间优先拼成 `(T·B,V)`，方便一次性交给交叉熵。
+- **纠偏锚点**: `Y` 是 logits，不是隐藏状态，也不是已经做过 Softmax 的概率。
+
+### [工单-379] 🐛 `H, = state` 报 `too many values to unpack (expected 1)`
+- **💻 触发代码**: `H, = state`
+- **🩸 原始报错**: `ValueError: too many values to unpack (expected 1)`
+- **🧠 底层原因**: D2L 从零 RNN 约定 `state` 是只装一个隐藏状态 Tensor 的单元素 tuple，即 `(H,)`。Python 中真正创建单元素 tuple 的关键是逗号：`(H,)` 是 tuple，而 `(H)` 只是普通括号表达式，仍然等于 `H`。若 `state` 直接是 Shape `(B,H)` 的 Tensor，`H, = state` 会尝试沿第 0 维把多行拆给一个变量，于是报错。
+- **💊 修复方案**: `return (torch.zeros((batch_size,num_hiddens), device=device),)`；打包用 `(H,)`，解包用 `H, = state`。
+
+### [工单-380] ❓ `RNNModelScratch` 这个包装类到底负责什么？
+- **核心疑问**: 已经写了 `get_params / init_rnn_state / rnn`，为什么还要再建一个类？
+- **底层解释**: `RNNModelScratch` 把“参数初始化、状态初始化、前向函数”统一封装成模型接口。`__init__` 保存 `vocab_size/num_hiddens` 并调用外部传入的 `get_params`；`__call__` 负责把输入 `(B,T)` 转成 One-Hot `(T,B,V)` 后转交 `forward_fn`；`begin_state` 统一创建隐藏状态。它本身不是新的数学模型，而是工程包装层。
+- **纠偏锚点**: `get_params` 是自定义函数，通过参数传进类里；不是 Python/PyTorch 内置函数。
+
+### [工单-381] ❓ `predict_ch8` 为什么要把 `prefix[0]` 单独拿出来，再循环 `prefix[1:]`？
+- **核心疑问**: 已知前缀为什么不能全部一次性放进循环？第一个循环明明“不预测”，为什么还要调用 `net()`？
+- **底层解释**: `outputs` 必须先放一个起始 token，才能让 `get_input()` 有“上一个 token”可喂给 RNN；因此先写入 `prefix[0]`。随后遍历 `prefix[1:]`：每次把 `outputs[-1]` 喂进 `net()` 更新隐藏状态，再把真实的下一个前缀 token 追加到 `outputs`。这一阶段的目标是 warm-up——让隐藏状态吸收完整已知前缀，而不是使用模型自己的预测。
+- **纠偏锚点**: 第一个 `for` 是“用真实前缀更新 H”；第二个 `for` 才是“用模型输出继续自回归生成”。
+
+### [工单-382] ❓ `argmax` 和最后的 `''.join(...)` 在文本生成里做什么？
+- **核心疑问**: `y` 已经是网络输出，为什么还要 `argmax`，最后又为什么查 `idx_to_token`？
+- **底层解释**: `y.shape=(1,V)` 保存词表中每个 token 的预测 logit，`argmax(dim=1)` 取最高分对应的 token ID；这个 ID 被加入 `outputs`，下一步又作为输入反馈给模型。生成结束后，`[vocab.idx_to_token[i] for i in outputs]` 把所有 token ID 反查成字符/词元，`''.join(...)` 再把它们拼成最终字符串。
+- **纠偏锚点**: `argmax` 是从“所有候选分数”里选一个 ID；`idx_to_token + join` 是把 ID 序列还原成人类可读文本。
+
+### [工单-383] ❓ 训练时为什么要 `y = Y.T.reshape(-1)`？
+- **核心疑问**: `Y.shape=(B,T)` 已经是标签，为什么还要先转置再拉平？
+- **底层解释**: 从零 RNN 的预测输出按时间步依次 `append(Y_t)`，最后 `torch.cat(...,dim=0)` 的行顺序是 `t1` 的所有 batch、`t2` 的所有 batch……因此标签必须用同样的“时间优先”顺序。`Y.T` 将 `(B,T)` 变成 `(T,B)`，`reshape(-1)` 再变成长度 `T·B` 的一维标签，和 `y_hat.shape=(T·B,V)` 一一对齐。
+- **纠偏锚点**: 直接 `Y.reshape(-1)` 会按“样本优先”展开，与当前 `y_hat` 的行顺序错位。
+
+### [工单-384] ❓ 顺序采样和随机采样时隐藏状态为什么处理不同？
+- **核心疑问**: 为什么随机采样每个 batch 都 `begin_state()`，顺序采样却保留上一批的 state 并执行 `detach_()`？
+- **底层解释**: 随机采样后的相邻 mini-batch 在原始 corpus 中通常不连续，上一批末尾状态不能当作下一批历史，因此每批重新初始化；顺序分区中同一行跨 batch 连续，所以可以传递状态值。但若不 `detach`，autograd 会把当前 batch 的反向传播一路连到此前所有 batch，计算图越来越长、内存持续增长，因此要保留 state 数值但切断旧计算图。
+- **纠偏锚点**: `detach` 不是“忘掉历史状态”，而是“保留状态数值，停止跨 batch 追梯度”。
+
+### [工单-385] ❓ 梯度范数为什么要用两个 `sum`，又为什么要把所有参数的梯度一起算？
+- **核心疑问**: `sqrt(sum(sum(p.grad**2) for p in params))` 为什么既对每个参数张量求和，又要在参数之间继续累加？
+- **底层解释**: 一个模型的“整体梯度向量”实际上由所有参数张量的梯度元素拼接而成。内层 `torch.sum(p.grad**2)` 把当前参数张量里的所有梯度元素平方后求和；外层 Python `sum(...)` 再把 `W_xh/W_hh/b_h/W_hq/b_q...` 各张量的平方和累加；最后开平方，得到整个模型梯度向量的 global L2 norm。若超过阈值，再让所有参数梯度共同乘 `theta/norm`。
+- **纠偏锚点**: 两层 `sum` 对应“两层容器”：参数张量内部的元素，以及模型中的多个参数张量。
+
+### [工单-386] ❓ 为什么一个训练分支要 `zero_grad()`，另一个看起来不需要？
+- **核心疑问**: `torch.optim.Optimizer` 分支显式调用 `updater.zero_grad()`，从零实现的 `d2l.sgd` 分支为什么没有？
+- **底层解释**: PyTorch 内置优化器只在 `step()` 时更新参数，不会自动清梯度，所以训练循环必须显式 `zero_grad()`；D2L 手写 `sgd` 在更新参数后会在内部把每个 `p.grad` 清零，因此外部不再重复调用。二者只是清零动作放置位置不同。
+- **纠偏锚点**: 不是“从零实现不需要清梯度”，而是“清梯度被封装进 updater 里面了”。
+
+### [工单-387] ❓ `train_epoch_ch8`、`train_ch8` 和 `predict_ch8` 是什么关系？
+- **核心疑问**: 为什么训练函数里没有直接调用 `predict_ch8`，最终却能打印生成文本？
+- **底层解释**: `train_epoch_ch8` 是底层训练函数，只负责一个 epoch 内遍历 batch、前向得到 `y_hat`、算 loss、反传、梯度裁剪和参数更新；`train_ch8` 是外层总调度器，循环多个 epoch，并定义 `predict = lambda prefix: predict_ch8(...)`，每隔若干 epoch 调用它查看生成效果。训练本身的“预测”是 `y_hat,state = net(X,state)`；`predict_ch8` 只是把当前模型包装成连续文本生成流程。
+- **纠偏锚点**: 训练中的预测 = `net(...)` 产生 logits；推理生成 = `predict_ch8(...)` 反复调用 `net(...)`，不反传、不更新参数。
+
+### [工单-388] 🐛 梯度裁剪中误写 `params.grad` 导致 AttributeError
+- **💻 触发代码**: `for param in params: params.grad[:] *= theta / norm`
+- **🩸 原始报错**: `AttributeError: 'list' object has no attribute 'grad'`
+- **🧠 底层原因**: `params` 是装有多个参数 Tensor 的 Python list，本身没有 `.grad`；循环变量 `param` 才是当前具体参数 Tensor。
+- **💊 修复方案**: `for param in params: param.grad[:] *= theta / norm`。
+
+### [工单-389] ❓ D2L “随机采样”示例为什么容易让结果比较产生误解？
+- **核心疑问**: 书末只把 `train_ch8(..., use_random_iter=True)` 打开就报告随机采样结果，但 `train_iter` 之前是默认创建的，这两处开关是否等价？
+- **底层解释**: `train_ch8` 里的 `use_random_iter=True` 只控制训练时“每个 batch 是否重新初始化隐藏状态”；真正决定数据迭代器使用 `seq_data_iter_random` 还是 `seq_data_iter_sequential` 的，是创建 `train_iter` 时 `load_data_time_machine(..., use_random_iter=...)` 的参数。因此要做严格的“真实随机采样”实验，应同时让数据迭代器和状态处理采用随机采样设置。D2L 书中该处示例复用了此前的 `train_iter`，容易让读者把两层开关混为一谈。
+- **纠偏锚点**: “数据怎么切”由 `train_iter` 决定；“state 怎么处理”由 `train_epoch_ch8(..., use_random_iter)` 决定。
+
+### [工单-390] ❓ 为什么反复执行同一个 `train_ch8(net,...)`，困惑度会从 4.x 一路降到 1.2？
+- **核心疑问**: 代码和 `num_epochs=500` 都没变，为什么多运行几次结果越来越低？
+- **底层解释**: `train_ch8` 会原地更新 `net.params`，但不会重新初始化 `net`。因此同一个单元格执行 3 次不是三次独立的“500 epoch 实验”，而是同一模型累计训练约 1500 epoch；每次 `Animator` 又会重新画一张 0→500 的图，视觉上很容易误以为模型从头开始。要做公平的 fresh-run 比较，必须先重新 `net = RNNModelScratch(...)`，再只训练一次。
+- **纠偏锚点**: `train_ch8(net,...)` = 继续炼当前这炉；`net = RNNModelScratch(...)` = 重新开一炉。
+
+### [工单-391] ❓ 训练困惑度接近 1，是否代表这个小 RNN 已经“语言能力很强”？
+- **核心疑问**: 继续续训后训练 PPL 已到 1.2 左右，是不是模型已经很好？
+- **底层解释**: 当前只使用约 10000 个字符的小语料，基础 RNN 连续训练很多 epoch 后可以大量记忆训练文本，因此训练 PPL 接近 1 更多说明“对这份训练语料非常熟”，不等于对新文本也有同样泛化能力。极低训练损失/困惑度需要结合验证/测试语料判断是否过拟合。
+- **纠偏锚点**: “训练集几乎背下来”与“真正学会语言分布”不是同一件事。
+
+### [工单-392] ❓ `nn.GRU` 在这段训练代码中为什么被单独提到？
+- **核心疑问**: `state` 处理分支的注释里出现 `nn.GRU`，它和当前从零 RNN 有什么关系？
+- **底层解释**: `nn.GRU` 是 PyTorch 已封装的门控循环单元（Gated Recurrent Unit），属于基础 RNN 的改进版本，内部用门控机制控制信息保留与更新。它仍只维护一个隐藏状态 Tensor；而 `nn.LSTM` 会维护两个状态。当前章节不要求展开 GRU 公式，只需理解训练函数为了兼容不同循环网络实现，才会对 `state` 的数据结构做不同判断。
+- **纠偏锚点**: 当前 8.5 的主线仍是基础 RNN；`nn.GRU` 这里只是兼容性注释，不是本节新增必学模型。
+
+### RNN 从零实现阶段小结
+8.5「循环神经网络的从零开始实现」已完成。当前已经能够从 `X(B,T)` 出发，完整追踪 `X.T → One-Hot(T,B,V) → 逐时间步 X_t(B,V) → H_t(B,H) → logits Y_t(B,V) → cat(T·B,V)` 的 Shape 链；能够解释 `W_xh/W_hh/W_hq` 的维度来源与时间共享，理解 `(H,)` 状态 tuple 的打包/解包，以及 `RNNModelScratch` 对参数、状态和前向函数的工程封装。文本生成方面，已理解 prefix warm-up、隐藏状态累积、argmax 自回归和 token ID→字符还原；训练方面，已理解 `Y.T.reshape(-1)` 的时间优先对齐、顺序/随机采样下 state 的不同处理、`detach`、全局梯度范数与 gradient clipping、内置优化器与手写 SGD 的梯度清零差异，以及 `train_epoch_ch8 / train_ch8 / predict_ch8` 的函数层级。实跑过程中完成了 `params.grad → param.grad` 等 Bug 排查，并识别出 Notebook 中重复执行 `train_ch8` 会续训同一个模型、导致训练 PPL 持续下降乃至记忆小语料的现象。下一步进入 8.6「循环神经网络的简洁实现」，重点对照 PyTorch 高级 API 与当前从零实现的接口和 Shape。
 
