@@ -1,8 +1,8 @@
 # 深度学习学习日志 (Study Log)
 
 ## 📌 当前学习进度 (Current Progress)
-- **最近更新时间**: 2026-10-07
-- **当前学习章节**: 第8章 8.5「循环神经网络的从零开始实现」已完成：已能从 `X.shape=(batch_size,num_steps)` 追踪到 `X.T → one_hot → (num_steps,batch_size,vocab_size)`，逐时间步推导 `X_t / H_t / Y_t` 的 Shape，理解 `W_xh/W_hh/W_hq` 的维度来源、隐藏状态 tuple 封装、时间步输出拼接、文本生成 warm-up、自回归预测、训练时标签对齐、顺序/随机采样下的状态管理与 `detach`、全局梯度裁剪及 `train_epoch_ch8 → train_ch8 → predict_ch8` 的函数层级。已完成从零 RNN 的完整训练与文本生成实跑，并排查了梯度裁剪变量误写与 Notebook 重复续训导致困惑度变化的问题。下一步进入 8.6「循环神经网络的简洁实现」。
+- **最近更新时间**: 2026-10-08
+- **当前学习章节**: 第8章 8.6「循环神经网络的简洁实现」已完成：能够使用 `nn.RNN` 自动创建/初始化可训练参数，区分 `output`（最后一层在所有时间步的隐藏输出）和 `h_n`（各层最后时间步的隐藏状态）；掌握 `RNNModel(nn.Module)` 的 One-Hot→RNN→reshape→Linear→logits 链路、多层/双向 RNN 的状态 Shape、`begin_state()` 及 `.to(device)` 的参数迁移。复用 `d2l.train_ch8` 完成小语料和《时光机器》完整 D2L 语料（170580 字符）训练，并观察到隐藏维度、训练轮数、训练吞吐量与损失波动的差异。实验已按学习目的收尾，不继续追求训练困惑度极限；下一步进入 8.7「通过时间反向传播」（BPTT）。
 - **核心掌握概念**:
   - **张量与 Shape**：掌握广播、矩阵乘法、reshape/Flatten、batch 维与设备迁移；遇到网络报错优先沿 `(N,C,H,W)` 追踪维度。
   - **自动微分与训练循环**：理解计算图、链式法则/VJP、梯度累积，以及 `zero_grad → forward → loss → backward → step` 的训练链路；区分 `train()/eval()` 与 `no_grad()`。
@@ -37,6 +37,12 @@
   - **文本生成 / Warm-up**：`predict_ch8` 先用 `prefix[0]` 作为起始输入，再遍历 `prefix[1:]` 只更新隐藏状态、不使用模型预测，从而让 `H` 吸收完整已知前缀；之后每一步把上一轮输出 token 再喂回 RNN，并用 `argmax` 选择最高 logit 的 token ID。
   - **RNN 训练中的标签与状态管理**：`Y.T.reshape(-1)` 将标签按“时间步优先”展平，与 `torch.cat(outputs, dim=0)` 的预测顺序严格对齐；顺序采样可跨 mini-batch 延续隐藏状态但需 `detach` 切断旧计算图，随机采样则每个 batch 重新初始化状态。
   - **RNN 训练函数层级与模型生命周期**：`train_epoch_ch8` 负责一个 epoch 内的前向、loss、反传、裁剪与更新；`train_ch8` 负责多 epoch 调度并周期性调用 `predict_ch8` 展示生成效果。重复执行 `train_ch8(net,...)` 会继续训练同一个 `net`，不会自动重置参数；若要比较“全新模型训练 500 epoch”，必须先重新创建 `net`。
+  - **`nn.RNN` 的模块化与初始化**：`nn.RNN(input_size=V, hidden_size=H, num_layers=L, bidirectional=...)` 自动创建并初始化权重/偏置；例如 `weight_ih_l0.shape=(H,V)`、`weight_hh_l0.shape=(H,H)`，与手写时矩阵存储方向不同。单层 RNN 默认用均匀分布初始化，可用 `rnn_layer.parameters()` 交给优化器。
+  - **RNN 输出/最终状态 Shape**：默认 time-major 输入 `(T,B,V)`；单向 `output.shape=(T,B,H)`、`h_n.shape=(L,B,H)`，双向则分别为 `(T,B,2H)`、`(2L,B,H)`。`output` 是最后一层在所有时间步的隐藏表示，并非字符 logits；`h_n` 保存所有层/方向的最终状态（本例单层单向有 `output[-1]≈h_n[-1]`）。
+  - **简洁版语言模型前向链路**：`X(B,T) → X.T → One-Hot(T,B,V) → nn.RNN → Y(T,B,H) → reshape(T·B,H) → nn.Linear(H,V) → logits(T·B,V)`；标签保持 `Y_label.T.reshape(-1)`，逐时间步预测与标签一一对齐。`nn.RNN` 的状态本身为 Tensor，而手写版 `(H,)` 是单元素 tuple，不可盲目互换。
+  - **初始化状态与 Device**：`begin_state()` 的 RNN 状态 Shape 为 `(num_directions*num_layers,B,H)`；从零实现通过 `get_params(...,device)` 在目标设备直接创建权重，`nn.Module` 可先在 CPU 创建，再用 `net.to(device)` 同步搬运循环层与线性层参数（也支持构造时指定设备）。
+  - **时序卷积与 CNN/RNN 混合**：RNN 的每个时间步由数据语义决定，字符任务对应 token，视频任务可对应整帧 CNN 特征；`Conv1d(kernel_size=1)` 可替代逐时间步的 Linear 分类头（调整维度），`kernel_size=3` 会融合邻近时间步，但自回归预测必须保证因果性，避免使用未来隐藏状态泄漏标签。
+  - **RNN 训练与泛化实验**：使用 `d2l.train_ch8()` 复用 SGD、交叉熵、状态 detach 与梯度裁剪；`max_tokens=-1` 加载 D2L 完整《时光机器》预处理语料 170580 字符，词表 28。PPL 衡量真值概率的几何平均尺度，不是“每 N 个字符猜对一次”；低训练 PPL 不能替代未见文本上的泛化评估。
   - **分类头理解**：D2L 的 `GAP → Linear` 可改为 `1×1 Conv → GAP`；无额外非线性时二者可表示等价线性分类映射。GAP 会损失精确空间位置，但显著减少参数。
 
 ### 章节 Checklist
@@ -83,7 +89,8 @@
 - [x] 8.3 语言模型（计数概率、N-gram、随机采样、顺序分区、序列 batch/标签构造与 `SeqDataLoader` 封装已掌握）
 - [x] 8.4 循环神经网络（RNN）（理论部分已完成：隐藏状态、参数共享、困惑度、梯度裁剪等）
 - [x] 8.5 循环神经网络的从零开始实现（One-Hot/时间步 Shape、隐藏状态、输出拼接、文本生成、训练循环、状态 detach、梯度裁剪与完整实跑已完成）
-- [ ] 8.6 循环神经网络的简洁实现（下一步）
+- [x] 8.6 循环神经网络的简洁实现（`nn.RNN` 自动参数/输出与状态 Shape、`RNNModel` 分类头/设备、训练与全文语料实验已完成）
+- [ ] 8.7 通过时间反向传播（BPTT，下一步）
 
 ---
 
@@ -102,7 +109,7 @@
 ---
 
 ## 🛠️ API 速查表 (API Cheatsheet)
-> 按功能场景分组，持续更新。当前覆盖到 D2L 第 8 章 8.5「循环神经网络的从零开始实现」（已完成），下一步进入 8.6 RNN 简洁实现，并保留 Kaggle Digit Recognizer 端到端实践相关 API。
+> 按功能场景分组，持续更新。当前覆盖到 D2L 第 8 章 8.6「循环神经网络的简洁实现」（已完成），下一步进入 8.7 BPTT，并保留 Kaggle Digit Recognizer 端到端实践相关 API。
 
 ### 📐 Tensor 创建、Shape 与基础运算
 | 当你想要... | 用这个 | 核心作用 / Shape 直觉 |
@@ -335,6 +342,19 @@
 | 读取 Kaggle 提交模板 | `pd.read_csv("sample_submission.csv")` | 保留官方 `ImageId` 顺序和列名 |
 | 写入预测列 | `submission["Label"] = predictions` | 将模型输出与模板行顺序一一对应 |
 | 保存最终提交文件 | `submission.to_csv("submission.csv", index=False)` | 只保存 `ImageId,Label` 等业务列，不输出 Pandas 行索引 |
+
+### 🔁 RNN 简洁实现（PyTorch）
+| 当你想要... | 用这个 | 核心作用 / Shape 直觉 |
+|:---|:---|:---|
+| 创建自动管理参数的 RNN | `nn.RNN(input_size=V, hidden_size=H, num_layers=L)` | 创建可学习循环权重、偏置并自动初始化；默认输入为 `(T,B,V)` |
+| 创建双向 RNN | `nn.RNN(V,H,num_layers=L,bidirectional=True)` | 输出隐藏特征最后维为 `2H`，最终状态首维为 `2L` |
+| 查看 RNN 内部权重 | `rnn_layer.weight_ih_l0` / `rnn_layer.weight_hh_l0` | 分别为 `(H,V)`、`(H,H)`；PyTorch Linear/RNN 内部与手写矩阵乘法方向约定不同 |
+| 从输入序列得到输出和状态 | `Y, h_n = rnn_layer(X, h_0)` | 单向：`Y:(T,B,H)` 为最后一层所有时刻；`h_n:(L,B,H)` 为所有层最终状态 |
+| 初始化隐藏状态 | `torch.zeros((D*L,B,H), device=device)` | `D=1` 单向 / `D=2` 双向，供 `nn.RNN` 接收 |
+| 把 RNN 输出转为字符 logits | `linear(Y.reshape(-1,Y.shape[-1]))` | 单向时 `(T,B,H)→(T·B,H)→(T·B,V)`；线性层是词表分类头 |
+| 移动整套 RNNModel 到 GPU | `net.to(device)` | 将注册的 RNN、Linear 参数一并迁移，而不必逐个张量处理 |
+| 完整加载 D2L 时间机器语料 | `d2l.load_data_time_machine(B,T,max_tokens=-1)` | 不将预处理后的 corpus 截断为默认前 10000 token；本次得到 170580 字符、V=28 |
+| 复用 D2L 的字符级训练函数 | `d2l.train_ch8(net,train_iter,vocab,lr,epochs,device)` | 对 `nn.Module` 使用 `torch.optim.SGD`，训练的 PPL 需与验证 PPL 区分 |
 
 ### 🛠️ d2l 工程辅助函数
 | 当你想要... | 用这个 | 核心作用 |
@@ -2972,4 +2992,65 @@ BN 的主线可压缩为：`Linear/Conv 输出 → 当前 mini-batch 按 feature
 
 ### RNN 从零实现阶段小结
 8.5「循环神经网络的从零开始实现」已完成。当前已经能够从 `X(B,T)` 出发，完整追踪 `X.T → One-Hot(T,B,V) → 逐时间步 X_t(B,V) → H_t(B,H) → logits Y_t(B,V) → cat(T·B,V)` 的 Shape 链；能够解释 `W_xh/W_hh/W_hq` 的维度来源与时间共享，理解 `(H,)` 状态 tuple 的打包/解包，以及 `RNNModelScratch` 对参数、状态和前向函数的工程封装。文本生成方面，已理解 prefix warm-up、隐藏状态累积、argmax 自回归和 token ID→字符还原；训练方面，已理解 `Y.T.reshape(-1)` 的时间优先对齐、顺序/随机采样下 state 的不同处理、`detach`、全局梯度范数与 gradient clipping、内置优化器与手写 SGD 的梯度清零差异，以及 `train_epoch_ch8 / train_ch8 / predict_ch8` 的函数层级。实跑过程中完成了 `params.grad → param.grad` 等 Bug 排查，并识别出 Notebook 中重复执行 `train_ch8` 会续训同一个模型、导致训练 PPL 持续下降乃至记忆小语料的现象。下一步进入 8.6「循环神经网络的简洁实现」，重点对照 PyTorch 高级 API 与当前从零实现的接口和 Shape。
+
+## 📖 8.6 循环神经网络的简洁实现
+
+### [工单-393] ❓ `nn.RNN` 是否自动创建并初始化 `W_xh / W_hh`？
+- **核心疑问**: 从零实现需要 `get_params()` 和 `torch.randn(...)*0.01`，换成 `nn.RNN(V,H)` 后参数从哪里来？
+- **底层解释**: `nn.RNN` 是带参数的标准 `nn.Module`，构造时会创建输入→隐藏、隐藏→隐藏的权重以及相应偏置；单层单向 RNN 的 `weight_ih_l0.shape=(H,V)`、`weight_hh_l0.shape=(H,H)`，权重和偏置默认采用与 `H` 相关的均匀分布初始化。PyTorch 内部权重存储方向与此前手写的 `(V,H)` 不同，但实现的映射相同。参数自动注册到 `parameters()`，无需手写 `get_params`。
+- **纠偏锚点**: API 省掉的是创建/初始化/循环的样板代码，而不是取消了可学习的 `W_xh/W_hh`。
+
+### [工单-394] ❓ `nn.RNN` 返回 `(output,h_n)`，为什么两者 Shape 不同？
+- **核心疑问**: `Y=(T,B,H)` 是“三层网络的最终预测分数”吗？为什么 `h_n=(L,B,H)`？
+- **底层解释**: `output` 是最后一层 RNN 在**每个时间步**输出的隐藏特征；`h_n` 是每层 RNN 在序列末端的最终隐藏状态。单向多层：`output:(T,B,H)`，`h_n:(L,B,H)`；双向：`output:(T,B,2H)`，`h_n:(2L,B,H)`。如 `T=5,B=2,H=256,L=3`，输出为 `(5,2,256)` 与 `(3,2,256)`；单向时 `output[-1]` 对应最后一层的最终隐藏状态。
+- **纠偏锚点**: `output` 是隐藏表示，不是下一字符的 logits；双向增加的是方向数量，`h_n` 的每个方向单独保存 `H` 维。
+
+### [工单-395] ❓ `(H,)` 能否直接用 `state_new` 替代？
+- **核心疑问**: 手写 `RNNModelScratch` 返回 `(H,)`，为何 `nn.RNN` 的 `h_n` 直接是 Tensor？
+- **底层解释**: 手写单层 RNN 用 `(H,)` 作为**单元素元组**，内含 `H.shape=(B,H)`；内置 RNN 接收/返回 `h_n` Tensor，Shape 为 `(D·L,B,H)`。单层单向时 `h_n[0]` 对应手写的 `H` 数值语义，但 `(H,)` 与 `h_n` 类型、Shape 不相同，不能直接无条件在各自 forward 中替换。
+- **纠偏锚点**: “表示同一种隐藏状态信息”不等于“Python 容器和维度完全相同”。
+
+### [工单-396] ❓ 为什么隐藏状态还要接 `nn.Linear`，以及输出为何展平成 `(T·B,V)`？
+- **核心疑问**: RNN 已经输出第三层隐藏特征，为什么还需要一个线性层才能预测下一个字符？
+- **底层解释**: RNN 学习上下文表示，线性分类头 `nn.Linear(H,V)` 将每个时间步 `H` 维特征映射为 `V` 个类别 logits；交叉熵驱动 RNN 和分类头端到端联合训练。D2L 的前向路线是 `inputs(B,T)→One-Hot(T,B,V)→nn.RNN→Y(T,B,H)→reshape(T·B,H)→Linear→logits(T·B,V)`，与标签 `Y_label.T.reshape(-1)` 对齐。例如 `T=5,B=2,V=28`，最终 `(10,28)` 指一个 batch 有 10 个预测位置，**不是一个 epoch 总共只有 10 个样本**。
+- **纠偏锚点**: `nn.RNN` 没有自带词表分类头；`W_hq` 若完全冻结为随机值，输出映射可能不佳，但隐藏信息本身并没有直接消失。
+
+### [工单-397] ❓ 双向/多层 RNN 的 `begin_state()` 如何构造？
+- **核心疑问**: `nn.RNN(28,256,num_layers=3,bidirectional=True)` 的初始状态是不是 `(2,32,256)`？
+- **底层解释**: `state.shape=(num_directions*num_layers,batch_size,num_hiddens)`。3 层双向有 `2×3=6` 组状态，所以 `B=32` 时为 `(6,32,256)`；双向最后一层 `output` 的通道维为 `2×256=512`。当前普通 RNN 的初始状态可用 `torch.zeros((D*L,B,H),device=device)`；LSTM 多一个细胞状态，留待后续章节。
+- **纠偏锚点**: 最前一维不是只有方向数，还需要乘网络层数。
+
+### [工单-398] ❓ 为什么从零实现不调用 `.to(device)`，简洁实现却需要？
+- **核心疑问**: 手写 `RNNModelScratch(..., d2l.try_gpu(),get_params,...)` 与 `net=net.to(device)` 到底差在哪？
+- **底层解释**: 从零构造时 `device` 经构造函数传给 `get_params()`，其中 `torch.randn(...,device=device)` 让参数直接创建在 GPU 上；标准 `nn.Module` 的 `nn.RNN` 和 `nn.Linear` 如不显式指定 device，参数默认建在 CPU，调用 `net.to(device)` 会把所有注册的子层/参数一起迁移。也可以在支持的构造函数中直接指定 `device`。
+- **纠偏锚点**: 二者目标相同，差别在“参数创建时放到 GPU”还是“创建之后迁移”。
+
+### [工单-399] ❓ 如何复用 `train_ch8`，以及训练耗时为何不等于 Token/s 的反比？
+- **核心疑问**: 简洁实现吞吐量曾显示约 44.5 万 Token/s、手写版约 5.8 万 Token/s，为何两个 500-epoch 单元格都执行约 15 秒？
+- **底层解释**: 训练函数通过 `isinstance(net,nn.Module)` 为简洁版使用 `torch.optim.SGD(net.parameters(),lr)`，前向/损失/反传和状态截断逻辑可以复用；本次实跑使用 `d2l.train_ch8()`。其中输出的 Token/s 来自**最后一次 epoch 内部计时**，而 VS Code 单元格时长含 500 次训练循环外的绘图、每 10 epoch 文本生成、Notebook 输出等，统计口径不一致。此外实际 GPU 计算还需同步才能精确计时，所以不能把一次报告的 Token/s 当作整段训练的平均吞吐。
+- **纠偏锚点**: 比性能要控制模型大小/数据/初始化与计时边界，不能仅凭一条单 epoch 速度结论宣称整体快 9 倍。
+
+### [工单-400] ❓ 为什么同为 500 epoch，简洁实现能更快把 10000 字符语料拟合到低 PPL？
+- **核心疑问**: 手写版 `H=512` 第一次 500 epoch 约 PPL=5.1，累计 1000 epoch 到 1.3；简洁版 `H=256` 一次 500 epoch 达 1.3，`H=512` 一次 500 epoch 报告 1.0，是否说明 `nn.RNN` 学习能力必然更强？
+- **底层解释**: 这是本次**具体实测**，不等于内置 RNN 算法天生更容易收敛。两种实现的初始化分布、hidden size、随机轨迹以及实现细节不同，条件尚未严格控制。`H` 从 256 变 512 时，仅 `W_hh` 参数量从 `256²=65536` 增至 `512²=262144`（4 倍），模型容量与计算开销同时增加。本次简洁版 512 的单次运行约 25.6s，慢于 256 的约 15.6s；PPL 报告 `1.0` 只保留一位小数，不代表数学上恰好等于 1。
+- **纠偏锚点**: “大模型在小训练集上记忆更充分”≠“对未见文本生成更好”；不同代码/初始化的收敛速度需要公平实验才可归因。
+
+### [工单-401] ❓ 如何训练 D2L《时光机器》完整预处理语料，PPL=6.2 是猜中率 1/6.2 吗？
+- **核心疑问**: 之前只加载前 10000 字符，现在想让 RNN 看完整文本，该怎么改；全文训练得到 PPL=6.2 如何解释？
+- **底层解释**: 调用 `d2l.load_data_time_machine(batch_size=32,num_steps=35,max_tokens=-1)`，本次 `len(train_iter.corpus)=170580`、`len(vocab)=28`。`H=512, lr=1` 在该语料上训练 20 epoch（fresh net）得到 PPL≈6.2、运行约 15.6s；另一次重新初始化后训练 100 epoch 得到 PPL≈4.1、约 75s。困惑度是 `exp(平均交叉熵)`，即真实 token 概率的几何平均的倒数；`PPL=6.2` 对应几何平均真值概率约 `1/6.2`，但**不是“每 6.2 个字符预测对 1 个”的准确率**。
+- **纠偏锚点**: “训练全文”指 D2L 预处理后的完整《时光机器》文本文件，而不是《动手学深度学习》整本教材；数据更大、模式更多，训练 PPL 不宜与 10000 字符实验直接比较。
+
+### [工单-402] 🐛 继续训练时困惑度从约 4 突然飙升至约 12
+- **💻 触发代码**: 先执行 `rnn_layer=nn.RNN(len(vocab),512)`，但把 `# net=RNNModel(rnn_layer,...)` 与 `# net=net.to(device)` 注释，再执行 `d2l.train_ch8(net,train_iter,vocab,lr,num_epochs,device)`。
+- **🩸 原始现象**: 该次训练曲线起点 PPL≈4，随后逐渐升高，在本轮约 80 epoch 附近达到约 12，并生成明显重复、退化的字符文本。
+- **🧠 底层原因（已确认/待验证）**: 创建新 `rnn_layer` 不会自动替换旧 `net.rnn`；重新构建 `net` 的两行被注释，所以这次并非重新初始化整个模型，而是在先前训练的 `net` 上继续更新。PPL 上升反映这段训练不稳定；`lr=1` 的较大 SGD 步长是合理的怀疑因素，但**不能只凭曲线断言发生了梯度爆炸**。即使使用梯度裁剪也不保证 loss 单调下降。
+- **💊 修复方案 / 阶段决定**: 如以后做正式训练，建议保存低 PPL checkpoint，考虑减小/调度学习率并记录训练与验证 PPL；本轮仅用于理解 RNN API 与学习流程，按用户决定不继续调参，直接转入 8.7。
+
+### [工单-403] ❓ 能否用 CNN 的卷积分类头替换 RNN 的 `nn.Linear`，以及时序与像素是否一一对应？
+- **核心疑问**: `nn.Linear(H,V)` 可否改成 `Conv1d(H,V,kernel_size=1)`？把 `Conv2d` 与 RNN 组合时是不是一个时间步对应一个像素？
+- **底层解释**: `kernel_size=1` 的 `Conv1d` 在时间轴每个位置独立对 `H` 个通道做仿射映射，可通过 `(T,B,H)↔(B,H,T)` 的维度置换实现与逐时间步 Linear 等价的分类头。更宽的时序卷积核能融合邻近时间步的特征，但自回归预测要用因果卷积避免未来信息泄漏。时间步代表何种对象取决于数据：字符任务是一个 token，视频任务可以是一整帧图像经 `Conv2d` 提出的特征向量，并由 RNN 负责帧间运动变化；不天然等于一个像素。
+- **纠偏锚点**: `Conv2d` 抓二维空间特征，RNN 抓时间序列变化；是否“每步一个像素”是输入组织选择，不是混合模型必然规则。
+
+### RNN 简洁实现阶段小结
+8.6「循环神经网络的简洁实现」**已完成**。掌握 `nn.RNN` 的自动参数/初始化、`output` 与 `h_n` 的维度区别、隐藏状态与 logits 不同、`nn.Linear` 分类头、`RNNModel` 封装、`begin_state()` 的层数×方向数、多层/双向 RNN 的状态设计、以及 `.to(device)` 与从零参数创建的设备区别；能直接复用 `d2l.train_ch8`。实验覆盖 10000 字符小语料（256/512 hidden）与 170580 字符的 D2L 完整《时光机器》语料，理解训练 PPL、Token/s 和整轮耗时的口径区别，以及训练困惑度很低不等于泛化能力更好。续训时遇到 PPL 上升，已区分“新建孤立的 rnn_layer”与“重新创建 net”，对学习率不稳定保留待验证判断。按照当前学习优先级停止超参数试验，下一步进入 8.7「通过时间反向传播」，重点是展开时间计算图、BPTT、截断与 `detach` 的理论关系。
 
