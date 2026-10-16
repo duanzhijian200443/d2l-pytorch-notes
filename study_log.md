@@ -1,137 +1,153 @@
 # 深度学习学习日志 (Study Log)
 
 ## 📌 当前学习进度 (Current Progress)
-- **最近更新时间**: 2026-10-13
-- **当前学习章节**: 第9章 9.2「长短期记忆网络（LSTM）」**核心理论、公式、教材从零实现代码阅读、`nn.LSTM` 接口以及课堂练习讨论已完成**。掌握三个门 `I_t/F_t/O_t`、候选记忆 `C̃_t`、记忆元 `C_t` 与隐藏状态 `H_t` 的职责；能解释门控记忆的直接梯度路径与 ResNet/GRU 的联系、独立记忆并非无损保留所有历史、多层 LSTM 中 `C` 沿同层时间传递而 `H` 还承担跨层输入、重新利用现存记忆不等于恢复已丢失信息。**未独立从零手搓完整 LSTM、未重新训练或实测 PPL/速度**；根据本轮学习决定，**LSTM 至此结课**。**下一步：9.3「深度循环神经网络」，随后快速学习 9.4「双向循环神经网络」；将深入实现重点留给 Attention、Transformer、mini-GPT。**
-- **核心掌握概念**:
-  - **张量与 Shape**：掌握广播、矩阵乘法、reshape/Flatten、batch 维与设备迁移；遇到网络报错优先沿 `(N,C,H,W)` 追踪维度。
-  - **自动微分与训练循环**：理解计算图、链式法则/VJP、梯度累积，以及 `zero_grad → forward → loss → backward → step` 的训练链路；区分 `train()/eval()` 与 `no_grad()`。
-  - **分类与泛化**：理解 logits、Softmax、交叉熵，以及训练/验证/测试集、欠拟合/过拟合、权重衰减和 Dropout 的作用。
-  - **PyTorch 模块化**：掌握 `nn.Module`、`nn.Sequential`、`nn.Parameter`、初始化、`state_dict`、模型保存/加载和 GPU 训练。
-  - **CNN 基础**：理解局部连接与权重共享、卷积核/感受野、padding/stride、输入/输出通道及卷积输出 Shape。
-  - **1×1 卷积与池化**：`1×1` 卷积在每个空间位置做通道线性重组，可升/降通道；池化负责空间下采样，GAP 将每个通道整张特征图压成一个值。
-  - **经典 CNN 演进**：LeNet 建立“卷积特征提取 + 分类头”主线；AlexNet 强化深层 CNN；VGG 引入规则化重复 block；NiN 用 `1×1` 卷积增强逐位置非线性并推广 GAP。
-  - **GoogLeNet / Inception**：同一输入完整送入多个并行分支，以 `1×1 / 3×3 / 5×5 / Pool` 提取多尺度特征；大卷积前用 `1×1` bottleneck 降计算，最后 `torch.cat(..., dim=1)` 沿通道拼接。
-  - **Batch Normalization**：训练时按 feature/channel 用 mini-batch 统计量标准化，再以可学习 `γ、β` 恢复表达自由度；推理时改用训练期累计的 running mean/var。
-  - **ResNet / 残差连接**：核心为 `H(x)=F(x)+x`；shortcut 能直接恒等传递时不额外变换，Shape 不一致时用 `1×1 Conv` 对齐；同一 stage 主要靠多个 Residual 逐层细化特征，后续 stage 的首个 Residual 负责通道翻倍与空间下采样。
-  - **序列模型 / 自回归建模**：理解联合概率可按时间顺序分解为 `p(x_1)·p(x_2|x_1)·...·p(x_t|x_{<t})`；马尔可夫假设用最近 `τ` 个历史点近似完整历史依赖，潜变量模型则用隐藏状态 `h_t` 汇总过去信息。
-  - **滑动窗口数据映射**：`tau=τ` 时，将长度为 `T` 的一维序列构造成 `features.shape=(T-τ, τ)`、`labels.shape=(T-τ,1)`；每一行输入连续 `τ` 个历史值，标签为紧随其后的下一个值。
-  - **文本清洗与 Tokenization**：理解 `readlines()` 按行读取文本，使用 `re.sub('[^A-Za-z]+', ' ', line).strip().lower()` 做基础清洗；`tokenize(..., 'word')` 按词切分，`tokenize(..., 'char')` 按字符切分。
-  - **Vocabulary / Token ID**：理解 `Vocab` 的核心目标是建立 `token ↔ integer id` 双向映射；`token_to_idx` 为字典，`idx_to_token` 为列表，`<unk>` 用于承接词表外 token。
-  - **词频统计与排序**：理解 `collections.Counter`、`counter.items()`、`sorted(..., key=lambda x: x[1], reverse=True)` 的数据流；`lambda x: x[1]` 表示按 `(token, freq)` 中的词频排序。
-  - **Corpus 编码**：能解释 `corpus = [vocab[token] for line in tokens for token in line]` 同时完成二维 token 列表拍平与 token→ID 编码；字符级语料词表小但序列更长，词级语料序列短但词表更大。
-  - **计数语言模型 / N-gram**：理解 `p(x,x')=p(x)p(x'|x)`，并可用 `n(x)/n`、`n(x,x')/n(x)` 由语料频次估计概率；bigram/trigram 本质是统计连续 2/3 个 token 的共现。
-  - **随机序列采样**：理解随机偏移、完整子序列数 `num_subseqs=(len(corpus)-1)//num_steps`、起点集合与 `random.shuffle(initial_indices)`；打乱的是子序列顺序，不打乱子序列内部 token。
-  - **序列 Batch 与标签**：能区分 `num_steps`（每条序列长度）、`num_subseqs`（可用子序列总数）、`batch_size`（每批子序列条数）、`num_batches`（完整批次数）；语言模型中 `X,Y.shape=(batch_size,num_steps)`，`Y` 是 `X` 整体右移一位的目标序列。
-  - **随机采样的 Batch 独立性**：随机采样时不同 mini-batch 之间不保证沿原始 corpus 连续，因此不能默认把上一批的时间状态直接接到下一批；“独立”指批次间无固定连续关系，而非样本在概率论上独立。
-  - **顺序分区 / Sequential Partitioning**：理解顺序分区会先截取可被 `batch_size` 整除的有效 token，再 `reshape(batch_size, -1)` 成多条并行长链，随后沿时间维每次切 `num_steps`；因此相邻 mini-batch 的同一行在原始 corpus 中保持连续，可为后续 RNN 隐状态跨 batch 传递建立条件。
-  - **随机偏移与尾部截断**：随机采样通过直接切片 `corpus[offset:]` 隐式扣除偏移；顺序分区保留原 corpus，所以用 `len(corpus)-offset-1` 显式扣除。`(... // batch_size) * batch_size` 会向下截成 `batch_size` 的整数倍，以保证 reshape 合法。
-  - **SeqDataLoader 封装**：理解 `self.data_iter_fn = d2l.seq_data_iter_random` 保存的是函数本身而非调用结果；`__iter__()` 让对象可直接参与 `for X,Y in data_iter`，内部再调用选定的采样函数。
-  - **RNN 隐藏状态与递归更新**：理解基础 RNN 用 `h_t = φ(W_hh h_{t-1} + W_hx x_t + b_h)` 把“当前输入 + 历史状态”融合成新的隐藏状态；去掉 `W_hh h_{t-1}` 后就失去时间记忆，退化为逐时间步独立处理的前馈映射。
-  - **RNN 参数与时间共享**：理解 `W_hx` 负责输入→隐藏、`W_hh` 负责隐藏→隐藏，二者都是可学习参数，可采用常规随机初始化；它们彼此不是同一个矩阵，但会在所有时间步重复共享同一套参数。
-  - **困惑度 Perplexity**：理解语言模型平均交叉熵 `π` 经 `exp(π)` 得到困惑度；可直观理解为“平均相当于在多少个等可能选项中犹豫”，数值越低越好，1 为理想极限。
-  - **梯度裁剪**：理解 `g ← min(1, θ/||g||)·g` 会在梯度范数超过阈值时按比例缩短梯度、保持方向不变，主要用于抑制 RNN 时间链上的梯度爆炸；过度裁剪会压扁梯度幅度信息、拖慢优化，且不能解决梯度消失。
-  - **LayerNorm 与梯度裁剪的互补**：理解 LayerNorm 主要稳定中间表示/隐藏状态的尺度，梯度裁剪主要限制反向传播时异常大的梯度，两者可以同时使用，作用机制不同、不能互相替代。
-  - **Recurrent / Recursive / GNN 区分**：循环神经网络沿时间链传播状态，递归神经网络沿树结构递归组合节点，图神经网络则在一般图上通过邻居聚合/message passing 更新节点表示；链和树都可视为特殊图结构。
-  - **RNN 从零实现的 Shape 主线**：输入 `X.shape=(B,T)` 先转置为 `(T,B)`，再 One-Hot 为 `(T,B,V)`；循环中每个时间步 `X_t.shape=(B,V)`，隐藏状态 `H.shape=(B,H)`；`W_xh.shape=(V,H)`、`W_hh.shape=(H,H)`、`W_hq.shape=(H,V)`，因此 `Y_t.shape=(B,V)`，最终按时间优先拼成 `(T·B,V)`。
-  - **文本生成 / Warm-up**：`predict_ch8` 先用 `prefix[0]` 作为起始输入，再遍历 `prefix[1:]` 只更新隐藏状态、不使用模型预测，从而让 `H` 吸收完整已知前缀；之后每一步把上一轮输出 token 再喂回 RNN，并用 `argmax` 选择最高 logit 的 token ID。
-  - **RNN 训练中的标签与状态管理**：`Y.T.reshape(-1)` 将标签按“时间步优先”展平，与 `torch.cat(outputs, dim=0)` 的预测顺序严格对齐；顺序采样可跨 mini-batch 延续隐藏状态但需 `detach` 切断旧计算图，随机采样则每个 batch 重新初始化状态。
-  - **RNN 训练函数层级与模型生命周期**：`train_epoch_ch8` 负责一个 epoch 内的前向、loss、反传、裁剪与更新；`train_ch8` 负责多 epoch 调度并周期性调用 `predict_ch8` 展示生成效果。重复执行 `train_ch8(net,...)` 会继续训练同一个 `net`，不会自动重置参数；若要比较“全新模型训练 500 epoch”，必须先重新创建 `net`。
-  - **`nn.RNN` 的模块化与初始化**：`nn.RNN(input_size=V, hidden_size=H, num_layers=L, bidirectional=...)` 自动创建并初始化权重/偏置；例如 `weight_ih_l0.shape=(H,V)`、`weight_hh_l0.shape=(H,H)`，与手写时矩阵存储方向不同。单层 RNN 默认用均匀分布初始化，可用 `rnn_layer.parameters()` 交给优化器。
-  - **RNN 输出/最终状态 Shape**：默认 time-major 输入 `(T,B,V)`；单向 `output.shape=(T,B,H)`、`h_n.shape=(L,B,H)`，双向则分别为 `(T,B,2H)`、`(2L,B,H)`。`output` 是最后一层在所有时间步的隐藏表示，并非字符 logits；`h_n` 保存所有层/方向的最终状态（本例单层单向有 `output[-1]≈h_n[-1]`）。
-  - **简洁版语言模型前向链路**：`X(B,T) → X.T → One-Hot(T,B,V) → nn.RNN → Y(T,B,H) → reshape(T·B,H) → nn.Linear(H,V) → logits(T·B,V)`；标签保持 `Y_label.T.reshape(-1)`，逐时间步预测与标签一一对齐。`nn.RNN` 的状态本身为 Tensor，而手写版 `(H,)` 是单元素 tuple，不可盲目互换。
-  - **初始化状态与 Device**：`begin_state()` 的 RNN 状态 Shape 为 `(num_directions*num_layers,B,H)`；从零实现通过 `get_params(...,device)` 在目标设备直接创建权重，`nn.Module` 可先在 CPU 创建，再用 `net.to(device)` 同步搬运循环层与线性层参数（也支持构造时指定设备）。
-  - **时序卷积与 CNN/RNN 混合**：RNN 的每个时间步由数据语义决定，字符任务对应 token，视频任务可对应整帧 CNN 特征；`Conv1d(kernel_size=1)` 可替代逐时间步的 Linear 分类头（调整维度），`kernel_size=3` 会融合邻近时间步，但自回归预测必须保证因果性，避免使用未来隐藏状态泄漏标签。
-  - **RNN 训练与泛化实验**：使用 `d2l.train_ch8()` 复用 SGD、交叉熵、状态 detach 与梯度裁剪；`max_tokens=-1` 加载 D2L 完整《时光机器》预处理语料 170580 字符，词表 28。PPL 衡量真值概率的几何平均尺度，不是“每 N 个字符猜对一次”；低训练 PPL 不能替代未见文本上的泛化评估。
-  - **BPTT 的时间展开与共享参数**：把 RNN 看成沿时间展开的计算图，`h_t=f(x_t,h_{t-1},W)`；正向沿 `h_1→h_2→…` 传播状态，反向沿时间反向应用链式法则。同一 RNN 层在所有时间步复用同一套权重，梯度贡献累加到相同 `.grad`；不同 RNN 层的权重各自独立。增加 `num_steps` 增加计算/反传路径，不新增参数；增加 `num_layers` 会新增参数。
-  - **隐藏状态的梯度递推与雅可比转置**：令总损失 `L=Σ_t ℓ_t`，则 `∇_{h_t}L = ∇_{h_t}ℓ_t + J_{t+1,t}^T ∇_{h_{t+1}}L`，其中 `J_{t+1,t}=∂h_{t+1}/∂h_t`；最后时刻没有未来项。五步示例中 `h_2` 接收 `ℓ_2、ℓ_3、ℓ_4、ℓ_5` 各自**经对应链式路径**产生的梯度贡献，并非直接相加损失标量。所有时间步损失取平均时还需相应的 `1/T` 系数。
-  - **RNN 的局部梯度变换与数值稳定性**：简化线性循环 `h_t=W_hx x_t+W_hh h_{t-1}` 时，`J_{t,t-1}=W_hh`，传回上一状态的梯度需乘 `W_hh^T`；带 `tanh` 时 `J^T=W_hh^T diag(1-h_t²)`（列向量约定）。连续雅可比矩阵乘积可导致梯度消失或爆炸，梯度贡献可能抵消，并非时间越长梯度一定越大。
-  - **8.7 课后练习：特征值与幂迭代**：由 `Mv_i=λ_i v_i` 归纳证明 `M^k v_i=λ_i^k v_i`；实对称矩阵的任意向量可在正交特征向量基下展开，若存在严格占优的最大绝对值特征值且起始向量在该方向的系数非零，则不断乘 `M` 后经归一化会越来越接近主特征向量所在直线。若 `λ₁=3, λ₂=-3`，两方向模长同样放大而符号交替，不能断言收敛至唯一方向。
-  - **8.7 课后练习：谱与 RNN 稳定性**：固定对称矩阵模型的方向系数会按 `λ_i^k` 缩放：`|λ_i|<1` 衰减、`|λ_i|>1` 放大；例 `0.8^100≈2.04×10^-10`。真实 RNN 的逐时刻雅可比一般随时间变化且可能非对称，不能只靠某一个权重矩阵的特征值就判断梯度走势。正交初始化、LayerNorm、谱范数约束、学习率控制、缩短反传范围及门控结构各有适用性，不保证单独消除梯度爆炸。
-  - **截断 BPTT 与隐藏信息保留的区分**：顺序采样 `num_steps=35` 时跨 batch 传递数值状态并 `state.detach()`，保留历史摘要但不让当前损失的梯度穿过截断边界；`torch.zeros_like(state)` 则会清空状态数值。截断是梯度路径的限制，无法保证隐藏信息无损保存；普通 RNN 的有限维状态可能逐步遗忘较早信息，这构成学习 GRU/LSTM 门控机制的动机。
-  - **GRU 门控公式与分工**：`R_t=σ(X_tW_xr+H_(t-1)W_hr+b_r)`，`Z_t=σ(X_tW_xz+H_(t-1)W_hz+b_z)`，`H̃_t=tanh(X_tW_xh+(R_t⊙H_(t-1))W_hh+b_h)`，`H_t=Z_t⊙H_(t-1)+(1-Z_t)⊙H̃_t`；重置门控制候选状态内历史的参与程度，更新门控制最终旧状态与候选状态的融合。`R≈0,Z≈0` 时新状态主要由当前输入生成，`Z≈1` 时旧状态近似直接保持（不管 `R` 如何）；门对隐藏特征逐元素控制，而非整批共享一个标量。
-  - **GRU 与 ResNet、梯度稳定性的联系**：`H_t=H_(t-1)+(1-Z_t)⊙(H̃_t-H_(t-1))` 是等价残差形式，`Z≈1` 提供近似恒等的状态/梯度传递路径，可改善长期依赖；但 `0.95^100≈0.00592` 说明门值长期小于 1 时直接路径也会衰减，真实梯度还有门函数与候选状态的导数，不能保证完全避免梯度消失。更新门控制记忆的保持/修正，不意味着所有隐藏单元一直不更新。
-  - **GRU 的参数学习 / BPTT**：`R_t`、`Z_t` 是由输入和上一隐藏状态动态计算的中间张量，不是直接由优化器更新的独立参数；真正训练的是各门的 `W` 和 `b`。BPTT 既计算 `∂L/∂H_t` 向过去传递梯度，也计算 `∂L/∂W` 更新共享参数。以单标量更新门为例（固定 `h_(t-1)` 与 `h̃_t`）`∂L/∂z_t=(∂L/∂h_t)(h_(t-1)-h̃_t)`，再经过 sigmoid 导数传给门控权重。跨 batch `detach` 保留状态数值、不允许跨界梯度回到旧图，当前 batch 的权重梯度仍正常生成。
-  - **GRU 工程实现区别与学习策略**：D2L 从零公式采用 `(R⊙H)@W_hh`（先筛选旧特征再线性混合），PyTorch `nn.GRU` 候选状态的循环分支采用 `R⊙(H@W_hh+b_hh)`（先混合再门控），一般不等价；Shape 相同不表示计算相同。单层单向 `nn.GRU(28,256)` 默认 `(T,B,28)→output(T,B,256),h_n(1,B,256)`；只需复用之前的 RNN 训练/输出封装。用户已跟敲教材参数初始化与前向，不额外进行完整独立复刻、参数对比或多轮实验。
-  - **LSTM 三门、候选记忆与公式**：`I_t=σ(X_tW_xi+H_(t-1)W_hi+b_i)`、`F_t=σ(X_tW_xf+H_(t-1)W_hf+b_f)`、`O_t=σ(X_tW_xo+H_(t-1)W_ho+b_o)`、`C̃_t=tanh(X_tW_xc+H_(t-1)W_hc+b_c)`；`C_t=F_t⊙C_(t-1)+I_t⊙C̃_t`、`H_t=O_t⊙tanh(C_t)`。`F/I/O` 分别控制保留、写入、输出。GRU 晚于 LSTM，属于简化替代方案，不是保证更优秀的升级版。
-  - **LSTM 记忆元、输出范围与梯度**：`C_t` 保存并更新内部记忆，数值不受 `(-1,1)` 的直接范围约束；`H_t` 经输出门和 `tanh` 后幅度受限，但输出的 `tanh` 不修改内部 `C_t`。在冻结门值、仅考察直接记忆通路时，`∂C_t/∂C_(t-1)=diag(F_t)`；只有 `F≈1` 时接近恒等，`0.99^100≈0.366`。完整 BPTT 还有经过 H、门控和候选状态的间接路径，不能断言总梯度恒为 1。与 GRU 的 `Z` 门、ResNet shortcut 均存在直通思想但结构不同。
-  - **LSTM 层间关系与恢复记忆边界**：各层拥有独立的 `C_t^(ℓ),H_t^(ℓ)`，同层两种状态都随时间传递，层间通常由 `H_t^(ℓ)` 作为上一层至下一层输入，`C` 不默认跨层直接传输。一层遗忘不必然意味着其余层也遗忘，但其他层并不保证保留相同信息。输出门重新打开可读取仍编码于当前 `C_t` 的记忆；如果信息在所有可用状态中均已真正丢失，仅调大输出门无法凭空找回。Attention 是可访问保留的历史位置的另一种机制，不等于无限或完美记忆。
-  - **LSTM 代码与学习策略**：从零代码状态为 `(H,C)`，先由 `X,H_(t-1)` 求门与候选，更新 `C` 后更新 `H`。手写 D2L 四组循环参数，主要参数量为 `4(dh+h²+h)`；`nn.LSTM` 返回 `output,(h_n,c_n)`，单向默认 `X:(T,B,d)`、`output:(T,B,h)`、两种最终状态 `(L,B,h)`。练习 1/2/5 仅分析超参数、词级预测和时间序列回归改造，未实际训练；研究精力后续集中到 mini-GPT。
+
+- **最近更新时间**: 2026-10-16  
+- **当前学习章节**: 第9章 9.5「机器翻译与数据集」**理论、核心数据处理代码和 Shape 问答已完成**。理解机器翻译使用双语 `source/target` 文本对，而非直接从 source 右移获得翻译目标；掌握 Tokenization、源/目标词表、`<pad>/<bos>/<eos>/<unk>`、截断与填充、`valid_len` 及 `build_array_nmt` 的数据流。能区分 PAD 与 EOS 的有效性、BOS 作为解码器起点和预测目标的区别，以及 Padding Mask / Causal Mask 的作用；知道翻译 Batch 四张量的 Shape 与这些技术在 decoder-only mini-GPT 中的适用边界。**本节仅完成课堂讨论、教材代码阅读和示例推演；未独立运行代码、加载数据集或训练模型**。**下一步：9.6 编码器—解码器架构 → 9.7 Seq2Seq，随后重点学习 Attention、Transformer 并开发 mini-GPT。**  
+- **核心掌握概念**:  
+  - **9.5 双语句子对与监督学习**：机器翻译以 `(source,target)` 组成样本，两条序列可以不同语言、不同长度；与 8.3 在同一条单语序列内构造 next-token 目标不同。后续 Seq2Seq 仍可在目标语言内部右移，构造 decoder input/label。
+  - **9.5 清洗、分词与双词表**：`preprocess_nmt` 清理不间断空格、统一小写、分离标点；`tokenize_nmt` 按行与制表符拆出 source/target，再按空格分词。源语言和目标语言各有独立词表，`min_freq=2` 将低频词统一映射为 `<unk>`；`<pad>` 补齐长度、`<bos>` 作为解码起点、`<eos>` 表示序列结束。
+  - **9.5 Padding、Truncation 与 valid_len**：`build_array_nmt(lines,vocab,num_steps)` 将 Token 映射为 ID、追加 EOS、调用 `truncate_pad` 截断/填充到固定 `T`、再通过 `(array != pad_id).type(torch.int32).sum(1)` 统计逐行有效长度；`array.shape=(N,T)`、`valid_len.shape=(N,)`。EOS 若没有被截掉应计入 valid_len，PAD 不计。BOS 只有实际位于输入序列中才按非 PAD 规则计入。
+  - **9.5 Batch Shape、掩码与损失**：`load_data_nmt` 使 Batch 包含 `src_array,src_valid_len,tgt_array,tgt_valid_len`，形状依次 `(B,T),(B,),(B,T),(B,)`。在后续模型中利用有效长度对填充部分生成 Attention Padding Mask 或过滤 Loss，不能与防止自回归模型查看未来位置的 Causal Mask 混淆。
+  - **9.5 对 mini-GPT 的适用性**：Decoder-only mini-GPT 使用单语言 Token 流、同源错位目标 `X=tokens[:-1],Y=tokens[1:]`，不需要机器翻译双词表。第一版可用固定长度连续文本块 `(B,T)` 免去 Padding/valid_len，但仍必须施加 Causal Mask；EOS 常用于样本结束，BOS 是否需要取决于数据格式。
+  - **9.4 双向 RNN 的前后文建模**：使用两套互不共享权重的正向与反向循环层，前者按 `t-1 → t`、后者按 `t+1 → t` 更新隐状态；拼接 `[H_forward_t; H_backward_t]` 得到每个位置的双向上下文表示。适用于整个输入序列可获取的编码、文本分类、序列标注等任务。  
+  - **9.4 双向输出 Shape 与因果边界**：默认 `(T,B,d)` 输入，双向、`L` 层、单方向隐藏宽度 `h` 时，顶层逐时间步的 `Y/output` 是 `(T,B,2h)`，所有层与方向的最终 `H/h_n` 是 `(2L,B,h)`；`H` 的最后一维不拼成 `2h`。预测下一 Token 若把待预测位置作为反向上下文，会导致未来信息泄漏，不能直接将普通双向 RNN 用作 GPT 式自回归生成。  
+  - **9.3 深度 RNN**：每层隐状态 `H_t^(l)` 同时依赖纵向的 `H_t^(l-1)` 与横向的 `H_(t-1)^(l)`，约定 `H_t^(0)=X_t`；多层堆叠主要由 `num_layers` 控制，`hidden_size` 与时间步数在普通 RNN 中就已经存在。单向两层 LSTM 的 `output` 仅含顶层各时刻输出，层数体现在 `h_n/c_n` 的首维；更深不代表必然更准确。  
+  - **张量与 Shape**：掌握广播、矩阵乘法、reshape/Flatten、batch 维与设备迁移；遇到网络报错优先沿 `(N,C,H,W)` 追踪维度。  
+  - **自动微分与训练循环**：理解计算图、链式法则/VJP、梯度累积，以及 `zero_grad → forward → loss → backward → step` 的训练链路；区分 `train()/eval()` 与 `no_grad()`。  
+  - **分类与泛化**：理解 logits、Softmax、交叉熵，以及训练/验证/测试集、欠拟合/过拟合、权重衰减和 Dropout 的作用。  
+  - **PyTorch 模块化**：掌握 `nn.Module`、`nn.Sequential`、`nn.Parameter`、初始化、`state_dict`、模型保存/加载和 GPU 训练。  
+  - **CNN 基础**：理解局部连接与权重共享、卷积核/感受野、padding/stride、输入/输出通道及卷积输出 Shape。  
+  - **1×1 卷积与池化**：`1×1` 卷积在每个空间位置做通道线性重组，可升/降通道；池化负责空间下采样，GAP 将每个通道整张特征图压成一个值。  
+  - **经典 CNN 演进**：LeNet 建立“卷积特征提取 \+ 分类头”主线；AlexNet 强化深层 CNN；VGG 引入规则化重复 block；NiN 用 `1×1` 卷积增强逐位置非线性并推广 GAP。  
+  - **GoogLeNet / Inception**：同一输入完整送入多个并行分支，以 `1×1 / 3×3 / 5×5 / Pool` 提取多尺度特征；大卷积前用 `1×1` bottleneck 降计算，最后 `torch.cat(..., dim=1)` 沿通道拼接。  
+  - **Batch Normalization**：训练时按 feature/channel 用 mini-batch 统计量标准化，再以可学习 `γ、β` 恢复表达自由度；推理时改用训练期累计的 running mean/var。  
+  - **ResNet / 残差连接**：核心为 `H(x)=F(x)+x`；shortcut 能直接恒等传递时不额外变换，Shape 不一致时用 `1×1 Conv` 对齐；同一 stage 主要靠多个 Residual 逐层细化特征，后续 stage 的首个 Residual 负责通道翻倍与空间下采样。  
+  - **序列模型 / 自回归建模**：理解联合概率可按时间顺序分解为 `p(x_1)·p(x_2|x_1)·...·p(x_t|x_{<t})`；马尔可夫假设用最近 `τ` 个历史点近似完整历史依赖，潜变量模型则用隐藏状态 `h_t` 汇总过去信息。  
+  - **滑动窗口数据映射**：`tau=τ` 时，将长度为 `T` 的一维序列构造成 `features.shape=(T-τ, τ)`、`labels.shape=(T-τ,1)`；每一行输入连续 `τ` 个历史值，标签为紧随其后的下一个值。  
+  - **文本清洗与 Tokenization**：理解 `readlines()` 按行读取文本，使用 `re.sub('[^A-Za-z]+', ' ', line).strip().lower()` 做基础清洗；`tokenize(..., 'word')` 按词切分，`tokenize(..., 'char')` 按字符切分。  
+  - **Vocabulary / Token ID**：理解 `Vocab` 的核心目标是建立 `token ↔ integer id` 双向映射；`token_to_idx` 为字典，`idx_to_token` 为列表，`<unk>` 用于承接词表外 token。  
+  - **词频统计与排序**：理解 `collections.Counter`、`counter.items()`、`sorted(..., key=lambda x: x[1], reverse=True)` 的数据流；`lambda x: x[1]` 表示按 `(token, freq)` 中的词频排序。  
+  - **Corpus 编码**：能解释 `corpus = [vocab[token] for line in tokens for token in line]` 同时完成二维 token 列表拍平与 token→ID 编码；字符级语料词表小但序列更长，词级语料序列短但词表更大。  
+  - **计数语言模型 / N-gram**：理解 `p(x,x')=p(x)p(x'|x)`，并可用 `n(x)/n`、`n(x,x')/n(x)` 由语料频次估计概率；bigram/trigram 本质是统计连续 2/3 个 token 的共现。  
+  - **随机序列采样**：理解随机偏移、完整子序列数 `num_subseqs=(len(corpus)-1)//num_steps`、起点集合与 `random.shuffle(initial_indices)`；打乱的是子序列顺序，不打乱子序列内部 token。  
+  - **序列 Batch 与标签**：能区分 `num_steps`（每条序列长度）、`num_subseqs`（可用子序列总数）、`batch_size`（每批子序列条数）、`num_batches`（完整批次数）；语言模型中 `X,Y.shape=(batch_size,num_steps)`，`Y` 是 `X` 整体右移一位的目标序列。  
+  - **随机采样的 Batch 独立性**：随机采样时不同 mini-batch 之间不保证沿原始 corpus 连续，因此不能默认把上一批的时间状态直接接到下一批；“独立”指批次间无固定连续关系，而非样本在概率论上独立。  
+  - **顺序分区 / Sequential Partitioning**：理解顺序分区会先截取可被 `batch_size` 整除的有效 token，再 `reshape(batch_size, -1)` 成多条并行长链，随后沿时间维每次切 `num_steps`；因此相邻 mini-batch 的同一行在原始 corpus 中保持连续，可为后续 RNN 隐状态跨 batch 传递建立条件。  
+  - **随机偏移与尾部截断**：随机采样通过直接切片 `corpus[offset:]` 隐式扣除偏移；顺序分区保留原 corpus，所以用 `len(corpus)-offset-1` 显式扣除。`(... // batch_size) * batch_size` 会向下截成 `batch_size` 的整数倍，以保证 reshape 合法。  
+  - **SeqDataLoader 封装**：理解 `self.data_iter_fn = d2l.seq_data_iter_random` 保存的是函数本身而非调用结果；`__iter__()` 让对象可直接参与 `for X,Y in data_iter`，内部再调用选定的采样函数。  
+  - **RNN 隐藏状态与递归更新**：理解基础 RNN 用 `h_t = φ(W_hh h_{t-1} + W_hx x_t + b_h)` 把“当前输入 \+ 历史状态”融合成新的隐藏状态；去掉 `W_hh h_{t-1}` 后就失去时间记忆，退化为逐时间步独立处理的前馈映射。  
+  - **RNN 参数与时间共享**：理解 `W_hx` 负责输入→隐藏、`W_hh` 负责隐藏→隐藏，二者都是可学习参数，可采用常规随机初始化；它们彼此不是同一个矩阵，但会在所有时间步重复共享同一套参数。  
+  - **困惑度 Perplexity**：理解语言模型平均交叉熵 `π` 经 `exp(π)` 得到困惑度；可直观理解为“平均相当于在多少个等可能选项中犹豫”，数值越低越好，1 为理想极限。  
+  - **梯度裁剪**：理解 `g ← min(1, θ/||g||)·g` 会在梯度范数超过阈值时按比例缩短梯度、保持方向不变，主要用于抑制 RNN 时间链上的梯度爆炸；过度裁剪会压扁梯度幅度信息、拖慢优化，且不能解决梯度消失。  
+  - **LayerNorm 与梯度裁剪的互补**：理解 LayerNorm 主要稳定中间表示/隐藏状态的尺度，梯度裁剪主要限制反向传播时异常大的梯度，两者可以同时使用，作用机制不同、不能互相替代。  
+  - **Recurrent / Recursive / GNN 区分**：循环神经网络沿时间链传播状态，递归神经网络沿树结构递归组合节点，图神经网络则在一般图上通过邻居聚合/message passing 更新节点表示；链和树都可视为特殊图结构。  
+  - **RNN 从零实现的 Shape 主线**：输入 `X.shape=(B,T)` 先转置为 `(T,B)`，再 One-Hot 为 `(T,B,V)`；循环中每个时间步 `X_t.shape=(B,V)`，隐藏状态 `H.shape=(B,H)`；`W_xh.shape=(V,H)`、`W_hh.shape=(H,H)`、`W_hq.shape=(H,V)`，因此 `Y_t.shape=(B,V)`，最终按时间优先拼成 `(T·B,V)`。  
+  - **文本生成 / Warm-up**：`predict_ch8` 先用 `prefix[0]` 作为起始输入，再遍历 `prefix[1:]` 只更新隐藏状态、不使用模型预测，从而让 `H` 吸收完整已知前缀；之后每一步把上一轮输出 token 再喂回 RNN，并用 `argmax` 选择最高 logit 的 token ID。  
+  - **RNN 训练中的标签与状态管理**：`Y.T.reshape(-1)` 将标签按“时间步优先”展平，与 `torch.cat(outputs, dim=0)` 的预测顺序严格对齐；顺序采样可跨 mini-batch 延续隐藏状态但需 `detach` 切断旧计算图，随机采样则每个 batch 重新初始化状态。  
+  - **RNN 训练函数层级与模型生命周期**：`train_epoch_ch8` 负责一个 epoch 内的前向、loss、反传、裁剪与更新；`train_ch8` 负责多 epoch 调度并周期性调用 `predict_ch8` 展示生成效果。重复执行 `train_ch8(net,...)` 会继续训练同一个 `net`，不会自动重置参数；若要比较“全新模型训练 500 epoch”，必须先重新创建 `net`。  
+  - **`nn.RNN` 的模块化与初始化**：`nn.RNN(input_size=V, hidden_size=H, num_layers=L, bidirectional=...)` 自动创建并初始化权重/偏置；例如 `weight_ih_l0.shape=(H,V)`、`weight_hh_l0.shape=(H,H)`，与手写时矩阵存储方向不同。单层 RNN 默认用均匀分布初始化，可用 `rnn_layer.parameters()` 交给优化器。  
+  - **RNN 输出/最终状态 Shape**：默认 time-major 输入 `(T,B,V)`；单向 `output.shape=(T,B,H)`、`h_n.shape=(L,B,H)`，双向则分别为 `(T,B,2H)`、`(2L,B,H)`。`output` 是最后一层在所有时间步的隐藏表示，并非字符 logits；`h_n` 保存所有层/方向的最终状态（本例单层单向有 `output[-1]≈h_n[-1]`）。  
+  - **简洁版语言模型前向链路**：`X(B,T) → X.T → One-Hot(T,B,V) → nn.RNN → Y(T,B,H) → reshape(T·B,H) → nn.Linear(H,V) → logits(T·B,V)`；标签保持 `Y_label.T.reshape(-1)`，逐时间步预测与标签一一对齐。`nn.RNN` 的状态本身为 Tensor，而手写版 `(H,)` 是单元素 tuple，不可盲目互换。  
+  - **初始化状态与 Device**：`begin_state()` 的 RNN 状态 Shape 为 `(num_directions*num_layers,B,H)`；从零实现通过 `get_params(...,device)` 在目标设备直接创建权重，`nn.Module` 可先在 CPU 创建，再用 `net.to(device)` 同步搬运循环层与线性层参数（也支持构造时指定设备）。  
+  - **时序卷积与 CNN/RNN 混合**：RNN 的每个时间步由数据语义决定，字符任务对应 token，视频任务可对应整帧 CNN 特征；`Conv1d(kernel_size=1)` 可替代逐时间步的 Linear 分类头（调整维度），`kernel_size=3` 会融合邻近时间步，但自回归预测必须保证因果性，避免使用未来隐藏状态泄漏标签。  
+  - **RNN 训练与泛化实验**：使用 `d2l.train_ch8()` 复用 SGD、交叉熵、状态 detach 与梯度裁剪；`max_tokens=-1` 加载 D2L 完整《时光机器》预处理语料 170580 字符，词表 28。PPL 衡量真值概率的几何平均尺度，不是“每 N 个字符猜对一次”；低训练 PPL 不能替代未见文本上的泛化评估。  
+  - **BPTT 的时间展开与共享参数**：把 RNN 看成沿时间展开的计算图，`h_t=f(x_t,h_{t-1},W)`；正向沿 `h_1→h_2→…` 传播状态，反向沿时间反向应用链式法则。同一 RNN 层在所有时间步复用同一套权重，梯度贡献累加到相同 `.grad`；不同 RNN 层的权重各自独立。增加 `num_steps` 增加计算/反传路径，不新增参数；增加 `num_layers` 会新增参数。  
+  - **隐藏状态的梯度递推与雅可比转置**：令总损失 `L=Σ_t ℓ_t`，则 `∇_{h_t}L = ∇_{h_t}ℓ_t + J_{t+1,t}^T ∇_{h_{t+1}}L`，其中 `J_{t+1,t}=∂h_{t+1}/∂h_t`；最后时刻没有未来项。五步示例中 `h_2` 接收 `ℓ_2、ℓ_3、ℓ_4、ℓ_5` 各自**经对应链式路径**产生的梯度贡献，并非直接相加损失标量。所有时间步损失取平均时还需相应的 `1/T` 系数。  
+  - **RNN 的局部梯度变换与数值稳定性**：简化线性循环 `h_t=W_hx x_t+W_hh h_{t-1}` 时，`J_{t,t-1}=W_hh`，传回上一状态的梯度需乘 `W_hh^T`；带 `tanh` 时 `J^T=W_hh^T diag(1-h_t²)`（列向量约定）。连续雅可比矩阵乘积可导致梯度消失或爆炸，梯度贡献可能抵消，并非时间越长梯度一定越大。  
+  - **8.7 课后练习：特征值与幂迭代**：由 `Mv_i=λ_i v_i` 归纳证明 `M^k v_i=λ_i^k v_i`；实对称矩阵的任意向量可在正交特征向量基下展开，若存在严格占优的最大绝对值特征值且起始向量在该方向的系数非零，则不断乘 `M` 后经归一化会越来越接近主特征向量所在直线。若 `λ₁=3, λ₂=-3`，两方向模长同样放大而符号交替，不能断言收敛至唯一方向。  
+  - **8.7 课后练习：谱与 RNN 稳定性**：固定对称矩阵模型的方向系数会按 `λ_i^k` 缩放：`|λ_i|<1` 衰减、`|λ_i|>1` 放大；例 `0.8^100≈2.04×10^-10`。真实 RNN 的逐时刻雅可比一般随时间变化且可能非对称，不能只靠某一个权重矩阵的特征值就判断梯度走势。正交初始化、LayerNorm、谱范数约束、学习率控制、缩短反传范围及门控结构各有适用性，不保证单独消除梯度爆炸。  
+  - **截断 BPTT 与隐藏信息保留的区分**：顺序采样 `num_steps=35` 时跨 batch 传递数值状态并 `state.detach()`，保留历史摘要但不让当前损失的梯度穿过截断边界；`torch.zeros_like(state)` 则会清空状态数值。截断是梯度路径的限制，无法保证隐藏信息无损保存；普通 RNN 的有限维状态可能逐步遗忘较早信息，这构成学习 GRU/LSTM 门控机制的动机。  
+  - **GRU 门控公式与分工**：`R_t=σ(X_tW_xr+H_(t-1)W_hr+b_r)`，`Z_t=σ(X_tW_xz+H_(t-1)W_hz+b_z)`，`H̃_t=tanh(X_tW_xh+(R_t⊙H_(t-1))W_hh+b_h)`，`H_t=Z_t⊙H_(t-1)+(1-Z_t)⊙H̃_t`；重置门控制候选状态内历史的参与程度，更新门控制最终旧状态与候选状态的融合。`R≈0,Z≈0` 时新状态主要由当前输入生成，`Z≈1` 时旧状态近似直接保持（不管 `R` 如何）；门对隐藏特征逐元素控制，而非整批共享一个标量。  
+  - **GRU 与 ResNet、梯度稳定性的联系**：`H_t=H_(t-1)+(1-Z_t)⊙(H̃_t-H_(t-1))` 是等价残差形式，`Z≈1` 提供近似恒等的状态/梯度传递路径，可改善长期依赖；但 `0.95^100≈0.00592` 说明门值长期小于 1 时直接路径也会衰减，真实梯度还有门函数与候选状态的导数，不能保证完全避免梯度消失。更新门控制记忆的保持/修正，不意味着所有隐藏单元一直不更新。  
+  - **GRU 的参数学习 / BPTT**：`R_t`、`Z_t` 是由输入和上一隐藏状态动态计算的中间张量，不是直接由优化器更新的独立参数；真正训练的是各门的 `W` 和 `b`。BPTT 既计算 `∂L/∂H_t` 向过去传递梯度，也计算 `∂L/∂W` 更新共享参数。以单标量更新门为例（固定 `h_(t-1)` 与 `h̃_t`）`∂L/∂z_t=(∂L/∂h_t)(h_(t-1)-h̃_t)`，再经过 sigmoid 导数传给门控权重。跨 batch `detach` 保留状态数值、不允许跨界梯度回到旧图，当前 batch 的权重梯度仍正常生成。  
+  - **GRU 工程实现区别与学习策略**：D2L 从零公式采用 `(R⊙H)@W_hh`（先筛选旧特征再线性混合），PyTorch `nn.GRU` 候选状态的循环分支采用 `R⊙(H@W_hh+b_hh)`（先混合再门控），一般不等价；Shape 相同不表示计算相同。单层单向 `nn.GRU(28,256)` 默认 `(T,B,28)→output(T,B,256),h_n(1,B,256)`；只需复用之前的 RNN 训练/输出封装。用户已跟敲教材参数初始化与前向，不额外进行完整独立复刻、参数对比或多轮实验。  
+  - **LSTM 三门、候选记忆与公式**：`I_t=σ(X_tW_xi+H_(t-1)W_hi+b_i)`、`F_t=σ(X_tW_xf+H_(t-1)W_hf+b_f)`、`O_t=σ(X_tW_xo+H_(t-1)W_ho+b_o)`、`C̃_t=tanh(X_tW_xc+H_(t-1)W_hc+b_c)`；`C_t=F_t⊙C_(t-1)+I_t⊙C̃_t`、`H_t=O_t⊙tanh(C_t)`。`F/I/O` 分别控制保留、写入、输出。GRU 晚于 LSTM，属于简化替代方案，不是保证更优秀的升级版。  
+  - **LSTM 记忆元、输出范围与梯度**：`C_t` 保存并更新内部记忆，数值不受 `(-1,1)` 的直接范围约束；`H_t` 经输出门和 `tanh` 后幅度受限，但输出的 `tanh` 不修改内部 `C_t`。在冻结门值、仅考察直接记忆通路时，`∂C_t/∂C_(t-1)=diag(F_t)`；只有 `F≈1` 时接近恒等，`0.99^100≈0.366`。完整 BPTT 还有经过 H、门控和候选状态的间接路径，不能断言总梯度恒为 1。与 GRU 的 `Z` 门、ResNet shortcut 均存在直通思想但结构不同。  
+  - **LSTM 层间关系与恢复记忆边界**：各层拥有独立的 `C_t^(ℓ),H_t^(ℓ)`，同层两种状态都随时间传递，层间通常由 `H_t^(ℓ)` 作为上一层至下一层输入，`C` 不默认跨层直接传输。一层遗忘不必然意味着其余层也遗忘，但其他层并不保证保留相同信息。输出门重新打开可读取仍编码于当前 `C_t` 的记忆；如果信息在所有可用状态中均已真正丢失，仅调大输出门无法凭空找回。Attention 是可访问保留的历史位置的另一种机制，不等于无限或完美记忆。  
+  - **LSTM 代码与学习策略**：从零代码状态为 `(H,C)`，先由 `X,H_(t-1)` 求门与候选，更新 `C` 后更新 `H`。手写 D2L 四组循环参数，主要参数量为 `4(dh+h²+h)`；`nn.LSTM` 返回 `output,(h_n,c_n)`，单向默认 `X:(T,B,d)`、`output:(T,B,h)`、两种最终状态 `(L,B,h)`。练习 1/2/5 仅分析超参数、词级预测和时间序列回归改造，未实际训练；研究精力后续集中到 mini-GPT。  
   - **分类头理解**：D2L 的 `GAP → Linear` 可改为 `1×1 Conv → GAP`；无额外非线性时二者可表示等价线性分类映射。GAP 会损失精确空间位置，但显著减少参数。
 
 ### 章节 Checklist
-- [x] 2.4 微积分
-- [x] 2.5 自动微分
-- [x] 2.6 概率论
-- [x] 3.1 线性回归理论推导
-- [x] 3.2 线性回归从零开始实现
-- [x] 3.3 线性回归的简洁实现
-- [x] 3.4 softmax回归
-- [x] 3.5 图像分类数据集
-- [x] 3.6 softmax回归的从零开始实现
-- [x] 3.7 softmax回归的简洁实现
-- [x] 4.1 多层感知机
-- [x] 4.2 多层感知机的从零开始实现
-- [x] 4.3 多层感知机的简洁实现
-- [x] 4.4 模型选择、欠拟合和过拟合
-- [x] 4.5 权重衰减
-- [x] 4.6 暂退法
-- [x] 4.7 前向传播、反向传播和计算图
-- [x] 4.8 数值稳定性和模型初始化
-- [x] 4.9 环境和分布偏移（核心内容 4.9.1–4.9.3 已完成；4.9.4–4.9.5 未系统展开）
-- [ ] 4.10 实战Kaggle比赛：预测房价（暂缓，后补）
-- [x] 5.1 层和块
-- [x] 5.2 参数管理
-- [ ] 5.3 延后初始化（本轮未系统展开，后补）
-- [x] 5.4 自定义层
-- [x] 5.5 读写文件
-- [ ] 5.6 GPU（本轮未系统展开，后补）
-- [x] 6.1 从全连接层到卷积
-- [x] 6.2 图像卷积
-- [x] 6.3 填充和步幅
-- [x] 6.4 多输入多输出通道
-- [x] 6.5 池化层（最大/平均池化、输出 Shape、padding/stride、多通道独立池化与 PyTorch `MaxPool2d` 已完成）
-- [x] 6.6 卷积神经网络（LeNet）（结构、逐层 Shape、分类头、GPU 评估/训练与 Fashion-MNIST 实跑已完成）
-- [x] 7.1 深度卷积神经网络（AlexNet）
-- [x] 7.2 使用块的网络（VGG）
-- [x] 7.3 网络中的网络（NiN）（核心结构、1×1 卷积、GAP、分类头与代码排错已完成；修复后训练结果待确认）
-- [x] 7.4 含并行连结的网络（GoogLeNet）（Inception 多分支、1×1 bottleneck、通道拼接、GAP/卷积分类头与 Shape 排错已完成）
-- [x] 7.5 批量规范化（标准化公式、全连接/卷积统计维度、γ/β、moving statistics、momentum、train/eval 与 PyTorch API 已完成）
-- [x] 7.6 残差网络（ResNet）（残差思想、Basic Block、identity/projection shortcut、`1×1 Conv` Shape 对齐、stage/`resnet_block`、`first_block` 与 `b1~b5` 结构已掌握；完成核心手搓与 Shape 推导）
-- [x] 8.1 序列模型（自回归链式分解、马尔可夫假设、潜变量/隐藏状态、固定窗口 `τ` 与滑动窗口监督学习数据映射已掌握）
-- [x] 8.2 文本预处理（文本读取/清洗、word/char 分词、Vocab、Counter/词频排序、`<unk>`、token↔ID 与 corpus 编码已掌握）
-- [x] 8.3 语言模型（计数概率、N-gram、随机采样、顺序分区、序列 batch/标签构造与 `SeqDataLoader` 封装已掌握）
-- [x] 8.4 循环神经网络（RNN）（理论部分已完成：隐藏状态、参数共享、困惑度、梯度裁剪等）
-- [x] 8.5 循环神经网络的从零开始实现（One-Hot/时间步 Shape、隐藏状态、输出拼接、文本生成、训练循环、状态 detach、梯度裁剪与完整实跑已完成）
-- [x] 8.6 循环神经网络的简洁实现（`nn.RNN` 自动参数/输出与状态 Shape、`RNNModel` 分类头/设备、训练与全文语料实验已完成）
-- [x] 8.7 通过时间反向传播（BPTT：梯度递推、雅可比与矩阵连乘、时间共享与层间独立、完整/截断/随机截断、`detach` 与隐藏信息瓶颈；课后练习 1.1～1.3、2 均已完成）
-- [x] 9.1 门控循环单元（GRU：门控机制、残差式理解、参数与 BPTT、Shape、教材代码跟敲、简洁实现与练习讨论已完成；未另做调参/对照训练）
-- [x] 9.2 长短期记忆网络（LSTM：三门、候选/记忆元/隐藏状态、梯度路径、层间状态、代码阅读与课堂练习讨论完成；未独立手搓及新实训）
-- [ ] 9.3 深度循环神经网络（下一节，快速理解多层堆叠）
-- [ ] 9.4 双向循环神经网络（后续，理解双向上下文与因果信息泄漏）
+
+- [x] 2.4 微积分  
+- [x] 2.5 自动微分  
+- [x] 2.6 概率论  
+- [x] 3.1 线性回归理论推导  
+- [x] 3.2 线性回归从零开始实现  
+- [x] 3.3 线性回归的简洁实现  
+- [x] 3.4 softmax回归  
+- [x] 3.5 图像分类数据集  
+- [x] 3.6 softmax回归的从零开始实现  
+- [x] 3.7 softmax回归的简洁实现  
+- [x] 4.1 多层感知机  
+- [x] 4.2 多层感知机的从零开始实现  
+- [x] 4.3 多层感知机的简洁实现  
+- [x] 4.4 模型选择、欠拟合和过拟合  
+- [x] 4.5 权重衰减  
+- [x] 4.6 暂退法  
+- [x] 4.7 前向传播、反向传播和计算图  
+- [x] 4.8 数值稳定性和模型初始化  
+- [x] 4.9 环境和分布偏移（核心内容 4.9.1–4.9.3 已完成；4.9.4–4.9.5 未系统展开）  
+- [ ] 4.10 实战Kaggle比赛：预测房价（暂缓，后补）  
+- [x] 5.1 层和块  
+- [x] 5.2 参数管理  
+- [ ] 5.3 延后初始化（本轮未系统展开，后补）  
+- [x] 5.4 自定义层  
+- [x] 5.5 读写文件  
+- [ ] 5.6 GPU（本轮未系统展开，后补）  
+- [x] 6.1 从全连接层到卷积  
+- [x] 6.2 图像卷积  
+- [x] 6.3 填充和步幅  
+- [x] 6.4 多输入多输出通道  
+- [x] 6.5 池化层（最大/平均池化、输出 Shape、padding/stride、多通道独立池化与 PyTorch `MaxPool2d` 已完成）  
+- [x] 6.6 卷积神经网络（LeNet）（结构、逐层 Shape、分类头、GPU 评估/训练与 Fashion-MNIST 实跑已完成）  
+- [x] 7.1 深度卷积神经网络（AlexNet）  
+- [x] 7.2 使用块的网络（VGG）  
+- [x] 7.3 网络中的网络（NiN）（核心结构、1×1 卷积、GAP、分类头与代码排错已完成；修复后训练结果待确认）  
+- [x] 7.4 含并行连结的网络（GoogLeNet）（Inception 多分支、1×1 bottleneck、通道拼接、GAP/卷积分类头与 Shape 排错已完成）  
+- [x] 7.5 批量规范化（标准化公式、全连接/卷积统计维度、γ/β、moving statistics、momentum、train/eval 与 PyTorch API 已完成）  
+- [x] 7.6 残差网络（ResNet）（残差思想、Basic Block、identity/projection shortcut、`1×1 Conv` Shape 对齐、stage/`resnet_block`、`first_block` 与 `b1~b5` 结构已掌握；完成核心手搓与 Shape 推导）  
+- [x] 8.1 序列模型（自回归链式分解、马尔可夫假设、潜变量/隐藏状态、固定窗口 `τ` 与滑动窗口监督学习数据映射已掌握）  
+- [x] 8.2 文本预处理（文本读取/清洗、word/char 分词、Vocab、Counter/词频排序、`<unk>`、token↔ID 与 corpus 编码已掌握）  
+- [x] 8.3 语言模型（计数概率、N-gram、随机采样、顺序分区、序列 batch/标签构造与 `SeqDataLoader` 封装已掌握）  
+- [x] 8.4 循环神经网络（RNN）（理论部分已完成：隐藏状态、参数共享、困惑度、梯度裁剪等）  
+- [x] 8.5 循环神经网络的从零开始实现（One-Hot/时间步 Shape、隐藏状态、输出拼接、文本生成、训练循环、状态 detach、梯度裁剪与完整实跑已完成）  
+- [x] 8.6 循环神经网络的简洁实现（`nn.RNN` 自动参数/输出与状态 Shape、`RNNModel` 分类头/设备、训练与全文语料实验已完成）  
+- [x] 8.7 通过时间反向传播（BPTT：梯度递推、雅可比与矩阵连乘、时间共享与层间独立、完整/截断/随机截断、`detach` 与隐藏信息瓶颈；课后练习 1.1～1.3、2 均已完成）  
+- [x] 9.1 门控循环单元（GRU：门控机制、残差式理解、参数与 BPTT、Shape、教材代码跟敲、简洁实现与练习讨论已完成；未另做调参/对照训练）  
+- [x] 9.2 长短期记忆网络（LSTM：三门、候选/记忆元/隐藏状态、梯度路径、层间状态、代码阅读与课堂练习讨论完成；未独立手搓及新实训）  
+- [x] 9.3 深度循环神经网络（两轴依赖、纵向堆叠与 `num_layers`、输出及状态 Shape；已完成理论和接口阅读，未本节实训）  
+- [x] 9.4 双向循环神经网络（正反向隐状态更新、特征拼接、`Y/H` 的 Shape、未来信息泄漏；理论与示例阅读完成，未实跑）
+- [x] 9.5 机器翻译与数据集（源/目标序列对、分词词表、特殊 Token、Padding/Truncation、valid_len、Batch Shape、mini-GPT 差异；已完成理论与代码阅读，未独立实跑）
+- [ ] 9.6 编码器—解码器架构（下一节，理解源序列编码、目标序列解码的信息流）
+- [ ] 9.7 Seq2Seq（后续：编码器、解码器、训练与预测）
 
 ---
 
 ## 🗂️ 异常与问题工单
 
 > **示例格式（V6.0 四步极简法则）**：
->
-> ### 🐛 [Bug-001] 问题摘要
-> - **💻 触发代码**: `代码`
-> - **🩸 原始报错**: `系统抛出的原始英文错误`
-> - **🧠 底层原因**: 白话解释，涉及维度必须标明 Shape 变化
+
+> ### 🐛 \[Bug-001\] 问题摘要
+
+> - **💻 触发代码**: `代码`  
+> - **🩸 原始报错**: `系统抛出的原始英文错误`  
+> - **🧠 底层原因**: 白话解释，涉及维度必须标明 Shape 变化  
 > - **💊 修复方案**: `正确代码`
->
+
 > *(纯理论提问可省略触发代码和原始报错，保留"核心疑问"与"底层解释")*
 
 ---
 
 ## 🛠️ API 速查表 (API Cheatsheet)
-> 按功能场景分组，持续更新。当前覆盖到 D2L 第 9 章 9.2「长短期记忆网络（LSTM）」（核心机制、代码阅读与课堂练习讨论已完成），下一步进入 9.3 深度 RNN；保留此前 Kaggle Digit Recognizer 端到端实践相关 API。
+
+> 按功能场景分组，持续更新。当前覆盖到 D2L 第 9 章 9.5「机器翻译与数据集」（数据预处理、特殊 Token、Padding、valid_len、Batch Shape 的理论和代码阅读）；保留此前 CNN、Kaggle、RNN、GRU/LSTM 等 API 速查。
 
 ### 📐 Tensor 创建、Shape 与基础运算
+
 | 当你想要... | 用这个 | 核心作用 / Shape 直觉 |
-|:---|:---|:---|
+| :---- | :---- | :---- |
 | 从已有数据创建张量 | `torch.tensor(data)` | 把 Python 列表/数值等转换为 Tensor |
 | 创建等差数列张量 | `torch.arange(n, dtype=torch.float32)` | 生成 `[0,1,...,n-1]` 的一维张量 |
 | 创建全 0 张量 | `torch.zeros(shape)` | 按给定 Shape 创建全 0 Tensor |
@@ -156,18 +172,24 @@
 | One-Hot 编码类别 ID | `F.one_hot(x, num_classes)` | 将整数 ID 张量在末尾新增类别维；RNN 中 `(T,B) → (T,B,V)` |
 | 二维转置 | `x.T` | 交换二维张量的两个维度；RNN 中常把 `(B,T)` 变成 `(T,B)` 以按时间步遍历 |
 
+&nbsp;
+
 ### 🧩 维度拼接、堆叠与切片
+
 | 当你想要... | 用这个 | 核心作用 / Shape 直觉 |
-|:---|:---|:---|
+| :---- | :---- | :---- |
 | 沿已有维度拼接 | `torch.cat((a, b), dim=...)` | 不新增维度，只把指定已有维度变长；如 NCHW 中 `dim=1` 可拼通道 |
 | 新增一个维度再堆叠 | `torch.stack((a, b), dim=0)` | 会新建一个维度；多输出通道教学代码中常用于把多张特征图堆成 `C_out×H×W` |
 | 二维切片 | `X[i:i+h, j:j+w]` | 取局部窗口；右端点不包含，是卷积/池化手写代码的核心 |
 | Python 成对遍历 | `zip(X, K)` | 将输入通道和对应卷积核切片一一配对；用于多输入通道互相关教学实现 |
 | 动态收集不定量结果 | `lst.append(x)` → 最后 `torch.stack(lst)` / `torch.tensor(lst)` | 避免循环中反复 `torch.cat` 导致重复申请内存和复制旧 Tensor |
 
+&nbsp;
+
 ### 🔄 内存与数据转换
+
 | 当你想要... | 用这个 | 核心作用 |
-|:---|:---|:---|
+| :---- | :---- | :---- |
 | 原地赋值 | `x[:] = y` / `torch.add(x, y, out=x)` | 尽量复用原存储，减少额外内存分配 |
 | Tensor → NumPy | `x.numpy()` | CPU Tensor 与 NumPy 通常共享底层内存 |
 | NumPy → Tensor | `torch.from_numpy(a)` | 通常与 NumPy 数组共享底层内存 |
@@ -175,9 +197,12 @@
 | Tensor → Python 列表 | `x.tolist()` | 返回嵌套 Python list |
 | GPU Tensor 搬回 CPU | `x.cpu()` | 把 CUDA Tensor 复制/迁移到 CPU，便于 Pandas / Python 后处理与写文件 |
 
+&nbsp;
+
 ### 🌊 梯度与自动微分
+
 | 当你想要... | 用这个 | 核心作用 |
-|:---|:---|:---|
+| :---- | :---- | :---- |
 | 开启梯度跟踪 | `x.requires_grad_(True)` | 后续运算进入 autograd 计算图 |
 | 反向传播 | `y.backward()` | 从标量结果向前追溯梯度并累积到叶子 Tensor 的 `.grad` |
 | 同一计算图多次 backward | `y.backward(retain_graph=True)` | 强制保留计算图；只有确实需要重复反传时才用 |
@@ -189,9 +214,12 @@
 | 对循环权重做正交初始化 | `nn.init.orthogonal_(rnn.weight_hh_l0)` | 初始化权重行列近似正交，改善初始梯度传播；不保证训练更新后仍正交，也不能消除激活函数的导数影响 |
 | 纯推理模式 | `with torch.inference_mode():` | 关闭训练所需的 autograd 跟踪，并进一步省去部分推理期版本计数/视图跟踪开销；适合验证、测试与部署推理 |
 
+&nbsp;
+
 ### 🧹 Pandas 数据预处理
+
 | 当你想要... | 用这个 | 核心作用 |
-|:---|:---|:---|
+| :---- | :---- | :---- |
 | 截断极端异常值 | `df['col'].clip(lower=a, upper=b)` | 把数值限制在指定范围 |
 | 按整数位置切片 | `df.iloc[行, 列]` | 与列名无关，按位置索引 |
 | 填补数值型 NaN | `df.fillna(df.mean(numeric_only=True))` | 用数值列均值补缺失值 |
@@ -202,9 +230,12 @@
 | 删除指定列 | `df.drop(columns=["label"])` | 去掉标签列，保留特征列 |
 | 保存 CSV | `df.to_csv("submission.csv", index=False)` | 写出 CSV；`index=False` 防止额外保存 Pandas 行索引 |
 
+&nbsp;
+
 ### 📝 文本预处理、Token 与 Vocabulary
+
 | 当你想要... | 用这个 | 核心作用 |
-|:---|:---|:---|
+| :---- | :---- | :---- |
 | 按行读取文本文件 | `f.readlines()` | 返回“每一行一个字符串”的列表，常作为文本预处理入口 |
 | 用正则替换非字母字符 | `re.sub('[^A-Za-z]+', ' ', line)` | 把连续非英文字母字符替换为空格，便于后续切词 |
 | 去掉首尾空白 / 转小写 | `s.strip()` / `s.lower()` | 清理行首尾空白并统一大小写 |
@@ -219,9 +250,28 @@
 | id → token | `vocab.to_tokens(index)` | 从 `idx_to_token` 反查原 token |
 | 二维 token 列表拍平并编码 | `[vocab[token] for line in tokens for token in line]` | 同时完成 flatten 与 token→ID，生成一维 `corpus` |
 
-### 🔤 语言模型与序列随机采样
+&nbsp;
+
+### 🌐 9.5 机器翻译数据处理与特殊 Token
+
 | 当你想要... | 用这个 | 核心作用 / Shape 直觉 |
-|:---|:---|:---|
+| :---- | :---- | :---- |
+| 预处理双语文本 | `preprocess_nmt(text)` | 替换不间断空格、小写化、在部分标点前插空格 |
+| 拆分 source/target 句子对 | `tokenize_nmt(text)` | 按行和 `\t` 分开两种语言，再按空格分词 |
+| 构造语言专属词表 | `d2l.Vocab(source, min_freq=2, reserved_tokens=['<pad>', '<bos>', '<eos>'])` | 另一种语言需独立建词表；未登录/低频词可回退 `<unk>` |
+| 截断和填充序列 | `truncate_pad(ids,num_steps,pad_id)` | 保留前 `T` 个 ID 或尾部补 PAD，使长度固定为 `T` |
+| 建立训练数组及有效长度 | `build_array_nmt(lines,vocab,num_steps)` | Token→ID、追加 EOS、截断/填充；返回 `(N,T)` 和 `(N,)` |
+| 统计非 PAD 个数 | `(array != pad_id).type(torch.int32).sum(1)` | EOS 未被截掉时计入，PAD 不计；逐行得 `valid_len` |
+| 从翻译语料取一个 Batch | `load_data_nmt(B,T)` | 返回 `data_iter,src_vocab,tgt_vocab`；每批 `src,src_valid_len,tgt,tgt_valid_len` 四张量 `(B,T),(B,),(B,T),(B,)` |
+| GPT 中构造错位监督目标 | `X=tokens[:-1]; Y=tokens[1:]`（再分块） | 单语 next-token 预测；不是源语到目标语句子翻译 |
+| 判断何时需要 Mask | Padding Mask / Causal Mask | Padding Mask 屏蔽无效填充，Causal Mask 屏蔽未来 Token |
+
+&nbsp;
+
+### 🔤 语言模型与序列随机采样
+
+| 当你想要... | 用这个 | 核心作用 / Shape 直觉 |
+| :---- | :---- | :---- |
 | 构造相邻 bigram | `zip(corpus[:-1], corpus[1:])` | 将同一序列错开 1 位后配对，得到连续 `(x_t, x_{t+1})` |
 | 随机选择起始偏移 | `random.randint(0, num_steps - 1)` | 让每轮切分边界不固定，增加随机性 |
 | 计算完整子序列数 | `(len(corpus)-1) // num_steps` | `-1` 为右移一位的 `Y` 留位置；整除会丢掉不足一整段的尾巴 |
@@ -238,9 +288,12 @@
 | 把长序列分成并行时间流 | `Xs.reshape(batch_size, -1)` | 行表示 batch 中第几条序列，列表示时间位置；得到 `(batch_size, time)` |
 | 顺序切出 mini-batch | `Xs[:, i:i+num_steps]` | 所有行同时沿时间维向右切；相邻 mini-batch 的同一行连续 |
 
+&nbsp;
+
 ### 📦 Dataset、随机拆分与 DataLoader
+
 | 当你想要... | 用这个 | 核心作用 / Shape 直觉 |
-|:---|:---|:---|
+| :---- | :---- | :---- |
 | 把输入和标签配成样本 | `TensorDataset(X, y)` | `dataset[i] -> (X[i], y[i])`，保证特征与标签一一对应 |
 | 随机拆分数据集 | `random_split(dataset, [n_train, n_val], generator=...)` | 从同一带标签数据集中拆出 train / validation 子集 |
 | 为某次随机操作固定序列 | `torch.Generator().manual_seed(42)` | 给 `random_split` 等显式传入独立随机生成器，便于复现实验划分 |
@@ -248,9 +301,12 @@
 | 取出第一个 batch 做检查 | `next(iter(train_iter))` | 快速核验 batch 的 Shape / dtype；如 `X:(256,1,28,28)`、`y:(256,)` |
 | 测试集只含输入时构造迭代器 | `DataLoader(X_test, batch_size=256, shuffle=False)` | Kaggle test 没有标签，可直接按 batch 读取 `X_test`；必须保持顺序 |
 
+&nbsp;
+
 ### 🧱 `nn.Module`、网络容器与参数管理
+
 | 当你想要... | 用这个 | 核心作用 |
-|:---|:---|:---|
+| :---- | :---- | :---- |
 | 定义自定义层/块/模型 | `class Net(nn.Module): ...` | PyTorch 网络模块统一基类 |
 | 初始化父类 | `super().__init__()` | 让子模块、Parameter 等能够被正确注册 |
 | 定义前向计算 | `def forward(self, X): ...` | 描述输入如何经过模块得到输出；实际通常通过 `net(X)` 触发 |
@@ -263,20 +319,26 @@
 | 切到训练模式 | `net.train()` | 让 Dropout / BatchNorm 等按训练行为工作；本身不负责开启梯度 |
 | 切到评估模式 | `net.eval()` | 让 Dropout / BatchNorm 等按评估行为工作；通常与 `inference_mode()` / `no_grad()` 配合 |
 
+&nbsp;
+
 ### 🎛️ 初始化、保存与恢复
+
 | 当你想要... | 用这个 | 核心作用 |
-|:---|:---|:---|
+| :---- | :---- | :---- |
 | 正态初始化权重 | `nn.init.normal_(m.weight, mean=0, std=0.01)` | 原地填充参数 |
-| Xavier 初始化 | `nn.init.xavier_uniform_(m.weight)` | 根据 fan_in / fan_out 控制初始化尺度 |
+| Xavier 初始化 | `nn.init.xavier_uniform_(m.weight)` | 根据 fan\_in / fan\_out 控制初始化尺度 |
 | 偏置清零 | `nn.init.zeros_(m.bias)` | 原地将偏置初始化为 0 |
 | 批量递归初始化 | `net.apply(init_fn)` | 递归遍历子模块并调用初始化函数 |
-| 保存 Tensor / state_dict | `torch.save(obj, path)` | 序列化对象到文件 |
+| 保存 Tensor / state\_dict | `torch.save(obj, path)` | 序列化对象到文件 |
 | 加载保存对象 | `torch.load(path)` | 反序列化对象；模型结构通常仍需先在代码里创建 |
 | 固定 PyTorch 随机种子 | `torch.manual_seed(42)` | 固定模型初始化等 PyTorch 随机过程；应在创建/初始化模型之前调用，便于公平复现实验 |
 
+&nbsp;
+
 ### 🕸️ MLP、激活、损失与优化器
+
 | 当你想要... | 用这个 | 核心作用 |
-|:---|:---|:---|
+| :---- | :---- | :---- |
 | 定义全连接层 | `nn.Linear(in_features, out_features)` | 仿射变换 `XW+b`，包含可学习权重和偏置 |
 | ReLU 激活 | `nn.ReLU()` / `F.relu(x)` / `torch.relu(x)` | 将负值截为 0，引入非线性 |
 | 交叉熵损失 | `nn.CrossEntropyLoss(reduction='none')` | 分类常用；直接接 logits，不需要先手动 Softmax |
@@ -285,9 +347,12 @@
 | 执行一次参数更新 | `optimizer.step()` | 根据已经写入参数 `.grad` 的梯度更新权重，通常位于 `backward()` 之后 |
 | 统计正确预测数 | `(pred == y).sum().item()` | 布尔比较 → 求和 → Python 标量，用于累计 classification accuracy |
 
+&nbsp;
+
 ### 🧪 Batch Normalization
+
 | 当你想要... | 用这个 | 核心作用 / Shape 直觉 |
-|:---|:---|:---|
+| :---- | :---- | :---- |
 | 对全连接特征做 BN | `nn.BatchNorm1d(D)` | 常见输入 `(N,D)`；每个 feature 独立统计 batch 维上的均值/方差 |
 | 对卷积特征图做 BN | `nn.BatchNorm2d(C)` | 输入 `(N,C,H,W)`；每个 channel 独立，对 `(N,H,W)` 汇总统计量 |
 | 手写 CNN-BN 均值 | `X.mean(dim=(0,2,3), keepdim=True)` | 消掉 `N,H,W`，保留 `C`；结果 Shape `(1,C,1,1)`，便于广播 |
@@ -295,9 +360,12 @@
 | 切换 BN 训练行为 | `net.train()` | 使用当前 mini-batch 的统计量并更新 running statistics |
 | 切换 BN 推理行为 | `net.eval()` | 使用训练阶段累计的 running mean / running var；通常与 `no_grad()` / `inference_mode()` 配合 |
 
+&nbsp;
+
 ### 🧱 ResNet / Residual
+
 | 当你想要... | 用这个 | 核心作用 / Shape 直觉 |
-|:---|:---|:---|
+| :---- | :---- | :---- |
 | 定义残差块 | `class Residual(nn.Module): ...` | 主分支学习 `F(x)`，shortcut 提供 `x`，最终计算 `H(x)=F(x)+x` |
 | shortcut 直接恒等传递 | `Y += X` | 仅当 `X` 与主分支输出 `Y` 的 `N,C,H,W` 完全一致时直接相加 |
 | shortcut 做投影对齐 | `nn.Conv2d(C_in, C_out, kernel_size=1, stride=s)` | Shape 不一致时调整通道；`stride=2` 可同步把 `H/W` 减半 |
@@ -305,9 +373,12 @@
 | 判断后续 stage 首块 | `if i == 0 and not first_block:` | D2L 中 b2 不再下采样；b3/b4/b5 的首个 Residual 使用投影 shortcut 与 `stride=2` |
 | 全局平均池化 | `nn.AdaptiveAvgPool2d((1,1))` | 将每个通道压成 `1×1`，再 Flatten 接分类头 |
 
+&nbsp;
+
 ### 🖥️ Device / GPU
+
 | 当你想要... | 用这个 | 核心作用 |
-|:---|:---|:---|
+| :---- | :---- | :---- |
 | 自动选择 CUDA 或 CPU | `torch.device("cuda" if torch.cuda.is_available() else "cpu")` | CUDA 可用时用 GPU，否则回退 CPU |
 | 检查 CUDA 是否可用 | `torch.cuda.is_available()` | 当前 Jupyter kernel / Python 进程能否正常初始化 CUDA |
 | 查看可见 GPU 数量 | `torch.cuda.device_count()` | 返回当前进程可见的 CUDA device 数量 |
@@ -316,9 +387,12 @@
 | Tensor 迁移设备 | `X.to(device)` / `y.to(device)` | 输入、标签需与模型位于兼容设备才能参与同一计算 |
 | 查看模型参数所在设备 | `next(net.parameters()).device` | 快速确认模型实际位于 CPU 还是 `cuda:0` |
 
+&nbsp;
+
 ### 🖼️ CNN：二维卷积、多通道与 Shape
+
 | 当你想要... | 用这个 | 核心作用 / Shape 直觉 |
-|:---|:---|:---|
+| :---- | :---- | :---- |
 | 定义二维卷积层 | `nn.Conv2d(in_channels, out_channels, kernel_size, stride=1, padding=0)` | 输入通常为 `(N,C_in,H,W)`；在 `groups=1` 的当前学习范围内，权重 Shape 可理解为 `(C_out,C_in,k_h,k_w)` |
 | 设置方形卷积核 | `kernel_size=3` | 等价于 `(3,3)` |
 | 高宽使用不同核 | `kernel_size=(5,3)` | 高方向 5、宽方向 3 |
@@ -328,33 +402,45 @@
 | 教学版二维互相关 | `d2l.corr2d(X, K)` | 局部切片与核逐元素乘，再求和，返回二维特征图 |
 | 手写多输入通道互相关 | `corr2d_multi_in(X, K)` | 各输入通道分别互相关，再按对应位置求和，得到一个输出通道 |
 | 手写多输入多输出通道互相关 | `corr2d_multi_in_out(X, K)` | 对多套完整卷积核分别调用 `corr2d_multi_in`，再 `stack` 成多个输出通道 |
-| 1×1 卷积矩阵等价写法 | `X.reshape(c_i, h*w)` + `K.reshape(c_o, c_i)` + `torch.matmul(K, X)` | 只混合通道，不混合邻近空间位置；结果再 reshape 回 `(c_o,h,w)` |
+| 1×1 卷积矩阵等价写法 | `X.reshape(c_i, h*w)` \+ `K.reshape(c_o, c_i)` \+ `torch.matmul(K, X)` | 只混合通道，不混合邻近空间位置；结果再 reshape 回 `(c_o,h,w)` |
+
+&nbsp;
 
 ### 🏊 Pooling：最大池化与平均池化
+
 | 当你想要... | 用这个 | 核心作用 / Shape 直觉 |
-|:---|:---|:---|
+| :---- | :---- | :---- |
 | 最大池化 | `nn.MaxPool2d(kernel_size, stride=None, padding=0)` | 每个窗口保留最大响应；无可学习卷积核参数 |
 | 平均池化 | `nn.AvgPool2d(kernel_size, stride=None, padding=0)` | 每个窗口保留平均响应 |
 | 默认池化步幅 | `nn.MaxPool2d(2)` | 当 `stride=None` 时，PyTorch 默认 `stride=kernel_size` |
 | 多通道池化 | `pool(X)`，`X.shape=(N,C,H,W)` | 每个输入通道独立池化，通常只改变 H/W，不混合 C |
 | 构造多通道示例 | `torch.cat((X, X+1), dim=1)` | 沿 NCHW 的 `C` 维拼接，把 `C=1` 变成 `C=2` |
 
+&nbsp;
+
 ### 🧮 CNN → MLP / LeNet 常用 Shape 操作
+
 | 当你想要... | 用这个 | 核心作用 |
-|:---|:---|:---|
+| :---- | :---- | :---- |
 | 保留 batch 并展平其余维度 | `nn.Flatten()` / `torch.flatten(X, start_dim=1)` | 例如 `(N,16,5,5) → (N,400)`，供全连接层使用 |
 | 查看每层 Shape | `print(layer.__class__.__name__, X.shape)` 等 | 用于检查卷积、池化、flatten、Linear 之间是否 Shape 对齐 |
 
+&nbsp;
+
 ### ⏱️ 工程实测与代码调试
+
 | 当你想要... | 用这个 | 核心作用 |
-|:---|:---|:---|
+| :---- | :---- | :---- |
 | 测试代码运行时间 | `timer = Timer()` / `timer.stop()` | 记录一段代码耗时 |
 | 动态拼接变量与文本 | `f"{var:.5f} sec"` | Python f-string 格式化输出 |
 | 验证两个计算结果近似一致 | `assert float(torch.abs(Y1 - Y2).sum()) < 1e-6` | 常用于验证两种实现是否数值等价；断言成功默认无输出 |
 
+&nbsp;
+
 ### 📤 Kaggle 推理、结果收集与 Submission
+
 | 当你想要... | 用这个 | 核心作用 |
-|:---|:---|:---|
+| :---- | :---- | :---- |
 | 准备预测结果容器 | `predictions = []` | 在测试循环外创建一维 Python 列表，持续收集各 batch 的预测 |
 | 展开追加一个 batch 的预测 | `predictions.extend(pred.cpu().tolist())` | `CUDA Tensor → CPU Tensor → Python list`，再逐元素追加，避免得到嵌套列表 |
 | 检查预测数量 | `len(predictions)` | Digit Recognizer 中应为 `28000`，用于防止漏样本/重复样本 |
@@ -362,9 +448,12 @@
 | 写入预测列 | `submission["Label"] = predictions` | 将模型输出与模板行顺序一一对应 |
 | 保存最终提交文件 | `submission.to_csv("submission.csv", index=False)` | 只保存 `ImageId,Label` 等业务列，不输出 Pandas 行索引 |
 
+&nbsp;
+
 ### 🔁 RNN 简洁实现（PyTorch）
+
 | 当你想要... | 用这个 | 核心作用 / Shape 直觉 |
-|:---|:---|:---|
+| :---- | :---- | :---- |
 | 创建自动管理参数的 RNN | `nn.RNN(input_size=V, hidden_size=H, num_layers=L)` | 创建可学习循环权重、偏置并自动初始化；默认输入为 `(T,B,V)` |
 | 创建双向 RNN | `nn.RNN(V,H,num_layers=L,bidirectional=True)` | 输出隐藏特征最后维为 `2H`，最终状态首维为 `2L` |
 | 查看 RNN 内部权重 | `rnn_layer.weight_ih_l0` / `rnn_layer.weight_hh_l0` | 分别为 `(H,V)`、`(H,H)`；PyTorch Linear/RNN 内部与手写矩阵乘法方向约定不同 |
@@ -375,9 +464,12 @@
 | 完整加载 D2L 时间机器语料 | `d2l.load_data_time_machine(B,T,max_tokens=-1)` | 不将预处理后的 corpus 截断为默认前 10000 token；本次得到 170580 字符、V=28 |
 | 复用 D2L 的字符级训练函数 | `d2l.train_ch8(net,train_iter,vocab,lr,epochs,device)` | 对 `nn.Module` 使用 `torch.optim.SGD`，训练的 PPL 需与验证 PPL 区分 |
 
+&nbsp;
+
 ### 🚪 GRU 门控循环单元速查
+
 | 当你想要... | 用这个 | 核心作用 / Shape 直觉 |
-|:---|:---|:---|
+| :---- | :---- | :---- |
 | 创建 GRU 循环层 | `nn.GRU(input_size=V, hidden_size=H, num_layers=1)` | 默认时间优先输入 `(T,B,V)`；单层单向返回 `output:(T,B,H)`、`h_n:(1,B,H)` |
 | 手写更新门 | `Z = torch.sigmoid(X @ W_xz + H @ W_hz + b_z)` | 控制**最终状态**中旧状态占比，`(B,H)` |
 | 手写重置门 | `R = torch.sigmoid(X @ W_xr + H @ W_hr + b_r)` | 控制**候选状态**中旧信息参与程度，`(B,H)` |
@@ -386,9 +478,12 @@
 | 独立初始化三组门控参数 | `W_xz,W_hz,b_z=three()` 等 | 更新门、重置门、候选状态各用独立参数；`three()` 是嵌套的局部辅助函数并返回三元组，可通过元组解包接收 |
 | 查看 GRU 内部权重 | `gru.weight_ih_l0` / `gru.weight_hh_l0` | PyTorch 将三个门的矩阵合并存储：单层时分别为 `(3H,V)`、`(3H,H)`；门排列按官方实现定义，不能把单个门的 `(H,V)` 混淆为整体参数 |
 
+&nbsp;
+
 ### 🧠 LSTM 状态与 API 速查
+
 | 当你想要... | 用这个 | 核心作用 / Shape 直觉 |
-|:---|:---|:---|
+| :---- | :---- | :---- |
 | 构造多层 LSTM | `nn.LSTM(input_size=d, hidden_size=h, num_layers=L)` | 单向默认 `X:(T,B,d)`，返回 `output:(T,B,h)` 和最终状态 `(h_n,c_n)` 各 `(L,B,h)` |
 | 解包输出与两种状态 | `output, (h_n, c_n) = lstm(X)` | `h_n` 为每层最终隐藏状态，`c_n` 为每层最终记忆元；不同于 GRU 的单状态 |
 | 初始化从零实现状态 | `(torch.zeros((B,h),device=device), torch.zeros((B,h),device=device))` | 手写单层状态 `(H,C)`，均为 `(B,h)` |
@@ -396,86 +491,109 @@
 | 查看内置层合并参数 | `lstm.weight_ih_l0`、`lstm.weight_hh_l0` | PyTorch 将四组门权重组合成 `(4h,d)`、`(4h,h)` |
 | 截断两份跨批次的状态 | `state = tuple(s.detach() for s in state)` | 保留 `H/C` 的值，阻止当前损失沿旧 batch 图继续反传 |
 
+&nbsp;
+
 ### ↩️ BPTT / 隐藏状态截断速查
+
 | 当你想要... | 用这个 | 核心作用 |
-|:---|:---|:---|
+| :---- | :---- | :---- |
 | 保留隐藏状态但切断旧计算图 | `state = state.detach()` / `state.detach_()` | 数值继续用于下一段前向计算，旧时间段不会被下一批损失的梯度继续追溯；Tensor 状态示例 |
 | 重新初始化当前隐藏状态 | `state = torch.zeros_like(state)` | 将历史数值置零，和 `detach()` 的语义完全不同 |
 | 查看多层 RNN 参数是否各层独立 | `rnn.weight_hh_l0` / `rnn.weight_hh_l1` | 同一层跨时间共享，`l0/l1` 不同层拥有不同的权重张量 |
 | 查看训练图是否截断 | 检查跨 batch 是否对 `state` 调用 `detach()` | 截断的是梯度传播，不是删除早期历史的全部数值影响 |
 
+&nbsp;
+
 ### 🛠️ d2l 工程辅助函数
+
 | 当你想要... | 用这个 | 核心作用 |
-|:---|:---|:---|
+| :---- | :---- | :---- |
 | 实时动态绘制训练曲线 | `animator = d2l.Animator(...)` / `animator.add(...)` | 按 epoch 持续更新图表 |
 | 评估整个数据迭代器上的平均损失 | `d2l.evaluate_loss(net, data_iter, loss)` | 遍历数据集统计当前模型损失 |
 | 加载 Fashion-MNIST | `d2l.load_data_fashion_mnist(batch_size)` | 返回训练和测试数据迭代器 |
 | 计算二维互相关 | `d2l.corr2d(X, K)` | D2L 教学辅助函数，手工展示卷积核心计算 |
 
+&nbsp;
+
 ---
 
 ## 📖 2.1 数据操作 — Bug 与核心概念日志
 
-### [工单-001] 🐛 Jupyter 单元格无限挂起（硬件架构死锁 & IPC 断链）
+### \[工单-001\] 🐛 Jupyter 单元格无限挂起（硬件架构死锁 & IPC 断链）
+
 - **💻 触发代码**:
-  ```python
-  # 运行任意合法的张量运算单元格，例如：
-  Z[:] = X + Y
-  ```
-- **🩸 原始报错**: 无明确报错，单元格无限 Pending 挂起。
-- **🧠 底层原因**:
-  1. **硬件死锁**：稳定版 PyTorch (`cu124`) 缺乏 RTX 5060 (Blackwell, `sm_120`) 架构的预选算子，底层张量计算无法调度，导致物理死锁。
-  2. **IPC 断链**：更换 `cu128` 后偶发的假死，是 VS Code Jupyter 插件与 Python 计算内核之间的 ZeroMQ 进程间通信丢包，前端收不到"计算完成"信号，无限苦等。
+
+```py
+# 运行任意合法的张量运算单元格，例如：
+Z[:] = X + Y
+```
+
+- **🩸 原始报错**: 无明确报错，单元格无限 Pending 挂起。  
+- **🧠 底层原因**:  
+  1. **硬件死锁**：稳定版 PyTorch (`cu124`) 缺乏 RTX 5060 (Blackwell, `sm_120`) 架构的预选算子，底层张量计算无法调度，导致物理死锁。  
+  2. **IPC 断链**：更换 `cu128` 后偶发的假死，是 VS Code Jupyter 插件与 Python 计算内核之间的 ZeroMQ 进程间通信丢包，前端收不到"计算完成"信号，无限苦等。  
 - **💊 修复方案**:
-  ```bash
-  # 彻底重装支持 Blackwell 架构的 Nightly 引擎
-  pip uninstall torch torchvision torchaudio -y
-  pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128
-  ```
+
+```sh
+# 彻底重装支持 Blackwell 架构的 Nightly 引擎
+pip uninstall torch torchvision torchaudio -y
+pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128
+```
+
   > 偶发假死无需重启 VS Code，直接点击 `Restart Kernel` 重置 IPC 链路即可。
 
 ---
 
-### [工单-002] 🐛 `.item()` 越界：微小标点引发张量维度突变
+### \[工单-002\] 🐛 `.item()` 越界：微小标点引发张量维度突变
+
 - **💻 触发代码**:
-  ```python
-  a = torch.tensor([3, 5])  # 误将小数点 3.5 打成逗号 [3, 5]
-  a.item()
-  ```
-- **🩸 原始报错**: `RuntimeError: a Tensor with 2 elements cannot be converted to Scalar`
-- **🧠 底层原因**: 一个逗号将 Shape 从 `(1,)` 突变为 `(2,)`。`.item()` 在底层被严格锁死：只允许剥离内部仅含唯一元素的张量（用于训练循环中安全提取 loss 值、斩断计算图防 OOM）。遇到多元素，无法确定提取目标，直接崩溃。
+
+```py
+a = torch.tensor([3, 5])  # 误将小数点 3.5 打成逗号 [3, 5]
+a.item()
+```
+
+- **🩸 原始报错**: `RuntimeError: a Tensor with 2 elements cannot be converted to Scalar`  
+- **🧠 底层原因**: 一个逗号将 Shape 从 `(1,)` 突变为 `(2,)`。`.item()` 在底层被严格锁死：只允许剥离内部仅含唯一元素的张量（用于训练循环中安全提取 loss 值、斩断计算图防 OOM）。遇到多元素，无法确定提取目标，直接崩溃。  
 - **💊 修复方案**:
-  ```python
-  a = torch.tensor([3.5])
-  scalar = a.item()  # 正确：剥离单元素张量为纯 Python 标量
-  ```
+
+```py
+a = torch.tensor([3.5])
+scalar = a.item()  # 正确：剥离单元素张量为纯 Python 标量
+```
 
 ---
 
-### [工单-003] 🐛 切片维度残留：`.tolist()` 返回嵌套列表而非纯标量
-- **💻 触发代码**:
-  ```python
-  x = torch.tensor([[1, 2], [3, 4]])
-  x[1:2, 1:2].tolist()  # 预期得到数字 4，实际输出 [[4]]
-  ```
-- **🧠 底层原因**: 切片符号 `:` 具有"强制保留物理维度结构"特性。`x[1:2, 1:2]` 切出的是 Shape 为 `(1, 1)` 的子矩阵，本质仍是二维矩阵。对矩阵调用 `.tolist()` 必然返回嵌套列表 `[[4]]`。
-- **💊 修复方案**:
-  ```python
-  # 单点索引触发维度坍缩，再用 .item() 击碎外壳
-  num = x[1, 1].item()   # 输出纯 Python 标量：4
+### \[工单-003\] 🐛 切片维度残留：`.tolist()` 返回嵌套列表而非纯标量
 
-  # API 边界总结：
-  # 单元素张量  → .item()    （斩断计算图，提取纯数字）
-  # 多元素张量  → .tolist()  （批量剥离为原生嵌套列表）
-  ```
+- **💻 触发代码**:
+
+```py
+x = torch.tensor([[1, 2], [3, 4]])
+x[1:2, 1:2].tolist()  # 预期得到数字 4，实际输出 [[4]]
+```
+
+- **🧠 底层原因**: 切片符号 `:` 具有"强制保留物理维度结构"特性。`x[1:2, 1:2]` 切出的是 Shape 为 `(1, 1)` 的子矩阵，本质仍是二维矩阵。对矩阵调用 `.tolist()` 必然返回嵌套列表 `[[4]]`。  
+- **💊 修复方案**:
+
+```py
+# 单点索引触发维度坍缩，再用 .item() 击碎外壳
+num = x[1, 1].item()   # 输出纯 Python 标量：4
+
+# API 边界总结：
+# 单元素张量  → .item()    （斩断计算图，提取纯数字）
+# 多元素张量  → .tolist()  （批量剥离为原生嵌套列表）
+```
 
 ---
 
-### [工单-004] ❓ 空张量（Empty Tensor）的维度退化机制
+### \[工单-004\] ❓ 空张量（Empty Tensor）的维度退化机制
+
 - **🧠 核心疑问**: 为什么 `x[2:2].tolist()` 返回 `[]`，而 `x[0:2, 2:2].tolist()` 返回 `[[], []]`？
-- **🧠 底层解释**:
-  切片为左闭右开，跨度为 0 时不圈入任何数据：
-  - `x[2:2]`：行跨度为 0，Shape 退化为 `(0, 2)`。最外层行数为 0，循环无法进入，`.tolist()` 直接返回 `[]`。
+
+- **🧠 底层解释**: 切片为左闭右开，跨度为 0 时不圈入任何数据：
+
+  - `x[2:2]`：行跨度为 0，Shape 退化为 `(0, 2)`。最外层行数为 0，循环无法进入，`.tolist()` 直接返回 `[]`。  
   - `x[0:2, 2:2]`：提取 2 行但列跨度为 0，Shape 退化为 `(2, 0)`（"幽灵矩阵"）。外层撑起 2 行骨架，内层列数虚空，`.tolist()` 逐层解析后拼出 `[[], []]`。
 
   **核心规律**：Shape 的多维空间骨架在切片后必须严格守恒，无论内部是否有真实数据。
@@ -484,276 +602,319 @@
 
 ## 📖 2.2 数据预处理 — Bug 与核心概念日志
 
-### [工单-005] 🐛 Pandas 2.0 均值算子类型校验报错
-- **💻 触发代码**: `inputs = inputs.fillna(inputs.mean())`
-- **🩸 原始报错**: `TypeError` （在 Pandas 底层 `frame.py` 中抛出）
-- **🧠 底层原因**: Pandas 2.0+ 引入极严的类型校验。`inputs` 同时包含 `float64` 的数值列和 `object` 类型的字符串列。对字符串执行 `mean()` 在数学上非法，老版本会静默跳过，新版本直接阻断。
-- **💊 修复方案**: `inputs = inputs.fillna(inputs.mean(numeric_only=True))`
+### \[工单-005\] 🐛 Pandas 2.0 均值算子类型校验报错
+
+- **💻 触发代码**: `inputs = inputs.fillna(inputs.mean())`  
+- **🩸 原始报错**: `TypeError` （在 Pandas 底层 `frame.py` 中抛出）  
+- **🧠 底层原因**: Pandas 2.0+ 引入极严的类型校验。`inputs` 同时包含 `float64` 的数值列和 `object` 类型的字符串列。对字符串执行 `mean()` 在数学上非法，老版本会静默跳过，新版本直接阻断。  
+- **💊 修复方案**: `inputs = inputs.fillna(inputs.mean(numeric_only=True))`  
   > `numeric_only=True` 强制引擎屏蔽非数值列，只对数字列计算均值后回填。
 
 ---
 
-### [工单-006] 🐛 Python 解包错误（赋值左右两侧变量数不匹配）
-- **💻 触发代码**: `inputs, outputs = data.iloc[:,0:2], data.iloc[:,2], data.iloc[:,2]`
-- **🩸 原始报错**: `ValueError: too many values to unpack (expected 2)`
-- **🧠 底层原因**: 等号右边产出了 3 块内存切片，等号左边只有 2 个变量容器，底层解包分配时位置不足，直接崩溃。误将"第三列 Price 没有被存储"当成了 Bug 去修，实则 Price 从一开始就已被正确存入 `outputs`。
+### \[工单-006\] 🐛 Python 解包错误（赋值左右两侧变量数不匹配）
+
+- **💻 触发代码**: `inputs, outputs = data.iloc[:,0:2], data.iloc[:,2], data.iloc[:,2]`  
+- **🩸 原始报错**: `ValueError: too many values to unpack (expected 2)`  
+- **🧠 底层原因**: 等号右边产出了 3 块内存切片，等号左边只有 2 个变量容器，底层解包分配时位置不足，直接崩溃。误将"第三列 Price 没有被存储"当成了 Bug 去修，实则 Price 从一开始就已被正确存入 `outputs`。  
 - **💊 修复方案**: 恢复原书代码 `inputs, outputs = data.iloc[:,0:2], data.iloc[:,2]`
 
 ---
 
-### [工单-007] 🐛 Jupyter 内存状态"幽灵错位"导致张量转换报错
-- **💻 触发代码**: `X = torch.tensor(inputs.to_numpy(dtype=float))`
-- **🩸 原始报错**: `ValueError`（试图将包含英文字符串的数组强制转换为浮点数）
-- **🧠 底层原因**: 在解决 Bug-06 时，重新运行了 `.iloc` 切片单元格，内存中的 `inputs` 被重置回包含 `"Pave"` 文本的原始状态。随后忘记重新运行独热编码 `pd.get_dummies()` 单元格，直接跳到了张量转换步骤，导致字符串试图被强转为浮点数并崩溃。
-- **💊 修复方案**: 在 Jupyter 中必须严格按照从上到下的物理顺序逐步执行单元格，保证内存变量状态与代码逻辑一致。
+### \[工单-007\] 🐛 Jupyter 内存状态"幽灵错位"导致张量转换报错
+
+- **💻 触发代码**: `X = torch.tensor(inputs.to_numpy(dtype=float))`  
+- **🩸 原始报错**: `ValueError`（试图将包含英文字符串的数组强制转换为浮点数）  
+- **🧠 底层原因**: 在解决 Bug-06 时，重新运行了 `.iloc` 切片单元格，内存中的 `inputs` 被重置回包含 `"Pave"` 文本的原始状态。随后忘记重新运行独热编码 `pd.get_dummies()` 单元格，直接跳到了张量转换步骤，导致字符串试图被强转为浮点数并崩溃。  
+- **💊 修复方案**: 在 Jupyter 中必须严格按照从上到下的物理顺序逐步执行单元格，保证内存变量状态与代码逻辑一致。  
   > ⚠️ **铁律**：Jupyter 中变量的真实状态取决于"实际点击运行的顺序"，绝非代码在页面上从上到下的视觉排列顺序。
 
 ---
 
-### [工单-008] ❓ `.iloc` 切片降维后，元素的物理寻址逻辑
+### \[工单-008\] ❓ `.iloc` 切片降维后，元素的物理寻址逻辑
+
 - **🧠 底层解释**: 降维后抛弃列名等业务属性，退化为纯数学矩阵 $A$. 底层寻址直接通过线性代数公式：`首地址 + i * 每行跨度 + j * 单元素字节数` 瞬间跳转，实现 $O(1)$ 极速定位。
 
 ---
 
-### [工单-009] ❓ `.iloc` 能否提取非表格数据？
+### \[工单-009\] ❓ `.iloc` 能否提取非表格数据？
+
 - **🧠 底层解释**: 绝对不能。`.iloc` 是 Pandas 为 DataFrame/Series 量身定制的私有算子。转化为 PyTorch 张量后，切片将极其暴力，直接使用原生中括号（如 `tensor[:, 0:2]`），不再需要 `.iloc`.
 
 ---
 
-### [工单-010] ❓ 为什么用“均值”来修补 `NaN` 空洞？
+### \[工单-010\] ❓ 为什么用“均值”来修补 `NaN` 空洞？
+
 - **🧠 底层解释**: 在多维向量空间中，用 0 填补会严重偏移数据的“物理重心”。填补均值等同于在数据点云的“几何质心”补点，最大程度维持了特征原有的宏观数学期望，是工程妥协下的保底做法。
 
 ---
 
-### [工单-011] ❓ `NaN` 为什么会像病毒一样"传染"整个模型？
-- **🧠 底层解释**:
-  1. **IEEE 754 标准硬约束**：`NaN` 参与任何数学运算（加减乘除），结果必然还是 `NaN`，无一例外。
-  2. **矩阵乘法传染链**：神经网络的核心是矩阵乘积 $Y = WX$. 特征向量 $X$ 中任何一个元素为 `NaN`，则该元素与对应权重的乘积也是 `NaN`，最终累加结果 $y$ 被彻底污染。
+### \[工单-011\] ❓ `NaN` 为什么会像病毒一样"传染"整个模型？
+
+- **🧠 底层解释**:  
+  1. **IEEE 754 标准硬约束**：`NaN` 参与任何数学运算（加减乘除），结果必然还是 `NaN`，无一例外。  
+  2. **矩阵乘法传染链**：神经网络的核心是矩阵乘积 $Y=WX$. 特征向量 $X$ 中任何一个元素为 `NaN`，则该元素与对应权重的乘积也是 `NaN`，最终累加结果 $y$ 被彻底污染。  
   3. **反向传播扩散**：在反向传播阶段，这个 `NaN` 沿着微积分的链式法则反向冲刷，将显卡里所有权重参数全部污染为 `NaN`，即工程上的"**NaN 爆炸**"，模型物理性死亡。
 
 ---
 
-### [工单-012] ❓ 现实"千疮百孔"的数据在内存里是如何分布的？
-- **🧠 底层解释**: 无论数据多么残缺，张量或 DataFrame 在物理内存（或显存）里永远是一块**绝对连续、首尾相接的一维地址块**。数据缺失并不是物理内存真的"跳了一格"，而是在那个对应坑位里强行塞入了一组特殊的二进制编码（IEEE 754 中指数位全为 1），翻译成人类可读的形式就是 `NaN`.
+### \[工单-012\] ❓ 现实"千疮百孔"的数据在内存里是如何分布的？
+
+- **🧠 底层解释**: 无论数据多么残缺，张量或 DataFrame 在物理内存（或显存）里永远是一块**绝对连续、首尾相接的一维地址块**。数据缺失并不是物理内存真的"跳了一格"，而是在那个对应坑位里强行塞入了一组特殊的二进制编码（IEEE 754 中指数位全为 1），翻译成人类可读的形式就是 `NaN`.  
   > **结论**：内存骨架（Shape）永远守恒，缺失只是坑位里装了特殊的"毒药码"。
 
 ---
 
-### [工单-013] ❓ “权重 (Weight)”与“梯度 (Gradient)”的物理本质
-- **🧠 底层解释**:
-  - **权重**：神经网络的记忆载体（调节水流的“阀门”）。在 $Y = WX$ 中决定各特征的重要程度，所有固定的权重集合构成了空间变换矩阵 $W$，即“模型”本身。
+### \[工单-013\] ❓ “权重 (Weight)”与“梯度 (Gradient)”的物理本质
+
+- **🧠 底层解释**:  
+  - **权重**：神经网络的记忆载体（调节水流的“阀门”）。在 $Y=WX$ 中决定各特征的重要程度，所有固定的权重集合构成了空间变换矩阵 $W$，即“模型”本身。  
   - **梯度**：多维空间的偏导数，工程上的“纠错指南针”。它是一组精确的物理指令，根据 Loss 反向告诉每个权重应该往哪个方向微调，是模型“学习”的绝对动力。
 
 ---
 
-### [工单-014] ❓ 为什么底层 GPU 硬件能“瞬间”完成海量计算？
+### \[工单-014\] ❓ 为什么底层 GPU 硬件能“瞬间”完成海量计算？
+
 - **🧠 底层解释**: CPU 依靠极少数核心串行计算（逐行循环），而 GPU（如 RTX 5060）拥有成千上万个 CUDA 核心。调用张量算子时，底层 C++ 代码绕过 Python 解释器，将庞大的矩阵切碎，分配给万核并发执行。在同一时钟周期内同步算出各自的结果并瞬间拼装返回，实现物理上的“暴算”。
 
 ---
 
-### [工单-015] ❓ `pd.get_dummies()` 在新版 Pandas 里输出 `True/False` 而非 `1/0`
-- **🧠 底层解释**: 这是 Pandas 2.0+ 的主动优化，布尔值在底层占用的内存颗粒远小于 `int64`，面对工业界上亿行的独热编码矩阵（大量稀疏的 0/1），这一改动可极大节省物理内存。
+### \[工单-015\] ❓ `pd.get_dummies()` 在新版 Pandas 里输出 `True/False` 而非 `1/0`
+
+- **🧠 底层解释**: 这是 Pandas 2.0+ 的主动优化，布尔值在底层占用的内存颗粒远小于 `int64`，面对工业界上亿行的独热编码矩阵（大量稀疏的 0/1），这一改动可极大节省物理内存。  
 - **工程结论**: `True/False` 与 `1/0` 在二进制物理层完全等价，PyTorch 在接收时会自动映射为 `1.0` 和 `0.0`，对后续计算毫无影响。若强行要求整数格式，可传入参数 `dtype=int`。
 
 ---
 
-### [工单-016] ❓ 深度学习数据处理的三段式物理流水线
+### \[工单-016\] ❓ 深度学习数据处理的三段式物理流水线
+
 - **🧠 底层解释**:
 
-  | 阶段 | 格式 | 物理定位 | 核心特性 |
-  |---|---|---|---|
-  | 第一阶段 | Pandas DataFrame | 人类数据工程师的"清洗手术台" | 包容脏数据，保留列名；完成解耦、填补、编码等全部业务逻辑 |
-  | 第二阶段 | NumPy Array（`.to_numpy()`）| 从数据工程跨入线性代数的"卸甲"过程 | 扒掉列名与行号，退化为纯粹的浮点数 C-Array 连续内存块 |
-  | 第三阶段 | PyTorch Tensor | GPU 硬件与神经网络吞噬的"纯数学弹药" | 可直接被显卡万核并发调度；底层被赋予追踪梯度的器官，是反向传播的物理前提 |
+| 阶段 | 格式 | 物理定位 | 核心特性 |
+| :---- | :---- | :---- | :---- |
+| 第一阶段 | Pandas DataFrame | 人类数据工程师的"清洗手术台" | 包容脏数据，保留列名；完成解耦、填补、编码等全部业务逻辑 |
+| 第二阶段 | NumPy Array（`.to_numpy()`） | 从数据工程跨入线性代数的"卸甲"过程 | 扒掉列名与行号，退化为纯粹的浮点数 C-Array 连续内存块 |
+| 第三阶段 | PyTorch Tensor | GPU 硬件与神经网络吞噬的"纯数学弹药" | 可直接被显卡万核并发调度；底层被赋予追踪梯度的器官，是反向传播的物理前提 |
 
 ---
 
 ## 📖 2.3 线性代数 — Bug 与核心概念日志
 
-### [工单-017] ❓ `(3, 1)` 与 `(2, 4)` 矩阵能否触发广播机制？
-- **🧠 核心疑问**: 3*1矩阵和2*4矩阵是不是会触发广播机制？
-- **🧠 底层解释**: 不会。这会直接触发 `RuntimeError`。广播机制的底层法则是**从右向左**逐个维度比较：
-  - **倒数第一维**：1 和 4。1 可以被物理拓展，通过。
+### \[工单-017\] ❓ `(3, 1)` 与 `(2, 4)` 矩阵能否触发广播机制？
+
+- **🧠 核心疑问**: 3*1矩阵和2*4矩阵是不是会触发广播机制？  
+- **🧠 底层解释**: 不会。这会直接触发 `RuntimeError`。广播机制的底层法则是**从右向左**逐个维度比较：  
+  - **倒数第一维**：1 和 4。1 可以被物理拓展，通过。  
   - **倒数第二维**：3 和 2。既不相等，也没有任何一方为 1。底层无法进行物理维度的复制拓展，广播瞬间断裂报错。
 
 ---
 
-### [工单-018] ❓ Hadamard 积的物理动作是逐元素相乘吗？
-- **🧠 核心疑问**: Hadamard积（符号 $\odot$）是逐元素相乘吗？
+### \[工单-018\] ❓ Hadamard 积的物理动作是逐元素相乘吗？
+
+- **🧠 核心疑问**: Hadamard积（符号 $\odot$）是逐元素相乘吗？  
 - **🧠 底层解释**: 绝对是。在 PyTorch 中对应基础的 `*` 运算符。它的物理动作极度简单：要求两个张量的 Shape 完全对齐（或满足广播机制），对应坐标位置的数字一对一独立相乘。由于各元素计算绝对独立互不干扰，底层直接交由 CUDA 调度为万核纯并发操作。
 
 ---
 
-### [工单-019] ❓ `(4, 1)` 与 `(1, 2)` 矩阵能否触发广播机制？
-- **🧠 核心疑问**: 只有 `(3, 1)` 和 `(1, 4)` 这种能广播？`(4, 1)` 和 `(1, 2)` 这种呢？
-- **🧠 底层解释**: 完全可以触发。底层按**从右向左逐维比对**的硬性规则：
-  - 最右维度：`1` 和 `2`，符合"其中一个是 1"的条件，`(4, 1)` 在列方向拉伸。
-  - 最左维度：`4` 和 `1`，符合条件，`(1, 2)` 在行方向拉伸。
-  两者在对方长度为 1 的方向相互交织，最终撑起一个完整的 `(4, 2)` 二维空间面（物理本质：外积）。
+### \[工单-019\] ❓ `(4, 1)` 与 `(1, 2)` 矩阵能否触发广播机制？
+
+- **🧠 核心疑问**: 只有 `(3, 1)` 和 `(1, 4)` 这种能广播？`(4, 1)` 和 `(1, 2)` 这种呢？  
+- **🧠 底层解释**: 完全可以触发。底层按**从右向左逐维比对**的硬性规则：  
+  - 最右维度：`1` 和 `2`，符合"其中一个是 1"的条件，`(4, 1)` 在列方向拉伸。  
+  - 最左维度：`4` 和 `1`，符合条件，`(1, 2)` 在行方向拉伸。 两者在对方长度为 1 的方向相互交织，最终撑起一个完整的 `(4, 2)` 二维空间面（物理本质：外积）。
 
 ---
 
-### [工单-020] ❓ 标量与张量相乘的物理本质是广播机制吗？
-- **🧠 核心疑问**: 标量与张量相乘不会改变形状，实质上是标量通过广播扩张到了和张量一样的形状，对吗？
+### \[工单-020\] ❓ 标量与张量相乘的物理本质是广播机制吗？
+
+- **🧠 核心疑问**: 标量与张量相乘不会改变形状，实质上是标量通过广播扩张到了和张量一样的形状，对吗？  
 - **🧠 底层解释**: 完全正确。标量 `a=2` 在底层首先被包装成 0 维张量 `()`。遇到多维张量时，标量化身为填满整个空间的“标量场”，以**零额外显存开销**完成空间的整体按比例缩放。
 
 ---
 
-### [工单-021] 🐛 空间盲区：`(5, 1)` 和 `(5,)` 的致命差异与“张量爆炸”
-- **🧠 核心疑问**: `(5, 1)` 和 `(5,)` 都是一维吗？对它们求和或相加有区别吗？
-- **🧠 底层解释**: `(5, 1)` 绝不是一维，它是标标准准的**二维矩阵（5行1列）**。`(5,)` 才是没有行列概念的**一维纯向量**。
+### \[工单-021\] 🐛 空间盲区：`(5, 1)` 和 `(5,)` 的致命差异与“张量爆炸”
+
+- **🧠 核心疑问**: `(5, 1)` 和 `(5,)` 都是一维吗？对它们求和或相加有区别吗？  
+- **🧠 底层解释**: `(5, 1)` 绝不是一维，它是标标准准的**二维矩阵（5行1列）**。`(5,)` 才是没有行列概念的**一维纯向量**。  
 - **💊 避坑指南（张量爆炸）**: 如果将这两者直接相加 `tensor_1d + tensor_2d`，按照广播机制，底层会先将 `(5,)` 补齐为 `(1, 5)`。此时 `(1, 5)` 加上 `(5, 1)`，双向交叉拉伸，最终“爆炸”成一个包含 25 个元素的 `(5, 5)` 二维矩阵！这就是降维操作缺失 `keepdims=True` 缓冲垫带来的血泪教训。
 
 ---
 
-### [工单-022] ❓ 全局求和的性能：`A.sum()` vs `A.sum(axis=[0, 1])`
-- **🧠 核心疑问**: 算出来的结果一样，指定所有的 axis 和不传参数有性能区别吗？
-- **🧠 底层解释**: 有区别，`A.sum()` 性能完胜。
-  - `A.sum()` 直接触发底层 `sum_all` 算子，把连续内存块当作直线，万核无脑并发，**零元数据开销**。
+### \[工单-022\] ❓ 全局求和的性能：`A.sum()` vs `A.sum(axis=[0, 1])`
+
+- **🧠 核心疑问**: 算出来的结果一样，指定所有的 axis 和不传参数有性能区别吗？  
+- **🧠 底层解释**: 有区别，`A.sum()` 性能完胜。  
+  - `A.sum()` 直接触发底层 `sum_all` 算子，把连续内存块当作直线，万核无脑并发，**零元数据开销**。  
   - `A.sum(axis=[0, 1])` 被迫走 `sum_dim` 计算流，Python 需要解析参数，底层 C++ 需要读取物理步长（Stride）并跳跃寻址，徒增大量调度开销。
 
 ---
 
-### [工单-023] 🐛 均值计算的工程红线：`A.mean()` vs `A.sum() / A.numel()`
-- **🧠 核心疑问**: 既然数学公式等价，自己拼装求平均和调用 `.mean()` 有区别吗？
-- **🧠 底层原因**: 工业界严禁自己拼装。
-  1. **算子通信开销**：`mean()` 只产生一次 C++ 交互；拼装版需要交互三次（sum, numel, /），调度开销巨大。
+### \[工单-023\] 🐛 均值计算的工程红线：`A.mean()` vs `A.sum() / A.numel()`
+
+- **🧠 核心疑问**: 既然数学公式等价，自己拼装求平均和调用 `.mean()` 有区别吗？  
+- **🧠 底层原因**: 工业界严禁自己拼装。  
+  1. **算子通信开销**：`mean()` 只产生一次 C++ 交互；拼装版需要交互三次（sum, numel, /），调度开销巨大。  
   2. **数值溢出（Overflow）**：对大张量求 `sum()` 会瞬间击穿 `float16` 上限（65504），导致底层数据全部变成 `inf`（物理崩溃）。原生 `mean()` 算子底层会自动使用高精度累加器或分步缩放来化解溢出危机。
 
 ---
 
-### [工单-024] ❓ `torch.dot` 与 `torch.sum(x * y)` 的底层性能差异
-- **🧠 核心疑问**: 既然数学结果完全相同，`torch.dot` 和 `torch.sum(x * y)` 在性能和显存上有何区别？
-- **🧠 底层解释**:
-  1. **显存开销**：`torch.sum(x * y)` 会先在显存里开辟一块大小为 $O(N)$ 的临时空间存储 `x * y` 的中间结果，浪费显存带宽并增加垃圾回收开销；而 `torch.dot` 采用在线累加，空间开销仅为 $O(1)$，无任何临时显存分配。
+### \[工单-024\] ❓ `torch.dot` 与 `torch.sum(x * y)` 的底层性能差异
+
+- **🧠 核心疑问**: 既然数学结果完全相同，`torch.dot` 和 `torch.sum(x * y)` 在性能和显存上有何区别？  
+- **🧠 底层解释**:  
+  1. **显存开销**：`torch.sum(x * y)` 会先在显存里开辟一块大小为 $O(N)$ 的临时空间存储 `x * y` 的中间结果，浪费显存带宽并增加垃圾回收开销；而 `torch.dot` 采用在线累加，空间开销仅为 $O(1)$，无任何临时显存分配。  
   2. **内核调度**：`torch.dot` 底层直接调用高度优化的 BLAS 库（如 GPU 上的 `cublasSdot`），属单内核融合算子，仅启动一次 GPU Kernel；而拼装法需要分别调度乘法和求和两个 Kernel，多出一倍的通信延迟。
 
 ---
 
-### [工单-025] ❓ 点积在深度学习中的核心几何与算法物理意义
-- **🧠 核心疑问**: 如何理解点积的加权和、加权平均与规范化夹角余弦？
-- **🧠 底层解释**:
-  1. **加权和**（$\mathbf{x}^\top \mathbf{w}$）：对应神经网络中神经元整合不同特征（输入与权重）的基本物理形式。
-  2. **加权平均**：当权重非负且和为 1（$\sum w_i = 1$）时，点积结果为加权均值（如 Attention 机制中 Softmax 归一化权重与 Value 向量相乘的物理本质）。
+### \[工单-025\] ❓ 点积在深度学习中的核心几何与算法物理意义
+
+- **🧠 核心疑问**: 如何理解点积的加权和、加权平均与规范化夹角余弦？  
+- **🧠 底层解释**:  
+  1. **加权和**（$\mathbf{x}^\top \mathbf{w}$）：对应神经网络中神经元整合不同特征（输入与权重）的基本物理形式。  
+  2. **加权平均**：当权重非负且和为 1（$\sum\limits_{}^{}{w}_{i}=1$）时，点积结果为加权均值（如 Attention 机制中 Softmax 归一化权重与 Value 向量相乘的物理本质）。  
   3. **夹角余弦**：两个向量规范化为单位长度后，点积公式 $\mathbf{a}^\top \mathbf{b} = \|\mathbf{a}\| \|\mathbf{b}\| \cos\theta$ 简化为 $\mathbf{u}^\top \mathbf{v} = \cos\theta$. 点积越接近 1 说明向量方向越相似，这构成大模型 Embedding 文本语义相似度计算的物理基石。
 
 ---
 
-### [工单-026] ❓ `cumsum` 与 `sum` 的核心区别
-- **🧠 核心疑问**: `A.cumsum(axis=0)` 和 `A.sum(axis=0)` 有什么区别？
+### \[工单-026\] ❓ `cumsum` 与 `sum` 的核心区别
+
+- **🧠 核心疑问**: `A.cumsum(axis=0)` 和 `A.sum(axis=0)` 有什么区别？  
 - **🧠 底层解释**: `sum` 是毁灭性降维，结果 Shape 会缩小；`cumsum` 是保留 Shape 的"滚雪球累加"——沿指定轴逐行/逐列记录历史累积和，输出张量与输入 Shape 完全相同。典型应用：NLP 中的序列前缀和、概率论中的累积分布函数（CDF）。
 
 ---
 
-### [工单-027] ❓ 矩阵-向量积 `torch.mv` 的计算规则
-- **🧠 核心疑问**: `torch.mv(A, x)` 的底层物理动作是什么？
-- **🧠 底层解释**: 用矩阵 $\mathbf{A}$ 的每一行分别与向量 $\mathbf{x}$ 求一次点积，结果拼接成新向量。Shape 变换：$(m, n) \times (n,) \rightarrow (m,)$. 列数必须与向量长度严格对齐。从列空间视角看，$\mathbf{Ax}$ 是以 $\mathbf{x}$ 各分量为系数对 $\mathbf{A}$ 的列向量做线性组合，输出被物理约束在 $\mathbf{A}$ 的列空间 $\mathcal{C}(A)$ 内。
+### \[工单-027\] ❓ 矩阵-向量积 `torch.mv` 的计算规则
+
+- **🧠 核心疑问**: `torch.mv(A, x)` 的底层物理动作是什么？  
+- **🧠 底层解释**: 用矩阵 $\mathbf{A}$ 的每一行分别与向量 $\mathbf{x}$ 求一次点积，结果拼接成新向量。Shape 变换：$(m,n)\times (n,)\rightarrow (m,)$. 列数必须与向量长度严格对齐。从列空间视角看，$\mathbf{Ax}$ 是以 $\mathbf{x}$ 各分量为系数对 $\mathbf{A}$ 的列向量做线性组合，输出被物理约束在 $\mathbf{A}$ 的列空间 $\mathcal{C}(A)$ 内。
 
 ---
 
-### [工单-028] ❓ `torch.mm` 与 `@` 运算符的工程边界差异
-- **🧠 核心疑问**: `torch.mm(A, B)` 和 `A @ B` 在功能和适用场景上有什么区别？
-- **🧠 底层解释**:
-  - `torch.mm`：严格模式，强制要求输入必须是二维矩阵，传入高维张量直接 `RuntimeError`，用于刻意拦截维度错误。
+### \[工单-028\] ❓ `torch.mm` 与 `@` 运算符的工程边界差异
+
+- **🧠 核心疑问**: `torch.mm(A, B)` 和 `A @ B` 在功能和适用场景上有什么区别？  
+- **🧠 底层解释**:  
+  - `torch.mm`：严格模式，强制要求输入必须是二维矩阵，传入高维张量直接 `RuntimeError`，用于刻意拦截维度错误。  
   - `A @ B`（即 `torch.matmul`）：智能瑞士军刀，自动向下兼容点积（1D@1D）、矩阵向量积（2D@1D），并支持带 Batch 的高维批量矩阵乘法（BMM）。真实大模型代码中几乎 100% 使用 `@`.
 
 ---
 
-### [工单-029] ❓ 范数的本质：规则还是数？
-- **🧠 核心疑问**: 范数到底是一种规则还是一个数？$L_1$ 和 $L_2$ 是什么？
-- **🧠 底层解释**: 范数是一个**函数（规则）**，计算结果是一个**标量（数）**。$L_1$ 和 $L_2$ 是两种不同的计算规则，对同一向量算出不同的数值。以 `u=[3.0, -4.0]` 为例：
-  - $L_2 = \sqrt{3^2+4^2} = 5$（直线距离，勾股定理 $n$ 维推广）→ `torch.norm(u)`
-  - $L_1 = |3|+|-4| = 7$（绝对值之和，出租车距离）→ `torch.abs(u).sum()`
+### \[工单-029\] ❓ 范数的本质：规则还是数？
+
+- **🧠 核心疑问**: 范数到底是一种规则还是一个数？${L}_{1}$ 和 ${L}_{2}$ 是什么？  
+- **🧠 底层解释**: 范数是一个**函数（规则）**，计算结果是一个**标量（数）**。${L}_{1}$ 和 ${L}_{2}$ 是两种不同的计算规则，对同一向量算出不同的数值。以 `u=[3.0, -4.0]` 为例：  
+  - ${L}_{2}=\sqrt{{3}^{2}+{4}^{2}}=5$（直线距离，勾股定理 $n$ 维推广）→ `torch.norm(u)`  
+  - ${L}_{1}=|3|+|-4|=7$（绝对值之和，出租车距离）→ `torch.abs(u).sum()`
 
 ---
 
-### [工单-030] ❓ $L_1$ 为何比 $L_2$ 对异常值更鲁棒？
-- **🧠 核心疑问**: 书中说"$L_1$ 受异常值影响较小"，为什么？
-- **🧠 底层解释**: $L_2$ 对每个元素先**平方**再求和，平方是"放大镜"，异常值为 100 时贡献 10000，爆炸式放大；而 $L_1$ 仅取绝对值，异常值 100 就只贡献 100，不做额外放大。因此在正则化层面：$L_2$ 促使权重**均匀收缩**，$L_1$ 倾向于把无关权重直接**逼归零**（稀疏化/特征选择）。
+### \[工单-030\] ❓ ${L}_{1}$ 为何比 ${L}_{2}$ 对异常值更鲁棒？
+
+- **🧠 核心疑问**: 书中说"${L}_{1}$ 受异常值影响较小"，为什么？  
+- **🧠 底层解释**: ${L}_{2}$ 对每个元素先**平方**再求和，平方是"放大镜"，异常值为 100 时贡献 10000，爆炸式放大；而 ${L}_{1}$ 仅取绝对值，异常值 100 就只贡献 100，不做额外放大。因此在正则化层面：${L}_{2}$ 促使权重**均匀收缩**，${L}_{1}$ 倾向于把无关权重直接**逼归零**（稀疏化/特征选择）。
 
 ---
 
-### [工单-031] ❓ 微分运算符 $D$ 与 $\frac{d}{dx}$ 的关系
-- **🧠 核心疑问**: 书中的 $D$ 是什么？和高数里的 $\frac{d}{dx}$ 有区别吗？
-- **🧠 底层解释**: 完全等价，说的是同一件事。$D$ 是“微分运算符”的懒人简写，主要用于把求导当作一个独立的操作符来表示（如 $Dx^n = nx^{n-1}$）。
+### \[工单-031\] ❓ 微分运算符 $D$ 与 $\frac{d}{dx}$ 的关系
+
+- **🧠 核心疑问**: 书中的 $D$ 是什么？和高数里的 $\frac{d}{dx}$ 有区别吗？  
+- **🧠 底层解释**: 完全等价，说的是同一件事。$D$ 是“微分运算符”的懒人简写，主要用于把求导当作一个独立的操作符来表示（如 $D{x}^{n}=n{x}^{n-1}$）。
 
 ---
 
-### [工单-032] ❓ `#@save` 标记的物理作用
-- **🧠 核心疑问**: D2L 代码块里的 `#@save` 注释有什么用？
-- **🧠 底层解释**: 这不是 Python 的原生语法，而是 D2L 编译系统的**“物理搬运工”标记**。编译脚本在遇到这个标记时，会自动将该函数/类物理追加到你安装的 `d2l` 第三方包中。实操意义：防代码冗余，后续章节可直接通过 `d2l.函数名()` 调用，无需重新定义。
+### \[工单-032\] ❓ `#@save` 标记的物理作用
+
+- **🧠 核心疑问**: D2L 代码块里的 `#@save` 注释有什么用？  
+- **🧠 底层解释**: 这不是 Python 的原生语法，而是 D2L 编译系统的\*\*“物理搬运工”标记\*\*。编译脚本在遇到这个标记时，会自动将该函数/类物理追加到你安装的 `d2l` 第三方包中。实操意义：防代码冗余，后续章节可直接通过 `d2l.函数名()` 调用，无需重新定义。
 
 ---
 
-### [工单-033] ❓ Python `UnboundLocalError` 局部变量作用域陷阱
-- **🧠 核心疑问**: `for x, y, fmt in zip(x, y, fmt):` 为什么会报错变量提前引用？
+### \[工单-033\] ❓ Python `UnboundLocalError` 局部变量作用域陷阱
+
+- **🧠 核心疑问**: `for x, y, fmt in zip(x, y, fmt):` 为什么会报错变量提前引用？  
 - **🧠 底层解释**: Python 的作用域铁律：只要变量名出现在函数内的赋值语句左侧（如 `for x in ...`），Python 就会将该变量在整个函数内判定为“局部变量”。执行 `zip(x,...)` 时试图读取外部参数 `x`，但 Python 强制去寻找尚未赋值的局部 `x`，导致崩溃。修复方案：循环变量改名（如 `x_`）。
 
 ---
 
-### [工单-034] ❓ 梯度的物理直觉与核心规则
-- **🧠 核心疑问**: 梯度是什么？有什么物理意义？
-- **🧠 底层解释**: 梯度是多元函数偏导数的“打包向量”。
-  1. **物理直觉**：几何上永远指向地形（Loss曲面）中**最陡峭的上坡方向**。深度学习的梯度下降就是沿着其反方向寻找谷底。
-  2. **核心规则**：$\nabla_\mathbf{x} \|\mathbf{x}\|^2 = 2\mathbf{x}$. 这是深度学习中 $L_2$ 正则化（权重衰减）在反向传播时产生强力惩罚的数学根基。
+### \[工单-034\] ❓ 梯度的物理直觉与核心规则
+
+- **🧠 核心疑问**: 梯度是什么？有什么物理意义？  
+- **🧠 底层解释**: 梯度是多元函数偏导数的“打包向量”。  
+  1. **物理直觉**：几何上永远指向地形（Loss曲面）中**最陡峭的上坡方向**。深度学习的梯度下降就是沿着其反方向寻找谷底。  
+  2. **核心规则**：$\nabla_\mathbf{x} \|\mathbf{x}\|^2 = 2\mathbf{x}$. 这是深度学习中 ${L}_{2}$ 正则化（权重衰减）在反向传播时产生强力惩罚的数学根基。
 
 ---
 
-### [工单-035] ❓ 链式法则在深度学习中的工程映射
-- **🧠 核心疑问**: 链式法则和高数里有区别吗？为什么深度学习这么强调它？
-- **🧠 底层解释**: 数学本质与高数中的全导数完全等价（所有路径偏导数乘积的累加）。但在深度学习中，它是**反向传播（Backpropagation）**算法的绝对引擎。工业界从不手算梯度，PyTorch 的 `autograd` 会在底层构建计算图，自动、暴力地完成所有链式法则的连乘计算。
+### \[工单-035\] ❓ 链式法则在深度学习中的工程映射
+
+- **🧠 核心疑问**: 链式法则和高数里有区别吗？为什么深度学习这么强调它？  
+- **🧠 底层解释**: 数学本质与高数中的全导数完全等价（所有路径偏导数乘积的累加）。但在深度学习中，它是\*\*反向传播（Backpropagation）\*\*算法的绝对引擎。工业界从不手算梯度，PyTorch 的 `autograd` 会在底层构建计算图，自动、暴力地完成所有链式法则的连乘计算。
 
 ---
 
-### [工单-036] 🐛 乘方运算符误用导致 TypeError
+### \[工单-036\] 🐛 乘方运算符误用导致 TypeError
+
 - **💻 触发代码**:
-  ```python
-  def f(x):
-      return x^3-1/x
-  ```
-- **🩸 原始报错**: `TypeError: ufunc 'bitwise_xor' not supported for the input types`
-- **🧠 底层原因**: 在 Python 中，`^` 不是数学上的乘方，而是按位异或（Bitwise XOR）运算符，无法对浮点数或浮点数组执行乘方操作。
+
+```py
+def f(x):
+    return x^3-1/x
+```
+
+- **🩸 原始报错**: `TypeError: ufunc 'bitwise_xor' not supported for the input types`  
+- **🧠 底层原因**: 在 Python 中，`^` 不是数学上的乘方，而是按位异或（Bitwise XOR）运算符，无法对浮点数或浮点数组执行乘方操作。  
 - **💊 修复方案**:
-  ```python
-  def f(x):
-      return x**3 - 1/x
-  ```
+
+```py
+def f(x):
+    return x**3 - 1/x
+```
 
 ---
 
-### [工单-037] 🐛 Numpy arange 初始值导致除零溢出
+### \[工单-037\] 🐛 Numpy arange 初始值导致除零溢出
+
 - **💻 触发代码**:
-  ```python
-  x=np.arange(0,3,0.1)
-  f(x) # 内部包含 1/x
-  ```
-- **🩸 原始报错**: `RuntimeWarning: divide by zero encountered in divide`
-- **🧠 底层原因**: `np.arange(0, 3, 0.1)` 生成的数列第一项为 0。代入 `1/x` 时物理上触发除以零溢出，产生 `inf`.
+
+```py
+x=np.arange(0,3,0.1)
+f(x) # 内部包含 1/x
+```
+
+- **🩸 原始报错**: `RuntimeWarning: divide by zero encountered in divide`  
+- **🧠 底层原因**: `np.arange(0, 3, 0.1)` 生成的数列第一项为 0。代入 `1/x` 时物理上触发除以零溢出，产生 `inf`.  
 - **💊 修复方案**: 调整起点避开零点。
-  ```python
-  x=np.arange(0.1, 3, 0.1)
-  ```
+
+```py
+x=np.arange(0.1, 3, 0.1)
+```
 
 ---
 
-### [工单-038] 🐛 错误地将导函数当成了切线方程
+### \[工单-038\] 🐛 错误地将导函数当成了切线方程
+
 - **💻 触发代码**:
-  ```python
-  plot(x, [f(x), 3*x**2+1/x**2], ...)
-  ```
-- **🧠 底层原因**: `3*x**2+1/x**2` 只是原函数 $f(x)$ 的导函数 $f'(x)$ 的解析式（画出来是一条曲线）。求某一点的切线必须代入点斜式 $y - y_1 = k(x - x_1)$，算出一次函数解析式。
-- **💊 修复方案**: 代入 $x=1$, 算出点 $(1, 0)$ 和斜率 $k=4$，得出切线 $y = 4x - 4$.
-  ```python
-  plot(x, [f(x), 4*x-4], ...)
-  ```
+
+```py
+plot(x, [f(x), 3*x**2+1/x**2], ...)
+```
+
+- **🧠 底层原因**: `3*x**2+1/x**2` 只是原函数 $f(x)$ 的导函数 $f'(x)$ 的解析式（画出来是一条曲线）。求某一点的切线必须代入点斜式 $y-{y}_{1}=k(x-{x}_{1})$，算出一次函数解析式。  
+- **💊 修复方案**: 代入 $x=1$, 算出点 $(1,0)$ 和斜率 $k=4$，得出切线 $y=4x-4$.
+
+```py
+plot(x, [f(x), 4*x-4], ...)
+```
 
 ---
 
-### [工单-039] 🐛 Jupyter LaTeX 渲染踩坑：分数与上下标花括号
-- **🧠 底层原因**:
-  1. 分数不能直接打斜杠 `/`，要用专属的 `\frac{分子}{分母}`.
-  2. 对于上下标，如果内容**只有一个字符**（如 `x_1^2`），可以省略花括号 `{}`。但如果包含**多个字符**（如 `e^{x_2}`），必须用 `{}` 作为一个整体强制打包，否则渲染会断层。
-- **💊 修复方案**:
+### \[工单-039\] 🐛 Jupyter LaTeX 渲染踩坑：分数与上下标花括号
+
+- **🧠 底层原因**:  
+  1. 分数不能直接打斜杠 `/`，要用专属的 `\frac{分子}{分母}`.  
+  2. 对于上下标，如果内容**只有一个字符**（如 `x_1^2`），可以省略花括号 `{}`。但如果包含**多个字符**（如 `e^{x_2}`），必须用 `{}` 作为一个整体强制打包，否则渲染会断层。  
+- **💊 修复方案**:  
   ```markdown
   $f(\mathbf{x}) = 3x_1^2 + 5e^{x_2}$
   $x^3 - \frac{1}{x}$
@@ -761,9 +922,10 @@
 
 ---
 
-### [工单-040] 🐛 混淆 $L_2$ 范数与向量，误算梯度
-- **🧠 底层原因**: 对 $f(\mathbf{x}) = \|\mathbf{x}\|_2$ 求梯度，需结合外层开方导数与内层平方范数梯度，使用链式法则。$\frac{1}{2\|\mathbf{x}\|_2} \cdot 2\mathbf{x}$ 约去常数 2 后，分子为向量 $\mathbf{x}$，分母为标量（模长）$\|\mathbf{x}\|_2$.
-- **💊 修复方案**: 在数学上，把一个向量除以它自己的长度，得到**“单位向量”**。这也意味着对 $L_2$ 范数求梯度，物理本质是提取这个向量的纯方向。
+### \[工单-040\] 🐛 混淆 ${L}_{2}$ 范数与向量，误算梯度
+
+- **🧠 底层原因**: 对 $f(\mathbf{x}) = \|\mathbf{x}\|_2$ 求梯度，需结合外层开方导数与内层平方范数梯度，使用链式法则。$\frac{1}{2\|\mathbf{x}\|_2} \cdot 2\mathbf{x}$ 约去常数 2 后，分子为向量 $\mathbf{x}$，分母为标量（模长）$\|\mathbf{x}\|_2$.  
+- **💊 修复方案**: 在数学上，把一个向量除以它自己的长度，得到\*\*“单位向量”\*\*。这也意味着对 ${L}_{2}$ 范数求梯度，物理本质是提取这个向量的纯方向。  
   ```latex
   \nabla f(\mathbf{x}) = \frac{\mathbf{x}}{\|\mathbf{x}\|_2}
   ```
@@ -772,1439 +934,1710 @@
 
 ## 📖 2.5 自动微分 — Bug 与核心概念日志
 
-### [工单-041] 🐛 机器学习中梯度的物理求导对象
+### \[工单-041\] 🐛 机器学习中梯度的物理求导对象
+
 - **🧠 核心疑问**: 在预测误差 $z = (\langle \mathbf{x}, \mathbf{w} \rangle - y)^2$ 中，为什么是对权重 $\mathbf{w}$ 求梯度，而不是对数据 $\mathbf{x}$ 求？
 - **💊 底层工程解释**: $\mathbf{x}$ 是客观存在的输入数据（如图片像素、房屋面积），无法改变；$\mathbf{w}$ 是 AI 模型需要“学习”的待定参数。梯度的物理意义是指向“碗底”的最陡方向，我们是对参数 $\mathbf{w}$ 求梯度，以便知道如何微调参数组合，从而使模型误差 $z$ 降到最低。
 
-### [工单-042] 🐛 标量对向量求导的维度直觉
-- **🧠 核心疑问**: 标量 $a$ 对列向量 $\mathbf{w}$ 求偏导，结果是可以写成相加的形式（如 $x_1+x_2+...+x_n$）吗？
+### \[工单-042\] 🐛 标量对向量求导的维度直觉
+
+- **🧠 核心疑问**: 标量 $a$ 对列向量 $\mathbf{w}$ 求偏导，结果是可以写成相加的形式（如 ${x}_{1}+{x}_{2}+...+{x}_{n}$）吗？
 - **💊 底层数学/工程解释**: 绝对不能相加。**梯度的物理形状永远由“对谁求导”决定**。$\mathbf{w}$ 有 $n$ 个独立分量，就会产生 $n$ 个独立的偏导数。必须把这 $n$ 个偏导数原封不动地打包排列成一个向量，用作后续的矩阵乘法，绝不能压缩成一个标量。
 
-### [工单-043] 🐛 默认列向量约定与内积运算规则
-- **🧠 核心疑问**: 向量内积 $\langle \mathbf{x}, \mathbf{w} \rangle$ 对应的矩阵乘法是 $\mathbf{x}^\top\mathbf{w}$ 还是 $\mathbf{x}\mathbf{w}^\top$？
-- **💊 底层数学/工程解释**: 现代线代体系与深度学习框架（如 PyTorch）的默认出厂设置中，孤立向量全部被视为 **列向量** $(n \times 1)$。根据矩阵乘法的“齿轮咬合”规则，求内积（输出标量）必须是“前转置、后不转”，即 $(1 \times n) \times (n \times 1)$ 的 $\mathbf{x}^\top\mathbf{w}$. 若写成 $\mathbf{x}\mathbf{w}^\top$ 则是外积，会引发形状爆炸，输出 $(n \times n)$ 矩阵。
+### \[工单-043\] 🐛 默认列向量约定与内积运算规则
 
-### [工单-044] 🐛 Jacobian 矩阵连乘与“分子布局”约束
-- **🧠 核心疑问**: 在链式求导中，为什么标量 $z = \|\mathbf{b}\|^2$ 对列向量 $\mathbf{b}$ 的梯度被写成了行向量 $2\mathbf{b}^\top$？
+- **🧠 核心疑问**: 向量内积 $\langle \mathbf{x}, \mathbf{w} \rangle$ 对应的矩阵乘法是 $\mathbf{x}^\top\mathbf{w}$ 还是 $\mathbf{x}\mathbf{w}^\top$？
+- **💊 底层数学/工程解释**: 现代线代体系与深度学习框架（如 PyTorch）的默认出厂设置中，孤立向量全部被视为 **列向量** $(n\times 1)$。根据矩阵乘法的“齿轮咬合”规则，求内积（输出标量）必须是“前转置、后不转”，即 $(1\times n)\times (n\times 1)$ 的 $\mathbf{x}^\top\mathbf{w}$. 若写成 $\mathbf{x}\mathbf{w}^\top$ 则是外积，会引发形状爆炸，输出 $(n\times n)$ 矩阵。
+
+### \[工单-044\] 🐛 Jacobian 矩阵连乘与“分子布局”约束
+
+- **🧠 核心疑问**: 在链式求导中，为什么标量 $z = \|\mathbf{b}\|^2$ 对列向量 $\mathbf{b}$ 的梯度被写成了行向量 $2\mathbf{b}^\top$？  
 - **💊 底层数学/工程解释**: 纯数学连乘使用的是“分子布局”。为了让链式法则的多项导数能够像齿轮一样**从左到右顺利执行矩阵连乘**（前项的列数必须等于后项的行数），最外层的标量导数被迫“横躺”化为行向量。同理，当“向量对向量求导”时，为了填满多输入多输出的变化率表格，必然产生一个 Jacobian 矩阵。
 
-### [工单-045] 🐛 PyTorch 物理内存的“分母布局”与 VJP 倒转
-- **🧠 核心疑问**: 纯数学连乘算出的 Jacobian 梯度是一个行向量，这能在 PyTorch 里直接拿来更新参数吗？
-- **💊 底层工程解释**: 绝对不行。PyTorch 在执行物理内存更新（$\mathbf{w}_{\text{new}} = \mathbf{w}_{\text{old}} - \eta \nabla$）时，强行要求梯度的形状必须与原参数 $\mathbf{w}$ 严丝合缝（即要求必须是列向量的“分母布局”）。为解决纯数学连乘（行向量）与物理内存相减（列向量）的底层冲突，PyTorch 采用 **VJP (Vector-Jacobian Product)**，通过转置反序法则 $(AB)^\top = B^\top A^\top$ 整体倒转齿轮，强制把数学上的行向量扭转回工程上可用的列向量。
+### \[工单-045\] 🐛 PyTorch 物理内存的“分母布局”与 VJP 倒转
 
-### [工单-046] ❓ 为什么 PyTorch 底层从不显式生成完整的雅可比（Jacobian）矩阵？
-- **🧠 底层解释**:
-  雅可比矩阵 $J$ 描述输入与输出的微小扰动映射（$d\mathbf{y} = J \cdot d\mathbf{x}$）。若输入输出特征图均为百万维，$J$ 将包含一万亿个元素，需占用 4TB 物理显存，瞬间触发 OOM。PyTorch 底层通过**向量-雅可比积（VJP）**机制，直接求解最终的降维梯度，彻底绕过完整矩阵的实例化。
+- **🧠 核心疑问**: 纯数学连乘算出的 Jacobian 梯度是一个行向量，这能在 PyTorch 里直接拿来更新参数吗？  
+- **💊 底层工程解释**: 绝对不行。PyTorch 在执行物理内存更新（$\mathbf{w}_{\text{new}} = \mathbf{w}_{\text{old}} - \eta \nabla$）时，强行要求梯度的形状必须与原参数 $\mathbf{w}$ 严丝合缝（即要求必须是列向量的“分母布局”）。为解决纯数学连乘（行向量）与物理内存相减（列向量）的底层冲突，PyTorch 采用 **VJP (Vector-Jacobian Product)**，通过转置反序法则 $(AB{)}^{\top }={B}^{\top }{A}^{\top }$ 整体倒转齿轮，强制把数学上的行向量扭转回工程上可用的列向量。
 
----
+### \[工单-046\] ❓ 为什么 PyTorch 底层从不显式生成完整的雅可比（Jacobian）矩阵？
 
-### [工单-047] ❓ 为什么数学推导的导数是行向量，而 PyTorch 输出的梯度是列向量？
-- **🧠 底层解释**:
-  以二次型 $y = \mathbf{x}^T A \mathbf{x}$ 为例，纯数学微分法（分子布局）求出的雅可比矩阵为 $J = 2\mathbf{x}^T A$（$1 \times n$ 行向量）。但在工程中，为执行 $\mathbf{x}_{\text{new}} = \mathbf{x}_{\text{old}} - \eta \nabla y$，梯度的 Shape 必须与原参数 $\mathbf{x}$ 绝对一致。因此框架强制采用分母布局，对 $J$ 取转置得出 $2A\mathbf{x}$（$n \times 1$ 列向量），实现内存指针的直接逐元素相减。
+- **🧠 底层解释**: 雅可比矩阵 $J$ 描述输入与输出的微小扰动映射（$d\mathbf{y} = J \cdot d\mathbf{x}$）。若输入输出特征图均为百万维，$J$ 将包含一万亿个元素，需占用 4TB 物理显存，瞬间触发 OOM。PyTorch 底层通过\*\*向量-雅可比积（VJP）\*\*机制，直接求解最终的降维梯度，彻底绕过完整矩阵的实例化。
 
 ---
 
-### [工单-048] ❓ 反向传播的链式法则，底层齿轮是如何咬合的？
-- **🧠 底层解释**:
-  纯数学链式法则从左至右连乘，为保证矩阵维度合法，要求梯度以行向量"躺平"。PyTorch 为输出列向量，利用矩阵转置反序定律 $(ABC)^T = C^T B^T A^T$，将相乘链条**从后往前（反向）**传递，并对所有局部雅可比矩阵加转置。这完美解决了数学形式与物理显存对齐的冲突。
+### \[工单-047\] ❓ 为什么数学推导的导数是行向量，而 PyTorch 输出的梯度是列向量？
+
+- **🧠 底层解释**: 以二次型 $y = \mathbf{x}^T A \mathbf{x}$ 为例，纯数学微分法（分子布局）求出的雅可比矩阵为 $J = 2\mathbf{x}^T A$（$1\times n$ 行向量）。但在工程中，为执行 $\mathbf{x}_{\text{new}} = \mathbf{x}_{\text{old}} - \eta \nabla y$，梯度的 Shape 必须与原参数 $\mathbf{x}$ 绝对一致。因此框架强制采用分母布局，对 $J$ 取转置得出 $2A\mathbf{x}$（$n\times 1$ 列向量），实现内存指针的直接逐元素相减。
 
 ---
 
-### [工单-049] ❓ 雅可比矩阵"降秩"会导致什么深度学习灾难？
-- **🧠 底层解释**:
-  反向传播本质是雅可比矩阵的连乘。若某层（如 ReLU 激活死区）导致雅可比矩阵严重降秩（Rank Deficiency），上游传来的高维梯度向量在相乘瞬间，大量信息会被吸入该矩阵的**零空间（Nullspace）**化为绝对的 0。这在工程上即为致命的**梯度消失（Vanishing Gradient）**。ResNet 的残差连接（$+I$）本质就是强行拉升特征值，恢复矩阵满秩。
+### \[工单-048\] ❓ 反向传播的链式法则，底层齿轮是如何咬合的？
+
+- **🧠 底层解释**: 纯数学链式法则从左至右连乘，为保证矩阵维度合法，要求梯度以行向量"躺平"。PyTorch 为输出列向量，利用矩阵转置反序定律 $(ABC{)}^{T}={C}^{T}{B}^{T}{A}^{T}$，将相乘链条\*\*从后往前（反向）\*\*传递，并对所有局部雅可比矩阵加转置。这完美解决了数学形式与物理显存对齐的冲突。
 
 ---
 
-### [工单-050] ❓ `grad_fn` 出现与消失的物理开关是什么？
+### \[工单-049\] ❓ 雅可比矩阵"降秩"会导致什么深度学习灾难？
+
+- **🧠 底层解释**: 反向传播本质是雅可比矩阵的连乘。若某层（如 ReLU 激活死区）导致雅可比矩阵严重降秩（Rank Deficiency），上游传来的高维梯度向量在相乘瞬间，大量信息会被吸入该矩阵的**零空间（Nullspace）化为绝对的 0。这在工程上即为致命的梯度消失（Vanishing Gradient）**。ResNet 的残差连接（$+I$）本质就是强行拉升特征值，恢复矩阵满秩。
+
+---
+
+### \[工单-050\] ❓ `grad_fn` 出现与消失的物理开关是什么？
+
 - **🧠 底层解释**: `grad_fn` 是 PyTorch 在张量上挂载的**计算图指针**，记录该张量是由哪种运算产生的。触发条件是在执行运算**之前**，对叶子张量调用 `x.requires_grad_(True)`。若未开启此开关，PyTorch 视该张量为纯数字，不建计算图，`grad_fn` 为 `None`，后续调用 `backward()` 直接 `RuntimeError`。
 
-### [工单-051] ❓ `backward()` 与 `.grad` 的生产者-消费者关系
+### \[工单-051\] ❓ `backward()` 与 `.grad` 的生产者-消费者关系
+
 - **🧠 底层解释**: 二者是严格配对的一次性流水线：`y.backward()` 是**生产者**，触发后沿计算图倒走，把链式法则的连乘结果写入每个叶子节点的 `.grad` 属性；`x.grad` 是**消费者/仓库**，在 `backward()` 调用前默认为 `None`，调用后存放最终梯度数值。`backward()` 本身无返回值。
 
-### [工单-052] ❓ `optimizer.zero_grad()` 不清零会导致什么？
+### \[工单-052\] ❓ `optimizer.zero_grad()` 不清零会导致什么？
+
 - **🧠 底层解释**: PyTorch 的 `.grad` 属性是**累加**而非覆盖设计（为支持梯度累积模拟大 Batch）。若训练循环忘记清零，第 $n$ 轮的梯度会叠加在前 $n-1$ 轮的残留值上，参数更新方向严重错误。标准铁律三步走：`zero_grad()` → `loss.backward()` → `optimizer.step()`，顺序不可乱。
 
-### [工单-053] ❓ 为什么计算机必须先正向再反向才能求梯度？
-- **🧠 底层解释**: 替代方案均有致命缺陷：①符号微分在百层网络中产生指数爆炸的表达式；②数值微分需对每个参数单独扰动，1亿参数就要跑1亿次前向传播。反向传播（反向模式自动微分）利用深度学习"多输入、单输出Loss"的物理结构，仅需**1次正向 + 1次反向**即可一次性获得所有参数的梯度，计算成本仅为正向的2~3倍，与参数数量无关。
+### \[工单-053\] ❓ 为什么计算机必须先正向再反向才能求梯度？
 
-### [工单-054] ❓ 正向传播的双重使命是什么？
+- **🧠 底层解释**: 替代方案均有致命缺陷：①符号微分在百层网络中产生指数爆炸的表达式；②数值微分需对每个参数单独扰动，1亿参数就要跑1亿次前向传播。反向传播（反向模式自动微分）利用深度学习"多输入、单输出Loss"的物理结构，仅需**1次正向 \+ 1次反向**即可一次性获得所有参数的梯度，计算成本仅为正向的2\~3倍，与参数数量无关。
+
+### \[工单-054\] ❓ 正向传播的双重使命是什么？
+
 - **🧠 底层解释**: ①**算出 Loss 数值**：告诉工程师模型当前有多烂，是 `y.backward()` 的起点（$\frac{\partial y}{\partial y}=1$）。②**存储中间值**：反向传播时每个节点的局部导数公式（如 $\frac{\partial b}{\partial a}=2a$）需代入正向时的真实数值，若未提前存档则反向无米之炊。两个使命缺一不可。
 
-### [工单-055] ❓ `optimizer.zero_grad()` 与 `x.grad.zero_()` 有何工程区别？
+### \[工单-055\] ❓ `optimizer.zero_grad()` 与 `x.grad.zero_()` 有何工程区别？
+
 - **🧠 底层解释**: 前者是批处理工具，后者是单点手术刀。在真实训练中，模型包含上千个权重张量，调用 `optimizer.zero_grad()` 可利用在创建优化器时注册的 `model.parameters()` 列表，一次性遍历清空所有参数的 `.grad`，避免数百行手动清零代码。
 
-### [工单-056] ❓ 为什么计算机使用自动微分 (AD) 而不是人类的符号微分？
-- **🧠 底层解释**: 人类的本能是**符号微分**，保留完整的代数表达式。但深层神经网络的复合函数如果用代数公式完全展开，会导致恐怖的**表达式膨胀（Expression Swell）**，例如嵌套100层的平方操作会让变量指数飙升至 $2^{100}$，瞬间撑爆任何内存。PyTorch 的**自动微分**只传**纯数字**：利用正向保存的具体数值（如 $x=0.5$），每到一站当场算出局部导数的纯浮点数，与上游传来的梯度纯数值进行连乘（链式法则），坚决不拼接代数公式。
+### \[工单-056\] ❓ 为什么计算机使用自动微分 (AD) 而不是人类的符号微分？
 
-### [工单-057] ❓ 非标量如何进行反向传播？（VJP 等价降维机制）
+- **🧠 底层解释**: 人类的本能是**符号微分**，保留完整的代数表达式。但深层神经网络的复合函数如果用代数公式完全展开，会导致恐怖的**表达式膨胀（Expression Swell）**，例如嵌套100层的平方操作会让变量指数飙升至 ${2}^{100}$，瞬间撑爆任何内存。PyTorch 的**自动微分**只传**纯数字**：利用正向保存的具体数值（如 $x=0.5$），每到一站当场算出局部导数的纯浮点数，与上游传来的梯度纯数值进行连乘（链式法则），坚决不拼接代数公式。
+
+### \[工单-057\] ❓ 非标量如何进行反向传播？（VJP 等价降维机制）
+
 - **🧠 底层解释**: 若向量对向量求导，严格数学上会生成庞大的**雅可比矩阵（Jacobian）**，直接实例化会导致 OOM。PyTorch 底层采用 VJP（Vector-Jacobian Product），必须由外部传入一个与输出形状一致的梯度向量 $\mathbf{v}$ 进行乘法降维。工程上常用 `y.sum().backward()` 暴力解题：利用 `.sum()` 加法偏导数为 1 的规律，相当于底层自动生成了一个全 1 的权重向量传给反向引擎，极其优雅地绕过了矩阵实例化。
 
-### [工单-058] 🪤 链式法则中的"二次乘法"定式
-- **❌ 错误直觉**: 在计算反向传播时，算出局部导数并乘以传入梯度得到结果后，大脑潜意识里又把传入梯度多乘了一遍（例如：局部导数为 $10x_1$，传入梯度为 $2$，算出 $20x_1$ 后，又乘了一次 2 得到 $40x_1$）。
-- **🧠 认知盲区**: 将微积分的链式法则与二次型（$\mathbf{v}^\top J \mathbf{v}$）混淆，大脑有"必须把参数两边包起来"的错觉。
+### \[工单-058\] 🪤 链式法则中的"二次乘法"定式
+
+- **❌ 错误直觉**: 在计算反向传播时，算出局部导数并乘以传入梯度得到结果后，大脑潜意识里又把传入梯度多乘了一遍（例如：局部导数为 $10{x}_{1}$，传入梯度为 $2$，算出 $20{x}_{1}$ 后，又乘了一次 2 得到 $40{x}_{1}$）。  
+- **🧠 认知盲区**: 将微积分的链式法则与二次型（$\mathbf{v}^\top J \mathbf{v}$）混淆，大脑有"必须把参数两边包起来"的错觉。  
 - **💊 纠偏锚点**: 反向传播是严苛的**单向接力跑**，传入梯度只能与局部导数**仅乘一次**，立刻转身传走，绝不回头捡接力棒！
 
-### [工单-059] 🪤 错把梯度子弹当成自变量代入
-- **❌ 错误直觉**: 看到 `y.backward(torch.tensor([4.0, 5.0]))`，误以为要把 4.0 和 5.0 作为自变量 $x$ 的具体数值，代入到局部导数公式中计算（例如：算出导数为 $9x^2$ 后，直接把 4 代进去算 $9 \times 4^2 = 144$）。
-- **🧠 认知盲区**: 不理解 PyTorch 自动微分的内存流动机制，不知道真正的 $x$ 数值早已在**正向传播**时就作为中间值存入了仓库。
+### \[工单-059\] 🪤 错把梯度子弹当成自变量代入
+
+- **❌ 错误直觉**: 看到 `y.backward(torch.tensor([4.0, 5.0]))`，误以为要把 4.0 和 5.0 作为自变量 $x$ 的具体数值，代入到局部导数公式中计算（例如：算出导数为 $9{x}^{2}$ 后，直接把 4 代进去算 $9\times {4}^{2}=144$）。  
+- **🧠 认知盲区**: 不理解 PyTorch 自动微分的内存流动机制，不知道真正的 $x$ 数值早已在**正向传播**时就作为中间值存入了仓库。  
 - **💊 纠偏锚点**: `backward()` 里面传的参数永远是从上游射来的**梯度子弹**，真实的 $x$ 引擎会自动去正向传播的仓库里找，不用你操心！
 
-### [工单-060] ❓ `y.detach()` 会破坏原有的计算图吗？
-- **🧠 底层解释**: 绝对不会！`detach()` 的物理本质是"零拷贝复制数据，并撕毁因果指针"。它克隆了 `y` 的数据产生新张量 `u`，但 `u.grad_fn` 为空。在计算图这棵树上，原本的树枝 $x \to y$ 完好无损。当你用 `u` 继续参与运算（如 $z = u \cdot x$）时，相当于回到了树根 $x$，强行催生出了一根**全新的、完全独立的**树枝 $x \to z$. 这两个分支在执行反向传播时互不干扰，完全独立。
+### \[工单-060\] ❓ `y.detach()` 会破坏原有的计算图吗？
 
-### [工单-061] ❓ `f(a)` 里的 `while` 和 `if` 是如何控制计算图的？
+- **🧠 底层解释**: 绝对不会！`detach()` 的物理本质是"零拷贝复制数据，并撕毁因果指针"。它克隆了 `y` 的数据产生新张量 `u`，但 `u.grad_fn` 为空。在计算图这棵树上，原本的树枝 $x\rightarrow y$ 完好无损。当你用 `u` 继续参与运算（如 $z=u\cdot x$）时，相当于回到了树根 $x$，强行催生出了一根**全新的、完全独立的**树枝 $x\rightarrow z$. 这两个分支在执行反向传播时互不干扰，完全独立。
+
+### \[工单-061\] ❓ `f(a)` 里的 `while` 和 `if` 是如何控制计算图的？
+
 - **🧠 底层解释**: 实际上它们**完全没有**控制计算图。PyTorch 的核心杀手锏是**动态图机制 (Define-by-Run)**。引擎根本看不懂 Python 的控制流语句，它只是一个忠诚的"跟屁虫"。Python 实际执行了哪些数学运算（比如循环跑了 3 次乘法，或者走了 `if` 没走 `else`），引擎就在底层按顺序画出对应的计算图节点。每一轮前向传播生成的计算图，仅仅是 Python 当次真实执行轨迹的物理克隆。这比老一代框架的静态图要优雅和直观得多。
 
-### [工单-062] ❓ 为什么求二阶导数的开销极大？
+### \[工单-062\] ❓ 为什么求二阶导数的开销极大？
+
 - **🧠 底层解释**: 求一阶导数只需要 1 次正向传播（建图）+ 1 次反向传播（清算，然后立刻销毁原图）。但要求二阶导数，必须在第一次反向传播时开启 `create_graph=True`，强迫引擎把求导的算术过程当成正向传播，在内存里再建一张**全新的梯度计算图**。这意味着不仅要执行 1次正向+2次反向 的算力，还要在显存中**同时维持两张巨型计算图**。
 
-### [工单-063] 🐛 画图报错：不能直接使用带梯度的张量
-- **💻 触发代码**:
-  ```python
-  plt.plot(x, y) # x, y 均为 requires_grad=True 的张量
-  ```
-- **🩸 原始报错**: `RuntimeError: Can't call numpy() on Tensor that requires grad. Use tensor.detach().numpy() instead.`
-- **🧠 底层原因**: matplotlib 画图库只认识纯数据。如果强行把处在计算图网络中的核心张量塞给外挂库画图，PyTorch 为了保护计算图的安全防线，会直接熔断抛出异常。必须剥离出纯数据分身。
-- **💊 修复方案**:
-  ```python
-  plt.plot(x.detach().numpy(), y.detach().numpy())
-  ```
+### \[工单-063\] 🐛 画图报错：不能直接使用带梯度的张量
 
-### [工单-064] 🐛 Jupyter 画图渲染进程死锁挂起
 - **💻 触发代码**:
-  ```python
-  d2l.plt.show() # 在 VS Code 中执行
-  ```
-- **🩸 原始报错**: 无报错红字，但单元格一直转圈无法结束（进程无限挂起）。
-- **🧠 底层原因**: 画图引擎试图调用本地 GUI 窗口失败，导致 Python 内核死锁等待。特别是 `d2l` 默认的 SVG 渲染器在部分 VS Code 环境下极易触发内存泄漏与死锁。
+
+```py
+plt.plot(x, y) # x, y 均为 requires_grad=True 的张量
+```
+
+- **🩸 原始报错**: `RuntimeError: Can't call numpy() on Tensor that requires grad. Use tensor.detach().numpy() instead.`  
+- **🧠 底层原因**: matplotlib 画图库只认识纯数据。如果强行把处在计算图网络中的核心张量塞给外挂库画图，PyTorch 为了保护计算图的安全防线，会直接熔断抛出异常。必须剥离出纯数据分身。  
+- **💊 修复方案**:
+
+```py
+plt.plot(x.detach().numpy(), y.detach().numpy())
+```
+
+### \[工单-064\] 🐛 Jupyter 画图渲染进程死锁挂起
+
+- **💻 触发代码**:
+
+```py
+d2l.plt.show() # 在 VS Code 中执行
+```
+
+- **🩸 原始报错**: 无报错红字，但单元格一直转圈无法结束（进程无限挂起）。  
+- **🧠 底层原因**: 画图引擎试图调用本地 GUI 窗口失败，导致 Python 内核死锁等待。特别是 `d2l` 默认的 SVG 渲染器在部分 VS Code 环境下极易触发内存泄漏与死锁。  
 - **💊 修复方案**: 中断/重启内核后，在代码顶部加入 `%matplotlib inline` 强制内嵌渲染；若仍崩溃，弃用 D2L 封装，使用原生 `plt` 并通过 `%config InlineBackend.figure_format = 'png'` 降级格式输出。
 
-### [工单-065] 🪤 分布采样的维度“无中生有”错觉
-- **❌ 错误直觉**: 认为 `Multinomial(100, probs)` 其中 `probs` 为形状 `[3]` 的向量时，输出会自动变成二维的列向量 `[3, 1]`。
-- **🧠 认知盲区**: 潜意识中带有排版执念，忽视了 PyTorch 张量采样“绝不越权生维”的法则。
+### \[工单-065\] 🪤 分布采样的维度“无中生有”错觉
+
+- **❌ 错误直觉**: 认为 `Multinomial(100, probs)` 其中 `probs` 为形状 `[3]` 的向量时，输出会自动变成二维的列向量 `[3, 1]`。  
+- **🧠 认知盲区**: 潜意识中带有排版执念，忽视了 PyTorch 张量采样“绝不越权生维”的法则。  
 - **💊 纠偏锚点**: 引擎执行采样时，严格继承输入概率张量的原始骨架。张量绝不会凭空捏造新坐标轴，升维必须亲手调用 `.unsqueeze()`.
 
-### [工单-066] 🪤 `cumsum` 累积引擎的逆向错位
-- **❌ 错误直觉**: 计算二维矩阵 `cumsum(dim=0)` 时，在大脑中错误地从底层（最后一行）往顶层（第一行）进行逆向累加。
-- **🧠 认知盲区**: 忽略了底层内存指针单向遍历的物理特性。
+### \[工单-066\] 🪤 `cumsum` 累积引擎的逆向错位
+
+- **❌ 错误直觉**: 计算二维矩阵 `cumsum(dim=0)` 时，在大脑中错误地从底层（最后一行）往顶层（第一行）进行逆向累加。  
+- **🧠 认知盲区**: 忽略了底层内存指针单向遍历的物理特性。  
 - **💊 纠偏锚点**: 推土机严格按照内存 Index 递增顺序（从上往下、从左向右）正向推进。在处理序列数据时方向一旦反转，因果关系就会瞬间崩溃（未来预测过去）。
 
-### [工单-067] 🪤 混淆方差衰减与标准差振幅（$\sqrt{N}$陷阱）
-- **❌ 错误直觉**: 实验样本量扩大 100 倍，认为图表上直观的波动幅度（振幅）也会被等比压缩到 1/100。
-- **🧠 认知盲区**: 遗忘了大数定律推导出的 $1/N$ 衰减规律，约束的是不可视的**方差（Variance）**。
+### \[工单-067\] 🪤 混淆方差衰减与标准差振幅（$\sqrt{N}$陷阱）
+
+- **❌ 错误直觉**: 实验样本量扩大 100 倍，认为图表上直观的波动幅度（振幅）也会被等比压缩到 1/100。  
+- **🧠 认知盲区**: 遗忘了大数定律推导出的 $1/N$ 衰减规律，约束的是不可视的**方差（Variance）**。  
 - **💊 纠偏锚点**: 物理可见的波动幅度是**标准差**（方差的平方根）。样本量 $N$ 扩大 100 倍，真实误差波动只能被压缩 10 倍。这是深度学习获取高质量数据代价极其高昂的底层物理本质。
 
-### [工单-068] 🪤 贝叶斯定理的假阳性悖论（Base Rate Fallacy）
-- **❌ 错误直觉**: 认为只要仪器的检测准确率极高（如 99%），一旦普通人初检呈阳性，其真正得病的概率就一定极高（接近 99%）。
-- **🧠 认知盲区**: 大脑过度迷信最新证据（似然证据：呈阳性），而完全遗忘了事件发生的基础背景概率（先验概率：人群整体患病率极低）。
+### \[工单-068\] 🪤 贝叶斯定理的假阳性悖论（Base Rate Fallacy）
+
+- **❌ 错误直觉**: 认为只要仪器的检测准确率极高（如 99%），一旦普通人初检呈阳性，其真正得病的概率就一定极高（接近 99%）。  
+- **🧠 认知盲区**: 大脑过度迷信最新证据（似然证据：呈阳性），而完全遗忘了事件发生的基础背景概率（先验概率：人群整体患病率极低）。  
 - **💊 纠偏锚点**: 即使假阳性率只有 1%，但由于健康人群的绝对基数过于庞大，产生的“假阳性绝对人数”将彻底淹没极微小的“真阳性绝对人数”。贝叶斯定理本质上是**新证据（似然）与旧常识（先验）在绝对物理数量层面的一场硬核博弈**。
 
 ---
 
 ## 📖 2.6 概率论与统计 — 进阶陷阱与底层溯源
 
-### [工单-069] 🪤 边际概率的推土机降维方向错觉
-- **❌ 错误直觉**: 想要提取出天气的概率分布（行特征），就在大脑里错误地对 `dim=0`（行）执行操作，以为这样是“保留”。
-- **🧠 认知盲区**: 潜意识中忽视了 `sum(dim=x)` 在张量物理引擎中的绝对动作是“彻底碾碎并消除指定的坐标轴”。
+### \[工单-069\] 🪤 边际概率的推土机降维方向错觉
+
+- **❌ 错误直觉**: 想要提取出天气的概率分布（行特征），就在大脑里错误地对 `dim=0`（行）执行操作，以为这样是“保留”。  
+- **🧠 认知盲区**: 潜意识中忽视了 `sum(dim=x)` 在张量物理引擎中的绝对动作是“彻底碾碎并消除指定的坐标轴”。  
 - **💊 纠偏锚点**: 想要保留哪个维度，就必须开着推土机碾碎它对立的、碍事的维度！求行分布就 `sum(dim=1)`，求列分布就 `sum(dim=0)`.
 
-### [工单-070] 🪤 工程师方差捷径公式的指针偏移
-- **❌ 错误直觉**: 将极度优雅的方差捷径公式 $E[X^2] - (E[X])^2$ 错误地心算成了 $E[X^2] - E[X]$.
-- **🧠 认知盲区**: 肉眼解析密集数学公式时发生指针偏移，并且潜意识里缺乏对结果进行“量纲对齐”的约束（期望的量纲是一次方，平方的期望是二次方，直接相减在物理上绝对非法）。
+### \[工单-070\] 🪤 工程师方差捷径公式的指针偏移
+
+- **❌ 错误直觉**: 将极度优雅的方差捷径公式 $E[{X}^{2}]-(E[X]{)}^{2}$ 错误地心算成了 $E[{X}^{2}]-E[X]$.  
+- **🧠 认知盲区**: 肉眼解析密集数学公式时发生指针偏移，并且潜意识里缺乏对结果进行“量纲对齐”的约束（期望的量纲是一次方，平方的期望是二次方，直接相减在物理上绝对非法）。  
 - **💊 纠偏锚点**: 捷径公式尾巴上减去的，必须是“质心（期望）的绝对平方”。
 
-### [工单-071] ❓ 方差公式外层为什么要死死套一层 Expectation (求平均)？
+### \[工单-071\] ❓ 方差公式外层为什么要死死套一层 Expectation (求平均)？
+
 - **🧠 底层解释**: 算方差是为了衡量点云分布“固有的物理胖度”。如果不求平均（只算距离平方和 SSE），只要采样数据增多，“胖度”就会无限膨胀，得出“一团不变的星云变胖了 100 倍”的荒谬结论。外层的 $E[X]$ 是一台“样本数粉碎机”，它算出平摊到每个点上的拉伸能量，保证点云分布的离散程度是一个绝对守恒的物理常量。
 
-### [工单-072] ❓ 有了方差，为什么还要发明标准差？
+### \[工单-072\] ❓ 有了方差，为什么还要发明标准差？
+
 - **🧠 底层解释**: 方差为了把负距离变正，强制进行了平方操作。这在微积分求导时极其平滑（如 L2 损失），但它导致了一个物理灾难——**量纲（物理单位）也被强行平方了**（如：身高的方差单位变成了“平方米”）。为了让误差波动范围能降维回到原始数据所在的物理三维世界，让非技术人员能听懂，必须对结果开根号，这就是标准差的物理宿命。
 
-### [工单-073] ❓ 贝叶斯定理在深度学习底层代码里的终极面貌是什么？
-- **🧠 底层解释**: 将贝叶斯定理 $P(W|D) \propto P(D|W)P(W)$ 的两边同时取**负对数 (Negative Log)**，乘法降维成加法。
-  - 数据似然 $P(D|W)$ 变成了 **CrossEntropyLoss（交叉熵损失）**。
-  - 先验常识 $P(W)$ 变成了 **L2 Regularization / Weight Decay（权重衰减）**。
-  深度学习的所谓“训练”，本质上就是在拟合最新数据（似然）和坚守物理常识（先验）之间，利用数学上的 **MAP（最大后验估计）** 玩的一场绝对数量级拔河比赛。
+### \[工单-073\] ❓ 贝叶斯定理在深度学习底层代码里的终极面貌是什么？
 
-### [工单-074] 🪤 大数定律的可视化缩放陷阱
-- **❌ 错误直觉**: 在观察折线图时，错误地认为振幅剧烈跳动的线代表不收敛，而平坦的线代表收敛，忽略了底层样本的数量级差异。
-- **🧠 认知盲区**: 大脑被可视化软件 (matplotlib) 的 Y 轴自动缩放 (Auto-scaling) 功能所欺骗，没有在绝对一致的物理坐标系下对比误差幅度。
+- **🧠 底层解释**: 将贝叶斯定理 $P(W|D)\propto P(D|W)P(W)$ 的两边同时取**负对数 (Negative Log)**，乘法降维成加法。  
+  - 数据似然 $P(D|W)$ 变成了 **CrossEntropyLoss（交叉熵损失）**。  
+  - 先验常识 $P(W)$ 变成了 **L2 Regularization / Weight Decay（权重衰减）**。 深度学习的所谓“训练”，本质上就是在拟合最新数据（似然）和坚守物理常识（先验）之间，利用数学上的 **MAP（最大后验估计）** 玩的一场绝对数量级拔河比赛。
+
+### \[工单-074\] 🪤 大数定律的可视化缩放陷阱
+
+- **❌ 错误直觉**: 在观察折线图时，错误地认为振幅剧烈跳动的线代表不收敛，而平坦的线代表收敛，忽略了底层样本的数量级差异。  
+- **🧠 认知盲区**: 大脑被可视化软件 (matplotlib) 的 Y 轴自动缩放 (Auto-scaling) 功能所欺骗，没有在绝对一致的物理坐标系下对比误差幅度。  
 - **💊 纠偏锚点**: 永远不要相信肉眼看到的折线，必须用代码强行锁死 `set_ylim()`，在统一的物理标尺下评估收敛精度。大样本的分组（大 $n$）从起跑线就具备极强的降维镇压能力。
 
-### [工单-075] ❓ 为什么独立的随机误差会互相抵消？（醉汉漫步模型）
+### \[工单-075\] ❓ 为什么独立的随机误差会互相抵消？（醉汉漫步模型）
+
 - **🧠 底层解释**: 误差抵消并非玄学，而是极小概率的绝对压制。当海量独立随机误差叠加时，正向与负向误差在绝大多数情况发生物理对撞与湮灭。但系统不会完美归零，而是产生极其缓慢的物理漂移——总误差距离死死卡在 $\sqrt{N}$。在最后套上 $E$（除以 $N$）求平均后，单次误差被无情碾压至 $1/\sqrt{N}$. 这就是 AI 狂烧算力的底层诅咒。
 
-### [工单-076] ❓ 深度学习中为什么要进行样本分组（Mini-batch）？
-- **🧠 底层解释**:
-  1. **OOM 物理防线**：全量数据计算矩阵乘法会瞬间撑爆显卡物理显存（VRAM）。分组是将海量数据切碎成显卡能安全吞咽的体积。
-  2. **收敛进化速度**：全量数据计算半天才更新 1 次参数（走 1 步）；切分成 100 组，同样算完一遍数据，模型已经根据局部误差完成了 100 次纠错更新。
+### \[工单-076\] ❓ 深度学习中为什么要进行样本分组（Mini-batch）？
+
+- **🧠 底层解释**:  
+  1. **OOM 物理防线**：全量数据计算矩阵乘法会瞬间撑爆显卡物理显存（VRAM）。分组是将海量数据切碎成显卡能安全吞咽的体积。  
+  2. **收敛进化速度**：全量数据计算半天才更新 1 次参数（走 1 步）；切分成 100 组，同样算完一遍数据，模型已经根据局部误差完成了 100 次纠错更新。  
   3. **随机噪声破局**：小样本分组计算出的坡度带有一定的随机偏差（心电图抖动）。这种噪声能产生动能，把模型从半山腰的局部最优坑里强行震出去。
 
-### [工单-077] 🪤 梯度直线的绝望狂飙（一步走到底错觉）
-- **❌ 错误直觉**: 认为只要算出了绝对精准的梯度（下山方向），就可以顺着这个方向一口气狂奔到谷底。
-- **🧠 认知盲区**: 把高维复杂的非线性扭曲曲面，错误地降维成了平坦的漏斗。算出的梯度（切线）仅在脚边极小范围内有效。
+### \[工单-077\] 🪤 梯度直线的绝望狂飙（一步走到底错觉）
+
+- **❌ 错误直觉**: 认为只要算出了绝对精准的梯度（下山方向），就可以顺着这个方向一口气狂奔到谷底。  
+- **🧠 认知盲区**: 把高维复杂的非线性扭曲曲面，错误地降维成了平坦的漏斗。算出的梯度（切线）仅在脚边极小范围内有效。  
 - **💊 纠偏锚点**: 只要迈出一步，周遭地形就会瞬间改变，上一步的切线立刻作废。必须死守“算一次，只走一步，重新计算”的循环铁律，妄图走直线必定撞崖（引发梯度爆炸）。
 
-### [工单-078] ❓ 为什么模型掉进局部最优的小坑里就绝对出不来？
+### \[工单-078\] ❓ 为什么模型掉进局部最优的小坑里就绝对出不来？
+
 - **🧠 底层解释**: 梯度下降的底层物理引擎公式是 `新位置 = 老位置 - 学习率 × 坡度`。只要坑底是平坦的（导数为 0），引擎代入 0 后就会彻底断电（步长变 0），AI 原地挂机。唯一的救赎是依靠 Mini-batch 的随机抽样误差（噪声），强行算出一条虚假的非 0 坡度，像一记飞踹把模型踢出引力圈。但如果学习率（油门）后期衰减到接近 0，或者深坑太宽，模型依然会被重力死锁。
 
-### [工单-079] 🪤 深度学习二维空间的坐标轴混淆
-- **❌ 错误直觉**: 在计算公式 `位置 = 老位置 - 学习率 × 坡度` 时，把算出的位移数值，错误地跟高度（Loss 误差）关联在一起。
-- **🧠 认知盲区**: 大脑未能将“模型参数”与“最终误差”进行物理上的降维隔离。
+### \[工单-079\] 🪤 深度学习二维空间的坐标轴混淆
+
+- **❌ 错误直觉**: 在计算公式 `位置 = 老位置 - 学习率 × 坡度` 时，把算出的位移数值，错误地跟高度（Loss 误差）关联在一起。  
+- **🧠 认知盲区**: 大脑未能将“模型参数”与“最终误差”进行物理上的降维隔离。  
 - **💊 纠偏锚点**: 公式里发生的所有加减乘除运算，绝对只发生在底层的 X 轴（参数 W）。位移量仅仅是你在地图上向外横跨了多少米，至于跨出去之后 Y 轴（高度/误差）是降低了还是飙升了，微积分引擎根本管不了，生杀大权完全掌握在物理地形（损失函数）手里。
 
-### [工单-080] 🪤 学习率的正负号绑定错觉
-- **❌ 错误直觉**: 发现模型向负方向（横轴减小方向）位移时，错误地认为此时的“学习率是负数”。
-- **🧠 认知盲区**: 忘记了梯度（导数）永远指向“上山方向”，而梯度下降为了“下山”，公式底层早已强制焊死了一个减号。
+### \[工单-080\] 🪤 学习率的正负号绑定错觉
+
+- **❌ 错误直觉**: 发现模型向负方向（横轴减小方向）位移时，错误地认为此时的“学习率是负数”。  
+- **🧠 认知盲区**: 忘记了梯度（导数）永远指向“上山方向”，而梯度下降为了“下山”，公式底层早已强制焊死了一个减号。  
 - **💊 纠偏锚点**: 学习率永远是一个严格大于 0 的纯粹倍率（油门深度）。物理公式 `位移 = -学习率 × 坡度` 中的减号，是微积分引擎用来挂倒挡下山的物理齿轮，绝不能嫁接到学习率身上。
 
-### [工单-081] 🪤 过拟合的物理本质（迎合噪声灾难）
-- **❌ 错误直觉**: 认为模型在训练集上达到的误差 $e$ 越小（甚至完美达到 $e=0$）越好，认为这就是找到了绝对真理。
-- **🧠 认知盲区**: 忽视了真实世界的每一条数据都必定包含偶然的“随机环境噪声（如拉肚子、喝红牛）”。强行赋予模型过多的特征（让矩阵满秩，让蚂蚁长满翅膀），本质上是逼迫 AI 把极度偶然的垃圾噪声也当成了绝对的物理定律给死记硬背下来。
+### \[工单-081\] 🪤 过拟合的物理本质（迎合噪声灾难）
+
+- **❌ 错误直觉**: 认为模型在训练集上达到的误差 $e$ 越小（甚至完美达到 $e=0$）越好，认为这就是找到了绝对真理。  
+- **🧠 认知盲区**: 忽视了真实世界的每一条数据都必定包含偶然的“随机环境噪声（如拉肚子、喝红牛）”。强行赋予模型过多的特征（让矩阵满秩，让蚂蚁长满翅膀），本质上是逼迫 AI 把极度偶然的垃圾噪声也当成了绝对的物理定律给死记硬背下来。  
 - **💊 纠偏锚点**: 绝对不允许特征数量（列）接近样本数量（行）。工业界必须死死守住“瘦高型矩阵”，在物理层面主动折断模型的翅膀，强迫它忽略个别数据的偶然起伏，去寻找一条允许垂直误差客观存在、但能看透全盘底层规律的普适基准线。
 
-### [工单-082] ❓ 最小二乘法中误差 $e$ 的 Shape 为什么是 `(m,1)` 而不是 `(m,n)`？
-- **🧠 底层解释**: 误差 $e = b - A\hat{x}$，其中 $b$ 是目标向量（如 10000 个真实房价），Shape 为 `(m,1)`；$A\hat{x}$ 是模型预测值，也是 `(m,1)`. 两个 `(m,1)` 相减，结果必然是 `(m,1)`. 如果 $e$ 变成了 `(m,n)`，说明模型在同时预测多个不同的指标（多目标回归），不属于标准最小二乘法的讨论范畴。
+### \[工单-082\] ❓ 最小二乘法中误差 $e$ 的 Shape 为什么是 `(m,1)` 而不是 `(m,n)`？
 
-### [工单-083] ❓ 特征矩阵 $A$ 为什么必须是瘦高型而不能是胖矩阵？
-- **🧠 底层解释**: 瘦高矩阵 `(m,n)` 中 $m \gg n$，代表样本远多于特征（超定方程，无解，需要最小二乘法找妥协解）。胖矩阵代表特征远多于样本（欠定方程，无穷多解），模型会对极少量样本死记硬背（过拟合），在新数据上彻底报废。工业界必须死守"数据量以数量级碾压特征维度"的物理铁律。
+- **🧠 底层解释**: 误差 $e=b-A\hat{x}$，其中 $b$ 是目标向量（如 10000 个真实房价），Shape 为 `(m,1)`；$A\hat{x}$ 是模型预测值，也是 `(m,1)`. 两个 `(m,1)` 相减，结果必然是 `(m,1)`. 如果 $e$ 变成了 `(m,n)`，说明模型在同时预测多个不同的指标（多目标回归），不属于标准最小二乘法的讨论范畴。
 
-### [工单-084] 🪤 负定矩阵与马鞍面的地形混淆
-- **❌ 错误直觉**: 看到特征值全为负数的矩阵（如 $[-1,0;0,-1]$，行列式 $D=1>0$），直觉判断为马鞍面（不定矩阵）。
-- **🧠 认知盲区**: 马鞍面要求特征值一正一负（不定矩阵），此时行列式为负。特征值全负（负定矩阵）的地形是一个"倒扣的碗"（开口朝下），无论从哪个方向走能量都在下降。行列式 $>0$ 的陷阱恰恰在于：负定矩阵（倒碗）会伪装成正定矩阵（正碗），因为"负负得正"的代数骗局。
+### \[工单-083\] ❓ 特征矩阵 $A$ 为什么必须是瘦高型而不能是胖矩阵？
+
+- **🧠 底层解释**: 瘦高矩阵 `(m,n)` 中 $m\gg n$，代表样本远多于特征（超定方程，无解，需要最小二乘法找妥协解）。胖矩阵代表特征远多于样本（欠定方程，无穷多解），模型会对极少量样本死记硬背（过拟合），在新数据上彻底报废。工业界必须死守"数据量以数量级碾压特征维度"的物理铁律。
+
+### \[工单-084\] 🪤 负定矩阵与马鞍面的地形混淆
+
+- **❌ 错误直觉**: 看到特征值全为负数的矩阵（如 $[-1,0;0,-1]$，行列式 $D=1>0$），直觉判断为马鞍面（不定矩阵）。  
+- **🧠 认知盲区**: 马鞍面要求特征值一正一负（不定矩阵），此时行列式为负。特征值全负（负定矩阵）的地形是一个"倒扣的碗"（开口朝下），无论从哪个方向走能量都在下降。行列式 $>0$ 的陷阱恰恰在于：负定矩阵（倒碗）会伪装成正定矩阵（正碗），因为"负负得正"的代数骗局。  
 - **💊 纠偏锚点**: 绝对不能只看整体行列式 $D>0$ 就下结论。必须检查所有顺序主子式 $D_1, D_2, \dots$ 是否全部大于 0，或直接验证特征值是否全正。
 
-### [工单-085] ❓ 正定矩阵的四大地形形态总结
-- **🧠 底层解释**:
-  1. **正定（特征值全正）**：正立的碗。能量恒正，唯一全局最低点。梯度下降的天堂。
-  2. **负定（特征值全负）**：倒扣的碗。能量恒负，唯一全局最高点。梯度下降会向四面八方逃离。
-  3. **不定（特征值一正一负）**：马鞍面。某些方向上拱、某些方向塌陷。原点为鞍点，梯度为 0 但不是极值，比局部最优更致命。
+### \[工单-085\] ❓ 正定矩阵的四大地形形态总结
+
+- **🧠 底层解释**:  
+  1. **正定（特征值全正）**：正立的碗。能量恒正，唯一全局最低点。梯度下降的天堂。  
+  2. **负定（特征值全负）**：倒扣的碗。能量恒负，唯一全局最高点。梯度下降会向四面八方逃离。  
+  3. **不定（特征值一正一负）**：马鞍面。某些方向上拱、某些方向塌陷。原点为鞍点，梯度为 0 但不是极值，比局部最优更致命。  
   4. **半正定（特征值有正有零）**：U 型槽 / 平底锅。横截面是碗，纵向完全平坦。没有唯一最低点，而是一整条无穷长的谷底线（解不唯一）。
 
-### [工单-086] ❓ 特征值是同时起作用还是依次起作用？
+### \[工单-086\] ❓ 特征值是同时起作用还是依次起作用？
+
 - **🧠 底层解释**: 绝对同时起作用。每一个特征值绑定一个互相绝对垂直（正交）的特征向量方向，各自独立地掌控着该方向上的曲率（弯曲程度）。特征值相等时地形是正圆碗；特征值悬殊时碗被撕裂成狭长峡谷。它们像两把垂直交叉的尺子，同时且独立地雕刻脚下的地形。
 
-### [工单-087] ❓ 峡谷绞肉机：为什么特征值悬殊会耗死 AI？
+### \[工单-087\] ❓ 峡谷绞肉机：为什么特征值悬殊会耗死 AI？
+
 - **🧠 底层解释**: 原始 SGD 只有一个全局学习率（油门），无差别乘以所有方向的梯度。当特征值极大极小悬殊时：陡峭崖壁方向梯度极大，稍微踩一点油门就撞墙（梯度爆炸）；架构师被迫把油门调到极小。但谷底平缓方向梯度本就极弱，油门又被全局限死，步幅降至纳米级，AI 被活活耗死在通往终点的路上。这就是单一油门管多方向的致命设计缺陷，也是后来自适应优化器（Adam 等）给每个方向独立配备油门的核心驱动力。
 
-### [工单-088] ❓ 权重 $\mathbf{w}$ 的 Shape 为什么是 `(特征数, 1)` 而绝对不随样本数变化？
+### \[工单-088\] ❓ 权重 $\mathbf{w}$ 的 Shape 为什么是 `(特征数, 1)` 而绝对不随样本数变化？
+
 - **🧠 底层解释**: 权重 $\mathbf{w}$ 是模型内部衡量特征重要性的"物理齿轮"，代表客观规律。如果只有 5 个特征预测 1 个价格，那只需要 5 个权重，Shape 死死锁定在 `(5,1)`。不管你是 1 套房、1000 套房，还是 Mini-batch 切出的 64 套房，送进来的数据只会改变特征矩阵的行数（如 `(64,5)`），而绝对不会改变估价机器的内部齿轮结构。
 
-### [工单-089] ❓ 如果权重 $\mathbf{w}$ 变成 `(5, 2)`，物理上意味着什么？
+### \[工单-089\] ❓ 如果权重 $\mathbf{w}$ 变成 `(5, 2)`，物理上意味着什么？
+
 - **🧠 底层解释**: 这代表模型从"单目标回归"升维成了"多目标回归"（即拥有 2 个输出节点的全连接层）。比如同时预测房屋"售价"和"售出天数"。矩阵相乘 `(1000, 5) @ (5, 2) -> (1000, 2)`，系统瞬间为 1000 套房子各自吐出 2 个不同维度的预测结果。
 
-### [工单-090] 🪤 偏置项 $b$ 的广播机制错觉
-- **❌ 错误直觉**: 认为公式 $\hat{\mathbf{y}} = \mathbf{X}\mathbf{w} + b$ 中，一个 `(64, 1)` 的长条列向量无法直接加上一个标量数字。
-- **🧠 认知盲区**: 忘记了底层张量计算框架（如 PyTorch/NumPy）的内存自动补全机制。
+### \[工单-090\] 🪤 偏置项 $b$ 的广播机制错觉
+
+- **❌ 错误直觉**: 认为公式 $\hat{\mathbf{y}} = \mathbf{X}\mathbf{w} + b$ 中，一个 `(64, 1)` 的长条列向量无法直接加上一个标量数字。  
+- **🧠 认知盲区**: 忘记了底层张量计算框架（如 PyTorch/NumPy）的内存自动补全机制。  
 - **💊 纠偏锚点**: 底层引擎会自动触发**广播机制（Broadcasting）**，将孤零零的标量 $b$（如 50万底价）在内存中虚幻地复制成 `(64, 1)` 的长条，瞬间为 64 套房子全部铺上统一的基础起步价。
 
-### [工单-091] ❓ D2L 深度学习的 MSE Loss 与 Strang 线代的最小二乘法是同一个东西吗？
-- **🧠 底层解释**: 在物理本质上 **100% 绝对等价**。D2L 最小化的均方误差公式 $l = \frac{1}{2}(\hat{y}-y)^2$，剥去外衣后，完全等同于 Strang 线代中寻求使垂线误差模长平方 $\|y-Xw\|^2$ 达到最小的目标。数学灵魂完全同源。
+### \[工单-091\] ❓ D2L 深度学习的 MSE Loss 与 Strang 线代的最小二乘法是同一个东西吗？
 
-### [工单-092] ❓ 既然有正规方程能一击必杀，为什么深度学习还要用笨拙的梯度下降（SGD）？
-- **🧠 底层解释**: 这是"数学完美向工业界算力的终极妥协"。正规方程 $w=(X^TX)^{-1}X^Ty$ 要求计算特征矩阵的逆。当特征维度 $d$ 高达数十万甚至数亿时（如大模型）：
-  1. **空间灾难（显存 OOM）**：生成 $X^TX$ 需要存储 $d \times d$ 的超巨型方阵，动辄消耗数百 GB 甚至 PB 级显存。
-  2. **时间灾难（算力死锁）**：求逆的时间复杂度高达 $O(d^3)$，即使超级计算机也会算到死机。
-  因此，工业界被迫抛弃一步到位的正规方程，转而使用**内存开销极小**、每次只试探一小步坡度的梯度下降法（SGD），这是硬件条件下的必然选择。
+- **🧠 底层解释**: 在物理本质上 **100% 绝对等价**。D2L 最小化的均方误差公式 $l=\frac{1}{2}(\hat{y}-y{)}^{2}$，剥去外衣后，完全等同于 Strang 线代中寻求使垂线误差模长平方 $\|y-Xw\|^2$ 达到最小的目标。数学灵魂完全同源。
 
-### [工单-093] ❓ 为什么正向传播吐出的是 `(64, 1)`，而反向传播的梯度却能坍缩回 `(5, 1)`？
-- **🧠 底层解释**: 这是正反两套齿轮的绝对物理隔离。
-  - **正向预测**：$\mathbf{Xw} \rightarrow (64, 5) @ (5, 1) = (64, 1)$。吐出的是 64 个房价结果。
-  - **反向算梯度**：你要修改的实体旋钮（权重 $\mathbf{w}$）只有 5 个，Shape 固定为 `(5, 1)`，所以算出的坡度也必须是 `(5, 1)$。GPU 底层并不会去排队做 64 次加法求平均，而是直接发动 **VJP 转置魔法**：利用 $X^T e \rightarrow (5, 64) @ (64, 1) = (5, 1)$。在矩阵相乘的瞬间，64 个房子的个体误差被自动累加并坍缩成了 5 个旋钮的总坡度。这就是显卡比 CPU 快千倍的硬件机密。
+### \[工单-092\] ❓ 既然有正规方程能一击必杀，为什么深度学习还要用笨拙的梯度下降（SGD）？
 
-### [工单-094] ❓ SGD 为什么永远走不到真正的谷底（极小值）？
-- **🧠 底层解释**: 微积分版的"芝诺悖论"。下山步长 = 学习率 $\times$ 坡度。越接近谷底，地形越平坦，坡度越趋近于 0，迈出的步长就呈指数级缩小。在有限步数内，它只能无限逼近 0，永远无法踩中绝对的 0。但在工程上，只要误差足够小（如 0.001），我们就视为任务完成。
+- **🧠 底层解释**: 这是"数学完美向工业界算力的终极妥协"。正规方程 $w=({X}^{T}X{)}^{-1}{X}^{T}y$ 要求计算特征矩阵的逆。当特征维度 $d$ 高达数十万甚至数亿时（如大模型）：  
+  1. **空间灾难（显存 OOM）**：生成 ${X}^{T}X$ 需要存储 $d\times d$ 的超巨型方阵，动辄消耗数百 GB 甚至 PB 级显存。  
+  2. **时间灾难（算力死锁）**：求逆的时间复杂度高达 $O({d}^{3})$，即使超级计算机也会算到死机。 因此，工业界被迫抛弃一步到位的正规方程，转而使用**内存开销极小**、每次只试探一小步坡度的梯度下降法（SGD），这是硬件条件下的必然选择。
 
-### [工单-095] ❓ AI 模型的终极追求：泛化（Generalization）是什么？
-- **🧠 底层解释**: 如果在训练集上把误差跑到绝对的 0，那不叫智能，那叫**"死记硬背（过拟合）"**，就像背下了《五年高考三年模拟》所有的标点符号，但考场上一道新题都不会做。**泛化**，是指 AI 真正提炼出了数据背后的**物理规律**，使得它在预测**从未见过的新数据**时，依然能保持极低的误差。这是 AI 存在的唯一终极意义。
+### \[工单-093\] ❓ 为什么正向传播吐出的是 `(64, 1)`，而反向传播的梯度却能坍缩回 `(5, 1)`？
 
-### [工单-096] ❓ 为什么绝对不要在 Python 里写 `for` 循环来逐元素操作张量？
-- **🧠 底层解释**: 极其致命的**性能灾难**！Python 的 `for` 循环运行在 CPU 解释器表层，每次循环需做大量的寻址与类型检查。深度学习必须使用**“矢量化加速（Vectorization）”**（如直接写 `a + b`）。底层会自动绕过 Python，将指令砸进 C++/CUDA 硬件层，启动上千个流处理器在一个时钟周期内**并行瞬间吞噬所有加法**。两者速度差距成百上千倍。
+- **🧠 底层解释**: 这是正反两套齿轮的绝对物理隔离。  
+  - **正向预测**：$\mathbf{Xw} \rightarrow (64, 5) @ (5, 1) = (64, 1)$。吐出的是 64 个房价结果。  
+  - **反向算梯度**：你要修改的实体旋钮（权重 $\mathbf{w}$）只有 5 个，Shape 固定为 `(5, 1)`，所以算出的坡度也必须是 \`(5, 1)\$。GPU 底层并不会去排队做 64 次加法求平均，而是直接发动 **VJP 转置魔法**：利用 ${X}^{T}e\rightarrow (5,64)@(64,1)=(5,1)$。在矩阵相乘的瞬间，64 个房子的个体误差被自动累加并坍缩成了 5 个旋钮的总坡度。这就是显卡比 CPU 快千倍的硬件机密。
 
-### [工单-097] ❓ 在循环前执行 `c = torch.zeros(n)` 的工程意义是什么？
+### \[工单-094\] ❓ SGD 为什么永远走不到真正的谷底（极小值）？
+
+- **🧠 底层解释**: 微积分版的"芝诺悖论"。下山步长 \= 学习率 $\times$ 坡度。越接近谷底，地形越平坦，坡度越趋近于 0，迈出的步长就呈指数级缩小。在有限步数内，它只能无限逼近 0，永远无法踩中绝对的 0。但在工程上，只要误差足够小（如 0.001），我们就视为任务完成。
+
+### \[工单-095\] ❓ AI 模型的终极追求：泛化（Generalization）是什么？
+
+- **🧠 底层解释**: 如果在训练集上把误差跑到绝对的 0，那不叫智能，那叫\*\*"死记硬背（过拟合）"**，就像背下了《五年高考三年模拟》所有的标点符号，但考场上一道新题都不会做。泛化，是指 AI 真正提炼出了数据背后的**物理规律\*\*，使得它在预测**从未见过的新数据**时，依然能保持极低的误差。这是 AI 存在的唯一终极意义。
+
+### \[工单-096\] ❓ 为什么绝对不要在 Python 里写 `for` 循环来逐元素操作张量？
+
+- **🧠 底层解释**: 极其致命的**性能灾难**！Python 的 `for` 循环运行在 CPU 解释器表层，每次循环需做大量的寻址与类型检查。深度学习必须使用\*\*“矢量化加速（Vectorization）”**（如直接写 `a + b`）。底层会自动绕过 Python，将指令砸进 C++/CUDA 硬件层，启动上千个流处理器在一个时钟周期内**并行瞬间吞噬所有加法\*\*。两者速度差距成百上千倍。
+
+### \[工单-097\] ❓ 在循环前执行 `c = torch.zeros(n)` 的工程意义是什么？
+
 - **🧠 底层解释**: 这是工业界标准的**内存预分配（Pre-allocation）**。在进行 `c[i] = a[i] + b[i]` 的逐元素操作前，必须先向操作系统强行申请一块长度为 $n$ 的连续物理内存（建好一排空抽屉）。如果没有这一步，直接索引赋值会因为物理地址不存在而直接触发越界死锁报错。
 
-### [工单-098] 🐛 张量越界杀手：用 Python 原生数学库处理 NumPy 数组
+### \[工单-098\] 🐛 张量越界杀手：用 Python 原生数学库处理 NumPy 数组
+
 - **💻 触发代码**:
-  ```python
-  p = 1 / math.sqrt(2 * math.pi * (x-mu)**2) # 错把标量 sigma 敲成了数组张量 (x-mu)
-  ```
-- **🩸 原始报错**: `TypeError: only size-1 arrays can be converted to Python scalars`
-- **🧠 底层原因**: Python 原生的 `math` 库（如 `math.sqrt` 或 `math.exp`）是非常古老的单线程标量函数，这辈子只能吞下大小为 1 的单个数字。当不小心传入包含成千上万个元素的 NumPy 数组 `x` 时，它因为无法矢量化并发处理整个数组，直接被噎死并抛出“只能处理 size-1 数组”的强类型错误。
+
+```py
+p = 1 / math.sqrt(2 * math.pi * (x-mu)**2) # 错把标量 sigma 敲成了数组张量 (x-mu)
+```
+
+- **🩸 原始报错**: `TypeError: only size-1 arrays can be converted to Python scalars`  
+- **🧠 底层原因**: Python 原生的 `math` 库（如 `math.sqrt` 或 `math.exp`）是非常古老的单线程标量函数，这辈子只能吞下大小为 1 的单个数字。当不小心传入包含成千上万个元素的 NumPy 数组 `x` 时，它因为无法矢量化并发处理整个数组，直接被噎死并抛出“只能处理 size-1 数组”的强类型错误。  
 - **💊 修复方案**:
-  ```python
-  # 方案一：老老实实传入标量 sigma
-  p = 1 / math.sqrt(2 * math.pi * sigma**2)
-  # 方案二：如果非要对数组开根号，必须调用自带 C++ 矢量化加速的 np 库
-  p = 1 / np.sqrt(2 * np.pi * (x-mu)**2)
-  ```
 
-### [工单-099] ❓ 为什么线性回归必须用“平方损失（MSE）”，而不用绝对值等其他公式？
-- **🧠 底层解释**: 因为我们生活在一个充满“正态分布（高斯分布）”噪声的物理世界。高斯公式的核心指数是 $\exp(-\frac{1}{2\sigma^2}(y - \hat{y})^2)$。为了让这批真实数据发生的概率达到巅峰（最大似然估计 MLE），就必须让那个带负号的指数部分达到极小。也就是必须最小化 $(y - \hat{y})^2$. 因此，求最小化 MSE，本质上是在攀登真实世界发生概率的巅峰。
+```py
+# 方案一：老老实实传入标量 sigma
+p = 1 / math.sqrt(2 * math.pi * sigma**2)
+# 方案二：如果非要对数组开根号，必须调用自带 C++ 矢量化加速的 np 库
+p = 1 / np.sqrt(2 * np.pi * (x-mu)**2)
+```
 
-### [工单-100] ❓ 如果现实世界的误差符合“拉普拉斯分布”，损失函数应该换成什么？
-- **🧠 底层解释**: 拉普拉斯分布的核心指数没有平方，是一条笔直的绝对值线：$\exp(-|y - \hat{y}|)$. 为了让它的概率最大，我们必须且只能去最小化绝对值。因此，这时的损失引擎必须切换为 **L1 绝对值损失（MAE）**。这也证明了：Loss 函数从来不是拍脑袋想出的数学公式，它是现实世界物理噪声分布规律的一面数学镜子。
+### \[工单-099\] ❓ 为什么线性回归必须用“平方损失（MSE）”，而不用绝对值等其他公式？
 
-### [工单-101] ❓ 为什么工程界算总概率不直接用“连乘”，而必须强行套一层负对数（$-\log$）？
-- **🧠 底层解释**: 为了躲避**“浮点数下溢出（Underflow）”**的物理灾难。当数万个微小概率小数连乘时，结果会迅速超越显卡 `float32` 的精度下限，被硬件强制抹零，导致系统死锁。套上 $\log$ 对数后，巨大的乘法瞬间被降维成普通的加法求和，不仅避开了硬件溢出，还能通过负号反转，巧妙地将“最大化概率”转化为“最小化负对数似然（NLL）”，从而无缝接入只能算最小化的梯度下降优化器。
+- **🧠 底层解释**: 因为我们生活在一个充满“正态分布（高斯分布）”噪声的物理世界。高斯公式的核心指数是 $\exp (-\frac{1}{2{\sigma }^{2}}(y-\hat{y}{)}^{2})$。为了让这批真实数据发生的概率达到巅峰（最大似然估计 MLE），就必须让那个带负号的指数部分达到极小。也就是必须最小化 $(y-\hat{y}{)}^{2}$. 因此，求最小化 MSE，本质上是在攀登真实世界发生概率的巅峰。
+
+### \[工单-100\] ❓ 如果现实世界的误差符合“拉普拉斯分布”，损失函数应该换成什么？
+
+- **🧠 底层解释**: 拉普拉斯分布的核心指数没有平方，是一条笔直的绝对值线：$\exp (-|y-\hat{y}|)$. 为了让它的概率最大，我们必须且只能去最小化绝对值。因此，这时的损失引擎必须切换为 **L1 绝对值损失（MAE）**。这也证明了：Loss 函数从来不是拍脑袋想出的数学公式，它是现实世界物理噪声分布规律的一面数学镜子。
+
+### \[工单-101\] ❓ 为什么工程界算总概率不直接用“连乘”，而必须强行套一层负对数（$-\log$）？
+
+- **🧠 底层解释**: 为了躲避\*\*“浮点数下溢出（Underflow）”\*\*的物理灾难。当数万个微小概率小数连乘时，结果会迅速超越显卡 `float32` 的精度下限，被硬件强制抹零，导致系统死锁。套上 $\log$ 对数后，巨大的乘法瞬间被降维成普通的加法求和，不仅避开了硬件溢出，还能通过负号反转，巧妙地将“最大化概率”转化为“最小化负对数似然（NLL）”，从而无缝接入只能算最小化的梯度下降优化器。
 
 ---
 
 ## 📖 3.2 线性回归的从零开始实现 — Bug 与核心概念日志
 
-### [工单-102] ❓ `synthetic_data` 为什么要自己手动生成特征 $X$ 和噪声？
+### \[工单-102\] ❓ `synthetic_data` 为什么要自己手动生成特征 $X$ 和噪声？
+
 - **🧠 底层解释**: 只有你作为“上帝”提前写死真正的权重（$w$）和偏差（$b$），在模型训练完毕后，你才能去校验它学到的参数是否逼近了绝对真理。代码中加入的高斯噪声 `torch.normal(0, 0.01)` 则是为了完美模拟现实世界中不可避免的物理随机波动（如买家的心情）。
 
-### [工单-103] 🐛 张量相减触发广播灾难引爆显存
-- **💻 触发代码**: `(1000, 1)` 形状的预测值减去 `(1000,)` 形状的真实标签。
-- **🧠 底层原因**: PyTorch 的广播机制判定这是两个不同形状的张量，会把一维的 `(1000,)` 补全成 `(1, 1000)`，然后与 `(1000, 1)` 进行双向扩张，瞬间交叉生成一个 `1000 x 1000`（一百万个元素）的庞大废矩阵，导致梯度乱套或内存爆满。
+### \[工单-103\] 🐛 张量相减触发广播灾难引爆显存
+
+- **💻 触发代码**: `(1000, 1)` 形状的预测值减去 `(1000,)` 形状的真实标签。  
+- **🧠 底层原因**: PyTorch 的广播机制判定这是两个不同形状的张量，会把一维的 `(1000,)` 补全成 `(1, 1000)`，然后与 `(1000, 1)` 进行双向扩张，瞬间交叉生成一个 `1000 x 1000`（一百万个元素）的庞大废矩阵，导致梯度乱套或内存爆满。  
 - **💊 修复方案**: 必须在返回标签时使用**强制防御降维** `y.reshape((-1, 1))`，将其装甲重塑为标准的二维列向量 `(1000, 1)`。
 
-### [工单-104] ❓ Python 解包语法（`features, labels = ...`）的物理归宿
+### \[工单-104\] ❓ Python 解包语法（`features, labels = ...`）的物理归宿
+
 - **🧠 底层解释**: 这叫元组解包（Tuple Unpacking），底层 C 解释器将返回的两个独立指针自动挂载到两个变量上。解包出来的 `features` 本质是一块 `(1000, 2)` 的连续内存。它的第一阶段宿命是通过切片降维供 Matplotlib 可视化，第二阶段宿命是扔进 DataLoader 成为源源不断喂给显卡的抽样弹匣。
 
-### [工单-105] ❓ `labels` 在计算图中的无情审判官角色
+### \[工单-105\] ❓ `labels` 在计算图中的无情审判官角色
+
 - **🧠 底层解释**: `labels` 存放的是现实世界的“绝对物理真理”。在计算图的最末端，它被丢入损失函数，与模型的瞎猜预测值 $\hat{y}$ 进行无情的减法对峙。审判出的巨大误差瞬间触发反向传播，将反向冲刷的梯度扔给底层的优化器去拨动旋钮参数。
 
-### [工单-106] ❓ 画图时为何要调用 `.detach().numpy()`？
+### \[工单-106\] ❓ 画图时为何要调用 `.detach().numpy()`？
+
 - **🧠 底层解释**: Matplotlib 这个纯 CPU 画图引擎不认识带有自动梯度的复杂张量。如果直接喂给它，PyTorch 会为了保护计算图的安全防线而当场熔断死锁。必须用 `detach()` 将张量从动态计算图上暴力撕裂、物理剥离，再转化为纯粹的 NumPy 数据阵列。
 
-### [工单-107] ❓ Mini-batch `indices[i : min(i + batch_size, num_examples)]` 中的极客防线
+### \[工单-107\] ❓ Mini-batch `indices[i : min(i + batch_size, num_examples)]` 中的极客防线
+
 - **🧠 底层解释**: 这是应对“尾盘残缺批次”的**防越界安全切片器**。如果总数 1005 不能被 10 整除，走到最后一步时如果没有 `min()` 的防御，底层硬件（如 C++/CUDA）会强行索取不存在的内存指针并引发严重的段越界（Segmentation Fault）。养成在边缘显式划定物理边界的工程习惯，是架构师的基操。
 
-### [工单-108] ❓ 为什么要用 `yield` 生成器而不是 `return`？
+### \[工单-108\] ❓ 为什么要用 `yield` 生成器而不是 `return`？
+
 - **🧠 底层解释**: 这是深度学习防范内存洪水的终极核武器。`return` 是一种“一波流囤积”，会把所有批次全部在物理内存中装填完毕才发车，遇到 100GB 的图库会瞬间 OOM。而 `yield` 将函数重塑为**惰性传送带**（生成器）。它每次现切 1 批数据（如 10 条）扔出，然后强制冻结当前物理运行环境（状态挂起）。这利用了“时间冻结”换取绝对的“物理空间安全”。
 
-### [工单-109] ❓ `(y_hat - y.reshape(y_hat.shape))**2 / 2` 为什么不能直接相减？
+### \[工单-109\] ❓ `(y_hat - y.reshape(y_hat.shape))**2 / 2` 为什么不能直接相减？
+
 - **🧠 底层解释**: 这是一个满身装甲的误差引擎。`y.reshape` 强行剥夺一维游离标签，将其压成和 `y_hat` 完全相同尺寸的 `(10, 1)`，彻底杜绝广播交叉污染爆破；外层的 `/ 2` 则是微积分算力白嫖，反向传播时二次项系数 2 掉落完美对冲，省去上亿次浮点乘法指令。调换 `(y - y_hat)` 毫无影响，链式法则会物理抹去内部负号。
 
-### [工单-110] 🐛 优化器报错：`params.grad.zero_()` 触发 AttributeError 崩溃
-- **💻 触发代码**: `params.grad.zero_()`
-- **🩸 原始报错**: `AttributeError: 'list' object has no attribute 'grad'`
-- **🧠 底层原因**: 架构师把装载所有参数活体的 Python 壳子（列表 `[w, b]`）当成了张量对象本身，企图对着包裹盒子求梯度。
+### \[工单-110\] 🐛 优化器报错：`params.grad.zero_()` 触发 AttributeError 崩溃
+
+- **💻 触发代码**: `params.grad.zero_()`  
+- **🩸 原始报错**: `AttributeError: 'list' object has no attribute 'grad'`  
+- **🧠 底层原因**: 架构师把装载所有参数活体的 Python 壳子（列表 `[w, b]`）当成了张量对象本身，企图对着包裹盒子求梯度。  
 - **💊 修复方案**: `param.grad.zero_()`（针对每次循环拿出的单一活体组件精准清除）。
 
-### [工单-111] 🪤 `param = param - lr * param.grad` 也能正常更新模型？
-- **❌ 错误直觉**: 认为不用 `-=`，直接用等号赋值也很安全。
-- **🧠 认知盲区**: Python 底层会强行开辟一块全新内存存放右侧新算出的张量，而旧列表 `params` 仍死锁指向着原来的废弃参数。你的显卡将跑完 50 轮训练，但模型的原脑神经元从未更新过一丝一毫，发生极其隐蔽的死锁陷阱。
+### \[工单-111\] 🪤 `param = param - lr * param.grad` 也能正常更新模型？
+
+- **❌ 错误直觉**: 认为不用 `-=`，直接用等号赋值也很安全。  
+- **🧠 认知盲区**: Python 底层会强行开辟一块全新内存存放右侧新算出的张量，而旧列表 `params` 仍死锁指向着原来的废弃参数。你的显卡将跑完 50 轮训练，但模型的原脑神经元从未更新过一丝一毫，发生极其隐蔽的死锁陷阱。  
 - **💊 纠偏锚点**: 参数更新必须一刀刺向原内存物理坐标进行原生覆写（In-place 原地操作 `-=`）。
 
-### [工单-112] 🪤 非标量 `l.backward()` 到底传什么？用 `torch.ones(len(l))` 吗？
-- **❌ 错误直觉**: 迷信 2.5 节的一维经验，直接套用 `torch.ones(len(l))`。
-- **🧠 认知盲区**: 在真实工业界里 `l` 是一根 `(10, 1)` 柱子。`len(l)`（产生 10）造出的仅仅是一个扁平无骨架的一维 `(10,)` 游离态向量。强塞进 VJP 引擎时，齿轮瞬间卡死脱靶（Shape 报错）。
+### \[工单-112\] 🪤 非标量 `l.backward()` 到底传什么？用 `torch.ones(len(l))` 吗？
+
+- **❌ 错误直觉**: 迷信 2.5 节的一维经验，直接套用 `torch.ones(len(l))`。  
+- **🧠 认知盲区**: 在真实工业界里 `l` 是一根 `(10, 1)` 柱子。`len(l)`（产生 10）造出的仅仅是一个扁平无骨架的一维 `(10,)` 游离态向量。强塞进 VJP 引擎时，齿轮瞬间卡死脱靶（Shape 报错）。  
 - **💊 纠偏锚点**: 直接用工业级核武 `torch.ones_like(l)`。它会物理一比一克隆原张量所有空间骨架并填充权重 1.0，这是 VJP 的绝对防御掩码。
 
-### [工单-113] 🐛 造物工具 API 语法陷阱：`torch.tensor` vs `torch.normal`
-- **💻 触发代码**: `w = torch.tensor(0.1, 0.01, requires_grad=True)`
-- **🩸 原始报错**: `TypeError: tensor() takes 1 positional argument but 2 were given`
-- **🧠 底层原因**: `torch.tensor` 仅用于把已有数据强行铸造成张量，不具备分布采样能力。
+### \[工单-113\] 🐛 造物工具 API 语法陷阱：`torch.tensor` vs `torch.normal`
+
+- **💻 触发代码**: `w = torch.tensor(0.1, 0.01, requires_grad=True)`  
+- **🩸 原始报错**: `TypeError: tensor() takes 1 positional argument but 2 were given`  
+- **🧠 底层原因**: `torch.tensor` 仅用于把已有数据强行铸造成张量，不具备分布采样能力。  
 - **💊 修复方案**: 使用专门的采样器 `torch.normal(mean=0, std=0.01, size=(2, 1), requires_grad=True)`，绝对不能漏掉 `size` 这个物理空间骨架。
 
-### [工单-114] 🐛 上下文管理器语法崩溃：`with torch.no.grad()`
-- **💻 触发代码**: `with torch.no.grad()`
-- **🩸 原始报错**: `AttributeError` 或 `SyntaxError`
-- **🧠 底层原因**: 误把下划线写成点，且漏掉了 Python 最致命的冒号 `:`。若不缩进，隔离舱也形同虚设。
+### \[工单-114\] 🐛 上下文管理器语法崩溃：`with torch.no.grad()`
+
+- **💻 触发代码**: `with torch.no.grad()`  
+- **🩸 原始报错**: `AttributeError` 或 `SyntaxError`  
+- **🧠 底层原因**: 误把下划线写成点，且漏掉了 Python 最致命的冒号 `:`。若不缩进，隔离舱也形同虚设。  
 - **💊 修复方案**: 改为 `with torch.no_grad():`，随后所有处于无梯度区段的代码必须向右缩进 4 个空格。
 
-### [工单-115] 🪤 将 `.backward()` 的动作赋给实体变量
-- **❌ 错误直觉**: 认为 `params = l.sum().backward()` 可以把算出的梯度接到变量里。
-- **🧠 认知盲区**: 在计算图中，`.backward()` 是一个引爆反向传播的纯粹动词（动作），没有返回值（返回 `None`）。加上等号会直接把原来的参数纸箱覆盖成虚无黑洞。
+### \[工单-115\] 🪤 将 `.backward()` 的动作赋给实体变量
+
+- **❌ 错误直觉**: 认为 `params = l.sum().backward()` 可以把算出的梯度接到变量里。  
+- **🧠 认知盲区**: 在计算图中，`.backward()` 是一个引爆反向传播的纯粹动词（动作），没有返回值（返回 `None`）。加上等号会直接把原来的参数纸箱覆盖成虚无黑洞。  
 - **💊 纠偏锚点**: 让 `l.sum().backward()` 独立成行，它只负责开枪。调用优化器时，直接显式传递参数：`sgd([w, b], lr, batch_size)`。
 
-### [工单-116] ❓ `features` 和 `labels` 到底是由什么组成的？
+### \[工单-116\] ❓ `features` 和 `labels` 到底是由什么组成的？
+
 - **🧠 底层解释**: 这是一个致命的隐喻错位！`features` 绝对不是 `true_w` 组成的，它是随机生成的客观物理输入（如房子面积）；`labels` 绝对不是 `true_b` 组成的，它是经过公式算出并加噪的客观输出。而 `true_w` 和 `true_b` 是上帝隐藏的**绝对法则**。训练的终极意义，就是让一开始脑子空空的模型，仅凭吃进 `features` 和 `labels` 遭受 Loss 惩罚，自己摸黑试错下山，直到它自己调出的 `[w, b]` 完美吻合被藏起来的法则 `[true_w, true_b]`.
 
-### [工单-117] 🐛 TensorDataset 拼写错误导致 AttributeError
-- **💻 触发代码**: `dataset = data.TensorDatast(*data_arrays)`
-- **🩸 原始报错**: `AttributeError: module 'torch.utils.data' has no attribute 'TensorDatast'`
-- **🧠 底层原因**: 漏写了字母 `e`。强类型的 Python 解释器在模块字典中无法寻址该类，当场抛出属性不存在报错。
+### \[工单-117\] 🐛 TensorDataset 拼写错误导致 AttributeError
+
+- **💻 触发代码**: `dataset = data.TensorDatast(*data_arrays)`  
+- **🩸 原始报错**: `AttributeError: module 'torch.utils.data' has no attribute 'TensorDatast'`  
+- **🧠 底层原因**: 漏写了字母 `e`。强类型的 Python 解释器在模块字典中无法寻址该类，当场抛出属性不存在报错。  
 - **💊 修复方案**: 补全为正确的标准类名 `TensorDataset`.
 
-### [工单-118] 🪤 误把 Jupyter 内核假死当成代码运行卡住
-- **❌ 错误直觉**: 执行 `net[0].weight.data.normal_(0, 0.01)` 时界面一直转圈，认为是代码在运算。
-- **🧠 认知盲区**: 原地修改内存中的几个浮点数耗时不足 0.001 秒。界面卡死通常是因为上一个单元格触发了死循环，或者 VS Code 与底层 Python 解释器的进程通信断开（内核假死）。
+### \[工单-118\] 🪤 误把 Jupyter 内核假死当成代码运行卡住
+
+- **❌ 错误直觉**: 执行 `net[0].weight.data.normal_(0, 0.01)` 时界面一直转圈，认为是代码在运算。  
+- **🧠 认知盲区**: 原地修改内存中的几个浮点数耗时不足 0.001 秒。界面卡死通常是因为上一个单元格触发了死循环，或者 VS Code 与底层 Python 解释器的进程通信断开（内核假死）。  
 - **💊 纠偏锚点**: 不要干等。直接点击右上角的 `Restart Kernel`（重启内核）强行杀掉死锁进程，清空内存后从头按顺序重新执行。
 
-### [工单-119] 🪤 手写 `squared_loss` 与 `nn.MSELoss()` 的底层数学差异
-- **❌ 错误直觉**: 认为高级 API 的计算结果和手写版本绝对一致。
-- **🧠 认知盲区**:
-  1. 手写版有 `/ 2`，且在外部执行 `.sum()`。
-  2. `nn.MSELoss` 内部没有 `/ 2`，且默认执行 `.mean()` (求平均，相当于除了 batch_size)。
-  这就导致框架算出的梯度绝对值正好是手写版本的 **2倍**。
+### \[工单-119\] 🪤 手写 `squared_loss` 与 `nn.MSELoss()` 的底层数学差异
+
+- **❌ 错误直觉**: 认为高级 API 的计算结果和手写版本绝对一致。  
+- **🧠 认知盲区**:  
+  1. 手写版有 `/ 2`，且在外部执行 `.sum()`。  
+  2. `nn.MSELoss` 内部没有 `/ 2`，且默认执行 `.mean()` (求平均，相当于除了 batch\_size)。 这就导致框架算出的梯度绝对值正好是手写版本的 **2倍**。  
 - **💊 纠偏锚点**: 这种倍率差异在物理意义上不改变梯度下山的方向，只会导致步子大一倍。在工程中，只需将框架初始化时的学习率调小一半（`lr_new = lr / 2`）即可完美抹平差异。
 
-### [工单-120] ❓ 损失函数均值化与学习率的代偿法则
+### \[工单-120\] ❓ 损失函数均值化与学习率的代偿法则
+
 - **🧠 底层解释**: 把小批量总损失改为求平均值时，算出的梯度在数值上相当于除以了 `batch_size`。为保持每次更新的绝对物理步长不变，必须按比例放大学习率，即 `新 lr = 旧 lr * batch_size`。
 
-### [工单-121] ❓ 框架文档查阅方法（`?` 与 `??`）
+### \[工单-121\] ❓ 框架文档查阅方法（`?` 与 `??`）
+
 - **🧠 底层解释**: 在 Jupyter 中使用 `?` 可内联打印官方说明书（Docstring），使用 `??` 可尝试打印源码。工程实操上只需死盯 `Init signature`（初始化签名）看需传入的参数格式，以及正文前两句功能描述。
 
-### [工单-122] ❓ Huber 损失的物理机制
+### \[工单-122\] ❓ Huber 损失的物理机制
+
 - **🧠 底层解释**: 结合了 MSE 与 MAE 的优势的损失函数。当误差大时用线性绝对值限幅，对抗异常脏数据引起的“梯度爆炸”；当误差小时平滑切换为平方损失，实现最优点附近的“平滑降落收敛”。
 
-### [工单-123] ❓ Softmax 回归的物理架构
+### \[工单-123\] ❓ Softmax 回归的物理架构
+
 - **🧠 底层解释**: 本质上是一个多分类算法，输出层为全连接结构（拥有 $O(dq)$ 的高参数开销）。它将单孔输出升维到多孔输出，一次性吐出所有类别的原始得分（Logits）。
 
-### [工单-124] ❓ Softmax 算子的核心工序
-- **🧠 底层解释**: 专门用于将无界得分映射为合法概率分布。第一步取自然指数 $e^x$ 强行消灭负数；第二步除以总和进行绝对的物理归一化。它具有**保序性**（不改变原始得分的大小排名）。
+### \[工单-124\] ❓ Softmax 算子的核心工序
 
-### [工单-125] ❓ 交叉熵损失 (Cross-Entropy) 的底层逻辑
+- **🧠 底层解释**: 专门用于将无界得分映射为合法概率分布。第一步取自然指数 ${e}^{x}$ 强行消灭负数；第二步除以总和进行绝对的物理归一化。它具有**保序性**（不改变原始得分的大小排名）。
+
+### \[工单-125\] ❓ 交叉熵损失 (Cross-Entropy) 的底层逻辑
+
 - **🧠 底层解释**: 在信息论中衡量模型预测概率分布与真实独热标签（One-Hot）分布之间的编码效率差距。物理公式极简后，它只关心核心指标：**你把多少概率押在了正确答案上**。押得越少，对数惩罚越恐怖。
 
-### [工单-126] 🪤 必须手推 Softmax 的复杂链式求导
-- **❌ 错误直觉**: 认为搞懂分类网络，就必须死磕手推极其复杂的对数和指数偏导数链式法则。
-- **🧠 认知盲区**: 工业开发中复杂求导由自动微分引擎（Autograd）全面接管。核心重点是要深刻理解最后推导出的极简结论：`∂l/∂o = 预测概率 - 真实标签`。
+### \[工单-126\] 🪤 必须手推 Softmax 的复杂链式求导
+
+- **❌ 错误直觉**: 认为搞懂分类网络，就必须死磕手推极其复杂的对数和指数偏导数链式法则。  
+- **🧠 认知盲区**: 工业开发中复杂求导由自动微分引擎（Autograd）全面接管。核心重点是要深刻理解最后推导出的极简结论：`∂l/∂o = 预测概率 - 真实标签`。  
 - **💊 纠偏锚点**: 牢记这个与线性回归（`y_hat - y`）完全同构的求导结果，体会所有深度网络向底层回传梯度时，“预测值 减 真实值”的大一统数学之美。
 
-### [工单-127] ❓ 香农信息论与数据压缩的物理极限
+### \[工单-127\] ❓ 香农信息论与数据压缩的物理极限
+
 - **🧠 底层解释**: 对单个事件编码会造成物理空间的天然浪费。工业压缩算法（如 ZIP）的核心原理是通过**联合编码**（将多个连续事件打包一起编码），使平均每个样本占用的物理比特数无限逼近香农信息熵的绝对下界。
 
-### [工单-128] ❓ Softmax 的历史误称与 Soft-min 架构
-- **🧠 底层解释**: 深度学习中的 Softmax 本质上输出的是最大值所在的概率分布，严谨的数学命名应为 **Soft-argmax**。真正的 Soft-max 是 `LogSumExp` 算子。
-- **🚀 拓展**: 利用对称转换法则 $\min(a, b) = -\max(-a, -b)$，可推导出真正的 Soft-min 公式：$-\log(\exp(-a) + \exp(-b))$。引入指数与对数的核心工程目的永远只有一个：**消除折线的尖锐死角，保证全局绝对可导。**
+### \[工单-128\] ❓ Softmax 的历史误称与 Soft-min 架构
 
-### [工单-129] 🐛 Python 语法缩进缺失导致的 IndentationError
+- **🧠 底层解释**: 深度学习中的 Softmax 本质上输出的是最大值所在的概率分布，严谨的数学命名应为 **Soft-argmax**。真正的 Soft-max 是 `LogSumExp` 算子。  
+- **🚀 拓展**: 利用对称转换法则 $\min\limits_{}(a,b)=-\max\limits_{}(-a,-b)$，可推导出真正的 Soft-min 公式：$-\log (\exp (-a)+\exp (-b))$。引入指数与对数的核心工程目的永远只有一个：**消除折线的尖锐死角，保证全局绝对可导。**
+
+### \[工单-129\] 🐛 Python 语法缩进缺失导致的 IndentationError
+
 - **💻 触发代码**:
-  ```python
-  def get_fashion_mnist_labels(labels):
-  """返回Fashion-MNIST数据集的文本标签"""
-  ```
-- **🩸 原始报错**: `IndentationError: expected an indented block after function definition on line 1`
-- **🧠 底层原因**: Python 强制要求使用物理缩进来界定代码块。当函数定义行后直接出现顶格（无缩进）的代码时，解释器会因为找不到预期的函数体而崩溃。
+
+```py
+def get_fashion_mnist_labels(labels):
+"""返回Fashion-MNIST数据集的文本标签"""
+```
+
+- **🩸 原始报错**: `IndentationError: expected an indented block after function definition on line 1`  
+- **🧠 底层原因**: Python 强制要求使用物理缩进来界定代码块。当函数定义行后直接出现顶格（无缩进）的代码时，解释器会因为找不到预期的函数体而崩溃。  
 - **💊 修复方案**: 将函数定义下方的整个函数体代码块统一向右缩进 4 个空格或 1 个 Tab 键。
 
-### [工单-130] 🐛 `torchvision.transforms` 拼写错误导致的 AttributeError
-- **💻 触发代码**: `trans=[transforms.ToTener()]`
-- **🩸 原始报错**: `AttributeError: module 'torchvision.transforms' has no attribute 'ToTener'`
-- **🧠 底层原因**: 错将标准的张量化算子 `ToTensor()` 拼写成了 `ToTener`（漏写了字母 `s`），导致在 torchvision 的 transforms 成员字典中检索失败。
+### \[工单-130\] 🐛 `torchvision.transforms` 拼写错误导致的 AttributeError
+
+- **💻 触发代码**: `trans=[transforms.ToTener()]`  
+- **🩸 原始报错**: `AttributeError: module 'torchvision.transforms' has no attribute 'ToTener'`  
+- **🧠 底层原因**: 错将标准的张量化算子 `ToTensor()` 拼写成了 `ToTener`（漏写了字母 `s`），导致在 torchvision 的 transforms 成员字典中检索失败。  
 - **💊 修复方案**: 修正拼写为正确的 API 名称 `transforms.ToTensor()`. 修改后必须重新运行包含该定义行的单元格以覆写内存。
 
-### [工单-131] ❓ Softmax 实现中的 keepdim 与张量广播机制
+### \[工单-131\] ❓ Softmax 实现中的 keepdim 与张量广播机制
+
 - **🧠 底层解释**: 在执行矩阵除法 `X_exp / partition` 前，必须在求和时设定 `keepdim=True`。这能保持 `partition` 的二维列向量形状（如 `(2, 1)`），从而触发 PyTorch 的广播机制横向复制，否则会引发张量维度不匹配灾难。
 
-### [工单-132] ❓ 图像展平 (reshape) 与 Softmax 后处理的工程意义
+### \[工单-132\] ❓ 图像展平 (reshape) 与 Softmax 后处理的工程意义
+
 - **🧠 底层解释**: 图像本身是二维像素网格，无法直接与权重矩阵做乘法，必须通过 `reshape(-1, 784)` 强行拍扁成一维向量（代价是丢失空间拓扑信息）。同时，矩阵乘法算出的原始得分（Logits）无界且存在负数，必须经过 Softmax 算子后处理，将其绝对约束为概率总和等于 1 的合法物理分布。
 
-### [工单-133] ❓ 花式索引 (Fancy Indexing) 提取交叉熵损失
-- **🧠 底层解释**: 使用 `y_hat[range(len(y_hat)), y]` 可以直接将真实标签 `y` 当作列索引。此举跳过了独热编码的全量扫描，极其高效地从概率矩阵中批量提取出“模型押在正确答案上的概率”，进而用 $-\log(\cdot)$ 进行对数级爆炸的误差惩罚。
+### \[工单-133\] ❓ 花式索引 (Fancy Indexing) 提取交叉熵损失
 
-### [工单-134] 🐛 变量名拼写引发的 AttributeError
-- **💻 触发代码**: `y.hat`
-- **🩸 原始报错**: `AttributeError: 'Tensor' object has no attribute 'hat'`
+- **🧠 底层解释**: 使用 `y_hat[range(len(y_hat)), y]` 可以直接将真实标签 `y` 当作列索引。此举跳过了独热编码的全量扫描，极其高效地从概率矩阵中批量提取出“模型押在正确答案上的概率”，进而用 $-\log (\cdot )$ 进行对数级爆炸的误差惩罚。
+
+### \[工单-134\] 🐛 变量名拼写引发的 AttributeError
+
+- **💻 触发代码**: `y.hat`  
+- **🩸 原始报错**: `AttributeError: 'Tensor' object has no attribute 'hat'`  
 - **🧠 底层原因**: 将下划线变量名 `y_hat` 误敲为 `y.hat`，导致 Python 引擎试图去调用真实标签张量 `y` 底层根本不存在的 `hat` 属性。
 
-### [工单-135] ❓ 从零实现与简洁实现的工程权衡 (数值溢出)
-- **🧠 底层解释**: 手敲的从零 Softmax 实现存在极大的**数值溢出（Numerical Overflow）漏洞**，极易被异常大指数（如 $e^{50}$）瞬间撑爆引发 `NaN` 崩溃。真实的工业实操中必须且只调用底层缝合了 `LogSumExp` 防御机制的高级 API（`nn.CrossEntropyLoss`）。从零实现仅作为训练“张量直觉”的纯理论沙盒。
+### \[工单-135\] ❓ 从零实现与简洁实现的工程权衡 (数值溢出)
 
-### [工单-136] 🐛 类方法缩进断裂导致的 AttributeError
-- **💻 触发代码**: 调用 `animator.add(...)` 时报错
-- **🩸 原始报错**: `'Animator' object has no attribute 'add'`
+- **🧠 底层解释**: 手敲的从零 Softmax 实现存在极大的**数值溢出（Numerical Overflow）漏洞**，极易被异常大指数（如 ${e}^{50}$）瞬间撑爆引发 `NaN` 崩溃。真实的工业实操中必须且只调用底层缝合了 `LogSumExp` 防御机制的高级 API（`nn.CrossEntropyLoss`）。从零实现仅作为训练“张量直觉”的纯理论沙盒。
+
+### \[工单-136\] 🐛 类方法缩进断裂导致的 AttributeError
+
+- **💻 触发代码**: 调用 `animator.add(...)` 时报错  
+- **🩸 原始报错**: `'Animator' object has no attribute 'add'`  
 - **🧠 底层原因**: 在手动定义 `class Animator` 时，内部的 `def add(...)` 方法发生物理缩进断裂（如直接顶格写），导致解释器将其视为外部游离的普通函数，未能将其有效绑定进类的内存空间中。
 
-### [工单-137] 🐛 命名空间冲突导致的 AttributeError
-- **💻 触发代码**: `d2l.train_ch3(...)`
-- **🩸 原始报错**: `module 'd2l.torch' has no attribute 'train_ch3'`
-- **🧠 底层原因**: 书本依赖后台的 `#@save` 宏指令将函数跨文件打包进了 `d2l` 包中。但在本地连续连贯的 Jupyter 执行流中，自定义的 `train_ch3` 函数其实存活在你的**全局内存（Global Scope）**中。强加 `d2l.` 前缀会导致系统强行去硬盘搜索不匹配的库源码从而崩溃，直接删掉前缀调用本地内存函数即可。
+### \[工单-137\] 🐛 命名空间冲突导致的 AttributeError
 
-### [工单-138] ❓ 纯 CPU 训练与 Matplotlib I/O 阻塞瓶颈
+- **💻 触发代码**: `d2l.train_ch3(...)`  
+- **🩸 原始报错**: `module 'd2l.torch' has no attribute 'train_ch3'`  
+- **🧠 底层原因**: 书本依赖后台的 `#@save` 宏指令将函数跨文件打包进了 `d2l` 包中。但在本地连续连贯的 Jupyter 执行流中，自定义的 `train_ch3` 函数其实存活在你的\*\*全局内存（Global Scope）\*\*中。强加 `d2l.` 前缀会导致系统强行去硬盘搜索不匹配的库源码从而崩溃，直接删掉前缀调用本地内存函数即可。
+
+### \[工单-138\] ❓ 纯 CPU 训练与 Matplotlib I/O 阻塞瓶颈
+
 - **🧠 底层解释**: 模型训练出现分钟级的卡顿有两个物理原因：1. 数据停留在系统内存（RAM）中，仅靠孱弱的 CPU 进行矩阵运算；2. `Animator` 在每次迭代都调用 Matplotlib 绘图，触发了极其昂贵的进程间通信（IPC）与图像渲染 I/O 操作，导致算力被严重浪费在界面刷新上。
 
-### [工单-139] ❓ 损失函数聚合控制 (`reduction='none'`)
+### \[工单-139\] ❓ 损失函数聚合控制 (`reduction='none'`)
+
 - **🧠 底层解释**: 默认参数 `reduction='mean'` 会导致 PyTorch 把当前批次所有样本的损失直接求平均，缩水成一个孤立标量。设为 `none` 则是强制要求框架交出每个样本原始的独立损失清单（返回一个向量），以便我们在外部代码中亲手接管和追踪底层的累加聚合过程。
 
-### [工单-140] ❓ 高阶初始化 `net.apply()` 与 Jupyter 静默分号
+### \[工单-140\] ❓ 高阶初始化 `net.apply()` 与 Jupyter 静默分号
+
 - **🧠 底层解释**: `net.apply(init_weights)` 是一种底层工程设计模式，能自动递归遍历（Recursive Traversal）网络中所有的内部深层嵌套层并批量执行初始化动作。而在该行代码末尾加上分号 `;`，能触发 Jupyter 专属的输出静默机制，强制抑制由函数返回值引发的大量冗余网络结构文本输出。
 
-### [工单-141] ❓ 隐藏层与纯仿射变换的坍缩危机
-- **🧠 底层解释**: 隐藏层绝不仅仅是仿射变换 $XW + b$. 因为矩阵乘法具有结合律，若没有非线性激活函数，连续的仿射层级会在线性代数层面上退化坍缩：$(XW_1+b_1)W_2+b_2 = X(W_1 W_2)+(b_1 W_2 + b_2) = XW_{new} + b_{new}$. 多层纯线性连接在数学上等效于单一的线性模型，无法逼近非线性曲面。
+### \[工单-141\] ❓ 隐藏层与纯仿射变换的坍缩危机
 
-### [工单-142] ❓ 神经网络层数的物理统计规范
-- **🧠 底层解释**: 统计神经网络层数时，**只统计带有可学习权重矩阵（$W$ 和 $b$）并发生实际前向传播数学映射的层**。输入层仅为原始数据占位符，不记入层数。对于单隐藏层 MLP，其统计层数为 1 个隐藏层 + 1 个输出层 = 2 层。即“不要数圆圈节点，要数权重矩阵通道（箭头数）”。
+- **🧠 底层解释**: 隐藏层绝不仅仅是仿射变换 $XW+b$. 因为矩阵乘法具有结合律，若没有非线性激活函数，连续的仿射层级会在线性代数层面上退化坍缩：$(X{W}_{1}+{b}_{1}){W}_{2}+{b}_{2}=X({W}_{1}{W}_{2})+({b}_{1}{W}_{2}+{b}_{2})=X{W}_{new}+{b}_{new}$. 多层纯线性连接在数学上等效于单一的线性模型，无法逼近非线性曲面。
 
-### [工单-143] ❓ 全连接映射拓扑到权重与偏置矩阵的翻译机制
+### \[工单-142\] ❓ 神经网络层数的物理统计规范
+
+- **🧠 底层解释**: 统计神经网络层数时，**只统计带有可学习权重矩阵（$W$ 和 $b$）并发生实际前向传播数学映射的层**。输入层仅为原始数据占位符，不记入层数。对于单隐藏层 MLP，其统计层数为 1 个隐藏层 \+ 1 个输出层 \= 2 层。即“不要数圆圈节点，要数权重矩阵通道（箭头数）”。
+
+### \[工单-143\] ❓ 全连接映射拓扑到权重与偏置矩阵的翻译机制
+
 - **🧠 底层解释**: 全连接（Fully Connected）网络拓扑在数学上的映射即为稠密矩阵（Dense Matrix）。若输入为 $d$ 维，隐藏特征为 $h$ 维，两层全排列的连线系数排布即构成权重矩阵 $W \in \mathbb{R}^{d \times h}$；而接收端每个神经元为了做自适应的数值平移，需要独立的物理阈值，这 $h$ 个数值集合即构成了偏置向量 $b \in \mathbb{R}^{1 \times h}$.
 
-### [工单-144] ❓ 多层感知机 (MLP) 的通用近似本质
+### \[工单-144\] ❓ 多层感知机 (MLP) 的通用近似本质
+
 - **🧠 底层解释**: MLP 的核心作用是充当万能函数拟合器（Universal Approximator）。它打破了单层模型的线性特征孤立假设，迫使特征进行深度的非线性交叉融合，从而通过数据驱动下的参数调整去高精度逼近真实世界中任意复杂的非线性因果分布。
 
-### [工单-145] ❓ Softmax 是 MLP 的必需激活函数吗
+### \[工单-145\] ❓ Softmax 是 MLP 的必需激活函数吗
+
 - **🧠 底层解释**: 多层感知机本身并不必然需要 Softmax。是否使用由最终物理任务决定：多类分类任务要求输出为合法概率分布（非负、总和为 1），Softmax 是将无界 Logits 映射到概率空间的唯一手段；而回归任务（如坐标预测）的输出必须是无界实数，强行套用 Softmax 会摧毁坐标几何意义。
 
-### [工单-146] ❓ 隐藏层漏斗架构与 GPU 对齐法则
+### \[工单-146\] ❓ 隐藏层漏斗架构与 GPU 对齐法则
+
 - **🧠 底层解释**: 隐藏层大小通常逐层递减（如 512→256→128），制造信息瓶颈，强迫网络丢弃噪声、提纯核心特征。两层隐藏大小同时翻倍，连接参数量暴涨 4 倍。工业界几乎将隐藏层大小固定为 2 的幂次方（128/256/512...），核心原因是 GPU 的 CUDA 架构以 Warp（32线程）为调度单元，2 的幂次方能完美对齐显存控制器宽度，将 GEMM 吞吐拉满。
 
-### [工单-147] ❓ nn.Parameter 的编制注册本质
+### \[工单-147\] ❓ nn.Parameter 的编制注册本质
+
 - **🧠 底层解释**: `nn.Parameter` 是 `torch.Tensor` 的极简子类。将普通张量包裹其中后，PyTorch 底层 metaclass 会触发钩子，将其挂载到模块内部字典 `self._parameters`，使其能被 `net.parameters()` 捕获交由优化器更新；同时保证 `to(device)` 时随模型一起迁移到 GPU，以及被 `state_dict()` 打包序列化。不加 `nn.Parameter` 的普通 `Tensor` 属性对以上三个机制完全隐身。
 
-### [工单-148] ❓ 训练损失更低是否意味着模型更好
+### \[工单-148\] ❓ 训练损失更低是否意味着模型更好
+
 - **🧠 底层解释**: 不能。训练损失低只代表对已见数据的拟合能力强。MLP 因参数量级远超 Softmax 回归，训练损失更低是物理必然，但高容量模型极易把训练集噪音写死进权重（过拟合）。评判架构优劣的唯一铁律是**测试集准确率（泛化能力）**，而非训练损失绝对值。
 
-### [工单-149] 🐛 pReLU 缺少必要位置参数 weight
-- **💻 触发代码**:
-  ```python
-  y = torch.prelu(x)
-  ```
-- **🩸 原始报错**: `TypeError: prelu() missing 1 required positional arguments: "weight"`
-- **🧠 底层原因**: pReLU 负半轴斜率 $a$ 是可学习参数。`torch.prelu` 是无状态纯函数，内部无显存保存斜率，必须由调用者手动从外部显式传入 `weight` 张量。
-- **💊 修复方案**:
-  ```python
-  y = torch.prelu(x, weight=torch.tensor([0.25]))
-  ```
+### \[工单-149\] 🐛 pReLU 缺少必要位置参数 weight
 
-### [工单-150] 🪤 torch.tensor([1]) 与 torch.tensor([1.0]) 的 dtype 致命差异
-- **❌ 错误直觉**: 把 `weight` 从 `0.25` 改成整数 `1` 触发报错，误以为 pReLU 的 weight 有数值范围限制（不能大于 1）。
-- **🧠 认知盲区**: 实际与数值范围无关。`torch.tensor([1])` 默认生成 `int64` 类型张量，而 PyTorch autograd 引擎要求参与梯度计算的 `weight` 必须为浮点型。类型冲突是真正的报错原因。
+- **💻 触发代码**:
+
+```py
+y = torch.prelu(x)
+```
+
+- **🩸 原始报错**: `TypeError: prelu() missing 1 required positional arguments: "weight"`  
+- **🧠 底层原因**: pReLU 负半轴斜率 $a$ 是可学习参数。`torch.prelu` 是无状态纯函数，内部无显存保存斜率，必须由调用者手动从外部显式传入 `weight` 张量。  
+- **💊 修复方案**:
+
+```py
+y = torch.prelu(x, weight=torch.tensor([0.25]))
+```
+
+### \[工单-150\] 🪤 torch.tensor(\[1\]) 与 torch.tensor(\[1.0\]) 的 dtype 致命差异
+
+- **❌ 错误直觉**: 把 `weight` 从 `0.25` 改成整数 `1` 触发报错，误以为 pReLU 的 weight 有数值范围限制（不能大于 1）。  
+- **🧠 认知盲区**: 实际与数值范围无关。`torch.tensor([1])` 默认生成 `int64` 类型张量，而 PyTorch autograd 引擎要求参与梯度计算的 `weight` 必须为浮点型。类型冲突是真正的报错原因。  
 - **💊 纠偏锚点**: 凡是要参与反向传播的张量，字面量必须带小数点：`torch.tensor([1.0])`。
 
-### [工单-151] 🐛 静态分析器误报未定义变量
-- **💻 触发代码**:
-  `metric = Accumulator(2)` (在 `Accumulator` 类定义所在的单元格上方执行)
-- **🩸 原始报错**: `未定义“Accumulator” Pylance(reportUndefinedVariable) [行 5, 列 12]`
-- **🧠 底层原因**: Python 运行时允许动态执行，但 Pylance 静态分析器遵循严格的物理自上而下扫描顺序。在定义代码块物理位置之前调用，会导致静态检测工具抛出警告。
-- **💊 修复方案**:
-  将定义类的代码单元格，物理拖拽到调用代码上方并重新运行。
+### \[工单-151\] 🐛 静态分析器误报未定义变量
 
-### [工单-152] 🐛 nn.Sequential 容器逗号遗漏引发连体错误
-- **💻 触发代码**:
-  `net=nn.Sequential(nn.Flatten(), nn.Linear(784,256), nn.Sigmoid() nn.Linear(256,10))`
-- **🩸 原始报错**: `SyntaxError: invalid syntax. Perhaps you forgot a comma?`
-- **🧠 底层原因**: `nn.Sequential` 接收可变参数 `*args`，层与层之间必须用物理逗号 `,` 分隔。若遗漏逗号，Python 会读取到连续调用，产生语法解析崩溃。
-- **💊 修复方案**:
-  在 `nn.Sigmoid()` 尾部补上物理逗号。
+- **💻 触发代码**: `metric = Accumulator(2)` (在 `Accumulator` 类定义所在的单元格上方执行)  
+- **🩸 原始报错**: `未定义“Accumulator” Pylance(reportUndefinedVariable) [行 5, 列 12]`  
+- **🧠 底层原因**: Python 运行时允许动态执行，但 Pylance 静态分析器遵循严格的物理自上而下扫描顺序。在定义代码块物理位置之前调用，会导致静态检测工具抛出警告。  
+- **💊 修复方案**: 将定义类的代码单元格，物理拖拽到调用代码上方并重新运行。
 
-### [工单-153] 🪤 激活函数更换引发的画图异常与油门悖论
-- **❌ 错误直觉**: 将激活函数从 Sigmoid 改为 Tanh 并把学习率设为极大值（5.0），以为能像 Sigmoid 那样克服梯度消失，结果 train loss 曲线彻底消失，准确率极低。
-- **🧠 认知盲区**: 不同激活函数的物理阻力截然不同。Sigmoid 导数极小（犹如泥泞路面），需要 `lr=1.0` 这样的重型油门；而 Tanh 导数在 0 处为 1.0（犹如冰雪公路），此时再踩下 5.0 的重油门，会导致首轮更新步长过载，激活输出被卡在平坦区，导数直接归零，模型陷入永久性饱和死锁。
+### \[工单-152\] 🐛 nn.Sequential 容器逗号遗漏引发连体错误
+
+- **💻 触发代码**: `net=nn.Sequential(nn.Flatten(), nn.Linear(784,256), nn.Sigmoid() nn.Linear(256,10))`  
+- **🩸 原始报错**: `SyntaxError: invalid syntax. Perhaps you forgot a comma?`  
+- **🧠 底层原因**: `nn.Sequential` 接收可变参数 `*args`，层与层之间必须用物理逗号 `,` 分隔。若遗漏逗号，Python 会读取到连续调用，产生语法解析崩溃。  
+- **💊 修复方案**: 在 `nn.Sigmoid()` 尾部补上物理逗号。
+
+### \[工单-153\] 🪤 激活函数更换引发的画图异常与油门悖论
+
+- **❌ 错误直觉**: 将激活函数从 Sigmoid 改为 Tanh 并把学习率设为极大值（5.0），以为能像 Sigmoid 那样克服梯度消失，结果 train loss 曲线彻底消失，准确率极低。  
+- **🧠 认知盲区**: 不同激活函数的物理阻力截然不同。Sigmoid 导数极小（犹如泥泞路面），需要 `lr=1.0` 这样的重型油门；而 Tanh 导数在 0 处为 1.0（犹如冰雪公路），此时再踩下 5.0 的重油门，会导致首轮更新步长过载，激活输出被卡在平坦区，导数直接归零，模型陷入永久性饱和死锁。  
 - **💊 纠偏锚点**: 平滑路面（Tanh/ReLU）绝不允许重踩油门，必须将学习率降回标准的 0.1。
 
-### [工单-154] 🪤 验证集标准化参数污染与数据泄露
-- **❌ 错误直觉**: 为了全局统一，把训练集、验证集拼接在一起算全局的均值和方差，然后再统一进行标准化。
-- **🧠 认知盲区**: 验证集的信息通过全局计算的 `mean` 和 `std` 悄悄渗透给了训练特征体系，引发数据泄露（Data Leakage）。
+### \[工单-154\] 🪤 验证集标准化参数污染与数据泄露
+
+- **❌ 错误直觉**: 为了全局统一，把训练集、验证集拼接在一起算全局的均值和方差，然后再统一进行标准化。  
+- **🧠 认知盲区**: 验证集的信息通过全局计算的 `mean` 和 `std` 悄悄渗透给了训练特征体系，引发数据泄露（Data Leakage）。  
 - **💊 纠偏锚点**: 标准化的物理刻度盘只能在训练集上 Fit（校准），校准后必须锁死，原封不动地用来 Transform（变换）验证集和测试集。
 
-### [工单-155] 🪤 K折集成是对测试集过拟合？——术语混淆陷阱
-- **❌ 错误直觉**: K折交叉验证中的K个模型是"用测试集的数据训练出来的"，所以拿这K个模型去预测测试集必然过拟合。
-- **🧠 认知盲区**: K折交叉验证涉及的全部数据（训练子集+验证子集）均来自训练集，测试集从头到尾被锁死在保险箱里，没有参与K折的任何环节。K折中的"验证折"≠测试集，是两个完全不同的物理存在。
+### \[工单-155\] 🪤 K折集成是对测试集过拟合？——术语混淆陷阱
+
+- **❌ 错误直觉**: K折交叉验证中的K个模型是"用测试集的数据训练出来的"，所以拿这K个模型去预测测试集必然过拟合。  
+- **🧠 认知盲区**: K折交叉验证涉及的全部数据（训练子集+验证子集）均来自训练集，测试集从头到尾被锁死在保险箱里，没有参与K折的任何环节。K折中的"验证折"≠测试集，是两个完全不同的物理存在。  
 - **💊 纠偏锚点**: 测试集是绝对禁区，K折只在训练集内部进行，K个模型对测试集来说看到的是100%陌生的数据。
 
-### [工单-156] 🪤 加深网络层数 ≈ 提升性能——容量过剩陷阱
-- **❌ 错误直觉**: 增加一个隐藏层（784→256→128→10）后，模型能力更强，在 Fashion-MNIST 上理应获得更高的测试准确率。
-- **🧠 认知盲区**: 对于 Fashion-MNIST（6万样本）这类中小规模任务，单隐藏层 MLP 已触达该架构类的性能天花板。盲目加层只是增加了参数量（VC维），使模型开始有能力记住训练集噪声，test acc 出现峰值后微跌，间距从 0% 扩大到 4%。真正突破天花板的手段是换架构（MLP→CNN），而不是加层。
+### \[工单-156\] 🪤 加深网络层数 ≈ 提升性能——容量过剩陷阱
+
+- **❌ 错误直觉**: 增加一个隐藏层（784→256→128→10）后，模型能力更强，在 Fashion-MNIST 上理应获得更高的测试准确率。  
+- **🧠 认知盲区**: 对于 Fashion-MNIST（6万样本）这类中小规模任务，单隐藏层 MLP 已触达该架构类的性能天花板。盲目加层只是增加了参数量（VC维），使模型开始有能力记住训练集噪声，test acc 出现峰值后微跌，间距从 0% 扩大到 4%。真正突破天花板的手段是换架构（MLP→CNN），而不是加层。  
 - **💊 纠偏锚点**: 不是"越深越好"，而是"架构对了才好"。层数增加 ≠ 泛化能力提升，监控 `train acc` 与 `test acc` 的间距才是判断是否有效的唯一标准。
 
-### [工单-157] ❓ 泛化误差可能为 0 吗？
+### \[工单-157\] ❓ 泛化误差可能为 0 吗？
+
 - **🧠 底层解释**: 在真实的物理世界中绝对不可能。泛化误差永远存在一个不可逾越的底线——**贝叶斯误差（不可约误差）**。无论模型多强、数据多大，真实数据生成过程中的传感器热噪声、环境扰动等物理随机性是无法预测的。深度学习的终极目标是逼近信噪比极限，而不是把测试误差降为 0。
 
-### [工单-158] ❓ SVD 奇异值分解在深度学习中什么时候能用上？
-- **🧠 底层解释**: 深度学习训练的基石是 SGD（算力开销极低），而 SVD 的 $O(N^3)$ 复杂度注定它无法直接参与参数更新。但 SVD 及其背后的“矩阵低秩（Low-Rank）”哲学，是架构的高阶灵魂：在 NLP 词向量提取、模型部署压缩，以及当今 LLM 的 **LoRA 微调**（将庞大的权重更新 $\Delta W$ 拆解为两个低秩小矩阵相乘）中，SVD 理念是不可替代的降维武器。
+### \[工单-158\] ❓ SVD 奇异值分解在深度学习中什么时候能用上？
 
-### [工单-159] 🪤 强行用神经网络去跑多项式回归
-- **❌ 错误直觉**: 认为《4.4.4 多项式回归》中的代码片段非常有工程价值，需要逐行背诵并应用到未来项目。
-- **🧠 认知盲区**: 多项式回归在深度学习中工程价值为零，这段代码仅是为了人造一个**“物理风洞”**。其唯一价值是通过上帝视角控制模型算力（阶数），强制其发生欠拟合或过拟合，让你亲眼验证 `train loss` 和 `test loss` 的物理间距变化。
+- **🧠 底层解释**: 深度学习训练的基石是 SGD（算力开销极低），而 SVD 的 $O({N}^{3})$ 复杂度注定它无法直接参与参数更新。但 SVD 及其背后的“矩阵低秩（Low-Rank）”哲学，是架构的高阶灵魂：在 NLP 词向量提取、模型部署压缩，以及当今 LLM 的 **LoRA 微调**（将庞大的权重更新 $\Delta W$ 拆解为两个低秩小矩阵相乘）中，SVD 理念是不可替代的降维武器。
+
+### \[工单-159\] 🪤 强行用神经网络去跑多项式回归
+
+- **❌ 错误直觉**: 认为《4.4.4 多项式回归》中的代码片段非常有工程价值，需要逐行背诵并应用到未来项目。  
+- **🧠 认知盲区**: 多项式回归在深度学习中工程价值为零，这段代码仅是为了人造一个\*\*“物理风洞”\*\*。其唯一价值是通过上帝视角控制模型算力（阶数），强制其发生欠拟合或过拟合，让你亲眼验证 `train loss` 和 `test loss` 的物理间距变化。  
 - **💊 纠偏锚点**: 不要背 API。直接运行 3 次（阶数 1/3/20），把三张图上的间距走势刻入直觉，然后立刻去学下一个核心武器。
 
-### [工单-160] 🪤 找最优解只有 SGD 这一条路
-- **❌ 错误直觉**: 认为一切求最优参数的问题都只能靠梯度慢慢迭代。
-- **🧠 认知盲区**: 对于纯线性回归，构造正规方程后 $X^T X$ 为正定矩阵（绝对可逆），理论上存在一步到位的绝对解析解。在工程底层，我们会使用 **SVD 奇异值分解**来求伪逆获得绝对稳健的物理最优解，完全不需要 SGD。
+### \[工单-160\] 🪤 找最优解只有 SGD 这一条路
+
+- **❌ 错误直觉**: 认为一切求最优参数的问题都只能靠梯度慢慢迭代。  
+- **🧠 认知盲区**: 对于纯线性回归，构造正规方程后 ${X}^{T}X$ 为正定矩阵（绝对可逆），理论上存在一步到位的绝对解析解。在工程底层，我们会使用 **SVD 奇异值分解**来求伪逆获得绝对稳健的物理最优解，完全不需要 SGD。  
 - **💊 纠偏锚点**: 深度学习用 SGD 是向“算力墙”妥协的产物。只要矩阵维度规模允许，基于正定矩阵与 SVD 的线性代数一步求解才是正规军。
 
-### [工单-161] ❓ NLP（自然语言处理）的物理本质是什么？
+### \[工单-161\] ❓ NLP（自然语言处理）的物理本质是什么？
+
 - **🧠 底层解释**: NLP 的本质是将人类模糊、离散的“高维字符”，强制映射并压缩为计算机可计算的“低维数学张量”。过去的核心是词向量（Word Embeddings），通过共现矩阵的 SVD 分解，用纯粹的线性代数解构语义逻辑（国王-男人+女人=女王）；当今的巅峰是 LLMs（如基于 Transformer 的 ChatGPT），其核心物理动作是“根据海量矩阵乘法，预测下一个字符的概率分布”。
 
-### [工单-162] 🪤 坐标轴的“视觉相对论”陷阱：Log Scale 的物理意义
-- **❌ 错误直觉**: 认为在 Loss 曲线图上，肉眼看起来下降更长的一段，其数值的绝对下降幅度也必然更大。
-- **🧠 认知盲区**: 普通的线性坐标轴只关注“绝对差值”（比如 100 降到 10 跌了 90），导致晚期从 0.1 降到 0.01（仅跌 0.09）的细节被完全压扁成一条平滑直线。而对数坐标轴（Log Scale）物理上衡量的是“乘数缩放”（比如 $10^{-1}$ 到 $10^{-2}$ 跌了 10 倍，等同于 $10^2$ 跌到 $10^1$ 的 10 倍）。深度学习进入中后期，我们根本不关心绝对数值（0.1 还是 0.01 绝对值都很小），而是极度关心**它是否还在呈指数级收敛**。Log 坐标轴能像显微镜一样，把晚期的微小绝对优化，放大成宏观的视觉跌幅。
+### \[工单-162\] 🪤 坐标轴的“视觉相对论”陷阱：Log Scale 的物理意义
+
+- **❌ 错误直觉**: 认为在 Loss 曲线图上，肉眼看起来下降更长的一段，其数值的绝对下降幅度也必然更大。  
+- **🧠 认知盲区**: 普通的线性坐标轴只关注“绝对差值”（比如 100 降到 10 跌了 90），导致晚期从 0.1 降到 0.01（仅跌 0.09）的细节被完全压扁成一条平滑直线。而对数坐标轴（Log Scale）物理上衡量的是“乘数缩放”（比如 $1{0}^{-1}$ 到 $1{0}^{-2}$ 跌了 10 倍，等同于 $1{0}^{2}$ 跌到 $1{0}^{1}$ 的 10 倍）。深度学习进入中后期，我们根本不关心绝对数值（0.1 还是 0.01 绝对值都很小），而是极度关心**它是否还在呈指数级收敛**。Log 坐标轴能像显微镜一样，把晚期的微小绝对优化，放大成宏观的视觉跌幅。  
 - **💊 纠偏锚点**: 在深度学习工程界，但凡看 Loss 曲线，几乎默认全开 `yscale='log'`。如果不带 Log，你看到的将是开局即坠底、后期全平直的“假死”假象。
-### [工单-163] ❓ Python `lambda` 函数与作用域的延迟绑定陷阱
-- **🧠 核心疑问**: 在风洞实验台 `train(lambd)` 中，如果内部不重新定义全新的 `w` 和 `b`，直接使用外层的全局变量，后方的 `lambda X: d2l.linreg(X, w, b)` 会不会报错？
-- **🧠 底层解释**: 编写 `lambda` 瞬间不会报错，但在调用 `net(X)` 的运行时，如果外层没有定义，会立刻抛出 `NameError`。如果外层有定义，则会强行抓取外层的全局变量。Python 执行 `lambda` 时具有“极度慵懒”的延迟绑定（Late Binding）特性。
+
+### \[工单-163\] ❓ Python `lambda` 函数与作用域的延迟绑定陷阱
+
+- **🧠 核心疑问**: 在风洞实验台 `train(lambd)` 中，如果内部不重新定义全新的 `w` 和 `b`，直接使用外层的全局变量，后方的 `lambda X: d2l.linreg(X, w, b)` 会不会报错？  
+- **🧠 底层解释**: 编写 `lambda` 瞬间不会报错，但在调用 `net(X)` 的运行时，如果外层没有定义，会立刻抛出 `NameError`。如果外层有定义，则会强行抓取外层的全局变量。Python 执行 `lambda` 时具有“极度慵懒”的延迟绑定（Late Binding）特性。  
 - **💊 纠偏锚点**: 如果对照实验 A `train(0)` 和实验 B `train(3)` 都抓取同一套全局权重，B 就会在 A 训练完的基础上继续跑，导致**对照实验遭到致命污染**。必须在函数内部重置 `w, b` 并在内存隔离区进行实验。
 
-### [工单-164] ❓ 为什么要在训练循环中加 `if (epoch + 1) % 5 == 0:` 降频判断？
-- **🧠 核心疑问**: 为什么不能每一轮都执行 `animator.add()` 和 `d2l.evaluate_loss()`？
-- **🧠 底层解释**: `evaluate_loss` 需要开启免死金牌 `torch.no_grad()` 后，把整个训练集和测试集重新送入网络跑完全量纯推理。这非常浪费算力。如果不限制频率，GPU 会把多数时间耗费在打分上而不是计算梯度上，同时实时绘图的 `animator` 也会因为点太多而把渲染引擎卡死。
+### \[工单-164\] ❓ 为什么要在训练循环中加 `if (epoch + 1) % 5 == 0:` 降频判断？
+
+- **🧠 核心疑问**: 为什么不能每一轮都执行 `animator.add()` 和 `d2l.evaluate_loss()`？  
+- **🧠 底层解释**: `evaluate_loss` 需要开启免死金牌 `torch.no_grad()` 后，把整个训练集和测试集重新送入网络跑完全量纯推理。这非常浪费算力。如果不限制频率，GPU 会把多数时间耗费在打分上而不是计算梯度上，同时实时绘图的 `animator` 也会因为点太多而把渲染引擎卡死。  
 - **💊 纠偏锚点**: 它是工程架构师在“监控精度”与“训练速度”间平衡的**降频采样器**。
 
-### [工单-165] 🪤 超参数（Hyperparameter）的验证集污染陷阱
-- **❌ 错误直觉**: 如果用验证集跑出了一组最佳的 $\lambda$，说明模型在面对未来数据时也一定表现最佳。
-- **🧠 认知盲区**: 把几十个不同的 $\lambda$ 在验证集上跑一遍并挑出最好的，本质上就是把 $\lambda$ 当成参数在验证集上“训练”了一遍。这剥夺了验证集的“中立裁判”地位，导致**超参数过拟合**。真正的最优 $\lambda$ 在真实世界，而我们选出的仅仅是“在验证集上看起来最漂亮”的 $\lambda$。
+### \[工单-165\] 🪤 超参数（Hyperparameter）的验证集污染陷阱
+
+- **❌ 错误直觉**: 如果用验证集跑出了一组最佳的 $\lambda$，说明模型在面对未来数据时也一定表现最佳。  
+- **🧠 认知盲区**: 把几十个不同的 $\lambda$ 在验证集上跑一遍并挑出最好的，本质上就是把 $\lambda$ 当成参数在验证集上“训练”了一遍。这剥夺了验证集的“中立裁判”地位，导致**超参数过拟合**。真正的最优 $\lambda$ 在真实世界，而我们选出的仅仅是“在验证集上看起来最漂亮”的 $\lambda$。  
 - **💊 纠偏锚点**: 永远不要用测试集调参。如果验证集污染严重，工业界的兜底方案是采用 **K 折交叉验证（K-Fold CV）**，用均值来抹平单次污染。
 
-### [工单-166] ❓ 为什么 L1 正则化会产生特征稀疏性（Sparsity），而 L2 不会？
-- **🧠 核心疑问**: 把惩罚项换成 $\lambda \sum |w_i|$ 后，为什么大量不重要权重会被精确归零？
-- **🧠 底层解释**: 梯度是对惩罚项求导。L2 的导数是 $\lambda w_i$，代入 SGD 后是乘性操作：$(1-\eta\lambda)w_i$。不管 $w_i$ 多小，乘一个比例系数永远无法精确到零。而 L1 绝对值的导数是符号函数 $\text{sign}(w_i)$，代入 SGD 后是减性常数操作：$w_i - \eta\lambda \text{sign}(w_i)$。哪怕权重只有 $0.001$，只要不够大，每一刀固定砍去常量 $\eta\lambda$，就会瞬间将其精确斩杀归零。
+### \[工单-166\] ❓ 为什么 L1 正则化会产生特征稀疏性（Sparsity），而 L2 不会？
+
+- **🧠 核心疑问**: 把惩罚项换成 $\lambda \sum\limits_{}^{}|{w}_{i}|$ 后，为什么大量不重要权重会被精确归零？  
+- **🧠 底层解释**: 梯度是对惩罚项求导。L2 的导数是 $\lambda {w}_{i}$，代入 SGD 后是乘性操作：$(1-\eta \lambda ){w}_{i}$。不管 ${w}_{i}$ 多小，乘一个比例系数永远无法精确到零。而 L1 绝对值的导数是符号函数 $\text{sign}(w_i)$，代入 SGD 后是减性常数操作：$w_i - \eta\lambda \text{sign}(w_i)$。哪怕权重只有 $0.001$，只要不够大，每一刀固定砍去常量 $\eta \lambda$，就会瞬间将其精确斩杀归零。  
 - **💊 纠偏锚点**: L2 产生稠密的小权重，L1 产生稀疏权重。当你在做基因筛查等极高维低效特征场景时，必须上 L1 强制剔除无用维度。
 
-### [工单-167] ❓ 神经网络矩阵型权重 $\mathbf{W}$ 的 L2 惩罚方程长什么样？
-- **🧠 核心疑问**: 向量版的 L2 惩罚是 $\mathbf{w}^\top \mathbf{w}$，如果升维成矩阵，它的等价方程是什么？
-- **🧠 底层解释**: 矩阵的所有元素平方求和被称为 Frobenius 范数 $\|\mathbf{W}\|_F^2$。根据矩阵乘法的规则，计算 $\mathbf{W}^\top \mathbf{W}$ 能够求出所有列向量自己的内积（对角线元素）。把它们加起来就是所有元素的平方和，这个“加对角线”的物理动作正是矩阵的**迹（Trace）**。
+### \[工单-167\] ❓ 神经网络矩阵型权重 $\mathbf{W}$ 的 L2 惩罚方程长什么样？
+
+- **🧠 核心疑问**: 向量版的 L2 惩罚是 $\mathbf{w}^\top \mathbf{w}$，如果升维成矩阵，它的等价方程是什么？  
+- **🧠 底层解释**: 矩阵的所有元素平方求和被称为 Frobenius 范数 $\|\mathbf{W}\|_F^2$。根据矩阵乘法的规则，计算 $\mathbf{W}^\top \mathbf{W}$ 能够求出所有列向量自己的内积（对角线元素）。把它们加起来就是所有元素的平方和，这个“加对角线”的物理动作正是矩阵的**迹（Trace）**。  
 - **💊 纠偏锚点**: $\|\mathbf{W}\|_F^2 = \text{tr}(\mathbf{W}^\top \mathbf{W})$。
 
-### [工单-168] ❓ 贝叶斯统计视角下，L2 正则化的物理本质是什么？
+### \[工单-168\] ❓ 贝叶斯统计视角下，L2 正则化的物理本质是什么？
+
 - **🧠 核心疑问**: 为什么在公式中加上 $\frac{\lambda}{2}\|\mathbf{w}\|^2$ 能起到约束作用？
-- **🧠 底层解释**: 在最大后验概率（MAP）框架中：$-\log P(w|x) = -\log P(x|w) - \log P(w)$。如果我们给权重 $w$ 注入一个**以 0 为中心的高斯分布先验** $P(w) \propto \exp(-\frac{\lambda}{2}\|w\|^2)$，取负对数后，这个先验项就精准变成了 $\frac{\lambda}{2}\|\mathbf{w}\|^2$。
+- **🧠 底层解释**: 在最大后验概率（MAP）框架中：$-\log P(w|x)=-\log P(x|w)-\log P(w)$。如果我们给权重 $w$ 注入一个**以 0 为中心的高斯分布先验** $P(w) \propto \exp(-\frac{\lambda}{2}\|w\|^2)$，取负对数后，这个先验项就精准变成了 $\frac{\lambda}{2}\|\mathbf{w}\|^2$。  
 - **💊 纠偏锚点**: L2 惩罚的本质，就是一种傲慢的工程师断言：“我先验地强迫所有的权重，必须分布在 0 附近”。$\lambda$ 越大，这个高斯钟型曲线越瘦长，惩罚拉力越强。
 
-### [工单-169] 🪤 Dropout 参数含义与丢弃对象的概念混淆
-- **错误直觉**: 将 `dropout=0.3` 理解为固定丢弃 30% 的数量，或认为 Dropout 会随机删除隐藏层参数。
-- **认知盲区**: `dropout` 表示每个激活值在一次前向传播中被置零的概率 $p$。掩码会在每次训练前向传播时重新采样，因此实际丢弃数量具有随机波动；模型的权重和偏置仍然存在并保持注册，暂时被切断的是对应激活路径。
+### \[工单-169\] 🪤 Dropout 参数含义与丢弃对象的概念混淆
+
+- **错误直觉**: 将 `dropout=0.3` 理解为固定丢弃 30% 的数量，或认为 Dropout 会随机删除隐藏层参数。  
+- **认知盲区**: `dropout` 表示每个激活值在一次前向传播中被置零的概率 $p$。掩码会在每次训练前向传播时重新采样，因此实际丢弃数量具有随机波动；模型的权重和偏置仍然存在并保持注册，暂时被切断的是对应激活路径。  
 - **纠偏锚点**: $p$ 是逐激活值的丢弃概率；Dropout 丢弃激活值，不删除模型参数。
 
-### [工单-170] ❓ Inverted Dropout 为什么要除以 $1-p$？
-- **核心疑问**: 随机掩码已经完成置零，为什么保留下来的激活还要乘以 $1/(1-p)$？
-- **底层解释**: 对单个激活值 $x$，训练时输出为 $x'=0$（概率 $p$）或 $x'=x/(1-p)$（概率 $1-p$），因此
-  $$
-  \mathbb{E}[x']=0\cdot p+\frac{x}{1-p}(1-p)=x.
-  $$
-  若不缩放，则 $\mathbb{E}[x']=(1-p)x$，训练阶段的激活尺度会系统性缩小。倒置缩放使训练与评估阶段保持相同的期望尺度；反向传播时，被置零位置的梯度为 0，保留位置的梯度按 $1/(1-p)$ 缩放。
+### \[工单-170\] ❓ Inverted Dropout 为什么要除以 $1-p$？
 
-### [工单-171] ❓ `torch.rand`、`torch.randn` 与 `torch.rand_like` 如何选择？
-- **核心疑问**: 手写 Dropout 掩码时，为什么应使用 `torch.rand_like(X)`，而不是 `torch.randn_like(X)` 或 `torch.rand(X.shape)`？
+- **核心疑问**: 随机掩码已经完成置零，为什么保留下来的激活还要乘以 $1/(1-p)$？  
+- **底层解释**: 对单个激活值 $x$，训练时输出为 $x'=0$（概率 $p$）或 $x'=x/(1-p)$（概率 $1-p$），因此 ${}$ \\mathbb{E}\[x'\]=0\\cdot p+\\frac{x}{1-p}(1-p)=x. ${}$ 若不缩放，则 $\mathbb{E}[x']=(1-p)x$，训练阶段的激活尺度会系统性缩小。倒置缩放使训练与评估阶段保持相同的期望尺度；反向传播时，被置零位置的梯度为 0，保留位置的梯度按 $1/(1-p)$ 缩放。
+
+### \[工单-171\] ❓ `torch.rand`、`torch.randn` 与 `torch.rand_like` 如何选择？
+
+- **核心疑问**: 手写 Dropout 掩码时，为什么应使用 `torch.rand_like(X)`，而不是 `torch.randn_like(X)` 或 `torch.rand(X.shape)`？  
 - **底层解释**: `torch.rand` 采样均匀分布 $U(0,1)$，所以 `rand > p` 的保留概率恰好为 $1-p$；`torch.randn` 采样标准正态分布 $\mathcal{N}(0,1)$，用同一阈值比较时保留概率不再等于 $1-p$。此外，`torch.rand(X.shape)` 默认在 CPU 创建张量，当 `X` 位于 GPU 时会造成 device 不一致；`torch.rand_like(X)` 自动继承 `X` 的 Shape、device 和 dtype。稳妥写法为：
-  ```python
-  mask = (torch.rand_like(X) > dropout).to(X.dtype)
-  ```
 
-### [工单-172] ❓ `net.eval()` 与 `torch.no_grad()` 的职责区别
-- **核心疑问**: 评估模型时，两者是否作用相同，能否只使用其中一个？
+```py
+mask = (torch.rand_like(X) > dropout).to(X.dtype)
+```
+
+### \[工单-172\] ❓ `net.eval()` 与 `torch.no_grad()` 的职责区别
+
+- **核心疑问**: 评估模型时，两者是否作用相同，能否只使用其中一个？  
 - **底层解释**: `net.eval()` 切换模块的训练/评估状态，影响 Dropout、BatchNorm 等具有模式差异的层；`torch.no_grad()` 关闭自动微分记录，不构建计算图并减少显存占用，但不会改变 Dropout 状态。标准评估流程通常同时使用：
-  ```python
-  net.eval()
-  with torch.no_grad():
-      y_hat = net(X)
-  ```
 
-### [工单-173] ❓ 线性层、激活函数与隐藏表示是什么关系？
-- **核心疑问**: “激活函数激活隐藏层”应如何准确理解？
-- **底层解释**: 线性层先计算预激活值 $Z=XW+b$，激活函数再逐元素得到隐藏表示 $H=\sigma(Z)$。因此隐藏层通常由“仿射变换 + 非线性激活”共同构成。激活函数不创建新的神经元或参数，主要负责引入非线性；若连续层之间没有非线性，多层仿射变换可以合并为一个仿射变换，网络表达能力不会因堆叠而提升。
+```py
+net.eval()
+with torch.no_grad():
+    y_hat = net(X)
+```
 
-### [工单-174] ❓ Dropout 放在 ReLU 前后是否等价？
-- **核心疑问**: 常见顺序是 `Linear -> ReLU -> Dropout`，那么 `Linear -> Dropout -> ReLU` 是否错误？
-- **底层解释**: 两种顺序都可以运行。对同一个掩码 $M$ 和标准 ReLU，由于 ReLU 具有正齐次性 $\operatorname{ReLU}(az)=a\operatorname{ReLU}(z)$（$a\ge 0$），有
-  $$
-  \operatorname{ReLU}\left(\frac{M\odot Z}{1-p}\right)
-  =\frac{M\odot\operatorname{ReLU}(Z)}{1-p}.
-  $$
-  因而在相同掩码下数学结果相同，工程代码更常写成 `Linear -> ReLU -> Dropout`。该结论不适用于 Sigmoid、Tanh、GELU 等一般非线性函数，因为它们不满足同样的正齐次性质。
+### \[工单-173\] ❓ 线性层、激活函数与隐藏表示是什么关系？
 
-### [工单-175] ❓ 为什么网络中还要加入 `nn.Linear(256, 256)`？
-- **🧠 核心疑问**：第一隐藏层已经输出 256 维表示，为什么中间还要加入一个输入和输出均为 256 的全连接层？
-- **🧠 底层解释**：第一隐藏层输出为
-  $$
-  H_1=\operatorname{ReLU}(XW_1+b_1),\qquad H_1\in\mathbb{R}^{B\times256}.
-  $$
-  第二层继续计算
-  $$
-  H_2=\operatorname{ReLU}(H_1W_2^\top+b_2),\qquad H_2\in\mathbb{R}^{B\times256}.
-  $$
-  虽然输入和输出 Shape 都是 `(B, 256)`，但第二层具有一套独立的权重与偏置，会重新组合第一层的特征。维度相同不代表变换内容相同。
+- **核心疑问**: “激活函数激活隐藏层”应如何准确理解？  
+- **底层解释**: 线性层先计算预激活值 $Z=XW+b$，激活函数再逐元素得到隐藏表示 $H=\sigma (Z)$。因此隐藏层通常由“仿射变换 \+ 非线性激活”共同构成。激活函数不创建新的神经元或参数，主要负责引入非线性；若连续层之间没有非线性，多层仿射变换可以合并为一个仿射变换，网络表达能力不会因堆叠而提升。
+
+### \[工单-174\] ❓ Dropout 放在 ReLU 前后是否等价？
+
+- **核心疑问**: 常见顺序是 `Linear -> ReLU -> Dropout`，那么 `Linear -> Dropout -> ReLU` 是否错误？  
+- **底层解释**: 两种顺序都可以运行。对同一个掩码 $M$ 和标准 ReLU，由于 ReLU 具有正齐次性 $\operatorname{ReLU}(az)=a\operatorname{ReLU}(z)$（$a\geq 0$），有 ${}$ \\operatorname{ReLU}\\left(\\frac{M\\odot Z}{1-p}\\right) \=\\frac{M\\odot\\operatorname{ReLU}(Z)}{1-p}. ${}$ 因而在相同掩码下数学结果相同，工程代码更常写成 `Linear -> ReLU -> Dropout`。该结论不适用于 Sigmoid、Tanh、GELU 等一般非线性函数，因为它们不满足同样的正齐次性质。
+
+### \[工单-175\] ❓ 为什么网络中还要加入 `nn.Linear(256, 256)`？
+
+- **🧠 核心疑问**：第一隐藏层已经输出 256 维表示，为什么中间还要加入一个输入和输出均为 256 的全连接层？  
+- **🧠 底层解释**：第一隐藏层输出为 ${}$ H\_1=\\operatorname{ReLU}(XW\_1+b\_1),\\qquad H\_1\\in\\mathbb{R}^{B\\times256}. ${}$ 第二层继续计算 ${}$ H\_2=\\operatorname{ReLU}(H\_1W\_2^\\top+b\_2),\\qquad H\_2\\in\\mathbb{R}^{B\\times256}. ${}$ 虽然输入和输出 Shape 都是 `(B, 256)`，但第二层具有一套独立的权重与偏置，会重新组合第一层的特征。维度相同不代表变换内容相同。  
 - **💊 纠偏锚点**：`Linear(256, 256)` 是“256 维到另一套 256 维表示的可学习映射”，不是恒等映射，也不是 Dropout 的强制要求。
 
-### [工单-176] ❓ `init_weights` 与 `std=0.01` 分别有什么作用？
-- **🧠 核心疑问**：下面的初始化函数究竟修改了什么，`std=0.01` 又代表什么？
-  ```python
-  def init_weights(m):
-      if type(m) == nn.Linear:
-          nn.init.normal_(m.weight, std=0.01)
+### \[工单-176\] ❓ `init_weights` 与 `std=0.01` 分别有什么作用？
 
-  net.apply(init_weights)
-  ```
-- **🧠 底层解释**：
-  - `net.apply(init_weights)` 会递归访问网络中的所有模块。
-  - 当模块是 `nn.Linear` 时，用正态分布重新填充其权重：
-    $$
-    w_{ij}\sim\mathcal N(0,0.01^2).
-    $$
-  - `std=0.01` 是标准差，表示权重大多分布在 0 附近；正态分布没有严格上下界。
-  - 函数名 `normal_` 末尾的 `_` 表示原地修改权重张量。
-  - 当前代码只重置了 `weight`，没有显式重置 `bias`。
+- **🧠 核心疑问**：下面的初始化函数究竟修改了什么，`std=0.01` 又代表什么？
+
+```py
+def init_weights(m):
+    if type(m) == nn.Linear:
+        nn.init.normal_(m.weight, std=0.01)
+
+net.apply(init_weights)
+```
+
+- **🧠 底层解释**：  
+  - `net.apply(init_weights)` 会递归访问网络中的所有模块。  
+  - 当模块是 `nn.Linear` 时，用正态分布重新填充其权重： ${}$ w\_{ij}\\sim\\mathcal N(0,0.01^2). ${}$  
+  - `std=0.01` 是标准差，表示权重大多分布在 0 附近；正态分布没有严格上下界。  
+  - 函数名 `normal_` 末尾的 `_` 表示原地修改权重张量。  
+  - 当前代码只重置了 `weight`，没有显式重置 `bias`。  
 - **💊 纠偏锚点**：`std=0.01` 控制随机初始化的离散程度，不是学习率，也不是权重的最大绝对值。
 
-### [工单-177] ❓ 初始化函数中的 `m` 是什么类型，为什么能访问 `m.weight`？
-- **🧠 核心疑问**：`m` 没有显式声明类型，为什么代码可以访问 `m.weight`？
+### \[工单-177\] ❓ 初始化函数中的 `m` 是什么类型，为什么能访问 `m.weight`？
+
+- **🧠 核心疑问**：`m` 没有显式声明类型，为什么代码可以访问 `m.weight`？  
 - **🧠 底层解释**：`m` 是 `net.apply()` 当前遍历到的模块对象，统一继承自 `nn.Module`，但运行时可能分别是：
-  ```text
-  Flatten
-  Linear
-  ReLU
-  Dropout
-  Sequential
-  ```
+
+```
+Flatten
+Linear
+ReLU
+Dropout
+Sequential
+```
+
   只有 `nn.Linear` 模块注册了 `weight` 和 `bias` 参数。因此代码先判断：
-  ```python
-  if type(m) == nn.Linear:
-  ```
+
+```py
+if type(m) == nn.Linear:
+```
+
   判断成立后才访问：
-  ```python
-  m.weight
-  ```
+
+```py
+m.weight
+```
+
   对 `Linear(784, 256)`，权重 Shape 为：
-  ```python
-  m.weight.shape  # (256, 784)
-  ```
-  PyTorch 保存权重时采用 `(out_features, in_features)`，前向传播内部相当于：
-  $$
-  Y=XW^\top+b.
-  $$
+
+```py
+m.weight.shape  # (256, 784)
+```
+
+  PyTorch 保存权重时采用 `(out_features, in_features)`，前向传播内部相当于： ${}$ Y=XW^\\top+b. ${}$
+
 - **💊 纠偏锚点**：不是所有 `m` 都有 `weight`；条件判断保证只有 `Linear` 模块进入权重初始化分支。
 
-### [工单-178] 🐛 `train_iter` 未定义与优化器变量传错
+### \[工单-178\] 🐛 `train_iter` 未定义与优化器变量传错
+
 - **💻 触发代码**：
-  ```python
-  trainer1 = torch.optim.SGD(net1.parameters(), lr=lr)
-  trainer2 = torch.optim.SGD(net2.parameters(), lr=lr)
 
-  d2l.train_ch3(net1, train_iter, test_iter, loss, num_epochs, trainer)
-  d2l.train_ch3(net2, train_iter, test_iter, loss, num_epochs, trainer)
-  ```
+```py
+trainer1 = torch.optim.SGD(net1.parameters(), lr=lr)
+trainer2 = torch.optim.SGD(net2.parameters(), lr=lr)
+
+d2l.train_ch3(net1, train_iter, test_iter, loss, num_epochs, trainer)
+d2l.train_ch3(net2, train_iter, test_iter, loss, num_epochs, trainer)
+```
+
 - **🩸 原始报错**：
-  ```text
-  NameError: name 'train_iter' is not defined
-  ```
-- **🧠 底层原因**：
-  1. `train_iter` 和 `test_iter` 尚未创建，或创建它们的 Jupyter 单元格没有重新运行。
-  2. 网络已经分别创建了 `trainer1`、`trainer2`，训练时却错误地传入了不存在的 `trainer`。
+
+```
+NameError: name 'train_iter' is not defined
+```
+
+- **🧠 底层原因**：  
+  1. `train_iter` 和 `test_iter` 尚未创建，或创建它们的 Jupyter 单元格没有重新运行。  
+  2. 网络已经分别创建了 `trainer1`、`trainer2`，训练时却错误地传入了不存在的 `trainer`。  
 - **💊 修复方案**：
-  ```python
-  batch_size = 256
-  train_iter, test_iter = d2l.load_data_fashion_mnist(batch_size)
 
-  trainer1 = torch.optim.SGD(net1.parameters(), lr=lr)
-  trainer2 = torch.optim.SGD(net2.parameters(), lr=lr)
+```py
+batch_size = 256
+train_iter, test_iter = d2l.load_data_fashion_mnist(batch_size)
 
-  d2l.train_ch3(net1, train_iter, test_iter, loss, num_epochs, trainer1)
-  d2l.train_ch3(net2, train_iter, test_iter, loss, num_epochs, trainer2)
-  ```
+trainer1 = torch.optim.SGD(net1.parameters(), lr=lr)
+trainer2 = torch.optim.SGD(net2.parameters(), lr=lr)
+
+d2l.train_ch3(net1, train_iter, test_iter, loss, num_epochs, trainer1)
+d2l.train_ch3(net2, train_iter, test_iter, loss, num_epochs, trainer2)
+```
+
 - **💊 纠偏锚点**：先确认数据迭代器存在，再检查“网络—优化器”的一一对应关系。
 
-### [工单-179] ❓ Dropout 没有提高测试准确率，是否说明它没用？
-- **核心疑问**: 使用 Dropout 后训练损失更高、训练准确率略低，但测试准确率与不使用 Dropout 基本相同，这是否说明 Dropout 没有作用？
-- **底层解释**: Dropout 是正则化方法，主要用于缓解“训练集表现明显好于测试集”的过拟合问题。如果无 Dropout 的模型本身没有明显过拟合，那么 Dropout 没有多少泛化缺口可以修复，测试准确率相近是合理结果。此时它可能只增加训练难度，而不会带来可见收益。
+### \[工单-179\] ❓ Dropout 没有提高测试准确率，是否说明它没用？
+
+- **核心疑问**: 使用 Dropout 后训练损失更高、训练准确率略低，但测试准确率与不使用 Dropout 基本相同，这是否说明 Dropout 没有作用？  
+- **底层解释**: Dropout 是正则化方法，主要用于缓解“训练集表现明显好于测试集”的过拟合问题。如果无 Dropout 的模型本身没有明显过拟合，那么 Dropout 没有多少泛化缺口可以修复，测试准确率相近是合理结果。此时它可能只增加训练难度，而不会带来可见收益。  
 - **纠偏锚点**: 判断正则化是否有效，先看 `train acc - test acc` 的间距，而不是默认要求测试准确率一定上升。
 
-### [工单-180] ❓ 为什么训练损失会在某一轮短暂反弹？
-- **核心疑问**: 不使用 Dropout 的模型在第 10～11 轮附近出现一次 loss 回升，是否代表训练失败？
-- **底层解释**: Mini-batch SGD 使用的是全量梯度的随机近似，单轮更新不保证损失严格单调下降；当学习率较大时，参数还可能暂时跨过较优区域。若损失随后恢复下降、测试准确率没有同步崩溃，这通常只是正常随机波动。
+### \[工单-180\] ❓ 为什么训练损失会在某一轮短暂反弹？
+
+- **核心疑问**: 不使用 Dropout 的模型在第 10～11 轮附近出现一次 loss 回升，是否代表训练失败？  
+- **底层解释**: Mini-batch SGD 使用的是全量梯度的随机近似，单轮更新不保证损失严格单调下降；当学习率较大时，参数还可能暂时跨过较优区域。若损失随后恢复下降、测试准确率没有同步崩溃，这通常只是正常随机波动。  
 - **纠偏锚点**: 观察整体趋势与测试指标，不要把单次局部反弹误判为训练失效。
 
-### [工单-181] ❓ 权重衰减与 Dropout 为什么可以同时使用？
-- **核心疑问**: 两者代码位置差异很大，如何组合到同一个模型中？
-- **底层解释**: 权重衰减作用于参数更新，在优化器中通过 `weight_decay` 约束权重；Dropout 作用于前向传播，在网络结构中随机置零隐藏层激活值。二者约束对象不同，因此可以同时存在：网络内部放 `nn.Dropout(p)`，优化器参数组中设置 `weight_decay=wd`。
+### \[工单-181\] ❓ 权重衰减与 Dropout 为什么可以同时使用？
+
+- **核心疑问**: 两者代码位置差异很大，如何组合到同一个模型中？  
+- **底层解释**: 权重衰减作用于参数更新，在优化器中通过 `weight_decay` 约束权重；Dropout 作用于前向传播，在网络结构中随机置零隐藏层激活值。二者约束对象不同，因此可以同时存在：网络内部放 `nn.Dropout(p)`，优化器参数组中设置 `weight_decay=wd`。  
 - **纠偏锚点**: 权重衰减修改“参数怎么更新”，Dropout 修改“训练时信息怎么传递”。
 
-### [工单-182] 🐛 使用 `net.eval()` 关闭 Dropout 被训练函数重新覆盖
+### \[工单-182\] 🐛 使用 `net.eval()` 关闭 Dropout 被训练函数重新覆盖
+
 - **触发代码**:
-  ```python
-  if use_Dropout == False:
-      net.eval()
-  d2l.train_ch3(...)
-  ```
-- **原始报错**: 无显式报错，但对照实验逻辑失效，Dropout 在训练时仍会被重新开启。
-- **底层原因**: `d2l.train_ch3` 的训练流程会调用 `net.train()`，从而覆盖训练前设置的 `net.eval()`。`eval()` 用于评估阶段模式切换，不适合作为永久关闭 Dropout 的开关。
+
+```py
+if use_Dropout == False:
+    net.eval()
+d2l.train_ch3(...)
+```
+
+- **原始报错**: 无显式报错，但对照实验逻辑失效，Dropout 在训练时仍会被重新开启。  
+- **底层原因**: `d2l.train_ch3` 的训练流程会调用 `net.train()`，从而覆盖训练前设置的 `net.eval()`。`eval()` 用于评估阶段模式切换，不适合作为永久关闭 Dropout 的开关。  
 - **修复方案**:
-  ```python
-  dropout1 = 0.2 if use_Dropout else 0
-  dropout2 = 0.5 if use_Dropout else 0
-  ```
+
+```py
+dropout1 = 0.2 if use_Dropout else 0
+dropout2 = 0.5 if use_Dropout else 0
+```
+
   再将它们传给 `nn.Dropout(dropout1)` 和 `nn.Dropout(dropout2)`；即使随后执行 `net.train()`，`Dropout(0)` 也不会丢弃激活值。
 
-### [工单-183] 🐛 `named_parameters()` 参数筛选与字符串方法拼写错误
+### \[工单-183\] 🐛 `named_parameters()` 参数筛选与字符串方法拼写错误
+
 - **触发代码**:
-  ```python
-  for name, param in net.named_parameters():
-      if name.endwith('weight'):
-          decay_params.append(param)
-  ```
-- **原始报错**: `AttributeError: 'str' object has no attribute 'endwith'`
-- **底层原因**: 正确方法名是 `endswith()`。`named_parameters()` 返回 `(完整参数名, 参数对象)`，参数名通常类似 `1.weight`、`1.bias`，因此不能用 `name == 'weight'` 做完全匹配。
+
+```py
+for name, param in net.named_parameters():
+    if name.endwith('weight'):
+        decay_params.append(param)
+```
+
+- **原始报错**: `AttributeError: 'str' object has no attribute 'endwith'`  
+- **底层原因**: 正确方法名是 `endswith()`。`named_parameters()` 返回 `(完整参数名, 参数对象)`，参数名通常类似 `1.weight`、`1.bias`，因此不能用 `name == 'weight'` 做完全匹配。  
 - **修复方案**:
-  ```python
-  for name, param in net.named_parameters():
-      if name.endswith('weight'):
-          decay_params.append(param)
-      else:
-          no_decay_params.append(param)
-  ```
+
+```py
+for name, param in net.named_parameters():
+    if name.endswith('weight'):
+        decay_params.append(param)
+    else:
+        no_decay_params.append(param)
+```
+
   `decay_params` 中保存的是 `net` 内部原始 `nn.Parameter` 的引用，不是副本；优化器执行 `step()` 时修改的正是网络中的权重。
 
-### [工单-184] 🐛 优化器变量覆盖数据迭代器，并传入未定义的 `trainer1`
-- **触发代码**:
-  ```python
-  train_iter = torch.optim.SGD(...)
-  d2l.train_ch3(net, train_iter, test_iter, loss, num_epochs, trainer1)
-  ```
-- **原始报错**: 可能出现 `NameError: name 'trainer1' is not defined`，或训练函数无法从优化器中解包出 `(X, y)`。
-- **底层原因**: `train_iter` 应保持为训练数据迭代器，不能被 SGD 优化器覆盖；同时函数内部并未定义 `trainer1`。
-- **修复方案**:
-  ```python
-  trainer = torch.optim.SGD(
-      [
-          {'params': decay_params, 'weight_decay': wd},
-          {'params': no_decay_params, 'weight_decay': 0}
-      ],
-      lr=lr
-  )
-  d2l.train_ch3(net, train_iter, test_iter, loss, num_epochs, trainer)
-  ```
+### \[工单-184\] 🐛 优化器变量覆盖数据迭代器，并传入未定义的 `trainer1`
 
-### [工单-185] 🪤 两种参数初始化方式同时使用导致后写覆盖前写
-- **错误直觉**: `for param in net.parameters(): param.data.normal_()` 与 `net.apply(init_weights)` 都是初始化，因此可以叠加使用。
-- **认知盲区**: 两者都会直接改写同一批参数，后执行的初始化会覆盖前面的结果。前者默认把所有权重和偏置初始化为标准差 1 的正态分布；后者可按模块类型只初始化 `Linear.weight`，例如标准差 0.01。混用还可能造成权重和偏置采用不一致的尺度。
+- **触发代码**:
+
+```py
+train_iter = torch.optim.SGD(...)
+d2l.train_ch3(net, train_iter, test_iter, loss, num_epochs, trainer1)
+```
+
+- **原始报错**: 可能出现 `NameError: name 'trainer1' is not defined`，或训练函数无法从优化器中解包出 `(X, y)`。  
+- **底层原因**: `train_iter` 应保持为训练数据迭代器，不能被 SGD 优化器覆盖；同时函数内部并未定义 `trainer1`。  
+- **修复方案**:
+
+```py
+trainer = torch.optim.SGD(
+    [
+        {'params': decay_params, 'weight_decay': wd},
+        {'params': no_decay_params, 'weight_decay': 0}
+    ],
+    lr=lr
+)
+d2l.train_ch3(net, train_iter, test_iter, loss, num_epochs, trainer)
+```
+
+### \[工单-185\] 🪤 两种参数初始化方式同时使用导致后写覆盖前写
+
+- **错误直觉**: `for param in net.parameters(): param.data.normal_()` 与 `net.apply(init_weights)` 都是初始化，因此可以叠加使用。  
+- **认知盲区**: 两者都会直接改写同一批参数，后执行的初始化会覆盖前面的结果。前者默认把所有权重和偏置初始化为标准差 1 的正态分布；后者可按模块类型只初始化 `Linear.weight`，例如标准差 0.01。混用还可能造成权重和偏置采用不一致的尺度。  
 - **纠偏锚点**: 参数初始化通常只选一种；普通 MLP/CNN 更适合使用 `net.apply(init_weights)` 按模块类型精细初始化，并避免直接操作 `.data`。
 
-### [工单-186] ❓ 为什么暂退法代码中看不到显式创建 `Animator`？
-- **核心疑问**: 权重衰减示例手动写了 `animator = d2l.Animator(...)`，暂退法示例为何没有？
-- **底层解释**: 暂退法示例调用了封装好的 `d2l.train_ch3(...)`，该函数内部已经负责训练循环、指标计算和动态图绘制；权重衰减示例自己编写训练循环，因此需要显式创建并调用 `Animator`。`Animator` 只负责监控和绘图，不参与反向传播或参数更新。
+### \[工单-186\] ❓ 为什么暂退法代码中看不到显式创建 `Animator`？
+
+- **核心疑问**: 权重衰减示例手动写了 `animator = d2l.Animator(...)`，暂退法示例为何没有？  
+- **底层解释**: 暂退法示例调用了封装好的 `d2l.train_ch3(...)`，该函数内部已经负责训练循环、指标计算和动态图绘制；权重衰减示例自己编写训练循环，因此需要显式创建并调用 `Animator`。`Animator` 只负责监控和绘图，不参与反向传播或参数更新。  
 - **纠偏锚点**: 是否显式写 `Animator` 取决于绘图逻辑有没有被训练函数封装，而不是取决于是否使用 Dropout。
 
-### [工单-187] 🐛 两层隐藏层 MLP 的第二个线性层后遗漏激活函数
-- **触发代码**:
-  ```python
-  nn.Linear(256, 256),
-  nn.Dropout(0.5),
-  nn.Linear(256, 10)
-  ```
-- **原始报错**: 无语法报错，但实验结构与教材基准模型不一致。
-- **底层原因**: 第二个隐藏层缺少 `ReLU`，使对应区间变成连续的仿射变换与 Dropout，改变了基础模型。进行正则化对照实验时，除正则化开关外应保持架构一致。
-- **修复方案**:
-  ```python
-  nn.Linear(256, 256),
-  nn.ReLU(),
-  nn.Dropout(dropout2),
-  nn.Linear(256, 10)
-  ```
+### \[工单-187\] 🐛 两层隐藏层 MLP 的第二个线性层后遗漏激活函数
 
-### [工单-188] 🐛 `d2l.train_ch3` 因权重衰减过强触发成绩断言
 - **触发代码**:
-  ```python
-  train_concise(False, 1e-1)
-  ```
-- **原始报错**: `AssertionError: 1.3565535344441733`
-- **底层原因**: `d2l.train_ch3` 在训练结束后硬编码检查 `train_loss < 0.5`、训练准确率和测试准确率。当前 `lr=0.3`、`weight_decay=0.1` 且 Fashion-MNIST 每轮有大量批次，权重在每次 `step()` 中被反复强力拉向 0，模型严重欠拟合，最终未通过断言。图能够画出，只是因为断言位于训练和绘图之后。
+
+```py
+nn.Linear(256, 256),
+nn.Dropout(0.5),
+nn.Linear(256, 10)
+```
+
+- **原始报错**: 无语法报错，但实验结构与教材基准模型不一致。  
+- **底层原因**: 第二个隐藏层缺少 `ReLU`，使对应区间变成连续的仿射变换与 Dropout，改变了基础模型。进行正则化对照实验时，除正则化开关外应保持架构一致。  
 - **修复方案**:
-  ```python
-  train_concise(False, 1e-3)
-  train_concise(True, 1e-3)
-  ```
+
+```py
+nn.Linear(256, 256),
+nn.ReLU(),
+nn.Dropout(dropout2),
+nn.Linear(256, 10)
+```
+
+### \[工单-188\] 🐛 `d2l.train_ch3` 因权重衰减过强触发成绩断言
+
+- **触发代码**:
+
+```py
+train_concise(False, 1e-1)
+```
+
+- **原始报错**: `AssertionError: 1.3565535344441733`  
+- **底层原因**: `d2l.train_ch3` 在训练结束后硬编码检查 `train_loss < 0.5`、训练准确率和测试准确率。当前 `lr=0.3`、`weight_decay=0.1` 且 Fashion-MNIST 每轮有大量批次，权重在每次 `step()` 中被反复强力拉向 0，模型严重欠拟合，最终未通过断言。图能够画出，只是因为断言位于训练和绘图之后。  
+- **修复方案**:
+
+```py
+train_concise(False, 1e-3)
+train_concise(True, 1e-3)
+```
+
   再按 `0、1e-5、1e-4、1e-3、1e-2` 的数量级逐步比较，而不是直接照搬其他实验的 `wd`。
 
-### [工单-189] ❓ 为什么不同实验中的 `weight_decay` 数值不能直接比较？
-- **核心疑问**: 4.5 节使用 `wd=3` 仍能训练和画图，为什么当前模型使用 `wd=0.1` 却严重欠拟合？
-- **底层解释**: 权重衰减的实际累计强度由学习率、衰减系数、参数更新次数、初始化尺度、数据规模和模型结构共同决定。单步近似为
-  $$
-  W\leftarrow(1-\eta\lambda)W-\eta\nabla L.
-  $$
-  4.5 节学习率小、每轮更新次数少，而且是故意构造的少样本高维过拟合实验；当前 Fashion-MNIST 学习率大、批次数多，衰减会被累计成极强约束。
+### \[工单-189\] ❓ 为什么不同实验中的 `weight_decay` 数值不能直接比较？
+
+- **核心疑问**: 4.5 节使用 `wd=3` 仍能训练和画图，为什么当前模型使用 `wd=0.1` 却严重欠拟合？  
+- **底层解释**: 权重衰减的实际累计强度由学习率、衰减系数、参数更新次数、初始化尺度、数据规模和模型结构共同决定。单步近似为 ${}$ W\\leftarrow(1-\\eta\\lambda)W-\\eta\\nabla L. ${}$ 4.5 节学习率小、每轮更新次数少，而且是故意构造的少样本高维过拟合实验；当前 Fashion-MNIST 学习率大、批次数多，衰减会被累计成极强约束。  
 - **纠偏锚点**: 不要孤立比较 `wd` 数字；先建立无正则化基线，再按数量级搜索，并依据验证表现和泛化间距选择。
 
-### [工单-190] ❓ Dropout 与权重衰减同时使用是否一定产生协同增益？
-- **核心疑问**: 仅使用 Dropout 时后期泛化下降，而同时加入权重衰减后测试准确率更高、训练与测试间距更小，是否说明二者相互促进？
-- **底层解释**: 两者约束对象不同：Dropout 扰动隐藏层激活和特征依赖，权重衰减限制参数规模，因此在当前实验中表现出互补效果。但单次曲线不能证明普遍的协同作用；正则化过强时二者叠加也会造成欠拟合。
+### \[工单-190\] ❓ Dropout 与权重衰减同时使用是否一定产生协同增益？
+
+- **核心疑问**: 仅使用 Dropout 时后期泛化下降，而同时加入权重衰减后测试准确率更高、训练与测试间距更小，是否说明二者相互促进？  
+- **底层解释**: 两者约束对象不同：Dropout 扰动隐藏层激活和特征依赖，权重衰减限制参数规模，因此在当前实验中表现出互补效果。但单次曲线不能证明普遍的协同作用；正则化过强时二者叠加也会造成欠拟合。  
 - **纠偏锚点**: 可以表述为“本次实验中组合后的泛化更好”，不能推广成“二者组合一定优于单独使用”。
 
-### [工单-191] ❓ 前向钩子（Forward Hook）有什么作用？
-- **核心疑问**: 正常调用 `net(X)` 只能得到最终输出，如何取得隐藏层中间激活值？
-- **底层解释**: `register_forward_hook` 相当于安装在某一层输出端的监控器。当前向传播经过该层时，PyTorch 自动调用钩子函数并传入当前模块、输入和输出，可将 `output.detach()` 保存下来做统计，而无须修改网络的 `forward` 逻辑。使用结束后应调用 `handle.remove()`，避免后续每次前向传播都重复记录。
+### \[工单-191\] ❓ 前向钩子（Forward Hook）有什么作用？
+
+- **核心疑问**: 正常调用 `net(X)` 只能得到最终输出，如何取得隐藏层中间激活值？  
+- **底层解释**: `register_forward_hook` 相当于安装在某一层输出端的监控器。当前向传播经过该层时，PyTorch 自动调用钩子函数并传入当前模块、输入和输出，可将 `output.detach()` 保存下来做统计，而无须修改网络的 `forward` 逻辑。使用结束后应调用 `handle.remove()`，避免后续每次前向传播都重复记录。  
 - **纠偏锚点**: Hook 负责“观察中间层”，不参与参数更新，也不改变该层计算结果。
 
-### [工单-192] 🐛 训练模式方法名拼写错误
-- **触发代码**:
-  ```python
-  net.tra()
-  ```
-- **原始报错**: `AttributeError: 'Sequential' object has no attribute 'tra'`
-- **底层原因**: `nn.Module` 切换训练模式的正确方法是 `train()`；`tra()` 并不存在。第 3 题测量 Dropout 后激活方差时必须保持训练模式，否则 Dropout 会在评估模式中被关闭。
-- **修复方案**:
-  ```python
-  net.train()
-  ```
+### \[工单-192\] 🐛 训练模式方法名拼写错误
 
-### [工单-193] 🐛 Matplotlib 别名 `plt` 未导入
 - **触发代码**:
-  ```python
-  plt.plot(epochs, no_dropout_l1)
-  ```
-- **原始报错**: `NameError: name 'plt' is not defined`
-- **底层原因**: 当前 Jupyter 内核未执行 `matplotlib.pyplot` 的导入语句，或重启内核后原有导入状态已经丢失。
-- **修复方案**:
-  ```python
-  import matplotlib.pyplot as plt
-  ```
 
-### [工单-194] ❓ 隐藏层激活方差有什么意义？
-- **核心疑问**: 隐藏层输出的离散程度能说明什么，方差越大是否代表特征越好？
-- **底层解释**: 激活方差是隐藏层信号尺度的诊断指标，而不是最终成绩。方差过小可能意味着不同输入得到近似响应、ReLU 大量输出 0 或表示坍缩；方差过大可能意味着权重或信号被逐层放大，增加数值与梯度不稳定风险。合理状态通常是不过度接近 0、不过度膨胀，并在训练中保持相对稳定。当前代码把整个 `(batch_size, hidden_units)` 张量混合计算为一个总体方差，只适合粗略观察。
+```py
+net.tra()
+```
+
+- **原始报错**: `AttributeError: 'Sequential' object has no attribute 'tra'`  
+- **底层原因**: `nn.Module` 切换训练模式的正确方法是 `train()`；`tra()` 并不存在。第 3 题测量 Dropout 后激活方差时必须保持训练模式，否则 Dropout 会在评估模式中被关闭。  
+- **修复方案**:
+
+```py
+net.train()
+```
+
+### \[工单-193\] 🐛 Matplotlib 别名 `plt` 未导入
+
+- **触发代码**:
+
+```py
+plt.plot(epochs, no_dropout_l1)
+```
+
+- **原始报错**: `NameError: name 'plt' is not defined`  
+- **底层原因**: 当前 Jupyter 内核未执行 `matplotlib.pyplot` 的导入语句，或重启内核后原有导入状态已经丢失。  
+- **修复方案**:
+
+```py
+import matplotlib.pyplot as plt
+```
+
+### \[工单-194\] ❓ 隐藏层激活方差有什么意义？
+
+- **核心疑问**: 隐藏层输出的离散程度能说明什么，方差越大是否代表特征越好？  
+- **底层解释**: 激活方差是隐藏层信号尺度的诊断指标，而不是最终成绩。方差过小可能意味着不同输入得到近似响应、ReLU 大量输出 0 或表示坍缩；方差过大可能意味着权重或信号被逐层放大，增加数值与梯度不稳定风险。合理状态通常是不过度接近 0、不过度膨胀，并在训练中保持相对稳定。当前代码把整个 `(batch_size, hidden_units)` 张量混合计算为一个总体方差，只适合粗略观察。  
 - **纠偏锚点**: 方差用于监控信号是否坍缩、爆炸及随机扰动强度，不能单独用来判断模型泛化能力。
 
-### [工单-195] ❓ Dropout 为何增大激活方差，且层间方差为何没有固定大小关系？
-- **核心疑问**: 实验中 `p=0.5` 的第二层方差显著增大；无 Dropout 时第二层方差也略高于第一层，这是否是必然规律？
-- **底层解释**: 倒置 Dropout 输出为
-  $$
-  \widetilde H=\frac{M\odot H}{1-p}.
-  $$
-  一部分激活被置 0，保留值又被放大，因此训练阶段方差通常上升，且 `p` 越大扰动越强。不同隐藏层之间的方差则由输入分布、独立权重、特征相关性、ReLU 截断比例和训练结果共同决定，不存在第一层必然小于或大于第二层的规律。
+### \[工单-195\] ❓ Dropout 为何增大激活方差，且层间方差为何没有固定大小关系？
+
+- **核心疑问**: 实验中 `p=0.5` 的第二层方差显著增大；无 Dropout 时第二层方差也略高于第一层，这是否是必然规律？  
+- **底层解释**: 倒置 Dropout 输出为 ${}$ \\widetilde H=\\frac{M\\odot H}{1-p}. ${}$ 一部分激活被置 0，保留值又被放大，因此训练阶段方差通常上升，且 `p` 越大扰动越强。不同隐藏层之间的方差则由输入分布、独立权重、特征相关性、ReLU 截断比例和训练结果共同决定，不存在第一层必然小于或大于第二层的规律。  
 - **纠偏锚点**: 本次实验只能得出“第二层在当前参数下更分散”，不能把层间方差顺序当成网络定律。
 
-### [工单-196] ❓ 为什么训练时使用 Dropout，而测试时通常关闭？
-- **核心疑问**: 训练时用 Dropout 是为了降低过拟合，那么测试时是否因为泛化能力已经固定，只需测量它的高低？
-- **底层解释**: 训练结束后模型参数已经固定，测试阶段不再继续学习，而是评估固定模型在未见数据上的表现。训练时 Dropout 通过随机屏蔽激活值约束模型对少数神经元的依赖；测试时应关闭随机扰动，使用完整网络获得稳定、确定的预测。倒置 Dropout 已在训练阶段通过除以 `1-p` 保持激活期望，因此测试时无需再次缩放。
+### \[工单-196\] ❓ 为什么训练时使用 Dropout，而测试时通常关闭？
+
+- **核心疑问**: 训练时用 Dropout 是为了降低过拟合，那么测试时是否因为泛化能力已经固定，只需测量它的高低？  
+- **底层解释**: 训练结束后模型参数已经固定，测试阶段不再继续学习，而是评估固定模型在未见数据上的表现。训练时 Dropout 通过随机屏蔽激活值约束模型对少数神经元的依赖；测试时应关闭随机扰动，使用完整网络获得稳定、确定的预测。倒置 Dropout 已在训练阶段通过除以 `1-p` 保持激活期望，因此测试时无需再次缩放。  
 - **纠偏锚点**: 更准确的说法是“训练后模型参数固定，测试阶段测量其泛化表现”，而不是“测试阶段继续提高泛化能力”。
 
-### [工单-197] ❓ DropConnect 的用途与 Dropout 有何区别？
-- **核心疑问**: 将随机掩码作用到权重矩阵上有什么实际用途？
-- **底层解释**: DropConnect 在训练时随机屏蔽部分权重连接，使模型不能长期依赖少数固定连接，从而起到正则化、提高连接冗余性和隐式集成多个稀疏子网络的作用。Dropout 随机关闭整个激活值，DropConnect 则以更细粒度随机关闭单条连接。更强的随机性也可能带来更大的梯度噪声、更慢的收敛和欠拟合风险。
+### \[工单-197\] ❓ DropConnect 的用途与 Dropout 有何区别？
+
+- **核心疑问**: 将随机掩码作用到权重矩阵上有什么实际用途？  
+- **底层解释**: DropConnect 在训练时随机屏蔽部分权重连接，使模型不能长期依赖少数固定连接，从而起到正则化、提高连接冗余性和隐式集成多个稀疏子网络的作用。Dropout 随机关闭整个激活值，DropConnect 则以更细粒度随机关闭单条连接。更强的随机性也可能带来更大的梯度噪声、更慢的收敛和欠拟合风险。  
 - **纠偏锚点**: DropConnect 不是永久删除权重，而是只在当前前向传播中临时屏蔽部分连接。
 
-### [工单-198] ❓ 乘性高斯噪声如何实现正则化？
-- **核心疑问**: 除 Dropout 外，如何通过连续随机噪声逐层扰动隐藏表示？
-- **底层解释**: 乘性高斯噪声可写为
-  $$
-  \widetilde H=H\odot(1+\sigma\epsilon),\qquad \epsilon\sim\mathcal N(0,1).
-  $$
-  随机乘数的期望为 1，因此噪声后的激活期望仍等于原激活；但每次训练时激活会被连续地随机放大或缩小，迫使模型适应特征扰动并减少对精确中间数值的依赖。其条件方差为 $\sigma^2H^2$，所以激活越大，绝对扰动越强。与 Dropout 的离散置零不同，它通常提供更平滑的连续扰动。
+### \[工单-198\] ❓ 乘性高斯噪声如何实现正则化？
+
+- **核心疑问**: 除 Dropout 外，如何通过连续随机噪声逐层扰动隐藏表示？  
+- **底层解释**: 乘性高斯噪声可写为 ${}$ \\widetilde H=H\\odot(1+\\sigma\\epsilon),\\qquad \\epsilon\\sim\\mathcal N(0,1). ${}$ 随机乘数的期望为 1，因此噪声后的激活期望仍等于原激活；但每次训练时激活会被连续地随机放大或缩小，迫使模型适应特征扰动并减少对精确中间数值的依赖。其条件方差为 ${\sigma }^{2}{H}^{2}$，所以激活越大，绝对扰动越强。与 Dropout 的离散置零不同，它通常提供更平滑的连续扰动。  
 - **纠偏锚点**: `sigma` 控制噪声强度；训练模式下注入噪声，评估模式直接返回原激活。噪声过强同样会导致欠拟合。
 
 ## 📖 4.8 数值稳定性和模型初始化 — 核心概念日志
 
-### [工单-199] ❓ 为什么保持各层激活与梯度的尺度稳定可以改善数值稳定性？
-- **核心疑问**: 为什么深层网络希望各层输出与梯度的均值、方差不要随着深度持续漂移？
-- **底层解释**: 深层网络会反复进行线性变换与非线性变换。若每层都系统性放大信号，前向激活可能爆炸并把 `tanh`/`sigmoid` 推入饱和区；若每层都系统性缩小信号，前向表示和反向梯度都会逐层衰减。初始化的目标之一，就是让前向激活和反向梯度在层与层之间保持相近尺度，而不是严格要求每层统计量完全相等。
+### \[工单-199\] ❓ 为什么保持各层激活与梯度的尺度稳定可以改善数值稳定性？
+
+- **核心疑问**: 为什么深层网络希望各层输出与梯度的均值、方差不要随着深度持续漂移？  
+- **底层解释**: 深层网络会反复进行线性变换与非线性变换。若每层都系统性放大信号，前向激活可能爆炸并把 `tanh`/`sigmoid` 推入饱和区；若每层都系统性缩小信号，前向表示和反向梯度都会逐层衰减。初始化的目标之一，就是让前向激活和反向梯度在层与层之间保持相近尺度，而不是严格要求每层统计量完全相等。  
 - **纠偏锚点**: “保持方差稳定”是为了防止深度带来的重复放大或重复衰减，不是为了让每层数值一模一样。
 
-### [工单-200] ❓ 前向方差公式表达了什么，为什么会得到 $\operatorname{Var}(W)\approx 1/n$？
-- **核心疑问**: 一个神经元做 $h_i=\sum_{j=1}^{n}w_jx_j$ 时，为什么输入数增多会影响输出尺度？
-- **底层解释**: 在零均值、独立等初始化分析假设下，加权和中各项的方差近似相加，因此可得到 $\operatorname{Var}(h_i)\approx n\operatorname{Var}(w)\operatorname{Var}(x)$。若把“输出方差与输入方差相近”作为人为设定的稳定性目标，就要求 $n\operatorname{Var}(w)\approx1$，从而得到 $\operatorname{Var}(w)\approx1/n$。这里前后方差相等是设计目标，不是自然必然成立的定律。
+### \[工单-200\] ❓ 前向方差公式表达了什么，为什么会得到 $\operatorname{Var}(W)\approx 1/n$？
+
+- **核心疑问**: 一个神经元做 ${h}_{i}=\sum\limits_{j=1}^{n}{w}_{j}{x}_{j}$ 时，为什么输入数增多会影响输出尺度？  
+- **底层解释**: 在零均值、独立等初始化分析假设下，加权和中各项的方差近似相加，因此可得到 $\operatorname{Var}(h_i)\approx n\operatorname{Var}(w)\operatorname{Var}(x)$。若把“输出方差与输入方差相近”作为人为设定的稳定性目标，就要求 $n\operatorname{Var}(w)\approx1$，从而得到 $\operatorname{Var}(w)\approx1/n$。这里前后方差相等是设计目标，不是自然必然成立的定律。  
 - **纠偏锚点**: 先有稳定性目标，再由目标反推权重方差；$1/n$ 不是凭空规定的常数。
 
-### [工单-201] ❓ 零均值随机权重为什么能让线性层输出的期望保持在 0 附近？
-- **核心疑问**: 在 $h^t=W^th^{t-1}$ 中，为什么常假设 $E[w_{ij}^t]=0$？
-- **底层解释**: 当当前层权重与上一层输出独立，且权重本身零均值时，单项 $E[w_{ij}h_j]$ 可以写成 $E[w_{ij}]E[h_j]$，其中第一项为 0，因此各项求和后的输出期望仍为 0。零均值主要控制分布中心不持续向正向或负向漂移，方差则负责控制分布尺度是否膨胀或坍缩。
+### \[工单-201\] ❓ 零均值随机权重为什么能让线性层输出的期望保持在 0 附近？
+
+- **核心疑问**: 在 ${h}^{t}={W}^{t}{h}^{t-1}$ 中，为什么常假设 $E[{w}_{ij}^{t}]=0$？  
+- **底层解释**: 当当前层权重与上一层输出独立，且权重本身零均值时，单项 $E[{w}_{ij}{h}_{j}]$ 可以写成 $E[{w}_{ij}]E[{h}_{j}]$，其中第一项为 0，因此各项求和后的输出期望仍为 0。零均值主要控制分布中心不持续向正向或负向漂移，方差则负责控制分布尺度是否膨胀或坍缩。  
 - **纠偏锚点**: 均值控制“中心漂移”，方差控制“尺度漂移”，两者解决的是不同问题。
 
-### [工单-202] ❓ `tanh` 的饱和区为什么会导致梯度消失？
-- **核心疑问**: 为什么前向数值变大后，反向梯度反而可能越来越小？
-- **底层解释**: 当 `tanh` 的输入绝对值很大时，输出接近 $+1$ 或 $-1$，此时 $\tanh'(z)=1-\tanh^2(z)\approx0$。反向传播通过链式法则不断乘这些接近 0 的局部导数，因此梯度会逐层衰减。这个现象不是正负梯度互相抵消，而是乘法链中的局部倍率过小。
-- **纠偏锚点**: `tanh` 输出接近 $\pm1$ 才是典型饱和；输出接近 0 时反而处在导数最大的区域附近。
+### \[工单-202\] ❓ `tanh` 的饱和区为什么会导致梯度消失？
 
-### [工单-203] ❓ ReLU 正半轴导数为 1，为什么仍不能保证没有梯度消失或爆炸？
-- **核心疑问**: 如果 `ReLU'(z)=1`，反向梯度为什么还会改变尺度？
-- **底层解释**: 一层若写成 $z=Wx+b,\ h=\operatorname{ReLU}(z)$，则反向传播为 $g_x=W^T(g_h\odot\operatorname{ReLU}'(z))$。即使某些位置的 `ReLU'` 为 1，梯度仍要经过权重矩阵 $W^T$；多层权重矩阵连续作用仍可能放大或缩小梯度。另外 ReLU 负半轴导数为 0，还存在死亡 ReLU 风险。
+- **核心疑问**: 为什么前向数值变大后，反向梯度反而可能越来越小？  
+- **底层解释**: 当 `tanh` 的输入绝对值很大时，输出接近 $+1$ 或 $-1$，此时 $\tanh '(z)=1-{\tanh }^{2}(z)\approx 0$。反向传播通过链式法则不断乘这些接近 0 的局部导数，因此梯度会逐层衰减。这个现象不是正负梯度互相抵消，而是乘法链中的局部倍率过小。  
+- **纠偏锚点**: `tanh` 输出接近 $\pm 1$ 才是典型饱和；输出接近 0 时反而处在导数最大的区域附近。
+
+### \[工单-203\] ❓ ReLU 正半轴导数为 1，为什么仍不能保证没有梯度消失或爆炸？
+
+- **核心疑问**: 如果 `ReLU'(z)=1`，反向梯度为什么还会改变尺度？  
+- **底层解释**: 一层若写成 $z=Wx+b,\ h=\operatorname{ReLU}(z)$，则反向传播为 $g_x=W^T(g_h\odot\operatorname{ReLU}'(z))$。即使某些位置的 `ReLU'` 为 1，梯度仍要经过权重矩阵 ${W}^{T}$；多层权重矩阵连续作用仍可能放大或缩小梯度。另外 ReLU 负半轴导数为 0，还存在死亡 ReLU 风险。  
 - **纠偏锚点**: “激活函数局部导数为 1”不等于“整层反向传播倍率为 1”。
 
-### [工单-204] 🪤 把“层宽度”直接理解成单个神经元的加权求和项数
-- **错误直觉**: 当前层神经元越多（层越宽），每个神经元的加权求和项就越多。
-- **认知盲区**: 对 `nn.Linear(in_features, out_features)`，单个神经元接收多少个输入由 `fan_in=in_features` 决定；当前层有多少个神经元由 `fan_out=out_features` 决定。比如 `Linear(10, 1000)` 当前层很宽，但每个神经元只累加 10 个输入项；`Linear(1000, 10)` 当前层较窄，但每个神经元需要累加 1000 个输入项。
+### \[工单-204\] 🪤 把“层宽度”直接理解成单个神经元的加权求和项数
+
+- **错误直觉**: 当前层神经元越多（层越宽），每个神经元的加权求和项就越多。  
+- **认知盲区**: 对 `nn.Linear(in_features, out_features)`，单个神经元接收多少个输入由 `fan_in=in_features` 决定；当前层有多少个神经元由 `fan_out=out_features` 决定。比如 `Linear(10, 1000)` 当前层很宽，但每个神经元只累加 10 个输入项；`Linear(1000, 10)` 当前层较窄，但每个神经元需要累加 1000 个输入项。  
 - **纠偏锚点**: `fan_in = 上一层宽度 = 当前神经元的输入数`；`fan_out = 当前层宽度 = 当前层神经元数`。
 
-### [工单-205] ❓ Xavier 初始化为什么同时考虑 `fan_in` 和 `fan_out`？
-- **核心疑问**: 为什么不能所有全连接层都固定使用同一个 `uniform(-1, 1)` 或相同标准差？
-- **底层解释**: 前向传播中，单个神经元的加权求和项数由 `fan_in` 决定；`fan_in` 越大，若单个权重尺度不变，输出方差越容易增大。反向传播则涉及 $W^T$，梯度尺度还与输出方向的连接数 `fan_out` 有关。Xavier 用 `fan_in` 与 `fan_out` 综合设定权重方差，目标是同时兼顾前向激活和反向梯度的稳定。
+### \[工单-205\] ❓ Xavier 初始化为什么同时考虑 `fan_in` 和 `fan_out`？
+
+- **核心疑问**: 为什么不能所有全连接层都固定使用同一个 `uniform(-1, 1)` 或相同标准差？  
+- **底层解释**: 前向传播中，单个神经元的加权求和项数由 `fan_in` 决定；`fan_in` 越大，若单个权重尺度不变，输出方差越容易增大。反向传播则涉及 ${W}^{T}$，梯度尺度还与输出方向的连接数 `fan_out` 有关。Xavier 用 `fan_in` 与 `fan_out` 综合设定权重方差，目标是同时兼顾前向激活和反向梯度的稳定。  
 - **纠偏锚点**: `fan_in` 主要约束前向信号尺度，`fan_out` 主要参与约束反向梯度尺度。
 
-### [工单-206] ❓ 随机初始化为什么能打破神经元之间的对称性？
-- **核心疑问**: 如果同一层多个神经元初始参数完全相同，它们训练后会不会自动分化？
-- **底层解释**: 当神经元初始参数相同、接收相同输入，并且后续计算结构对它们也保持对称时，它们得到相同前向结果、相同反向梯度和相同参数更新，因此更新后仍然相同。随机初始化让不同神经元从不同参数起点开始，从而有机会学习不同特征。需要注意，若后续网络已经引入不对称梯度信号，单纯“这一层参数相同”并不必然保证对称永远维持。
+### \[工单-206\] ❓ 随机初始化为什么能打破神经元之间的对称性？
+
+- **核心疑问**: 如果同一层多个神经元初始参数完全相同，它们训练后会不会自动分化？  
+- **底层解释**: 当神经元初始参数相同、接收相同输入，并且后续计算结构对它们也保持对称时，它们得到相同前向结果、相同反向梯度和相同参数更新，因此更新后仍然相同。随机初始化让不同神经元从不同参数起点开始，从而有机会学习不同特征。需要注意，若后续网络已经引入不对称梯度信号，单纯“这一层参数相同”并不必然保证对称永远维持。  
 - **纠偏锚点**: 对称性问题的本质是“相同状态 → 相同梯度 → 相同更新”，而不是孤立地背诵“参数相同一定不行”。
 
 ## 📖 4.9 环境和分布偏移 — 核心概念日志
 
-### [工单-207] ❓ 训练环境、部署环境与分布偏移是什么关系？
-- **核心疑问**: 训练环境是不是模型训练时的数据来源，部署环境是不是模型上线后真正面对的真实场景？
-- **底层解释**: 可以这样理解。训练/源环境产生训练数据，部署/目标环境是模型实际服务的目标场景。4.9.3 的纠正公式用 $q$ 表示源/训练分布，用 $p$ 表示目标/部署分布；若二者的联合分布不同，即 $q(x,y)\neq p(x,y)$，就存在分布偏移。部署环境是“实际目标使用场景”，不等于抽象意义上的整个现实世界。
+### \[工单-207\] ❓ 训练环境、部署环境与分布偏移是什么关系？
+
+- **核心疑问**: 训练环境是不是模型训练时的数据来源，部署环境是不是模型上线后真正面对的真实场景？  
+- **底层解释**: 可以这样理解。训练/源环境产生训练数据，部署/目标环境是模型实际服务的目标场景。4.9.3 的纠正公式用 $q$ 表示源/训练分布，用 $p$ 表示目标/部署分布；若二者的联合分布不同，即 $q(x,y)\ne p(x,y)$，就存在分布偏移。部署环境是“实际目标使用场景”，不等于抽象意义上的整个现实世界。  
 - **纠偏锚点**: 模型最终要适应的是目标/部署分布；训练集只是从源环境中得到的有限样本。
 
-### [工单-208] ❓ 协变量偏移、标签偏移和概念偏移如何严格区分？
-- **核心疑问**: 三种偏移分别是什么发生了变化，哪些条件保持不变？
-- **底层解释**:
-  - **协变量偏移**：$q(x)\neq p(x)$，但 $q(y\mid x)=p(y\mid x)$；输入分布变了，给定输入时标签关系保持不变。
-  - **标签偏移**：$q(y)\neq p(y)$，但 $q(x\mid y)=p(x\mid y)$；类别先验比例变了，同一类别内部的特征分布保持不变。
-  - **概念偏移**：$q(y\mid x)\neq p(y\mid x)$；相同输入与正确标签之间的条件关系发生变化。
-  这些是用于分析和纠正的结构性假设；真实系统中多种变化可以同时出现，不能脱离“不变条件”只凭表面现象硬套类别。
+### \[工单-208\] ❓ 协变量偏移、标签偏移和概念偏移如何严格区分？
+
+- **核心疑问**: 三种偏移分别是什么发生了变化，哪些条件保持不变？  
+- **底层解释**:  
+  - **协变量偏移**：$q(x)\ne p(x)$，但 $q(y\mid x)=p(y\mid x)$；输入分布变了，给定输入时标签关系保持不变。
+  - **标签偏移**：$q(y)\ne p(y)$，但 $q(x\mid y)=p(x\mid y)$；类别先验比例变了，同一类别内部的特征分布保持不变。
+  - **概念偏移**：$q(y\mid x)\neq p(y\mid x)$；相同输入与正确标签之间的条件关系发生变化。 这些是用于分析和纠正的结构性假设；真实系统中多种变化可以同时出现，不能脱离“不变条件”只凭表面现象硬套类别。
 - **纠偏锚点**: 协变量偏移看 $P(x)$，标签偏移看 $P(y)$ 与 $P(x\mid y)$，概念偏移直接看 $P(y\mid x)$ 是否改变。
 
-### [工单-209] 🪤 把 $P(y\mid x)$ 误解成模型自己的“拦截规则”
+### \[工单-209\] 🪤 把 $P(y\mid x)$ 误解成模型自己的“拦截规则”
+
 - **错误直觉**: 在垃圾邮件例子中，把 $P(y\mid x)$ 理解为分类器内部的拦截规则。
-- **认知盲区**: 混淆了真实数据分布与模型预测函数。$P(y\mid x)$ 描述的是在真实数据生成过程中，给定输入 $x$ 时真实标签 $y$ 的条件分布；模型自己的判断规则应写成 $\hat y=f(x)$ 或预测分布 $\hat P(y\mid x)$。模型可以判断错误，但真实的 $P(y\mid x)$ 不会因此自动改变。
+- **认知盲区**: 混淆了真实数据分布与模型预测函数。$P(y\mid x)$ 描述的是在真实数据生成过程中，给定输入 $x$ 时真实标签 $y$ 的条件分布；模型自己的判断规则应写成 $\hat{y}=f(x)$ 或预测分布 $\hat P(y\mid x)$。模型可以判断错误，但真实的 $P(y\mid x)$ 不会因此自动改变。
 - **纠偏锚点**: $P(y\mid x)$ 是“真实世界里 x 与 y 的关系”，$f(x)$ 才是“模型怎么判断”。
 
-### [工单-210] ❓ 分布偏移纠正里的“加权”到底在改什么？
-- **核心疑问**: 加权是不是重新修改神经网络参数权重 $W$？
-- **底层解释**: 不是直接修改 $W$。普通经验风险是训练样本平均损失 $\frac1n\sum_i l_i$；偏移纠正把它改成加权经验风险 $\frac1n\sum_i\beta_i l_i$。$\beta_i$ 调节的是第 $i$ 个训练样本对总 loss 的贡献。总 loss 改变后，`backward()` 得到的梯度随之改变，最终 optimizer 才会间接把模型参数 $W$ 更新到不同位置。其目的，是让源数据上的训练目标更接近目标分布下的真实风险。
-- **纠偏锚点**: $\beta_i$ 是“样本重要性权重”，$W$ 是“模型参数权重”；前者先改 loss，后者随后通过梯度更新被间接影响。
+### \[工单-210\] ❓ 分布偏移纠正里的“加权”到底在改什么？
 
-### [工单-211] ❓ $p(x)$ 和 $p(y)$ 到底表示什么？
-- **核心疑问**: $p(x)$ 是否就是不同样本类型的比例？$p(y)$ 又是什么？
-- **底层解释**: $p(x)$ 的严格含义是目标环境输入 $x$ 的概率分布（连续高维输入时更准确地说是概率密度）；把输入粗略分成“白天照片/夜间照片”等离散类型时，可以用“各种输入情况出现的比例”帮助建立直觉，但真实图片本身往往是高维对象。$p(y)$ 是目标环境中标签的边缘分布/类别先验，例如猫、狗或患病、健康各自出现的比例。
+- **核心疑问**: 加权是不是重新修改神经网络参数权重 $W$？  
+- **底层解释**: 不是直接修改 $W$。普通经验风险是训练样本平均损失 $\frac{1}{n}\sum\limits_{i}^{}{l}_{i}$；偏移纠正把它改成加权经验风险 $\frac{1}{n}\sum\limits_{i}^{}{\beta }_{i}{l}_{i}$。${\beta }_{i}$ 调节的是第 $i$ 个训练样本对总 loss 的贡献。总 loss 改变后，`backward()` 得到的梯度随之改变，最终 optimizer 才会间接把模型参数 $W$ 更新到不同位置。其目的，是让源数据上的训练目标更接近目标分布下的真实风险。  
+- **纠偏锚点**: ${\beta }_{i}$ 是“样本重要性权重”，$W$ 是“模型参数权重”；前者先改 loss，后者随后通过梯度更新被间接影响。
+
+### \[工单-211\] ❓ $p(x)$ 和 $p(y)$ 到底表示什么？
+
+- **核心疑问**: $p(x)$ 是否就是不同样本类型的比例？$p(y)$ 又是什么？  
+- **底层解释**: $p(x)$ 的严格含义是目标环境输入 $x$ 的概率分布（连续高维输入时更准确地说是概率密度）；把输入粗略分成“白天照片/夜间照片”等离散类型时，可以用“各种输入情况出现的比例”帮助建立直觉，但真实图片本身往往是高维对象。$p(y)$ 是目标环境中标签的边缘分布/类别先验，例如猫、狗或患病、健康各自出现的比例。  
 - **纠偏锚点**: “比例”只是离散化后的直觉；严格定义是输入分布 $p(x)$ 与标签分布 $p(y)$。
 
-### [工单-212] ❓ 为什么纠正方向是从训练分布 $q$ 向部署分布 $p$ 靠？
-- **核心疑问**: 是让训练环境适应部署环境，还是反过来？为什么权重写成 $p/q$？
-- **底层解释**: 最终需要在目标/部署环境中取得好表现，因此训练目标要近似目标分布下的风险。协变量偏移使用 $\beta_i=p(x_i)/q(x_i)$；标签偏移使用 $\beta_i=p(y_i)/q(y_i)$。若某种输入或类别在部署环境比训练环境更常见，则 $p>q$、$\beta>1$，其 loss 被放大；反之 $\beta<1$，其 loss 被减弱。这里改变的是训练时各样本的有效重要性，不是把部署环境本身“改回”训练环境。
+### \[工单-212\] ❓ 为什么纠正方向是从训练分布 $q$ 向部署分布 $p$ 靠？
+
+- **核心疑问**: 是让训练环境适应部署环境，还是反过来？为什么权重写成 $p/q$？  
+- **底层解释**: 最终需要在目标/部署环境中取得好表现，因此训练目标要近似目标分布下的风险。协变量偏移使用 ${\beta }_{i}=p({x}_{i})/q({x}_{i})$；标签偏移使用 ${\beta }_{i}=p({y}_{i})/q({y}_{i})$。若某种输入或类别在部署环境比训练环境更常见，则 $p>q$、$\beta >1$，其 loss 被放大；反之 $\beta <1$，其 loss 被减弱。这里改变的是训练时各样本的有效重要性，不是把部署环境本身“改回”训练环境。  
 - **纠偏锚点**: 目标是 $p$，数据来自 $q$，所以用 $p/q$ 修正源样本的重要性。
 
-### [工单-213] 🪤 算出 $\beta=5$ 后误认为样本贡献会“缩小”
-- **错误直觉**: 标签偏移练习中计算出 $\beta=0.10/0.02=5$ 后，口头判断为“缩小”。
-- **认知盲区**: 没有把比值大小与 loss 缩放方向直接绑定。$\beta$ 是乘在样本 loss 上的倍率，因此大于 1 必然放大，小于 1 才是缩小。
-- **纠偏锚点**: $\beta>1$ 放大，$\beta<1$ 缩小，$\beta=1$ 不变。
+### \[工单-213\] 🪤 算出 $\beta =5$ 后误认为样本贡献会“缩小”
 
-### [工单-214] ❓ 部署环境的真实 $p(x)$ 未知，协变量偏移权重怎么得到？
-- **核心疑问**: 既然部署环境的完整 $p(x)$ 通常未知，为什么还能计算 $p(x)/q(x)$？额外分类器是不是用来“采样”的？
-- **底层解释**: 额外分类器不是采样器。真实用户流量本身产生目标环境输入 $u_j\sim p(x)$，系统只是收集这些未标注输入；同时已有源训练样本 $x_i\sim q(x)$。随后训练一个“环境/来源分类器”，任务是区分某个输入来自源环境还是目标环境，并据此估计密度比 $p(x)/q(x)$ 或等价的重要性权重。真正给用户回答“猫还是狗”的仍是原业务分类器。协变量偏移纠正因此可以只利用目标环境的 $x$，不要求先知道其真实业务标签 $y$。
+- **错误直觉**: 标签偏移练习中计算出 $\beta =0.10/0.02=5$ 后，口头判断为“缩小”。  
+- **认知盲区**: 没有把比值大小与 loss 缩放方向直接绑定。$\beta$ 是乘在样本 loss 上的倍率，因此大于 1 必然放大，小于 1 才是缩小。  
+- **纠偏锚点**: $\beta >1$ 放大，$\beta <1$ 缩小，$\beta =1$ 不变。
+
+### \[工单-214\] ❓ 部署环境的真实 $p(x)$ 未知，协变量偏移权重怎么得到？
+
+- **核心疑问**: 既然部署环境的完整 $p(x)$ 通常未知，为什么还能计算 $p(x)/q(x)$？额外分类器是不是用来“采样”的？  
+- **底层解释**: 额外分类器不是采样器。真实用户流量本身产生目标环境输入 ${u}_{j}\sim p(x)$，系统只是收集这些未标注输入；同时已有源训练样本 ${x}_{i}\sim q(x)$。随后训练一个“环境/来源分类器”，任务是区分某个输入来自源环境还是目标环境，并据此估计密度比 $p(x)/q(x)$ 或等价的重要性权重。真正给用户回答“猫还是狗”的仍是原业务分类器。协变量偏移纠正因此可以只利用目标环境的 $x$，不要求先知道其真实业务标签 $y$。  
 - **纠偏锚点**: 用户流量负责产生样本；环境分类器负责估计“这种输入更像哪个分布”；业务分类器负责真实任务预测，三者职责不同。
 
-### [工单-215] ❓ 部署环境的 $p(y)$ 也未知，标签偏移怎么估计？
-- **核心疑问**: 目标数据没有真实标签时，如何得到标签偏移所需的 $p(y)$？
-- **底层解释**: 在标签偏移假设 $q(x\mid y)=p(x\mid y)$ 下，可以先使用一个在源分布上表现较好的现成分类器，在源验证集上统计其混淆矩阵，掌握模型“真实类别 $y$ 会被预测成什么”的稳定错误模式；再统计该模型在目标数据上的预测分布。D2L 利用这两部分信息反推出目标标签分布 $p(y)$ 的估计，再计算 $\beta_i=p(y_i)/q(y_i)$ 进行按类别加权。这里不是用协变量偏移的环境分类器直接产出 $p(y)$。
+### \[工单-215\] ❓ 部署环境的 $p(y)$ 也未知，标签偏移怎么估计？
+
+- **核心疑问**: 目标数据没有真实标签时，如何得到标签偏移所需的 $p(y)$？  
+- **底层解释**: 在标签偏移假设 $q(x\mid y)=p(x\mid y)$ 下，可以先使用一个在源分布上表现较好的现成分类器，在源验证集上统计其混淆矩阵，掌握模型“真实类别 $y$ 会被预测成什么”的稳定错误模式；再统计该模型在目标数据上的预测分布。D2L 利用这两部分信息反推出目标标签分布 $p(y)$ 的估计，再计算 ${\beta }_{i}=p({y}_{i})/q({y}_{i})$ 进行按类别加权。这里不是用协变量偏移的环境分类器直接产出 $p(y)$。  
 - **纠偏锚点**: 协变量偏移主要估计 $p(x)/q(x)$；标签偏移则利用源验证集混淆矩阵与目标预测分布估计 $p(y)$。
 
-### [工单-216] ❓ 概念偏移为什么不能只靠重新加权？它和部署后的数据飞轮、在线学习有什么关系？
-- **核心疑问**: 如果模型上线后不断收集用户数据并重新优化，这是不是现在模型通过大量数据持续提升性能的模式？
-- **底层解释**: 当 $P(y\mid x)$ 本身发生变化时，旧的输入→标签关系已经不再可靠，单纯调整样本出现频率无法恢复新的概念。缓慢概念漂移通常需要持续获取新的带标签数据并更新已有模型；若任务定义剧烈改变，则需要重新标注甚至重新训练。现实工程中常见的“上线→收集真实数据→分析失败与分布→清洗/标注→重采样或加权→训练新版本→再部署”属于更广义的数据飞轮/周期性离线再训练。只有模型按新观测或小批次持续更新，才更接近在线学习；收集数据后隔一段时间训练 v2 并不等于实时在线学习。
+### \[工单-216\] ❓ 概念偏移为什么不能只靠重新加权？它和部署后的数据飞轮、在线学习有什么关系？
+
+- **核心疑问**: 如果模型上线后不断收集用户数据并重新优化，这是不是现在模型通过大量数据持续提升性能的模式？  
+- **底层解释**: 当 $P(y\mid x)$ 本身发生变化时，旧的输入→标签关系已经不再可靠，单纯调整样本出现频率无法恢复新的概念。缓慢概念漂移通常需要持续获取新的带标签数据并更新已有模型；若任务定义剧烈改变，则需要重新标注甚至重新训练。现实工程中常见的“上线→收集真实数据→分析失败与分布→清洗/标注→重采样或加权→训练新版本→再部署”属于更广义的数据飞轮/周期性离线再训练。只有模型按新观测或小批次持续更新，才更接近在线学习；收集数据后隔一段时间训练 v2 并不等于实时在线学习。  
 - **纠偏锚点**: 分布偏移纠正是部署后优化链路中的一个理论部件；“周期性离线再训练”与“在线持续更新参数”要区分。
 
 ## 📖 5.1 层和块 — 核心概念日志
 
-### [工单-217] 🐛 把 PyTorch 输出文本当成代码执行导致 `SyntaxError`
-- **触发代码**:
-  ```python
-  tensor([[...]], grad_fn=<AddmmBackward0>)
-  ```
-- **原始报错**: `SyntaxError: invalid syntax`
-- **底层原因**: `grad_fn=<AddmmBackward0>` 是 PyTorch 在打印 Tensor 时附带的自动微分计算图信息，不是合法的 Python 表达式。`AddmmBackward0` 表示该输出最后经过了加法与矩阵乘法对应的反向传播节点；它由 `net(X)` 自动生成，无须也不能手写回代码中。与此同时，D2L 示例和本地 `net(X)` 输出数值不同通常来自随机输入与随机初始化，不代表网络实现错误，优先核验输出 Shape 是否正确。
-- **修复方案**:
-  ```python
-  Y = net(X)
-  print(Y)
-  print(Y.grad_fn)
-  ```
+### \[工单-217\] 🐛 把 PyTorch 输出文本当成代码执行导致 `SyntaxError`
 
-### [工单-218] ❓ `nn.Module`、`forward()` 与 `F.relu()` 分别是什么角色？
-- **核心疑问**: 为什么自定义 `MLP` 要继承 `nn.Module`，为什么只写 `forward()` 就能用 `net(X)`，以及 `F.relu()` 与 `nn.ReLU()` 有什么区别？
-- **底层解释**: `nn.Module` 是 PyTorch 神经网络组件的统一基类，负责子模块注册、参数管理、模式切换、设备迁移、状态保存等框架能力；`super().__init__()` 先初始化父类机制。用户实现 `forward()` 定义前向计算，而 `Module.__call__()` 在执行 `net(X)` 时进一步调用 `forward()`。`F` 是 `torch.nn.functional` 的别名，因此 `F.relu(x)` 是函数式 ReLU；`nn.ReLU()` 则创建一个 `Module` 层对象，适合放进 `Sequential` 或作为模型成员。三者 `torch.relu(x)`、`F.relu(x)`、`nn.ReLU()(x)` 在普通非原地 ReLU 场景下数值结果相同，区别主要在 API 组织与模块身份。
+- **触发代码**:
+
+```py
+tensor([[...]], grad_fn=<AddmmBackward0>)
+```
+
+- **原始报错**: `SyntaxError: invalid syntax`  
+- **底层原因**: `grad_fn=<AddmmBackward0>` 是 PyTorch 在打印 Tensor 时附带的自动微分计算图信息，不是合法的 Python 表达式。`AddmmBackward0` 表示该输出最后经过了加法与矩阵乘法对应的反向传播节点；它由 `net(X)` 自动生成，无须也不能手写回代码中。与此同时，D2L 示例和本地 `net(X)` 输出数值不同通常来自随机输入与随机初始化，不代表网络实现错误，优先核验输出 Shape 是否正确。  
+- **修复方案**:
+
+```py
+Y = net(X)
+print(Y)
+print(Y.grad_fn)
+```
+
+### \[工单-218\] ❓ `nn.Module`、`forward()` 与 `F.relu()` 分别是什么角色？
+
+- **核心疑问**: 为什么自定义 `MLP` 要继承 `nn.Module`，为什么只写 `forward()` 就能用 `net(X)`，以及 `F.relu()` 与 `nn.ReLU()` 有什么区别？  
+- **底层解释**: `nn.Module` 是 PyTorch 神经网络组件的统一基类，负责子模块注册、参数管理、模式切换、设备迁移、状态保存等框架能力；`super().__init__()` 先初始化父类机制。用户实现 `forward()` 定义前向计算，而 `Module.__call__()` 在执行 `net(X)` 时进一步调用 `forward()`。`F` 是 `torch.nn.functional` 的别名，因此 `F.relu(x)` 是函数式 ReLU；`nn.ReLU()` 则创建一个 `Module` 层对象，适合放进 `Sequential` 或作为模型成员。三者 `torch.relu(x)`、`F.relu(x)`、`nn.ReLU()(x)` 在普通非原地 ReLU 场景下数值结果相同，区别主要在 API 组织与模块身份。  
 - **纠偏锚点**: `Module` 管框架生命周期，`forward` 管当前块怎么算；`F.relu` 是函数，`nn.ReLU()` 是可注册的层对象。
 
-### [工单-219] ❓ `Sequential` 为什么能把任意层、块和自定义网络串起来？
-- **核心疑问**: `nn.Sequential` 是否就是存放块的容器？`MySequential` 里的 `*args`、`enumerate`、`_modules` 和嵌套块又在做什么？
-- **底层解释**: `Sequential` 的核心是“有序保存 `Module` + 按顺序执行这些 `Module`”。`*args` 收集任意数量的子模块，`enumerate(args)` 同时取得序号和模块，`self._modules[str(idx)] = module` 将子模块登记进 `nn.Module` 的有序模块容器，使参数管理、初始化和递归遍历都能识别它们；`forward()` 再通过 `for block in self._modules.values(): X = block(X)` 顺序传播。由于 `Sequential`、`Linear`、`ReLU`、`NestMLP`、`FixedHiddenMLP` 都是 `Module`，所以“层组成块、块再组成更大块”可以递归嵌套。`FixedHiddenMLP` 还说明自定义 `forward` 可包含常量权重、矩阵运算、循环和条件控制流，不限于简单串联。
+### \[工单-219\] ❓ `Sequential` 为什么能把任意层、块和自定义网络串起来？
+
+- **核心疑问**: `nn.Sequential` 是否就是存放块的容器？`MySequential` 里的 `*args`、`enumerate`、`_modules` 和嵌套块又在做什么？  
+- **底层解释**: `Sequential` 的核心是“有序保存 `Module` \+ 按顺序执行这些 `Module`”。`*args` 收集任意数量的子模块，`enumerate(args)` 同时取得序号和模块，`self._modules[str(idx)] = module` 将子模块登记进 `nn.Module` 的有序模块容器，使参数管理、初始化和递归遍历都能识别它们；`forward()` 再通过 `for block in self._modules.values(): X = block(X)` 顺序传播。由于 `Sequential`、`Linear`、`ReLU`、`NestMLP`、`FixedHiddenMLP` 都是 `Module`，所以“层组成块、块再组成更大块”可以递归嵌套。`FixedHiddenMLP` 还说明自定义 `forward` 可包含常量权重、矩阵运算、循环和条件控制流，不限于简单串联。  
 - **纠偏锚点**: `Sequential` 不是只能装“层”，它装的是 `Module`；一个 `Module` 可以小到单层，也可以大到整个子网络。
 
 ## 📖 5.2 参数管理 — 核心概念日志
 
-### [工单-220] ❓ `state_dict()`、`Parameter` 与 `parameters()` 的边界是什么？
-- **核心疑问**: `net[2].state_dict()` 返回的是什么，为什么里面有 `weight` 和 `bias`，它和 `net.parameters()` 有什么区别？
-- **底层解释**: `state_dict()` 返回可按字典使用的有序映射，核心形式是“状态名 → Tensor”，例如 `0.weight`、`0.bias`、`2.weight`、`2.bias`；带参数的 `Linear` 会有 `weight` 和 `bias`，无参数的 `ReLU` 不会出现对应权重。单个可训练参数是 `nn.Parameter`，它除了数值还关联梯度等信息。`model.parameters()` 主要返回参数迭代器供优化器更新；`state_dict()` 更适合按名称检查、保存和加载模型状态。
+### \[工单-220\] ❓ `state_dict()`、`Parameter` 与 `parameters()` 的边界是什么？
+
+- **核心疑问**: `net[2].state_dict()` 返回的是什么，为什么里面有 `weight` 和 `bias`，它和 `net.parameters()` 有什么区别？  
+- **底层解释**: `state_dict()` 返回可按字典使用的有序映射，核心形式是“状态名 → Tensor”，例如 `0.weight`、`0.bias`、`2.weight`、`2.bias`；带参数的 `Linear` 会有 `weight` 和 `bias`，无参数的 `ReLU` 不会出现对应权重。单个可训练参数是 `nn.Parameter`，它除了数值还关联梯度等信息。`model.parameters()` 主要返回参数迭代器供优化器更新；`state_dict()` 更适合按名称检查、保存和加载模型状态。  
 - **纠偏锚点**: `parameters()` 面向“训练时把哪些参数交给 optimizer”，`state_dict()` 面向“这些状态叫什么、当前值是什么以及如何持久化”。
 
-### [工单-221] ❓ `net.apply(init_fn)`、默认初始化与自定义初始化是什么关系？
-- **核心疑问**: `net.apply(init_normal)` 是否调用 `init_normal(m)`？`nn.init.normal_` 又是谁？如果 PyTorch 有默认初始化，为什么还要学自定义初始化？
-- **底层解释**: `net.apply(init_normal)` 会递归遍历当前网络及其子 `Module`，并依次调用用户定义的 `init_normal(m)`；函数内部再通过 `if type(m) == nn.Linear` 筛选全连接层，并调用 PyTorch 内置的 `nn.init.normal_`、`nn.init.zeros_` 等初始化器原地修改参数。`nn.Linear` 在实例化时本身就会按照框架默认规则初始化参数，因此普通模型可以直接使用默认初始化；自定义初始化用于需要特定尺度、Xavier/Kaiming、实验控制或诊断数值稳定性时覆盖默认值。
+### \[工单-221\] ❓ `net.apply(init_fn)`、默认初始化与自定义初始化是什么关系？
+
+- **核心疑问**: `net.apply(init_normal)` 是否调用 `init_normal(m)`？`nn.init.normal_` 又是谁？如果 PyTorch 有默认初始化，为什么还要学自定义初始化？  
+- **底层解释**: `net.apply(init_normal)` 会递归遍历当前网络及其子 `Module`，并依次调用用户定义的 `init_normal(m)`；函数内部再通过 `if type(m) == nn.Linear` 筛选全连接层，并调用 PyTorch 内置的 `nn.init.normal_`、`nn.init.zeros_` 等初始化器原地修改参数。`nn.Linear` 在实例化时本身就会按照框架默认规则初始化参数，因此普通模型可以直接使用默认初始化；自定义初始化用于需要特定尺度、Xavier/Kaiming、实验控制或诊断数值稳定性时覆盖默认值。  
 - **纠偏锚点**: `apply` 决定“把初始化规则应用到哪些模块”，`nn.init.xxx_` 决定“具体怎么填参数”；默认初始化是起点，自定义初始化是可选覆盖。
 
-### [工单-222] ❓ 参数绑定为什么不是“复制出两套相同参数”？
-- **核心疑问**: 同一个 `shared = nn.Linear(8, 8)` 在 `Sequential` 中使用两次时，为什么改 `net[2]` 会同时改变 `net[4]`，参数变多或变少又意味着什么？
-- **底层解释**: 两个位置引用的是同一个 `shared` 模块和同一组 `Parameter` 对象，而不是两份数值刚好相同的独立副本。因此修改任一位置看到的参数都会反映到另一位置；反向传播时，两条使用路径对共享参数产生的梯度会累加到同一个 `.grad` 中。参数共享减少参数量并强制不同位置复用同一变换规则，但参数更多本身并非坏事：独立参数提供更强表达自由度，代价是更高存储/计算成本和更大的过拟合风险。是否共享取决于任务结构是否真的应复用同一规则。
+### \[工单-222\] ❓ 参数绑定为什么不是“复制出两套相同参数”？
+
+- **核心疑问**: 同一个 `shared = nn.Linear(8, 8)` 在 `Sequential` 中使用两次时，为什么改 `net[2]` 会同时改变 `net[4]`，参数变多或变少又意味着什么？  
+- **底层解释**: 两个位置引用的是同一个 `shared` 模块和同一组 `Parameter` 对象，而不是两份数值刚好相同的独立副本。因此修改任一位置看到的参数都会反映到另一位置；反向传播时，两条使用路径对共享参数产生的梯度会累加到同一个 `.grad` 中。参数共享减少参数量并强制不同位置复用同一变换规则，但参数更多本身并非坏事：独立参数提供更强表达自由度，代价是更高存储/计算成本和更大的过拟合风险。是否共享取决于任务结构是否真的应复用同一规则。  
 - **纠偏锚点**: 参数绑定的核心不是“两个参数保持相等”，而是“两个位置直接引用同一个参数对象”。
 
 ## 📖 5.4 自定义层 — 核心概念日志
 
-### [工单-223] ❓ `nn.Parameter(torch.randn(...))` 到底怎样完成模型参数注册？
-- **核心疑问**: `self.weight = nn.Parameter(torch.randn(...))` 是否先把普通 Tensor 存入 `self.weight`，然后再注册成参数？它和手写 Micrograd 的参数组织有什么关系？
-- **底层解释**: Python 会先计算等号右边：① `torch.randn(...)` 创建普通 Tensor；② `nn.Parameter(...)` 将其包装成带“模型参数身份”的 `Parameter`，默认参与梯度计算；③ 最后把这个 `Parameter` 赋给继承自 `nn.Module` 的 `self.weight` 属性，此时 `Module` 自动把它注册为模型参数。仅写 `self.weight = torch.randn(...)` 不会自动进入 `model.parameters()`。概念上它与 Micrograd 中“把 Value 收集进 parameters() 作为可训练参数”相似，但 PyTorch 额外提供自动注册、优化器集成、设备迁移和序列化等完整生命周期机制。
+### \[工单-223\] ❓ `nn.Parameter(torch.randn(...))` 到底怎样完成模型参数注册？
+
+- **核心疑问**: `self.weight = nn.Parameter(torch.randn(...))` 是否先把普通 Tensor 存入 `self.weight`，然后再注册成参数？它和手写 Micrograd 的参数组织有什么关系？  
+- **底层解释**: Python 会先计算等号右边：① `torch.randn(...)` 创建普通 Tensor；② `nn.Parameter(...)` 将其包装成带“模型参数身份”的 `Parameter`，默认参与梯度计算；③ 最后把这个 `Parameter` 赋给继承自 `nn.Module` 的 `self.weight` 属性，此时 `Module` 自动把它注册为模型参数。仅写 `self.weight = torch.randn(...)` 不会自动进入 `model.parameters()`。概念上它与 Micrograd 中“把 Value 收集进 parameters() 作为可训练参数”相似，但 PyTorch 额外提供自动注册、优化器集成、设备迁移和序列化等完整生命周期机制。  
 - **纠偏锚点**: 正确顺序是 `Tensor → Parameter → 赋给 Module 属性 → 自动注册`，不是先给 `self.weight` 存普通 Tensor 再“升级”。
 
 ## 📖 5.5 读写文件 — 核心概念日志
 
-### [工单-224] ❓ `torch.save` / `torch.load` 保存到哪里，能保存哪些 Python 容器？
-- **核心疑问**: `torch.save([x, y], 'x-files')` 是否真的写入硬盘？为什么列表和字典都可以整体保存？
-- **底层解释**: `torch.save` 会把对象序列化并写入文件，使用相对路径时文件位于当前 Python/Jupyter 工作目录；扩展名不是强制要求，工程上常见 `.pt` / `.pth`。`torch.load` 再从磁盘反序列化回内存。除了单个 Tensor，还可以整体保存由 Tensor 组成的 `list`、`dict` 等 Python 对象，因此字典可以用字符串键清晰组织多个张量或训练状态。
+### \[工单-224\] ❓ `torch.save` / `torch.load` 保存到哪里，能保存哪些 Python 容器？
+
+- **核心疑问**: `torch.save([x, y], 'x-files')` 是否真的写入硬盘？为什么列表和字典都可以整体保存？  
+- **底层解释**: `torch.save` 会把对象序列化并写入文件，使用相对路径时文件位于当前 Python/Jupyter 工作目录；扩展名不是强制要求，工程上常见 `.pt` / `.pth`。`torch.load` 再从磁盘反序列化回内存。除了单个 Tensor，还可以整体保存由 Tensor 组成的 `list`、`dict` 等 Python 对象，因此字典可以用字符串键清晰组织多个张量或训练状态。  
 - **纠偏锚点**: `torch.save` 是“内存对象 → 磁盘文件”，`torch.load` 是“磁盘文件 → 内存对象”；保存的是序列化对象，不是人类可直接阅读的文本格式。
 
-### [工单-225] ❓ 为什么通常保存 `state_dict()`，恢复时却要重新实例化模型架构？
-- **核心疑问**: `torch.save(net.state_dict(), 'mlp.params')` 为什么只保存参数，`clone = MLP()` 又是什么？
-- **底层解释**: 模型可拆成“架构代码 + 训练得到的状态”。`state_dict()` 保存的是按名称组织的参数/状态 Tensor，而不是完整的任意 Python 模型逻辑；恢复时先用同样的类定义创建一个新实例，例如作者把变量命名为 `clone`，再用 `clone.load_state_dict(torch.load(...))` 将保存状态填回对应位置。`clone` 只是普通变量名，不是 PyTorch 关键字。`clone.eval()` 将恢复后的模型切到评估模式；当架构和参数均一致时，同一输入应得到一致输出。
+### \[工单-225\] ❓ 为什么通常保存 `state_dict()`，恢复时却要重新实例化模型架构？
+
+- **核心疑问**: `torch.save(net.state_dict(), 'mlp.params')` 为什么只保存参数，`clone = MLP()` 又是什么？  
+- **底层解释**: 模型可拆成“架构代码 \+ 训练得到的状态”。`state_dict()` 保存的是按名称组织的参数/状态 Tensor，而不是完整的任意 Python 模型逻辑；恢复时先用同样的类定义创建一个新实例，例如作者把变量命名为 `clone`，再用 `clone.load_state_dict(torch.load(...))` 将保存状态填回对应位置。`clone` 只是普通变量名，不是 PyTorch 关键字。`clone.eval()` 将恢复后的模型切到评估模式；当架构和参数均一致时，同一输入应得到一致输出。  
 - **纠偏锚点**: 代码保存“模型怎么算”，`state_dict` 保存“模型学到了什么”；恢复模型需要二者重新组合。
 
 ## 📖 第5章答疑补充 — 数据表示与超参数
 
-### [工单-226] ❓ 类别变量、伪变量与 One-Hot 为什么可能造成内存爆炸？
-- **核心疑问**: 类别变量转成伪变量是什么意思，为什么高基数类别做 One-Hot 会让内存暴涨？
-- **底层解释**: 类别变量的取值表示离散类别而非数值大小，例如城市或商品 ID；伪变量（dummy variable）把每个类别拆成 0/1 指示列，本质上就是常见的 One-Hot 表示。若类别数为 $K$，原来一列可扩展成 $K$ 列；当用户 ID、商品 ID、词表等达到几十万甚至百万类别时，稠密 One-Hot 会形成极高维且绝大多数为 0 的矩阵，普通稠密存储仍要为这些 0 分配空间，导致内存/显存爆炸。高基数类别通常考虑稀疏表示或 Embedding，而不是长期使用巨大稠密 One-Hot。
+### \[工单-226\] ❓ 类别变量、伪变量与 One-Hot 为什么可能造成内存爆炸？
+
+- **核心疑问**: 类别变量转成伪变量是什么意思，为什么高基数类别做 One-Hot 会让内存暴涨？  
+- **底层解释**: 类别变量的取值表示离散类别而非数值大小，例如城市或商品 ID；伪变量（dummy variable）把每个类别拆成 0/1 指示列，本质上就是常见的 One-Hot 表示。若类别数为 $K$，原来一列可扩展成 $K$ 列；当用户 ID、商品 ID、词表等达到几十万甚至百万类别时，稠密 One-Hot 会形成极高维且绝大多数为 0 的矩阵，普通稠密存储仍要为这些 0 分配空间，导致内存/显存爆炸。高基数类别通常考虑稀疏表示或 Embedding，而不是长期使用巨大稠密 One-Hot。  
 - **纠偏锚点**: 类别变量是原始离散概念，伪变量是编码方式；真正导致爆炸的是“类别基数 × 样本数”形成的高维稠密矩阵。
 
-### [工单-227] ❓ “CV 寻参”中的 CV 为什么不是 Computer Vision？
-- **核心疑问**: MLP 层数和隐藏单元数主要靠“CV 寻参”是什么意思？
-- **底层解释**: 这里 `CV` 指 Cross Validation（交叉验证），不是 Computer Vision。MLP 的层数、隐藏宽度、学习率等属于超参数，没有“每层必须减半”的固定铁律；可以把多个候选配置在 K 折或验证集上比较平均泛化表现，再选择更合适的超参数组合。交叉验证是模型选择/寻参工具，不负责通过反向传播学习网络参数。
+### \[工单-227\] ❓ “CV 寻参”中的 CV 为什么不是 Computer Vision？
+
+- **核心疑问**: MLP 层数和隐藏单元数主要靠“CV 寻参”是什么意思？  
+- **底层解释**: 这里 `CV` 指 Cross Validation（交叉验证），不是 Computer Vision。MLP 的层数、隐藏宽度、学习率等属于超参数，没有“每层必须减半”的固定铁律；可以把多个候选配置在 K 折或验证集上比较平均泛化表现，再选择更合适的超参数组合。交叉验证是模型选择/寻参工具，不负责通过反向传播学习网络参数。  
 - **纠偏锚点**: 参数 $W,b$ 由训练学；层数、宽度、学习率等超参数由验证过程选择。
 
 ## 📖 6.1 从全连接层到卷积 — 核心概念日志
 
-### [工单-228] ❓ 为什么全连接权重从四维索引变成二维卷积核不是“降维压缩”？
-- **核心疑问**: 从 $V_{i,j,a,b}$ 写成 $V_{a,b}$ 时，为什么四个索引突然只剩两个？是不是把参数做了维度压缩？
-- **底层解释**: 重新索引 $k=i+a,\ l=j+b$ 只是把“绝对输入坐标”改写成“相对当前输出位置的偏移”，本身没有减少参数。真正减少自由参数的是平移不变性/权重共享约束：不同输出位置 $(i,j)$ 不再拥有各自独立的局部权重，而是共同引用同一套 $V_{a,b}$。因此 $i,j$ 从“参数身份”中消失，不代表原四维参数被数值压缩，而是大量参数被绑定成同一份。
+### \[工单-228\] ❓ 为什么全连接权重从四维索引变成二维卷积核不是“降维压缩”？
+
+- **核心疑问**: 从 ${V}_{i,j,a,b}$ 写成 ${V}_{a,b}$ 时，为什么四个索引突然只剩两个？是不是把参数做了维度压缩？  
+- **底层解释**: 重新索引 $k=i+a,\ l=j+b$ 只是把“绝对输入坐标”改写成“相对当前输出位置的偏移”，本身没有减少参数。真正减少自由参数的是平移不变性/权重共享约束：不同输出位置 $(i,j)$ 不再拥有各自独立的局部权重，而是共同引用同一套 ${V}_{a,b}$。因此 $i,j$ 从“参数身份”中消失，不代表原四维参数被数值压缩，而是大量参数被绑定成同一份。  
 - **纠偏锚点**: `V[i,j,:,:]` 原本可因位置不同而不同；卷积要求所有位置共享同一个 `K=V[:,:]`。
 
-### [工单-229] ❓ 参数共享到底共享什么，卷积核内部的权重是不是都一样？
-- **核心疑问**: “卷积核权重共享”是否表示一个 $3\times3$ 核的 9 个元素必须取相同数值？共享是靠初始化复制出来的吗？
-- **底层解释**: 核内部各元素一般是彼此独立的可学习参数；“共享”指同一整套卷积核在不同空间位置重复使用。结构上只创建一份 `Parameter` 张量，初始化只给这份参数赋初值，forward 在所有窗口位置读取同一份参数；反向传播时各位置对同一参数的梯度贡献累加到同一个 `.grad`。
+### \[工单-229\] ❓ 参数共享到底共享什么，卷积核内部的权重是不是都一样？
+
+- **核心疑问**: “卷积核权重共享”是否表示一个 $3\times 3$ 核的 9 个元素必须取相同数值？共享是靠初始化复制出来的吗？  
+- **底层解释**: 核内部各元素一般是彼此独立的可学习参数；“共享”指同一整套卷积核在不同空间位置重复使用。结构上只创建一份 `Parameter` 张量，初始化只给这份参数赋初值，forward 在所有窗口位置读取同一份参数；反向传播时各位置对同一参数的梯度贡献累加到同一个 `.grad`。  
 - **纠偏锚点**: 结构先决定“只有一份参数”，初始化只决定“这份参数一开始是多少”。
 
-### [工单-230] ❓ 局部性和参数共享分别解决什么问题？
-- **核心疑问**: 卷积为什么既要限制只看附近区域，又要让不同位置复用同一组权重？
-- **底层解释**: 局部性限制一个输出元素只依赖附近的小窗口，切断远距离全连接，降低参数与计算开销；参数共享规定不同空间位置在各自局部窗口上使用相同的检测规则，使同一种特征无论出现在图像哪里都能产生相似响应。两者组合才形成标准卷积层的核心结构。
+### \[工单-230\] ❓ 局部性和参数共享分别解决什么问题？
+
+- **核心疑问**: 卷积为什么既要限制只看附近区域，又要让不同位置复用同一组权重？  
+- **底层解释**: 局部性限制一个输出元素只依赖附近的小窗口，切断远距离全连接，降低参数与计算开销；参数共享规定不同空间位置在各自局部窗口上使用相同的检测规则，使同一种特征无论出现在图像哪里都能产生相似响应。两者组合才形成标准卷积层的核心结构。  
 - **纠偏锚点**: 参数共享解决“用哪套权重”，局部性解决“看多大范围”。
 
-### [工单-231] ❓ 严格卷积为什么要把卷积核翻转，CNN 为什么通常又不翻？
-- **核心疑问**: 互相关使用 $w_{a,b}$，严格卷积为什么写成 $w_{-a,-b}$？PyTorch 的 `Conv2d` 到底做哪个？
-- **底层解释**: 数学卷积定义中包含索引反转，因此二维情况下等价于先将卷积核上下、左右翻转，再做滑动乘加；互相关则直接使用原核。深度学习中的核参数本身由训练学习，如果改成严格卷积，模型只需学到相应翻转后的参数即可，因此表示能力不变。工程框架通常实现互相关，但沿用“卷积层”的术语。
+### \[工单-231\] ❓ 严格卷积为什么要把卷积核翻转，CNN 为什么通常又不翻？
+
+- **核心疑问**: 互相关使用 ${w}_{a,b}$，严格卷积为什么写成 ${w}_{-a,-b}$？PyTorch 的 `Conv2d` 到底做哪个？  
+- **底层解释**: 数学卷积定义中包含索引反转，因此二维情况下等价于先将卷积核上下、左右翻转，再做滑动乘加；互相关则直接使用原核。深度学习中的核参数本身由训练学习，如果改成严格卷积，模型只需学到相应翻转后的参数即可，因此表示能力不变。工程框架通常实现互相关，但沿用“卷积层”的术语。  
 - **纠偏锚点**: 互相关=直接滑；严格卷积=核先翻转再滑；CNN 通常算前者、名字仍叫卷积。
 
-### [工单-232] ❓ 感受野为什么按单个输出计算，两层 $3\times3$ 为什么是 $5\times5$？
-- **核心疑问**: 第一层整体已经覆盖多个输入，为什么还说第一层感受野是 $3\times3$？两个 $3\times3$ 卷积为什么不是 $6\times6$？
-- **底层解释**: 感受野定义针对某个输出元素：第一层每个输出只直接依赖原图一个 $3\times3$ 区域；第二层一个输出会读取第一层相邻 $3\times3$ 个输出，而这些第一层输出在原图上的 $3\times3$ 感受野相互重叠。stride=1 时，第二层在每个方向只向外新增 2 个像素，因此边长为 $3+(3-1)=5$。同理连续 $L$ 层 $3\times3$、stride=1 的理论感受野边长为 $1+2L$。
+### \[工单-232\] ❓ 感受野为什么按单个输出计算，两层 $3\times 3$ 为什么是 $5\times 5$？
+
+- **核心疑问**: 第一层整体已经覆盖多个输入，为什么还说第一层感受野是 $3\times 3$？两个 $3\times 3$ 卷积为什么不是 $6\times 6$？  
+- **底层解释**: 感受野定义针对某个输出元素：第一层每个输出只直接依赖原图一个 $3\times 3$ 区域；第二层一个输出会读取第一层相邻 $3\times 3$ 个输出，而这些第一层输出在原图上的 $3\times 3$ 感受野相互重叠。stride=1 时，第二层在每个方向只向外新增 2 个像素，因此边长为 $3+(3-1)=5$。同理连续 $L$ 层 $3\times 3$、stride=1 的理论感受野边长为 $1+2L$。  
 - **纠偏锚点**: “整层覆盖范围”不是“单个神经元感受野”；感受野沿一个输出节点向前追依赖关系。
 
 ## 📖 6.2 图像卷积 — 核心概念与代码日志
 
-### [工单-233] ❓ `corr2d` 为什么像滑动窗口，`X[i:i+h, j:j+w]` 到底取什么？
-- **核心疑问**: 为什么切片终点要写 `i+h`、`j+w`，以及二维互相关和普通滑动窗口有什么关系？
-- **底层解释**: Python 切片右端点不包含，因此 `i:i+h` 实际取索引 $i,i+1,\dots,i+h-1$，刚好连续 $h$ 行；`j:j+w` 同理连续取 $w$ 列，所以 `X[i:i+h, j:j+w]` 以 $(i,j)$ 为左上角截出与卷积核同 Shape 的局部窗口。每个窗口与 `K` 逐元素相乘并 `.sum()` 得到一个标量，再写入 `Y[i,j]`，所有标量按位置排列形成新的二维特征图。
-- **纠偏锚点**: 二维互相关可以先记成“二维滑动窗口 + 同一套可学习权重的局部加权求和”。
+### \[工单-233\] ❓ `corr2d` 为什么像滑动窗口，`X[i:i+h, j:j+w]` 到底取什么？
 
-### [工单-234] ❓ 为什么无填充互相关的输出 Shape 是 $(n_h-k_h+1)\times(n_w-k_w+1)$？
-- **核心疑问**: `Y = torch.zeros((X.shape[0]-h+1, X.shape[1]-w+1))` 中为什么要减卷积核尺寸再加 1？
-- **底层解释**: 卷积核必须完整落在输入内部。高度方向左上角可以从第 0 行移动到第 $n_h-k_h$ 行，共 $n_h-k_h+1$ 个合法起点；宽度方向同理有 $n_w-k_w+1$ 个合法起点，因此输出 Shape 就是两者的笛卡尔组合。
-- **纠偏锚点**: 输出元素数 = “窗口左上角合法落点数”，不是输入元素数。
+- **核心疑问**: 为什么切片终点要写 `i+h`、`j+w`，以及二维互相关和普通滑动窗口有什么关系？  
+- **底层解释**: Python 切片右端点不包含，因此 `i:i+h` 实际取索引 $i,i+1,\dots,i+h-1$，刚好连续 $h$ 行；`j:j+w` 同理连续取 $w$ 列，所以 `X[i:i+h, j:j+w]` 以 $(i,j)$ 为左上角截出与卷积核同 Shape 的局部窗口。每个窗口与 `K` 逐元素相乘并 `.sum()` 得到一个标量，再写入 `Y[i,j]`，所有标量按位置排列形成新的二维特征图。  
+- **纠偏锚点**: 二维互相关可以先记成“二维滑动窗口 \+ 同一套可学习权重的局部加权求和”。
 
-### [工单-235] ❓ $[1,-1]$ 为什么能检测边缘？
-- **核心疑问**: 卷积为什么能提取边缘特征，为什么不能简单用 $[1,1]$？
-- **底层解释**: 对局部窗口 $[a,b]$，核 $[1,-1]$ 的响应为 $a-b$，本质是相邻像素差分：相同像素得到 0，像素从亮到暗或暗到亮时得到较大的正/负响应，因此边缘位置被突出。$[1,1]$ 计算的是局部求和，更偏向亮度累积而非变化检测。特定卷积核可以检测特定模式，不能把“卷积”本身等同于“边缘检测”。
+### \[工单-234\] ❓ 为什么无填充互相关的输出 Shape 是 $({n}_{h}-{k}_{h}+1)\times ({n}_{w}-{k}_{w}+1)$？
+
+- **核心疑问**: `Y = torch.zeros((X.shape[0]-h+1, X.shape[1]-w+1))` 中为什么要减卷积核尺寸再加 1？  
+- **底层解释**: 卷积核必须完整落在输入内部。高度方向左上角可以从第 0 行移动到第 ${n}_{h}-{k}_{h}$ 行，共 ${n}_{h}-{k}_{h}+1$ 个合法起点；宽度方向同理有 ${n}_{w}-{k}_{w}+1$ 个合法起点，因此输出 Shape 就是两者的笛卡尔组合。  
+- **纠偏锚点**: 输出元素数 \= “窗口左上角合法落点数”，不是输入元素数。
+
+### \[工单-235\] ❓ $[1,-1]$ 为什么能检测边缘？
+
+- **核心疑问**: 卷积为什么能提取边缘特征，为什么不能简单用 $[1,1]$？  
+- **底层解释**: 对局部窗口 $[a,b]$，核 $[1,-1]$ 的响应为 $a-b$，本质是相邻像素差分：相同像素得到 0，像素从亮到暗或暗到亮时得到较大的正/负响应，因此边缘位置被突出。$[1,1]$ 计算的是局部求和，更偏向亮度累积而非变化检测。特定卷积核可以检测特定模式，不能把“卷积”本身等同于“边缘检测”。  
 - **纠偏锚点**: 边缘≈局部像素突变；差分核对突变敏感。
 
-### [工单-236] ❓ 教学示例为什么能把卷积核训练回 $[1,-1]$？
-- **核心疑问**: `nn.Conv2d` 为什么训练几轮后会学到接近前面人工给出的 $K=[1,-1]$？
-- **底层解释**: 教学实验先使用真实核 $K_{true}=[1,-1]$ 对人工输入 $X$ 做互相关，得到目标 $Y$；随后创建一个核 Shape 相同、权重随机初始化的 `nn.Conv2d`，只给模型 $X,Y$。当前核产生 $\hat Y$，平方误差衡量 $\hat Y$ 与 $Y$ 的差异，`backward()` 计算核权重梯度并更新参数。由于目标 $Y$ 就来自 $K_{true}$，持续最小化 loss 会把可学习核推向能重现该映射的参数，最终接近 $[1,-1]$。真实任务中不会先提供“正确卷积核”，而是通过大量输入与任务标签共同学习有用的特征检测器。
+### \[工单-236\] ❓ 教学示例为什么能把卷积核训练回 $[1,-1]$？
+
+- **核心疑问**: `nn.Conv2d` 为什么训练几轮后会学到接近前面人工给出的 $K=[1,-1]$？  
+- **底层解释**: 教学实验先使用真实核 ${K}_{true}=[1,-1]$ 对人工输入 $X$ 做互相关，得到目标 $Y$；随后创建一个核 Shape 相同、权重随机初始化的 `nn.Conv2d`，只给模型 $X,Y$。当前核产生 $\hat{Y}$，平方误差衡量 $\hat{Y}$ 与 $Y$ 的差异，`backward()` 计算核权重梯度并更新参数。由于目标 $Y$ 就来自 ${K}_{true}$，持续最小化 loss 会把可学习核推向能重现该映射的参数，最终接近 $[1,-1]$。真实任务中不会先提供“正确卷积核”，而是通过大量输入与任务标签共同学习有用的特征检测器。  
 - **纠偏锚点**: 这里是“已知 $X,Y$ 反推生成它们的核”的教学反问题。
 
-### [工单-237] 🐛 漏写 `backward()` 括号导致卷积核梯度为 `None`
+### \[工单-237\] 🐛 漏写 `backward()` 括号导致卷积核梯度为 `None`
+
 - **触发代码**:
-  ```python
-  l.sum().backward
-  conv2d.weight.data[:] -= 3e-2 * conv2d.weight.grad
-  ```
-- **原始报错**: `TypeError: unsupported operand type(s) for *: 'float' and 'NoneType'`
-- **底层原因**: `l.sum().backward` 只是取得绑定方法对象，并没有执行反向传播，因此 `conv2d.weight.grad` 仍为 `None`。随后 Python 实际尝试计算 `3e-2 * None`，于是抛出 `float` 与 `NoneType` 不能相乘的类型错误。
+
+```py
+l.sum().backward
+conv2d.weight.data[:] -= 3e-2 * conv2d.weight.grad
+```
+
+- **原始报错**: `TypeError: unsupported operand type(s) for *: 'float' and 'NoneType'`  
+- **底层原因**: `l.sum().backward` 只是取得绑定方法对象，并没有执行反向传播，因此 `conv2d.weight.grad` 仍为 `None`。随后 Python 实际尝试计算 `3e-2 * None`，于是抛出 `float` 与 `NoneType` 不能相乘的类型错误。  
 - **修复方案**:
-  ```python
-  conv2d.zero_grad()
-  l.sum().backward()
-  conv2d.weight.data[:] -= 3e-2 * conv2d.weight.grad
-  ```
+
+```py
+conv2d.zero_grad()
+l.sum().backward()
+conv2d.weight.data[:] -= 3e-2 * conv2d.weight.grad
+```
+
 - **纠偏锚点**: 训练链必须完整经过 `forward → loss → backward() → grad → 参数更新`；看到 `.grad is None` 时优先检查是否真正调用了 `backward()`。
 
 ## 📖 6.2 图像卷积 — 综合巩固与纠偏日志
 
-### [工单-238] ❓ 从 $X,Y$ 反推卷积核时，为什么不一定能唯一确定 $K$？
-- **核心疑问**: 已知输入图像 $X$ 和互相关输出 $Y$，是不是一定能把生成它们的卷积核参数唯一反推出？
-- **底层解释**: 不一定。把未知核元素写成 $a,b,c,d,\dots$ 后，每个局部窗口和对应的 $Y[i,j]$ 只会产生一个线性约束。如果不同窗口重复、对称或彼此线性相关，约束方程的独立数量可能少于未知参数数目，此时会有多组卷积核同时满足相同的 $X\to Y$ 映射。教学中用整张图滑动多个位置，本质上是在用更多局部样本增加参数约束；真实训练则通过大量不同输入进一步约束可学习核。
+### \[工单-238\] ❓ 从 $X,Y$ 反推卷积核时，为什么不一定能唯一确定 $K$？
+
+- **核心疑问**: 已知输入图像 $X$ 和互相关输出 $Y$，是不是一定能把生成它们的卷积核参数唯一反推出？  
+- **底层解释**: 不一定。把未知核元素写成 $a,b,c,d,\dots$ 后，每个局部窗口和对应的 $Y[i,j]$ 只会产生一个线性约束。如果不同窗口重复、对称或彼此线性相关，约束方程的独立数量可能少于未知参数数目，此时会有多组卷积核同时满足相同的 $X\rightarrow Y$ 映射。教学中用整张图滑动多个位置，本质上是在用更多局部样本增加参数约束；真实训练则通过大量不同输入进一步约束可学习核。  
 - **纠偏锚点**: “loss 能下降”不等于“真实核一定唯一可辨识”；唯一性取决于训练数据是否提供了足够独立的信息。
 
-### [工单-239] 🐛 `corr2d` 中把 `i`、`j` 交换，为什么方形数据可能掩盖 Bug？
+### \[工单-239\] 🐛 `corr2d` 中把 `i`、`j` 交换，为什么方形数据可能掩盖 Bug？
+
 - **触发代码**:
-  ```python
-  patch = X[j:j+h, i:i+w]
-  Y[i, j] = (patch * K).sum()
-  ```
-- **底层原因**: `i` 应控制行（高度），`j` 应控制列（宽度）。当输入和卷积核都是方形时，行列可移动次数相同，交换后仍可能得到 Shape 合法的窗口，使错误不立刻暴露；换成非方形输入或非方形核后，某些位置会切出错误尺寸的 patch，最终与 `K` 的 Shape 不匹配或产生错误空间语义。
+
+```py
+patch = X[j:j+h, i:i+w]
+Y[i, j] = (patch * K).sum()
+```
+
+- **底层原因**: `i` 应控制行（高度），`j` 应控制列（宽度）。当输入和卷积核都是方形时，行列可移动次数相同，交换后仍可能得到 Shape 合法的窗口，使错误不立刻暴露；换成非方形输入或非方形核后，某些位置会切出错误尺寸的 patch，最终与 `K` 的 Shape 不匹配或产生错误空间语义。  
 - **纠偏锚点**: 二维张量索引始终是 `X[行, 列]`；卷积代码中 `i=height/row`，`j=width/column`。
 
-### [工单-240] ❓ “非零响应的形状”不是 Tensor Shape，它表示什么？
-- **核心疑问**: 斜边卷积练习要求“观察输出非零元素长什么样”，这里的“形状”到底指什么？
-- **底层解释**: 这里不是问 `Y.shape`，而是把 $Y$ 中非零或高响应位置画在二维坐标上，观察它们组成的空间图案。若原图中的斜边在逐行位置上发生移动，水平差分核 $[1,-1]$ 在每一行都会在亮暗突变处产生响应，于是这些非零位置也会沿对角方向排列，形成类似边缘轮廓的响应图。
+### \[工单-240\] ❓ “非零响应的形状”不是 Tensor Shape，它表示什么？
+
+- **核心疑问**: 斜边卷积练习要求“观察输出非零元素长什么样”，这里的“形状”到底指什么？  
+- **底层解释**: 这里不是问 `Y.shape`，而是把 $Y$ 中非零或高响应位置画在二维坐标上，观察它们组成的空间图案。若原图中的斜边在逐行位置上发生移动，水平差分核 $[1,-1]$ 在每一行都会在亮暗突变处产生响应，于是这些非零位置也会沿对角方向排列，形成类似边缘轮廓的响应图。  
 - **纠偏锚点**: `tensor.shape` 描述数组尺寸；“响应形状/图案”描述高响应元素在空间上的排列。
 
-### [工单-241] ❓ 单个训练窗口为什么可能只给某些卷积核参数提供梯度？
-- **核心疑问**: 对 $K=[a,b]$，若局部输入只有 $x=[1,0]$、目标 $y=1$，为什么训练只约束 $a$ 而无法确定 $b$？
-- **底层解释**: 预测为 $\hat y=a\cdot1+b\cdot0=a$，平方误差 $L=(a-1)^2$ 完全不含 $b$，因此 $\partial L/\partial b=0$；这一训练样本对 $b$ 没有任何信息。加入 $x=[0,1]$ 等不同窗口后，预测开始依赖 $b$，对应梯度才会出现。这个例子把“数据提供参数约束”直接对应到了梯度层面。
+### \[工单-241\] ❓ 单个训练窗口为什么可能只给某些卷积核参数提供梯度？
+
+- **核心疑问**: 对 $K=[a,b]$，若局部输入只有 $x=[1,0]$、目标 $y=1$，为什么训练只约束 $a$ 而无法确定 $b$？  
+- **底层解释**: 预测为 $\hat{y}=a\cdot 1+b\cdot 0=a$，平方误差 $L=(a-1{)}^{2}$ 完全不含 $b$，因此 $\partial L/\partial b=0$；这一训练样本对 $b$ 没有任何信息。加入 $x=[0,1]$ 等不同窗口后，预测开始依赖 $b$，对应梯度才会出现。这个例子把“数据提供参数约束”直接对应到了梯度层面。  
 - **纠偏锚点**: 参数只有真正参与当前样本的前向计算并影响 loss，才会从该样本获得非零梯度信息。
 
-### [工单-242] ❓ 感受野必须相对于哪一层来描述？
-- **核心疑问**: “第四层一个神经元有 $9\times9$ 感受野”是否表示它直接看上一层 81 个元素？
-- **底层解释**: 必须先说明感受野是相对于哪一层。若第四层使用 $3\times3$ 卷积，它对上一层的**直接感受野**始终只有 $3\times3$，即 9 个空间位置；这 9 个上一层元素又分别依赖更早层的区域，沿计算图继续追溯并合并重叠区域后，第四层元素对原始输入才可能拥有 $9\times9$ 的理论感受野。反过来，如果题目明确规定“对上一层的感受野是 $9\times9$”，那才等价于直接依赖上一层 81 个位置。
+### \[工单-242\] ❓ 感受野必须相对于哪一层来描述？
+
+- **核心疑问**: “第四层一个神经元有 $9\times 9$ 感受野”是否表示它直接看上一层 81 个元素？  
+- **底层解释**: 必须先说明感受野是相对于哪一层。若第四层使用 $3\times 3$ 卷积，它对上一层的**直接感受野**始终只有 $3\times 3$，即 9 个空间位置；这 9 个上一层元素又分别依赖更早层的区域，沿计算图继续追溯并合并重叠区域后，第四层元素对原始输入才可能拥有 $9\times 9$ 的理论感受野。反过来，如果题目明确规定“对上一层的感受野是 $9\times 9$”，那才等价于直接依赖上一层 81 个位置。  
 - **纠偏锚点**: `直接依赖上一层多少元素` 由当前卷积核覆盖范围决定；`对原图的感受野多大` 是多层依赖逐层展开后的结果。
 
-### [工单-243] 🪤 把“对原图 $9\times9$ 感受野”误读成“对上一层 $9\times9$”
-- **错误直觉**: 看到某层神经元的理论感受野是 $9\times9$，直接认为它与上一层有 81 条空间位置连接。
-- **认知盲区**: 混淆了“当前层到上一层的一跳局部连接”和“沿多层计算图追溯到原始输入的累计影响范围”。连续 $3\times3$、stride=1 时，单层直接连接一直是 9 个空间位置，但相对原图的理论感受野随深度按 $3\to5\to7\to9$ 扩大。
+### \[工单-243\] 🪤 把“对原图 $9\times 9$ 感受野”误读成“对上一层 $9\times 9$”
+
+- **错误直觉**: 看到某层神经元的理论感受野是 $9\times 9$，直接认为它与上一层有 81 条空间位置连接。  
+- **认知盲区**: 混淆了“当前层到上一层的一跳局部连接”和“沿多层计算图追溯到原始输入的累计影响范围”。连续 $3\times 3$、stride=1 时，单层直接连接一直是 9 个空间位置，但相对原图的理论感受野随深度按 $3\rightarrow 5\rightarrow 7\rightarrow 9$ 扩大。  
 - **纠偏锚点**: 先问“相对于哪一层？”；只有相对于紧邻上一层时，感受野才与当前 kernel size 直接对应。
 
 ## 📖 6.3 填充和步幅 — 核心概念与 Shape 日志
 
-### [工单-244] ❓ 为什么连续卷积会不断缩小特征图，padding 在解决什么？
-- **核心疑问**: 不填充时为什么 $32\times32$ 图像经过 $5\times5$ 卷积会变成 $28\times28$，多层卷积后尺寸越来越小？
-- **底层解释**: 无填充、stride=1 时，卷积核必须完整落在输入内部，单个方向只有 $n-k+1$ 个合法起点；因此 $32-5+1=28$。连续使用 $5\times5$ 卷积时，每层边长都会减少 4，边缘像素也会更快退出后续计算。padding 在输入边界补元素（D2L 通常补 0），既可以增加合法窗口位置、控制输出尺寸，也能让原图边缘区域更充分参与卷积。
+### \[工单-244\] ❓ 为什么连续卷积会不断缩小特征图，padding 在解决什么？
+
+- **核心疑问**: 不填充时为什么 $32\times 32$ 图像经过 $5\times 5$ 卷积会变成 $28\times 28$，多层卷积后尺寸越来越小？  
+- **底层解释**: 无填充、stride=1 时，卷积核必须完整落在输入内部，单个方向只有 $n-k+1$ 个合法起点；因此 $32-5+1=28$。连续使用 $5\times 5$ 卷积时，每层边长都会减少 4，边缘像素也会更快退出后续计算。padding 在输入边界补元素（D2L 通常补 0），既可以增加合法窗口位置、控制输出尺寸，也能让原图边缘区域更充分参与卷积。  
 - **纠偏锚点**: padding 不会创造新的真实图像信息，更准确的作用是“控制边界与输出尺寸、减少边缘信息过早丢失”，而不是“提高信息保真度”。
 
-### [工单-245] ❓ `kernel_size=3, padding=1` 为什么能保持尺寸，`k-1=2` 又是什么意思？
-- **核心疑问**: 既然保持尺寸时总填充量应与 $k-1$ 对应，为什么 PyTorch 不是 `padding=2`？
-- **底层解释**: 要区分“总填充量”和 PyTorch `padding` 参数的单侧含义。对于 `kernel_size=3`、stride=1，单个方向需要总共补 $k-1=2$ 个位置；PyTorch `padding=1` 表示左/右（或上/下）各补 1，因此总量正好是 $1+1=2$。一维公式为 $n_{out}=n+2p-k+1$，代入 $p=1,k=3$ 得 $n_{out}=n$。
+### \[工单-245\] ❓ `kernel_size=3, padding=1` 为什么能保持尺寸，`k-1=2` 又是什么意思？
+
+- **核心疑问**: 既然保持尺寸时总填充量应与 $k-1$ 对应，为什么 PyTorch 不是 `padding=2`？  
+- **底层解释**: 要区分“总填充量”和 PyTorch `padding` 参数的单侧含义。对于 `kernel_size=3`、stride=1，单个方向需要总共补 $k-1=2$ 个位置；PyTorch `padding=1` 表示左/右（或上/下）各补 1，因此总量正好是 $1+1=2$。一维公式为 ${n}_{out}=n+2p-k+1$，代入 $p=1,k=3$ 得 ${n}_{out}=n$。  
 - **纠偏锚点**: `k-1` 是两侧合计需要增加的长度；PyTorch 的对称 `padding=p` 是“每一侧补 p”。
 
-### [工单-246] ❓ 偶数卷积核想保持尺寸时为什么不能完全对称填充？
-- **核心疑问**: 奇数核可用 `padding=(k-1)/2`，若 $k=4$ 或 $6$ 应该怎么补？
-- **底层解释**: stride=1 且想严格保持尺寸时，两侧总填充量需要为 $k-1$。当 $k$ 为偶数时，$k-1$ 为奇数，例如 $4\times4$ 需要总共补 3，无法平均分成整数的“1.5 + 1.5”，因此必须采用如 2+1 或 1+2 的不对称填充。D2L 因此强调奇数核更方便：有明确中心，且 padding 可上下左右对称。
-- **纠偏锚点**: 偶数核不是不能用，而是“保持同尺寸 + 对称整数 padding”不能同时满足。
+### \[工单-246\] ❓ 偶数卷积核想保持尺寸时为什么不能完全对称填充？
 
-### [工单-247] ❓ stride 什么时候增大，为什么步幅越大输出越小？
-- **核心疑问**: 步幅变大是不是信息损失更大，实际什么时候会故意使用 `stride>1`？
-- **底层解释**: stride 决定卷积窗口每次移动多少格。`stride=1` 对相邻位置逐格采样；`stride=2` 会跳过中间起点，使高宽通常快速下降，二维输出位置数近似按平方缩减，因此可显著降低后续计算量。代价是空间采样更稀疏、细粒度位置信息更容易丢失。实际网络通常在需要下采样、压缩冗余空间分辨率或进入新 stage 时使用较大步幅，而多数普通特征提取层仍保持 stride=1。
+- **核心疑问**: 奇数核可用 `padding=(k-1)/2`，若 $k=4$ 或 $6$ 应该怎么补？  
+- **底层解释**: stride=1 且想严格保持尺寸时，两侧总填充量需要为 $k-1$。当 $k$ 为偶数时，$k-1$ 为奇数，例如 $4\times 4$ 需要总共补 3，无法平均分成整数的“1.5 \+ 1.5”，因此必须采用如 2+1 或 1+2 的不对称填充。D2L 因此强调奇数核更方便：有明确中心，且 padding 可上下左右对称。  
+- **纠偏锚点**: 偶数核不是不能用，而是“保持同尺寸 \+ 对称整数 padding”不能同时满足。
+
+### \[工单-247\] ❓ stride 什么时候增大，为什么步幅越大输出越小？
+
+- **核心疑问**: 步幅变大是不是信息损失更大，实际什么时候会故意使用 `stride>1`？  
+- **底层解释**: stride 决定卷积窗口每次移动多少格。`stride=1` 对相邻位置逐格采样；`stride=2` 会跳过中间起点，使高宽通常快速下降，二维输出位置数近似按平方缩减，因此可显著降低后续计算量。代价是空间采样更稀疏、细粒度位置信息更容易丢失。实际网络通常在需要下采样、压缩冗余空间分辨率或进入新 stage 时使用较大步幅，而多数普通特征提取层仍保持 stride=1。  
 - **纠偏锚点**: stride 是“主动下采样/换效率”的旋钮，不是越大越好；padding 和 stride 分别主要控制边界/尺寸与采样密度。
 
-### [工单-248] ❓ 带 padding 与 stride 的输出 Shape 公式怎么从“合法起点”推出？
-- **核心疑问**: 公式 $\left\lfloor\frac{n+2p-k}{s}\right\rfloor+1$ 中每一项是什么意思，最后为什么还要 `+1`？
-- **底层解释**: 先把原输入长度 $n$ 按两侧 padding 扩成 $n+2p$；长度为 $k$ 的卷积核最后一个合法起点与第一个起点之间可移动的最大距离为 $n+2p-k$；每次移动 $s$，因此完整可移动次数是 $\left\lfloor(n+2p-k)/s\right\rfloor$。这个数字只统计“移动了几次”，而初始位置本身也会产生一个输出，所以最后 `+1`。二维卷积对高度和宽度分别使用同样逻辑。
+### \[工单-248\] ❓ 带 padding 与 stride 的输出 Shape 公式怎么从“合法起点”推出？
+
+- **核心疑问**: 公式 $\left\lfloor\frac{n+2p-k}{s}\right\rfloor+1$ 中每一项是什么意思，最后为什么还要 `+1`？  
+- **底层解释**: 先把原输入长度 $n$ 按两侧 padding 扩成 $n+2p$；长度为 $k$ 的卷积核最后一个合法起点与第一个起点之间可移动的最大距离为 $n+2p-k$；每次移动 $s$，因此完整可移动次数是 $\left\lfloor(n+2p-k)/s\right\rfloor$。这个数字只统计“移动了几次”，而初始位置本身也会产生一个输出，所以最后 `+1`。二维卷积对高度和宽度分别使用同样逻辑。  
 - **纠偏锚点**: `+1` 不是补偿卷积核大小，而是把“第 0 个起始位置”本身计入输出位置总数。
 
-### [工单-249] ❓ `nn.Conv2d` 的标量参数和二元组参数分别表示什么？
-- **核心疑问**: `kernel_size=3` 是 $3\times3$ 还是 $3\times1$？`padding=1`、`stride=4` 是否也只作用于一个方向？
-- **底层解释**: 在 `nn.Conv2d` 中，单个整数会同时复制到高和宽两个空间维度：`kernel_size=3` 等价于 `(3,3)`，`padding=1` 等价于 `(1,1)`，`stride=4` 等价于 `(4,4)`。若希望高宽不同，则显式写二元组，例如 `kernel_size=(5,3)`、`padding=(2,1)`、`stride=(3,4)`。D2L 的 `comp_conv2d` 只负责临时补上 batch/channel 维度并在输出后去掉，真正的卷积配置仍来自 `nn.Conv2d`。
+### \[工单-249\] ❓ `nn.Conv2d` 的标量参数和二元组参数分别表示什么？
+
+- **核心疑问**: `kernel_size=3` 是 $3\times 3$ 还是 $3\times 1$？`padding=1`、`stride=4` 是否也只作用于一个方向？  
+- **底层解释**: 在 `nn.Conv2d` 中，单个整数会同时复制到高和宽两个空间维度：`kernel_size=3` 等价于 `(3,3)`，`padding=1` 等价于 `(1,1)`，`stride=4` 等价于 `(4,4)`。若希望高宽不同，则显式写二元组，例如 `kernel_size=(5,3)`、`padding=(2,1)`、`stride=(3,4)`。D2L 的 `comp_conv2d` 只负责临时补上 batch/channel 维度并在输出后去掉，真正的卷积配置仍来自 `nn.Conv2d`。  
 - **纠偏锚点**: `Conv2d` 的空间参数顺序统一是 `(height, width)`；整数是“两个方向都取同一个值”。
 
-### [工单-250] 🧮 `kernel_size=(3,5), padding=1, stride=4` 为什么输出是 `(2,2)` 而不是 `(2,1)`？
+### \[工单-250\] 🧮 `kernel_size=(3,5), padding=1, stride=4` 为什么输出是 `(2,2)` 而不是 `(2,1)`？
+
 - **触发配置**:
-  ```python
-  conv2d = nn.Conv2d(1, 1, kernel_size=(3,5), padding=1, stride=4)
-  X = torch.rand(size=(8,8))
-  ```
-- **底层解释**: `padding=1` 等价于 `(1,1)`，`stride=4` 等价于 `(4,4)`。高度为 $\lfloor(8+2-3)/4\rfloor+1=1+1=2$；宽度为 $\lfloor(8+2-5)/4\rfloor+1=1+1=2$。宽度方向的 `5/4=1` 表示“从初始合法位置还能完整移动 1 次 stride”，初始位置自己也产生一个输出，因此仍需最后 `+1`，得到两个合法位置。
-- **纠偏锚点**: 公式除法部分统计“可移动次数”，输出元素数 = 可移动次数 + 初始位置。
+
+```py
+conv2d = nn.Conv2d(1, 1, kernel_size=(3,5), padding=1, stride=4)
+X = torch.rand(size=(8,8))
+```
+
+- **底层解释**: `padding=1` 等价于 `(1,1)`，`stride=4` 等价于 `(4,4)`。高度为 $\lfloor(8+2-3)/4\rfloor+1=1+1=2$；宽度为 $\lfloor(8+2-5)/4\rfloor+1=1+1=2$。宽度方向的 `5/4=1` 表示“从初始合法位置还能完整移动 1 次 stride”，初始位置自己也产生一个输出，因此仍需最后 `+1`，得到两个合法位置。  
+- **纠偏锚点**: 公式除法部分统计“可移动次数”，输出元素数 \= 可移动次数 \+ 初始位置。
 
 ## 📖 6.4 多输入多输出通道 — 核心概念与代码日志
 
-### [工单-251] ❓ 多输入通道时，一套卷积核为什么本身就是三维的？
-- **核心疑问**: 输入有多个通道时，为什么不能仍把 $K$ 理解成单独的 $k_h\times k_w$ 二维矩阵？
-- **底层解释**: 若输入 $X$ 有 $c_i$ 个通道，一套完整卷积核必须为每个输入通道各准备一张 $k_h\times k_w$ 权重片，因此其 Shape 是 $(c_i,k_h,k_w)$。计算时第 $r$ 个输入通道只与该完整核的第 $r$ 个切片互相关，然后把 $c_i$ 张二维结果按对应位置求和，才得到一张输出特征图。
-- **纠偏锚点**: “一个 $2\times2$ 核”只描述单个通道上的空间片；多输入通道后，一套完整核应理解为“$c_i$ 张 $2\times2$ 核叠在一起”。
+### \[工单-251\] ❓ 多输入通道时，一套卷积核为什么本身就是三维的？
 
-### [工单-252] ❓ 为什么权重是四维 $(c_o,c_i,k_h,k_w)$，输出却只有三维 $(c_o,m_h,m_w)$？
-- **核心疑问**: 教学示例中 `K.shape=(3,2,2,2)`，为什么卷积后的 `Y.shape` 是 `(3,2,2)`，少掉了一个输入通道维？
-- **底层解释**: 第一维 $c_o$ 表示有多少套完整卷积核；第二维 $c_i$ 表示每一套核要覆盖多少输入通道；后两维是空间核大小。对每一套完整核，$c_i$ 个输入通道的卷积结果会被求和融合，因此输入通道维不会继续保留在该输出特征图中。$c_o$ 套核各生成一张二维特征图，叠起来后只剩 $(c_o,m_h,m_w)$。
-- **纠偏锚点**: 权重必须保留 $c_i$ 是为了“给每个输入通道一组权重”；输出不保留 $c_i$ 是因为这些通道已经在该输出核内部被加权求和融合。
+- **核心疑问**: 输入有多个通道时，为什么不能仍把 $K$ 理解成单独的 ${k}_{h}\times {k}_{w}$ 二维矩阵？  
+- **底层解释**: 若输入 $X$ 有 ${c}_{i}$ 个通道，一套完整卷积核必须为每个输入通道各准备一张 ${k}_{h}\times {k}_{w}$ 权重片，因此其 Shape 是 $({c}_{i},{k}_{h},{k}_{w})$。计算时第 $r$ 个输入通道只与该完整核的第 $r$ 个切片互相关，然后把 ${c}_{i}$ 张二维结果按对应位置求和，才得到一张输出特征图。  
+- **纠偏锚点**: “一个 $2\times 2$ 核”只描述单个通道上的空间片；多输入通道后，一套完整核应理解为“${c}_{i}$ 张 $2\times 2$ 核叠在一起”。
 
-### [工单-253] ❓ `corr2d_multi_in` 与 `corr2d_multi_in_out` 分别负责哪一层通道逻辑？
-- **核心疑问**: `zip(X,K)`、`sum(...)`、`for k in K` 和 `torch.stack(...,0)` 在完整多通道卷积中各自负责什么？
-- **底层解释**: `corr2d_multi_in(X,K)` 处理“一套完整核”：`zip(X,K)` 将每个输入通道与同编号核切片配对，二维互相关后求和，得到一张输出特征图。`corr2d_multi_in_out(X,K)` 则把外层 $K$ 看成多套完整核，对每一套调用前者生成一张特征图，再使用 `torch.stack(...,dim=0)` 沿新建的第 0 维叠起，从而形成多个输出通道。
+### \[工单-252\] ❓ 为什么权重是四维 $({c}_{o},{c}_{i},{k}_{h},{k}_{w})$，输出却只有三维 $({c}_{o},{m}_{h},{m}_{w})$？
+
+- **核心疑问**: 教学示例中 `K.shape=(3,2,2,2)`，为什么卷积后的 `Y.shape` 是 `(3,2,2)`，少掉了一个输入通道维？  
+- **底层解释**: 第一维 ${c}_{o}$ 表示有多少套完整卷积核；第二维 ${c}_{i}$ 表示每一套核要覆盖多少输入通道；后两维是空间核大小。对每一套完整核，${c}_{i}$ 个输入通道的卷积结果会被求和融合，因此输入通道维不会继续保留在该输出特征图中。${c}_{o}$ 套核各生成一张二维特征图，叠起来后只剩 $({c}_{o},{m}_{h},{m}_{w})$。  
+- **纠偏锚点**: 权重必须保留 ${c}_{i}$ 是为了“给每个输入通道一组权重”；输出不保留 ${c}_{i}$ 是因为这些通道已经在该输出核内部被加权求和融合。
+
+### \[工单-253\] ❓ `corr2d_multi_in` 与 `corr2d_multi_in_out` 分别负责哪一层通道逻辑？
+
+- **核心疑问**: `zip(X,K)`、`sum(...)`、`for k in K` 和 `torch.stack(...,0)` 在完整多通道卷积中各自负责什么？  
+- **底层解释**: `corr2d_multi_in(X,K)` 处理“一套完整核”：`zip(X,K)` 将每个输入通道与同编号核切片配对，二维互相关后求和，得到一张输出特征图。`corr2d_multi_in_out(X,K)` 则把外层 $K$ 看成多套完整核，对每一套调用前者生成一张特征图，再使用 `torch.stack(...,dim=0)` 沿新建的第 0 维叠起，从而形成多个输出通道。  
 - **纠偏锚点**: 内层函数解决“多输入 → 单输出”；外层函数解决“多套核 → 多输出”。
 
-### [工单-254] 🐛 列表推导中误用大写 `K` 导致 `too many values to unpack`
+### \[工单-254\] 🐛 列表推导中误用大写 `K` 导致 `too many values to unpack`
+
 - **触发代码**:
-  ```python
-  return torch.stack([corr2d_multi_in(X, K) for k in K], 0)
-  ```
-- **原始报错**: `ValueError: too many values to unpack (expected 2)`
-- **底层原因**: `for k in K` 已经从四维整体权重中取出当前一套三维完整核，但函数调用仍错误传入整个四维 `K`。进入 `corr2d_multi_in` 后，`zip(X,K)` 取出的核切片仍为三维，继续传给只接受二维核的 `d2l.corr2d`，其内部 `h, w = K.shape` 尝试把三个 Shape 值解包给两个变量，于是报错。
+
+```py
+return torch.stack([corr2d_multi_in(X, K) for k in K], 0)
+```
+
+- **原始报错**: `ValueError: too many values to unpack (expected 2)`  
+- **底层原因**: `for k in K` 已经从四维整体权重中取出当前一套三维完整核，但函数调用仍错误传入整个四维 `K`。进入 `corr2d_multi_in` 后，`zip(X,K)` 取出的核切片仍为三维，继续传给只接受二维核的 `d2l.corr2d`，其内部 `h, w = K.shape` 尝试把三个 Shape 值解包给两个变量，于是报错。  
 - **修复方案**:
-  ```python
-  return torch.stack([corr2d_multi_in(X, k) for k in K], 0)
-  ```
+
+```py
+return torch.stack([corr2d_multi_in(X, k) for k in K], 0)
+```
+
 - **纠偏锚点**: 大写 `K` 是“所有输出核”；小写 `k` 是“当前这一套完整核”。遇到维度过多报错时，沿调用链逐层打印/推导 Shape。
 
-### [工单-255] ❓ $1\times1$ 卷积为什么既像卷积又像全连接层？
-- **核心疑问**: $1\times1$ 核不看相邻像素，只融合同一位置的通道，那它是否本质上就是一个全连接神经元？
-- **底层解释**: 对固定空间位置 $(i,j)$，输入是一个长度为 $c_i$ 的通道向量；一套 $1\times1$ 核执行一次 $c_i\to1$ 的线性组合，$c_o$ 套核一起等价于 `Linear(c_i,c_o)`。区别在于这套线性权重会在所有空间位置共享使用，并且不会把不同 $(i,j)$ 位置互相连接。因此可以把 $1\times1$ 卷积理解为“逐空间位置、参数共享的全连接变换”。
-- **纠偏锚点**: 普通 `Linear` 若先 flatten 整张图会混合空间位置；$1\times1$ Conv 只混合同一位置的通道。
+### \[工单-255\] ❓ $1\times 1$ 卷积为什么既像卷积又像全连接层？
 
-### [工单-256] ❓ 为什么 $1\times1$ 卷积要 `reshape → matmul → reshape`，空间信息会丢吗？
-- **核心疑问**: `X:(c_i,h,w)` 被改成 `(c_i,h*w)` 后是否丢掉二维位置关系，为什么不能直接保留三维输入？
-- **底层解释**: 直接保留三维输入当然可以逐位置计算；D2L 的 reshape 只是把 $h\times w$ 个空间位置按固定顺序排成 $hw$ 列，从而一次使用二维矩阵乘法并行处理所有位置。元素总数与顺序映射没有改变，因此 reshape 本身可逆，不损失信息；最后 `(c_o,hw)` 再恢复成 `(c_o,h,w)`。这一层不利用空间邻域是 $1\times1$ 卷积本身的结构性质，不是 reshape 造成的位置丢失。
+- **核心疑问**: $1\times 1$ 核不看相邻像素，只融合同一位置的通道，那它是否本质上就是一个全连接神经元？  
+- **底层解释**: 对固定空间位置 $(i,j)$，输入是一个长度为 ${c}_{i}$ 的通道向量；一套 $1\times 1$ 核执行一次 ${c}_{i}\rightarrow 1$ 的线性组合，${c}_{o}$ 套核一起等价于 `Linear(c_i,c_o)`。区别在于这套线性权重会在所有空间位置共享使用，并且不会把不同 $(i,j)$ 位置互相连接。因此可以把 $1\times 1$ 卷积理解为“逐空间位置、参数共享的全连接变换”。  
+- **纠偏锚点**: 普通 `Linear` 若先 flatten 整张图会混合空间位置；$1\times 1$ Conv 只混合同一位置的通道。
+
+### \[工单-256\] ❓ 为什么 $1\times 1$ 卷积要 `reshape → matmul → reshape`，空间信息会丢吗？
+
+- **核心疑问**: `X:(c_i,h,w)` 被改成 `(c_i,h*w)` 后是否丢掉二维位置关系，为什么不能直接保留三维输入？  
+- **底层解释**: 直接保留三维输入当然可以逐位置计算；D2L 的 reshape 只是把 $h\times w$ 个空间位置按固定顺序排成 $hw$ 列，从而一次使用二维矩阵乘法并行处理所有位置。元素总数与顺序映射没有改变，因此 reshape 本身可逆，不损失信息；最后 `(c_o,hw)` 再恢复成 `(c_o,h,w)`。这一层不利用空间邻域是 $1\times 1$ 卷积本身的结构性质，不是 reshape 造成的位置丢失。  
 - **纠偏锚点**: reshape 是“重新排队”，不是“删元素”；真正的变换发生在 `matmul(K,X)`。
 
-### [工单-257] ❓ 为什么用 `assert` 验证两种 $1\times1$ 卷积实现时没有任何输出？
-- **核心疑问**: `Y1` 是矩阵乘法版、`Y2` 是通用卷积版，执行 `assert float(torch.abs(Y1-Y2).sum()) < 1e-6` 后 Jupyter 为什么只显示成功而不打印结果？
-- **底层解释**: `Y1-Y2` 计算逐元素误差，`abs().sum()` 汇总总绝对误差，`1e-6` 是允许的浮点容差。`assert` 条件为真时默认静默通过，只有条件为假才抛出 `AssertionError`。因此“没有输出 + 单元格成功”本身就在说明两种实现数值上一致。
+### \[工单-257\] ❓ 为什么用 `assert` 验证两种 $1\times 1$ 卷积实现时没有任何输出？
+
+- **核心疑问**: `Y1` 是矩阵乘法版、`Y2` 是通用卷积版，执行 `assert float(torch.abs(Y1-Y2).sum()) < 1e-6` 后 Jupyter 为什么只显示成功而不打印结果？  
+- **底层解释**: `Y1-Y2` 计算逐元素误差，`abs().sum()` 汇总总绝对误差，`1e-6` 是允许的浮点容差。`assert` 条件为真时默认静默通过，只有条件为假才抛出 `AssertionError`。因此“没有输出 \+ 单元格成功”本身就在说明两种实现数值上一致。  
 - **纠偏锚点**: `assert` 是验证条件的工具，不是打印函数；成功即沉默，失败才报错。
+
 ## 📖 6.4 补充 — 1×1 卷积、卷积维度与表示容量
 
-### [工单-258] ❓ $3\times3$ 卷积与 $1\times1$ 卷积叠加时分别在做什么？
-- **核心疑问**: 是否可以把 $3\times3$ 卷积理解为主要提取空间信息，再用 $1\times1$ 卷积做信息融合与输出通道调整？
-- **底层解释**: 可以作为工程直觉，但要补充一个条件：普通 $3\times3$ 卷积本身也会跨输入通道做加权求和，因此它并非“只处理空间、不融合通道”。区别在于 $3\times3$ 会同时观察局部空间邻域并融合通道，而 $1\times1$ 不看相邻空间位置，只在每个 $(h,w)$ 位置执行同一组 $c_i\to c_o$ 线性变换，因此特别适合通道重组、升维、降维和控制计算量。
-- **纠偏锚点**: $3\times3$ 可粗略记成“看周围 + 融通道”，$1\times1$ 可记成“只混当前点的通道”。
+### \[工单-258\] ❓ $3\times 3$ 卷积与 $1\times 1$ 卷积叠加时分别在做什么？
 
-### [工单-259] ❓ $1\times1$ 卷积把通道从 256 降到 64，会不会丢信息？
-- **核心疑问**: 既然输入输出通道维度不同，$256\to64$ 是否意味着信息被压缩掉？
-- **底层解释**: 一般会。对固定空间位置，$1\times1$ 卷积可写成 $y=Wx$，其中 $W\in\mathbb{R}^{64\times256}$。从 256 维映射到 64 维通常不是一一映射，不能仅由输出唯一恢复原输入，因此从严格数学意义上发生了不可逆压缩。训练的目标不是随机丢信息，而是学习把对任务有用的组合保留下来、把冗余或无关方向压缩掉。反过来 $64\to256$ 只是扩展表示空间，并不会凭空创造新的原始信息。
+- **核心疑问**: 是否可以把 $3\times 3$ 卷积理解为主要提取空间信息，再用 $1\times 1$ 卷积做信息融合与输出通道调整？  
+- **底层解释**: 可以作为工程直觉，但要补充一个条件：普通 $3\times 3$ 卷积本身也会跨输入通道做加权求和，因此它并非“只处理空间、不融合通道”。区别在于 $3\times 3$ 会同时观察局部空间邻域并融合通道，而 $1\times 1$ 不看相邻空间位置，只在每个 $(h,w)$ 位置执行同一组 ${c}_{i}\rightarrow {c}_{o}$ 线性变换，因此特别适合通道重组、升维、降维和控制计算量。  
+- **纠偏锚点**: $3\times 3$ 可粗略记成“看周围 \+ 融通道”，$1\times 1$ 可记成“只混当前点的通道”。
+
+### \[工单-259\] ❓ $1\times 1$ 卷积把通道从 256 降到 64，会不会丢信息？
+
+- **核心疑问**: 既然输入输出通道维度不同，$256\rightarrow 64$ 是否意味着信息被压缩掉？  
+- **底层解释**: 一般会。对固定空间位置，$1\times 1$ 卷积可写成 $y=Wx$，其中 $W\in\mathbb{R}^{64\times256}$。从 256 维映射到 64 维通常不是一一映射，不能仅由输出唯一恢复原输入，因此从严格数学意义上发生了不可逆压缩。训练的目标不是随机丢信息，而是学习把对任务有用的组合保留下来、把冗余或无关方向压缩掉。反过来 $64\rightarrow 256$ 只是扩展表示空间，并不会凭空创造新的原始信息。  
 - **纠偏锚点**: 降通道通常是“有学习目标的信息压缩”；升通道是“扩大表示空间”，不是创造新观测信息。
 
-### [工单-260] ❓ CNN 有没有类似 MLP“隐藏层宽度/容量”的概念？
-- **核心疑问**: MLP 中隐藏层越宽通常表示容量越大，CNN 是否也有类似说法？
-- **底层解释**: 有。CNN 的模型容量同时受网络深度、通道数、卷积核大小、参数量与感受野等因素影响，其中“通道数”最接近 MLP 的隐藏层宽度：更多输出通道意味着有更多可学习特征图/特征方向，通常提升表示容量，同时也增加参数量与计算量。普通 Conv2d 的权重参数数目（不计 bias）为 $c_o c_i k_h k_w$。因此可建立粗略类比：`MLP hidden width ≈ CNN channel width`，但二者并不完全等价，因为 CNN 还具有局部连接和空间权重共享。
+### \[工单-260\] ❓ CNN 有没有类似 MLP“隐藏层宽度/容量”的概念？
+
+- **核心疑问**: MLP 中隐藏层越宽通常表示容量越大，CNN 是否也有类似说法？  
+- **底层解释**: 有。CNN 的模型容量同时受网络深度、通道数、卷积核大小、参数量与感受野等因素影响，其中“通道数”最接近 MLP 的隐藏层宽度：更多输出通道意味着有更多可学习特征图/特征方向，通常提升表示容量，同时也增加参数量与计算量。普通 Conv2d 的权重参数数目（不计 bias）为 ${c}_{o}{c}_{i}{k}_{h}{k}_{w}$。因此可建立粗略类比：`MLP hidden width ≈ CNN channel width`，但二者并不完全等价，因为 CNN 还具有局部连接和空间权重共享。  
 - **纠偏锚点**: 通道数是 CNN “宽度容量”的重要旋钮，但容量不是只由通道数单独决定。
 
-### [工单-261] ❓ 多通道 Tensor 是三维的，为什么仍叫 Conv2d？Conv3d 什么时候用？
-- **核心疑问**: RGB 输入本身是 $(C,H,W)$ 三维 Tensor，多通道卷积核也可能是三维，为什么仍然是二维卷积？RGB 再加深度图是否应该改用 3D 卷积？
-- **底层解释**: Conv2d/Conv3d 的命名取决于卷积窗口沿几个**空间/时空维度**滑动，而不是 Tensor 总共有几维。普通图像输入 $(C,H,W)$ 中，$C$ 是通道维，卷积核只沿 $H,W$ 两个方向滑动，所以仍是 Conv2d；即使是 RGB + 对齐深度图形成 $(4,H,W)$，通常也只是 4 输入通道的 Conv2d。真正 Conv3d 的输入通常包含额外连续空间/时间维 $D$，例如 $(C,D,H,W)$ 的 CT/MRI 体数据，kernel 会沿 $D,H,W$ 三个方向滑动。视频若要直接联合建模短时空邻域，也可以使用 Conv3d。
+### \[工单-261\] ❓ 多通道 Tensor 是三维的，为什么仍叫 Conv2d？Conv3d 什么时候用？
+
+- **核心疑问**: RGB 输入本身是 $(C,H,W)$ 三维 Tensor，多通道卷积核也可能是三维，为什么仍然是二维卷积？RGB 再加深度图是否应该改用 3D 卷积？  
+- **底层解释**: Conv2d/Conv3d 的命名取决于卷积窗口沿几个**空间/时空维度**滑动，而不是 Tensor 总共有几维。普通图像输入 $(C,H,W)$ 中，$C$ 是通道维，卷积核只沿 $H,W$ 两个方向滑动，所以仍是 Conv2d；即使是 RGB \+ 对齐深度图形成 $(4,H,W)$，通常也只是 4 输入通道的 Conv2d。真正 Conv3d 的输入通常包含额外连续空间/时间维 $D$，例如 $(C,D,H,W)$ 的 CT/MRI 体数据，kernel 会沿 $D,H,W$ 三个方向滑动。视频若要直接联合建模短时空邻域，也可以使用 Conv3d。  
 - **纠偏锚点**: `通道很多 ≠ 3D 卷积`；判断标准是“kernel 实际沿几个空间/时空方向移动”。
 
 ## 📖 6.5 汇聚层（池化层）— 入门概念日志
 
-### [工单-262] ❓ 池化层和卷积层的核心区别是什么？
-- **核心疑问**: 池化窗口同样在特征图上滑动，它和卷积到底差在哪里？
-- **底层解释**: 两者都使用局部滑动窗口，但卷积窗口内部有需要训练的权重，通常执行“局部 patch 与 kernel 逐元素乘后求和”；池化层没有可学习 kernel 参数，而是执行固定统计。最大池化（Max Pooling）取窗口最大值，平均池化（Average Pooling）取窗口均值。可以粗略理解为：卷积负责学习“找什么特征”，池化负责对已经得到的局部特征做统计、压缩和下采样。
-- **纠偏锚点**: 卷积 = 可学习局部变换；池化 = 无参数局部统计。
+### \[工单-262\] ❓ 池化层和卷积层的核心区别是什么？
 
-### [工单-263] ❓ 为什么最大池化能降低对精确位置的敏感性？
-- **核心疑问**: 最大池化为什么常被解释为“只关心一个小区域里有没有强特征，而不太关心它精确在哪”？
-- **底层解释**: 若一个高响应值在同一池化窗口内部发生小幅平移，只要它仍落在该窗口中，窗口最大值可能保持不变。例如窗口内最高响应从左上移到右上，Max Pool 输出仍可为同一个最大值。因此池化会牺牲一部分精确空间定位信息，换取对局部小位移的更稳定响应，并常配合 stride>1 降低后续空间分辨率和计算量。
+- **核心疑问**: 池化窗口同样在特征图上滑动，它和卷积到底差在哪里？  
+- **底层解释**: 两者都使用局部滑动窗口，但卷积窗口内部有需要训练的权重，通常执行“局部 patch 与 kernel 逐元素乘后求和”；池化层没有可学习 kernel 参数，而是执行固定统计。最大池化（Max Pooling）取窗口最大值，平均池化（Average Pooling）取窗口均值。可以粗略理解为：卷积负责学习“找什么特征”，池化负责对已经得到的局部特征做统计、压缩和下采样。  
+- **纠偏锚点**: 卷积 \= 可学习局部变换；池化 \= 无参数局部统计。
+
+### \[工单-263\] ❓ 为什么最大池化能降低对精确位置的敏感性？
+
+- **核心疑问**: 最大池化为什么常被解释为“只关心一个小区域里有没有强特征，而不太关心它精确在哪”？  
+- **底层解释**: 若一个高响应值在同一池化窗口内部发生小幅平移，只要它仍落在该窗口中，窗口最大值可能保持不变。例如窗口内最高响应从左上移到右上，Max Pool 输出仍可为同一个最大值。因此池化会牺牲一部分精确空间定位信息，换取对局部小位移的更稳定响应，并常配合 stride\>1 降低后续空间分辨率和计算量。  
 - **纠偏锚点**: 最大池化保留“局部最强响应”，弱化“最强响应具体在哪一个像素”。
 
 ## 📖 6.3 补充 — Zero Padding 边界效应
 
-### [工单-264] ❓ 网络很深时反复补 0，会不会影响边界特征？
-- **核心疑问**: 多层卷积都使用 zero padding 时，边界附近反复引入的 0 是否会影响性能？
-- **底层解释**: 可能产生一定边界效应。padding 中的 0 是人为引入的数值，不是真实图像内容；越靠边的卷积窗口，越可能包含较高比例的补零值，多层重复后这种人工边界条件会持续参与边缘位置的计算。因此边界响应可能与图像内部存在系统差异。不过 zero padding 仍然广泛使用，因为它简单、高效、便于控制输出尺寸，在多数任务中整体收益大于该副作用。
+### \[工单-264\] ❓ 网络很深时反复补 0，会不会影响边界特征？
+
+- **核心疑问**: 多层卷积都使用 zero padding 时，边界附近反复引入的 0 是否会影响性能？  
+- **底层解释**: 可能产生一定边界效应。padding 中的 0 是人为引入的数值，不是真实图像内容；越靠边的卷积窗口，越可能包含较高比例的补零值，多层重复后这种人工边界条件会持续参与边缘位置的计算。因此边界响应可能与图像内部存在系统差异。不过 zero padding 仍然广泛使用，因为它简单、高效、便于控制输出尺寸，在多数任务中整体收益大于该副作用。  
 - **纠偏锚点**: “Padding 0 越多”指人工补零更频繁参与边界计算，不是原图真实 0 像素变多。
 
-### [工单-265] ❓ 池化层到底在什么数据上操作？
-- **核心疑问**: 池化是在原图上重新提特征，还是通常接在卷积输出之后？
-- **底层解释**: 在经典 CNN 结构中，池化通常接在卷积/激活得到的特征图之后，对已经提取出的局部响应做固定统计与下采样。卷积负责学习“找什么特征”，池化不再学习新的检测器，而是把局部响应压缩成更紧凑的表示。现代网络不要求池化一定紧跟每个卷积层，但 `Conv → Pool` 是理解经典 CNN 的标准入口。
+### \[工单-265\] ❓ 池化层到底在什么数据上操作？
+
+- **核心疑问**: 池化是在原图上重新提特征，还是通常接在卷积输出之后？  
+- **底层解释**: 在经典 CNN 结构中，池化通常接在卷积/激活得到的特征图之后，对已经提取出的局部响应做固定统计与下采样。卷积负责学习“找什么特征”，池化不再学习新的检测器，而是把局部响应压缩成更紧凑的表示。现代网络不要求池化一定紧跟每个卷积层，但 `Conv → Pool` 是理解经典 CNN 的标准入口。  
 - **纠偏锚点**: 卷积负责提特征；池化负责对特征图做局部汇聚与降采样。
 
-### [工单-266] ❓ 为什么取最大值就能“突出局部强响应”？
-- **核心疑问**: 最大池化只是选出最大数字，为什么可以解释为保留强特征？
-- **底层解释**: 在某个特征通道中，卷积/激活后的数值可粗略理解为“当前位置对该通道所检测模式的响应强度”。最大池化不会把最大值变得更大，而是丢掉窗口中较弱响应，只保留最强证据。例如 `[0.1,0.2;0.9,0.3]` 经 MaxPool 后为 `0.9`，表示这个局部区域至少有一个位置强烈激活了该特征。
+### \[工单-266\] ❓ 为什么取最大值就能“突出局部强响应”？
+
+- **核心疑问**: 最大池化只是选出最大数字，为什么可以解释为保留强特征？  
+- **底层解释**: 在某个特征通道中，卷积/激活后的数值可粗略理解为“当前位置对该通道所检测模式的响应强度”。最大池化不会把最大值变得更大，而是丢掉窗口中较弱响应，只保留最强证据。例如 `[0.1,0.2;0.9,0.3]` 经 MaxPool 后为 `0.9`，表示这个局部区域至少有一个位置强烈激活了该特征。  
 - **纠偏锚点**: “突出”指弱响应被舍弃、最强响应被保留，不是数值被放大。
 
-### [工单-267] ❓ 池化窗口里有多个相同最大值怎么办？
-- **核心疑问**: 若一个窗口中两个甚至多个元素并列最大，MaxPool 怎么选择？
-- **底层解释**: 前向计算只关心最大数值本身，因此多个位置并列最大不会影响输出，结果仍是该最大值。反向传播时具体把梯度路由到哪个并列最大位置属于框架实现细节，不影响当前对池化前向原理的理解。
+### \[工单-267\] ❓ 池化窗口里有多个相同最大值怎么办？
+
+- **核心疑问**: 若一个窗口中两个甚至多个元素并列最大，MaxPool 怎么选择？  
+- **底层解释**: 前向计算只关心最大数值本身，因此多个位置并列最大不会影响输出，结果仍是该最大值。反向传播时具体把梯度路由到哪个并列最大位置属于框架实现细节，不影响当前对池化前向原理的理解。  
 - **纠偏锚点**: MaxPool 输出的是“最大值”，不是必须先唯一确定“最大值来自哪个位置”。
 
-### [工单-268] ❓ 为什么池化输出尺寸公式里也有 `+1`？
-- **核心疑问**: 无填充、stride=1 时为什么是 `n-k+1`，不是 `n-k`？
-- **底层解释**: `n-k` 表示窗口从最初位置出发最多还能移动多少格；但窗口还没移动时就已经有一个合法位置，所以合法位置总数是“可移动次数 + 初始位置”=`n-k+1`。例如长度 4、窗口 2，可放 `[1,2]`、`[2,3]`、`[3,4]` 共 3 次，即 `4-2+1=3`。加入单侧 padding `p` 后先把有效长度看成 `n+2p`，再按同样逻辑计算；若再考虑 stride，则为 $\left\lfloor\frac{n+2p-k}{s}\right\rfloor+1$。
+### \[工单-268\] ❓ 为什么池化输出尺寸公式里也有 `+1`？
+
+- **核心疑问**: 无填充、stride=1 时为什么是 `n-k+1`，不是 `n-k`？  
+- **底层解释**: `n-k` 表示窗口从最初位置出发最多还能移动多少格；但窗口还没移动时就已经有一个合法位置，所以合法位置总数是“可移动次数 \+ 初始位置”=`n-k+1`。例如长度 4、窗口 2，可放 `[1,2]`、`[2,3]`、`[3,4]` 共 3 次，即 `4-2+1=3`。加入单侧 padding `p` 后先把有效长度看成 `n+2p`，再按同样逻辑计算；若再考虑 stride，则为 $\left\lfloor\frac{n+2p-k}{s}\right\rfloor+1$。  
 - **纠偏锚点**: `+1` 是“把起始位置本身算进去”。
 
-### [工单-269] ❓ `reshape(1,1,4,4)` 中四个维度分别是什么？
-- **核心疑问**: 为什么 16 个数要 reshape 成四维，前两个 `1` 有什么用？
-- **底层解释**: PyTorch 二维卷积/池化模块通常接收 `(N,C,H,W)`。`reshape(1,1,4,4)` 表示 1 个样本、1 个通道、空间尺寸 $4\times4$，总元素仍是 $1\times1\times4\times4=16$，只是补上框架所需的 batch 维与 channel 维。`reshape((1,1,4,4))` 与 `reshape(1,1,4,4)` 等价。
+### \[工单-269\] ❓ `reshape(1,1,4,4)` 中四个维度分别是什么？
+
+- **核心疑问**: 为什么 16 个数要 reshape 成四维，前两个 `1` 有什么用？  
+- **底层解释**: PyTorch 二维卷积/池化模块通常接收 `(N,C,H,W)`。`reshape(1,1,4,4)` 表示 1 个样本、1 个通道、空间尺寸 $4\times 4$，总元素仍是 $1\times 1\times 4\times 4=16$，只是补上框架所需的 batch 维与 channel 维。`reshape((1,1,4,4))` 与 `reshape(1,1,4,4)` 等价。  
 - **纠偏锚点**: `N=样本数`，`C=输入通道数`，不是卷积核套数。
 
-### [工单-270] ❓ `torch.cat((X, X+1), dim=1)` 为什么能构造两个通道？
-- **核心疑问**: `cat` 后面的 `1` 是什么意思，是否在堆叠卷积核？
-- **底层解释**: 当前张量按 `(N,C,H,W)` 排列，第 1 维就是通道维 `C`。原 `X` 与 `X+1` 都是 `(1,1,4,4)`，沿 `dim=1` 拼接后得到 `(1,2,4,4)`，即同一个样本里有两个输入通道。这里是在构造多通道输入，不是在创建卷积核。`cat` 沿已有维度拼接，而 `stack` 会新增维度。
+### \[工单-270\] ❓ `torch.cat((X, X+1), dim=1)` 为什么能构造两个通道？
+
+- **核心疑问**: `cat` 后面的 `1` 是什么意思，是否在堆叠卷积核？  
+- **底层解释**: 当前张量按 `(N,C,H,W)` 排列，第 1 维就是通道维 `C`。原 `X` 与 `X+1` 都是 `(1,1,4,4)`，沿 `dim=1` 拼接后得到 `(1,2,4,4)`，即同一个样本里有两个输入通道。这里是在构造多通道输入，不是在创建卷积核。`cat` 沿已有维度拼接，而 `stack` 会新增维度。  
 - **纠偏锚点**: `dim=1 = C`；`cat` 拼已有轴，`stack` 新增轴。
 
-### [工单-271] ❓ 为什么池化层在多通道输入上是“各通道独立运算”？
-- **核心疑问**: 多通道池化会不会像卷积一样把不同通道加起来？
-- **底层解释**: 不会。普通 MaxPool/AvgPool 对每个通道分别应用相同的窗口规则，不设置跨通道权重，也不把通道相加。因此输入 `(N,C,H,W)` 池化后通常仍保持 `C` 个通道，只让空间尺寸变为 `(H',W')`。
+### \[工单-271\] ❓ 为什么池化层在多通道输入上是“各通道独立运算”？
+
+- **核心疑问**: 多通道池化会不会像卷积一样把不同通道加起来？  
+- **底层解释**: 不会。普通 MaxPool/AvgPool 对每个通道分别应用相同的窗口规则，不设置跨通道权重，也不把通道相加。因此输入 `(N,C,H,W)` 池化后通常仍保持 `C` 个通道，只让空间尺寸变为 `(H',W')`。  
 - **纠偏锚点**: 卷积可混通道；标准池化只在每个通道自己的空间平面上汇聚。
 
-### [工单-272] ❓ 池化为什么会丢空间信息，却又能提高小位移鲁棒性？
-- **核心疑问**: 丢信息为什么反而可能是好事？
-- **底层解释**: 例如一个 $2\times2$ 窗口只输出一个最大值后，其他三个数以及最大值原来的精确坐标都无法恢复，因此池化是有损空间压缩。但如果最强响应只在同一窗口内左右移动，窗口最大值可能保持不变，模型便不再依赖该特征精确落在哪个像素。它用一部分定位细节换取更紧凑表示和一定局部平移鲁棒性。
+### \[工单-272\] ❓ 池化为什么会丢空间信息，却又能提高小位移鲁棒性？
+
+- **核心疑问**: 丢信息为什么反而可能是好事？  
+- **底层解释**: 例如一个 $2\times 2$ 窗口只输出一个最大值后，其他三个数以及最大值原来的精确坐标都无法恢复，因此池化是有损空间压缩。但如果最强响应只在同一窗口内左右移动，窗口最大值可能保持不变，模型便不再依赖该特征精确落在哪个像素。它用一部分定位细节换取更紧凑表示和一定局部平移鲁棒性。  
 - **纠偏锚点**: 池化的价值不是“无损提炼”，而是有意做取舍：细节/定位 ↓，紧凑性/局部稳健性 ↑。
 
-### [工单-273] ❓ 为什么现代 CNN 中间层的池化用得比以前少？
-- **核心疑问**: 池化是否已经被淘汰？
-- **底层解释**: 不是。早期 CNN 常用 `Conv → Pool → Conv → Pool` 反复降采样；现代架构更常用 stride>1 的卷积或其他可学习下采样，让“如何保留信息”也能由参数学习，同时避免过早丢失过多精确空间信息。另一方面，全局平均池化（Global Average Pooling）在分类网络末端仍非常常见。
+### \[工单-273\] ❓ 为什么现代 CNN 中间层的池化用得比以前少？
+
+- **核心疑问**: 池化是否已经被淘汰？  
+- **底层解释**: 不是。早期 CNN 常用 `Conv → Pool → Conv → Pool` 反复降采样；现代架构更常用 stride\>1 的卷积或其他可学习下采样，让“如何保留信息”也能由参数学习，同时避免过早丢失过多精确空间信息。另一方面，全局平均池化（Global Average Pooling）在分类网络末端仍非常常见。  
 - **纠偏锚点**: 减少的是“中间层频繁 MaxPool”，不是所有 Pooling 都过时。
 
-### [工单-274] ❓ 有最小池化（Min Pooling）吗？为什么很少用？
-- **核心疑问**: 既然有最大和平均池化，是否也能取局部最小值？
-- **底层解释**: 概念上完全可以定义 Min Pooling，但在经过 ReLU 等激活后，弱响应常接近 0，取最小值往往只保留“最弱/无响应”的证据，对常见识别任务通常不如最大或平均池化有用，因此不是 PyTorch CNN 中最常见的标准层。某些特殊图像处理、形态学或关心局部下界的任务仍可能使用类似操作。
+### \[工单-274\] ❓ 有最小池化（Min Pooling）吗？为什么很少用？
+
+- **核心疑问**: 既然有最大和平均池化，是否也能取局部最小值？  
+- **底层解释**: 概念上完全可以定义 Min Pooling，但在经过 ReLU 等激活后，弱响应常接近 0，取最小值往往只保留“最弱/无响应”的证据，对常见识别任务通常不如最大或平均池化有用，因此不是 PyTorch CNN 中最常见的标准层。某些特殊图像处理、形态学或关心局部下界的任务仍可能使用类似操作。  
 - **纠偏锚点**: Min Pooling 不是不存在，而是多数 CNN 任务里信息价值较低。
 
-### [工单-275] 🪤 课件中的“垂直边缘检测图”和“池化输出图”容易混淆
-- **核心疑问**: 左侧“垂直边缘检测”与中间“卷积输出”分别是什么？右侧示意为何看起来不像严格 $2\times2$ 池化后的 Shape？
-- **底层解释**: 左侧矩阵更准确地说是“包含垂直边缘的输入图像”，特定卷积核对其做局部差分后，中间特征图的高响应位置才表示“检测到了垂直边缘”。课件右侧强调的是池化对边缘小范围移动的容忍直觉，不应把所有示意图都机械当成严格一次池化后的 Tensor Shape；真实 Shape 仍按窗口、padding、stride 公式计算。
+### \[工单-275\] 🪤 课件中的“垂直边缘检测图”和“池化输出图”容易混淆
+
+- **核心疑问**: 左侧“垂直边缘检测”与中间“卷积输出”分别是什么？右侧示意为何看起来不像严格 $2\times 2$ 池化后的 Shape？  
+- **底层解释**: 左侧矩阵更准确地说是“包含垂直边缘的输入图像”，特定卷积核对其做局部差分后，中间特征图的高响应位置才表示“检测到了垂直边缘”。课件右侧强调的是池化对边缘小范围移动的容忍直觉，不应把所有示意图都机械当成严格一次池化后的 Tensor Shape；真实 Shape 仍按窗口、padding、stride 公式计算。  
 - **纠偏锚点**: 输入中“有边缘” ≠ 卷积输出“检测响应”；示意图表达概念时仍需用 Shape 公式核验。
 
-### [工单-276] 🧰 为什么结果数量不确定时常先用 list 收集，再一次性转 Tensor？
-- **核心疑问**: 为什么循环里反复 `torch.cat` 通常比先 `list.append`、最后 `stack/tensor` 慢？
-- **底层解释**: Tensor 需要连续/规则的存储布局，循环中不断扩大 Tensor 往往要重复申请更大内存并复制旧数据；而 Python list 的 `append` 适合动态增长，最终数量确定后再一次性 `torch.stack(...)` 或 `torch.tensor(...)`，可减少反复搬运。这里不是“list 的数值计算更快”，而是避免了反复扩张 Tensor 的内存复制开销。
+### \[工单-276\] 🧰 为什么结果数量不确定时常先用 list 收集，再一次性转 Tensor？
+
+- **核心疑问**: 为什么循环里反复 `torch.cat` 通常比先 `list.append`、最后 `stack/tensor` 慢？  
+- **底层解释**: Tensor 需要连续/规则的存储布局，循环中不断扩大 Tensor 往往要重复申请更大内存并复制旧数据；而 Python list 的 `append` 适合动态增长，最终数量确定后再一次性 `torch.stack(...)` 或 `torch.tensor(...)`，可减少反复搬运。这里不是“list 的数值计算更快”，而是避免了反复扩张 Tensor 的内存复制开销。  
 - **纠偏锚点**: 动态收集用 list；最终统一计算再转 Tensor。
 
 ## 📖 6.6 卷积神经网络（LeNet）— 完整网络与 GPU 训练日志
 
-### [工单-277] 🧩 LeNet 整体到底是怎么把 CNN 和 MLP 串起来的？
-- **核心疑问**: LeNet 图中卷积、池化、Flatten 和全连接层分别在做什么，Shape 为什么这样变化？
-- **底层解释**: D2L 版本用 `Conv2d(1→6,5×5,padding=2) → Sigmoid → AvgPool2d(2,stride=2) → Conv2d(6→16,5×5) → Sigmoid → AvgPool2d(2,stride=2) → Flatten → Linear(400→120→84→10)`。对 `(N,1,28,28)` 输入，第一层 padding 保持 28×28，池化降到 14×14；第二个 5×5 卷积无 padding 降到 10×10，再池化为 5×5；最终 `16×5×5=400` 接入全连接分类头。
+### \[工单-277\] 🧩 LeNet 整体到底是怎么把 CNN 和 MLP 串起来的？
+
+- **核心疑问**: LeNet 图中卷积、池化、Flatten 和全连接层分别在做什么，Shape 为什么这样变化？  
+- **底层解释**: D2L 版本用 `Conv2d(1→6,5×5,padding=2) → Sigmoid → AvgPool2d(2,stride=2) → Conv2d(6→16,5×5) → Sigmoid → AvgPool2d(2,stride=2) → Flatten → Linear(400→120→84→10)`。对 `(N,1,28,28)` 输入，第一层 padding 保持 28×28，池化降到 14×14；第二个 5×5 卷积无 padding 降到 10×10，再池化为 5×5；最终 `16×5×5=400` 接入全连接分类头。  
 - **纠偏锚点**: 前半段 CNN 负责从空间结构中提取表征；后半段分类头把表征映射到类别分数。
 
-### [工单-278] ❓ `120` 和 `84` 是怎么算出来的吗？`Linear(400,120)` 到底有多大？
-- **核心疑问**: 为什么 Flatten 后是 400，而下一层偏偏是 120？
-- **底层解释**: `400` 由前一层 Shape 严格决定：`16×5×5=400`；`120`、`84` 是 LeNet 架构的设计超参数，并没有从前面 Shape 推导出“必须等于 120/84”的公式。`nn.Linear(400,120)` 表示 400 输入特征连接到 120 个输出单元，因此有 `400×120=48000` 个权重，PyTorch 的 `weight.shape=(120,400)`，再加 120 个 bias。
+### \[工单-278\] ❓ `120` 和 `84` 是怎么算出来的吗？`Linear(400,120)` 到底有多大？
+
+- **核心疑问**: 为什么 Flatten 后是 400，而下一层偏偏是 120？  
+- **底层解释**: `400` 由前一层 Shape 严格决定：`16×5×5=400`；`120`、`84` 是 LeNet 架构的设计超参数，并没有从前面 Shape 推导出“必须等于 120/84”的公式。`nn.Linear(400,120)` 表示 400 输入特征连接到 120 个输出单元，因此有 `400×120=48000` 个权重，PyTorch 的 `weight.shape=(120,400)`，再加 120 个 bias。  
 - **纠偏锚点**: 输入维度通常由前层 Shape 决定；隐藏层宽度可以由架构设计选择。
 
-### [工单-279] 🧠 池化丢信息、增加通道提高容量，这两件事能互相抵消吗？
-- **核心疑问**: 空间尺寸下降后，如果把通道数从 6 增加到 16，是否等于把损失的信息补回来了？
-- **底层解释**: 不能严格抵消。池化会丢掉局部其他数值和部分精确位置信息，这种丢失通常不可逆；增加通道可以让后续层用更多特征方向重新编码“剩下的信息”，提升表示容量，但无法凭空恢复池化前已经消失的具体空间细节。CNN 常用“空间分辨率下降、通道数增加”做工程平衡，而不是做信息量的精确加减。
+### \[工单-279\] 🧠 池化丢信息、增加通道提高容量，这两件事能互相抵消吗？
+
+- **核心疑问**: 空间尺寸下降后，如果把通道数从 6 增加到 16，是否等于把损失的信息补回来了？  
+- **底层解释**: 不能严格抵消。池化会丢掉局部其他数值和部分精确位置信息，这种丢失通常不可逆；增加通道可以让后续层用更多特征方向重新编码“剩下的信息”，提升表示容量，但无法凭空恢复池化前已经消失的具体空间细节。CNN 常用“空间分辨率下降、通道数增加”做工程平衡，而不是做信息量的精确加减。  
 - **纠偏锚点**: `H,W↓` 是空间压缩；`C↑` 是表示容量增加，二者不是可逆补偿关系。
 
-### [工单-280] 🏷️ CNN 做分类一定要接 MLP 吗？
-- **核心疑问**: LeNet 用三层全连接网络分类，是否所有 CNN 都必须这样做？
-- **底层解释**: 不必须。分类任务最终只需要把高级特征映射到类别 logits。LeNet 使用传统的多层全连接分类头；现代 CNN 常用 `Global Average Pooling → Linear(C,num_classes)`，也可用 `1×1 Conv(C,num_classes) → Global Average Pooling`。若中间没有额外非线性，后两种线性写法在数学表达上可以等价。
+### \[工单-280\] 🏷️ CNN 做分类一定要接 MLP 吗？
+
+- **核心疑问**: LeNet 用三层全连接网络分类，是否所有 CNN 都必须这样做？  
+- **底层解释**: 不必须。分类任务最终只需要把高级特征映射到类别 logits。LeNet 使用传统的多层全连接分类头；现代 CNN 常用 `Global Average Pooling → Linear(C,num_classes)`，也可用 `1×1 Conv(C,num_classes) → Global Average Pooling`。若中间没有额外非线性，后两种线性写法在数学表达上可以等价。  
 - **纠偏锚点**: CNN 必须有“输出到类别”的机制，但这个分类头不一定是多层 MLP。
 
-### [工单-281] 🗺️ Flatten 会不会把空间信息彻底丢掉？“前面卷积已经聚合空间信息”又是什么意思？
-- **核心疑问**: `(16,5,5) → 400` 后二维结构不见了，是否等于空间信息全部丢失？
-- **底层解释**: `Flatten` 本身只是把同一批元素按固定顺序改成一维，不丢数值，也可在已知原 Shape 时 reshape 回去；它丢掉的是“二维网格作为显式数据结构”的形式。真正不可逆的空间细节损失主要来自池化/stride 等下采样。与此同时，卷积输出的每个高层特征点已经依赖一个局部感受野，前面多层卷积把边缘、笔画、局部形状等空间关系编码进通道响应，因此模型可以一边减少精确坐标，一边保留更抽象的空间语义。
+### \[工单-281\] 🗺️ Flatten 会不会把空间信息彻底丢掉？“前面卷积已经聚合空间信息”又是什么意思？
+
+- **核心疑问**: `(16,5,5) → 400` 后二维结构不见了，是否等于空间信息全部丢失？  
+- **底层解释**: `Flatten` 本身只是把同一批元素按固定顺序改成一维，不丢数值，也可在已知原 Shape 时 reshape 回去；它丢掉的是“二维网格作为显式数据结构”的形式。真正不可逆的空间细节损失主要来自池化/stride 等下采样。与此同时，卷积输出的每个高层特征点已经依赖一个局部感受野，前面多层卷积把边缘、笔画、局部形状等空间关系编码进通道响应，因此模型可以一边减少精确坐标，一边保留更抽象的空间语义。  
 - **纠偏锚点**: Flatten ≠ 有损压缩；CNN 的目标是把精细空间坐标逐步变成更抽象的特征表示。
 
-### [工单-282] 🔄 为什么课件要自定义 `Reshape(nn.Module)`？`view`、`reshape` 又是什么关系？
-- **核心疑问**: `class Reshape(nn.Module): forward -> x.view(-1,1,28,28)` 为什么不直接写一个 reshape？
-- **底层解释**: `nn.Sequential` 中每一项都应是 `nn.Module`，因此旧版课件把“输入 Shape 适配”包装成自定义层，执行 `net(X)` 时 `Sequential` 会把前一层输出自动传给下一层并触发其 `forward(self,x)`。`x.view(-1,1,28,28)` 中 `-1` 自动推导 batch 维。若 DataLoader 已直接输出 `(N,1,28,28)`，这一层可以省略。`view()` 通常要求底层内存布局可直接共享视图；`reshape()` 更宽松，能共享就共享，不能时可自动复制/整理。
+### \[工单-282\] 🔄 为什么课件要自定义 `Reshape(nn.Module)`？`view`、`reshape` 又是什么关系？
+
+- **核心疑问**: `class Reshape(nn.Module): forward -> x.view(-1,1,28,28)` 为什么不直接写一个 reshape？  
+- **底层解释**: `nn.Sequential` 中每一项都应是 `nn.Module`，因此旧版课件把“输入 Shape 适配”包装成自定义层，执行 `net(X)` 时 `Sequential` 会把前一层输出自动传给下一层并触发其 `forward(self,x)`。`x.view(-1,1,28,28)` 中 `-1` 自动推导 batch 维。若 DataLoader 已直接输出 `(N,1,28,28)`，这一层可以省略。`view()` 通常要求底层内存布局可直接共享视图；`reshape()` 更宽松，能共享就共享，不能时可自动复制/整理。  
 - **纠偏锚点**: 自定义 Reshape 的主要价值是“把 Shape 操作包装成可放入 Sequential 的层”，不是因为 reshape 本身需要学习参数。
 
-### [工单-283] 🎯 `evaluate_accuracy_gpu` 到底在累计什么？loss 和 accuracy 怎么分工？
-- **核心疑问**: `Accumulator(2)` 为什么存两个量，accuracy 和 loss 哪个更能代表模型性能？
-- **底层解释**: 评估函数的两个累计量分别是“预测正确样本数”和“总预测样本数”，最终 `metric[0]/metric[1]` 得到 accuracy。分类任务中 accuracy 更直观反映最终答对比例；loss 对预测概率和置信度更敏感，即使 accuracy 暂时不变，loss 仍可能继续下降，因此训练过程应同时观察 loss 与 train/test accuracy，最终泛化性能更应看验证/测试集指标。
+### \[工单-283\] 🎯 `evaluate_accuracy_gpu` 到底在累计什么？loss 和 accuracy 怎么分工？
+
+- **核心疑问**: `Accumulator(2)` 为什么存两个量，accuracy 和 loss 哪个更能代表模型性能？  
+- **底层解释**: 评估函数的两个累计量分别是“预测正确样本数”和“总预测样本数”，最终 `metric[0]/metric[1]` 得到 accuracy。分类任务中 accuracy 更直观反映最终答对比例；loss 对预测概率和置信度更敏感，即使 accuracy 暂时不变，loss 仍可能继续下降，因此训练过程应同时观察 loss 与 train/test accuracy，最终泛化性能更应看验证/测试集指标。  
 - **纠偏锚点**: accuracy 看“答对多少”；loss 看“概率分布离目标有多远”。
 
-### [工单-284] 🖥️ 为什么不把整个数据集一开始就放进 GPU？数据位置是随机的吗？
-- **核心疑问**: 训练代码为何每个 batch 都执行 `X.to(device), y.to(device)`？
-- **底层解释**: 数据位置不是随机的。PyTorch Dataset/DataLoader 通常在 CPU 内存中读取和组 batch；模型通过 `net.to(device)` 放到 GPU，当前 batch 再通过 `.to(device)` 搬入显存。这样显存只需容纳模型和当前/少量 batch，不要求整个数据集都能装进 GPU，也便于处理远大于显存的数据集。模型、输入和标签必须在兼容设备上参与同一计算。
+### \[工单-284\] 🖥️ 为什么不把整个数据集一开始就放进 GPU？数据位置是随机的吗？
+
+- **核心疑问**: 训练代码为何每个 batch 都执行 `X.to(device), y.to(device)`？  
+- **底层解释**: 数据位置不是随机的。PyTorch Dataset/DataLoader 通常在 CPU 内存中读取和组 batch；模型通过 `net.to(device)` 放到 GPU，当前 batch 再通过 `.to(device)` 搬入显存。这样显存只需容纳模型和当前/少量 batch，不要求整个数据集都能装进 GPU，也便于处理远大于显存的数据集。模型、输入和标签必须在兼容设备上参与同一计算。  
 - **纠偏锚点**: CPU 是大仓库，GPU 显存是当前工作台；逐 batch 搬运是常规训练流水线。
 
-### [工单-285] 🧰 `train_ch6` 训练函数的关键链路是什么？
-- **核心疑问**: Xavier 初始化、`net.apply`、SGD、loss、Accumulator、Animator 和测试评估如何串起来？
-- **底层解释**: `net.apply(init_weights)` 递归访问子模块并对 `Linear/Conv2d` 做 Xavier 初始化；`net.to(device)` 把模型迁移到 GPU；每个 batch 执行 `zero_grad → X/y.to(device) → net(X) → CrossEntropyLoss → backward → optimizer.step`。`Accumulator(3)` 累计 loss 总和、正确预测数和样本数；每个 epoch 后通过 `evaluate_accuracy_gpu` 计算测试准确率，`Animator` 只是可视化训练曲线，不参与优化。
+### \[工单-285\] 🧰 `train_ch6` 训练函数的关键链路是什么？
+
+- **核心疑问**: Xavier 初始化、`net.apply`、SGD、loss、Accumulator、Animator 和测试评估如何串起来？  
+- **底层解释**: `net.apply(init_weights)` 递归访问子模块并对 `Linear/Conv2d` 做 Xavier 初始化；`net.to(device)` 把模型迁移到 GPU；每个 batch 执行 `zero_grad → X/y.to(device) → net(X) → CrossEntropyLoss → backward → optimizer.step`。`Accumulator(3)` 累计 loss 总和、正确预测数和样本数；每个 epoch 后通过 `evaluate_accuracy_gpu` 计算测试准确率，`Animator` 只是可视化训练曲线，不参与优化。  
 - **纠偏锚点**: 初始化只在训练前做；训练循环负责更新参数；Animator/accuracy 是监控，不负责反向传播。
 
-### [工单-286] 🪤 手敲训练代码时哪些小错误最容易连续触发报错？
-- **核心疑问**: 为什么修完一个错误后又冒出下一个？
-- **底层解释**: 本轮实际遇到的高频问题包括：`view` 拼成 `veiw`、`torch.nn.Module` 写成小写 `module`、`y_hat` 写成 `y.hat`、`train_l` 写成 `trian_l`、把字母 `l` 看成数字 `1`、`metric.add` 少传样本数、把 `.numel()` 错接到 `accuracy(...)` 返回的 float 上，以及 `net.apply(init_weights)` 缩进进了 `init_weights` 内部。Jupyter 中修完函数定义后还必须重新运行该 Cell，否则内存中仍是旧函数。
+### \[工单-286\] 🪤 手敲训练代码时哪些小错误最容易连续触发报错？
+
+- **核心疑问**: 为什么修完一个错误后又冒出下一个？  
+- **底层解释**: 本轮实际遇到的高频问题包括：`view` 拼成 `veiw`、`torch.nn.Module` 写成小写 `module`、`y_hat` 写成 `y.hat`、`train_l` 写成 `trian_l`、把字母 `l` 看成数字 `1`、`metric.add` 少传样本数、把 `.numel()` 错接到 `accuracy(...)` 返回的 float 上，以及 `net.apply(init_weights)` 缩进进了 `init_weights` 内部。Jupyter 中修完函数定义后还必须重新运行该 Cell，否则内存中仍是旧函数。  
 - **纠偏锚点**: Traceback 先看最底部错误类型，再找自己代码中最后一个箭头；优先检查拼写、括号、缩进、变量名和返回类型。
 
-### [工单-287] 🚀 LeNet 的 GPU 训练链路如何确认真的跑在 CUDA 上？
-- **核心疑问**: `nvidia-smi` 利用率经常显示 0%，是否说明训练其实在 CPU？
-- **底层解释**: 本轮通过 PyTorch 直接核验：CUDA 可用，设备为 RTX 5060 Laptop GPU；`next(net.parameters()).device == cuda:0`，DataLoader 取出的 `X,y` 初始在 CPU，`.to(device)` 后均为 `cuda:0`，`net(X)` 输出也位于 `cuda:0`。这些设备事实比单次 `nvidia-smi` 利用率采样更直接地证明计算链路位于 GPU。LeNet 本身很小，GPU kernel 工作片段短，采样工具可能经常看到空闲瞬间。
+### \[工单-287\] 🚀 LeNet 的 GPU 训练链路如何确认真的跑在 CUDA 上？
+
+- **核心疑问**: `nvidia-smi` 利用率经常显示 0%，是否说明训练其实在 CPU？  
+- **底层解释**: 本轮通过 PyTorch 直接核验：CUDA 可用，设备为 RTX 5060 Laptop GPU；`next(net.parameters()).device == cuda:0`，DataLoader 取出的 `X,y` 初始在 CPU，`.to(device)` 后均为 `cuda:0`，`net(X)` 输出也位于 `cuda:0`。这些设备事实比单次 `nvidia-smi` 利用率采样更直接地证明计算链路位于 GPU。LeNet 本身很小，GPU kernel 工作片段短，采样工具可能经常看到空闲瞬间。  
 - **纠偏锚点**: 判断“有没有用 GPU”优先查模型/输入/输出的 `.device`，不要只看某一瞬间的 utilization。
 
-### [工单-288] ⏱️ 为什么 D2L 显示 7.8 万 examples/sec，但 Notebook 仍跑了几分钟？
-- **核心疑问**: GPU 明明很快，Cell 墙钟时间为什么仍约 3 分 29 秒？
-- **底层解释**: D2L 的 `Timer` 只包住每个训练 batch 的核心训练段，`timer.stop()` 之后的 `Animator.add(...)` 动态绘图以及每个 epoch 的测试集评估并不计入 `examples/sec`。VS Code Jupyter 反复刷新 Matplotlib 图可能非常慢，因此“训练吞吐量很高”和“整个 Notebook Cell 很慢”可以同时成立。本轮实际训练吞吐约 `78378 examples/sec on cuda:0`，说明 5060 的核心训练链路并不慢。
-- **纠偏锚点**: `examples/sec` 是训练核心段吞吐；Notebook Cell 时间是训练 + 测试 + 绘图 + Python/Jupyter 外围开销。
+### \[工单-288\] ⏱️ 为什么 D2L 显示 7.8 万 examples/sec，但 Notebook 仍跑了几分钟？
+
+- **核心疑问**: GPU 明明很快，Cell 墙钟时间为什么仍约 3 分 29 秒？  
+- **底层解释**: D2L 的 `Timer` 只包住每个训练 batch 的核心训练段，`timer.stop()` 之后的 `Animator.add(...)` 动态绘图以及每个 epoch 的测试集评估并不计入 `examples/sec`。VS Code Jupyter 反复刷新 Matplotlib 图可能非常慢，因此“训练吞吐量很高”和“整个 Notebook Cell 很慢”可以同时成立。本轮实际训练吞吐约 `78378 examples/sec on cuda:0`，说明 5060 的核心训练链路并不慢。  
+- **纠偏锚点**: `examples/sec` 是训练核心段吞吐；Notebook Cell 时间是训练 \+ 测试 \+ 绘图 \+ Python/Jupyter 外围开销。
 
 ---
 
 ## 📖 7.2 使用块的网络（VGG）
 
-### [工单-289] ❓ VGG 相比 AlexNet 的核心演进是什么？
+### \[工单-289\] ❓ VGG 相比 AlexNet 的核心演进是什么？
 
 - 核心疑问：为什么 VGG 成为现代 CNN 设计的重要里程碑？
 
-- 底层解释：
-  VGG 延续了 AlexNet 的深层卷积思想，但使用连续的 3×3 卷积层替代较大的卷积核，通过增加网络深度提升特征提取能力。
+- 底层解释： VGG 延续了 AlexNet 的深层卷积思想，但使用连续的 3×3 卷积层替代较大的卷积核，通过增加网络深度提升特征提取能力。
 
-- 核心思想：
-  多个小卷积核堆叠可以获得更大的感受野，同时增加非线性变换次数。
+- 核心思想： 多个小卷积核堆叠可以获得更大的感受野，同时增加非线性变换次数。
 
-- 纠偏锚点：
-  VGG 的提升不是单纯增加层数，而是小卷积核设计、网络深度和计算资源共同作用。
+- 纠偏锚点： VGG 的提升不是单纯增加层数，而是小卷积核设计、网络深度和计算资源共同作用。
 
 ---
 
-### [工单-290] ❓ 为什么连续 3×3 卷积可以替代大卷积？
+### \[工单-290\] ❓ 为什么连续 3×3 卷积可以替代大卷积？
 
 - 底层解释：
 
@@ -2212,25 +2645,19 @@
 
 参数量：
 
-5×5 卷积：
-$$
-25C^2
-$$
+5×5 卷积： ${}$ 25C^2 ${}$
 
-两个 3×3 卷积：
-$$
-2\times9C^2=18C^2
-$$
+两个 3×3 卷积： ${}$ 2\\times9C^2=18C^2 ${}$
 
 优势：
 
-- 参数更少
-- 非线性激活更多
+- 参数更少  
+- 非线性激活更多  
 - 特征表达能力更强
 
 ---
 
-### [工单-291] ❓ VGG 为什么设计成 5 个卷积块？
+### \[工单-291\] ❓ VGG 为什么设计成 5 个卷积块？
 
 - 底层解释：
 
@@ -2250,34 +2677,35 @@ VGG 使用 5 个 block，每个 block 后使用一次 2×2 最大池化：
 7×7
 ```
 
+&nbsp;
+
 因为：
 
-$$
-224=7\times2^5
-$$
+$$224=7\times {2}^{5}$$
+
+&nbsp;
 
 经过 5 次池化后刚好得到 7×7 特征图。
 
-- 纠偏锚点：
-  VGG 不会继续池化，因为 7×7 再除以 2 会导致尺寸无法保持整数。
+- 纠偏锚点： VGG 不会继续池化，因为 7×7 再除以 2 会导致尺寸无法保持整数。
 
 ---
 
-### [工单-292] ❓ 为什么 VGG(1,1,224,224) 输入经过第一个 block 后变成 112×112×64？
+### \[工单-292\] ❓ 为什么 VGG(1,1,224,224) 输入经过第一个 block 后变成 112×112×64？
 
 - 底层解释：
 
 高宽变化由池化决定：
 
-$$
-224\times224 \rightarrow 112\times112
-$$
+$$224\times 224\rightarrow 112\times 112$$
+
+&nbsp;
 
 通道变化由卷积核数量决定：
 
-$$
-3\rightarrow64
-$$
+$$3\rightarrow 64$$
+
+&nbsp;
 
 第一个 block：
 
@@ -2290,31 +2718,33 @@ MaxPool 2×2:
 高宽减半
 ```
 
+&nbsp;
+
 因此：
 
-$$
-224\times224\times3
-\rightarrow112\times112\times64
-$$
+$$224\times 224\times 3\rightarrow 112\times 112\times 64$$
 
-- 纠偏锚点：
-  池化不会改变通道数，卷积核数量决定输出通道数。
+&nbsp;
+
+- 纠偏锚点： 池化不会改变通道数，卷积核数量决定输出通道数。
 
 ---
 
-### [工单-293] ❓ 为什么 VGG 后面空间尺寸减小，通道数量增加？
+### \[工单-293\] ❓ 为什么 VGG 后面空间尺寸减小，通道数量增加？
 
 - 底层解释：
 
 CNN 逐层学习更加抽象的特征：
 
 浅层：
-- 边缘
-- 颜色
+
+- 边缘  
+- 颜色  
 - 简单纹理
 
 深层：
-- 局部结构
+
+- 局部结构  
 - 高级语义特征
 
 结构：
@@ -2327,13 +2757,15 @@ CNN 逐层学习更加抽象的特征：
 3 → 64 → 128 → 256 → 512 → 512
 ```
 
+&nbsp;
+
 核心理解：
 
 前层保存更多空间信息，后层使用更多通道表示丰富特征。
 
 ---
 
-### [工单-294] 🧪 VGG 训练异常分析：训练 loss 下降，测试 loss 不下降
+### \[工单-294\] 🧪 VGG 训练异常分析：训练 loss 下降，测试 loss 不下降
 
 现象：
 
@@ -2343,22 +2775,25 @@ train loss ↓↓↓
 test loss ─────
 ```
 
+&nbsp;
+
 主要原因：
 
 1. 过拟合：
-   - 模型容量过大
-   - 数据量不足
-   - 学习训练集细节而不是通用规律
 
+   - 模型容量过大  
+   - 数据量不足  
+   - 学习训练集细节而不是通用规律  
 2. 训练集和测试集分布不一致
 
 3. 学习率问题：
-   - 过大导致优化不稳定
-   - 过小导致学习不足
 
+   - 过大导致优化不稳定  
+   - 过小导致学习不足  
 4. 数据和代码问题：
-   - 标签错误
-   - train/eval 模式错误
+
+   - 标签错误  
+   - train/eval 模式错误  
    - BatchNorm 或 Dropout 使用异常
 
 纠偏锚点：
@@ -2367,10 +2802,9 @@ test loss ─────
 
 ---
 
-### [工单-295] ❓ VGG 中为什么有 5 个卷积块，却有 8 个卷积层并称为 VGG-11？
+### \[工单-295\] ❓ VGG 中为什么有 5 个卷积块，却有 8 个卷积层并称为 VGG-11？
 
-- 核心疑问：
-  卷积块（block）数量、卷积层数量和 VGG-11 的“11”分别表示什么？
+- 核心疑问： 卷积块（block）数量、卷积层数量和 VGG-11 的“11”分别表示什么？
 
 - 底层解释：
 
@@ -2384,11 +2818,13 @@ Block4: 2 个卷积层
 Block5: 2 个卷积层
 ```
 
+&nbsp;
+
 因此卷积层总数为：
 
-$$
-1+1+2+2+2=8
-$$
+$$1+1+2+2+2=8$$
+
+&nbsp;
 
 VGG-11 的命名统计的是带可学习参数的层：
 
@@ -2396,38 +2832,43 @@ $$
 8\text{ 个卷积层}+3\text{ 个全连接层}=11
 $$
 
+&nbsp;
+
 MaxPool 和 ReLU 不计入这个“11”。
 
-- 纠偏锚点：
-  block 是组织网络的宏观结构单位，layer 才是具体计算层；5 个卷积块不等于 5 个卷积层。
+- 纠偏锚点： block 是组织网络的宏观结构单位，layer 才是具体计算层；5 个卷积块不等于 5 个卷积层。
 
 ---
 
-### [工单-296] 🐛 PyTorch 中写 `nn.MaxPool` 为什么会报错？
+### \[工单-296\] 🐛 PyTorch 中写 `nn.MaxPool` 为什么会报错？
 
 - 触发代码：
 
-```python
+```py
 layers.append(nn.MaxPool(kernel_size=2, stride=2))
 ```
 
+&nbsp;
+
 - 原始报错：
 
-```text
+```
 AttributeError: module 'torch.nn' has no attribute 'MaxPool'
 ```
 
-- 底层原因：
-  PyTorch 没有名为 `nn.MaxPool` 的二维池化接口。CNN 图像特征图使用二维最大池化时，对应 API 是 `nn.MaxPool2d`。这与二维卷积使用 `nn.Conv2d` 的命名方式一致。
+&nbsp;
+
+- 底层原因： PyTorch 没有名为 `nn.MaxPool` 的二维池化接口。CNN 图像特征图使用二维最大池化时，对应 API 是 `nn.MaxPool2d`。这与二维卷积使用 `nn.Conv2d` 的命名方式一致。
 
 - 修复方案：
 
-```python
+```py
 layers.append(nn.MaxPool2d(kernel_size=2, stride=2))
 ```
 
-- 纠偏锚点：
-  图像任务常见二维算子带 `2d` 后缀，如 `Conv2d`、`MaxPool2d`、`AvgPool2d`。遇到 `AttributeError` 时优先核对框架 API 名称与拼写。
+&nbsp;
+
+- 纠偏锚点： 图像任务常见二维算子带 `2d` 后缀，如 `Conv2d`、`MaxPool2d`、`AvgPool2d`。遇到 `AttributeError` 时优先核对框架 API 名称与拼写。
 
 ---
 
@@ -2435,8 +2876,8 @@ layers.append(nn.MaxPool2d(kernel_size=2, stride=2))
 
 VGG 的核心贡献：
 
-1. 使用连续 3×3 卷积替代大卷积核
-2. 通过增加深度提升特征提取能力
+1. 使用连续 3×3 卷积替代大卷积核  
+2. 通过增加深度提升特征提取能力  
 3. 建立经典 CNN 结构规律：
 
 ```
@@ -2446,6 +2887,8 @@ VGG 的核心贡献：
 +
 增加通道提升特征表达
 ```
+
+&nbsp;
 
 CNN 发展路线：
 
@@ -2461,789 +2904,932 @@ GoogLeNet
 ResNet
 ```
 
+&nbsp;
+
 ---
 
 ## 📖 7.3 网络中的网络（NiN）
 
-### [工单-297] ❓ NiN 相比普通卷积网络的核心变化是什么？
-- **核心疑问**: “Network in Network” 为什么叫网络中的网络，NiN 块到底多做了什么？
-- **底层解释**: 普通卷积层在每个局部感受野上先做一次线性卷积映射，再接激活函数；NiN 块则使用“常规卷积 → ReLU → 1×1 卷积 → ReLU → 1×1 卷积 → ReLU”。其中两个 `1×1` 卷积不混合相邻空间位置，而是在每个 `(h,w)` 位置对通道向量执行同一组可学习映射，可近似看成逐位置共享的小型 MLP，因此能在保持 CNN 空间结构的同时增加非线性表达能力。
+### \[工单-297\] ❓ NiN 相比普通卷积网络的核心变化是什么？
+
+- **核心疑问**: “Network in Network” 为什么叫网络中的网络，NiN 块到底多做了什么？  
+- **底层解释**: 普通卷积层在每个局部感受野上先做一次线性卷积映射，再接激活函数；NiN 块则使用“常规卷积 → ReLU → 1×1 卷积 → ReLU → 1×1 卷积 → ReLU”。其中两个 `1×1` 卷积不混合相邻空间位置，而是在每个 `(h,w)` 位置对通道向量执行同一组可学习映射，可近似看成逐位置共享的小型 MLP，因此能在保持 CNN 空间结构的同时增加非线性表达能力。  
 - **纠偏锚点**: NiN 不是把整张图 Flatten 后改用普通 MLP；它仍保留卷积的局部性和空间结构，只是在每个空间位置把通道映射做得更深。
 
-### [工单-298] ❓ MLP 的“10 维分类”和 NiN 的“10 通道分类”有什么区别？
-- **核心疑问**: MLP 最后输出 10 维、NiN 最后输出 10 个通道，它们是否只是换了个名字？
-- **底层解释**: 普通 MLP/全连接分类头直接产生 `(N,10)`，最后一维的 10 个数分别是 10 个类别 logits；NiN 在分类前仍保留空间结构，先产生 `(N,10,H,W)`，这 10 个通道是由训练学习出的类别响应图，再通过全局平均池化把每个通道的 `H×W` 响应压成一个数，最终同样得到 `(N,10)`。通道本身也是 Tensor 的一个维度，真正差别在于 NiN 在得到最终 10 个数之前仍保留了空间响应图。
+### \[工单-298\] ❓ MLP 的“10 维分类”和 NiN 的“10 通道分类”有什么区别？
+
+- **核心疑问**: MLP 最后输出 10 维、NiN 最后输出 10 个通道，它们是否只是换了个名字？  
+- **底层解释**: 普通 MLP/全连接分类头直接产生 `(N,10)`，最后一维的 10 个数分别是 10 个类别 logits；NiN 在分类前仍保留空间结构，先产生 `(N,10,H,W)`，这 10 个通道是由训练学习出的类别响应图，再通过全局平均池化把每个通道的 `H×W` 响应压成一个数，最终同样得到 `(N,10)`。通道本身也是 Tensor 的一个维度，真正差别在于 NiN 在得到最终 10 个数之前仍保留了空间响应图。  
 - **纠偏锚点**: “某通道对应某类别”是最后分类块训练出来的功能，不是网络初始化时人为写死的固定语义。
 
-### [工单-299] ❓ 全局平均池化（GAP）和普通平均池化有什么区别？
-- **核心疑问**: 两者都是求平均，为什么 NiN 特别使用全局平均池化？
-- **底层解释**: 普通 `AvgPool2d` 只在局部滑动窗口内求平均，例如 `4×4 → 2×2`，仍保留较粗的空间网格；GAP 则对每个通道整张 `H×W` 特征图一次性求平均，把 `(N,C,H,W)` 变成 `(N,C,1,1)`。两者都按通道独立计算，不会在池化操作里混合不同通道。PyTorch 中常用 `nn.AdaptiveAvgPool2d((1,1))` 实现 GAP，因此无论输入空间尺寸是多少，输出都固定为 `1×1`。
+### \[工单-299\] ❓ 全局平均池化（GAP）和普通平均池化有什么区别？
+
+- **核心疑问**: 两者都是求平均，为什么 NiN 特别使用全局平均池化？  
+- **底层解释**: 普通 `AvgPool2d` 只在局部滑动窗口内求平均，例如 `4×4 → 2×2`，仍保留较粗的空间网格；GAP 则对每个通道整张 `H×W` 特征图一次性求平均，把 `(N,C,H,W)` 变成 `(N,C,1,1)`。两者都按通道独立计算，不会在池化操作里混合不同通道。PyTorch 中常用 `nn.AdaptiveAvgPool2d((1,1))` 实现 GAP，因此无论输入空间尺寸是多少，输出都固定为 `1×1`。  
 - **纠偏锚点**: Average Pooling 是“局部平均并下采样”；Global Average Pooling 是“每个通道整张图压成一个数”。
 
-### [工单-300] 🐛 NiN 块漏写两个 ReLU，为什么训练准确率只有约 65%？
+### \[工单-300\] 🐛 NiN 块漏写两个 ReLU，为什么训练准确率只有约 65%？
+
 - **触发结构**:
-  ```python
-  nn.Conv2d(in_channels, out_channels, kernel_size, strides, padding),
-  nn.ReLU(),
-  nn.Conv2d(out_channels, out_channels, kernel_size=1),
-  nn.Conv2d(out_channels, out_channels, kernel_size=1)
-  ```
-- **现象**: Fashion-MNIST、`resize=224`、10 epoch 首次训练得到约 `loss=0.895, train acc=0.654, test acc=0.653`；训练/测试准确率接近且整体明显偏低。
-- **底层原因**: 后两个 `1×1` 卷积之间缺少 ReLU，连续的线性卷积映射复合后仍主要表现为线性映射，削弱了 NiN 块原本用“小型 MLP”增强局部非线性表达的设计。程序不会因此直接报错，所以会正常训练，但模型表达能力显著下降。
+
+```py
+nn.Conv2d(in_channels, out_channels, kernel_size, strides, padding),
+nn.ReLU(),
+nn.Conv2d(out_channels, out_channels, kernel_size=1),
+nn.Conv2d(out_channels, out_channels, kernel_size=1)
+```
+
+- **现象**: Fashion-MNIST、`resize=224`、10 epoch 首次训练得到约 `loss=0.895, train acc=0.654, test acc=0.653`；训练/测试准确率接近且整体明显偏低。  
+- **底层原因**: 后两个 `1×1` 卷积之间缺少 ReLU，连续的线性卷积映射复合后仍主要表现为线性映射，削弱了 NiN 块原本用“小型 MLP”增强局部非线性表达的设计。程序不会因此直接报错，所以会正常训练，但模型表达能力显著下降。  
 - **修复方案**:
-  ```python
-  nn.Conv2d(in_channels, out_channels, kernel_size, strides, padding),
-  nn.ReLU(),
-  nn.Conv2d(out_channels, out_channels, kernel_size=1),
-  nn.ReLU(),
-  nn.Conv2d(out_channels, out_channels, kernel_size=1),
-  nn.ReLU()
-  ```
-- **当前状态**: 两个缺失的 ReLU 已定位并补回，修复后的 10 epoch 训练正在重新运行，最终指标尚未记录。
+
+```py
+nn.Conv2d(in_channels, out_channels, kernel_size, strides, padding),
+nn.ReLU(),
+nn.Conv2d(out_channels, out_channels, kernel_size=1),
+nn.ReLU(),
+nn.Conv2d(out_channels, out_channels, kernel_size=1),
+nn.ReLU()
+```
+
+- **当前状态**: 两个缺失的 ReLU 已定位并补回，修复后的 10 epoch 训练正在重新运行，最终指标尚未记录。  
 - **纠偏锚点**: 连续线性层之间如果没有非线性激活，堆更多层不会自动获得对应的非线性表达能力。
 
 ### NiN 小结
+
 NiN 的主线可以压缩为：`普通卷积提取局部特征 → 1×1 卷积在每个位置做更深的通道非线性映射 → 最后输出类别数个通道 → GAP 把每个类别响应图压成一个 logit`。它的重要设计价值在于强化卷积块内部的非线性表达，并用全局平均池化减少对大型全连接分类头的依赖。
 
 ---
 
 ## 📖 7.4 含并行连结的网络（GoogLeNet）
 
-### [工单-301] ❓ Inception 的“四分支并行”到底是怎么分配数据的？
-- **核心疑问**: 并行是否意味着把一个 batch、样本或输入通道拆成四份，分别交给四个分支？
-- **底层解释**: 不是。若输入为 `X:(N,C,H,W)`，四个分支都会接收到完整的同一个 `X`，分别计算 `f1(X)、f2(X)、f3(X)、f4(X)`。并行的是**计算路径/特征提取方式**，不是数据切分。四个分支看到相同样本和相同输入通道，但因卷积核尺寸、池化方式和参数不同，会学习到不同尺度、不同类型的特征。
-- **纠偏锚点**: Inception = “同一个 X，用多种函数同时观察”，不是“把 X 切成四块”。
+### \[工单-301\] ❓ Inception 的“四分支并行”到底是怎么分配数据的？
 
-### [工单-302] ❓ 为什么 Inception 在 3×3、5×5 大卷积前先用 1×1 卷积？
-- **核心疑问**: 既然 3×3/5×5 本身也能改变通道数，为什么还要额外加一层 1×1？
-- **底层解释**: `1×1` 卷积只在同一空间位置混合通道，不扩大空间感受野，参数量与 `C_in×C_out` 成正比；它可以先把高维通道压到较小的 bottleneck，再交给昂贵的 3×3/5×5 卷积。比如 `192→96→128` 的 `1×1→3×3`，比直接 `192→128` 的 3×3 卷积参数更少。它不是简单“删除通道”，而是学习 `R^192→R^96` 的通道线性组合。
+- **核心疑问**: 并行是否意味着把一个 batch、样本或输入通道拆成四份，分别交给四个分支？  
+- **底层解释**: 不是。若输入为 `X:(N,C,H,W)`，四个分支都会接收到完整的同一个 `X`，分别计算 `f1(X)、f2(X)、f3(X)、f4(X)`。并行的是**计算路径/特征提取方式**，不是数据切分。四个分支看到相同样本和相同输入通道，但因卷积核尺寸、池化方式和参数不同，会学习到不同尺度、不同类型的特征。  
+- **纠偏锚点**: Inception \= “同一个 X，用多种函数同时观察”，不是“把 X 切成四块”。
+
+### \[工单-302\] ❓ 为什么 Inception 在 3×3、5×5 大卷积前先用 1×1 卷积？
+
+- **核心疑问**: 既然 3×3/5×5 本身也能改变通道数，为什么还要额外加一层 1×1？  
+- **底层解释**: `1×1` 卷积只在同一空间位置混合通道，不扩大空间感受野，参数量与 `C_in×C_out` 成正比；它可以先把高维通道压到较小的 bottleneck，再交给昂贵的 3×3/5×5 卷积。比如 `192→96→128` 的 `1×1→3×3`，比直接 `192→128` 的 3×3 卷积参数更少。它不是简单“删除通道”，而是学习 `R^192→R^96` 的通道线性组合。  
 - **纠偏锚点**: 1×1 的重点是“便宜地重组/压缩通道”，空间 `H,W` 通常保持不变；任何普通卷积都能改通道，但大卷积直接做会更贵。
 
-### [工单-303] ❓ Inception 为什么最后要用 `torch.cat(..., dim=1)`？
-- **核心疑问**: 四个分支输出为什么不相加，而要沿通道维拼接？
-- **底层解释**: PyTorch 图像 Tensor 为 `(N,C,H,W)`，四个分支通过 padding/stride 设计保持相同的 `H,W`，但各自输出不同数量的特征通道。使用 `torch.cat((p1,p2,p3,p4), dim=1)` 会完整保留四路特征，并把通道数相加。例如 `64+128+32+32=256`，输出为 `(N,256,H,W)`。相加则要求通道 Shape 一致，而且会把不同分支响应混合在同一通道中。
+### \[工单-303\] ❓ Inception 为什么最后要用 `torch.cat(..., dim=1)`？
+
+- **核心疑问**: 四个分支输出为什么不相加，而要沿通道维拼接？  
+- **底层解释**: PyTorch 图像 Tensor 为 `(N,C,H,W)`，四个分支通过 padding/stride 设计保持相同的 `H,W`，但各自输出不同数量的特征通道。使用 `torch.cat((p1,p2,p3,p4), dim=1)` 会完整保留四路特征，并把通道数相加。例如 `64+128+32+32=256`，输出为 `(N,256,H,W)`。相加则要求通道 Shape 一致，而且会把不同分支响应混合在同一通道中。  
 - **纠偏锚点**: `cat(dim=1)` 是“特征并排保留”，所以 Inception 的输出通道数等于四路最终通道数之和。
 
-### [工单-304] 🐛 GoogLeNet 的通道不匹配报错如何定位？
-- **触发现象**: 报错类似 `expected input ... to have 64 channels, but got 192 channels instead`。
-- **底层原因**: 某一模块实际输出 192 通道，但下一层被定义成只接受 64 通道。调试时应沿网络逐层追踪 `(N,C,H,W)`，尤其在 Inception 后重新计算 `C_out = c1 + c2[1] + c3[1] + c4`。本轮曾出现 `b1` 写成 `1→64→192` 后，`b2` 仍以 64 通道开头的接口冲突；D2L 标准写法中 `b1` 是 `7×7, 1→64, stride=2` 后接 MaxPool，输出 64 通道，随后 `b2` 才执行 `64→64→192`。
+### \[工单-304\] 🐛 GoogLeNet 的通道不匹配报错如何定位？
+
+- **触发现象**: 报错类似 `expected input ... to have 64 channels, but got 192 channels instead`。  
+- **底层原因**: 某一模块实际输出 192 通道，但下一层被定义成只接受 64 通道。调试时应沿网络逐层追踪 `(N,C,H,W)`，尤其在 Inception 后重新计算 `C_out = c1 + c2[1] + c3[1] + c4`。本轮曾出现 `b1` 写成 `1→64→192` 后，`b2` 仍以 64 通道开头的接口冲突；D2L 标准写法中 `b1` 是 `7×7, 1→64, stride=2` 后接 MaxPool，输出 64 通道，随后 `b2` 才执行 `64→64→192`。  
 - **纠偏锚点**: CNN 报 channel mismatch 时先看“上一层实际 `C_out`”和“下一层声明的 `C_in`”，不要先怀疑 batch 或高宽。
 
-### [工单-305] ❓ Stage、Block、Layer 在 GoogLeNet 中是什么关系？
-- **核心疑问**: Stage 是不是一种具体网络层？
-- **底层解释**: Stage 是架构层面的阶段分组，不是 PyTorch API。一个 Stage 通常包含若干层或若干 Block，并在相近空间分辨率上处理特征；Stage 之间常通过池化/步幅操作降低 `H,W`。GoogLeNet 可理解为 5 个 Stage，其中第 3/4/5 Stage 分别包含 2/5/2 个 Inception Block，总计 9 个 Inception Block。
+### \[工单-305\] ❓ Stage、Block、Layer 在 GoogLeNet 中是什么关系？
+
+- **核心疑问**: Stage 是不是一种具体网络层？  
+- **底层解释**: Stage 是架构层面的阶段分组，不是 PyTorch API。一个 Stage 通常包含若干层或若干 Block，并在相近空间分辨率上处理特征；Stage 之间常通过池化/步幅操作降低 `H,W`。GoogLeNet 可理解为 5 个 Stage，其中第 3/4/5 Stage 分别包含 2/5/2 个 Inception Block，总计 9 个 Inception Block。  
 - **纠偏锚点**: 层级关系可记为 `Network > Stage > Block > Layer`；Stage 是组织概念，不等于一层。
 
-### [工单-306] ❓ GoogLeNet 与 VGG、NiN 的核心设计差异是什么？
-- **VGG**: 以单路径串行堆叠小卷积为主，结构规则，强调重复 Block 和加深网络。
-- **NiN**: 仍以单路径为主，但在卷积块内连续使用 `1×1` 卷积 + ReLU，把逐空间位置的通道映射做得更深、更非线性，并推广 GAP 分类思路。
-- **GoogLeNet**: 核心是 Inception 多分支并行，用不同卷积窗口和池化同时提取多尺度特征，再沿通道维拼接；同时吸收了 NiN 的 `1×1` 卷积和 GAP 思想。
-- **纠偏锚点**: VGG = 串行堆叠；NiN = 单路径内部增强逐位置非线性；GoogLeNet = 并行多尺度。
+### \[工单-306\] ❓ GoogLeNet 与 VGG、NiN 的核心设计差异是什么？
 
-### [工单-307] ❓ GoogLeNet 那些“奇怪”的 64/96/128/192/208 等通道数是怎么算出来的？
-- **核心疑问**: 这些具体数值是否存在严格数学公式？
-- **底层解释**: 具体分支宽度属于网络架构超参数，并非由固定公式唯一推导。设计者会先遵循多尺度、bottleneck、计算预算等原则，再通过实验在准确率、参数量、FLOPs、显存和训练稳定性之间权衡。可以把它理解为“有设计原则约束的炼丹”，而不是纯随机试数。
+- **VGG**: 以单路径串行堆叠小卷积为主，结构规则，强调重复 Block 和加深网络。  
+- **NiN**: 仍以单路径为主，但在卷积块内连续使用 `1×1` 卷积 \+ ReLU，把逐空间位置的通道映射做得更深、更非线性，并推广 GAP 分类思路。  
+- **GoogLeNet**: 核心是 Inception 多分支并行，用不同卷积窗口和池化同时提取多尺度特征，再沿通道维拼接；同时吸收了 NiN 的 `1×1` 卷积和 GAP 思想。  
+- **纠偏锚点**: VGG \= 串行堆叠；NiN \= 单路径内部增强逐位置非线性；GoogLeNet \= 并行多尺度。
+
+### \[工单-307\] ❓ GoogLeNet 那些“奇怪”的 64/96/128/192/208 等通道数是怎么算出来的？
+
+- **核心疑问**: 这些具体数值是否存在严格数学公式？  
+- **底层解释**: 具体分支宽度属于网络架构超参数，并非由固定公式唯一推导。设计者会先遵循多尺度、bottleneck、计算预算等原则，再通过实验在准确率、参数量、FLOPs、显存和训练稳定性之间权衡。可以把它理解为“有设计原则约束的炼丹”，而不是纯随机试数。  
 - **纠偏锚点**: 不需要背每个 Inception 的通道数字；需要会看懂参数含义、计算分支输出通道并检查 Shape。
 
-### [工单-308] ❓ D2L 的 `GAP → Linear` 能否改成 NiN 风格的卷积分类头？
-- **核心疑问**: D2L 最后使用 `AdaptiveAvgPool2d((1,1)) → Flatten → Linear(1024,10)`，能否改成输出 10 通道的卷积？
-- **底层解释**: 可以。可在 GAP 前加入 `Conv2d(1024,10,kernel_size=1)`，得到 `(N,10,H,W)`，再 GAP 为 `(N,10,1,1)`，Flatten 后得到 `(N,10)` logits。在没有额外激活函数时，`GAP→Linear` 与 `1×1 Conv→GAP` 都是线性通道映射与空间平均的组合，二者可表示等价的线性分类函数，参数量也同为 `1024×10+10`。
-- **实验记录**: 本轮将 D2L GoogLeNet 分类头改为 `1×1 Conv(1024,10) → GAP → Flatten` 后完成训练，一次 10 epoch 结果约为 `loss=0.253, train acc=0.905, test acc=0.869`。该单次结果不能单独证明卷积头优于或劣于 Linear；公平比较需固定随机种子并只改变分类头做 A/B。
+### \[工单-308\] ❓ D2L 的 `GAP → Linear` 能否改成 NiN 风格的卷积分类头？
+
+- **核心疑问**: D2L 最后使用 `AdaptiveAvgPool2d((1,1)) → Flatten → Linear(1024,10)`，能否改成输出 10 通道的卷积？  
+- **底层解释**: 可以。可在 GAP 前加入 `Conv2d(1024,10,kernel_size=1)`，得到 `(N,10,H,W)`，再 GAP 为 `(N,10,1,1)`，Flatten 后得到 `(N,10)` logits。在没有额外激活函数时，`GAP→Linear` 与 `1×1 Conv→GAP` 都是线性通道映射与空间平均的组合，二者可表示等价的线性分类函数，参数量也同为 `1024×10+10`。  
+- **实验记录**: 本轮将 D2L GoogLeNet 分类头改为 `1×1 Conv(1024,10) → GAP → Flatten` 后完成训练，一次 10 epoch 结果约为 `loss=0.253, train acc=0.905, test acc=0.869`。该单次结果不能单独证明卷积头优于或劣于 Linear；公平比较需固定随机种子并只改变分类头做 A/B。  
 - **纠偏锚点**: Conv2d 必须放在 Flatten 前；一旦已经 Flatten 成 `(N,1024)`，就应使用 Linear 而不是 Conv2d。
 
-### [工单-309] ❓ GAP 会不会损失更多信息？不用 GAP 还能只用卷积分类吗？
-- **核心疑问**: GAP 将 `H×W` 压为 1×1，是否比直接 Flatten 丢失更多信息；若不用 GAP，卷积头如何得到 10 个最终 logits？
-- **底层解释**: 是，GAP 会丢掉大量精确空间位置信息：不同位置分布只要通道平均值相同，GAP 后就不可区分。但图像分类往往更关心“某特征是否整体存在”而非其精确坐标，因此这种有意的信息压缩可换来更少参数、更弱过拟合和更好的位置鲁棒性。不用 GAP 也能用纯卷积分类：若末端特征图固定为 `(N,1024,3,3)`，可使用 `Conv2d(1024,10,kernel_size=3)` 直接得到 `(N,10,1,1)` 再 Flatten；代价是参数更多、对空间位置更敏感，并且对输入空间尺寸不如 GAP 灵活。
+### \[工单-309\] ❓ GAP 会不会损失更多信息？不用 GAP 还能只用卷积分类吗？
+
+- **核心疑问**: GAP 将 `H×W` 压为 1×1，是否比直接 Flatten 丢失更多信息；若不用 GAP，卷积头如何得到 10 个最终 logits？  
+- **底层解释**: 是，GAP 会丢掉大量精确空间位置信息：不同位置分布只要通道平均值相同，GAP 后就不可区分。但图像分类往往更关心“某特征是否整体存在”而非其精确坐标，因此这种有意的信息压缩可换来更少参数、更弱过拟合和更好的位置鲁棒性。不用 GAP 也能用纯卷积分类：若末端特征图固定为 `(N,1024,3,3)`，可使用 `Conv2d(1024,10,kernel_size=3)` 直接得到 `(N,10,1,1)` 再 Flatten；代价是参数更多、对空间位置更敏感，并且对输入空间尺寸不如 GAP 灵活。  
 - **纠偏锚点**: “卷积分类头”不等于“必须 GAP”；真正要求是最终把空间维消掉，使每个样本得到一个长度为类别数的 logits 向量。
 
 ### GoogLeNet 小结
+
 GoogLeNet 的主线可压缩为：`同一输入 → 四条 Inception 分支并行提取不同尺度特征 → 1×1 卷积负责便宜的通道混合/降维 → cat 沿通道维汇总 → Stage 间逐步下采样 → GAP/分类头输出类别 logits`。本节最重要的不是背 9 个 Inception 的具体通道表，而是能解释并行、多尺度、bottleneck、通道拼接与 GAP，并能独立追踪每个模块的 Shape、定位通道不匹配错误。
 
 ---
 
 ## 📖 7.5 批量规范化（Batch Normalization）
 
-### [工单-310] ❓ BN 到底在解决什么问题？
-- **核心疑问**: Batch Normalization 为什么能让深层网络更容易训练？
-- **底层解释**: 网络训练时，前层参数会持续更新，因此后层每次接收到的中间激活数值范围也会变化。BN 在 `Linear/Conv → 激活函数` 之间，对当前 mini-batch 的中间激活做标准化，使其中心与尺度保持在较稳定的量级，从而改善优化稳定性、通常允许更积极的学习率并加快收敛。经典文献常用“内部协变量偏移（internal covariate shift）”解释这一现象，但更稳妥的理解是：BN 确实改变并平滑了优化过程，不能把其效果简单归结为单一机制。
+### \[工单-310\] ❓ BN 到底在解决什么问题？
+
+- **核心疑问**: Batch Normalization 为什么能让深层网络更容易训练？  
+- **底层解释**: 网络训练时，前层参数会持续更新，因此后层每次接收到的中间激活数值范围也会变化。BN 在 `Linear/Conv → 激活函数` 之间，对当前 mini-batch 的中间激活做标准化，使其中心与尺度保持在较稳定的量级，从而改善优化稳定性、通常允许更积极的学习率并加快收敛。经典文献常用“内部协变量偏移（internal covariate shift）”解释这一现象，但更稳妥的理解是：BN 确实改变并平滑了优化过程，不能把其效果简单归结为单一机制。  
 - **纠偏锚点**: “后层重新适应前层变化”不是网络在主动思考，而是下一轮前向/反向传播后，梯度下降自动继续更新后层参数。
 
-### [工单-311] ❓ 为什么 BN 要“减均值，再除以标准差”？
-- **核心疑问**: 只减均值、或者直接除以均值，为什么不够？
-- **底层解释**: 均值描述数据的“中心位置”，标准差描述数据围绕中心的“典型波动尺度”。减去均值只能把中心移动到 0，无法统一不同特征的离散程度；除以标准差才能把尺度调整到近似 1。直接除以均值既不能保证方差一致，而且均值可能为 0 或负数，无法稳定承担“尺度尺子”的角色。
-- **公式**:
-  $$
-  \hat X=\frac{X-\mu_B}{\sqrt{\sigma_B^2+\epsilon}}
-  $$
-  其中 `eps` 防止方差接近 0 时发生除零。
+### \[工单-311\] ❓ 为什么 BN 要“减均值，再除以标准差”？
+
+- **核心疑问**: 只减均值、或者直接除以均值，为什么不够？  
+- **底层解释**: 均值描述数据的“中心位置”，标准差描述数据围绕中心的“典型波动尺度”。减去均值只能把中心移动到 0，无法统一不同特征的离散程度；除以标准差才能把尺度调整到近似 1。直接除以均值既不能保证方差一致，而且均值可能为 0 或负数，无法稳定承担“尺度尺子”的角色。  
+- **公式**: ${}$ \\hat X=\\frac{X-\\mu\_B}{\\sqrt{\\sigma\_B^2+\\epsilon}} ${}$ 其中 `eps` 防止方差接近 0 时发生除零。  
 - **纠偏锚点**: `μ` 管“中心”，`σ` 管“尺度”；要挪中心就减均值，要统一波动尺度就除标准差。
 
-### [工单-312] ❓ 标准化后为什么还需要可学习的 `γ` 和 `β`？
-- **核心疑问**: 如果已经把激活变成均值约 0、方差约 1，为什么还要再缩放和平移？
-- **底层解释**: 如果永久把每层限制在固定的 0 均值、1 方差，会压缩网络表达自由度。BN 因此在标准化后再执行
-  $$
-  Y=\gamma\hat X+\beta,
-  $$
-  其中 `gamma` 与 `beta` 是 `nn.Parameter`，通过反向传播学习。网络可以自行决定某个 feature/channel 最终需要多大的尺度、中心应位于哪里。
+### \[工单-312\] ❓ 标准化后为什么还需要可学习的 `γ` 和 `β`？
+
+- **核心疑问**: 如果已经把激活变成均值约 0、方差约 1，为什么还要再缩放和平移？  
+- **底层解释**: 如果永久把每层限制在固定的 0 均值、1 方差，会压缩网络表达自由度。BN 因此在标准化后再执行 ${}$ Y=\\gamma\\hat X+\\beta, ${}$ 其中 `gamma` 与 `beta` 是 `nn.Parameter`，通过反向传播学习。网络可以自行决定某个 feature/channel 最终需要多大的尺度、中心应位于哪里。  
 - **纠偏锚点**: BN 是“先把尺度整理到稳定起点，再把缩放和平移的控制权还给网络”。
 
-### [工单-313] ❓ BN 与 Xavier 初始化为什么感觉很像？
-- **核心疑问**: 二者都在控制数值尺度，它们是否属于同一种方法？
-- **底层解释**: 目标有相似处，但作用时机完全不同。Xavier 根据 `fan_in/fan_out` 选择初始权重尺度，主要负责训练开始时避免前向激活和反向梯度快速放大/衰减；初始化完成后它不再动态干预。BN 则直接处理训练过程中的中间激活，每个 batch 都会根据实际统计量重新标准化。
+### \[工单-313\] ❓ BN 与 Xavier 初始化为什么感觉很像？
+
+- **核心疑问**: 二者都在控制数值尺度，它们是否属于同一种方法？  
+- **底层解释**: 目标有相似处，但作用时机完全不同。Xavier 根据 `fan_in/fan_out` 选择初始权重尺度，主要负责训练开始时避免前向激活和反向梯度快速放大/衰减；初始化完成后它不再动态干预。BN 则直接处理训练过程中的中间激活，每个 batch 都会根据实际统计量重新标准化。  
 - **纠偏锚点**: Xavier 管“起跑线”，BN 管“训练跑起来以后”；两者可以同时使用。
 
-### [工单-314] ❓ BN 只能加快收敛，还是也会影响最终精度？
-- **核心疑问**: BN 是否只改变训练速度，而不会改变最终模型？
-- **底层解释**: BN 的核心价值首先是改善优化，但它会改变前向计算、梯度路径和整个训练轨迹；mini-batch 统计量还会引入随机扰动，因此最终参数与测试表现也可能变化。它可能提高泛化，也可能在 batch 太小、统计量不稳定等情况下效果变差，所以“BN 必然提高精度”是不成立的。
+### \[工单-314\] ❓ BN 只能加快收敛，还是也会影响最终精度？
+
+- **核心疑问**: BN 是否只改变训练速度，而不会改变最终模型？  
+- **底层解释**: BN 的核心价值首先是改善优化，但它会改变前向计算、梯度路径和整个训练轨迹；mini-batch 统计量还会引入随机扰动，因此最终参数与测试表现也可能变化。它可能提高泛化，也可能在 batch 太小、统计量不稳定等情况下效果变差，所以“BN 必然提高精度”是不成立的。  
 - **纠偏锚点**: BN 不是只改变“训练多久”，它会改变“模型怎么学”；但最终精度提升不是保证。
 
-### [工单-315] ❓ BN 是训练策略，还是网络结构的一部分？
-- **核心疑问**: 能否把 BN 简单理解成训练时可选的小技巧？
-- **底层解释**: BN 是可选的归一化层/网络组件，会实际插入前向结构，例如 `Conv → BN → ReLU`。它包含可学习参数 `γ、β` 和运行统计量，因此不是像“调学习率”那样纯粹的外部训练策略。训练与推理时 BN 都存在，只是使用的统计量不同。
+### \[工单-315\] ❓ BN 是训练策略，还是网络结构的一部分？
+
+- **核心疑问**: 能否把 BN 简单理解成训练时可选的小技巧？  
+- **底层解释**: BN 是可选的归一化层/网络组件，会实际插入前向结构，例如 `Conv → BN → ReLU`。它包含可学习参数 `γ、β` 和运行统计量，因此不是像“调学习率”那样纯粹的外部训练策略。训练与推理时 BN 都存在，只是使用的统计量不同。  
 - **纠偏锚点**: 可以说“BN 是训练深层网络时常用的稳定化组件”，但不要把它等同于纯超参数技巧。
 
-### [工单-316] ❓ `moving_mean / moving_var` 与 `momentum` 是什么？
-- **核心疑问**: 为什么训练时已经有当前 batch 的 mean/var，还要额外保存 moving statistics？
-- **底层解释**: 训练时可用当前 mini-batch 估计均值和方差，但推理时可能只输入单个样本，无法再可靠地现场估计统计量。因此训练阶段会持续维护 `moving_mean` 和 `moving_var`，作为长期统计。D2L 手写代码采用
-  $$
-  moving\_mean\leftarrow momentum\cdot moving\_mean+(1-momentum)\cdot batch\_mean.
-  $$
-  `momentum` 是超参数，控制历史信息与当前 batch 的权重。注意 PyTorch `nn.BatchNorm*` 的 `momentum` 记号采用“当前 batch 权重”的约定，与 D2L 手写公式的书写方向不同。
+### \[工单-316\] ❓ `moving_mean / moving_var` 与 `momentum` 是什么？
+
+- **核心疑问**: 为什么训练时已经有当前 batch 的 mean/var，还要额外保存 moving statistics？  
+- **底层解释**: 训练时可用当前 mini-batch 估计均值和方差，但推理时可能只输入单个样本，无法再可靠地现场估计统计量。因此训练阶段会持续维护 `moving_mean` 和 `moving_var`，作为长期统计。D2L 手写代码采用 ${}$ moving\_mean\\leftarrow momentum\\cdot moving\_mean+(1-momentum)\\cdot batch\_mean. ${}$ `momentum` 是超参数，控制历史信息与当前 batch 的权重。注意 PyTorch `nn.BatchNorm*` 的 `momentum` 记号采用“当前 batch 权重”的约定，与 D2L 手写公式的书写方向不同。  
 - **纠偏锚点**: `γ、β` 由梯度学习；running/moving mean/var 是训练过程中累计的状态统计量，不由优化器通过梯度更新。
 
-### [工单-317] ❓ `BatchNorm1d` 和 `BatchNorm2d` 的本质区别是什么？
-- **核心疑问**: 二者公式相同，为什么全连接层和卷积层要使用不同 API？
-- **底层解释**:
-  - `BatchNorm1d(D)`：在当前学习场景中处理 `(N,D)` 全连接特征，每个 feature 独立，对 `N` 维求统计量。
-  - `BatchNorm2d(C)`：处理 `(N,C,H,W)` 卷积特征图，每个 channel 独立，对 `(N,H,W)` 中的所有元素求统计量。
-  对卷积输入 `X:(N,C,H,W)`，手写均值常写为：
-  ```python
-  mean = X.mean(dim=(0, 2, 3), keepdim=True)
-  var = ((X - mean) ** 2).mean(dim=(0, 2, 3), keepdim=True)
-  ```
+### \[工单-317\] ❓ `BatchNorm1d` 和 `BatchNorm2d` 的本质区别是什么？
+
+- **核心疑问**: 二者公式相同，为什么全连接层和卷积层要使用不同 API？  
+- **底层解释**:  
+  - `BatchNorm1d(D)`：在当前学习场景中处理 `(N,D)` 全连接特征，每个 feature 独立，对 `N` 维求统计量。  
+  - `BatchNorm2d(C)`：处理 `(N,C,H,W)` 卷积特征图，每个 channel 独立，对 `(N,H,W)` 中的所有元素求统计量。 对卷积输入 `X:(N,C,H,W)`，手写均值常写为：
+
+```py
+mean = X.mean(dim=(0, 2, 3), keepdim=True)
+var = ((X - mean) ** 2).mean(dim=(0, 2, 3), keepdim=True)
+```
+
   输出统计量 Shape 为 `(1,C,1,1)`，之后通过广播作用到该 channel 的所有样本和空间位置。
+
 - **纠偏锚点**: CNN-BN 的记忆法是“保留 channel 维 `C`，其余 `N/H/W` 都参与统计”。
 
-### [工单-318] ❓ 手写 `BatchNorm` 类里的局部变量 `shape` 有什么用？
-- **核心疑问**: `shape` 后续没有作为成员变量使用，是否是无用代码？
-- **底层解释**: `shape` 是初始化 BN 状态张量时的一次性“模具”。全连接层使用 `(1,num_features)`；卷积层使用 `(1,num_features,1,1)`。它被立即用于创建 `gamma`、`beta`、`moving_mean`、`moving_var`。这些 Tensor 创建后已经各自保存自己的 Shape，因此没有必要再写成 `self.shape`。
+### \[工单-318\] ❓ 手写 `BatchNorm` 类里的局部变量 `shape` 有什么用？
+
+- **核心疑问**: `shape` 后续没有作为成员变量使用，是否是无用代码？  
+- **底层解释**: `shape` 是初始化 BN 状态张量时的一次性“模具”。全连接层使用 `(1,num_features)`；卷积层使用 `(1,num_features,1,1)`。它被立即用于创建 `gamma`、`beta`、`moving_mean`、`moving_var`。这些 Tensor 创建后已经各自保存自己的 Shape，因此没有必要再写成 `self.shape`。  
 - **纠偏锚点**: `shape` 不是模型状态，而是“造参数张量时的临时尺寸模板”。
 
-### [工单-319] ❓ 训练模式和推理模式下 BN 为什么行为不同？
-- **核心疑问**: `net.train()` / `net.eval()` 对 BN 到底改变了什么？
-- **底层解释**: 训练时 BN 使用当前 mini-batch 的 mean/var 做标准化，并同步更新 running statistics；推理时模型参数已经固定，通常使用训练阶段累计的 running mean/var，从而让单样本预测也得到稳定、确定的结果。`net.eval()` 负责切换 BN/Dropout 等模块的行为，而 `torch.no_grad()` / `inference_mode()` 负责关闭 autograd，二者职责不同。
+### \[工单-319\] ❓ 训练模式和推理模式下 BN 为什么行为不同？
+
+- **核心疑问**: `net.train()` / `net.eval()` 对 BN 到底改变了什么？  
+- **底层解释**: 训练时 BN 使用当前 mini-batch 的 mean/var 做标准化，并同步更新 running statistics；推理时模型参数已经固定，通常使用训练阶段累计的 running mean/var，从而让单样本预测也得到稳定、确定的结果。`net.eval()` 负责切换 BN/Dropout 等模块的行为，而 `torch.no_grad()` / `inference_mode()` 负责关闭 autograd，二者职责不同。  
 - **纠偏锚点**: `eval()` 不等于“关闭梯度”；推理通常是 `net.eval()` 加 `no_grad()`/`inference_mode()`。
 
-### [工单-320] ❓ 有必要手搓 BN 吗？
-- **核心疑问**: 实际开发都能直接用 `nn.BatchNorm1d/2d`，为什么 D2L 还要从零实现？
-- **底层解释**: 手搓一次很有价值，因为它会强迫自己真正理解“统计维度、广播、γ/β、running statistics、train/eval”的对应关系；但工程中无需反复手写，框架实现更完整、更快，也会正确处理状态保存和设备迁移。
+### \[工单-320\] ❓ 有必要手搓 BN 吗？
+
+- **核心疑问**: 实际开发都能直接用 `nn.BatchNorm1d/2d`，为什么 D2L 还要从零实现？  
+- **底层解释**: 手搓一次很有价值，因为它会强迫自己真正理解“统计维度、广播、γ/β、running statistics、train/eval”的对应关系；但工程中无需反复手写，框架实现更完整、更快，也会正确处理状态保存和设备迁移。  
 - **纠偏锚点**: BN 值得从零实现一次用于理解，之后实际项目直接使用 `nn.BatchNorm*`。
 
 ### BatchNorm 小结
+
 BN 的主线可压缩为：`Linear/Conv 输出 → 当前 mini-batch 按 feature/channel 统计 mean/var → 标准化到稳定尺度 → γ/β 学习恢复表达自由度`。训练时使用当前 batch 统计量并更新 running statistics；推理时切到累计统计量。对 CNN 输入 `(N,C,H,W)`，最关键的 Shape 直觉是“保留 `C`，沿 `N/H/W` 统计”。本节真正需要掌握的是公式的尺度意义、全连接/卷积统计维度、状态参数区别，以及 train/eval 行为差异，而不是背手写类的每一行代码。
 
 ---
 
 ## 📖 7.6 残差网络（ResNet）
 
-### [工单-321] ❓ 为什么“网络更深”不一定自动更好？ResNet 为什么强调恒等映射？
-- **核心疑问**: 单纯增加层数为什么可能让优化变难，ResNet 的函数类思想解决了什么？
-- **底层解释**: 把一种网络结构能表示的函数集合记为函数类 `F`。如果更深网络至少能够把新增层学成恒等映射，那么旧网络能表示的函数仍然包含在新网络中，可形成嵌套的函数类。ResNet 通过 shortcut 让新增残差块在 `F(x)=0` 时容易退化成 `H(x)=x`，因此“加深”不必强迫网络破坏已经有用的映射。
+### \[工单-321\] ❓ 为什么“网络更深”不一定自动更好？ResNet 为什么强调恒等映射？
+
+- **核心疑问**: 单纯增加层数为什么可能让优化变难，ResNet 的函数类思想解决了什么？  
+- **底层解释**: 把一种网络结构能表示的函数集合记为函数类 `F`。如果更深网络至少能够把新增层学成恒等映射，那么旧网络能表示的函数仍然包含在新网络中，可形成嵌套的函数类。ResNet 通过 shortcut 让新增残差块在 `F(x)=0` 时容易退化成 `H(x)=x`，因此“加深”不必强迫网络破坏已经有用的映射。  
 - **纠偏锚点**: `x` 是残差块的输入特征，不是“旧模型能力”；模型的表达范围更接近“函数类”的概念。
 
-### [工单-322] ❓ ResNet 里的“残差”到底是什么？
-- **核心疑问**: 为什么 `H(x)=F(x)+x` 中的 `F(x)` 叫残差？
-- **底层解释**: 如果目标映射是 `H(x)`，恒等基线是 `x`，那么需要学习的差值为 `F(x)=H(x)-x`，因此残差分支学习的是“在现有特征上还要补多少、减多少”。最终输出为 `H(x)=x+F(x)`。
+### \[工单-322\] ❓ ResNet 里的“残差”到底是什么？
+
+- **核心疑问**: 为什么 `H(x)=F(x)+x` 中的 `F(x)` 叫残差？  
+- **底层解释**: 如果目标映射是 `H(x)`，恒等基线是 `x`，那么需要学习的差值为 `F(x)=H(x)-x`，因此残差分支学习的是“在现有特征上还要补多少、减多少”。最终输出为 `H(x)=x+F(x)`。  
 - **纠偏锚点**: 这里的残差不是监督学习里常说的 `y-ŷ` 预测误差，而是“目标映射相对恒等映射的修正量”。
 
-### [工单-323] ❓ Basic Residual Block 为什么是 `Conv-BN-ReLU-Conv-BN + X → ReLU`？
-- **核心疑问**: 第二个卷积后为什么不立刻 ReLU，而要先与 shortcut 相加？
-- **底层解释**: D2L 的基本块先计算 `Y=ReLU(BN1(Conv1(X)))`，再计算 `Y=BN2(Conv2(Y))`，随后执行 `Y+=X`，最后统一 `ReLU(Y)`。这样第二个卷积后的残差分支可以保留正负修正；若在相加前额外加 ReLU，会把负残差截成 0，使其不能直接表达“把原特征减小”的修正。
+### \[工单-323\] ❓ Basic Residual Block 为什么是 `Conv-BN-ReLU-Conv-BN + X → ReLU`？
+
+- **核心疑问**: 第二个卷积后为什么不立刻 ReLU，而要先与 shortcut 相加？  
+- **底层解释**: D2L 的基本块先计算 `Y=ReLU(BN1(Conv1(X)))`，再计算 `Y=BN2(Conv2(Y))`，随后执行 `Y+=X`，最后统一 `ReLU(Y)`。这样第二个卷积后的残差分支可以保留正负修正；若在相加前额外加 ReLU，会把负残差截成 0，使其不能直接表达“把原特征减小”的修正。  
 - **纠偏锚点**: `ReLU(F(x))+x` 与 `ReLU(F(x)+x)` 不是同一个函数；标准块强调先保留完整残差，再与 identity 合并。
 
-### [工单-324] ❓ 第一次 ReLU 已经去掉负数，为什么第二个卷积后还会重新出现负数？
-- **核心疑问**: `ReLU` 输出非负，后面为什么还能得到负激活？
-- **底层解释**: ReLU 只保证“它那一刻的输出”非负。后续 `Conv2d` 的卷积权重可以为负，正输入经过带正负权重的加权求和仍可得到负值；随后 BN 还会执行减均值与可学习仿射变换，因此也可产生负值。
+### \[工单-324\] ❓ 第一次 ReLU 已经去掉负数，为什么第二个卷积后还会重新出现负数？
+
+- **核心疑问**: `ReLU` 输出非负，后面为什么还能得到负激活？  
+- **底层解释**: ReLU 只保证“它那一刻的输出”非负。后续 `Conv2d` 的卷积权重可以为负，正输入经过带正负权重的加权求和仍可得到负值；随后 BN 还会执行减均值与可学习仿射变换，因此也可产生负值。  
 - **纠偏锚点**: `ReLU` 不会让后续网络永久保持非负；Conv、Linear、BN 都可能重新产生负数。
 
-### [工单-325] ❓ `1×1 Conv` 和 `3×3, padding=1` 都能保持高宽，为什么 shortcut 偏爱 `1×1`？
-- **核心疑问**: 若两者都能保持 `H,W`，是否可以互相替代？
-- **底层解释**: 从 Shape 上可以做到相同输出，但功能和计算量不同。`1×1 Conv` 在每个空间位置只做通道线性混合，适合完成 `C_in→C_out` 的投影；`3×3 Conv` 还会混合邻域空间信息，并带来约 9 倍卷积核参数量。shortcut 的任务通常只是最小必要的 Shape 对齐，因此优先使用 `1×1`。
+### \[工单-325\] ❓ `1×1 Conv` 和 `3×3, padding=1` 都能保持高宽，为什么 shortcut 偏爱 `1×1`？
+
+- **核心疑问**: 若两者都能保持 `H,W`，是否可以互相替代？  
+- **底层解释**: 从 Shape 上可以做到相同输出，但功能和计算量不同。`1×1 Conv` 在每个空间位置只做通道线性混合，适合完成 `C_in→C_out` 的投影；`3×3 Conv` 还会混合邻域空间信息，并带来约 9 倍卷积核参数量。shortcut 的任务通常只是最小必要的 Shape 对齐，因此优先使用 `1×1`。  
 - **纠偏锚点**: “Shape 能替代”不等于“功能等价”；shortcut 追求尽量干净、便宜的投影路径。
 
-### [工单-326] ❓ 什么时候 shortcut 必须使用 `1×1 Conv`？
-- **核心疑问**: `Y += X` 前到底检查哪些维度？
-- **底层解释**: 残差相加要求 `N,C,H,W` 完全一致。典型规则为：`C/H/W` 都不变时直接 identity；只改通道时使用 `1×1 Conv, stride=1`；通道改变且高宽减半时使用 `1×1 Conv, stride=2`。例如 `(N,64,56,56)→(N,128,28,28)` 时 shortcut 必须同步完成 `64→128` 与 `56→28`。
+### \[工单-326\] ❓ 什么时候 shortcut 必须使用 `1×1 Conv`？
+
+- **核心疑问**: `Y += X` 前到底检查哪些维度？  
+- **底层解释**: 残差相加要求 `N,C,H,W` 完全一致。典型规则为：`C/H/W` 都不变时直接 identity；只改通道时使用 `1×1 Conv, stride=1`；通道改变且高宽减半时使用 `1×1 Conv, stride=2`。例如 `(N,64,56,56)→(N,128,28,28)` 时 shortcut 必须同步完成 `64→128` 与 `56→28`。  
 - **纠偏锚点**: 是否需要 `1×1 Conv` 不是看“这是哪个 b 块”，而是看 shortcut 的 Shape 是否能直接与主分支相加。
 
-### [工单-327] ❓ 为什么 Basic Block 下采样通常只放在第一个 `3×3 Conv`？
-- **核心疑问**: 两个主分支卷积都设 `stride=2`，再把 shortcut 设 `stride=4`，Shape 也能对齐，为什么不这么做？
-- **底层解释**: 标准 Basic Block 通常让 `conv1` 负责一次下采样，`conv2` 保持 `stride=1`；shortcut 同步使用 `1×1, stride=2`。若主分支连续两次 `stride=2`，空间尺寸会在一个 block 内缩小 4 倍，需要 shortcut 用更激进的投影才能对齐，虽然数学上能运行，但已经改变了标准 ResNet 的 stage 节奏与信息保留方式。
+### \[工单-327\] ❓ 为什么 Basic Block 下采样通常只放在第一个 `3×3 Conv`？
+
+- **核心疑问**: 两个主分支卷积都设 `stride=2`，再把 shortcut 设 `stride=4`，Shape 也能对齐，为什么不这么做？  
+- **底层解释**: 标准 Basic Block 通常让 `conv1` 负责一次下采样，`conv2` 保持 `stride=1`；shortcut 同步使用 `1×1, stride=2`。若主分支连续两次 `stride=2`，空间尺寸会在一个 block 内缩小 4 倍，需要 shortcut 用更激进的投影才能对齐，虽然数学上能运行，但已经改变了标准 ResNet 的 stage 节奏与信息保留方式。  
 - **纠偏锚点**: “Shape 对得上”只是合法性条件，不代表结构设计合理；标准 Basic Block 一次只做一次 stage 下采样。
 
-### [工单-328] 🐛 手搓 `Residual` 时最容易出现哪些代码错误？
-- **本轮错误与修复**:
-  - `conv2` 的输入通道应为 `num_channels`，而不是继续写 `input_channels`；第一层已经把通道改成目标通道。
-  - `conv2` 应为 `3×3, padding=1, stride=1`；不要重复使用首层的下采样 stride。
-  - shortcut 的 `1×1 Conv` 默认 `padding=0`；误写 `padding=1` 会把如 `56→28` 变成 `56→29`，导致无法相加。
-  - `forward(self, X)` 不能漏 `X`；调用成员层要写 `self.conv*`；主分支不能漏掉 `conv1/conv2` 本身。
+### \[工单-328\] 🐛 手搓 `Residual` 时最容易出现哪些代码错误？
+
+- **本轮错误与修复**:  
+  - `conv2` 的输入通道应为 `num_channels`，而不是继续写 `input_channels`；第一层已经把通道改成目标通道。  
+  - `conv2` 应为 `3×3, padding=1, stride=1`；不要重复使用首层的下采样 stride。  
+  - shortcut 的 `1×1 Conv` 默认 `padding=0`；误写 `padding=1` 会把如 `56→28` 变成 `56→29`，导致无法相加。  
+  - `forward(self, X)` 不能漏 `X`；调用成员层要写 `self.conv*`；主分支不能漏掉 `conv1/conv2` 本身。  
 - **纠偏锚点**: 手搓残差块时按数据流检查：`X → conv1 → bn1 → relu → conv2 → bn2` 与 `X → shortcut`，最后先核对两边 Shape 再相加。
 
-### [工单-329] ❓ `bn1` 和 `bn2` 都是 `BatchNorm2d(num_channels)`，为什么还要实例化两次？
-- **核心疑问**: 参数配置完全相同，能否共用同一个 BN？
-- **底层解释**: 两个 BN 处在不同网络位置，接收 `conv1` 与 `conv2` 的不同激活分布，因此各自需要独立的 `γ/β` 与 running mean/var。即使 Shape 相同，特征分布也不等价。分别调用两次 `nn.BatchNorm2d(num_channels)` 会创建两个独立模块。
+### \[工单-329\] ❓ `bn1` 和 `bn2` 都是 `BatchNorm2d(num_channels)`，为什么还要实例化两次？
+
+- **核心疑问**: 参数配置完全相同，能否共用同一个 BN？  
+- **底层解释**: 两个 BN 处在不同网络位置，接收 `conv1` 与 `conv2` 的不同激活分布，因此各自需要独立的 `γ/β` 与 running mean/var。即使 Shape 相同，特征分布也不等价。分别调用两次 `nn.BatchNorm2d(num_channels)` 会创建两个独立模块。  
 - **纠偏锚点**: “配置相同”不等于“参数共享”；Conv 和 BN 都遵循这一点。
 
-### [工单-330] ❓ `b1`、`b2~b5` 与 `first_block` 到底是什么关系？
-- **核心疑问**: `first_block=True` 为什么只出现在 `b2`，它是不是指“当前 Residual 是第一个”？
-- **底层解释**: `b1` 是 ResNet 的前置 stem：`7×7 Conv(stride=2) → BN → ReLU → MaxPool(stride=2)`，不是残差 stage。`b2~b5` 才由多个 Residual 组成。`first_block=True` 更准确地说是“这是整个网络的第一个残差 stage”，用来阻止 `b2` 的首个 Residual 再次下采样，因为 `b1` 已经做了两次空间缩小。
+### \[工单-330\] ❓ `b1`、`b2~b5` 与 `first_block` 到底是什么关系？
+
+- **核心疑问**: `first_block=True` 为什么只出现在 `b2`，它是不是指“当前 Residual 是第一个”？  
+- **底层解释**: `b1` 是 ResNet 的前置 stem：`7×7 Conv(stride=2) → BN → ReLU → MaxPool(stride=2)`，不是残差 stage。`b2~b5` 才由多个 Residual 组成。`first_block=True` 更准确地说是“这是整个网络的第一个残差 stage”，用来阻止 `b2` 的首个 Residual 再次下采样，因为 `b1` 已经做了两次空间缩小。  
 - **纠偏锚点**: `first_block` 是 stage 级控制量，不是 `use_1x1conv` 的别名；在 b2 中它反而会让 `i==0 and not first_block` 条件失败。
 
-### [工单-331] ❓ 为什么一个 stage 里要放多个 Residual？通道数会一直变化吗？
-- **核心疑问**: `resnet_block(..., num_residuals=2)` 为什么会生成两个残差块，它们分别做什么？
-- **底层解释**: `num_residuals=2` 会循环 append 两个 `Residual`。在后续 stage 中，第一个块通常负责“换挡”：通道翻倍、`H/W` 减半；第二个及后续块保持同样的通道与分辨率，在同一尺度上继续进行非线性特征提炼和残差修正。多个块同时增加深度、非线性与有效感受野。
+### \[工单-331\] ❓ 为什么一个 stage 里要放多个 Residual？通道数会一直变化吗？
+
+- **核心疑问**: `resnet_block(..., num_residuals=2)` 为什么会生成两个残差块，它们分别做什么？  
+- **底层解释**: `num_residuals=2` 会循环 append 两个 `Residual`。在后续 stage 中，第一个块通常负责“换挡”：通道翻倍、`H/W` 减半；第二个及后续块保持同样的通道与分辨率，在同一尺度上继续进行非线性特征提炼和残差修正。多个块同时增加深度、非线性与有效感受野。  
 - **纠偏锚点**: 同一 stage 的后续 Residual 通常保持通道数；主要变化集中在 stage 的第一个块。
 
-### [工单-332] ❓ 为什么 b2 不用 `1×1 Conv`，而 b3/b4/b5 的第一个 Residual 要用？
-- **核心疑问**: `b3 = resnet_block(64,128,2)` 的调用行里没写 `use_1x1conv=True`，这个布尔值从哪里来的？
-- **底层解释**: `use_1x1conv=True` 被封装在 `resnet_block()` 内部的 `if i==0 and not first_block` 分支中。b2 显式传 `first_block=True`，因此两个 Residual 都走普通 identity shortcut；b3/b4/b5 默认 `first_block=False`，其第一个 Residual 自动使用 `1×1 Conv + stride=2`，后续 Residual 则直接 identity。
-- **典型结构**: `b2: 64→64, 64→64`；`b3: 64→128(投影), 128→128`；`b4: 128→256(投影), 256→256`；`b5: 256→512(投影), 512→512`。
+### \[工单-332\] ❓ 为什么 b2 不用 `1×1 Conv`，而 b3/b4/b5 的第一个 Residual 要用？
+
+- **核心疑问**: `b3 = resnet_block(64,128,2)` 的调用行里没写 `use_1x1conv=True`，这个布尔值从哪里来的？  
+- **底层解释**: `use_1x1conv=True` 被封装在 `resnet_block()` 内部的 `if i==0 and not first_block` 分支中。b2 显式传 `first_block=True`，因此两个 Residual 都走普通 identity shortcut；b3/b4/b5 默认 `first_block=False`，其第一个 Residual 自动使用 `1×1 Conv + stride=2`，后续 Residual 则直接 identity。  
+- **典型结构**: `b2: 64→64, 64→64`；`b3: 64→128(投影), 128→128`；`b4: 128→256(投影), 256→256`；`b5: 256→512(投影), 512→512`。  
 - **纠偏锚点**: “首块投影、后块保持”是 stage 的常见模式。
 
-### [工单-333] ❓ b2 也强行加 `1×1 Conv` 可以吗？
-- **核心疑问**: 如果 `64→64`、高宽不变，给 shortcut 加 `1×1, stride=1` 好像也能运行，为什么标准结构不用？
-- **底层解释**: 可以运行，但会把纯 identity `x` 改成可学习投影 `W_s x`，增加参数与计算，并失去最干净的恒等路径；如果还沿用 `stride=2`，则会让 b2 额外下采样，明显改变网络结构。因此 shortcut 能直接走 identity 时通常不加投影。
+### \[工单-333\] ❓ b2 也强行加 `1×1 Conv` 可以吗？
+
+- **核心疑问**: 如果 `64→64`、高宽不变，给 shortcut 加 `1×1, stride=1` 好像也能运行，为什么标准结构不用？  
+- **底层解释**: 可以运行，但会把纯 identity `x` 改成可学习投影 `W_s x`，增加参数与计算，并失去最干净的恒等路径；如果还沿用 `stride=2`，则会让 b2 额外下采样，明显改变网络结构。因此 shortcut 能直接走 identity 时通常不加投影。  
 - **纠偏锚点**: `1×1 Conv` 是“必要时的投影工具”，不是每个 residual shortcut 的固定组件。
 
-### [工单-334] ❓ NaN、梯度爆炸/消失和余弦学习率分别是什么？
-- **核心疑问**: ResNet 讨论中顺带遇到 `NaN` 和 cosine learning rate，它们与训练稳定性有什么关系？
-- **底层解释**: `NaN` 是非法数值状态，不等同于“缺失数据”；训练中梯度爆炸可能先导致数值溢出为 `inf`，再传播成 `NaN`，而梯度消失通常表现为梯度趋近 0、学习停滞，不会直接产生 NaN。Cosine Annealing 则让学习率按余弦曲线平滑下降：
-  $$
-  \eta_t=\eta_{min}+\frac12(\eta_{max}-\eta_{min})(1+\cos(\pi t/T)).
-  $$
-- **纠偏锚点**: 梯度爆炸 = 太大；梯度消失 = 太小；NaN = 非法数值；余弦退火 = 学习率调度策略。
+### \[工单-334\] ❓ NaN、梯度爆炸/消失和余弦学习率分别是什么？
+
+- **核心疑问**: ResNet 讨论中顺带遇到 `NaN` 和 cosine learning rate，它们与训练稳定性有什么关系？  
+- **底层解释**: `NaN` 是非法数值状态，不等同于“缺失数据”；训练中梯度爆炸可能先导致数值溢出为 `inf`，再传播成 `NaN`，而梯度消失通常表现为梯度趋近 0、学习停滞，不会直接产生 NaN。Cosine Annealing 则让学习率按余弦曲线平滑下降： ${}$ \\eta\_t=\\eta\_{min}+\\frac12(\\eta\_{max}-\\eta\_{min})(1+\\cos(\\pi t/T)). ${}$  
+- **纠偏锚点**: 梯度爆炸 \= 太大；梯度消失 \= 太小；NaN \= 非法数值；余弦退火 \= 学习率调度策略。
 
 ### ResNet 阶段小结
-7.6 核心学习目标已完成。当前已能从 Shape 和代码两条线理解 Basic Residual Block：主分支学习 `F(x)`，shortcut 尽量保持 identity，只有 Shape 不一致时才用 `1×1 Conv` 投影；下采样通常由 stage 首个 Residual 的第一层卷积与 shortcut 同步完成。已多轮手搓 `Residual`，理解 `resnet_block()` 如何生成 stage、为何 b2 特殊、为何 b3~b5 首块负责换挡，并能读懂 `b1~b5 → GAP → Linear` 的整体结构。本轮不再要求重复手搓或额外实跑，ResNet 章节到此收尾；下一阶段转入电动车购买预测比赛实践。
+
+7.6 核心学习目标已完成。当前已能从 Shape 和代码两条线理解 Basic Residual Block：主分支学习 `F(x)`，shortcut 尽量保持 identity，只有 Shape 不一致时才用 `1×1 Conv` 投影；下采样通常由 stage 首个 Residual 的第一层卷积与 shortcut 同步完成。已多轮手搓 `Residual`，理解 `resnet_block()` 如何生成 stage、为何 b2 特殊、为何 b3\~b5 首块负责换挡，并能读懂 `b1~b5 → GAP → Linear` 的整体结构。本轮不再要求重复手搓或额外实跑，ResNet 章节到此收尾；下一阶段转入电动车购买预测比赛实践。
 
 ## 📖 8.1 序列模型
 
-### [工单-335] ❓ 序列联合概率为什么能写成自回归链式分解？
-- **核心疑问**: `p(x)=p(x_1)p(x_2|x_1)...p(x_T|x_1,...,x_{T-1})` 表达的是什么？
-- **底层解释**: 这是概率链式法则：序列整体出现的概率可以拆成“第一个位置出现的概率”与“在此前所有历史已知时，当前位置出现的条件概率”的连乘。语言模型中的 next-token prediction 正是学习 `p(x_t|x_{<t})`。
+### \[工单-335\] ❓ 序列联合概率为什么能写成自回归链式分解？
+
+- **核心疑问**: `p(x)=p(x_1)p(x_2|x_1)...p(x_T|x_1,...,x_{T-1})` 表达的是什么？  
+- **底层解释**: 这是概率链式法则：序列整体出现的概率可以拆成“第一个位置出现的概率”与“在此前所有历史已知时，当前位置出现的条件概率”的连乘。语言模型中的 next-token prediction 正是学习 `p(x_t|x_{<t})`。  
 - **纠偏锚点**: 这里不是把多个独立事件概率机械相乘；每一项都是建立在已有历史条件上的条件概率。
 
-### [工单-336] ❓ 马尔可夫假设与完整历史依赖是什么关系？
-- **核心疑问**: 为什么可以把 `p(x_t|x_1,...,x_{t-1})` 近似成只看最近 `τ` 个历史点？
-- **底层解释**: 马尔可夫假设用有限历史窗口近似完整历史：`p(x_t|x_1,...,x_{t-1}) ≈ p(x_t|x_{t-τ},...,x_{t-1})`。它让输入长度固定、建模更简单，但代价是窗口之外的远期信息被直接忽略。`τ=1` 对应只看上一个状态；更大的 `τ` 则保留更长的局部历史。
+### \[工单-336\] ❓ 马尔可夫假设与完整历史依赖是什么关系？
+
+- **核心疑问**: 为什么可以把 `p(x_t|x_1,...,x_{t-1})` 近似成只看最近 `τ` 个历史点？  
+- **底层解释**: 马尔可夫假设用有限历史窗口近似完整历史：`p(x_t|x_1,...,x_{t-1}) ≈ p(x_t|x_{t-τ},...,x_{t-1})`。它让输入长度固定、建模更简单，但代价是窗口之外的远期信息被直接忽略。`τ=1` 对应只看上一个状态；更大的 `τ` 则保留更长的局部历史。  
 - **纠偏锚点**: 马尔可夫假设不是概率链式法则本身，而是为了可计算性额外加入的有限记忆近似。
 
-### [工单-337] ❓ 潜变量 `h_t` 在序列模型里表示什么？
-- **核心疑问**: 方案 B 为什么引入 `h_t=f(x_1,...,x_{t-1})`，它和方案 A 的固定窗口有什么区别？
-- **底层解释**: `h_t` 用一个内部表示汇总过去信息，再通过 `p(x_t|h_t)` 预测当前值。与“直接丢掉窗口之外历史”的马尔可夫方案不同，潜变量方案试图把更长历史压缩进状态。RNN 后续会把这种思想实现成递推更新：`h_t=f(h_{t-1},x_t)`。
+### \[工单-337\] ❓ 潜变量 `h_t` 在序列模型里表示什么？
+
+- **核心疑问**: 方案 B 为什么引入 `h_t=f(x_1,...,x_{t-1})`，它和方案 A 的固定窗口有什么区别？  
+- **底层解释**: `h_t` 用一个内部表示汇总过去信息，再通过 `p(x_t|h_t)` 预测当前值。与“直接丢掉窗口之外历史”的马尔可夫方案不同，潜变量方案试图把更长历史压缩进状态。RNN 后续会把这种思想实现成递推更新：`h_t=f(h_{t-1},x_t)`。  
 - **纠偏锚点**: `h_t` 不是标签，也不是直接观测的数据点；它是模型内部用于承载历史信息的表示。
 
-### [工单-338] ❓ 为什么 `features = torch.zeros((T-tau, tau))` 的 Shape 是 `(T-τ, τ)`？
-- **核心疑问**: 长度为 `T` 的序列，用过去 `τ` 个点预测下一个点时，为什么只能产生 `T-τ` 个样本？
-- **底层解释**: 每个样本需要“连续 `τ` 个输入 + 紧随其后的 1 个标签”。以 `T=10, τ=4` 为例，可构造 `[x0,x1,x2,x3]→x4` 一直到 `[x5,x6,x7,x8]→x9`，共 6 个样本；再向右移动就需要不存在的 `x10`。因此样本数为 `T-τ=6`，每个样本长度为 `τ=4`，得到 `(6,4)`。
+### \[工单-338\] ❓ 为什么 `features = torch.zeros((T-tau, tau))` 的 Shape 是 `(T-τ, τ)`？
+
+- **核心疑问**: 长度为 `T` 的序列，用过去 `τ` 个点预测下一个点时，为什么只能产生 `T-τ` 个样本？  
+- **底层解释**: 每个样本需要“连续 `τ` 个输入 \+ 紧随其后的 1 个标签”。以 `T=10, τ=4` 为例，可构造 `[x0,x1,x2,x3]→x4` 一直到 `[x5,x6,x7,x8]→x9`，共 6 个样本；再向右移动就需要不存在的 `x10`。因此样本数为 `T-τ=6`，每个样本长度为 `τ=4`，得到 `(6,4)`。  
 - **纠偏锚点**: 不是“最后 `τ` 个数据不能使用”；真正的限制是最后一个输入窗口后面必须还存在可作为标签的下一个值。
 
-### [工单-339] ❓ `features[:, i] = x[i:T-tau+i]` 如何拼出滑动窗口？
-- **核心疑问**: 为什么循环按列填充，最后却得到一行一个连续历史窗口？
-- **底层解释**: 对 `i=0...τ-1`，`features[:,i]` 取第 `i` 列，而 `x[i:T-τ+i]` 每次取长度固定为 `T-τ`、起点右移 1 的序列切片。以 `T=10, τ=4` 为例，四列分别填入 `x0:x5`、`x1:x6`、`x2:x7`、`x3:x8`，组合后每一行自然形成 `[x_t,...,x_{t+3}]` 的连续窗口。
+### \[工单-339\] ❓ `features[:, i] = x[i:T-tau+i]` 如何拼出滑动窗口？
+
+- **核心疑问**: 为什么循环按列填充，最后却得到一行一个连续历史窗口？  
+- **底层解释**: 对 `i=0...τ-1`，`features[:,i]` 取第 `i` 列，而 `x[i:T-τ+i]` 每次取长度固定为 `T-τ`、起点右移 1 的序列切片。以 `T=10, τ=4` 为例，四列分别填入 `x0:x5`、`x1:x6`、`x2:x7`、`x3:x8`，组合后每一行自然形成 `[x_t,...,x_{t+3}]` 的连续窗口。  
 - **纠偏锚点**: 这段代码本质是在“按列错位填充”，结果等价于沿原序列滑动一个长度为 `τ` 的窗口。
 
-### [工单-340] ❓ 为什么 `labels = x[tau:].reshape((-1, 1))` 正好与 features 对齐？
-- **核心疑问**: `x[tau:]` 为什么就是每个窗口对应的预测目标？
-- **底层解释**: 第一行输入 `[x0,...,x_{τ-1}]` 的目标是 `x_τ`，第二行输入 `[x1,...,x_τ]` 的目标是 `x_{τ+1}`，依此类推，因此标签序列正好从 `x_τ` 开始直到 `x_{T-1}`。`reshape((-1,1))` 只是把一维 `(T-τ,)` 标签变成二维列向量 `(T-τ,1)`，便于与回归模型输出 Shape 对齐。
+### \[工单-340\] ❓ 为什么 `labels = x[tau:].reshape((-1, 1))` 正好与 features 对齐？
+
+- **核心疑问**: `x[tau:]` 为什么就是每个窗口对应的预测目标？  
+- **底层解释**: 第一行输入 `[x0,...,x_{τ-1}]` 的目标是 `x_τ`，第二行输入 `[x1,...,x_τ]` 的目标是 `x_{τ+1}`，依此类推，因此标签序列正好从 `x_τ` 开始直到 `x_{T-1}`。`reshape((-1,1))` 只是把一维 `(T-τ,)` 标签变成二维列向量 `(T-τ,1)`，便于与回归模型输出 Shape 对齐。  
 - **纠偏锚点**: `features` 与 `labels` 的第 `i` 行始终是一一对应的“过去 `τ` 个值 → 下一个值”。
 
 ### 序列模型阶段小结
+
 8.1 核心学习目标已完成：从联合概率的自回归分解出发，区分了完整历史依赖、马尔可夫有限窗口与潜变量历史压缩三种视角；能够解释固定窗口 `τ` 的监督学习样本如何由一维时间序列生成，并能独立推导 `features.shape=(T-τ,τ)` 与 `labels.shape=(T-τ,1)`。已转入 8.2 文本预处理。
 
 ## 📖 8.2 文本预处理
 
-### [工单-341] ❓ `read_time_machine()` 在文本预处理链路中做了什么？
-- **核心疑问**: 原始 `.txt` 文件如何变成后续可分词的 Python 字符串列表？
-- **底层解释**: `d2l.download()` 得到本地文件路径，`open(...,'r')` 以只读方式打开，`readlines()` 按行读取；随后对每一行执行 `re.sub('[^A-Za-z]+',' ',line).strip().lower()`，把连续非英文字母替换为空格、去除首尾空白并统一为小写。
+### \[工单-341\] ❓ `read_time_machine()` 在文本预处理链路中做了什么？
+
+- **核心疑问**: 原始 `.txt` 文件如何变成后续可分词的 Python 字符串列表？  
+- **底层解释**: `d2l.download()` 得到本地文件路径，`open(...,'r')` 以只读方式打开，`readlines()` 按行读取；随后对每一行执行 `re.sub('[^A-Za-z]+',' ',line).strip().lower()`，把连续非英文字母替换为空格、去除首尾空白并统一为小写。  
 - **纠偏锚点**: 这一阶段是“清洗文本”，还没有把字符串切成 token。
 
-### [工单-342] ❓ `tokenize(lines, 'word')` 与 `tokenize(lines, 'char')` 有什么区别？
-- **核心疑问**: 为什么同一个文本可以按单词切，也可以按字符切？
-- **底层解释**: `'word'` 分支使用 `line.split()`，如 `"the time" → ['the','time']`；`'char'` 分支使用 `list(line)`，如 `"time" → ['t','i','m','e']`，其中空格本身也会成为字符 token。二者只是在定义不同的基本建模单位。
+### \[工单-342\] ❓ `tokenize(lines, 'word')` 与 `tokenize(lines, 'char')` 有什么区别？
+
+- **核心疑问**: 为什么同一个文本可以按单词切，也可以按字符切？  
+- **底层解释**: `'word'` 分支使用 `line.split()`，如 `"the time" → ['the','time']`；`'char'` 分支使用 `list(line)`，如 `"time" → ['t','i','m','e']`，其中空格本身也会成为字符 token。二者只是在定义不同的基本建模单位。  
 - **纠偏锚点**: Tokenization 解决的是“文本怎么切”，数据清洗解决的是“文本是否规整”，两者属于连续但不同的步骤。
 
-### [工单-343] ❓ Vocabulary 为什么必须把 token 映射成整数 ID？
-- **核心疑问**: 分词后已经得到字符串列表，为什么还不能直接送进神经网络？
-- **底层解释**: 神经网络只能对数值张量执行矩阵运算，因此必须建立 `token → integer id` 的离散编码，例如 `the→1, time→19`。这些 ID 只是编号，本身没有大小或语义距离意义；后续还会通过 Embedding 等机制映射为连续向量表示。
+### \[工单-343\] ❓ Vocabulary 为什么必须把 token 映射成整数 ID？
+
+- **核心疑问**: 分词后已经得到字符串列表，为什么还不能直接送进神经网络？  
+- **底层解释**: 神经网络只能对数值张量执行矩阵运算，因此必须建立 `token → integer id` 的离散编码，例如 `the→1, time→19`。这些 ID 只是编号，本身没有大小或语义距离意义；后续还会通过 Embedding 等机制映射为连续向量表示。  
 - **纠偏锚点**: `50 > 19` 不代表 token 50 的语义“更大”；ID 只是索引。
 
-### [工单-344] ❓ `token_to_idx` 与 `idx_to_token` 为什么一个用 dict、一个用 list？
-- **核心疑问**: 它们是不是两个相反的字典？
-- **底层解释**: 二者确实承担反向映射，但类型不同：`token_to_idx` 用字典完成 `token→id` 查询；`idx_to_token` 用列表完成 `id→token` 查询，因为 ID 是从 0 开始的连续整数，直接用列表下标即可 O(1) 访问。
+### \[工单-344\] ❓ `token_to_idx` 与 `idx_to_token` 为什么一个用 dict、一个用 list？
+
+- **核心疑问**: 它们是不是两个相反的字典？  
+- **底层解释**: 二者确实承担反向映射，但类型不同：`token_to_idx` 用字典完成 `token→id` 查询；`idx_to_token` 用列表完成 `id→token` 查询，因为 ID 是从 0 开始的连续整数，直接用列表下标即可 O(1) 访问。  
 - **纠偏锚点**: 更准确的说法是“两个方向相反的映射”，而不是“两个相反的字典”。
 
-### [工单-345] ❓ `self.token_to_idx[token] = len(self.idx_to_token) - 1` 为什么能建立 ID？
-- **核心疑问**: 为什么刚 append 一个 token 后，用“列表长度减 1”就是它的索引？
-- **底层解释**: 每次先执行 `self.idx_to_token.append(token)`，新 token 一定被追加到列表末尾；Python 索引从 0 开始，因此长度为 `n` 的列表最后一个元素索引为 `n-1`。再把这个索引写入 `token_to_idx[token]`，即可同步建立双向映射。
+### \[工单-345\] ❓ `self.token_to_idx[token] = len(self.idx_to_token) - 1` 为什么能建立 ID？
+
+- **核心疑问**: 为什么刚 append 一个 token 后，用“列表长度减 1”就是它的索引？  
+- **底层解释**: 每次先执行 `self.idx_to_token.append(token)`，新 token 一定被追加到列表末尾；Python 索引从 0 开始，因此长度为 `n` 的列表最后一个元素索引为 `n-1`。再把这个索引写入 `token_to_idx[token]`，即可同步建立双向映射。  
 - **纠偏锚点**: `len(...)-1` 取的是“刚刚追加到末尾的元素索引”。
 
-### [工单-346] ❓ `__getitem__()`、`to_tokens()` 与 `<unk>` 如何完成双向查询？
-- **核心疑问**: `vocab['time']` 为什么可以直接返回整数，未知 token 又如何处理？
-- **底层解释**: `__getitem__` 让 `vocab[...]` 语法可用：单个 token 通过 `self.token_to_idx.get(tokens, self.unk)` 查询，找不到时回退到 `<unk>` 的索引 0；传入 list/tuple 时递归逐个转换。`to_tokens()` 则从 `idx_to_token` 反向完成 `id→token`。
+### \[工单-346\] ❓ `__getitem__()`、`to_tokens()` 与 `<unk>` 如何完成双向查询？
+
+- **核心疑问**: `vocab['time']` 为什么可以直接返回整数，未知 token 又如何处理？  
+- **底层解释**: `__getitem__` 让 `vocab[...]` 语法可用：单个 token 通过 `self.token_to_idx.get(tokens, self.unk)` 查询，找不到时回退到 `<unk>` 的索引 0；传入 list/tuple 时递归逐个转换。`to_tokens()` 则从 `idx_to_token` 反向完成 `id→token`。  
 - **纠偏锚点**: `<unk>` 是词表外 token 的兜底索引，不是普通语义词。
 
-### [工单-347] ❓ `Counter`、`counter.items()`、`lambda x: x[1]` 和 `reverse=True` 是怎么配合的？
-- **核心疑问**: `sorted(counter.items(), key=lambda x: x[1], reverse=True)` 各部分分别负责什么？
-- **底层解释**: `Counter(tokens)` 统计 `token→频率`；`counter.items()` 产生 `(token,freq)` 元组；`key=lambda x:x[1]` 告诉 `sorted()` 对每个元组取第二项词频作为排序依据；`reverse=True` 决定按频率从大到小排序。
+### \[工单-347\] ❓ `Counter`、`counter.items()`、`lambda x: x[1]` 和 `reverse=True` 是怎么配合的？
+
+- **核心疑问**: `sorted(counter.items(), key=lambda x: x[1], reverse=True)` 各部分分别负责什么？  
+- **底层解释**: `Counter(tokens)` 统计 `token→频率`；`counter.items()` 产生 `(token,freq)` 元组；`key=lambda x:x[1]` 告诉 `sorted()` 对每个元组取第二项词频作为排序依据；`reverse=True` 决定按频率从大到小排序。  
 - **纠偏锚点**: 可记为“`items()` 排谁、`key` 按谁排、`reverse` 往哪个方向排”。
 
-### [工单-348] ❓ `lambda x: x[1]` 里的 `x` 到底是什么？
-- **核心疑问**: `x` 是隐函数变量还是有特殊含义的对象？
-- **底层解释**: `lambda` 是 Python 匿名函数。这里 `x` 只是形参，每次接收 `counter.items()` 中的一个 `(token,freq)` 元组，例如 `('the',3)`；`x[1]` 就取出频率 `3`。写成 `lambda item: item[1]` 完全等价。
+### \[工单-348\] ❓ `lambda x: x[1]` 里的 `x` 到底是什么？
+
+- **核心疑问**: `x` 是隐函数变量还是有特殊含义的对象？  
+- **底层解释**: `lambda` 是 Python 匿名函数。这里 `x` 只是形参，每次接收 `counter.items()` 中的一个 `(token,freq)` 元组，例如 `('the',3)`；`x[1]` 就取出频率 `3`。写成 `lambda item: item[1]` 完全等价。  
 - **纠偏锚点**: `lambda x:x[1]` 等价于 `def f(x): return x[1]`，不是数学里的隐函数。
 
-### [工单-349] ❓ `load_corpus_time_machine()` 为什么最终选择字符级 `char`？
-- **核心疑问**: 前面示例默认 `word`，为什么真正构造训练语料时改成 `char`？
-- **底层解释**: 前面的 `word` 主要用于演示分词直觉；后续字符级语言模型选择 `char` 是为了教学简化。字符级词表约为 `26字母 + 空格 + <unk> = 28`，词表很小、未知词问题少，但序列更长；词级则序列更短、词表更大。
+### \[工单-349\] ❓ `load_corpus_time_machine()` 为什么最终选择字符级 `char`？
+
+- **核心疑问**: 前面示例默认 `word`，为什么真正构造训练语料时改成 `char`？  
+- **底层解释**: 前面的 `word` 主要用于演示分词直觉；后续字符级语言模型选择 `char` 是为了教学简化。字符级词表约为 `26字母 + 空格 + <unk> = 28`，词表很小、未知词问题少，但序列更长；词级则序列更短、词表更大。  
 - **纠偏锚点**: `word` 与 `char` 没有绝对优劣，二者是在词表规模与序列长度之间做不同权衡。
 
-### [工单-350] ❓ `corpus = [vocab[token] for line in tokens for token in line]` 做了哪两件事？
-- **核心疑问**: 为什么一行列表推导式能把整本书变成一维数字序列？
-- **底层解释**: 两层 `for` 先遍历每一行、再遍历行内每个 token，相当于把二维 token 列表 flatten；同时每个 token 经 `vocab[token]` 映射成整数 ID，因此最终得到一维 `corpus`。例如 `[['t','h','e'],['i']] → [id_t,id_h,id_e,id_i]`。
-- **纠偏锚点**: 这里同时完成“二维拍平 + token→ID 编码”。
+### \[工单-350\] ❓ `corpus = [vocab[token] for line in tokens for token in line]` 做了哪两件事？
 
-### [工单-351] ❓ 极简词表代码中的 `enumerate(counter.items())` 与 corpus 编码怎么理解？
-- **核心疑问**: `token_to_idx = {token:i for i,(token,freq) in enumerate(counter.items())}` 在做什么？
-- **底层解释**: `counter.items()` 给出 `(token,freq)`，`enumerate(...)` 再给每一项附上连续编号 `i`，于是字典推导式建立 `token→id`；随后 `[token_to_idx[token] for token in tokens]` 按该映射把原 token 序列转换为整数序列。这个极简版本用于理解流程，不包含 `<unk>`、`min_freq`、频率排序等完整 Vocab 逻辑。
+- **核心疑问**: 为什么一行列表推导式能把整本书变成一维数字序列？  
+- **底层解释**: 两层 `for` 先遍历每一行、再遍历行内每个 token，相当于把二维 token 列表 flatten；同时每个 token 经 `vocab[token]` 映射成整数 ID，因此最终得到一维 `corpus`。例如 `[['t','h','e'],['i']] → [id_t,id_h,id_e,id_i]`。  
+- **纠偏锚点**: 这里同时完成“二维拍平 \+ token→ID 编码”。
+
+### \[工单-351\] ❓ 极简词表代码中的 `enumerate(counter.items())` 与 corpus 编码怎么理解？
+
+- **核心疑问**: `token_to_idx = {token:i for i,(token,freq) in enumerate(counter.items())}` 在做什么？  
+- **底层解释**: `counter.items()` 给出 `(token,freq)`，`enumerate(...)` 再给每一项附上连续编号 `i`，于是字典推导式建立 `token→id`；随后 `[token_to_idx[token] for token in tokens]` 按该映射把原 token 序列转换为整数序列。这个极简版本用于理解流程，不包含 `<unk>`、`min_freq`、频率排序等完整 Vocab 逻辑。  
 - **纠偏锚点**: 第一行是在“建立编号规则”，第二行是在“按规则编码整段文本”。
 
 ### 文本预处理阶段小结
+
 8.2 核心学习目标已完成。当前已能从原始文本文件出发，解释并手动追踪 `读取/清洗 → word/char tokenization → 词频统计 → Vocabulary → token↔ID → corpus` 的完整数据流；能够读懂 `Counter/items/sorted/lambda/enumerate` 等关键 Python 写法，并理解字符级与词级 tokenization 的工程权衡。D2L 这一节的具体 `Vocab` 工具类以“会读、会解释”为主，无需像 ResNet 一样反复整段手搓；后续进入语言模型/RNN 主线时继续复用这些概念。
 
 ## 📖 8.3 语言模型
 
-### [工单-352] ❓ 基于计数的语言模型如何估计 `p(x,x')`？
-- **核心疑问**: `n(x)=100`、`n(x,x')=60` 分别代表什么，为什么能得到条件概率？
-- **底层解释**: `n(x)` 是 token `x` 在语料中的总出现次数；`n(x,x')` 是“`x` 后面紧跟 `x'`”这个连续二元组的出现次数。因此 `p(x)≈n(x)/n`，`p(x'|x)≈n(x,x')/n(x)`，再由链式法则得到 `p(x,x')=p(x)p(x'|x)`。例如 `deep` 出现 100 次，其中 60 次后面紧跟 `learning`，则经验条件概率约为 `0.6`。
+### \[工单-352\] ❓ 基于计数的语言模型如何估计 `p(x,x')`？
+
+- **核心疑问**: `n(x)=100`、`n(x,x')=60` 分别代表什么，为什么能得到条件概率？  
+- **底层解释**: `n(x)` 是 token `x` 在语料中的总出现次数；`n(x,x')` 是“`x` 后面紧跟 `x'`”这个连续二元组的出现次数。因此 `p(x)≈n(x)/n`，`p(x'|x)≈n(x,x')/n(x)`，再由链式法则得到 `p(x,x')=p(x)p(x'|x)`。例如 `deep` 出现 100 次，其中 60 次后面紧跟 `learning`，则经验条件概率约为 `0.6`。  
 - **纠偏锚点**: “两个词连续出现 60 次”不是两个词各出现 60 次，而是整个二元组合出现 60 次。
 
-### [工单-353] ❓ `zip(corpus[:-1], corpus[1:])` 为什么能生成 bigram？
-- **核心疑问**: 为什么把同一个序列切成两份再 `zip()` 就得到连续词对？
-- **底层解释**: `corpus[:-1]` 去掉最后一个 token，`corpus[1:]` 去掉第一个 token，两者长度相同且相差一个位置；逐位置 `zip` 后自然得到 `(x_0,x_1),(x_1,x_2),...`。例如 `['the','time','machine']` 会生成 `('the','time')`、`('time','machine')`。
+### \[工单-353\] ❓ `zip(corpus[:-1], corpus[1:])` 为什么能生成 bigram？
+
+- **核心疑问**: 为什么把同一个序列切成两份再 `zip()` 就得到连续词对？  
+- **底层解释**: `corpus[:-1]` 去掉最后一个 token，`corpus[1:]` 去掉第一个 token，两者长度相同且相差一个位置；逐位置 `zip` 后自然得到 `(x_0,x_1),(x_1,x_2),...`。例如 `['the','time','machine']` 会生成 `('the','time')`、`('time','machine')`。  
 - **纠偏锚点**: N-gram 的核心操作是“对同一序列做位置错位，再把对应位置组合起来”；不是把 corpus 本身随机打乱。
 
-### [工单-354] ❓ 随机序列采样整体在做什么？
-- **核心疑问**: `seq_data_iter_random` 为什么要先切子序列、再打乱起点、再组成 batch？
-- **底层解释**: 目标是把一条很长的一维 token ID 序列拆成许多长度固定为 `num_steps` 的训练样本，并随机决定这些样本进入 mini-batch 的顺序。每条子序列内部仍保持原始顺序，随后用相同起点 `j` 构造 `X=data(j)`，用 `j+1` 构造 `Y=data(j+1)`。
+### \[工单-354\] ❓ 随机序列采样整体在做什么？
+
+- **核心疑问**: `seq_data_iter_random` 为什么要先切子序列、再打乱起点、再组成 batch？  
+- **底层解释**: 目标是把一条很长的一维 token ID 序列拆成许多长度固定为 `num_steps` 的训练样本，并随机决定这些样本进入 mini-batch 的顺序。每条子序列内部仍保持原始顺序，随后用相同起点 `j` 构造 `X=data(j)`，用 `j+1` 构造 `Y=data(j+1)`。  
 - **纠偏锚点**: 随机的是“子序列的抽取顺序”，不是 token 在子序列内部的先后顺序。
 
-### [工单-355] ❓ 为什么 `num_subseqs=(len(corpus)-1)//num_steps` 要先减 1？
-- **核心疑问**: corpus 明明有 `len(corpus)` 个 token，为什么只用 `len(corpus)-1` 来计算完整输入子序列？
-- **底层解释**: 语言模型的标签 `Y` 要比输入 `X` 整体右移一位。最后一个输入位置还需要“下一个 token”作为标签，因此必须预留 1 个位置。整除 `// num_steps` 再保证只统计长度完整的子序列。
+### \[工单-355\] ❓ 为什么 `num_subseqs=(len(corpus)-1)//num_steps` 要先减 1？
+
+- **核心疑问**: corpus 明明有 `len(corpus)` 个 token，为什么只用 `len(corpus)-1` 来计算完整输入子序列？  
+- **底层解释**: 语言模型的标签 `Y` 要比输入 `X` 整体右移一位。最后一个输入位置还需要“下一个 token”作为标签，因此必须预留 1 个位置。整除 `// num_steps` 再保证只统计长度完整的子序列。  
 - **纠偏锚点**: `-1` 不是无故丢数据，而是给最后一位的 next-token 标签留位置。
 
-### [工单-356] ❓ 为什么生成起点时用 `num_subseqs * num_steps`，不能直接用 `len(corpus)-1`？
-- **核心疑问**: 已经知道可用长度是 `len(corpus)-1`，为什么还要绕回“子序列数 × 每段长度”？
-- **底层解释**: 当 `(len(corpus)-1)` 不能被 `num_steps` 整除时，尾部会剩下不足一整段的 token。`num_subseqs*num_steps` 得到的是所有“完整子序列”真正覆盖的长度，从而 `range(..., step=num_steps)` 只产生合法起点；直接用 `len(corpus)-1` 可能额外生成一个只能截出残缺序列的尾部起点。
+### \[工单-356\] ❓ 为什么生成起点时用 `num_subseqs * num_steps`，不能直接用 `len(corpus)-1`？
+
+- **核心疑问**: 已经知道可用长度是 `len(corpus)-1`，为什么还要绕回“子序列数 × 每段长度”？  
+- **底层解释**: 当 `(len(corpus)-1)` 不能被 `num_steps` 整除时，尾部会剩下不足一整段的 token。`num_subseqs*num_steps` 得到的是所有“完整子序列”真正覆盖的长度，从而 `range(..., step=num_steps)` 只产生合法起点；直接用 `len(corpus)-1` 可能额外生成一个只能截出残缺序列的尾部起点。  
 - **纠偏锚点**: `num_subseqs` 是完整段数，`num_subseqs*num_steps` 是完整段总覆盖长度。
 
-### [工单-357] ❓ `random.shuffle(initial_indices)` 为什么只打乱索引也能打乱子序列？
-- **核心疑问**: `initial_indices` 只是数字索引，打乱它为什么等于随机采样数据？
-- **底层解释**: 每个索引都代表一个子序列的起点，例如 `8 → corpus[8:8+num_steps]`。打乱起点列表会改变这些完整子序列进入 batch 的顺序，但不会修改 corpus 本身，也不会改变任一子序列内部 token 的先后关系。
+### \[工单-357\] ❓ `random.shuffle(initial_indices)` 为什么只打乱索引也能打乱子序列？
+
+- **核心疑问**: `initial_indices` 只是数字索引，打乱它为什么等于随机采样数据？  
+- **底层解释**: 每个索引都代表一个子序列的起点，例如 `8 → corpus[8:8+num_steps]`。打乱起点列表会改变这些完整子序列进入 batch 的顺序，但不会修改 corpus 本身，也不会改变任一子序列内部 token 的先后关系。  
 - **纠偏锚点**: 打乱“样本顺序”可以，打乱“样本内部时间顺序”不可以。
 
-### [工单-358] ❓ `num_steps`、`num_subseqs`、`batch_size`、`num_batches` 的关系是什么？
-- **核心疑问**: 这四个变量分别控制哪一层结构，哪些是人为给定、哪些是算出来的？
-- **底层解释**: `num_steps` 是每条子序列的 token 数，通常人为指定；`num_subseqs` 是 corpus 能切出的完整子序列总数，由数据长度和 `num_steps` 算出；`batch_size` 是每个 mini-batch 放几条子序列，人为指定；`num_batches=num_subseqs//batch_size` 是最终能组成的完整 batch 数。若无余数，则 `num_subseqs=num_batches*batch_size`。
+### \[工单-358\] ❓ `num_steps`、`num_subseqs`、`batch_size`、`num_batches` 的关系是什么？
+
+- **核心疑问**: 这四个变量分别控制哪一层结构，哪些是人为给定、哪些是算出来的？  
+- **底层解释**: `num_steps` 是每条子序列的 token 数，通常人为指定；`num_subseqs` 是 corpus 能切出的完整子序列总数，由数据长度和 `num_steps` 算出；`batch_size` 是每个 mini-batch 放几条子序列，人为指定；`num_batches=num_subseqs//batch_size` 是最终能组成的完整 batch 数。若无余数，则 `num_subseqs=num_batches*batch_size`。  
 - **纠偏锚点**: `batch_size` 不是 batch 的数量；它是“一批装几条”，而 `num_batches` 才是“总共几批”。
 
-### [工单-359] ❓ 为什么语言模型里的 `Y` 也是一个序列而不是单个标签？
-- **核心疑问**: 监督学习里标签常是一列标量，为什么这里 `Y.shape` 与 `X.shape` 完全相同？
-- **底层解释**: 一条长度为 `num_steps` 的输入序列会同时产生 `num_steps` 个 next-token 预测任务。若 `X=[3,4,5,6,7]`，则 `Y=[4,5,6,7,8]`，每个位置都对应一个标签：`3→4, 4→5, ...`。因此 `X,Y.shape=(batch_size,num_steps)`。
+### \[工单-359\] ❓ 为什么语言模型里的 `Y` 也是一个序列而不是单个标签？
+
+- **核心疑问**: 监督学习里标签常是一列标量，为什么这里 `Y.shape` 与 `X.shape` 完全相同？  
+- **底层解释**: 一条长度为 `num_steps` 的输入序列会同时产生 `num_steps` 个 next-token 预测任务。若 `X=[3,4,5,6,7]`，则 `Y=[4,5,6,7,8]`，每个位置都对应一个标签：`3→4, 4→5, ...`。因此 `X,Y.shape=(batch_size,num_steps)`。  
 - **纠偏锚点**: `Y` 确实是标签/target，只不过这里是“每个时间步一个标签”，所以标签本身也是二维序列张量。
 
-### [工单-360] ❓ 为什么随机采样时说“不同 mini-batch 之间是独立的”？
-- **核心疑问**: batch 中的子序列明明都来自同一个 corpus，为什么还说各批次独立？
-- **底层解释**: 这里的“独立”是工程语义：由于子序列起点被 `random.shuffle()` 打乱，`batch_{k+1}` 不保证在原始 corpus 中紧接 `batch_k`。因此后续 RNN 若维护隐藏状态，不能默认把上一批末尾的状态直接当成下一批的历史。它并不是在声明这些样本满足概率论上的统计独立。
+### \[工单-360\] ❓ 为什么随机采样时说“不同 mini-batch 之间是独立的”？
+
+- **核心疑问**: batch 中的子序列明明都来自同一个 corpus，为什么还说各批次独立？  
+- **底层解释**: 这里的“独立”是工程语义：由于子序列起点被 `random.shuffle()` 打乱，`batch_{k+1}` 不保证在原始 corpus 中紧接 `batch_k`。因此后续 RNN 若维护隐藏状态，不能默认把上一批末尾的状态直接当成下一批的历史。它并不是在声明这些样本满足概率论上的统计独立。  
 - **纠偏锚点**: 子序列内部连续；随机采样后的 mini-batch 之间没有固定的时间连续关系。
 
-### [工单-361] ❓ `SeqDataLoader` 为什么要保存函数对象并实现 `__iter__()`？
-- **核心疑问**: `self.data_iter_fn = d2l.seq_data_iter_random` 后面为什么不加 `()`，`__iter__()` 又起什么作用？
-- **底层解释**: 不加括号表示把“函数本身”保存为对象属性，依据 `use_random_iter` 选择随机采样或顺序采样策略；等真正迭代时，`__iter__()` 再调用这个函数，并传入 `corpus / batch_size / num_steps`。因此外部可以直接写 `for X,Y in data_iter`，无需重复拼装采样函数参数。
-- **纠偏锚点**: `SeqDataLoader` 主要是工程封装层；当前阶段理解“选采样策略 + 保存参数 + 迭代时产出 `(X,Y)`”即可，不必背类代码。
+### \[工单-361\] ❓ `SeqDataLoader` 为什么要保存函数对象并实现 `__iter__()`？
 
-### [工单-362] ❓ 顺序分区是不是只要把随机采样里的 `shuffle` 删除？
-- **核心疑问**: 不执行 `random.shuffle(initial_indices)` 后，子序列已经按原始顺序排列，为什么还需要另一套实现？
-- **底层解释**: 仅删除 `shuffle` 仍然是“先切成很多长度为 `num_steps` 的小段，再按 `batch_size` 分组”。当 `batch_size>1` 时，上一批第 1 行的下一段可能被放到上一批第 2 行，导致相邻 mini-batch 的同一行并不连续。顺序分区必须先把长 corpus reshape 成 `batch_size` 条并行长链，再沿列方向按 `num_steps` 连续切片。
+- **核心疑问**: `self.data_iter_fn = d2l.seq_data_iter_random` 后面为什么不加 `()`，`__iter__()` 又起什么作用？  
+- **底层解释**: 不加括号表示把“函数本身”保存为对象属性，依据 `use_random_iter` 选择随机采样或顺序采样策略；等真正迭代时，`__iter__()` 再调用这个函数，并传入 `corpus / batch_size / num_steps`。因此外部可以直接写 `for X,Y in data_iter`，无需重复拼装采样函数参数。  
+- **纠偏锚点**: `SeqDataLoader` 主要是工程封装层；当前阶段理解“选采样策略 \+ 保存参数 \+ 迭代时产出 `(X,Y)`”即可，不必背类代码。
+
+### \[工单-362\] ❓ 顺序分区是不是只要把随机采样里的 `shuffle` 删除？
+
+- **核心疑问**: 不执行 `random.shuffle(initial_indices)` 后，子序列已经按原始顺序排列，为什么还需要另一套实现？  
+- **底层解释**: 仅删除 `shuffle` 仍然是“先切成很多长度为 `num_steps` 的小段，再按 `batch_size` 分组”。当 `batch_size>1` 时，上一批第 1 行的下一段可能被放到上一批第 2 行，导致相邻 mini-batch 的同一行并不连续。顺序分区必须先把长 corpus reshape 成 `batch_size` 条并行长链，再沿列方向按 `num_steps` 连续切片。  
 - **纠偏锚点**: 顺序分区的关键不是“不打乱”，而是“同一 batch 行跨相邻 mini-batch 保持时间连续”。
 
-### [工单-363] ❓ 顺序分区为什么也可以从随机偏移量开始？
-- **核心疑问**: 起点既然也是随机的，为什么仍然叫“顺序”分区？
-- **底层解释**: “顺序”约束的是选定起点之后的读取方式，而不是要求起点固定为 0。随机偏移能改变每轮切分边界、增加覆盖性；一旦 offset 选定，后续同一行必须持续沿原始 corpus 向前读取，不能再随机打乱子序列顺序。
+### \[工单-363\] ❓ 顺序分区为什么也可以从随机偏移量开始？
+
+- **核心疑问**: 起点既然也是随机的，为什么仍然叫“顺序”分区？  
+- **底层解释**: “顺序”约束的是选定起点之后的读取方式，而不是要求起点固定为 0。随机偏移能改变每轮切分边界、增加覆盖性；一旦 offset 选定，后续同一行必须持续沿原始 corpus 向前读取，不能再随机打乱子序列顺序。  
 - **纠偏锚点**: `随机起点 ≠ 随机采样`；顺序分区允许起点随机，但不允许后续时间链断裂。
 
-### [工单-364] ❓ 为什么随机采样不显式写 `len(corpus)-offset`，顺序分区却要减偏移量？
-- **核心疑问**: 两种采样都使用随机 offset，为什么长度公式写法不同？
-- **底层解释**: 随机采样先执行 `corpus = corpus[offset:]`，局部变量已经变成截短后的新序列，因此新的 `len(corpus)` 已经隐式扣除了 offset；顺序分区没有修改原 corpus，所以计算可用长度时必须显式写 `len(corpus)-offset-1`。
+### \[工单-364\] ❓ 为什么随机采样不显式写 `len(corpus)-offset`，顺序分区却要减偏移量？
+
+- **核心疑问**: 两种采样都使用随机 offset，为什么长度公式写法不同？  
+- **底层解释**: 随机采样先执行 `corpus = corpus[offset:]`，局部变量已经变成截短后的新序列，因此新的 `len(corpus)` 已经隐式扣除了 offset；顺序分区没有修改原 corpus，所以计算可用长度时必须显式写 `len(corpus)-offset-1`。  
 - **纠偏锚点**: 随机采样是“先切再算长度”，顺序分区是“保留原序列、算长度时再扣 offset”。
 
-### [工单-365] ❓ 顺序分区中 token 数不能被 `batch_size` 整除怎么办？
-- **核心疑问**: `reshape(batch_size,-1)` 要求元素总数可整分，遇到余数怎么处理？
-- **底层解释**: `num_tokens=((len(corpus)-offset-1)//batch_size)*batch_size` 先整除再乘回去，把可用 token 数向下截成 `batch_size` 的整数倍。例如可用 33 个 token、`batch_size=2` 时只使用 32 个，最后 1 个丢弃，从而可以安全 reshape 为 `(2,16)`。
+### \[工单-365\] ❓ 顺序分区中 token 数不能被 `batch_size` 整除怎么办？
+
+- **核心疑问**: `reshape(batch_size,-1)` 要求元素总数可整分，遇到余数怎么处理？  
+- **底层解释**: `num_tokens=((len(corpus)-offset-1)//batch_size)*batch_size` 先整除再乘回去，把可用 token 数向下截成 `batch_size` 的整数倍。例如可用 33 个 token、`batch_size=2` 时只使用 32 个，最后 1 个丢弃，从而可以安全 reshape 为 `(2,16)`。  
 - **纠偏锚点**: `// batch_size * batch_size` 就是一个“向下取到最近 batch 整数倍”的截断器。
 
-### [工单-366] ❓ 顺序分区为什么一定要先 `reshape(batch_size,-1)` 分成多行？
-- **核心疑问**: corpus 原本是一条长序列，为什么不能直接每次从一维序列中取 `num_steps`？
-- **底层解释**: `batch_size>1` 代表模型每次要并行处理多条序列，因此必须显式构造 batch 维。reshape 后每一行是一条独立的并行时间流，列方向是时间；随后 `Xs[:, i:i+num_steps]` 才能让每个 mini-batch 同时包含 `batch_size` 条长度为 `num_steps` 的序列，并确保下一批同一行接着上一批继续。
-- **纠偏锚点**: 行 = batch 中第几条序列；列 = 时间位置。分行是在构造真正的 `batch × time` 数据结构。
+### \[工单-366\] ❓ 顺序分区为什么一定要先 `reshape(batch_size,-1)` 分成多行？
 
-### [工单-367] ❓ 随机采样与顺序分区的核心差异最终是什么？
-- **核心疑问**: 两者都有随机偏移、都生成 `(X,Y)`，到底应该抓住哪条本质区别？
-- **底层解释**: 随机采样把完整子序列作为独立样本并打乱进入 batch 的顺序，相邻 mini-batch 不保证时间连续；顺序分区先建立 `batch_size` 条长时间链，再沿时间维依次切块，所以相邻 mini-batch 的同一行在原始序列上连续。这个差异会直接影响后续 RNN 隐状态是否能跨 mini-batch 延续。
+- **核心疑问**: corpus 原本是一条长序列，为什么不能直接每次从一维序列中取 `num_steps`？  
+- **底层解释**: `batch_size>1` 代表模型每次要并行处理多条序列，因此必须显式构造 batch 维。reshape 后每一行是一条独立的并行时间流，列方向是时间；随后 `Xs[:, i:i+num_steps]` 才能让每个 mini-batch 同时包含 `batch_size` 条长度为 `num_steps` 的序列，并确保下一批同一行接着上一批继续。  
+- **纠偏锚点**: 行 \= batch 中第几条序列；列 \= 时间位置。分行是在构造真正的 `batch × time` 数据结构。
+
+### \[工单-367\] ❓ 随机采样与顺序分区的核心差异最终是什么？
+
+- **核心疑问**: 两者都有随机偏移、都生成 `(X,Y)`，到底应该抓住哪条本质区别？  
+- **底层解释**: 随机采样把完整子序列作为独立样本并打乱进入 batch 的顺序，相邻 mini-batch 不保证时间连续；顺序分区先建立 `batch_size` 条长时间链，再沿时间维依次切块，所以相邻 mini-batch 的同一行在原始序列上连续。这个差异会直接影响后续 RNN 隐状态是否能跨 mini-batch 延续。  
 - **纠偏锚点**: 随机采样强调“样本顺序随机”；顺序分区强调“时间链连续”。
 
 ### 语言模型阶段小结
-8.3「语言模型」核心内容已完成。当前已能从计数语言模型与 N-gram 出发解释 next-token 概率建模，读懂 bigram 的错位 `zip` 构造，并完整追踪长 corpus 如何转换成 `(X,Y)` mini-batch。随机采样方面，已掌握随机偏移、`num_subseqs / batch_size / num_batches`、完整子序列起点与 `shuffle`；顺序分区方面，已掌握有效 token 截断、`reshape(batch_size,-1)` 构造并行时间流、沿列方向按 `num_steps` 切 batch，以及为什么相邻 mini-batch 的同一行保持连续。`SeqDataLoader` 以理解“选择采样策略 + 保存数据参数 + 迭代时产出 `(X,Y)`”为验收标准，不要求背诵封装代码。下一步正式进入 8.4 循环神经网络（RNN），重点开始理解隐藏状态如何沿时间递归传递。
 
-### [工单-368] ❓ RNN 与 MLP 的本质区别是什么？
-- **核心疑问**: 循环神经网络相比普通 MLP 到底多了什么，为什么能处理序列历史？
-- **底层解释**: 基础 RNN 在当前时刻不仅接收 `x_t`，还接收上一时刻隐藏状态 `h_{t-1}`：`h_t = φ(W_hh h_{t-1} + W_hx x_t + b_h)`。其中 `W_hh h_{t-1}` 是时间递归通路；去掉这一项后，各时间步只根据当前输入独立计算，不再携带历史信息，结构上就退化为逐时间步应用同一个前馈映射。
+8.3「语言模型」核心内容已完成。当前已能从计数语言模型与 N-gram 出发解释 next-token 概率建模，读懂 bigram 的错位 `zip` 构造，并完整追踪长 corpus 如何转换成 `(X,Y)` mini-batch。随机采样方面，已掌握随机偏移、`num_subseqs / batch_size / num_batches`、完整子序列起点与 `shuffle`；顺序分区方面，已掌握有效 token 截断、`reshape(batch_size,-1)` 构造并行时间流、沿列方向按 `num_steps` 切 batch，以及为什么相邻 mini-batch 的同一行保持连续。`SeqDataLoader` 以理解“选择采样策略 \+ 保存数据参数 \+ 迭代时产出 `(X,Y)`”为验收标准，不要求背诵封装代码。下一步正式进入 8.4 循环神经网络（RNN），重点开始理解隐藏状态如何沿时间递归传递。
+
+### \[工单-368\] ❓ RNN 与 MLP 的本质区别是什么？
+
+- **核心疑问**: 循环神经网络相比普通 MLP 到底多了什么，为什么能处理序列历史？  
+- **底层解释**: 基础 RNN 在当前时刻不仅接收 `x_t`，还接收上一时刻隐藏状态 `h_{t-1}`：`h_t = φ(W_hh h_{t-1} + W_hx x_t + b_h)`。其中 `W_hh h_{t-1}` 是时间递归通路；去掉这一项后，各时间步只根据当前输入独立计算，不再携带历史信息，结构上就退化为逐时间步应用同一个前馈映射。  
 - **纠偏锚点**: RNN 的“记忆”不是额外保存原始序列，而是让隐藏状态沿时间不断更新并传下去。
 
-### [工单-369] ❓ `W_hx`、`W_hh` 是什么关系？它们都能训练吗？
-- **核心疑问**: `W_hx` 很像 MLP 的权重，那么 `W_hh` 是否也是可学习参数？不同时间步会不会换一套权重？
-- **底层解释**: `W_hx` 负责把当前输入映射到隐藏空间，`W_hh` 负责把上一隐藏状态映射到新的隐藏状态；二者是不同的参数矩阵，Shape 也由输入维度与隐藏维度决定。它们都参与反向传播与优化器更新，通常都从随机初始化开始。关键是时间共享：`t=1,2,3,...` 重复使用同一套 `W_hx/W_hh`，不会为每个时间步新建参数。
+### \[工单-369\] ❓ `W_hx`、`W_hh` 是什么关系？它们都能训练吗？
+
+- **核心疑问**: `W_hx` 很像 MLP 的权重，那么 `W_hh` 是否也是可学习参数？不同时间步会不会换一套权重？  
+- **底层解释**: `W_hx` 负责把当前输入映射到隐藏空间，`W_hh` 负责把上一隐藏状态映射到新的隐藏状态；二者是不同的参数矩阵，Shape 也由输入维度与隐藏维度决定。它们都参与反向传播与优化器更新，通常都从随机初始化开始。关键是时间共享：`t=1,2,3,...` 重复使用同一套 `W_hx/W_hh`，不会为每个时间步新建参数。  
 - **纠偏锚点**: `W_hx ≠ W_hh`，但所有时间步共享同一套 `W_hx` 和 `W_hh`。
 
-### [工单-370] ❓ 困惑度（perplexity）应该怎么直观理解？
-- **核心疑问**: 为什么语言模型已经有平均交叉熵，还要再取 `exp` 得到困惑度？
-- **底层解释**: 若平均交叉熵为 `π`，困惑度定义为 `exp(π)`。它把 log 空间里的损失转回更直观的“有效候选数”尺度：例如模型每步都在 10 个等概率词之间犹豫，则真实词概率约为 `1/10`，交叉熵为 `log 10`，困惑度就是 10。困惑度越低越好，1 表示模型始终把真实下一个 token 概率给到 1。
+### \[工单-370\] ❓ 困惑度（perplexity）应该怎么直观理解？
+
+- **核心疑问**: 为什么语言模型已经有平均交叉熵，还要再取 `exp` 得到困惑度？  
+- **底层解释**: 若平均交叉熵为 `π`，困惑度定义为 `exp(π)`。它把 log 空间里的损失转回更直观的“有效候选数”尺度：例如模型每步都在 10 个等概率词之间犹豫，则真实词概率约为 `1/10`，交叉熵为 `log 10`，困惑度就是 10。困惑度越低越好，1 表示模型始终把真实下一个 token 概率给到 1。  
 - **纠偏锚点**: `PPL=10` 不是说模型真的只看 10 个词，而是其平均不确定程度等价于“10 个等可能选项”。
 
-### [工单-371] ❓ 梯度裁剪为什么能抑制 RNN 的梯度爆炸？
-- **核心疑问**: `g ← min(1, θ/||g||)·g` 到底做了什么，为什么不会把正常梯度也全部破坏？
-- **底层解释**: 当 `||g||≤θ` 时缩放因子为 1，梯度保持不变；只有当 `||g||>θ` 时才整体乘 `θ/||g||`，把梯度范数压回 `θ`。这种 norm clipping 保留梯度方向，只限制更新幅度，适合拦截 RNN 时间展开后偶发的巨大梯度。
+### \[工单-371\] ❓ 梯度裁剪为什么能抑制 RNN 的梯度爆炸？
+
+- **核心疑问**: `g ← min(1, θ/||g||)·g` 到底做了什么，为什么不会把正常梯度也全部破坏？  
+- **底层解释**: 当 `||g||≤θ` 时缩放因子为 1，梯度保持不变；只有当 `||g||>θ` 时才整体乘 `θ/||g||`，把梯度范数压回 `θ`。这种 norm clipping 保留梯度方向，只限制更新幅度，适合拦截 RNN 时间展开后偶发的巨大梯度。  
 - **纠偏锚点**: 梯度裁剪主要处理“太大”的梯度，不会自动把已经很小的梯度放大，因此不能解决梯度消失。
 
-### [工单-372] ❓ 梯度裁剪有没有副作用？
-- **核心疑问**: 既然裁剪会修改真实梯度，会不会影响优化？
-- **底层解释**: 会。阈值过小时，大量正常更新也会被压到同一上限，梯度“有多强”的幅度信息被削弱，可能拖慢收敛；使用 global norm clipping 时，某一部分参数梯度异常大还会让其他参数梯度一起按比例缩小。因此合理做法是让裁剪主要拦截异常尖峰，而不是每一步都触发。
+### \[工单-372\] ❓ 梯度裁剪有没有副作用？
+
+- **核心疑问**: 既然裁剪会修改真实梯度，会不会影响优化？  
+- **底层解释**: 会。阈值过小时，大量正常更新也会被压到同一上限，梯度“有多强”的幅度信息被削弱，可能拖慢收敛；使用 global norm clipping 时，某一部分参数梯度异常大还会让其他参数梯度一起按比例缩小。因此合理做法是让裁剪主要拦截异常尖峰，而不是每一步都触发。  
 - **纠偏锚点**: 梯度裁剪是稳定性保护，不是“阈值越小越好”。
 
-### [工单-373] ❓ LayerNorm 能和梯度裁剪一起用吗？
-- **核心疑问**: 两者是不是在做同一件事，会不会重复？
-- **底层解释**: 可以一起用，而且作用互补。LayerNorm 作用在网络内部表示上，使单个样本的隐藏特征尺度更稳定；梯度裁剪作用在反向传播得到的梯度上，限制异常大的更新。前者不能保证时间链上梯度不爆炸，后者也不能替代表示归一化。
+### \[工单-373\] ❓ LayerNorm 能和梯度裁剪一起用吗？
+
+- **核心疑问**: 两者是不是在做同一件事，会不会重复？  
+- **底层解释**: 可以一起用，而且作用互补。LayerNorm 作用在网络内部表示上，使单个样本的隐藏特征尺度更稳定；梯度裁剪作用在反向传播得到的梯度上，限制异常大的更新。前者不能保证时间链上梯度不爆炸，后者也不能替代表示归一化。  
 - **纠偏锚点**: 可以粗记为“LayerNorm 稳定中间表示，gradient clipping 限制异常梯度”。
 
-### [工单-374] ❓ 循环神经网络与递归神经网络是同一个东西吗？
-- **核心疑问**: Recurrent Neural Network 和 Recursive Neural Network 中文都容易被叫成“递归/循环”，到底怎么区分？
-- **底层解释**: Recurrent NN（循环神经网络）沿序列/时间链展开，典型关系是 `h_t=f(x_t,h_{t-1})`；Recursive NN（递归神经网络）沿树结构自底向上递归组合子节点，典型关系是 `h_parent=f(h_left,h_right)`。二者都可共享参数，但数据拓扑不同。
-- **纠偏锚点**: Recurrent = 时间链；Recursive = 树。D2L 当前章节的 RNN 指 Recurrent Neural Network。
+### \[工单-374\] ❓ 循环神经网络与递归神经网络是同一个东西吗？
 
-### [工单-375] ❓ 图神经网络（GNN）和 RNN / Recursive NN 有什么关系？
-- **核心疑问**: 如果链和树都能传播信息，图神经网络又多了什么？
-- **底层解释**: GNN 面向一般图结构，节点通过邻居聚合/message passing 更新表示；链和树都可以视为图的特殊情况。RNN 强调按时间顺序传递状态，Recursive NN 强调树的父子组合，而 GNN 强调任意邻接关系上的信息传播。
+- **核心疑问**: Recurrent Neural Network 和 Recursive Neural Network 中文都容易被叫成“递归/循环”，到底怎么区分？  
+- **底层解释**: Recurrent NN（循环神经网络）沿序列/时间链展开，典型关系是 `h_t=f(x_t,h_{t-1})`；Recursive NN（递归神经网络）沿树结构自底向上递归组合子节点，典型关系是 `h_parent=f(h_left,h_right)`。二者都可共享参数，但数据拓扑不同。  
+- **纠偏锚点**: Recurrent \= 时间链；Recursive \= 树。D2L 当前章节的 RNN 指 Recurrent Neural Network。
+
+### \[工单-375\] ❓ 图神经网络（GNN）和 RNN / Recursive NN 有什么关系？
+
+- **核心疑问**: 如果链和树都能传播信息，图神经网络又多了什么？  
+- **底层解释**: GNN 面向一般图结构，节点通过邻居聚合/message passing 更新表示；链和树都可以视为图的特殊情况。RNN 强调按时间顺序传递状态，Recursive NN 强调树的父子组合，而 GNN 强调任意邻接关系上的信息传播。  
 - **纠偏锚点**: RNN 处理“顺序”，Recursive NN 处理“树层次”，GNN 处理“一般连接关系”。
 
 ### RNN 理论阶段小结
+
 8.4「循环神经网络（RNN）」理论部分已完成。当前已能从序列建模需求解释为什么需要隐藏状态，并理解 `W_hx` 与 `W_hh` 的分工、可学习性与跨时间步参数共享；能够用平均交叉熵解释困惑度，并理解梯度裁剪在长时间反向传播中的作用、局限和潜在副作用。对稳定训练方面，已明确 LayerNorm 与 gradient clipping 可以互补使用；术语上也能区分 Recurrent NN、Recursive NN 与 GNN。当前阶段先以“理论完成”记录，下一步进入 RNN 的从零代码实现，重点把隐藏状态初始化、时间步循环、输出拼接、参数注册与训练循环落到 PyTorch 代码。
 
 ## 📖 8.5 循环神经网络的从零开始实现
 
-### [工单-376] ❓ 为什么 RNN 输入要从 `(batch,time)` 转成 `(time,batch)`？
-- **核心疑问**: 原始 `X.shape=(B,T)` 已经能表示一个 batch，为什么还要先 `X.T`？
-- **底层解释**: 从零实现的 `rnn(inputs,...)` 使用 `for X in inputs` 沿第 0 维循环，因此必须把“时间”放到第 0 维。`X.T` 将 `(B,T)` 变为 `(T,B)`，再经过 `F.one_hot(..., vocab_size)` 得到 `(T,B,V)`；此后每轮循环取出的 `X_t.shape=(B,V)`，正好表示“当前时间步下整个 batch 的输入”。
+### \[工单-376\] ❓ 为什么 RNN 输入要从 `(batch,time)` 转成 `(time,batch)`？
+
+- **核心疑问**: 原始 `X.shape=(B,T)` 已经能表示一个 batch，为什么还要先 `X.T`？  
+- **底层解释**: 从零实现的 `rnn(inputs,...)` 使用 `for X in inputs` 沿第 0 维循环，因此必须把“时间”放到第 0 维。`X.T` 将 `(B,T)` 变为 `(T,B)`，再经过 `F.one_hot(..., vocab_size)` 得到 `(T,B,V)`；此后每轮循环取出的 `X_t.shape=(B,V)`，正好表示“当前时间步下整个 batch 的输入”。  
 - **纠偏锚点**: 转置不是为了改变样本内容，而是为了把遍历顺序从“按样本”改成“按时间步”。
 
-### [工单-377] ❓ `W_xh.shape=(vocab_size,num_hiddens)` 为什么必须这样设计？
-- **核心疑问**: 当前时间步的 One-Hot 输入是 `(B,V)`，为什么输入到隐藏层的权重就是 `(V,H)`？
-- **底层解释**: `W_xh` 负责把词表维度映射到隐藏维度。矩阵乘法要求 `(B,V) @ (V,H) → (B,H)`，因此第一维必须等于输入特征数 `V=vocab_size`，第二维必须等于隐藏单元数 `H=num_hiddens`。同理，`W_hh:(H,H)` 负责隐藏→隐藏，`W_hq:(H,V)` 负责隐藏→词表 logits。
+### \[工单-377\] ❓ `W_xh.shape=(vocab_size,num_hiddens)` 为什么必须这样设计？
+
+- **核心疑问**: 当前时间步的 One-Hot 输入是 `(B,V)`，为什么输入到隐藏层的权重就是 `(V,H)`？  
+- **底层解释**: `W_xh` 负责把词表维度映射到隐藏维度。矩阵乘法要求 `(B,V) @ (V,H) → (B,H)`，因此第一维必须等于输入特征数 `V=vocab_size`，第二维必须等于隐藏单元数 `H=num_hiddens`。同理，`W_hh:(H,H)` 负责隐藏→隐藏，`W_hq:(H,V)` 负责隐藏→词表 logits。  
 - **纠偏锚点**: 权重 Shape 由“输入维度 → 输出维度”决定，不是任意指定。
 
-### [工单-378] ❓ `Y = H @ W_hq + b_q` 与 `outputs.append(Y)` 分别表示什么？
-- **核心疑问**: `H` 已经是当前时间步的隐藏状态，为什么还要再算一个 `Y`，最后又为什么要拼接？
-- **底层解释**: `H.shape=(B,H)` 是历史与当前输入融合后的隐藏表示；乘 `W_hq.shape=(H,V)` 后得到 `Y.shape=(B,V)`，其中每一行是当前样本对“下一个 token 属于词表中各类别”的 raw logits。每个时间步都产生一个 `Y_t`，先用列表保存，再 `torch.cat(outputs, dim=0)` 按时间优先拼成 `(T·B,V)`，方便一次性交给交叉熵。
+### \[工单-378\] ❓ `Y = H @ W_hq + b_q` 与 `outputs.append(Y)` 分别表示什么？
+
+- **核心疑问**: `H` 已经是当前时间步的隐藏状态，为什么还要再算一个 `Y`，最后又为什么要拼接？  
+- **底层解释**: `H.shape=(B,H)` 是历史与当前输入融合后的隐藏表示；乘 `W_hq.shape=(H,V)` 后得到 `Y.shape=(B,V)`，其中每一行是当前样本对“下一个 token 属于词表中各类别”的 raw logits。每个时间步都产生一个 `Y_t`，先用列表保存，再 `torch.cat(outputs, dim=0)` 按时间优先拼成 `(T·B,V)`，方便一次性交给交叉熵。  
 - **纠偏锚点**: `Y` 是 logits，不是隐藏状态，也不是已经做过 Softmax 的概率。
 
-### [工单-379] 🐛 `H, = state` 报 `too many values to unpack (expected 1)`
-- **💻 触发代码**: `H, = state`
-- **🩸 原始报错**: `ValueError: too many values to unpack (expected 1)`
-- **🧠 底层原因**: D2L 从零 RNN 约定 `state` 是只装一个隐藏状态 Tensor 的单元素 tuple，即 `(H,)`。Python 中真正创建单元素 tuple 的关键是逗号：`(H,)` 是 tuple，而 `(H)` 只是普通括号表达式，仍然等于 `H`。若 `state` 直接是 Shape `(B,H)` 的 Tensor，`H, = state` 会尝试沿第 0 维把多行拆给一个变量，于是报错。
+### \[工单-379\] 🐛 `H, = state` 报 `too many values to unpack (expected 1)`
+
+- **💻 触发代码**: `H, = state`  
+- **🩸 原始报错**: `ValueError: too many values to unpack (expected 1)`  
+- **🧠 底层原因**: D2L 从零 RNN 约定 `state` 是只装一个隐藏状态 Tensor 的单元素 tuple，即 `(H,)`。Python 中真正创建单元素 tuple 的关键是逗号：`(H,)` 是 tuple，而 `(H)` 只是普通括号表达式，仍然等于 `H`。若 `state` 直接是 Shape `(B,H)` 的 Tensor，`H, = state` 会尝试沿第 0 维把多行拆给一个变量，于是报错。  
 - **💊 修复方案**: `return (torch.zeros((batch_size,num_hiddens), device=device),)`；打包用 `(H,)`，解包用 `H, = state`。
 
-### [工单-380] ❓ `RNNModelScratch` 这个包装类到底负责什么？
-- **核心疑问**: 已经写了 `get_params / init_rnn_state / rnn`，为什么还要再建一个类？
-- **底层解释**: `RNNModelScratch` 把“参数初始化、状态初始化、前向函数”统一封装成模型接口。`__init__` 保存 `vocab_size/num_hiddens` 并调用外部传入的 `get_params`；`__call__` 负责把输入 `(B,T)` 转成 One-Hot `(T,B,V)` 后转交 `forward_fn`；`begin_state` 统一创建隐藏状态。它本身不是新的数学模型，而是工程包装层。
+### \[工单-380\] ❓ `RNNModelScratch` 这个包装类到底负责什么？
+
+- **核心疑问**: 已经写了 `get_params / init_rnn_state / rnn`，为什么还要再建一个类？  
+- **底层解释**: `RNNModelScratch` 把“参数初始化、状态初始化、前向函数”统一封装成模型接口。`__init__` 保存 `vocab_size/num_hiddens` 并调用外部传入的 `get_params`；`__call__` 负责把输入 `(B,T)` 转成 One-Hot `(T,B,V)` 后转交 `forward_fn`；`begin_state` 统一创建隐藏状态。它本身不是新的数学模型，而是工程包装层。  
 - **纠偏锚点**: `get_params` 是自定义函数，通过参数传进类里；不是 Python/PyTorch 内置函数。
 
-### [工单-381] ❓ `predict_ch8` 为什么要把 `prefix[0]` 单独拿出来，再循环 `prefix[1:]`？
-- **核心疑问**: 已知前缀为什么不能全部一次性放进循环？第一个循环明明“不预测”，为什么还要调用 `net()`？
-- **底层解释**: `outputs` 必须先放一个起始 token，才能让 `get_input()` 有“上一个 token”可喂给 RNN；因此先写入 `prefix[0]`。随后遍历 `prefix[1:]`：每次把 `outputs[-1]` 喂进 `net()` 更新隐藏状态，再把真实的下一个前缀 token 追加到 `outputs`。这一阶段的目标是 warm-up——让隐藏状态吸收完整已知前缀，而不是使用模型自己的预测。
+### \[工单-381\] ❓ `predict_ch8` 为什么要把 `prefix[0]` 单独拿出来，再循环 `prefix[1:]`？
+
+- **核心疑问**: 已知前缀为什么不能全部一次性放进循环？第一个循环明明“不预测”，为什么还要调用 `net()`？  
+- **底层解释**: `outputs` 必须先放一个起始 token，才能让 `get_input()` 有“上一个 token”可喂给 RNN；因此先写入 `prefix[0]`。随后遍历 `prefix[1:]`：每次把 `outputs[-1]` 喂进 `net()` 更新隐藏状态，再把真实的下一个前缀 token 追加到 `outputs`。这一阶段的目标是 warm-up——让隐藏状态吸收完整已知前缀，而不是使用模型自己的预测。  
 - **纠偏锚点**: 第一个 `for` 是“用真实前缀更新 H”；第二个 `for` 才是“用模型输出继续自回归生成”。
 
-### [工单-382] ❓ `argmax` 和最后的 `''.join(...)` 在文本生成里做什么？
-- **核心疑问**: `y` 已经是网络输出，为什么还要 `argmax`，最后又为什么查 `idx_to_token`？
-- **底层解释**: `y.shape=(1,V)` 保存词表中每个 token 的预测 logit，`argmax(dim=1)` 取最高分对应的 token ID；这个 ID 被加入 `outputs`，下一步又作为输入反馈给模型。生成结束后，`[vocab.idx_to_token[i] for i in outputs]` 把所有 token ID 反查成字符/词元，`''.join(...)` 再把它们拼成最终字符串。
+### \[工单-382\] ❓ `argmax` 和最后的 `''.join(...)` 在文本生成里做什么？
+
+- **核心疑问**: `y` 已经是网络输出，为什么还要 `argmax`，最后又为什么查 `idx_to_token`？  
+- **底层解释**: `y.shape=(1,V)` 保存词表中每个 token 的预测 logit，`argmax(dim=1)` 取最高分对应的 token ID；这个 ID 被加入 `outputs`，下一步又作为输入反馈给模型。生成结束后，`[vocab.idx_to_token[i] for i in outputs]` 把所有 token ID 反查成字符/词元，`''.join(...)` 再把它们拼成最终字符串。  
 - **纠偏锚点**: `argmax` 是从“所有候选分数”里选一个 ID；`idx_to_token + join` 是把 ID 序列还原成人类可读文本。
 
-### [工单-383] ❓ 训练时为什么要 `y = Y.T.reshape(-1)`？
-- **核心疑问**: `Y.shape=(B,T)` 已经是标签，为什么还要先转置再拉平？
-- **底层解释**: 从零 RNN 的预测输出按时间步依次 `append(Y_t)`，最后 `torch.cat(...,dim=0)` 的行顺序是 `t1` 的所有 batch、`t2` 的所有 batch……因此标签必须用同样的“时间优先”顺序。`Y.T` 将 `(B,T)` 变成 `(T,B)`，`reshape(-1)` 再变成长度 `T·B` 的一维标签，和 `y_hat.shape=(T·B,V)` 一一对齐。
+### \[工单-383\] ❓ 训练时为什么要 `y = Y.T.reshape(-1)`？
+
+- **核心疑问**: `Y.shape=(B,T)` 已经是标签，为什么还要先转置再拉平？  
+- **底层解释**: 从零 RNN 的预测输出按时间步依次 `append(Y_t)`，最后 `torch.cat(...,dim=0)` 的行顺序是 `t1` 的所有 batch、`t2` 的所有 batch……因此标签必须用同样的“时间优先”顺序。`Y.T` 将 `(B,T)` 变成 `(T,B)`，`reshape(-1)` 再变成长度 `T·B` 的一维标签，和 `y_hat.shape=(T·B,V)` 一一对齐。  
 - **纠偏锚点**: 直接 `Y.reshape(-1)` 会按“样本优先”展开，与当前 `y_hat` 的行顺序错位。
 
-### [工单-384] ❓ 顺序采样和随机采样时隐藏状态为什么处理不同？
-- **核心疑问**: 为什么随机采样每个 batch 都 `begin_state()`，顺序采样却保留上一批的 state 并执行 `detach_()`？
-- **底层解释**: 随机采样后的相邻 mini-batch 在原始 corpus 中通常不连续，上一批末尾状态不能当作下一批历史，因此每批重新初始化；顺序分区中同一行跨 batch 连续，所以可以传递状态值。但若不 `detach`，autograd 会把当前 batch 的反向传播一路连到此前所有 batch，计算图越来越长、内存持续增长，因此要保留 state 数值但切断旧计算图。
+### \[工单-384\] ❓ 顺序采样和随机采样时隐藏状态为什么处理不同？
+
+- **核心疑问**: 为什么随机采样每个 batch 都 `begin_state()`，顺序采样却保留上一批的 state 并执行 `detach_()`？  
+- **底层解释**: 随机采样后的相邻 mini-batch 在原始 corpus 中通常不连续，上一批末尾状态不能当作下一批历史，因此每批重新初始化；顺序分区中同一行跨 batch 连续，所以可以传递状态值。但若不 `detach`，autograd 会把当前 batch 的反向传播一路连到此前所有 batch，计算图越来越长、内存持续增长，因此要保留 state 数值但切断旧计算图。  
 - **纠偏锚点**: `detach` 不是“忘掉历史状态”，而是“保留状态数值，停止跨 batch 追梯度”。
 
-### [工单-385] ❓ 梯度范数为什么要用两个 `sum`，又为什么要把所有参数的梯度一起算？
-- **核心疑问**: `sqrt(sum(sum(p.grad**2) for p in params))` 为什么既对每个参数张量求和，又要在参数之间继续累加？
-- **底层解释**: 一个模型的“整体梯度向量”实际上由所有参数张量的梯度元素拼接而成。内层 `torch.sum(p.grad**2)` 把当前参数张量里的所有梯度元素平方后求和；外层 Python `sum(...)` 再把 `W_xh/W_hh/b_h/W_hq/b_q...` 各张量的平方和累加；最后开平方，得到整个模型梯度向量的 global L2 norm。若超过阈值，再让所有参数梯度共同乘 `theta/norm`。
+### \[工单-385\] ❓ 梯度范数为什么要用两个 `sum`，又为什么要把所有参数的梯度一起算？
+
+- **核心疑问**: `sqrt(sum(sum(p.grad**2) for p in params))` 为什么既对每个参数张量求和，又要在参数之间继续累加？  
+- **底层解释**: 一个模型的“整体梯度向量”实际上由所有参数张量的梯度元素拼接而成。内层 `torch.sum(p.grad**2)` 把当前参数张量里的所有梯度元素平方后求和；外层 Python `sum(...)` 再把 `W_xh/W_hh/b_h/W_hq/b_q...` 各张量的平方和累加；最后开平方，得到整个模型梯度向量的 global L2 norm。若超过阈值，再让所有参数梯度共同乘 `theta/norm`。  
 - **纠偏锚点**: 两层 `sum` 对应“两层容器”：参数张量内部的元素，以及模型中的多个参数张量。
 
-### [工单-386] ❓ 为什么一个训练分支要 `zero_grad()`，另一个看起来不需要？
-- **核心疑问**: `torch.optim.Optimizer` 分支显式调用 `updater.zero_grad()`，从零实现的 `d2l.sgd` 分支为什么没有？
-- **底层解释**: PyTorch 内置优化器只在 `step()` 时更新参数，不会自动清梯度，所以训练循环必须显式 `zero_grad()`；D2L 手写 `sgd` 在更新参数后会在内部把每个 `p.grad` 清零，因此外部不再重复调用。二者只是清零动作放置位置不同。
+### \[工单-386\] ❓ 为什么一个训练分支要 `zero_grad()`，另一个看起来不需要？
+
+- **核心疑问**: `torch.optim.Optimizer` 分支显式调用 `updater.zero_grad()`，从零实现的 `d2l.sgd` 分支为什么没有？  
+- **底层解释**: PyTorch 内置优化器只在 `step()` 时更新参数，不会自动清梯度，所以训练循环必须显式 `zero_grad()`；D2L 手写 `sgd` 在更新参数后会在内部把每个 `p.grad` 清零，因此外部不再重复调用。二者只是清零动作放置位置不同。  
 - **纠偏锚点**: 不是“从零实现不需要清梯度”，而是“清梯度被封装进 updater 里面了”。
 
-### [工单-387] ❓ `train_epoch_ch8`、`train_ch8` 和 `predict_ch8` 是什么关系？
-- **核心疑问**: 为什么训练函数里没有直接调用 `predict_ch8`，最终却能打印生成文本？
-- **底层解释**: `train_epoch_ch8` 是底层训练函数，只负责一个 epoch 内遍历 batch、前向得到 `y_hat`、算 loss、反传、梯度裁剪和参数更新；`train_ch8` 是外层总调度器，循环多个 epoch，并定义 `predict = lambda prefix: predict_ch8(...)`，每隔若干 epoch 调用它查看生成效果。训练本身的“预测”是 `y_hat,state = net(X,state)`；`predict_ch8` 只是把当前模型包装成连续文本生成流程。
-- **纠偏锚点**: 训练中的预测 = `net(...)` 产生 logits；推理生成 = `predict_ch8(...)` 反复调用 `net(...)`，不反传、不更新参数。
+### \[工单-387\] ❓ `train_epoch_ch8`、`train_ch8` 和 `predict_ch8` 是什么关系？
 
-### [工单-388] 🐛 梯度裁剪中误写 `params.grad` 导致 AttributeError
-- **💻 触发代码**: `for param in params: params.grad[:] *= theta / norm`
-- **🩸 原始报错**: `AttributeError: 'list' object has no attribute 'grad'`
-- **🧠 底层原因**: `params` 是装有多个参数 Tensor 的 Python list，本身没有 `.grad`；循环变量 `param` 才是当前具体参数 Tensor。
+- **核心疑问**: 为什么训练函数里没有直接调用 `predict_ch8`，最终却能打印生成文本？  
+- **底层解释**: `train_epoch_ch8` 是底层训练函数，只负责一个 epoch 内遍历 batch、前向得到 `y_hat`、算 loss、反传、梯度裁剪和参数更新；`train_ch8` 是外层总调度器，循环多个 epoch，并定义 `predict = lambda prefix: predict_ch8(...)`，每隔若干 epoch 调用它查看生成效果。训练本身的“预测”是 `y_hat,state = net(X,state)`；`predict_ch8` 只是把当前模型包装成连续文本生成流程。  
+- **纠偏锚点**: 训练中的预测 \= `net(...)` 产生 logits；推理生成 \= `predict_ch8(...)` 反复调用 `net(...)`，不反传、不更新参数。
+
+### \[工单-388\] 🐛 梯度裁剪中误写 `params.grad` 导致 AttributeError
+
+- **💻 触发代码**: `for param in params: params.grad[:] *= theta / norm`  
+- **🩸 原始报错**: `AttributeError: 'list' object has no attribute 'grad'`  
+- **🧠 底层原因**: `params` 是装有多个参数 Tensor 的 Python list，本身没有 `.grad`；循环变量 `param` 才是当前具体参数 Tensor。  
 - **💊 修复方案**: `for param in params: param.grad[:] *= theta / norm`。
 
-### [工单-389] ❓ D2L “随机采样”示例为什么容易让结果比较产生误解？
-- **核心疑问**: 书末只把 `train_ch8(..., use_random_iter=True)` 打开就报告随机采样结果，但 `train_iter` 之前是默认创建的，这两处开关是否等价？
-- **底层解释**: `train_ch8` 里的 `use_random_iter=True` 只控制训练时“每个 batch 是否重新初始化隐藏状态”；真正决定数据迭代器使用 `seq_data_iter_random` 还是 `seq_data_iter_sequential` 的，是创建 `train_iter` 时 `load_data_time_machine(..., use_random_iter=...)` 的参数。因此要做严格的“真实随机采样”实验，应同时让数据迭代器和状态处理采用随机采样设置。D2L 书中该处示例复用了此前的 `train_iter`，容易让读者把两层开关混为一谈。
+### \[工单-389\] ❓ D2L “随机采样”示例为什么容易让结果比较产生误解？
+
+- **核心疑问**: 书末只把 `train_ch8(..., use_random_iter=True)` 打开就报告随机采样结果，但 `train_iter` 之前是默认创建的，这两处开关是否等价？  
+- **底层解释**: `train_ch8` 里的 `use_random_iter=True` 只控制训练时“每个 batch 是否重新初始化隐藏状态”；真正决定数据迭代器使用 `seq_data_iter_random` 还是 `seq_data_iter_sequential` 的，是创建 `train_iter` 时 `load_data_time_machine(..., use_random_iter=...)` 的参数。因此要做严格的“真实随机采样”实验，应同时让数据迭代器和状态处理采用随机采样设置。D2L 书中该处示例复用了此前的 `train_iter`，容易让读者把两层开关混为一谈。  
 - **纠偏锚点**: “数据怎么切”由 `train_iter` 决定；“state 怎么处理”由 `train_epoch_ch8(..., use_random_iter)` 决定。
 
-### [工单-390] ❓ 为什么反复执行同一个 `train_ch8(net,...)`，困惑度会从 4.x 一路降到 1.2？
-- **核心疑问**: 代码和 `num_epochs=500` 都没变，为什么多运行几次结果越来越低？
-- **底层解释**: `train_ch8` 会原地更新 `net.params`，但不会重新初始化 `net`。因此同一个单元格执行 3 次不是三次独立的“500 epoch 实验”，而是同一模型累计训练约 1500 epoch；每次 `Animator` 又会重新画一张 0→500 的图，视觉上很容易误以为模型从头开始。要做公平的 fresh-run 比较，必须先重新 `net = RNNModelScratch(...)`，再只训练一次。
-- **纠偏锚点**: `train_ch8(net,...)` = 继续炼当前这炉；`net = RNNModelScratch(...)` = 重新开一炉。
+### \[工单-390\] ❓ 为什么反复执行同一个 `train_ch8(net,...)`，困惑度会从 4.x 一路降到 1.2？
 
-### [工单-391] ❓ 训练困惑度接近 1，是否代表这个小 RNN 已经“语言能力很强”？
-- **核心疑问**: 继续续训后训练 PPL 已到 1.2 左右，是不是模型已经很好？
-- **底层解释**: 当前只使用约 10000 个字符的小语料，基础 RNN 连续训练很多 epoch 后可以大量记忆训练文本，因此训练 PPL 接近 1 更多说明“对这份训练语料非常熟”，不等于对新文本也有同样泛化能力。极低训练损失/困惑度需要结合验证/测试语料判断是否过拟合。
+- **核心疑问**: 代码和 `num_epochs=500` 都没变，为什么多运行几次结果越来越低？  
+- **底层解释**: `train_ch8` 会原地更新 `net.params`，但不会重新初始化 `net`。因此同一个单元格执行 3 次不是三次独立的“500 epoch 实验”，而是同一模型累计训练约 1500 epoch；每次 `Animator` 又会重新画一张 0→500 的图，视觉上很容易误以为模型从头开始。要做公平的 fresh-run 比较，必须先重新 `net = RNNModelScratch(...)`，再只训练一次。  
+- **纠偏锚点**: `train_ch8(net,...)` \= 继续炼当前这炉；`net = RNNModelScratch(...)` \= 重新开一炉。
+
+### \[工单-391\] ❓ 训练困惑度接近 1，是否代表这个小 RNN 已经“语言能力很强”？
+
+- **核心疑问**: 继续续训后训练 PPL 已到 1.2 左右，是不是模型已经很好？  
+- **底层解释**: 当前只使用约 10000 个字符的小语料，基础 RNN 连续训练很多 epoch 后可以大量记忆训练文本，因此训练 PPL 接近 1 更多说明“对这份训练语料非常熟”，不等于对新文本也有同样泛化能力。极低训练损失/困惑度需要结合验证/测试语料判断是否过拟合。  
 - **纠偏锚点**: “训练集几乎背下来”与“真正学会语言分布”不是同一件事。
 
-### [工单-392] ❓ `nn.GRU` 在这段训练代码中为什么被单独提到？
-- **核心疑问**: `state` 处理分支的注释里出现 `nn.GRU`，它和当前从零 RNN 有什么关系？
-- **底层解释**: `nn.GRU` 是 PyTorch 已封装的门控循环单元（Gated Recurrent Unit），属于基础 RNN 的改进版本，内部用门控机制控制信息保留与更新。它仍只维护一个隐藏状态 Tensor；而 `nn.LSTM` 会维护两个状态。当前章节不要求展开 GRU 公式，只需理解训练函数为了兼容不同循环网络实现，才会对 `state` 的数据结构做不同判断。
+### \[工单-392\] ❓ `nn.GRU` 在这段训练代码中为什么被单独提到？
+
+- **核心疑问**: `state` 处理分支的注释里出现 `nn.GRU`，它和当前从零 RNN 有什么关系？  
+- **底层解释**: `nn.GRU` 是 PyTorch 已封装的门控循环单元（Gated Recurrent Unit），属于基础 RNN 的改进版本，内部用门控机制控制信息保留与更新。它仍只维护一个隐藏状态 Tensor；而 `nn.LSTM` 会维护两个状态。当前章节不要求展开 GRU 公式，只需理解训练函数为了兼容不同循环网络实现，才会对 `state` 的数据结构做不同判断。  
 - **纠偏锚点**: 当前 8.5 的主线仍是基础 RNN；`nn.GRU` 这里只是兼容性注释，不是本节新增必学模型。
 
 ### RNN 从零实现阶段小结
+
 8.5「循环神经网络的从零开始实现」已完成。当前已经能够从 `X(B,T)` 出发，完整追踪 `X.T → One-Hot(T,B,V) → 逐时间步 X_t(B,V) → H_t(B,H) → logits Y_t(B,V) → cat(T·B,V)` 的 Shape 链；能够解释 `W_xh/W_hh/W_hq` 的维度来源与时间共享，理解 `(H,)` 状态 tuple 的打包/解包，以及 `RNNModelScratch` 对参数、状态和前向函数的工程封装。文本生成方面，已理解 prefix warm-up、隐藏状态累积、argmax 自回归和 token ID→字符还原；训练方面，已理解 `Y.T.reshape(-1)` 的时间优先对齐、顺序/随机采样下 state 的不同处理、`detach`、全局梯度范数与 gradient clipping、内置优化器与手写 SGD 的梯度清零差异，以及 `train_epoch_ch8 / train_ch8 / predict_ch8` 的函数层级。实跑过程中完成了 `params.grad → param.grad` 等 Bug 排查，并识别出 Notebook 中重复执行 `train_ch8` 会续训同一个模型、导致训练 PPL 持续下降乃至记忆小语料的现象。下一步进入 8.6「循环神经网络的简洁实现」，重点对照 PyTorch 高级 API 与当前从零实现的接口和 Shape。
 
 ## 📖 8.6 循环神经网络的简洁实现
 
-### [工单-393] ❓ `nn.RNN` 是否自动创建并初始化 `W_xh / W_hh`？
-- **核心疑问**: 从零实现需要 `get_params()` 和 `torch.randn(...)*0.01`，换成 `nn.RNN(V,H)` 后参数从哪里来？
-- **底层解释**: `nn.RNN` 是带参数的标准 `nn.Module`，构造时会创建输入→隐藏、隐藏→隐藏的权重以及相应偏置；单层单向 RNN 的 `weight_ih_l0.shape=(H,V)`、`weight_hh_l0.shape=(H,H)`，权重和偏置默认采用与 `H` 相关的均匀分布初始化。PyTorch 内部权重存储方向与此前手写的 `(V,H)` 不同，但实现的映射相同。参数自动注册到 `parameters()`，无需手写 `get_params`。
+### \[工单-393\] ❓ `nn.RNN` 是否自动创建并初始化 `W_xh / W_hh`？
+
+- **核心疑问**: 从零实现需要 `get_params()` 和 `torch.randn(...)*0.01`，换成 `nn.RNN(V,H)` 后参数从哪里来？  
+- **底层解释**: `nn.RNN` 是带参数的标准 `nn.Module`，构造时会创建输入→隐藏、隐藏→隐藏的权重以及相应偏置；单层单向 RNN 的 `weight_ih_l0.shape=(H,V)`、`weight_hh_l0.shape=(H,H)`，权重和偏置默认采用与 `H` 相关的均匀分布初始化。PyTorch 内部权重存储方向与此前手写的 `(V,H)` 不同，但实现的映射相同。参数自动注册到 `parameters()`，无需手写 `get_params`。  
 - **纠偏锚点**: API 省掉的是创建/初始化/循环的样板代码，而不是取消了可学习的 `W_xh/W_hh`。
 
-### [工单-394] ❓ `nn.RNN` 返回 `(output,h_n)`，为什么两者 Shape 不同？
-- **核心疑问**: `Y=(T,B,H)` 是“三层网络的最终预测分数”吗？为什么 `h_n=(L,B,H)`？
-- **底层解释**: `output` 是最后一层 RNN 在**每个时间步**输出的隐藏特征；`h_n` 是每层 RNN 在序列末端的最终隐藏状态。单向多层：`output:(T,B,H)`，`h_n:(L,B,H)`；双向：`output:(T,B,2H)`，`h_n:(2L,B,H)`。如 `T=5,B=2,H=256,L=3`，输出为 `(5,2,256)` 与 `(3,2,256)`；单向时 `output[-1]` 对应最后一层的最终隐藏状态。
+### \[工单-394\] ❓ `nn.RNN` 返回 `(output,h_n)`，为什么两者 Shape 不同？
+
+- **核心疑问**: `Y=(T,B,H)` 是“三层网络的最终预测分数”吗？为什么 `h_n=(L,B,H)`？  
+- **底层解释**: `output` 是最后一层 RNN 在**每个时间步**输出的隐藏特征；`h_n` 是每层 RNN 在序列末端的最终隐藏状态。单向多层：`output:(T,B,H)`，`h_n:(L,B,H)`；双向：`output:(T,B,2H)`，`h_n:(2L,B,H)`。如 `T=5,B=2,H=256,L=3`，输出为 `(5,2,256)` 与 `(3,2,256)`；单向时 `output[-1]` 对应最后一层的最终隐藏状态。  
 - **纠偏锚点**: `output` 是隐藏表示，不是下一字符的 logits；双向增加的是方向数量，`h_n` 的每个方向单独保存 `H` 维。
 
-### [工单-395] ❓ `(H,)` 能否直接用 `state_new` 替代？
-- **核心疑问**: 手写 `RNNModelScratch` 返回 `(H,)`，为何 `nn.RNN` 的 `h_n` 直接是 Tensor？
-- **底层解释**: 手写单层 RNN 用 `(H,)` 作为**单元素元组**，内含 `H.shape=(B,H)`；内置 RNN 接收/返回 `h_n` Tensor，Shape 为 `(D·L,B,H)`。单层单向时 `h_n[0]` 对应手写的 `H` 数值语义，但 `(H,)` 与 `h_n` 类型、Shape 不相同，不能直接无条件在各自 forward 中替换。
+### \[工单-395\] ❓ `(H,)` 能否直接用 `state_new` 替代？
+
+- **核心疑问**: 手写 `RNNModelScratch` 返回 `(H,)`，为何 `nn.RNN` 的 `h_n` 直接是 Tensor？  
+- **底层解释**: 手写单层 RNN 用 `(H,)` 作为**单元素元组**，内含 `H.shape=(B,H)`；内置 RNN 接收/返回 `h_n` Tensor，Shape 为 `(D·L,B,H)`。单层单向时 `h_n[0]` 对应手写的 `H` 数值语义，但 `(H,)` 与 `h_n` 类型、Shape 不相同，不能直接无条件在各自 forward 中替换。  
 - **纠偏锚点**: “表示同一种隐藏状态信息”不等于“Python 容器和维度完全相同”。
 
-### [工单-396] ❓ 为什么隐藏状态还要接 `nn.Linear`，以及输出为何展平成 `(T·B,V)`？
-- **核心疑问**: RNN 已经输出第三层隐藏特征，为什么还需要一个线性层才能预测下一个字符？
-- **底层解释**: RNN 学习上下文表示，线性分类头 `nn.Linear(H,V)` 将每个时间步 `H` 维特征映射为 `V` 个类别 logits；交叉熵驱动 RNN 和分类头端到端联合训练。D2L 的前向路线是 `inputs(B,T)→One-Hot(T,B,V)→nn.RNN→Y(T,B,H)→reshape(T·B,H)→Linear→logits(T·B,V)`，与标签 `Y_label.T.reshape(-1)` 对齐。例如 `T=5,B=2,V=28`，最终 `(10,28)` 指一个 batch 有 10 个预测位置，**不是一个 epoch 总共只有 10 个样本**。
+### \[工单-396\] ❓ 为什么隐藏状态还要接 `nn.Linear`，以及输出为何展平成 `(T·B,V)`？
+
+- **核心疑问**: RNN 已经输出第三层隐藏特征，为什么还需要一个线性层才能预测下一个字符？  
+- **底层解释**: RNN 学习上下文表示，线性分类头 `nn.Linear(H,V)` 将每个时间步 `H` 维特征映射为 `V` 个类别 logits；交叉熵驱动 RNN 和分类头端到端联合训练。D2L 的前向路线是 `inputs(B,T)→One-Hot(T,B,V)→nn.RNN→Y(T,B,H)→reshape(T·B,H)→Linear→logits(T·B,V)`，与标签 `Y_label.T.reshape(-1)` 对齐。例如 `T=5,B=2,V=28`，最终 `(10,28)` 指一个 batch 有 10 个预测位置，**不是一个 epoch 总共只有 10 个样本**。  
 - **纠偏锚点**: `nn.RNN` 没有自带词表分类头；`W_hq` 若完全冻结为随机值，输出映射可能不佳，但隐藏信息本身并没有直接消失。
 
-### [工单-397] ❓ 双向/多层 RNN 的 `begin_state()` 如何构造？
-- **核心疑问**: `nn.RNN(28,256,num_layers=3,bidirectional=True)` 的初始状态是不是 `(2,32,256)`？
-- **底层解释**: `state.shape=(num_directions*num_layers,batch_size,num_hiddens)`。3 层双向有 `2×3=6` 组状态，所以 `B=32` 时为 `(6,32,256)`；双向最后一层 `output` 的通道维为 `2×256=512`。当前普通 RNN 的初始状态可用 `torch.zeros((D*L,B,H),device=device)`；LSTM 多一个细胞状态，留待后续章节。
+### \[工单-397\] ❓ 双向/多层 RNN 的 `begin_state()` 如何构造？
+
+- **核心疑问**: `nn.RNN(28,256,num_layers=3,bidirectional=True)` 的初始状态是不是 `(2,32,256)`？  
+- **底层解释**: `state.shape=(num_directions*num_layers,batch_size,num_hiddens)`。3 层双向有 `2×3=6` 组状态，所以 `B=32` 时为 `(6,32,256)`；双向最后一层 `output` 的通道维为 `2×256=512`。当前普通 RNN 的初始状态可用 `torch.zeros((D*L,B,H),device=device)`；LSTM 多一个细胞状态，留待后续章节。  
 - **纠偏锚点**: 最前一维不是只有方向数，还需要乘网络层数。
 
-### [工单-398] ❓ 为什么从零实现不调用 `.to(device)`，简洁实现却需要？
-- **核心疑问**: 手写 `RNNModelScratch(..., d2l.try_gpu(),get_params,...)` 与 `net=net.to(device)` 到底差在哪？
-- **底层解释**: 从零构造时 `device` 经构造函数传给 `get_params()`，其中 `torch.randn(...,device=device)` 让参数直接创建在 GPU 上；标准 `nn.Module` 的 `nn.RNN` 和 `nn.Linear` 如不显式指定 device，参数默认建在 CPU，调用 `net.to(device)` 会把所有注册的子层/参数一起迁移。也可以在支持的构造函数中直接指定 `device`。
+### \[工单-398\] ❓ 为什么从零实现不调用 `.to(device)`，简洁实现却需要？
+
+- **核心疑问**: 手写 `RNNModelScratch(..., d2l.try_gpu(),get_params,...)` 与 `net=net.to(device)` 到底差在哪？  
+- **底层解释**: 从零构造时 `device` 经构造函数传给 `get_params()`，其中 `torch.randn(...,device=device)` 让参数直接创建在 GPU 上；标准 `nn.Module` 的 `nn.RNN` 和 `nn.Linear` 如不显式指定 device，参数默认建在 CPU，调用 `net.to(device)` 会把所有注册的子层/参数一起迁移。也可以在支持的构造函数中直接指定 `device`。  
 - **纠偏锚点**: 二者目标相同，差别在“参数创建时放到 GPU”还是“创建之后迁移”。
 
-### [工单-399] ❓ 如何复用 `train_ch8`，以及训练耗时为何不等于 Token/s 的反比？
-- **核心疑问**: 简洁实现吞吐量曾显示约 44.5 万 Token/s、手写版约 5.8 万 Token/s，为何两个 500-epoch 单元格都执行约 15 秒？
-- **底层解释**: 训练函数通过 `isinstance(net,nn.Module)` 为简洁版使用 `torch.optim.SGD(net.parameters(),lr)`，前向/损失/反传和状态截断逻辑可以复用；本次实跑使用 `d2l.train_ch8()`。其中输出的 Token/s 来自**最后一次 epoch 内部计时**，而 VS Code 单元格时长含 500 次训练循环外的绘图、每 10 epoch 文本生成、Notebook 输出等，统计口径不一致。此外实际 GPU 计算还需同步才能精确计时，所以不能把一次报告的 Token/s 当作整段训练的平均吞吐。
+### \[工单-399\] ❓ 如何复用 `train_ch8`，以及训练耗时为何不等于 Token/s 的反比？
+
+- **核心疑问**: 简洁实现吞吐量曾显示约 44.5 万 Token/s、手写版约 5.8 万 Token/s，为何两个 500-epoch 单元格都执行约 15 秒？  
+- **底层解释**: 训练函数通过 `isinstance(net,nn.Module)` 为简洁版使用 `torch.optim.SGD(net.parameters(),lr)`，前向/损失/反传和状态截断逻辑可以复用；本次实跑使用 `d2l.train_ch8()`。其中输出的 Token/s 来自**最后一次 epoch 内部计时**，而 VS Code 单元格时长含 500 次训练循环外的绘图、每 10 epoch 文本生成、Notebook 输出等，统计口径不一致。此外实际 GPU 计算还需同步才能精确计时，所以不能把一次报告的 Token/s 当作整段训练的平均吞吐。  
 - **纠偏锚点**: 比性能要控制模型大小/数据/初始化与计时边界，不能仅凭一条单 epoch 速度结论宣称整体快 9 倍。
 
-### [工单-400] ❓ 为什么同为 500 epoch，简洁实现能更快把 10000 字符语料拟合到低 PPL？
-- **核心疑问**: 手写版 `H=512` 第一次 500 epoch 约 PPL=5.1，累计 1000 epoch 到 1.3；简洁版 `H=256` 一次 500 epoch 达 1.3，`H=512` 一次 500 epoch 报告 1.0，是否说明 `nn.RNN` 学习能力必然更强？
-- **底层解释**: 这是本次**具体实测**，不等于内置 RNN 算法天生更容易收敛。两种实现的初始化分布、hidden size、随机轨迹以及实现细节不同，条件尚未严格控制。`H` 从 256 变 512 时，仅 `W_hh` 参数量从 `256²=65536` 增至 `512²=262144`（4 倍），模型容量与计算开销同时增加。本次简洁版 512 的单次运行约 25.6s，慢于 256 的约 15.6s；PPL 报告 `1.0` 只保留一位小数，不代表数学上恰好等于 1。
+### \[工单-400\] ❓ 为什么同为 500 epoch，简洁实现能更快把 10000 字符语料拟合到低 PPL？
+
+- **核心疑问**: 手写版 `H=512` 第一次 500 epoch 约 PPL=5.1，累计 1000 epoch 到 1.3；简洁版 `H=256` 一次 500 epoch 达 1.3，`H=512` 一次 500 epoch 报告 1.0，是否说明 `nn.RNN` 学习能力必然更强？  
+- **底层解释**: 这是本次**具体实测**，不等于内置 RNN 算法天生更容易收敛。两种实现的初始化分布、hidden size、随机轨迹以及实现细节不同，条件尚未严格控制。`H` 从 256 变 512 时，仅 `W_hh` 参数量从 `256²=65536` 增至 `512²=262144`（4 倍），模型容量与计算开销同时增加。本次简洁版 512 的单次运行约 25.6s，慢于 256 的约 15.6s；PPL 报告 `1.0` 只保留一位小数，不代表数学上恰好等于 1。  
 - **纠偏锚点**: “大模型在小训练集上记忆更充分”≠“对未见文本生成更好”；不同代码/初始化的收敛速度需要公平实验才可归因。
 
-### [工单-401] ❓ 如何训练 D2L《时光机器》完整预处理语料，PPL=6.2 是猜中率 1/6.2 吗？
-- **核心疑问**: 之前只加载前 10000 字符，现在想让 RNN 看完整文本，该怎么改；全文训练得到 PPL=6.2 如何解释？
-- **底层解释**: 调用 `d2l.load_data_time_machine(batch_size=32,num_steps=35,max_tokens=-1)`，本次 `len(train_iter.corpus)=170580`、`len(vocab)=28`。`H=512, lr=1` 在该语料上训练 20 epoch（fresh net）得到 PPL≈6.2、运行约 15.6s；另一次重新初始化后训练 100 epoch 得到 PPL≈4.1、约 75s。困惑度是 `exp(平均交叉熵)`，即真实 token 概率的几何平均的倒数；`PPL=6.2` 对应几何平均真值概率约 `1/6.2`，但**不是“每 6.2 个字符预测对 1 个”的准确率**。
+### \[工单-401\] ❓ 如何训练 D2L《时光机器》完整预处理语料，PPL=6.2 是猜中率 1/6.2 吗？
+
+- **核心疑问**: 之前只加载前 10000 字符，现在想让 RNN 看完整文本，该怎么改；全文训练得到 PPL=6.2 如何解释？  
+- **底层解释**: 调用 `d2l.load_data_time_machine(batch_size=32,num_steps=35,max_tokens=-1)`，本次 `len(train_iter.corpus)=170580`、`len(vocab)=28`。`H=512, lr=1` 在该语料上训练 20 epoch（fresh net）得到 PPL≈6.2、运行约 15.6s；另一次重新初始化后训练 100 epoch 得到 PPL≈4.1、约 75s。困惑度是 `exp(平均交叉熵)`，即真实 token 概率的几何平均的倒数；`PPL=6.2` 对应几何平均真值概率约 `1/6.2`，但**不是“每 6.2 个字符预测对 1 个”的准确率**。  
 - **纠偏锚点**: “训练全文”指 D2L 预处理后的完整《时光机器》文本文件，而不是《动手学深度学习》整本教材；数据更大、模式更多，训练 PPL 不宜与 10000 字符实验直接比较。
 
-### [工单-402] 🐛 继续训练时困惑度从约 4 突然飙升至约 12
-- **💻 触发代码**: 先执行 `rnn_layer=nn.RNN(len(vocab),512)`，但把 `# net=RNNModel(rnn_layer,...)` 与 `# net=net.to(device)` 注释，再执行 `d2l.train_ch8(net,train_iter,vocab,lr,num_epochs,device)`。
-- **🩸 原始现象**: 该次训练曲线起点 PPL≈4，随后逐渐升高，在本轮约 80 epoch 附近达到约 12，并生成明显重复、退化的字符文本。
-- **🧠 底层原因（已确认/待验证）**: 创建新 `rnn_layer` 不会自动替换旧 `net.rnn`；重新构建 `net` 的两行被注释，所以这次并非重新初始化整个模型，而是在先前训练的 `net` 上继续更新。PPL 上升反映这段训练不稳定；`lr=1` 的较大 SGD 步长是合理的怀疑因素，但**不能只凭曲线断言发生了梯度爆炸**。即使使用梯度裁剪也不保证 loss 单调下降。
+### \[工单-402\] 🐛 继续训练时困惑度从约 4 突然飙升至约 12
+
+- **💻 触发代码**: 先执行 `rnn_layer=nn.RNN(len(vocab),512)`，但把 `# net=RNNModel(rnn_layer,...)` 与 `# net=net.to(device)` 注释，再执行 `d2l.train_ch8(net,train_iter,vocab,lr,num_epochs,device)`。  
+- **🩸 原始现象**: 该次训练曲线起点 PPL≈4，随后逐渐升高，在本轮约 80 epoch 附近达到约 12，并生成明显重复、退化的字符文本。  
+- **🧠 底层原因（已确认/待验证）**: 创建新 `rnn_layer` 不会自动替换旧 `net.rnn`；重新构建 `net` 的两行被注释，所以这次并非重新初始化整个模型，而是在先前训练的 `net` 上继续更新。PPL 上升反映这段训练不稳定；`lr=1` 的较大 SGD 步长是合理的怀疑因素，但**不能只凭曲线断言发生了梯度爆炸**。即使使用梯度裁剪也不保证 loss 单调下降。  
 - **💊 修复方案 / 阶段决定**: 如以后做正式训练，建议保存低 PPL checkpoint，考虑减小/调度学习率并记录训练与验证 PPL；本轮仅用于理解 RNN API 与学习流程，按用户决定不继续调参，直接转入 8.7。
 
-### [工单-403] ❓ 能否用 CNN 的卷积分类头替换 RNN 的 `nn.Linear`，以及时序与像素是否一一对应？
-- **核心疑问**: `nn.Linear(H,V)` 可否改成 `Conv1d(H,V,kernel_size=1)`？把 `Conv2d` 与 RNN 组合时是不是一个时间步对应一个像素？
-- **底层解释**: `kernel_size=1` 的 `Conv1d` 在时间轴每个位置独立对 `H` 个通道做仿射映射，可通过 `(T,B,H)↔(B,H,T)` 的维度置换实现与逐时间步 Linear 等价的分类头。更宽的时序卷积核能融合邻近时间步的特征，但自回归预测要用因果卷积避免未来信息泄漏。时间步代表何种对象取决于数据：字符任务是一个 token，视频任务可以是一整帧图像经 `Conv2d` 提出的特征向量，并由 RNN 负责帧间运动变化；不天然等于一个像素。
+### \[工单-403\] ❓ 能否用 CNN 的卷积分类头替换 RNN 的 `nn.Linear`，以及时序与像素是否一一对应？
+
+- **核心疑问**: `nn.Linear(H,V)` 可否改成 `Conv1d(H,V,kernel_size=1)`？把 `Conv2d` 与 RNN 组合时是不是一个时间步对应一个像素？  
+- **底层解释**: `kernel_size=1` 的 `Conv1d` 在时间轴每个位置独立对 `H` 个通道做仿射映射，可通过 `(T,B,H)↔(B,H,T)` 的维度置换实现与逐时间步 Linear 等价的分类头。更宽的时序卷积核能融合邻近时间步的特征，但自回归预测要用因果卷积避免未来信息泄漏。时间步代表何种对象取决于数据：字符任务是一个 token，视频任务可以是一整帧图像经 `Conv2d` 提出的特征向量，并由 RNN 负责帧间运动变化；不天然等于一个像素。  
 - **纠偏锚点**: `Conv2d` 抓二维空间特征，RNN 抓时间序列变化；是否“每步一个像素”是输入组织选择，不是混合模型必然规则。
 
 ### RNN 简洁实现阶段小结
-8.6「循环神经网络的简洁实现」**已完成**。掌握 `nn.RNN` 的自动参数/初始化、`output` 与 `h_n` 的维度区别、隐藏状态与 logits 不同、`nn.Linear` 分类头、`RNNModel` 封装、`begin_state()` 的层数×方向数、多层/双向 RNN 的状态设计、以及 `.to(device)` 与从零参数创建的设备区别；能直接复用 `d2l.train_ch8`。实验覆盖 10000 字符小语料（256/512 hidden）与 170580 字符的 D2L 完整《时光机器》语料，理解训练 PPL、Token/s 和整轮耗时的口径区别，以及训练困惑度很低不等于泛化能力更好。续训时遇到 PPL 上升，已区分“新建孤立的 rnn_layer”与“重新创建 net”，对学习率不稳定保留待验证判断。按照当前学习优先级停止超参数试验，下一步进入 8.7「通过时间反向传播」，重点是展开时间计算图、BPTT、截断与 `detach` 的理论关系。
+
+8.6「循环神经网络的简洁实现」**已完成**。掌握 `nn.RNN` 的自动参数/初始化、`output` 与 `h_n` 的维度区别、隐藏状态与 logits 不同、`nn.Linear` 分类头、`RNNModel` 封装、`begin_state()` 的层数×方向数、多层/双向 RNN 的状态设计、以及 `.to(device)` 与从零参数创建的设备区别；能直接复用 `d2l.train_ch8`。实验覆盖 10000 字符小语料（256/512 hidden）与 170580 字符的 D2L 完整《时光机器》语料，理解训练 PPL、Token/s 和整轮耗时的口径区别，以及训练困惑度很低不等于泛化能力更好。续训时遇到 PPL 上升，已区分“新建孤立的 rnn\_layer”与“重新创建 net”，对学习率不稳定保留待验证判断。按照当前学习优先级停止超参数试验，下一步进入 8.7「通过时间反向传播」，重点是展开时间计算图、BPTT、截断与 `detach` 的理论关系。
 
 ## 📖 8.7 通过时间反向传播（BPTT）
 
 > **阶段定位**：这是对 8.4–8.6 中梯度消失/爆炸、`state.detach()` 以及隐藏状态传播机制的数学解释。本轮以理论、5 个时间步计算图、递推推导和理解检查为主，没有另外进行正式训练。记号采用列向量、`L=Σ_t ℓ_t`（若按教材平均损失 `L=(1/T)Σ_t ℓ_t`，则局部损失项应带 `1/T`）。
 
-### [工单-404] ❓ BPTT 与普通 MLP 的反向传播有什么相同与不同？
-- **核心疑问**：RNN 是不是本质上像一个非常深的 MLP，只不过以隐藏状态为单位？
-- **底层解释**：两者都基于计算图与链式法则。MLP 通常沿**网络层深度**传递特征/梯度，不同层各自有独立权重；RNN 则以**时间步**重复执行隐藏状态更新，每一步接受新输入 `x_t` 和上一步的 `h_{t-1}`。沿时间展开后呈现为很深的前馈计算图，但各时间步的循环权重是同一套共享参数。一个时间步通常拥有一个隐藏**向量**而非单个神经元（例：`num_hiddens=512` 对单个样本有 512 维状态）。
-- **纠偏锚点**：MLP 侧重“跨层变换”，RNN 侧重“跨时间更新”；BPTT = 将时间展开后做反向传播，不是全新的求导规则。
+### \[工单-404\] ❓ BPTT 与普通 MLP 的反向传播有什么相同与不同？
 
-### [工单-405] ❓ 100 个时间步与 3 层 RNN 会分别怎样影响参数量？
-- **核心疑问**：多层 RNN 的 `W` 是否独立？模型参数数量是不是由时间步数决定？
-- **底层解释**：**时间步共享、不同层独立**。单层 RNN 不论 `num_steps=3` 还是 `100`，循环中都重复使用相同的 `W_xh、W_hh`，因此时间步增加不会新增可学习参数；多层 RNN 的每一层则有自己的 `W_xh^(l)、W_hh^(l)`，所以增加 `num_layers` 会增加参数。用 PyTorch 的默认双偏置 RNN 验证：`nn.RNN(28,256,num_layers=1)` 参数数为 **73,216**；`num_layers=3` 时为 **336,384**。时间步增长会增加计算次数、可能增加训练内存和反向传播深度。
+- **核心疑问**：RNN 是不是本质上像一个非常深的 MLP，只不过以隐藏状态为单位？  
+- **底层解释**：两者都基于计算图与链式法则。MLP 通常沿**网络层深度**传递特征/梯度，不同层各自有独立权重；RNN 则以**时间步**重复执行隐藏状态更新，每一步接受新输入 `x_t` 和上一步的 `h_{t-1}`。沿时间展开后呈现为很深的前馈计算图，但各时间步的循环权重是同一套共享参数。一个时间步通常拥有一个隐藏**向量**而非单个神经元（例：`num_hiddens=512` 对单个样本有 512 维状态）。  
+- **纠偏锚点**：MLP 侧重“跨层变换”，RNN 侧重“跨时间更新”；BPTT \= 将时间展开后做反向传播，不是全新的求导规则。
+
+### \[工单-405\] ❓ 100 个时间步与 3 层 RNN 会分别怎样影响参数量？
+
+- **核心疑问**：多层 RNN 的 `W` 是否独立？模型参数数量是不是由时间步数决定？  
+- **底层解释**：**时间步共享、不同层独立**。单层 RNN 不论 `num_steps=3` 还是 `100`，循环中都重复使用相同的 `W_xh、W_hh`，因此时间步增加不会新增可学习参数；多层 RNN 的每一层则有自己的 `W_xh^(l)、W_hh^(l)`，所以增加 `num_layers` 会增加参数。用 PyTorch 的默认双偏置 RNN 验证：`nn.RNN(28,256,num_layers=1)` 参数数为 **73,216**；`num_layers=3` 时为 **336,384**。时间步增长会增加计算次数、可能增加训练内存和反向传播深度。  
 - **纠偏锚点**：`num_steps` 控制时间展开长度；`num_layers` 控制堆叠层数。不是“时间步越多，W 越多”。
 
-### [工单-406] ❓ 共享参数的梯度如何累加，时间步越多梯度一定越大吗？
-- **核心疑问**：同一层 `W_hh` 在 100 个时间步重复参与运算，每个时间步的梯度如何处理？
-- **底层解释**：每次复用同一权重都产生到该参数的反传路径，Autograd 会把相关梯度贡献**累加到同一个 `W_hh.grad`**。但不同时间步的梯度向量可以方向相反、相互抵消；还会受到每条路径的雅可比矩阵乘积影响。因此，更多时间步不保证参数梯度范数一定增大，也不保证训练损失一定更低。
-- **纠偏锚点**：共享参数 = 多条梯度路径汇总到同一个参数，而不是每个时间步生成独立的一套 `W_hh`。
+### \[工单-406\] ❓ 共享参数的梯度如何累加，时间步越多梯度一定越大吗？
 
-### [工单-407] ❓ 为什么第 3 个时间步的损失会影响第 1 个时间步？
-- **核心疑问**：前向过程是 `h_1→h_2→h_3`，为什么 `ℓ_3` 还能影响较早时刻的参数？
-- **底层解释**：`h_t=f(x_t,h_{t-1},W)` 造成了沿时间的计算依赖，`ℓ_3→h_3→h_2→h_1` 是合法的反向路径。计算某个时间步对共享权重的影响时，必须考虑两条途径：当前权重直接参与 `h_t` 的计算，以及通过较早的 `h_{t-1}` 间接影响 `h_t`。因此有（符号表示）`∂h_t/∂W=∂f_t/∂W+(∂f_t/∂h_{t-1})(∂h_{t-1}/∂W)`，这正是教材 8.7.1 的递归结构。
+- **核心疑问**：同一层 `W_hh` 在 100 个时间步重复参与运算，每个时间步的梯度如何处理？  
+- **底层解释**：每次复用同一权重都产生到该参数的反传路径，Autograd 会把相关梯度贡献**累加到同一个 `W_hh.grad`**。但不同时间步的梯度向量可以方向相反、相互抵消；还会受到每条路径的雅可比矩阵乘积影响。因此，更多时间步不保证参数梯度范数一定增大，也不保证训练损失一定更低。  
+- **纠偏锚点**：共享参数 \= 多条梯度路径汇总到同一个参数，而不是每个时间步生成独立的一套 `W_hh`。
+
+### \[工单-407\] ❓ 为什么第 3 个时间步的损失会影响第 1 个时间步？
+
+- **核心疑问**：前向过程是 `h_1→h_2→h_3`，为什么 `ℓ_3` 还能影响较早时刻的参数？  
+- **底层解释**：`h_t=f(x_t,h_{t-1},W)` 造成了沿时间的计算依赖，`ℓ_3→h_3→h_2→h_1` 是合法的反向路径。计算某个时间步对共享权重的影响时，必须考虑两条途径：当前权重直接参与 `h_t` 的计算，以及通过较早的 `h_{t-1}` 间接影响 `h_t`。因此有（符号表示）`∂h_t/∂W=∂f_t/∂W+(∂f_t/∂h_{t-1})(∂h_{t-1}/∂W)`，这正是教材 8.7.1 的递归结构。  
 - **纠偏锚点**：RNN 沿时间的信息依赖会在反向传播时变成沿时间回溯的梯度依赖。
 
-### [工单-408] ❓ `h_2` 为什么会接收到第 3、4、5 步的梯度？
-- **核心疑问**：5 个时间步的图中，`h_2` 到底收到什么？是把 `ℓ_3+ℓ_4+ℓ_5` 这些损失值直接相加吗？
-- **底层解释**：不是相加损失数值，而是分别求它们**对 `h_2` 的梯度**，再相加。对 `L=Σ_{t=1}^5 ℓ_t`，有 `∇_{h_2}L=∇_{h_2}ℓ_2+∇_{h_2}ℓ_3+∇_{h_2}ℓ_4+∇_{h_2}ℓ_5`；每个未来项都必须沿 `h_3→h_2`、`h_4→h_3→h_2`、`h_5→h_4→h_3→h_2` 对应路径应用链式法则。`ℓ_1` 不依赖后来的 `h_2`，所以不在这条梯度和里。
+### \[工单-408\] ❓ `h_2` 为什么会接收到第 3、4、5 步的梯度？
+
+- **核心疑问**：5 个时间步的图中，`h_2` 到底收到什么？是把 `ℓ_3+ℓ_4+ℓ_5` 这些损失值直接相加吗？  
+- **底层解释**：不是相加损失数值，而是分别求它们**对 `h_2` 的梯度**，再相加。对 `L=Σ_{t=1}^5 ℓ_t`，有 `∇_{h_2}L=∇_{h_2}ℓ_2+∇_{h_2}ℓ_3+∇_{h_2}ℓ_4+∇_{h_2}ℓ_5`；每个未来项都必须沿 `h_3→h_2`、`h_4→h_3→h_2`、`h_5→h_4→h_3→h_2` 对应路径应用链式法则。`ℓ_1` 不依赖后来的 `h_2`，所以不在这条梯度和里。  
 - **纠偏锚点**：“未来损失贡献”指**未来损失沿时间传回的梯度向量**，不是未来损失标量直接相加。
 
-### [工单-409] ❓ `∂L/∂h_3` 怎么逐层继续分解？
-- **核心疑问**：`∇_{h_2}L` 公式右侧出现 `∇_{h_3}L`，是不是还可以一直往未来展开？
+### \[工单-409\] ❓ `∂L/∂h_3` 怎么逐层继续分解？
+
+- **核心疑问**：`∇_{h_2}L` 公式右侧出现 `∇_{h_3}L`，是不是还可以一直往未来展开？  
 - **底层解释**：可以。设 `J_{t+1,t}=∂h_{t+1}/∂h_t`，对总损失求列向量梯度，满足：
-  ```text
-  ∇_{h_2} L = ∇_{h_2} ℓ_2 + J_{3,2}ᵀ ∇_{h_3} L
-  ∇_{h_3} L = ∇_{h_3} ℓ_3 + J_{4,3}ᵀ ∇_{h_4} L
-  ∇_{h_4} L = ∇_{h_4} ℓ_4 + J_{5,4}ᵀ ∇_{h_5} L
-  ∇_{h_5} L = ∇_{h_5} ℓ_5
-  ```
+
+```
+∇_{h_2} L = ∇_{h_2} ℓ_2 + J_{3,2}ᵀ ∇_{h_3} L
+∇_{h_3} L = ∇_{h_3} ℓ_3 + J_{4,3}ᵀ ∇_{h_4} L
+∇_{h_4} L = ∇_{h_4} ℓ_4 + J_{5,4}ᵀ ∇_{h_5} L
+∇_{h_5} L = ∇_{h_5} ℓ_5
+```
+
   将最末端结果逐级代回，`∇_{h_3}L` 就包含第 3 步当前损失的梯度、经 `J_{4,3}ᵀ` 传回的第 4 步梯度，以及经 `J_{4,3}ᵀ J_{5,4}ᵀ` 传回的第 5 步梯度。**不能**在已经包含未来梯度的 `∇_{h_3}L` 外再单独重复加上 `ℓ_4、ℓ_5` 的梯度，否则会双重计数。
-- **纠偏锚点**：当前隐藏状态梯度 = 本地损失梯度 + 未来状态的总梯度经局部雅可比转置传回的贡献。
 
-### [工单-410] ❓ `(∂h_5/∂h_4)ᵀ` 到底相当于什么？
-- **核心疑问**：公式中这个带转置的局部导数，是普通权重 `W_hh` 吗？
-- **底层解释**：它是从 `h_4` 到 `h_5` 的**雅可比矩阵转置**，用于把 `∇_{h_5}L` 转换为传向 `h_4` 的梯度贡献。按教材 8.7.2 的无激活、无偏置简化模型（列向量）`h_5=W_hx x_5+W_hh h_4`，有 `∂h_5/∂h_4=W_hh`，因此转置就是 `W_hhᵀ`；若用 `tanh`，则 `h_5=tanh(z_5)`，雅可比为 `diag(1-h_5²)W_hh`，其转置为 `W_hhᵀ diag(1-h_5²)`。这相当于把 Micrograd 的“上游梯度 × 局部导数”推广到向量状态与矩阵乘法。
-- **纠偏锚点**：带转置的雅可比 = **反向梯度传递变换**；未必等于 `W_hhᵀ`，还要考虑激活函数导数。
+- **纠偏锚点**：当前隐藏状态梯度 \= 本地损失梯度 \+ 未来状态的总梯度经局部雅可比转置传回的贡献。
 
-### [工单-411] ❓ 为什么 BPTT 沿时间的矩阵连乘会出现梯度消失或爆炸？
-- **核心疑问**：MLP 也会梯度消失，为什么普通单层 RNN 处理长文本同样容易出现？
-- **底层解释**：RNN 虽然可能只有一层循环层，但时间展开后反向路径可跨越数十、数百个时间步，连续乘许多局部雅可比矩阵。标量直觉为 `0.5^100` 接近 0、`1.5^100` 极大；真实情况是矩阵乘积，方向与范数变化更复杂。`tanh` 在饱和区的导数接近 0，也可能使梯度沿时间快速衰减。梯度裁剪可以限制异常大的梯度，却不能恢复已经消失的长期梯度。
+### \[工单-410\] ❓ `(∂h_5/∂h_4)ᵀ` 到底相当于什么？
+
+- **核心疑问**：公式中这个带转置的局部导数，是普通权重 `W_hh` 吗？  
+- **底层解释**：它是从 `h_4` 到 `h_5` 的**雅可比矩阵转置**，用于把 `∇_{h_5}L` 转换为传向 `h_4` 的梯度贡献。按教材 8.7.2 的无激活、无偏置简化模型（列向量）`h_5=W_hx x_5+W_hh h_4`，有 `∂h_5/∂h_4=W_hh`，因此转置就是 `W_hhᵀ`；若用 `tanh`，则 `h_5=tanh(z_5)`，雅可比为 `diag(1-h_5²)W_hh`，其转置为 `W_hhᵀ diag(1-h_5²)`。这相当于把 Micrograd 的“上游梯度 × 局部导数”推广到向量状态与矩阵乘法。  
+- **纠偏锚点**：带转置的雅可比 \= **反向梯度传递变换**；未必等于 `W_hhᵀ`，还要考虑激活函数导数。
+
+### \[工单-411\] ❓ 为什么 BPTT 沿时间的矩阵连乘会出现梯度消失或爆炸？
+
+- **核心疑问**：MLP 也会梯度消失，为什么普通单层 RNN 处理长文本同样容易出现？  
+- **底层解释**：RNN 虽然可能只有一层循环层，但时间展开后反向路径可跨越数十、数百个时间步，连续乘许多局部雅可比矩阵。标量直觉为 `0.5^100` 接近 0、`1.5^100` 极大；真实情况是矩阵乘积，方向与范数变化更复杂。`tanh` 在饱和区的导数接近 0，也可能使梯度沿时间快速衰减。梯度裁剪可以限制异常大的梯度，却不能恢复已经消失的长期梯度。  
 - **纠偏锚点**：序列越长，潜在反传链条越长；梯度变小或变大源于**连乘与局部导数性质**，并非“时间步数直接乘上梯度”。
 
-### [工单-412] ❓ 完整、固定截断、随机截断 BPTT 各自做什么？
-- **核心疑问**：如果完整反传 17 万字符代价太高，有哪些替代方案？
-- **底层解释**：教材 8.7.1 对比三种策略：①完整 BPTT 沿可达的全部时间依赖反传，长序列开销大且稳定性差；②**固定截断 BPTT** 在约定长度后切断历史梯度，使优化更可控，但丢弃跨界反传贡献；③随机截断通过随机决定截断点、适当加权构造期望正确的梯度估计，但实际方差可能增加，未必优于固定截断。本轮以理解固定截断为重点，不展开随机截断的概率推导。
+### \[工单-412\] ❓ 完整、固定截断、随机截断 BPTT 各自做什么？
+
+- **核心疑问**：如果完整反传 17 万字符代价太高，有哪些替代方案？  
+- **底层解释**：教材 8.7.1 对比三种策略：①完整 BPTT 沿可达的全部时间依赖反传，长序列开销大且稳定性差；②**固定截断 BPTT** 在约定长度后切断历史梯度，使优化更可控，但丢弃跨界反传贡献；③随机截断通过随机决定截断点、适当加权构造期望正确的梯度估计，但实际方差可能增加，未必优于固定截断。本轮以理解固定截断为重点，不展开随机截断的概率推导。  
 - **纠偏锚点**：截断主要是控制梯度历史范围，不等于把文本序列的所有早期信息直接删除。
 
-### [工单-413] ❓ `state.detach()` 与 `torch.zeros_like(state)` 为什么不等价？
-- **核心疑问**：顺序采样使用 `num_steps=35` 时，处理完前 35 字符之后既要传递历史又要切断反传，应该怎么做？
-- **底层解释**：`state.detach()` 或在适用情况下的 `state.detach_()` 返回/保留**相同数值**的隐藏状态，但不让**新一批损失**继续沿旧批次的计算图反传；`state=torch.zeros_like(state)` 则重置状态为全 0，历史摘要被主动丢弃。以 `h_35→detach→h_36` 为例，`h_36` 仍由携带历史摘要的 `h_35` 的数值计算而来，只是新一段反传在这里停止。跨 batch 重用状态要求同一行序列在原始 corpus 上时间连续；随机采样通常不满足该条件，故每批初始化状态。
-- **纠偏锚点**：`detach` = **切梯度链**；`zeros_like` = **清状态值**。注意 `detach` 不改变已经得到的隐藏数值，但无法保证该数值保留完整历史。
+### \[工单-413\] ❓ `state.detach()` 与 `torch.zeros_like(state)` 为什么不等价？
 
-### [工单-414] ❓ 第 70 字符还能用第 10 字符的信息吗？
-- **核心疑问**：`num_steps=35` 且每批 `detach`，早期第 10 个字符的信息是否还能影响第 70 个字符的预测？
-- **底层解释**：**可能可以**。若 `h_10` 的有效信息经状态递推被保存在 `h_35` 中，`h_36` 到 `h_70` 仍可通过隐藏状态数值利用这部分摘要，即使梯度不能跨过 35/36 的截断边界。但是一个有限维 `h_t` 不是对所有旧字符的无损记录，反复更新可能覆盖、压缩或遗忘旧信息；因此“前向可保留”≠“一定能够保留”，也不等于“后来的损失能跨截断边界反向训练早期表示”。
+- **核心疑问**：顺序采样使用 `num_steps=35` 时，处理完前 35 字符之后既要传递历史又要切断反传，应该怎么做？  
+- **底层解释**：`state.detach()` 或在适用情况下的 `state.detach_()` 返回/保留**相同数值**的隐藏状态，但不让**新一批损失**继续沿旧批次的计算图反传；`state=torch.zeros_like(state)` 则重置状态为全 0，历史摘要被主动丢弃。以 `h_35→detach→h_36` 为例，`h_36` 仍由携带历史摘要的 `h_35` 的数值计算而来，只是新一段反传在这里停止。跨 batch 重用状态要求同一行序列在原始 corpus 上时间连续；随机采样通常不满足该条件，故每批初始化状态。  
+- **纠偏锚点**：`detach` \= **切梯度链**；`zeros_like` \= **清状态值**。注意 `detach` 不改变已经得到的隐藏数值，但无法保证该数值保留完整历史。
+
+### \[工单-414\] ❓ 第 70 字符还能用第 10 字符的信息吗？
+
+- **核心疑问**：`num_steps=35` 且每批 `detach`，早期第 10 个字符的信息是否还能影响第 70 个字符的预测？  
+- **底层解释**：**可能可以**。若 `h_10` 的有效信息经状态递推被保存在 `h_35` 中，`h_36` 到 `h_70` 仍可通过隐藏状态数值利用这部分摘要，即使梯度不能跨过 35/36 的截断边界。但是一个有限维 `h_t` 不是对所有旧字符的无损记录，反复更新可能覆盖、压缩或遗忘旧信息；因此“前向可保留”≠“一定能够保留”，也不等于“后来的损失能跨截断边界反向训练早期表示”。  
 - **纠偏锚点**：BPTT 的梯度传播长度限制与隐藏状态能够保存多久的历史信息，是**两个不同维度的问题**。
 
-### [工单-415] ❓ 如果第 10 个字符信息在 `h_35` 已完全丢失，取消 `detach` 能恢复吗？
-- **核心疑问**：前 35 个字符的信息被汇总到一个 512 维隐藏状态时会不会有信息损失？如果已丢失还能从 `h_35` 预测恢复吗？
-- **底层解释**：`h_35=F(x_1,...,x_35)` 是可学习的**历史摘要**而非完整原文的无损缓存。若针对某次前向结果，第 10 字符的相关信息已经不包含在 `h_35` 且后续也无其他信息来源，仅取消 `detach` 并不能使后续状态从这份既定数值中凭空恢复信息。训练时扩大反传范围可能影响参数以后如何保留早期信息，但不会把已丢失的历史自动补回本次前向状态。这种信息保留难题是 GRU/LSTM 使用门控控制保留/更新的主要动机之一；门控也不是绝对无损保证。
+### \[工单-415\] ❓ 如果第 10 个字符信息在 `h_35` 已完全丢失，取消 `detach` 能恢复吗？
+
+- **核心疑问**：前 35 个字符的信息被汇总到一个 512 维隐藏状态时会不会有信息损失？如果已丢失还能从 `h_35` 预测恢复吗？  
+- **底层解释**：`h_35=F(x_1,...,x_35)` 是可学习的**历史摘要**而非完整原文的无损缓存。若针对某次前向结果，第 10 字符的相关信息已经不包含在 `h_35` 且后续也无其他信息来源，仅取消 `detach` 并不能使后续状态从这份既定数值中凭空恢复信息。训练时扩大反传范围可能影响参数以后如何保留早期信息，但不会把已丢失的历史自动补回本次前向状态。这种信息保留难题是 GRU/LSTM 使用门控控制保留/更新的主要动机之一；门控也不是绝对无损保证。  
 - **纠偏锚点**：**反向能追多久**与**前向记住什么**要分开分析；有限维状态是压缩表达，不是逐字存档。
 
-### [工单-416] ❓ 为什么下一节是 GRU，而不是继续把 BPTT 的所有公式推完？
-- **核心疑问**：视频课程第 55 讲 RNN 实现之后接第 56 讲 GRU，教材却还有 8.7；是否漏课？
-- **底层解释**：视频课程并未严格按教材每个小节独立录课，8.7 侧重把已经使用的 `detach`、梯度消失/爆炸及时间反向传播的数学依据讲清。本轮已完成一阶递推、局部雅可比、截断策略和五时间步图的理解检查；教材后续更繁复的数学连乘表达式没有逐式独立推完。为了为后续 Attention/Transformer 留出时间，按“核心理论掌握、无需额外实训”收尾，下一步学习 9.1 GRU 对长期信息保留的改进。
-- **纠偏锚点**：不把 8.7 的理论学习完成误记成“所有证明都独立推导完成”；当前验收标准是能讲清 BPTT 的梯度来源、截断和信息瓶颈。
+### \[工单-416\] ❓ 为什么下一节是 GRU，而不是继续把 BPTT 的所有公式推完？
 
+- **核心疑问**：视频课程第 55 讲 RNN 实现之后接第 56 讲 GRU，教材却还有 8.7；是否漏课？  
+- **底层解释**：视频课程并未严格按教材每个小节独立录课，8.7 侧重把已经使用的 `detach`、梯度消失/爆炸及时间反向传播的数学依据讲清。本轮已完成一阶递推、局部雅可比、截断策略和五时间步图的理解检查；教材后续更繁复的数学连乘表达式没有逐式独立推完。为了为后续 Attention/Transformer 留出时间，按“核心理论掌握、无需额外实训”收尾，下一步学习 9.1 GRU 对长期信息保留的改进。  
+- **纠偏锚点**：不把 8.7 的理论学习完成误记成“所有证明都独立推导完成”；当前验收标准是能讲清 BPTT 的梯度来源、截断和信息瓶颈。
 
 ### 8.7 课后练习补充（2026-10-11）
 
 > **完成范围**：教材 8.7 的练习 1（含三个小问）与练习 2 已完成；以学生手写证明、当场纠偏及与 RNN 训练稳定性联系为主。下列矩阵幂与幂迭代结论有明确的假设前提，不能直接无条件推广到真实 RNN 的时变雅可比矩阵。
 
-### [工单-417] ❓ 为什么不能在 `Mv_i = λ_i v_i` 中直接消去特征向量？
-- **核心疑问**：用户尝试将两边的 `v_i` 约去得到 `M=λ_i`，再代回公式。
-- **底层解释**：`M` 是 `n×n` 矩阵，`λ_i` 为标量，`v_i` 为非零列向量；矩阵乘向量不存在一般意义上的“右除向量”，不能约去 `v_i`。`Mv_i=λ_i v_i` 只表示 `M` 在**该特征向量方向**上的作用是乘以 `λ_i`，并不表示矩阵对任意方向都有同样作用。例如 `M=diag(2,3)`、`v=(1,0)^T`，满足 `Mv=2v`，但 `M≠2I`。
+### \[工单-417\] ❓ 为什么不能在 `Mv_i = λ_i v_i` 中直接消去特征向量？
+
+- **核心疑问**：用户尝试将两边的 `v_i` 约去得到 `M=λ_i`，再代回公式。  
+- **底层解释**：`M` 是 `n×n` 矩阵，`λ_i` 为标量，`v_i` 为非零列向量；矩阵乘向量不存在一般意义上的“右除向量”，不能约去 `v_i`。`Mv_i=λ_i v_i` 只表示 `M` 在**该特征向量方向**上的作用是乘以 `λ_i`，并不表示矩阵对任意方向都有同样作用。例如 `M=diag(2,3)`、`v=(1,0)^T`，满足 `Mv=2v`，但 `M≠2I`。  
 - **纠偏锚点**：特征值方程反映“特定方向的缩放”，不是整个矩阵退化成标量。
 
-### [工单-418] ❓ 怎样用数学归纳法证明 `M^k v_i = λ_i^k v_i`？（练习 1.1）
-- **核心疑问**：用户先手写验证 `k=3`，再推广到一般 `k+1`，如何写出严格推导？
+### \[工单-418\] ❓ 怎样用数学归纳法证明 `M^k v_i = λ_i^k v_i`？（练习 1.1）
+
+- **核心疑问**：用户先手写验证 `k=3`，再推广到一般 `k+1`，如何写出严格推导？  
 - **底层解释**：基例 `k=1` 是已知的 `Mv_i=λ_i v_i`。假设 `M^k v_i=λ_i^k v_i`，则：
-  ```text
-  M^(k+1) v_i = M(M^k v_i)
-              = M(λ_i^k v_i)
-              = λ_i^k M v_i
-              = λ_i^k (λ_i v_i)
-              = λ_i^(k+1) v_i
-  ```
+
+```
+M^(k+1) v_i = M(M^k v_i)
+            = M(λ_i^k v_i)
+            = λ_i^k M v_i
+            = λ_i^k (λ_i v_i)
+            = λ_i^(k+1) v_i
+```
+
   只把**标量** `λ_i^k` 提到矩阵外面，不消去向量。于是 `λ_i^k` 为 `M^k` 的特征值之一，对应原来的 `v_i`。
+
 - **纠偏锚点**：这个特征向量关系本身不要求对称；后续对称性主要用于把任意向量展开为正交特征向量基。
 
-### [工单-419] ❓ 对称矩阵如何把任意向量写成特征向量的线性组合？（练习 1.2 前半）
-- **核心疑问**：已经知道单个特征向量的 `M^k v_i`，如何分析任意初始向量 `x`？
+### \[工单-419\] ❓ 对称矩阵如何把任意向量写成特征向量的线性组合？（练习 1.2 前半）
+
+- **核心疑问**：已经知道单个特征向量的 `M^k v_i`，如何分析任意初始向量 `x`？  
 - **底层解释**：实对称矩阵的特征向量可选为标准正交基 `v_1,…,v_n`，因此 `x=Σ_i c_i v_i`。利用矩阵乘法的线性性与练习 1.1：
-  ```text
-  M^k x = M^k(Σ_i c_i v_i)
-        = Σ_i c_i M^k v_i
-        = Σ_i c_i λ_i^k v_i
-  ```
+
+```
+M^k x = M^k(Σ_i c_i v_i)
+      = Σ_i c_i M^k v_i
+      = Σ_i c_i λ_i^k v_i
+```
+
   用户已通过手写正确展开这一表达式。
+
 - **纠偏锚点**：多个特征向量各自按对应的 `λ_i^k` 缩放，初始向量在每个方向的投影系数为 `c_i`。
 
-### [工单-420] ❓ 为什么反复乘矩阵会由最大绝对值特征值方向主导？（练习 1.2 后半）
-- **核心疑问**：为何幂迭代（Power Iteration）能逐渐找出主特征向量？
+### \[工单-420\] ❓ 为什么反复乘矩阵会由最大绝对值特征值方向主导？（练习 1.2 后半）
+
+- **核心疑问**：为何幂迭代（Power Iteration）能逐渐找出主特征向量？  
 - **底层解释**：若 `|λ_1|>|λ_2|≥…≥|λ_n|` 且 `c_1≠0`，提出公因子：
-  ```text
-  M^k x = λ_1^k [ c_1 v_1 + Σ_(i≥2) c_i(λ_i/λ_1)^k v_i ]
-  ```
+
+```
+M^k x = λ_1^k [ c_1 v_1 + Σ_(i≥2) c_i(λ_i/λ_1)^k v_i ]
+```
+
   由于所有 `|(λ_i/λ_1)|<1`（`i≥2`），后面的相对系数随 `k→∞` 趋于 0。因此**相对于主项**，其他方向逐渐消失；`M^k x` 越来越接近 `v_1` 所张成的直线，而不意味着未经归一化的向量一定收敛到 `v_1` 或其长度保持不变。连续随机选取的 `x` 通常满足 `c_1≠0`（概率 1）。
+
 - **纠偏锚点**：关键是**特征值绝对值**严格占优，而不是其正负号；“趋向主方向”与“向量数值收敛”不同。
 
-### [工单-421] ❓ `λ_1=3、λ_2=-3` 为什么不会只剩一个主特征向量？
-- **核心疑问**：若最大绝对值特征值出现并列，是否还能套用幂迭代极限？
-- **底层解释**：`(λ_2/λ_1)^k=(-1)^k`，其绝对值始终为 1，不能趋于 0。例如 `x=c_1v_1+c_2v_2`，得到 `M^k x=3^k[c_1v_1+(-1)^k c_2v_2]`。两个方向的相对贡献都不消失，且第二项随奇偶次改变符号；未必收敛到唯一主特征向量直线。用户已答对这一边界情况。
+### \[工单-421\] ❓ `λ_1=3、λ_2=-3` 为什么不会只剩一个主特征向量？
+
+- **核心疑问**：若最大绝对值特征值出现并列，是否还能套用幂迭代极限？  
+- **底层解释**：`(λ_2/λ_1)^k=(-1)^k`，其绝对值始终为 1，不能趋于 0。例如 `x=c_1v_1+c_2v_2`，得到 `M^k x=3^k[c_1v_1+(-1)^k c_2v_2]`。两个方向的相对贡献都不消失，且第二项随奇偶次改变符号；未必收敛到唯一主特征向量直线。用户已答对这一边界情况。  
 - **纠偏锚点**：原结论需要严格的谱幅度间隙；存在 `±λ` 的并列主模时，方向可能交替或停留在二维子空间。
 
-### [工单-422] ❓ 矩阵幂和 RNN 的梯度消失、爆炸有什么联系？（练习 1.3）
-- **核心疑问**：练习中的 `M^k` 怎样类比 BPTT 的雅可比矩阵连乘？
-- **底层解释**：在**固定对称矩阵 M** 的简化模型中，沿特征方向的分量按 `λ_i^k` 缩放：`|λ_i|<1` 衰减，`|λ_i|>1` 放大，`|λ_i|=1` 模长不变。用户独立判断 `0.8^100` 对应梯度消失，结果约 `2.04×10^-10`，使早期损失信号对长期依赖学习的指导变弱。真实 RNN 的雅可比矩阵还包含 `W_hh` 和 `tanh` 导数等，通常随时间变化、未必对称；不能把固定矩阵的特征值判据误当成通用充分条件，长矩阵乘积的奇异值/范数同样重要。
+### \[工单-422\] ❓ 矩阵幂和 RNN 的梯度消失、爆炸有什么联系？（练习 1.3）
+
+- **核心疑问**：练习中的 `M^k` 怎样类比 BPTT 的雅可比矩阵连乘？  
+- **底层解释**：在**固定对称矩阵 M** 的简化模型中，沿特征方向的分量按 `λ_i^k` 缩放：`|λ_i|<1` 衰减，`|λ_i|>1` 放大，`|λ_i|=1` 模长不变。用户独立判断 `0.8^100` 对应梯度消失，结果约 `2.04×10^-10`，使早期损失信号对长期依赖学习的指导变弱。真实 RNN 的雅可比矩阵还包含 `W_hh` 和 `tanh` 导数等，通常随时间变化、未必对称；不能把固定矩阵的特征值判据误当成通用充分条件，长矩阵乘积的奇异值/范数同样重要。  
 - **纠偏锚点**：BPTT 的不稳定性来自沿时间**重复的局部梯度变换**，而不是“越多时间步直接把梯度加得越大”。
 
-### [工单-423] ❓ 除梯度裁剪外，如何缓解 RNN 梯度爆炸？（练习 2）
-- **核心疑问**：用户主动指出“初始化只能稳定起初，是否应结合归一化”，如何评价？
-- **底层解释**：方向合理，需修正“初始化完全不能缓解”的绝对说法。①对 `W_hh` 做正交初始化（例 `nn.init.orthogonal_(rnn.weight_hh_l0)`）可改善**初始**时间传播性质，但常规优化更新后不保证保持正交；②LayerNorm 有助于稳定激活/隐藏表示尺度，但不能确保跨时间雅可比乘积有界，归一化不等同于梯度裁剪；③约束权重谱范数/使用合适的稳定循环参数化，可限制某些放大途径，但可能限制表达能力；④截断 BPTT 缩短梯度连乘路径，代价是减少直接的长期梯度信号；⑤合理学习率、学习率调度与 GRU/LSTM 门控有助于稳定优化或长期依赖学习，但同样不保证完全排除梯度爆炸。实际可联合使用梯度裁剪作为防护。
+### \[工单-423\] ❓ 除梯度裁剪外，如何缓解 RNN 梯度爆炸？（练习 2）
+
+- **核心疑问**：用户主动指出“初始化只能稳定起初，是否应结合归一化”，如何评价？  
+- **底层解释**：方向合理，需修正“初始化完全不能缓解”的绝对说法。①对 `W_hh` 做正交初始化（例 `nn.init.orthogonal_(rnn.weight_hh_l0)`）可改善**初始**时间传播性质，但常规优化更新后不保证保持正交；②LayerNorm 有助于稳定激活/隐藏表示尺度，但不能确保跨时间雅可比乘积有界，归一化不等同于梯度裁剪；③约束权重谱范数/使用合适的稳定循环参数化，可限制某些放大途径，但可能限制表达能力；④截断 BPTT 缩短梯度连乘路径，代价是减少直接的长期梯度信号；⑤合理学习率、学习率调度与 GRU/LSTM 门控有助于稳定优化或长期依赖学习，但同样不保证完全排除梯度爆炸。实际可联合使用梯度裁剪作为防护。  
 - **纠偏锚点**：初始化控制**起点**，归一化稳定**中间激活**，谱约束控制**映射增益**，截断控制**反传跨度**，梯度裁剪控制**最后梯度范数**，它们不是同一个操作。
 
 ### 8.7 课后练习完成小结（2026-10-11）
-- **练习 1.1**：用户手写证明了 `k=3` 并用数学归纳法推到任意 `k`；已纠正“矩阵方程直接约掉特征向量”的误区。
-- **练习 1.2**：用户正确完成谱展开与 `(|λ_i/λ_1|)^k→0` 的推理，能指出 `λ_1=3, λ_2=-3` 这一并列最大绝对值的反例条件。
-- **练习 1.3**：能从 `0.8^100` 识别梯度消失，并将矩阵幂与 RNN 长时间步雅可比连乘联系起来。
-- **练习 2**：已提出合理的批判性判断“初始化不能保证训练全程稳定”，并自主建议结合归一化；已补充正交初始化、谱约束、截断 BPTT、学习率及门控结构的作用边界。
+
+- **练习 1.1**：用户手写证明了 `k=3` 并用数学归纳法推到任意 `k`；已纠正“矩阵方程直接约掉特征向量”的误区。  
+- **练习 1.2**：用户正确完成谱展开与 `(|λ_i/λ_1|)^k→0` 的推理，能指出 `λ_1=3, λ_2=-3` 这一并列最大绝对值的反例条件。  
+- **练习 1.3**：能从 `0.8^100` 识别梯度消失，并将矩阵幂与 RNN 长时间步雅可比连乘联系起来。  
+- **练习 2**：已提出合理的批判性判断“初始化不能保证训练全程稳定”，并自主建议结合归一化；已补充正交初始化、谱约束、截断 BPTT、学习率及门控结构的作用边界。  
 - **学习状态**：8.7 理论与课后练习**均已完成**；下一步 9.1 GRU，不再为基础 RNN 的低训练 PPL 继续耗时调参。
 
 ### BPTT 阶段小结（2026-10-10）
+
 8.7「通过时间反向传播」**理论学习完成**。已能把 5 个时间步的 RNN 正向图 `(x_t→h_t→o_t→ℓ_t，h_t→h_{t+1})` 与反向图对应起来；清楚 `h_2` 的梯度除当前 `ℓ_2` 外，还包含 `ℓ_3、ℓ_4、ℓ_5` 沿不同链式路径传回的贡献，能递推展开 `∇_{h_3}L` 直到最后一个时间步，并理解局部雅可比转置如何把后一步隐藏状态梯度传给前一步。理解了 RNN 跨时间共享权重而多层之间权重独立、时间步长度不决定模型参数量、连乘导致梯度消失/爆炸、梯度裁剪的局限、完整/固定截断/随机截断 BPTT 的取舍。能够明确区分：`state.detach()` 保留已有历史摘要的**数值**但切断历史**梯度路径**；`zeros_like` 清空历史状态；而有限维 RNN 隐藏状态是否长期保留第 10 个字符的信息，还取决于模型学到的信息更新方式。本轮不开展新训练，不表示已独立推完 8.7 全部公式；**下一步：9.1 GRU（门控机制及保留/遗忘信息）**。
 
 ---
@@ -3252,65 +3838,77 @@ BN 的主线可压缩为：`Linear/Conv 输出 → 当前 mini-batch 按 feature
 
 > **阶段定位（2026-10-12）**：衔接 8.7 BPTT 的长期依赖与梯度消失问题。已完成 9.1.1 门控公式与直觉、9.1.2 教材从零代码的跟敲/讲解、9.1.3 `nn.GRU` 的接口比较，以及课堂练习讨论。**未额外独立手搓完整版本，也未开展系统超参数、PPL 或 RNN/GRU 对照实验**；避免把讨论过的趋势记成真实训练结果。下一步 9.2 LSTM，目标仍是尽快转入 Attention/Transformer 并自己实现 mini-GPT。
 
-### [工单-424] ❓ 为什么普通 RNN 要升级成 GRU？两个门分别负责什么？
-- **核心疑问**：隐藏状态把历史压缩成有限维摘要，每一步重算容易覆盖旧信息，GRU 如何控制记忆？
-- **底层解释**：GRU 不额外保存一个独立的 LSTM 式记忆单元，而是围绕隐藏状态 `H_t` 加两个门：`R_t=σ(X_tW_xr+H_(t-1)W_hr+b_r)` 决定计算候选状态时参考多少旧信息；`Z_t=σ(X_tW_xz+H_(t-1)W_hz+b_z)` 决定最终状态直接保留多少旧状态。两者 Shape 都是 `(B,H)`、按隐藏单元逐元素生效，但角色不同，且采用独立的可学习参数而非共享相同数值。
-- **纠偏锚点**：`R` = 候选状态**怎么生成**；`Z` = 最终状态**怎么融合**。先区分候选状态与最终状态，再讨论“记住/遗忘”。
+### \[工单-424\] ❓ 为什么普通 RNN 要升级成 GRU？两个门分别负责什么？
 
-### [工单-425] ❓ 为什么最终更新公式没显式出现 `R_t`？GRU 公式是数学定理推导的吗？
-- **核心疑问**：`H_t=Z_t⊙H_(t-1)+(1-Z_t)⊙H̃_t` 只出现 `Z_t`，难道重置门无用？加权融合的公式从何而来？
-- **底层解释**：`R_t` 在前一步已进入 `H̃_t=tanh(X_tW_xh+(R_t⊙H_(t-1))W_hh+b_h)`，因此通过 `H̃_t` **间接**影响 `H_t`；`Z_t` 直接控制最后融合。GRU 公式是研究者为改善 RNN 长期依赖而选择的结构设计，并非由普通 RNN 唯一演绎的数学定理。选择 `Z` 和 `1-Z` 使每个隐藏单元的旧状态与候选状态形成加权融合；`sigmoid` 提供 `(0,1)` 的门值。
+- **核心疑问**：隐藏状态把历史压缩成有限维摘要，每一步重算容易覆盖旧信息，GRU 如何控制记忆？  
+- **底层解释**：GRU 不额外保存一个独立的 LSTM 式记忆单元，而是围绕隐藏状态 `H_t` 加两个门：`R_t=σ(X_tW_xr+H_(t-1)W_hr+b_r)` 决定计算候选状态时参考多少旧信息；`Z_t=σ(X_tW_xz+H_(t-1)W_hz+b_z)` 决定最终状态直接保留多少旧状态。两者 Shape 都是 `(B,H)`、按隐藏单元逐元素生效，但角色不同，且采用独立的可学习参数而非共享相同数值。  
+- **纠偏锚点**：`R` \= 候选状态**怎么生成**；`Z` \= 最终状态**怎么融合**。先区分候选状态与最终状态，再讨论“记住/遗忘”。
+
+### \[工单-425\] ❓ 为什么最终更新公式没显式出现 `R_t`？GRU 公式是数学定理推导的吗？
+
+- **核心疑问**：`H_t=Z_t⊙H_(t-1)+(1-Z_t)⊙H̃_t` 只出现 `Z_t`，难道重置门无用？加权融合的公式从何而来？  
+- **底层解释**：`R_t` 在前一步已进入 `H̃_t=tanh(X_tW_xh+(R_t⊙H_(t-1))W_hh+b_h)`，因此通过 `H̃_t` **间接**影响 `H_t`；`Z_t` 直接控制最后融合。GRU 公式是研究者为改善 RNN 长期依赖而选择的结构设计，并非由普通 RNN 唯一演绎的数学定理。选择 `Z` 和 `1-Z` 使每个隐藏单元的旧状态与候选状态形成加权融合；`sigmoid` 提供 `(0,1)` 的门值。  
 - **纠偏锚点**：先候选、后融合；`H_t` 若完全展开仍然包含 `R_t`。
 
-### [工单-426] ❓ 两种门极端取值时会发生什么？
-- **核心疑问**：`R=0`、`Z=0`、`Z=1` 时，哪一部分历史仍可能保留？
-- **底层解释**：`R≈0` 令候选状态近似 `tanh(XW_xh+b_h)`，候选状态不直接使用旧状态，但若 `Z≈1`，最终仍近似 `H_(t-1)`；`Z≈0` 时最终变成 `H̃_t`，这**不保证彻底丢弃历史**，因为 `H̃_t` 可在 `R≠0` 时融合旧状态。若 `R≈0` 且 `Z≈0`，最终主要由当前输入决定。若 `H̃_t=H_(t-1)`，无论 `Z` 如何，`H_t=H_(t-1)`。`sigmoid` 有限输入下一般只近似达到极端值。
+### \[工单-426\] ❓ 两种门极端取值时会发生什么？
+
+- **核心疑问**：`R=0`、`Z=0`、`Z=1` 时，哪一部分历史仍可能保留？  
+- **底层解释**：`R≈0` 令候选状态近似 `tanh(XW_xh+b_h)`，候选状态不直接使用旧状态，但若 `Z≈1`，最终仍近似 `H_(t-1)`；`Z≈0` 时最终变成 `H̃_t`，这**不保证彻底丢弃历史**，因为 `H̃_t` 可在 `R≠0` 时融合旧状态。若 `R≈0` 且 `Z≈0`，最终主要由当前输入决定。若 `H̃_t=H_(t-1)`，无论 `Z` 如何，`H_t=H_(t-1)`。`sigmoid` 有限输入下一般只近似达到极端值。  
 - **纠偏锚点**：重置门为 0 不等于最终历史清零；更新门为 0 不等于候选状态没有历史。
 
-### [工单-427] ❓ GRU 为什么像 ResNet？是否会把历史信息重复加两遍？
-- **核心疑问**：候选状态已用旧信息，最终又显式融合旧状态，是否发生信息重复累加？
-- **底层解释**：旧状态有两条路径：`Z⊙H_(t-1)` 直接保留旧表示；`(1-Z)⊙H̃_t` 采用经过重置门、权重矩阵和非线性产生的候选表示，并非无权重的两次相加。代数恒等变形：`H_t=H_(t-1)+(1-Z_t)⊙(H̃_t-H_(t-1))`，含义是在旧状态基础上作**门控修正**，与 ResNet 的 shortcut 思想相通；但 GRU 的门值随时间和特征变化，结构不同于普通 `x+F(x)`，也不保证消除所有表征冗余。
-- **纠偏锚点**：旧状态直接保留 + 候选表示融合 ≠ 简单把同一历史向量相加两次。
+### \[工单-427\] ❓ GRU 为什么像 ResNet？是否会把历史信息重复加两遍？
 
-### [工单-428] ❓ GRU 如何保留、更新长期记忆？为什么仍不能彻底避免梯度消失？
-- **核心疑问**：第 5 步重要信息如何保留到第 100 步？梯度若保持不变，信息是不是也一直不能更新？
-- **底层解释**：理想策略是在第 5 步令 `R_5≈0,Z_5≈0` 以主要写入 `X_5`；随后 `Z_t≈1` 让 `H_t≈H_(t-1)`，到第 50 步有更重要的新信息时可降低 `Z_50` 写入候选状态；若需要参考旧上下文，`R_50` 可以高，若需要重新开始则可以低。门值为**向量**，可以按特征选择保留或更新。`Z_t≈1` 的直接路径改善长期梯度传播，但若始终 `Z_t=0.95`，100 步直接路径的缩放约为 `0.95^100≈0.00592`；真实 GRU 的总雅可比还包含门值对旧状态的导数及候选分支，不能凭直接通路保证总体梯度不变。若整段真的 `Z=1` 且状态严格恒等，则该段不写入新信息，但这不是 GRU 所有时间步必须执行的策略。
+- **核心疑问**：候选状态已用旧信息，最终又显式融合旧状态，是否发生信息重复累加？  
+- **底层解释**：旧状态有两条路径：`Z⊙H_(t-1)` 直接保留旧表示；`(1-Z)⊙H̃_t` 采用经过重置门、权重矩阵和非线性产生的候选表示，并非无权重的两次相加。代数恒等变形：`H_t=H_(t-1)+(1-Z_t)⊙(H̃_t-H_(t-1))`，含义是在旧状态基础上作**门控修正**，与 ResNet 的 shortcut 思想相通；但 GRU 的门值随时间和特征变化，结构不同于普通 `x+F(x)`，也不保证消除所有表征冗余。  
+- **纠偏锚点**：旧状态直接保留 \+ 候选表示融合 ≠ 简单把同一历史向量相加两次。
+
+### \[工单-428\] ❓ GRU 如何保留、更新长期记忆？为什么仍不能彻底避免梯度消失？
+
+- **核心疑问**：第 5 步重要信息如何保留到第 100 步？梯度若保持不变，信息是不是也一直不能更新？  
+- **底层解释**：理想策略是在第 5 步令 `R_5≈0,Z_5≈0` 以主要写入 `X_5`；随后 `Z_t≈1` 让 `H_t≈H_(t-1)`，到第 50 步有更重要的新信息时可降低 `Z_50` 写入候选状态；若需要参考旧上下文，`R_50` 可以高，若需要重新开始则可以低。门值为**向量**，可以按特征选择保留或更新。`Z_t≈1` 的直接路径改善长期梯度传播，但若始终 `Z_t=0.95`，100 步直接路径的缩放约为 `0.95^100≈0.00592`；真实 GRU 的总雅可比还包含门值对旧状态的导数及候选分支，不能凭直接通路保证总体梯度不变。若整段真的 `Z=1` 且状态严格恒等，则该段不写入新信息，但这不是 GRU 所有时间步必须执行的策略。  
 - **纠偏锚点**：门控的目标是**选择性保持与选择性写入**，不是强制所有时刻的全部梯度和隐藏状态恒定。
 
-### [工单-429] ❓ 门值是怎样被模型“自主调控”的？BPTT 到底对隐藏状态还是权重求导？
-- **核心疑问**：`R_t`、`Z_t` 如何知道该保留/遗忘什么？8.7 总在计算 `∂L/∂H_t`，训练不是应该求 `∂L/∂W` 吗？
-- **底层解释**：门值由当前输入、上一隐藏状态和**可学习的门控权重/偏置**动态计算，并不是优化器直接保存/更新的参数。以单隐藏单元、固定候选值讨论 `h_t=z_t h_(t-1)+(1-z_t) h̃_t`，有 `∂L/∂z_t=(∂L/∂h_t)(h_(t-1)-h̃_t)`；通过 sigmoid 的 `z_t(1-z_t)` 与 `X,W` 等继续链式求导，传至 `W_xz/W_hz/b_z`。重置门的梯度经 `L→H_t→H̃_t→R_t→W_r` 传回。BPTT 同时计算隐藏状态梯度用于**继续传到更早时刻**，并累计共享权重梯度用于**优化器更新**。并非每次两个门都必有非零梯度；门值是否学到有用策略依赖训练目标和梯度信号。
+### \[工单-429\] ❓ 门值是怎样被模型“自主调控”的？BPTT 到底对隐藏状态还是权重求导？
+
+- **核心疑问**：`R_t`、`Z_t` 如何知道该保留/遗忘什么？8.7 总在计算 `∂L/∂H_t`，训练不是应该求 `∂L/∂W` 吗？  
+- **底层解释**：门值由当前输入、上一隐藏状态和**可学习的门控权重/偏置**动态计算，并不是优化器直接保存/更新的参数。以单隐藏单元、固定候选值讨论 `h_t=z_t h_(t-1)+(1-z_t) h̃_t`，有 `∂L/∂z_t=(∂L/∂h_t)(h_(t-1)-h̃_t)`；通过 sigmoid 的 `z_t(1-z_t)` 与 `X,W` 等继续链式求导，传至 `W_xz/W_hz/b_z`。重置门的梯度经 `L→H_t→H̃_t→R_t→W_r` 传回。BPTT 同时计算隐藏状态梯度用于**继续传到更早时刻**，并累计共享权重梯度用于**优化器更新**。并非每次两个门都必有非零梯度；门值是否学到有用策略依赖训练目标和梯度信号。  
 - **纠偏锚点**：状态梯度是反向传播途中传递的量，参数梯度才驱动 `optimizer.step()`；两者属于同一计算图的不同求导目标。
 
-### [工单-430] ❓ `state.detach()` 会不会导致当前 GRU 的门控权重也无法学习？
-- **核心疑问**：跨 mini-batch 切断计算图后，是不是连当前 35 步的参数也更新不了？
-- **底层解释**：不会。`detach()` 保留前一个批次隐藏状态的**数值**，用于新一段的前向计算，却阻止**当前损失梯度穿过截断边界**去反传前一批次的计算图。当前 mini-batch 内部仍照常计算状态梯度和共享门控权重的参数梯度，随后能正常更新 `W`、`b`。因此，即使后段状态携带早期摘要，后段损失也不能通过已断开的历史计算图直接修正更早批次中的那一次状态生成。
+### \[工单-430\] ❓ `state.detach()` 会不会导致当前 GRU 的门控权重也无法学习？
+
+- **核心疑问**：跨 mini-batch 切断计算图后，是不是连当前 35 步的参数也更新不了？  
+- **底层解释**：不会。`detach()` 保留前一个批次隐藏状态的**数值**，用于新一段的前向计算，却阻止**当前损失梯度穿过截断边界**去反传前一批次的计算图。当前 mini-batch 内部仍照常计算状态梯度和共享门控权重的参数梯度，随后能正常更新 `W`、`b`。因此，即使后段状态携带早期摘要，后段损失也不能通过已断开的历史计算图直接修正更早批次中的那一次状态生成。  
 - **纠偏锚点**：`detach` 只切**旧计算图的梯度连接**，不是冻结模型参数，也不是将隐藏状态清零。
 
-### [工单-431] ❓ GRU 参数的 Shape、独立性与 `get_params` 嵌套函数写法
-- **核心疑问**：两门用同样的 `(X,H)`，是否可以共享权重？为什么 `get_params()` 里面还能定义 `normal()`、`three()`？
-- **底层解释**：以 `B=32,V=28,H=256` 为例，输入 `X:(32,28)`、上一步状态 `H:(32,256)`；每个门的输入权重 `(28,256)`，循环权重 `(256,256)`，偏置 `(256,)`，门输出 `(32,256)`。改变 `B` 不改权重与偏置 Shape；`(32,)` 不能向 `(32,256)` 按最后维广播，而 `(256,)` 可以。如果两门连权重偏置都完全共享，则 `R=Z`，丧失独立决策能力；Shape 相同不意味着参数数值相同。`normal()` 和 `three()` 是 Python 的**嵌套/局部辅助函数**，可读取 `get_params()` 的 `num_inputs/num_hiddens/device`，`three()` 返回三个 Tensor 后用元组解包赋给各门参数，`requires_grad_(True)` 让生成的参数能被自动微分跟踪。
+### \[工单-431\] ❓ GRU 参数的 Shape、独立性与 `get_params` 嵌套函数写法
+
+- **核心疑问**：两门用同样的 `(X,H)`，是否可以共享权重？为什么 `get_params()` 里面还能定义 `normal()`、`three()`？  
+- **底层解释**：以 `B=32,V=28,H=256` 为例，输入 `X:(32,28)`、上一步状态 `H:(32,256)`；每个门的输入权重 `(28,256)`，循环权重 `(256,256)`，偏置 `(256,)`，门输出 `(32,256)`。改变 `B` 不改权重与偏置 Shape；`(32,)` 不能向 `(32,256)` 按最后维广播，而 `(256,)` 可以。如果两门连权重偏置都完全共享，则 `R=Z`，丧失独立决策能力；Shape 相同不意味着参数数值相同。`normal()` 和 `three()` 是 Python 的**嵌套/局部辅助函数**，可读取 `get_params()` 的 `num_inputs/num_hiddens/device`，`three()` 返回三个 Tensor 后用元组解包赋给各门参数，`requires_grad_(True)` 让生成的参数能被自动微分跟踪。  
 - **纠偏锚点**：Batch Size 不决定参数数量；嵌套函数是组织和复用初始化代码，不是 GRU 专有语法。
 
-### [工单-432] ❓ 为什么 `(R*H)@W_hh` 与 `R*(H@W_hh)` 不等价？
-- **核心疑问**：把门放在矩阵乘法后面，会不会因 Shape 改变而无法做 Hadamard 积？D2L 与 PyTorch 的 GRU 为什么不同？
-- **底层解释**：当 `R,H:(B,H)`、`W_hh:(H,H)` 时，两种顺序的结果 Shape 均为 `(B,H)`，**不会因为 Shape 无法广播而报错**。区别是门控在**特征混合之前或之后**生效：D2L 从零实现 `(R*H)@W_hh`；PyTorch `nn.GRU` 的候选状态循环分支采用 `R*(H@W_hh+b_hh)`，并把输入/循环偏置分开。矩阵形式相当于先对角门控后变换与先变换后对角门控，通常 `WD_R ≠ D_RW`；因此同样的输入权重不能保证同样的候选状态或梯度。不要在无实验时断言哪种实现更准确；工程中采用 `nn.GRU` 时以其实际计算约定为准。
+### \[工单-432\] ❓ 为什么 `(R*H)@W_hh` 与 `R*(H@W_hh)` 不等价？
+
+- **核心疑问**：把门放在矩阵乘法后面，会不会因 Shape 改变而无法做 Hadamard 积？D2L 与 PyTorch 的 GRU 为什么不同？  
+- **底层解释**：当 `R,H:(B,H)`、`W_hh:(H,H)` 时，两种顺序的结果 Shape 均为 `(B,H)`，**不会因为 Shape 无法广播而报错**。区别是门控在**特征混合之前或之后**生效：D2L 从零实现 `(R*H)@W_hh`；PyTorch `nn.GRU` 的候选状态循环分支采用 `R*(H@W_hh+b_hh)`，并把输入/循环偏置分开。矩阵形式相当于先对角门控后变换与先变换后对角门控，通常 `WD_R ≠ D_RW`；因此同样的输入权重不能保证同样的候选状态或梯度。不要在无实验时断言哪种实现更准确；工程中采用 `nn.GRU` 时以其实际计算约定为准。  
 - **纠偏锚点**：**Shape 相容 ≠ 运算等价**；门控放在矩阵乘法前后是具有语义差异的架构选择。
 
-### [工单-433] ❓ 从零 GRU 如何对应 `nn.GRU`？是否需要再次完整手搓？
-- **核心疑问**：已经照教材敲过 `get_params` 与 `gru()`，继续独立再写一遍对 mini-GPT 学习有多大价值？
-- **底层解释**：D2L 手搓版只是在普通 RNN 的每步循环里加入 `Z=sigmoid(...)`、`R=sigmoid(...)`、`H̃=tanh(...)`、`H=Z*H+(1-Z)*H̃` 四个核心操作；`Y=H@W_hq+b_q`、按时间循环、状态 `(B,H)` 与训练流程不变。简洁版可替换为 `nn.GRU(input_size=28,hidden_size=256)`；单层单向默认 `(T,B,28)→output(T,B,256),h_n(1,B,256)`。用户已**跟敲**教材代码，未声称完全脱离教材独立复现，更未完成系统 PPL/吞吐对比；决定不重复手搓、把工程精力留给 mini-GPT 的 `Embedding → Causal Attention → MHA → Transformer Block → LM head` 等核心部件。Python 辅助语法、已掌握 Shape 题不再逐题检查。
+### \[工单-433\] ❓ 从零 GRU 如何对应 `nn.GRU`？是否需要再次完整手搓？
+
+- **核心疑问**：已经照教材敲过 `get_params` 与 `gru()`，继续独立再写一遍对 mini-GPT 学习有多大价值？  
+- **底层解释**：D2L 手搓版只是在普通 RNN 的每步循环里加入 `Z=sigmoid(...)`、`R=sigmoid(...)`、`H̃=tanh(...)`、`H=Z*H+(1-Z)*H̃` 四个核心操作；`Y=H@W_hq+b_q`、按时间循环、状态 `(B,H)` 与训练流程不变。简洁版可替换为 `nn.GRU(input_size=28,hidden_size=256)`；单层单向默认 `(T,B,28)→output(T,B,256),h_n(1,B,256)`。用户已**跟敲**教材代码，未声称完全脱离教材独立复现，更未完成系统 PPL/吞吐对比；决定不重复手搓、把工程精力留给 mini-GPT 的 `Embedding → Causal Attention → MHA → Transformer Block → LM head` 等核心部件。Python 辅助语法、已掌握 Shape 题不再逐题检查。  
 - **纠偏锚点**：掌握 GRU 的状态流、门控公式、参数学习即可；**mini-GPT 是 decoder-only Transformer，不以复刻 GRU/LSTM 为先决条件**。
 
-### [工单-434] ❓ 9.1 课堂练习：如果只能保留一个门，优先选哪个？
-- **核心疑问**：为改善梯度消失和长期依赖，只保留重置门还是只保留更新门？
-- **底层解释**：用户选择仅保留**更新门 `Z`**。这保留 `H_t=Z_t⊙H_(t-1)+(1-Z_t)⊙H̃_t` 的近似恒等保留路径，有助于长期梯度与信息传播；仅保留重置门时，每步仍需经过候选状态的非线性映射，缺少同样直接的旧状态通路。只保留更新门会失去对“旧状态如何参与候选状态计算”的独立控制，重置门也有学习短期依赖的作用。哪种变体 PPL 更低或训练更快必须通过对照实验判断，不能仅凭结构断言。
+### \[工单-434\] ❓ 9.1 课堂练习：如果只能保留一个门，优先选哪个？
+
+- **核心疑问**：为改善梯度消失和长期依赖，只保留重置门还是只保留更新门？  
+- **底层解释**：用户选择仅保留**更新门 `Z`**。这保留 `H_t=Z_t⊙H_(t-1)+(1-Z_t)⊙H̃_t` 的近似恒等保留路径，有助于长期梯度与信息传播；仅保留重置门时，每步仍需经过候选状态的非线性映射，缺少同样直接的旧状态通路。只保留更新门会失去对“旧状态如何参与候选状态计算”的独立控制，重置门也有学习短期依赖的作用。哪种变体 PPL 更低或训练更快必须通过对照实验判断，不能仅凭结构断言。  
 - **纠偏锚点**：**更新门偏向长期保留，重置门偏向候选计算中的历史筛选**；单门权衡属于结构分析，非实测定论。
 
 ### 9.1 GRU 阶段小结（2026-10-12）
-- **已掌握**：`R/Z` 分工、候选/最终状态区分、按特征动态门控、独立可学习权重与 Sigmoid/BPTT 梯度、残差改写、`Z≈1` 的梯度直通机制及其非绝对性、单层单向 Shape、D2L 与 PyTorch 候选状态门控次序差异、嵌套参数初始化函数。
-- **课堂检查**：正确判断 `R=0,Z=1` 保留旧状态、`R=0,Z=0` 主要采用新输入；能根据 `Z≈1` 解释第 5 步信息跨时间保留、解释 `Z_50` 变小时写入新信息；主动提出“梯度保持与信息更新是否矛盾”“重置/更新是否重复读取历史”“BPTT 是对状态还是权重求导”等机制问题；独立选择更新门作为单门长期依赖的优先方案。
-- **实现与实验状态**：已按教材敲过一遍 9.1 GRU 代码；未独立从空白手搓一版、未新跑对照训练、未报告 PPL/速度测量，故仅记为“理论与教材代码跟敲完成”。
+
+- **已掌握**：`R/Z` 分工、候选/最终状态区分、按特征动态门控、独立可学习权重与 Sigmoid/BPTT 梯度、残差改写、`Z≈1` 的梯度直通机制及其非绝对性、单层单向 Shape、D2L 与 PyTorch 候选状态门控次序差异、嵌套参数初始化函数。  
+- **课堂检查**：正确判断 `R=0,Z=1` 保留旧状态、`R=0,Z=0` 主要采用新输入；能根据 `Z≈1` 解释第 5 步信息跨时间保留、解释 `Z_50` 变小时写入新信息；主动提出“梯度保持与信息更新是否矛盾”“重置/更新是否重复读取历史”“BPTT 是对状态还是权重求导”等机制问题；独立选择更新门作为单门长期依赖的优先方案。  
+- **实现与实验状态**：已按教材敲过一遍 9.1 GRU 代码；未独立从空白手搓一版、未新跑对照训练、未报告 PPL/速度测量，故仅记为“理论与教材代码跟敲完成”。  
 - **后续策略**：9.2 LSTM 重点理解 `C_t` 独立记忆单元及输入/遗忘/输出门，简洁版 API 和关键 Shape 即可；保留时间给 Attention、Transformer 和 mini-GPT 手搓。
 
 ---
@@ -3319,62 +3917,157 @@ BN 的主线可压缩为：`Linear/Conv 输出 → 当前 mini-batch 按 feature
 
 > **2026-10-13 阶段定位**：9.2.1 核心理论、9.2.2 从零代码的关键计算流、9.2.3 `nn.LSTM` 接口与多层 Shape，以及课后练习思路**均已讨论完成**；未进行独立手搓、超参数对照训练、词级模型训练或时间序列模型实跑。用户明确提出“LSTM 到此为止”，下一节进入 9.3 深度 RNN。
 
-### [工单-435] ❓ GRU 难道不是 LSTM 的改进版？为什么 LSTM 分离两个状态？
-- **核心疑问**：LSTM 为什么同时有 `C_t` 和记忆输出 `H_t`？GRU 不是更新版本吗？
-- **底层解释**：LSTM 最初提出于 1997 年，GRU 于 2014 年提出，是简化的替代架构。LSTM 通过 `F_t` 决定旧记忆保留、`I_t` 决定新信息写入，`O_t` 决定内部记忆在 `H_t` 中显露多少。`F≈1,I≈0,O≈0` 可以内部保留、暂不输出。GRU 用 `H_t` 合并上述角色，但更新门接近 1 时也能保留长期信息，并非必然更差。
+### \[工单-435\] ❓ GRU 难道不是 LSTM 的改进版？为什么 LSTM 分离两个状态？
+
+- **核心疑问**：LSTM 为什么同时有 `C_t` 和记忆输出 `H_t`？GRU 不是更新版本吗？  
+- **底层解释**：LSTM 最初提出于 1997 年，GRU 于 2014 年提出，是简化的替代架构。LSTM 通过 `F_t` 决定旧记忆保留、`I_t` 决定新信息写入，`O_t` 决定内部记忆在 `H_t` 中显露多少。`F≈1,I≈0,O≈0` 可以内部保留、暂不输出。GRU 用 `H_t` 合并上述角色，但更新门接近 1 时也能保留长期信息，并非必然更差。  
 - **纠偏锚点**：**分离存储与输出是结构自由度，不是性能绝对优势**。
 
-### [工单-436] ❓ 三个门、候选记忆元与更新公式如何配合？
-- **核心疑问**：输入门、遗忘门、输出门和候选记忆究竟分别负责什么？
+### \[工单-436\] ❓ 三个门、候选记忆元与更新公式如何配合？
+
+- **核心疑问**：输入门、遗忘门、输出门和候选记忆究竟分别负责什么？  
 - **底层解释**：按 D2L 行向量写法：
-  ```text
-  I_t = sigmoid(X_t @ W_xi + H_(t-1) @ W_hi + b_i)
-  F_t = sigmoid(X_t @ W_xf + H_(t-1) @ W_hf + b_f)
-  O_t = sigmoid(X_t @ W_xo + H_(t-1) @ W_ho + b_o)
-  C_tilde = tanh(X_t @ W_xc + H_(t-1) @ W_hc + b_c)
-  C_t = F_t * C_(t-1) + I_t * C_tilde
-  H_t = O_t * tanh(C_t)
-  ```
+
+```
+I_t = sigmoid(X_t @ W_xi + H_(t-1) @ W_hi + b_i)
+F_t = sigmoid(X_t @ W_xf + H_(t-1) @ W_hf + b_f)
+O_t = sigmoid(X_t @ W_xo + H_(t-1) @ W_ho + b_o)
+C_tilde = tanh(X_t @ W_xc + H_(t-1) @ W_hc + b_c)
+C_t = F_t * C_(t-1) + I_t * C_tilde
+H_t = O_t * tanh(C_t)
+```
+
   `I/F/O` 是三组独立 sigmoid 门；第四组参数控制候选记忆。`F` 和 `I` 不必像 GRU 的 `Z` 与 `1-Z` 那样互补，允许同时较多保留旧记忆又写入新信息。
+
 - **纠偏锚点**：候选记忆决定**写入内容**，输入门决定**写入程度**，输出门决定**当前对外表达**。
 
-### [工单-437] ❓ LSTM 记忆元直接路径的梯度一定等于 1 吗？
-- **核心疑问**：能否认为 LSTM、GRU、ResNet 都完全不改变原有梯度？
-- **底层解释**：仅看 `C_(t-1)→C_t` 的直接项并固定门值，局部雅可比为 `diag(F_t)`；`F≈1` 才接近恒等，`0.99^100≈0.366`。完整梯度还包含经 `H`、门与候选记忆的其他计算路径，可能增强、减弱或抵消。GRU 的直接保留系数是 `Z`，ResNet `Y=X+G(X)` 的整体雅可比是 `I+J_G`。
+### \[工单-437\] ❓ LSTM 记忆元直接路径的梯度一定等于 1 吗？
+
+- **核心疑问**：能否认为 LSTM、GRU、ResNet 都完全不改变原有梯度？  
+- **底层解释**：仅看 `C_(t-1)→C_t` 的直接项并固定门值，局部雅可比为 `diag(F_t)`；`F≈1` 才接近恒等，`0.99^100≈0.366`。完整梯度还包含经 `H`、门与候选记忆的其他计算路径，可能增强、减弱或抵消。GRU 的直接保留系数是 `Z`，ResNet `Y=X+G(X)` 的整体雅可比是 `I+J_G`。  
 - **纠偏锚点**：**有利于梯度传播 ≠ 所有梯度必定为 1**，门控可缓解但不保证彻底解决长期依赖难题。
 
-### [工单-438] ❓ 记忆元可能累积增长，为什么输出还有第二次 tanh？
-- **核心疑问**：两个门同时接近 1 时 `C_t` 是否一直增大？输出 `tanh` 是否负责抑制梯度爆炸？
-- **底层解释**：当 `F≈1,I≈1`，`C_t≈C_(t-1)+C_tilde`，候选值可正可负，记忆数值可能增长、下降或抵消，非必定单调增大。`H_t=O_t*tanh(C_t)` 限制**隐藏状态 H**的输出幅度，而不修改 **C**；并非梯度裁剪。大绝对值 `C` 会令输出端的 `tanh` 饱和，对 `C` 的输出路径梯度可趋零，但直接记忆路径无须经过该 `tanh`。
+### \[工单-438\] ❓ 记忆元可能累积增长，为什么输出还有第二次 tanh？
+
+- **核心疑问**：两个门同时接近 1 时 `C_t` 是否一直增大？输出 `tanh` 是否负责抑制梯度爆炸？  
+- **底层解释**：当 `F≈1,I≈1`，`C_t≈C_(t-1)+C_tilde`，候选值可正可负，记忆数值可能增长、下降或抵消，非必定单调增大。`H_t=O_t*tanh(C_t)` 限制**隐藏状态 H**的输出幅度，而不修改 **C**；并非梯度裁剪。大绝对值 `C` 会令输出端的 `tanh` 饱和，对 `C` 的输出路径梯度可趋零，但直接记忆路径无须经过该 `tanh`。  
 - **纠偏锚点**：输出侧限幅不代表内部记忆元永不增长，也不意味着模型自动消除梯度爆炸。
 
-### [工单-439] ❓ `nn.LSTM` 为什么多出 `c_n`，多层状态又如何组织？
-- **核心疑问**：多层 LSTM 的两份状态是否都跨层传递？
-- **底层解释**：单层从零实现 `state=(H,C)`，先用 `X_t`、旧 `H` 计算门和候选，先更新 `C`，再得新 `H`，最后只由 `H` 接输出分类头。多层中各层持有各自 `H_t^(ℓ)` 与 `C_t^(ℓ)`，两份状态同层跨时间递推，但上层的输入通常是下层的 **H**，不会默认直接接收下层 **C**。`nn.LSTM(d,h,num_layers=L)` 默认输入 `(T,B,d)`；输出 `output:(T,B,h)`、`h_n:(L,B,h)`、`c_n:(L,B,h)`（单向）。对 `(35,32,28)` 输入、3 层、256 个隐藏单元，两种最终状态均 `(3,32,256)`。
+### \[工单-439\] ❓ `nn.LSTM` 为什么多出 `c_n`，多层状态又如何组织？
+
+- **核心疑问**：多层 LSTM 的两份状态是否都跨层传递？  
+- **底层解释**：单层从零实现 `state=(H,C)`，先用 `X_t`、旧 `H` 计算门和候选，先更新 `C`，再得新 `H`，最后只由 `H` 接输出分类头。多层中各层持有各自 `H_t^(ℓ)` 与 `C_t^(ℓ)`，两份状态同层跨时间递推，但上层的输入通常是下层的 **H**，不会默认直接接收下层 **C**。`nn.LSTM(d,h,num_layers=L)` 默认输入 `(T,B,d)`；输出 `output:(T,B,h)`、`h_n:(L,B,h)`、`c_n:(L,B,h)`（单向）。对 `(35,32,28)` 输入、3 层、256 个隐藏单元，两种最终状态均 `(3,32,256)`。  
 - **纠偏锚点**：**跨层主要传 H，同层跨时间传 H 和 C**；C 不是逐时间步存储旧 H 的完整列表。
 
-### [工单-440] ❓ 某层遗忘旧记忆后，其他层能否继续保留？
-- **核心疑问**：既然每层的记忆元独立，即使某层 `F_t=0`，别的层仍可能保存此前信息吗？
-- **底层解释**：是的。每层有自己独立的参数与记忆元，某层遗忘门接近 0 只抑制它本层旧记忆的直接保留；其他层已编码且继续保留的信息并不随之自动被删除。但层间 `H` 交互，不保证不同层储存同样信息。另外 `F≈0` 时当前 `C=I*C_tilde` 可继续写入新内容，候选项还可能通过旧 `H` 间接包含历史信息。
+### \[工单-440\] ❓ 某层遗忘旧记忆后，其他层能否继续保留？
+
+- **核心疑问**：既然每层的记忆元独立，即使某层 `F_t=0`，别的层仍可能保存此前信息吗？  
+- **底层解释**：是的。每层有自己独立的参数与记忆元，某层遗忘门接近 0 只抑制它本层旧记忆的直接保留；其他层已编码且继续保留的信息并不随之自动被删除。但层间 `H` 交互，不保证不同层储存同样信息。另外 `F≈0` 时当前 `C=I*C_tilde` 可继续写入新内容，候选项还可能通过旧 `H` 间接包含历史信息。  
 - **纠偏锚点**：**各层记忆独立管理，并非信息完全隔离或保证备份**。
 
-### [工单-441] ❓ 记忆遗忘后能重新加入隐藏状态、从而恢复吗？
-- **核心疑问**：过去的重要信息在状态更新中逐渐遗忘，再通过历史记忆恢复是否可行？
-- **底层解释**：若信息仍保存在当前 `C_t` 内，只是 `O≈0` 暂不输出，未来增大 `O` 可以重新**使用现存记忆**；若某层已遗忘，而其他层确实保存了相关信息，网络也可能通过那些层的 `H` 再次利用。倘若所有可访问状态都已丢失相关信息，标准 LSTM 没有独立的历史数据库，只调大输出门不能凭空恢复。Attention 可从保留的历史 Token 表示中直接选择相关位置，是不同的机制，依然受上下文长度和训练效果限制。
+### \[工单-441\] ❓ 记忆遗忘后能重新加入隐藏状态、从而恢复吗？
+
+- **核心疑问**：过去的重要信息在状态更新中逐渐遗忘，再通过历史记忆恢复是否可行？  
+- **底层解释**：若信息仍保存在当前 `C_t` 内，只是 `O≈0` 暂不输出，未来增大 `O` 可以重新**使用现存记忆**；若某层已遗忘，而其他层确实保存了相关信息，网络也可能通过那些层的 `H` 再次利用。倘若所有可访问状态都已丢失相关信息，标准 LSTM 没有独立的历史数据库，只调大输出门不能凭空恢复。Attention 可从保留的历史 Token 表示中直接选择相关位置，是不同的机制，依然受上下文长度和训练效果限制。  
 - **纠偏锚点**：**暂不输出 ≠ 遗忘；重新使用 ≠ 无中生有地找回完全丢失的信息**。
 
-### [工单-442] ❓ LSTM 更复杂，为何 GRU 没有替代它？
-- **核心疑问**：LSTM 是否因为独立记忆元、表达能力更强，而在任何任务都优于 GRU？
-- **底层解释**：LSTM 分别学习 `F/I/O`，门控和状态管理自由度更多；GRU 更简洁，但 `Z≈1` 时也能保留长期信息。D2L 从零单层循环参数组数为 RNN 1、GRU 3、LSTM 4，参数量对应 `dh+h²+h` 的 1/3/4 倍（PyTorch 内置偏置细节不同）；并不保证 GPU 上实测时间也是 1:3:4。具体泛化、PPL 与速度需要在相同数据与条件下实测。
+### \[工单-442\] ❓ LSTM 更复杂，为何 GRU 没有替代它？
+
+- **核心疑问**：LSTM 是否因为独立记忆元、表达能力更强，而在任何任务都优于 GRU？  
+- **底层解释**：LSTM 分别学习 `F/I/O`，门控和状态管理自由度更多；GRU 更简洁，但 `Z≈1` 时也能保留长期信息。D2L 从零单层循环参数组数为 RNN 1、GRU 3、LSTM 4，参数量对应 `dh+h²+h` 的 1/3/4 倍（PyTorch 内置偏置细节不同）；并不保证 GPU 上实测时间也是 1:3:4。具体泛化、PPL 与速度需要在相同数据与条件下实测。  
 - **纠偏锚点**：**更复杂 ≠ 必然更准确；参数效率和灵活性需要权衡**。
 
-### [工单-443] ❓ 9.2 练习是否需要独立训练全部实验？
-- **核心疑问**：本轮是否还需要重新调参、训练词级 LSTM、做时序预测？
-- **底层解释**：课堂对练习 1 的隐藏单元、学习率、训练轮次、`num_steps` 影响做了定性分析；练习 2 的词级语言建模只改变分词与词表、输出头，不必改变 LSTM 门控公式；练习 5 的时间序列预测需要以数值特征替代 One-Hot 输入、使用回归输出及 MSE 等损失。已讨论相关实现思路，但**未在本轮实跑**。用户明确要求 LSTM 到此为止。
+### \[工单-443\] ❓ 9.2 练习是否需要独立训练全部实验？
+
+- **核心疑问**：本轮是否还需要重新调参、训练词级 LSTM、做时序预测？  
+- **底层解释**：课堂对练习 1 的隐藏单元、学习率、训练轮次、`num_steps` 影响做了定性分析；练习 2 的词级语言建模只改变分词与词表、输出头，不必改变 LSTM 门控公式；练习 5 的时间序列预测需要以数值特征替代 One-Hot 输入、使用回归输出及 MSE 等损失。已讨论相关实现思路，但**未在本轮实跑**。用户明确要求 LSTM 到此为止。  
 - **纠偏锚点**：不能把课堂机制理解与实验设想写成“已独立训练 / 已获得某个 PPL”。
 
 ### 9.2 LSTM 阶段小结（2026-10-13）
-- **核心掌握**：输入/遗忘/输出门及候选记忆、内部 `C` 与对外 `H` 的角色、门控直接路径梯度与输出 `tanh`、多层独立记忆和状态 Shape。
-- **关键纠偏**：LSTM 不保证不遗忘；GRU 也能保留长期依赖；不是任意时间都导数为 1；各层 `C` 不是历史 `H` 的无损全量备份；已真正丢失的信息不能靠输出门恢复。
-- **实现程度**：阅读理解 D2L 从零前向核心代码、PyTorch `nn.LSTM` 接口；未独立手搓、未进行新训练或对照实测。
+
+- **核心掌握**：输入/遗忘/输出门及候选记忆、内部 `C` 与对外 `H` 的角色、门控直接路径梯度与输出 `tanh`、多层独立记忆和状态 Shape。  
+- **关键纠偏**：LSTM 不保证不遗忘；GRU 也能保留长期依赖；不是任意时间都导数为 1；各层 `C` 不是历史 `H` 的无损全量备份；已真正丢失的信息不能靠输出门恢复。  
+- **实现程度**：阅读理解 D2L 从零前向核心代码、PyTorch `nn.LSTM` 接口；未独立手搓、未进行新训练或对照实测。  
 - **接下来**：9.3 深度 RNN → 9.4 双向 RNN 快速学习，再重点进入 Seq2Seq、Attention、Transformer 与 mini-GPT。
+
+### \[工单-444\] ❓ 深度 RNN 为什么用上一隐藏层的隐状态代替 X_t？
+
+- **核心疑问**：从普通 RNN 的更新式到深度 RNN，是否只是把当前输入 `X_t` 换成 `H_t^(l-1)`？  
+- **底层解释**：第 `l` 层当前状态同时依赖本时间步上一层输出 `H_t^(l-1)` 和本层前一时间步 `H_(t-1)^(l)`。教材约定 `H_t^(0)=X_t`，所以第一层仍接收原始输入，第二层及以上才直接接收前一层隐藏状态。每个循环层拥有自己的可学习参数。  
+- **纠偏锚点**：**深度 RNN = 时间方向维持递归 + 层方向增加堆叠；第一层输入仍是 X_t。**
+
+### \[工单-445\] ❓ 宽度、时间步是不是深度 RNN 新增的超参数？
+
+- **核心疑问**：普通 RNN 本来就有隐藏层宽度和时间步，它们是深度 RNN 特有的吗？  
+- **底层解释**：`hidden_size` 指每层隐状态的特征维度，单层 RNN 本就具备；`seq_len/num_steps` 指当前输入序列长度，也不是纵向网络深度；`num_layers` 决定堆叠的循环层数。D2L 9.3 使用 `nn.LSTM(input_size, hidden_size, num_layers=2)` 示范。在默认单向、`batch_first=False` 情况下，输入 `(T,B,d)` → `output:(T,B,h)`，`h_n/c_n:(2,B,h)`，两层不是两个方向，也不把输出特征维度自动翻倍。以上为规则说明，本节未实跑。  
+- **纠偏锚点**：**宽度由 hidden_size 控制，深度由 num_layers 控制，序列长度由 seq_len 决定。**
+
+### 9.3 深度循环神经网络阶段小结（2026-10-14）
+
+- **核心掌握**：层间与时间方向双重依赖、第一层/高层输入差别，以及宽度、深度、时间步三者的区别。  
+- **实现认识**：知道多层 RNN/GRU/LSTM 的 `num_layers` 参数、顶层输出与每层终态的 Shape；更深通常增加计算与调参成本，但不保证效果提升。  
+- **本节边界**：完成理论讨论、Shape 解释与 API 阅读；没有独立从零写多层 LSTM，也没有训练或比较 PPL/速度。下一节 9.4。  
+
+### \[工单-446\] ❓ 双向 RNN 的两个方向分别利用什么信息？
+
+- **核心疑问**：普通 RNN 只能利用当前与过去的输入，怎样同时利用未来上下文？与刚学的深度 RNN 有何区别？  
+- **底层解释**：双向 RNN 在同一层设置两套独立参数的递归结构。正向 `H_forward_t` 依赖 `X_t` 与 `H_forward_(t-1)`，反向 `H_backward_t` 依赖 `X_t` 与 `H_backward_(t+1)`，再按特征维拼接 `[H_forward_t; H_backward_t]`。深度 RNN 增加的是纵向的层数，双向 RNN 增加的是读取方向，两者可以同时使用。  
+- **纠偏锚点**：**双向不是“预知未来”，而是在完整输入已知时编码当前位置两侧上下文。**
+
+### \[工单-447\] ❓ 为什么 Y 与 H 的 Shape 不同？Y 第一维的 5 是什么？
+
+- **核心疑问**：对 `nn.RNN(input_size=10,hidden_size=128,num_layers=2,bidirectional=True)` 输入 `X:(5,32,10)`，曾将 `H` 猜为 `(32,256)`；改成三层后又将 `H` 估为 `(6,32,256)`；`Y` 的第一维 5 是什么？  
+- **底层解释**：默认 `batch_first=False`。`Y/output` 包含最后一层在全部 `T=5` 个时间步的输出，并沿最后一维拼接两个方向，故 `Y:(5,32,256)`；`H/h_n` 保存 `L` 层乘 `D=2` 个方向**各自**的最终隐藏状态，不拼接其单方向特征，故两层时 `(4,32,128)`，三层时 `(6,32,128)`。`Y` 第一维是序列长度，与 `num_layers` 无关；改成三层时 `Y` 仍 `(5,32,256)`。  
+- **纠偏锚点**：**`Y:(T,B,D·h)`，`H:(D·L,B,h)`；Y 看所有时间步，H 看各层各方向终态。**
+
+### \[工单-448\] ❓ 为什么双向 RNN 不适合直接做 GPT 式下一个 Token 预测？
+
+- **核心疑问**：双向 RNN 利用了更多信息，为什么 D2L 9.4.3 中训练困惑度很低，生成结果却不好？  
+- **底层解释**：自回归下一词预测要求在时间步 `t` 只能使用已观测的前缀 `x_1,...,x_t` 预测 `x_(t+1)`。如果常规双向 RNN 在训练时读取完整序列，反向支路可能获得待预测位置乃至其后的信息，形成训练时的**未来信息泄漏**；生成时未来 Token 尚不存在，训练与推理的信息条件不一致。双向编码更适用于输入完整可见的文本分类、命名实体识别、填空或编码任务。D2L 的错误应用示例是教材结果，本节**未亲自复现实验或测量 PPL**。  
+- **纠偏锚点**：**输入能否完整访问决定能否使用双向上下文，不能把训练 PPL 低误认为自回归生成能力强。**
+
+### 9.4 双向循环神经网络阶段小结（2026-10-14）
+
+- **核心掌握**：理解正向与反向更新、两方向特征拼接、层数与方向数的区别；能够解释 `(T,B,2h)` 与 `(2L,B,h)` 的返回值 Shape。  
+- **本节易错点**：`Y` 第一维是时间步，不是层数；`H` 首维是层数乘方向数，末维是单方向 `hidden_size`；双向 RNN 不适合直接用于存在因果约束的 GPT 式下一词预测。  
+- **学习边界**：课堂推导、教材示例讲解与 Shape 问答已完成；未独立手搓、未训练、未实测困惑度；D2L 9.4.1 HMM 前向—后向动态规划本轮按策略略读。  
+- **下一阶段**：9.5 机器翻译与数据集 → 9.6 编码器—解码器架构 → 9.7 Seq2Seq，继而深入 Attention/Transformer。
+
+### [工单-449] ❓ 机器翻译为何不能对源语言简单右移来获得目标语言？
+
+- **核心疑问**：右移 source 是否会改变原意？为什么普通语言模型可以错位构造 X/Y，翻译不可以？
+- **底层解释**：原因不是简单的“改变原意”，而是**任务与监督目标不同**。语言模型学习同一种语言的下一个 Token；机器翻译是源/目标两条不同序列（如英文 `I love you`、法文 `Je t'aime`）组成的监督对，长度还可能不同。源序列右移只是得到源语言的下一词标签。后续 Seq2Seq 仍然可以将**目标语言序列**错位，构造解码器输入与下一 Token 预测标签。
+- **纠偏锚点**：**机器翻译需要成对的 source/target；目标序列内部依然能使用 next-token 的右移训练。**
+
+### [工单-450] ❓ 序列已填充到相同长度，为什么仍需要 valid_len？
+
+- **核心疑问**：PAD 没有信息，让 Attention 关注它是否属于浪费？
+- **底层解释**：`<pad>` 仅用于在 Batch 内把长度对齐，不能当成有效的源序列词元；在 Attention 中需要屏蔽无意义的 PAD Key 位置，并在目标序列计算 Loss 时跳过 PAD，避免无效预测影响优化。`valid_len=(array != pad_id).type(torch.int32).sum(1)` 得到每条序列的非 PAD 数量，即 `(B,)`。它可以用于构造 Padding Mask/损失有效位置掩码，与禁止看到未来 Token 的因果 Mask 不同。
+- **纠偏锚点**：**凑齐 Shape 不会让 PAD 变成真实数据。**
+
+### [工单-451] ❓ 为什么 EOS 是有效 Token，PAD 却不是？
+
+- **核心疑问**：两者都是特殊 Token，`<eos>` 为什么计入有效长度？
+- **底层解释**：EOS 是序列真正的结束信号，模型通常需要预测它以学习何时停止生成；PAD 是额外的对齐占位，不承担词元监督。示例 `[I,love,AI,<eos>,<pad>,<pad>]` 对应 `valid_len=4`。注意 D2L `build_array_nmt` 是**先追加 EOS、再截断**，特别长的句子若被截断，EOS 也可能被截掉，此时依实际非 PAD 个数计数。
+- **纠偏锚点**：**特殊 Token ≠ 无效 Token；EOS 带有结束监督信号，PAD 不带。**
+
+### [工单-452] ❓ BOS 什么时候计入有效信息？
+
+- **核心疑问**：对于 `[<bos>,I,love,AI,<eos>,<pad>,<pad>]`，为什么 `valid_len=5`？BOS 算不算 Loss 目标？
+- **底层解释**：`valid_len` 指定张量里满足“不是 PAD”的位置数；BOS 如果真实出现在当前输入里，就要计入**输入的有效长度**。Seq2Seq 解码器可令输入 `[<bos>,I,love,AI]`，监督目标 `[I,love,AI,<eos>]`，故 BOS 是有效输入但一般不是模型需要预测的目标。D2L 9.5 `build_array_nmt` 函数没有自动添加 BOS，只在后续解码器流程使用。
+- **纠偏锚点**：**有效输入与参与目标 Loss 的 Token 不是同一个集合。**
+
+### [工单-453] ❓ 9.5 的数据处理在 mini-GPT 中哪些需要？
+
+- **核心疑问**：是否必须复现两种语言词表、翻译数据的四张量、Padding 和 valid_len？
+- **底层解释**：mini-GPT 是 Decoder-only 自回归语言模型，需要 Tokenization/Token ID、同源错位的 `(X,Y)` 和 Causal Mask。它不是双语机器翻译，无须同时建立 src/tgt 词表。第一版以连续语料切成固定长度块 `(B,T)` 时通常不需要 PAD/valid_len；若后来使用变长独立样本，才引入填充和相应的 Attention/Loss Mask。BOS 和 EOS 的启用取决于语料与生成协议。
+- **纠偏锚点**：**数据预处理思想能够迁移，但架构和数据组织不必照搬。Causal Mask 仍必需。**
+
+### 9.5 机器翻译与数据集阶段小结（2026-10-16）
+
+- **任务**：双语句子对监督学习；语言模型预测单语下一 Token，翻译要从源语言生成目标语言。
+- **数据管线**：`preprocess_nmt → tokenize_nmt → Vocab → build_array_nmt → load_data_nmt`；分别构造源/目标词表、逐行 Token→ID、添加 EOS、截断或填充、计算有效长度。Batch 四张量依次 `(B,T),(B,),(B,T),(B,)`。
+- **Token 与有效长度**：PAD 不计；若 EOS 保留则计；BOS 只在实际序列中才计。EOS 通常需要模型预测以学会停止，BOS 通常为解码起点而非预测目标。
+- **Mask 的边界**：Padding Mask 防止关注无效 PAD，Loss Mask 忽略填充目标；GPT 的 Causal Mask 防止未来信息泄漏，两者作用不同。
+- **mini-GPT 路线**：第一版以固定长度单语语料块训练即可，不必实现机器翻译式双词表和 PAD，但应重点掌握自回归目标、Causal Mask、Transformer Block。
+- **学习程度**：完成理论、教材主要函数解释和 Shape/Token 问答；未独立实跑预处理、翻译模型训练或实验指标。下一步 9.6 编码器—解码器架构。
