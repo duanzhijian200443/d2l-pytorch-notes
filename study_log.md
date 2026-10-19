@@ -2,9 +2,22 @@
 
 ## 📌 当前学习进度 (Current Progress)
 
-- **最近更新时间**: 2026-10-16  
-- **当前学习章节**: 第9章 9.5「机器翻译与数据集」**理论、核心数据处理代码和 Shape 问答已完成**。理解机器翻译使用双语 `source/target` 文本对，而非直接从 source 右移获得翻译目标；掌握 Tokenization、源/目标词表、`<pad>/<bos>/<eos>/<unk>`、截断与填充、`valid_len` 及 `build_array_nmt` 的数据流。能区分 PAD 与 EOS 的有效性、BOS 作为解码器起点和预测目标的区别，以及 Padding Mask / Causal Mask 的作用；知道翻译 Batch 四张量的 Shape 与这些技术在 decoder-only mini-GPT 中的适用边界。**本节仅完成课堂讨论、教材代码阅读和示例推演；未独立运行代码、加载数据集或训练模型**。**下一步：9.6 编码器—解码器架构 → 9.7 Seq2Seq，随后重点学习 Attention、Transformer 并开发 mini-GPT。**  
+- **最近更新时间**: 2026-10-19  
+- **当前学习章节**: 第9章 **9.7「序列到序列学习（Seq2Seq）」理论、六题复习及 D2L PyTorch 教材复现实验已完成**。已讨论 GRU Encoder/Decoder 的 Shape、编码上下文、Teacher Forcing 的 `<bos>` + 目标序列右移、目标 Padding 的 MaskedSoftmaxCELoss、`train_seq2seq` 的损失/反向传播/梯度裁剪/统计流程，以及 `predict_seq2seq` 的自回归逐 Token 生成与 BLEU 的 n-gram 匹配、长度惩罚。重点解决 `Y[:, :-1]`、`cat(dim=1/2)`、`unsqueeze(dim=0)`、`argmax(dim=2)`、`item()`、Batch 维与时间维的区分。**进度边界（2026-10-19 更新）：已在个人 Notebook 中修复错误并完成教材 Seq2Seq 训练调用、自回归翻译推理和四句 BLEU 计算，实测 BLEU 为 1.000/1.000/0.537/0.512；属于跟随教材代码复现和自主 Debug，不等于独立从零实现。没有提供完整训练曲线或独立泛化评估。后续仍需短小 Python/PyTorch 独立练习强化编程熟练度。** 下一节 **9.8 束搜索（概念性略读）**；真正的重点将转向 **Attention、Q/K/V、Transformer、decoder-only mini-GPT**。蓝桥杯 Python 赛道是否备赛及投入强度尚待后续讨论，**尚未作出正式参赛决定**。  
 - **核心掌握概念**:  
+  - **9.7 最新实训（2026-10-19）**：在 Jupyter Notebook 中完成 D2L 9.7 的训练、预测和 BLEU 计算流程，`go .→va !`（BLEU 1.000）、`i lost .→j'ai perdu .`（1.000）、`he's calm .→il est venu ?`（0.537）、`i'm home .→je suis malade .`（0.512）。后两句语义明显错误；BLEU 的 n-gram 匹配得分不等于语义正确。排错过程涉及 UTF-8/GBK、拼写一致性、Tensor 属性/API、可调用损失对象与 BLEU 变量初始化；尚未独立从零搭建 Seq2Seq。  
+  - **9.7 Seq2Seq 结构和 Shape**：`Seq2SeqEncoder` 中 `Embedding: (B,T_src)→(B,T_src,E)`，`permute(1,0,2)→(T_src,B,E)`，GRU 返回 `output:(T_src,B,H)` 与 `state:(L,B,H)`（本节单向模型）；Decoder 从 `enc_outputs[1]` 取初始状态，`context=state[-1].repeat(T_tgt,1,1)`，与目标 Embedding 按最后特征维 `cat(dim=2)` 拼成 `(T_tgt,B,E+H)`，经 GRU + Linear 得到目标词表 logits `(B,T_tgt,V_tgt)`。这套固定上下文的 GRU Seq2Seq 与后面的注意力机制不同。  
+  - **9.7 Teacher Forcing 与序列错位**：训练时 Encoder 输入英文 `X`，Decoder 输入真实法文目标 `Y` 向右错开一位：`dec_input=cat([bos,Y[:,:-1]],dim=1)`，例如 `Y=[Je,t',aime,<eos>]`，Decoder 输入 `[<bos>,Je,t',aime]`。不泄露当前目标 Token；`Y` 标签仍保留 `<eos>`，使模型学会停止。`Y[:,:-1]` 实际删除最后一个**列位置**，若有 PAD，删掉的可能是 `<pad>`，不总是 EOS。  
+  - **9.7 序列 Loss 和 Padding Mask**：`MaskedSoftmaxCELoss.forward(pred,label,valid_len)`，`pred:(B,T,V)→permute(0,2,1):(B,V,T)` 适配交叉熵的类别轴，逐位置 CE 得 `(B,T)`；用 `sequence_mask(ones_like(label),valid_len)` 产生 0/1 权重屏蔽 `<pad>`，再 `.mean(dim=1)` 返回每条句子的 `(B,)` loss。教材的均值分母是固定 `T`，不是 `valid_len`；与因果注意力掩码不等价。  
+  - **9.7 训练循环**：`Y_hat,_=net(X,dec_input,X_valid_len)`；`loss(Y_hat,Y,Y_valid_len)` 用的是**目标**有效长度；`l.sum().backward()` 汇总 Batch Loss 再求梯度；`d2l.grad_clipping(net,1)` 限制全网络梯度范数；`optimizer.step()` 更新权重；`Y_valid_len.sum()` 与 `metric.add(l.sum(),num_tokens)` 仅用于训练显示。`sum` 与 `mean` 原始梯度相差 Batch Size 倍（同一 Batch），但梯度裁剪和 Adam 使真实权重更新不一定等比例。教材 `metric[0]/metric[1]` 在上述固定 T 的损失定义下**不是严格的逐有效 Token 平均 CE**。  
+  - **9.7 预测与 Shape**：`predict_seq2seq` 先 `lower().split(' ')→src_vocab→追加 <eos>→enc_valid_len→truncate_pad→tensor.unsqueeze(0)` 得 `enc_X:(1,T)`，`net.eval()` 切评估模式并不等于 `no_grad()`。Decoder 初始 `dec_X=[[bos_id]]:(1,1)`；每轮 `Y:(1,1,V)` → `Y.argmax(dim=2):(1,1)`（返回最大 Logit 对应的 Token **索引**，不是最大 Logit）；取 `.item()` 得 Python int 用于 `<eos>` 判断和 `output_seq.append`，Tensor 仍用于下轮 Decoder 输入，隐藏状态持续传递；生成 `<eos>` 时停止，不保存该标记。`tensor([[2]])` 中的 2 是数据值（Token ID），`dim=0` 是 Batch，`dim=1` 是时间/Token 位置。  
+  - **9.7 BLEU**：n-gram 表示连续 n 个 Token，`p_n` 统计预测 n-gram 与参考译文可用出现次数的匹配比率，`defaultdict(int)` 记录参考 n-gram 计数，匹配后 `-=1` 防止同一参考词反复记分；BLEU 乘入过短预测的长度惩罚，教材采用 `BP * Π p_n^(1/2^n)`。BLEU 主要看词元片段匹配，不能直接衡量语义等价性。  
+  - **当前能力观察（非比赛结果）**：能沿训练/预测流程主动确认 `X/dec_input/X_valid_len`、`Y/Y_valid_len` 的职责；在反复举例后正确区分 `Y[:,:-1]` 切片、`tensor([[2]])` 的 Shape 与数值；已意识到 Python 常用容器/切片和 PyTorch Shape 熟练度有待提升，希望进一步讨论蓝桥杯 Python 赛道，但尚未确定目标和日程。  
+  - **9.6 Encoder–Decoder 的模块职责**：Encoder 接收可变长源序列并提供编码信息；Decoder 利用该信息及已经输入/生成的目标 Token 逐步预测输出，可得到可变长度目标序列。D2L 9.6 的经典描述是固定形状编码状态；后续基于 Attention 的架构可保留整段 Encoder 表示供 Decoder 访问，并非一律只传单个最终向量。
+  - **9.6 RNN 解码状态及信息来源**：经典 RNN Seq2Seq 可用 Encoder 最终隐藏状态初始化 Decoder（维度兼容时 `s_0=h_T^enc`），随后 `s_t=f(embed(y_(t-1)),s_(t-1))`，输出层将 `s_t` 映射为目标词表 logits。状态更新会积累已见信息，但未收到原文时无法凭空获得源句条件；GPT 可以不设置独立 Encoder，是因为 Prompt 本身直接输入了 Decoder。
+  - **9.6 核心 `forward` 流水线**：`enc_outputs=self.encoder(enc_X,*args)` → `dec_state=self.decoder.init_state(enc_outputs,*args)` → `self.decoder(dec_X,dec_state)`；`enc_X` 是源序列，`dec_X` 是解码器自己的输入，`enc_outputs` 不保证与 `dec_state` 相同，返回值由具体 Decoder 定义。训练时 `dec_X` 可包含多个时间步，而非一定逐 Token 调用。
+  - **9.6 `init_state` 的适配性**：GRU Decoder 的状态可能是 `h_n`；LSTM Decoder 可需要 `(h_n,c_n)`；Attention Decoder 可能保存 Encoder 全部时间步输出及有效长度。Encoder 输出格式、Decoder 所需状态结构/Shape 未必相同，必要时还需投影变换，因此不能把 `enc_outputs[1]` 作为所有结构的通用规则。
+  - **9.6 Python/PyTorch 接口机制**：`class Encoder(nn.Module)` 继承父类，`super().__init__(**kwargs)` 执行继承链中的初始化并完成模块注册所需设置；`raise NotImplementedError` 是故意在尚未实现的接口中抛异常，具体子类重写 `forward()` 后才能执行计算；`__init__` 负责组装模块，`forward` 负责运算，通过 `net(X)` 触发 PyTorch 的模块调用逻辑。此处只是理解示例和语法，未独立实测。
   - **9.5 双语句子对与监督学习**：机器翻译以 `(source,target)` 组成样本，两条序列可以不同语言、不同长度；与 8.3 在同一条单语序列内构造 next-token 目标不同。后续 Seq2Seq 仍可在目标语言内部右移，构造 decoder input/label。
   - **9.5 清洗、分词与双词表**：`preprocess_nmt` 清理不间断空格、统一小写、分离标点；`tokenize_nmt` 按行与制表符拆出 source/target，再按空格分词。源语言和目标语言各有独立词表，`min_freq=2` 将低频词统一映射为 `<unk>`；`<pad>` 补齐长度、`<bos>` 作为解码起点、`<eos>` 表示序列结束。
   - **9.5 Padding、Truncation 与 valid_len**：`build_array_nmt(lines,vocab,num_steps)` 将 Token 映射为 ID、追加 EOS、调用 `truncate_pad` 截断/填充到固定 `T`、再通过 `(array != pad_id).type(torch.int32).sum(1)` 统计逐行有效长度；`array.shape=(N,T)`、`valid_len.shape=(N,)`。EOS 若没有被截掉应计入 valid_len，PAD 不计。BOS 只有实际位于输入序列中才按非 PAD 规则计入。
@@ -120,8 +133,9 @@
 - [x] 9.3 深度循环神经网络（两轴依赖、纵向堆叠与 `num_layers`、输出及状态 Shape；已完成理论和接口阅读，未本节实训）  
 - [x] 9.4 双向循环神经网络（正反向隐状态更新、特征拼接、`Y/H` 的 Shape、未来信息泄漏；理论与示例阅读完成，未实跑）
 - [x] 9.5 机器翻译与数据集（源/目标序列对、分词词表、特殊 Token、Padding/Truncation、valid_len、Batch Shape、mini-GPT 差异；已完成理论与代码阅读，未独立实跑）
-- [ ] 9.6 编码器—解码器架构（下一节，理解源序列编码、目标序列解码的信息流）
-- [ ] 9.7 Seq2Seq（后续：编码器、解码器、训练与预测）
+- [x] 9.6 编码器—解码器架构（Encoder/Decoder 职责、RNN 解码隐藏状态的信息来源、`init_state`/`forward` 三步数据流、接口继承和 `NotImplementedError`；课堂理论与代码阅读完成，未独立实现或训练）
+- [x] 9.7 序列到序列学习（Seq2Seq：GRU Encoder/Decoder、Teacher Forcing、MaskedSoftmaxCELoss、训练/预测代码、六题巩固、教材 Notebook 跟随复现实训和四句 BLEU 计算均完成；已运行，未独立从零实现，翻译准确性仍有限）
+- [ ] 9.8 束搜索（Beam Search：下一节，概念性略读贪心、束宽、长度惩罚及与自回归解码的关系）
 
 ---
 
@@ -142,7 +156,39 @@
 
 ## 🛠️ API 速查表 (API Cheatsheet)
 
-> 按功能场景分组，持续更新。当前覆盖到 D2L 第 9 章 9.5「机器翻译与数据集」（数据预处理、特殊 Token、Padding、valid_len、Batch Shape 的理论和代码阅读）；保留此前 CNN、Kaggle、RNN、GRU/LSTM 等 API 速查。
+> 按功能场景分组，持续更新。当前覆盖到 D2L 第 9 章 9.7「序列到序列学习」（含教材 Notebook 实跑及排错：GRU 编码/解码、Teacher Forcing、目标掩码损失、训练与生成、BLEU 及相应 Shape）；保留此前 CNN、Kaggle、RNN、GRU/LSTM、9.5 数据处理等 API 速查。
+
+### 🌐 9.7 Seq2Seq / BLEU 速查（2026-10-19）
+
+| 任务 | API / 代码 | 关键约定 / Shape |
+|:---|:---|:---|
+| 保留所有 Batch 行、去掉目标序列最后一列 | `Y[:, :-1]` | `(B,T)→(B,T-1)`，去掉的是最后位置，不保证一定是 EOS |
+| 构造训练 Decoder 输入 | `torch.cat([bos, Y[:, :-1]], dim=1)` | `bos:(B,1)` + `(B,T-1)` → `(B,T)`；目标语言右移一位 |
+| 按特征维拼 Decoder 输入与上下文 | `torch.cat((X,context),dim=2)` | `(T,B,E)` + `(T,B,H)` → `(T,B,E+H)` |
+| 向序列添加 Batch 维 | `X.unsqueeze(dim=0)` | `(T,)→(1,T)`；不是添加 Token |
+| GRU 输入时间维前置 | `embedding(X).permute(1,0,2)` | `(B,T,E)→(T,B,E)` |
+| 转成交叉熵接受的类别维 | `pred.permute(0,2,1)` | `(B,T,V)→(B,V,T)`；`CrossEntropyLoss(reduction='none')` 得 `(B,T)` |
+| 屏蔽目标 PAD 损失 | `sequence_mask(weights,Y_valid_len)` | 对 PAD 权重置 0；之后逐元素乘 Loss |
+| 累积 Batch 损失后反传 | `l.sum().backward()` | `l:(B,)→scalar`；求和与均值原始梯度相差 B 倍 |
+| 避免大梯度 | `d2l.grad_clipping(net,1)` | 反传之后、`optimizer.step()` 之前裁剪全局梯度范数 |
+| 统计有效目标 Token | `Y_valid_len.sum()` | `(B,)→scalar`，仅作指标统计，EOS 有效而 PAD 无效 |
+| 一次预测一个 Token | `dec_X=Y.argmax(dim=2)` | `Y:(1,1,V)→dec_X:(1,1)`；返回 Token **索引**不是分数 |
+| 提取普通 Python 整数 | `dec_X.item()` | 从单元素 Tensor 中得到 ID，便于比较 EOS/加入列表 |
+| 生成完整句子 | `tgt_vocab.to_tokens(output_seq)` / `' '.join(...)` | 将 ID 列表恢复为词元列表和字符串；EOS 不纳入输出 |
+| BLEU n-gram 计数 | `collections.defaultdict(int)` / `label_subs[ngram]-=1` | 匹配后消耗参考 n-gram 的可用次数 |
+
+### 🧰 9.7 Notebook 实训易错 API（2026-10-19）
+
+| 场景 | 正确用法 | 错误症状与原因 |
+|:---|:---|:---|
+| Windows 读取 UTF-8 双语语料 | `open(path, 'r', encoding='utf-8')` | D2L 旧版 `read_data_nmt` 未指定编码时按 GBK 解码，报 `UnicodeDecodeError` |
+| 调用自定义损失对象 | `loss = MaskedSoftmaxCELoss(); y = loss(pred,label,valid_len)` | `loss = (pred,label,valid_len)` 只做元组赋值，不调用 Loss，Jupyter 不会显示赋值值 |
+| 继承损失类时调用父类 | `super().forward(pred.permute(0,2,1),label)` | `MaskedSoftmaxCELoss` 类名要与定义完全一致；`super()` 可避免重复类名拼错 |
+| 初始化权重与遍历模块 | `nn.init.xavier_uniform_(m.weight)` / `net.apply(xavier_init_weights)` | `xaiver` 错拼、回调函数定义/调用名字不一致会报错或出现编辑器黄线 |
+| 从单元素 Token Tensor 取 ID | `pred = dec_X.item()` | `dec_X.dtype(...)` 错把 dtype 属性当方法；`argmax` 结果已是整数 Tensor |
+| 还原预测词元 | `tgt_vocab.to_tokens(output_seq)` | `to_token`（单数）不是该 Vocab API |
+| 输出 BLEU 小数 | `print(f'{eng} => {translation}, bleu {bleu(translation,fra,k=2):.3f}')` | 函数括号与 `:.3f` 位置必须正确，错误会触发 `SyntaxError` |
+| 计算 clipped n-gram 匹配 | `num_matches = 0`（每个 n 初始化）+ `num_matches += 1` | `num_matchs` 与 `num_matches` 是两个变量，命名不一致导致 `UnboundLocalError` |
 
 ### 📐 Tensor 创建、Shape 与基础运算
 
@@ -265,6 +311,22 @@
 | 从翻译语料取一个 Batch | `load_data_nmt(B,T)` | 返回 `data_iter,src_vocab,tgt_vocab`；每批 `src,src_valid_len,tgt,tgt_valid_len` 四张量 `(B,T),(B,),(B,T),(B,)` |
 | GPT 中构造错位监督目标 | `X=tokens[:-1]; Y=tokens[1:]`（再分块） | 单语 next-token 预测；不是源语到目标语句子翻译 |
 | 判断何时需要 Mask | Padding Mask / Causal Mask | Padding Mask 屏蔽无效填充，Causal Mask 屏蔽未来 Token |
+
+&nbsp;
+
+### 🧱 9.6 Encoder–Decoder 接口与模块速查
+
+| 当你想要... | 用这个 | 核心作用 / 数据流 |
+| :---- | :---- | :---- |
+| 定义编码器基础接口 | `class Encoder(nn.Module): ...` | 子类负责具体 `forward(X,*args)`，父类只规定方法入口 |
+| 定义解码器基础接口 | `class Decoder(nn.Module): ...` | 子类需实现 `init_state(enc_outputs,*args)` 与 `forward(X,state)` |
+| 标记方法尚未实现 | `raise NotImplementedError` | 被调用时主动抛异常；不是自动生成算法，也不是强制的抽象方法校验 |
+| 先完成父类初始化 | `super().__init__(**kwargs)` | 沿继承链完成必要初始化；PyTorch `nn.Module` 的子模块/参数注册依赖这一过程 |
+| 将子模块注册到网络 | `self.encoder=encoder; self.decoder=decoder` | `__init__` 负责组装网络；注册后可参与 `net.parameters()` / `.to(device)` |
+| 编码输入 | `enc_outputs=self.encoder(enc_X,*args)` | 读取源序列，得到 Encoder 的实现特定输出 |
+| 适配解码器状态 | `dec_state=self.decoder.init_state(enc_outputs,*args)` | 将编码结果整理成该 Decoder 所需的状态/上下文；不是固定取 `enc_outputs[1]` |
+| 执行解码 | `return self.decoder(dec_X,dec_state)` | 使用目标侧输入和编码条件得到该 Decoder 定义的结果 |
+| 用具体子类提供算法 | `class Seq2SeqEncoder(Encoder): ...` | 重写 `forward` 才实现真实的 GRU/LSTM/Transformer 编码逻辑；9.7 再展开 |
 
 &nbsp;
 
@@ -4071,3 +4133,290 @@ H_t = O_t * tanh(C_t)
 - **Mask 的边界**：Padding Mask 防止关注无效 PAD，Loss Mask 忽略填充目标；GPT 的 Causal Mask 防止未来信息泄漏，两者作用不同。
 - **mini-GPT 路线**：第一版以固定长度单语语料块训练即可，不必实现机器翻译式双词表和 PAD，但应重点掌握自回归目标、Causal Mask、Transformer Block。
 - **学习程度**：完成理论、教材主要函数解释和 Shape/Token 问答；未独立实跑预处理、翻译模型训练或实验指标。下一步 9.6 编码器—解码器架构。
+
+### [工单-454] ❓ 删除 Encoder 后 Decoder 的隐藏状态不仍然会更新吗？
+
+- **核心疑问**：即使 `s_0=0`，解码器每输入一个 Token 都会得到新的 `s_t`，为什么还说它缺少信息？
+- **底层解释**：隐藏状态包含来自之前状态、当前输入 Token 及网络参数处理的信息，但没有输入过的**特定英文源句信息**不会因为更新而自动出现。对英文 `I love you` 和 `I hate you`，若都只给 Decoder 相同的 `<bos>`、相同 `s_0=0`，其第一步预测分布完全相同，无法根据两句英文条件化地输出不同译文。经典 Seq2Seq 用 Encoder 提供句子条件；GPT 则直接把 Prompt 输入 Decoder，属于另一种条件获取方式。
+- **纠偏锚点**：**隐藏状态有信息 ≠ 获得了当前任务所需的源句信息；关键在信息从哪里进入网络。**
+
+### [工单-455] ❓ Decoder 和 RNN 隐藏状态更新究竟有什么关系？
+
+- **核心疑问**：Decoder 本身是不是一个单独的“隐藏状态更新算法”？Encoder 最终状态如何影响生成过程？
+- **底层解释**：Decoder 是负责生成目标序列的**模块角色**，其内部可以使用 RNN/GRU/LSTM 等循环层。RNN Decoder 根据 `s_t=f(x_t,s_(t-1))` 更新自己的时间状态，线性输出头再由 `s_t` 产生词表 logits；`s_t` 并非 Token 本身。某些经典设计在维度匹配时设 `s_0=h_T^(enc)`，源句信息经循环更新链影响之后的预测，但不能保证无损保留。**隐藏层**是具有权重的网络结构；**隐藏状态**是每个时间步的数值，两者不是一回事。
+- **纠偏锚点**：**Decoder 是网络模块，RNN 隐藏状态更新是循环式 Decoder 内部的计算过程。**
+
+### [工单-456] ❓ `init_state()` 为什么不能永远直接返回 `enc_outputs[1]`？
+
+- **核心疑问**：既然编码器给出了隐藏状态，直接取出来传给 Decoder 不就行了吗？
+- **底层解释**：`enc_outputs` 的具体结构取决于编码器：GRU 的第二项可能是 `h_n`，LSTM 的第二项通常是 `(h_n,c_n)`；解码器如果层数/隐藏维不匹配还需额外适配或投影。Attention Decoder 可能还要保存 Encoder **所有时间步表示**和有效长度用于后续注意力掩码。因此 `init_state(enc_outputs,*args)` 是**接口适配步骤**，并不约束为一个固定的数组下标操作。
+- **纠偏锚点**：**Encoder 输出的数据结构和 Decoder 所需状态未必一致。**
+
+### [工单-457] ❓ `super(Encoder,self).__init__(**kwargs)` 到底有什么作用？
+
+- **核心疑问**：继承 `nn.Module` 后为什么还要显式调用 `super()`？子类 `__init__` 不是已经执行了吗？
+- **底层解释**：子类定义了自己的 `__init__` 时不会自动执行父类的初始化逻辑；`super().__init__(**kwargs)` 按方法解析顺序调用下一层初始化，在简单 `Encoder(nn.Module)` 情况下执行 `nn.Module.__init__`。这建立子模块/参数注册需要的基础设置。D2L 的 `super(Encoder,self).__init__(**kwargs)` 与现代 Python 3 中的 `super().__init__(**kwargs)` 在本例中等价。省略它并尝试注册 `self.linear=nn.Linear(...)` 可能引发模块初始化相关错误。
+- **纠偏锚点**：**`__init__` 负责初始化当前类；`super()` 让继承链中的初始化也正确运行。**
+
+### [工单-458] ❓ `raise NotImplementedError` 是什么，为什么 9.6 的 `forward()` 不计算？
+
+- **核心疑问**：D2L 9.6 的 `Encoder.forward`、`Decoder.forward` 都直接 `raise NotImplementedError`，是否遗漏了实际计算代码？
+- **底层解释**：`raise` 主动抛出异常，`NotImplementedError` 是内置异常类型，表示方法目前故意未实现。9.6 定义的是基础**接口约定**：不同具体 Encoder/Decoder 子类需要**重写**（override）自己的 `forward`/`init_state` 提供真实逻辑；若子类未重写而调用该方法，就会触发异常。这不是 Python 自动补全逻辑，也不是使用 `abc.ABC` 的实例化期强制检查。教材 9.7 才提供基于 GRU 的具体 Seq2Seq 类。
+- **纠偏锚点**：**9.6 定义“怎样调用”，9.7 才实现“具体怎样计算”。**
+
+### 9.6 编码器—解码器架构阶段小结（2026-10-17）
+
+- **主要架构**：Encoder 将源序列转换为可供解码的表示；Decoder 用编码信息和自身的已知/生成 Token 预测目标序列。经典 RNN 设计可用最终编码隐藏状态初始化解码器；后续 Attention 结构不局限于单个最终状态。
+- **源码主线**：`enc_outputs=self.encoder(enc_X,*args)` → `dec_state=self.decoder.init_state(enc_outputs,*args)` → `self.decoder(dec_X,dec_state)`。`enc_outputs` 与 `dec_state` 不一定相同，因为各类 Decoder 的状态结构与数据需求不同。
+- **重要澄清**：没有 Encoder 或其他原文输入时，Decoder 隐藏状态依然更新，但不能因此得知一条未提供的英文原句；GPT 之所以可以只用 Decoder，是因为 Prompt 直接提供了上下文。
+- **Python/PyTorch 接口**：`__init__` 组装模块，`forward` 定义计算；`super().__init__()` 调用父类初始化；`raise NotImplementedError` 为基类预留待子类实现的方法，子类重写后才产生真实网络计算。
+- **学习边界**：本节**课堂理论、教材接口代码阅读与问题讨论已完成**，未亲自实现 Encoder/Decoder 子类、未进行训练/评估。接口与继承的实际调用仍可在 9.7 的 GRU Seq2Seq 中继续巩固。
+- **下一阶段**：9.7 序列到序列学习（Seq2Seq），之后重点深入 Attention、Transformer 与 decoder-only mini-GPT。
+
+---
+
+## 📖 9.7 序列到序列学习（Seq2Seq）— 完整课堂问答与源码精读（2026-10-18～2026-10-19）
+
+> **历史阶段说明**：以下先记录 9.7.1–9.7.6 的课堂理论、D2L 代码讲解与当时的示例数值；**当时的教学例子不等于独立运行**。2026-10-19 后续已另行完成真实的 Notebook 训练、翻译与 BLEU 输出，记录见本节末尾，仍不等于从零手搓。记录承接 9.6 的 [工单-458]，下一个问题从 [工单-459] 开始。
+
+### [工单-459] ❓ GRU Encoder 为什么先 Embedding 再 permute？输出和隐藏状态分别是什么？
+- **核心疑问**：`nn.Embedding(vocab_size,embed_size)` 和 `nn.GRU(embed_size,num_hiddens,num_layers)` 组合后，时间与 Batch 维怎样流转？
+- **底层解释**：输入词元 ID `X:(B,T_src)` → `embedding(X):(B,T_src,E)` → `.permute(1,0,2):(T_src,B,E)`，与本节 `batch_first=False` 的 GRU 对齐；其 `output:(T_src,B,H)` 是最上层所有时间步输出，`state:(L,B,H)` 是各层最后隐藏状态（单向）。`num_layers` 不是序列长度，也不是词表维。
+- **纠偏锚点**：**Encoder 输出所有时间步的表示，但本节基础解码器主要通过最终状态初始化。**
+
+### [工单-460] ❓ Decoder 为什么能直接用 `enc_outputs[1]` 初始化隐藏状态？
+- **核心疑问**：`init_state(enc_outputs)` 为什么返回第二项，这和每个时间步都能访问 Encoder 信息是什么关系？
+- **底层解释**：本节采用配置兼容的单向 GRU Encoder/Decoder，`enc_outputs=(output,state)`，所以 `enc_outputs[1]` 正是 `state:(L,B,H)`。若层数/隐藏宽度不匹配，或换 LSTM、Attention，状态结构还需适配。本节只是具体实现，不等于所有 Encoder/Decoder 通用。
+- **纠偏锚点**：**`init_state` 提供起始递归状态；不是“把完整源句逐 Token 输入 Decoder”。**
+
+### [工单-461] ❓ 为什么把 Context 拼接在 Decoder Embedding 后？`dim=2` 代表什么？
+- **核心疑问**：`context = state[-1].repeat(X.shape[0],1,1)`、`torch.cat((X,context),2)` 看起来像重复塞入历史信息，为什么维度要这样组织？
+- **底层解释**：Decoder `X:(B,T_tgt)` → embedding/permute 后 `(T_tgt,B,E)`；`state[-1]:(B,H)` 取最高层初始状态，沿时间维重复为 `(T_tgt,B,H)`；`cat(...,dim=2)` **沿特征轴拼接**得到 `(T_tgt,B,E+H)`，这解释 GRU 的输入宽度 `embed_size+num_hiddens`。GRU 用可学习权重决定如何综合当前目标词与上下文，拼接本身不是加和也不会自动混淆两个来源。一次完整 forward 内这里的 context 固定，GRU 的递归 state 仍随时间更新。
+- **纠偏锚点**：**`dim=2` 加特征，训练构造 `dec_input` 的 `dim=1` 加时间位置；不要混淆。**
+
+### [工单-462] ❓ 什么是 Teacher Forcing，真实目标会不会泄漏给模型？
+- **核心疑问**：训练时为何把法文真值当 Decoder 输入？这会不会让模型直接看到答案？
+- **底层解释**：Encoder 接源语言 `X`；Decoder 输入的是**上一个**目标 Token 真值而非当前需要预测的标签：`Y=[Je,t',aime,<eos>]`、`dec_input=[<bos>,Je,t',aime]`。每个位置监督学习 `p(y_t|X,y_{<t})`，因此目标右移保证当前答案未提前输入。推理时没有目标真值，才逐步喂入前一步自己生成的 Token。
+- **纠偏锚点**：**训练与生成的输入来源不同，但每个位置都学预测下一个目标 Token。**
+
+### [工单-463] ❓ 为什么加入 BOS 却“去掉 EOS”？
+- **核心疑问**：`torch.cat([bos,Y[:,:-1]],dim=1)` 为什么加 `<bos>`、删除最后一个位置？是否把 EOS 从训练标签删掉了？
+- **底层解释**：`<bos>` 提供预测第一个目标词时的输入；目标 `Y` **不变**，仍保留 `<eos>` 作为最后一个真实监督目标。右移输入需保持同样长度，所以从用于构造 Decoder 输入的序列删除最后一列。真实 Batch 含 PAD 时，`Y[:,:-1]` 删除的往往是**最末尾的 PAD**，并不总是 EOS；PAD 目标通过损失掩码忽略。
+- **纠偏锚点**：**EOS 是模型要学会预测的“结束答案”，BOS 是起始输入；不能把右移误解成删除标签里的 EOS。**
+
+### [工单-464] ❓ `Y[:, :-1]`、`cat(dim=1)` 到底是怎样改变 Tensor 的？
+- **核心疑问**：Python 负索引、二维切片、行列、Batch 与时间步不直观。
+- **底层解释**：`:` 表示保留所有 Batch 行，`:-1` 表示保留每行除最后一个元素以外的列；`Y=[[1,2,3,4],[5,6,7,8]]` 得 `Y[:,:-1]=[[1,2,3],[5,6,7]]:(2,3)`。`bos=[[0],[0]]:(2,1)` 与其 `cat(dim=1)` 得 `[[0,1,2,3],[0,5,6,7]]:(2,4)`，形状依然是 `(B,T)`；它沿时间轴拼接而不是沿 Batch 加新句子。
+- **纠偏锚点**：**切片控制取哪些位置，cat 控制沿哪个轴拼接；二者都不改变 Token 的语义。**
+
+### [工单-465] ❓ 为什么 MaskedSoftmaxCELoss 要 `pred.permute(0,2,1)`？
+- **核心疑问**：Seq2Seq 输出形状是 `(B,T,V)`，为什么交叉熵需要 `(B,V,T)`，以及 `super().forward()` 是否计算了 Loss？
+- **底层解释**：D2L 9.7 的 Decoder 输出 `pred:(B,T,V)`，PyTorch `CrossEntropyLoss` 对多维输入规定**类别维在 dim=1**，所以 `pred.permute(0,2,1):(B,V,T)`；标签 `label:(B,T)` 作为类别 ID。`self.reduction='none'` 后 `super().forward(...)` 确实调用父类交叉熵计算，得到逐位置 `unweighted_loss:(B,T)`，之后才有机会屏蔽 PAD。
+- **纠偏锚点**：**Logits 的 V 维转到 dim=1 是配合 CE API，不是让词表变成时间序列。**
+
+### [工单-466] ❓ sequence_mask 遮住的是 Logits 还是 Loss？均值为什么仍除以固定长度？
+- **核心疑问**：`sequence_mask(torch.ones_like(label),valid_len)` 与 `weighted_loss=(unweighted_loss*weights).mean(dim=1)` 的顺序、Shape 和分母。
+- **底层解释**：`weights:(B,T)` 先全为 1，再按每条目标 `valid_len` 把 PAD 位置权重设为 0；`unweighted_loss:(B,T)` 已通过 CE 得出，逐位置相乘后 `.mean(dim=1)` 返回每条句子一个 Loss `(B,)`。此处平均除的是固定 `T`，不是单句真实有效长度；EOS 是有效的最后一个标签。这个 Loss Mask 不等于 Attention 的 Padding Mask，也不等于 GPT 的 Causal Mask。
+- **纠偏锚点**：**先计算每位置 CE，再把 PAD 的损失乘 0；固定 T 仍计入教材的 mean 分母。**
+
+### [工单-467] ❓ `net(X,dec_input,X_valid_len)` 三个输入分别负责什么？
+- **核心疑问**：是否分别是“输入样本、输入目标语言、样本有效长度”？`Y_valid_len` 又在哪里使用？
+- **底层解释**：用户判断正确，需精确区分：`X:(B,T_src)` 是英文 Token ID，`dec_input:(B,T_tgt)` 是右移后的**真实法文输入**，`X_valid_len:(B,)` 是**英文源句**有效长度。模型 `Y_hat,_=net(...)` 返回目标词表 Logits `Y_hat:(B,T_tgt,V_tgt)` 和 Decoder state；`_` 表示本次训练不使用返回 state。接着 `loss(Y_hat,Y,Y_valid_len)` 用**法文目标**有效长度屏蔽填充标签。
+- **纠偏锚点**：**X_valid_len 用于网络调用，Y_valid_len 用于目标 Loss；二者不能仅凭“有效长度”混为一谈。**
+
+### [工单-468] ❓ `l.sum().backward()` 为什么不是 `mean().backward()`？
+- **核心疑问**：求和和求平均会不会差很多？
+- **底层解释**：`loss()` 返回每条句子的损失向量 `l:(B,)`；`l.sum()` 合成一个标量后反传。对固定 Batch，`∇sum(l)=B·∇mean(l)`，梯度方向不变、原始范数按 B 缩放；Batch Size 较大时差别可能显著。SGD 同学习率更新量可按比例放大，但后面的梯度裁剪和 Adam 会改变这种直觉；教材使用 sum 并非声称优于 mean。mini-GPT 的常见训练损失使用 token 平均 CE。
+- **纠偏锚点**：**损失汇总方式是训练尺度选择，不能随意更换而认为模型更新完全相同。**
+
+### [工单-469] ❓ 梯度裁剪 `grad_clipping(net,1)` 在哪里起作用？
+- **核心疑问**：L2 范数阈值 1 与反向传播、参数更新什么关系？
+- **底层解释**：`backward()` 先计算并累计整网参数的梯度；随后梯度裁剪检查全局 L2 范数，若超过 1 就按统一比例缩小梯度，如范数 5 缩至 1 时乘 0.2；未超过则不变。它不直接改参数，下一行 `optimizer.step()` 才依据梯度进行 Adam 更新。裁剪在本节也有助于稳定循环网络的训练。
+- **纠偏锚点**：**先算梯度 → 裁剪梯度 → 优化器更新权重；裁剪范数非逐元素 clip。**
+
+### [工单-470] ❓ `num_tokens=Y_valid_len.sum()` 和 Accumulator 统计的到底是什么？
+- **核心疑问**：`metric.add(l.sum(),num_tokens)` 为什么不影响训练？`metric[0]/metric[1]` 是否真是有效 Token 平均交叉熵？
+- **底层解释**：`Y_valid_len:(B,)` 对当前 Batch 有效目标词元数（含 EOS，不含 PAD）求和，`metric` 有两个累加槽，分别累积 Batch 损失之和、有效 Token 总数；置于 `torch.no_grad()` 下用于展示，不反向传播。严格说，教材 `MaskedSoftmaxCELoss` 已先按固定 `T` 对每句求平均，故 `metric[0]/metric[1]` 的数值不严格等于标准的逐有效 Token 平均 CE；不要从该记录推出用户实测某个 loss。
+- **纠偏锚点**：**训练目标的归约方式与统计指标的归一化要分别检查，不能只看变量名叫 num_tokens。**
+
+### [工单-471] ❓ `optimizer.step()` 到底更新哪些参数？
+- **核心疑问**：前两行已经 backward/clipping，step 做什么？Encoder 和 Decoder 都会更新吗？
+- **底层解释**：`Adam(net.parameters(),lr=lr)` 注册整套 Seq2Seq 可训练权重（含 Embedding/GRU/输出层），`optimizer.step()` 利用各自梯度执行参数更新；不是单独只更新 Decoder，也不是把返回的隐藏状态直接变成参数。训练通常每批从 `optimizer.zero_grad()` 清掉已有参数梯度开始。课堂用 SGD 单权重 `w−ηg` 解释基本直觉，本节实际使用 Adam。
+- **纠偏锚点**：**backward 计算梯度，step 修改参数；net.parameters() 覆盖 Encoder 和 Decoder。**
+
+### [工单-472] ❓ 预测为什么先 `net.eval()`，不直接开始生成？
+- **核心疑问**：预测函数里的 `net.eval()` 和 `torch.no_grad()` 是否一回事？
+- **底层解释**：`net.eval()` 切换模型子模块的评估行为，例如禁用 Dropout 随机失活；它不自动禁用 autograd。`torch.no_grad()` 单独用于关闭当前作用域的梯度跟踪，减少推理时不必要的计算图开销。两者服务于不同目的，可同时使用。教材 `predict_seq2seq` 定义中还有注意力记录开关，基础 GRU Decoder 不提供注意力权重，保持默认 False。
+- **纠偏锚点**：**eval 是模型行为模式，不是 no_grad 的别名。**
+
+### [工单-473] ❓ 英文源句如何成为 Encoder Tensor？为什么加 EOS、valid_len、Padding？
+- **核心疑问**：`src_sentence.lower().split(' ')`、`src_vocab[...] + [src_vocab['<eos>']]`、`enc_valid_len`、`truncate_pad` 分别做了什么？
+- **底层解释**：示例英文 `I love you` → 小写/按空格分词 `['i','love','you']` → 词表查询 Token ID → 尾部添加源语言 EOS，真正的 `enc_valid_len=torch.tensor([len(src_tokens)])` 先记录非 PAD 的有效长度，源句 EOS 计入；`truncate_pad(src_tokens,num_steps,pad_id)` 再截长补短至固定 T，补的 PAD 不算有效词元。一般特别长的句子被截断时需要留意有效长度可能大于实际保留长度；教材这一函数先计算 valid_len 再截断，不能无条件把其看作截断后的有效长度。
+- **纠偏锚点**：**序列张量的固定长度 T 与有效词元数不同；EOS 有效，PAD 无效。**
+
+### [工单-474] ❓ 为什么只有一句英文，也要 `unsqueeze(dim=0)`？
+- **核心疑问**：一维 `(T,)` 已有全部 Token，为何要变成 `(1,T)`？`dim=0` 与 `dim=1` 插入有什么差别？
+- **底层解释**：训练的 Encoder 接受 `(B,T)`，推理时只有一条句子，仍需 `B=1` 与同一接口保持一致。`torch.tensor([10,25,36,3,1,1]):(6,)` 经 `unsqueeze(0)` 得 `[[10,25,36,3,1,1]]:(1,6)`，表示 1 条句子、6 个 Token；`unsqueeze(1):(6,1)` 则会被解释为 6 条各含 1 个 Token 的样本。该操作只新增大小为 1 的轴，不复制词元。Embedding 后再变三维 `(1,T,E)` 才能 `permute(1,0,2)` 给 GRU。
+- **纠偏锚点**：**维度是组织数据的轴，不是新增的数据值；Batch=1 仍需保留 Batch 轴。**
+
+### [工单-475] ❓ “训练时一次输入整个右移目标序列”是否意味着 GRU 同时计算全部时间步？
+- **核心疑问**：训练为何 `dec_input=[<bos>,Je,t',aime]` 一次传给 Decoder，而生成时却只有一个 Token？
+- **底层解释**：训练时目标真值已知，可一次把多个时间步的右移 Token 编成 `(B,T_tgt)` 交给 `nn.GRU`；底层仍遵循 `h_t=f(x_t,h_(t-1))` 的时间依赖，只是 PyTorch 内部执行循环，外部不用写每步单独调用。推理时没有参考真值，只能从 `<bos>` 起，预测一步，将预测 Token 送回下一步，保留 GRU 的更新状态。
+- **纠偏锚点**：**一次传入整个序列指的是函数调用的输入形状，不代表 GRU 的时间递归被取消。**
+
+### [工单-476] ❓ `Y.argmax(dim=2)` 得到最大值还是索引？
+- **核心疑问**：`Y:(1,1,V)` 为何 `argmax(dim=2)` 之后只剩 `(1,1)`？
+- **底层解释**：模型输出每个候选 Token 的 Logits，例如 `Y=[[[0.2,1.5,3.8,0.7]]]`；最高分 3.8 位于类别索引 2，所以 `Y.argmax(dim=2)=tensor([[2]])`，返回**词表位置/Token ID**，不是 3.8。`dim=2` 是 `(B,T,V)` 中第三轴 V；计算后移除该词表轴，保留 `(B,T)`，单句单步时是 `(1,1)`。
+- **纠偏锚点**：**`argmax` 找“哪个 Token”，`max` 找“最高分多少”。**
+
+### [工单-477] ❓ `tensor([[2]])` 中的 `2` 属于第 0 维还是第 1 维？
+- **核心疑问**：用户不是不懂 Shape，而是想知道 Token ID 沿着哪条轴排列。
+- **底层解释**：`tensor([[2]])` 的 2 是数据值，Shape `(1,1)`；第 0 维是 Batch，选择**哪条句子**，第 1 维是该句的**时间/Token 位置**，故 `dec_X[0,0]=2`。如果是 `[[2,5,8],[3,6,9]]:(2,3)`，沿 dim=1 排列每条句子内部的 Token 序列，而沿 dim=0 切换句子。`Y.argmax(dim=2)` 的 dim=2 与 Token ID 值恰好也为 2 没有任何关联。
+- **纠偏锚点**：**Token ID 沿时间维 dim=1 排列，数字本身不是一个“维度”。**
+
+### [工单-478] ❓ 为什么把预测的 Tensor Token ID 转成 Python int？
+- **核心疑问**：`pred=dec_X.squeeze(dim=0).type(torch.int32).item()` 最后是不是一定要这么冗长？
+- **底层解释**：`dec_X=Y.argmax(dim=2)` 仍是整数 Tensor `(1,1)`，供下轮 Decoder 使用；`.item()` 从只有一个元素的 Tensor 中取出普通 Python 整数，便于 `if pred==eos_id:break` 和 `output_seq.append(pred)`。对本节单句单步张量可简化为 `pred=dec_X.item()`；`.squeeze(0)` 去掉 Batch=1 轴，`.type(torch.int32)` 不是提取 Python int 所必需。
+- **纠偏锚点**：**保持 Tensor 用于模型输入，额外提取 int 用于 Python 控制流与记录。**
+
+### [工单-479] ❓ 自回归预测何时结束？如何恢复翻译文本？
+- **核心疑问**：每次预测后的 Token 如何反馈、何时停止，以及 EOS 是否进入最终字符串？
+- **底层解释**：从 `dec_X=[[bos_id]]` 开始，每轮 `Y,dec_state=net.decoder(dec_X,dec_state)`、`dec_X=Y.argmax(dim=2)`，隐藏状态继续传递；若 `pred==tgt_vocab['<eos>']` 则 `break`，否则 `output_seq.append(pred)`；循环最多 `num_steps` 次，即使没生成 EOS 也停止。最后 `tgt_vocab.to_tokens(output_seq)` 把 ID 变词元，`' '.join(...)` 变字符串；EOS 被停止条件拦截，不附加进输出。这里选择 `argmax` 属于**贪心解码**，下一节束搜索可作为比较。
+- **纠偏锚点**：**预测每次输入一个新 Token，加上持续的 GRU state；结束逻辑在保存列表之前。**
+
+### [工单-480] ❓ BLEU 的 n-gram 为何比简单逐词比较更有用？
+- **核心疑问**：单词完全重合但顺序乱了该如何评价，`p_n` 是什么？
+- **底层解释**：1-gram 检查单个 Token，2-gram 检查连续两个，3-gram 检查连续三个。参考 `A B C D E F`，预测 `A B B C D`，1-gram 被裁剪的匹配数 4/5、2-gram 匹配 `AB/BC/CD` 共 3/4；随 n 增大，更关注局部词序。本节 BLEU 只比较局部 token 片段匹配，不直接判断完整语义是否相同。
+- **纠偏锚点**：**连续 n 个词组成一个 n-gram；重复词不能凭空产生更多参考匹配次数。**
+
+### [工单-481] ❓ `defaultdict(int)`、两个 `for` 循环和 `-=1` 有何作用？
+- **核心疑问**：BLEU 代码如何统计参考句与预测句中可匹配的 n-gram，为什么匹配成功要减计数？
+- **底层解释**：对每个 `n in range(1,k+1)`，先用 `for i in range(len_label-n+1)` 枚举参考 n-gram，由 `' '.join(label_tokens[i:i+n])` 组成字典键，`label_subs[gram]+=1` 记录出现次数；再遍历预测 n-gram，如果字典可用计数 `>0`，就 `num_matches+=1` 且对该键 `-=1`，防止参考词只出现一次但预测重复多次时被重复计分。`defaultdict(int)` 让新键缺省计数 0。当前 n 的 `p_n=num_matches/(len_pred-n+1)`。
+- **纠偏锚点**：**先存参考 n-gram 的“库存”，再用预测片段逐个消耗库存。**
+
+### [工单-482] ❓ BLEU 为什么要对短句惩罚？最终公式怎么理解？
+- **核心疑问**：预测只输出 `A B`，参考是 `A B C D E F`，若已输出部分全对，能否得满分？
+- **底层解释**：短句可能让若干 n-gram 精确率虚高，所以引入 `BP=exp(min(0,1-len_label/len_pred))`；预测比参考短就受到小于 1 的惩罚，长度不短时 BP=1。教材采用 `BLEU=BP·Π_(n=1..k) p_n^(1/2^n)`，即长度惩罚乘不同 n-gram 的匹配权重。示例参考长度 6、预测长度 2，`BP=e^-2≈0.135`；前面 `A B B C D` 和 `A B C D E F` 用 `k=2`，`p1=4/5,p2=3/4`，得 BLEU 约 0.682（仅课堂算例）。有些 n-gram 若完全不匹配则乘积为零，且过短句的 k 需要合理设定或平滑；不能把 BLEU 当成语义理解指标。
+- **纠偏锚点**：**BLEU = 长度惩罚 × n-gram 匹配；准确率高不等于句子完整，也不等于语义必然正确。**
+
+### 9.7 Seq2Seq 阶段小结（2026-10-19）
+
+- **完成内容**：本轮逐段讲完 9.7.1–9.7.6 的教材原理、Encoder/Decoder、MaskedSoftmaxCELoss、训练流程、推理函数与 BLEU，并通过多轮问答确认关键 Token/Shape/控制流概念。课堂教学上认定**9.7 已学完**。
+- **理解上的进展**：能正确辨认网络输入 `X/dec_input/X_valid_len` 的来源；追问 `sum` 与 `mean` 的梯度区别；在解释后理解 `<bos>` 的起点、`<eos>` 的目标与停止作用；分清 `Y.argmax(dim=2)` 返回索引、`dec_X:(1,1)` 的时间轴是 dim=1、`tensor([[2]])` 中的 2 是 Token ID 值。
+- **仍需独立实践的点**：Python `list/dict/defaultdict`、切片、循环、二维索引及 PyTorch `unsqueeze/permute/cat/argmax/item` 的高频短练习；理清 `sum/mean` 与 token 级平均损失的归一化；今后独立实现训练循环和 Debug Shape。**这是当时仅完成讲解、尚未开始实跑时的阶段记录；后续在 2026-10-19 同日已运行教材 Notebook 并取得 BLEU 实测，详见下方「9.7 教材复现实验」**。
+- **学习感受**：长段讲解带来明显负担时，主动要求“一次只讲一行”；随后确认理解可以继续增加篇幅。今后讲新机制优先按输入/输出/Shape + 一个小例子拆分，避免一次引入太多 API。
+- **主线迁移**：9.8 束搜索了解贪心与 beam search 的差别及长度惩罚即可；之后回到重点 **Attention→Q/K/V→Scaled Dot-Product→Mask→Multi-Head→Transformer→Decoder-only mini-GPT**。本轮已经讨论到希望通过蓝桥杯 Python 赛道提升独立编程能力，是否正式参赛、目标省奖与学习时间占比待下一轮专门商量。
+
+### 9.7 Seq2Seq 六题巩固复习记录（2026-10-19）
+
+- **学习形式**：围绕 `X/Y/valid_len`、Teacher Forcing、Encoder GRU Shape、Masked Cross-Entropy、Decoder 自回归生成、BLEU 六题逐题推导。六题均已讨论并完成纠错；这是**交互式推导/手写计算练习**，不是独立运行 PyTorch 代码或实际训练翻译模型。
+- **掌握进展**：能够说明有效长度与 Padding 的关系；独立推导广播 Shape `(1,4)`、`(3,1)` → `(3,4)`；正确写出右移 Decoder 输入 `[[2,5,6,7],[2,8,9,3]]:(2,4)`；确认 GRU `emb:(6,4,32)`、`output:(6,4,64)`、`state:(2,4,64)`；正确推导损失掩码及 `mean=0.25`；知道 `argmax` 返回类别索引、推理依赖自回归；理解 1/2-gram 的截断计数与 BLEU 长度惩罚。
+- **主要易错点**：广播并非自动识别 PAD；最小有效索引为 0，`valid_len=0` 时所有位置无效；教材的练习矩阵若含非零“有效词”却人为指定 `valid_len=0`，只是演示 API，**不符合真实数据语义**；`vocab_size` 是词表大小整数、不是输入张量形状；`Embedding` 构造器与调用查表的区别；`num_layers` 出现在 `state` 而非 `output` 的首维；`argmax(dim=2)` 会移除词表维但保留 Batch 与时间维。
+- **状态与下一步**：9.7 的六题基础复习已结束，但**原定“从源句输入到翻译输出，分别走完训练和推理两条完整流程”尚未进行**；继续时先做这一综合串联，再按学习路线考虑 9.8 束搜索与后续 Attention。该段记录的是六题刚结束时的状态；之后已跟随教材在 Notebook 完成运行和四句 BLEU 评估，见新追加记录，但尚未独立从零实现。
+
+### [工单-483] ❓ `sequence_mask` 为何只靠广播比较就能定位有效位置？
+- **核心疑问**：`maxlen=X.size(1)`、`torch.arange(maxlen)[None,:]`、`valid_len[:,None]` 的含义；为什么使用 `<` 而不是 `<=`？
+- **底层解释**：对 `X:(B,T)`，`X.size(1)=T`，`arange(T):(T,)` 得到从 0 到 `T-1` 的**位置索引**；`[None,:]` 使其变 `(1,T)`，`valid_len[:,None]` 变 `(B,1)`，逐元素广播比较得到 `mask:(B,T)`。`mask[b,t]=(t<valid_len[b])`，因为位置从 0 起编号；如 `valid_len=1` 只保留索引 0，`valid_len=0` 全 False。`X[~mask]=value` 选中原先无效的位置，按值覆写，不是删除列，也不意味着自动查找 PAD ID。
+- **纠偏锚点**：**Mask 的判定依据是“位置索引 < 该行有效长度”，广播只是省去逐行比较的循环。**
+
+### [工单-484] 🪤 为什么示例 `X=[2,4,6,8]` 全是非零数，却被 `valid_len=0` 清零？
+- **错误直觉**：练习里看起来全是合法 Token ID，第二行不应突然全部无效；曾将函数对任意 Tensor 的演示与真实文本填充混为一谈。
+- **认知盲区**：`sequence_mask` 不检测真实词元、也不检查值是否等于 `<pad>`。例如玩具 `X=[[3,5,7,9],[2,4,6,8],[1,3,5,7]]` 人为指定 `valid_len=[4,0,2]` 会把第二行清零；**这不是现实语料合法填充的示范**。真实序列的 `valid_len` 应与有效词元（通常含 EOS）以及 PAD 位置匹配，PAD 的 Token ID 也不保证为 0。D2L 的 `MaskedSoftmaxCELoss` 传给 `sequence_mask` 的主要是 `torch.ones_like(label)` 创建的**权重矩阵**，产生 1/0 权重以屏蔽 PAD 损失，原始 Token ID 标签并不被直接改写。
+- **纠偏锚点**：**练习中可人为指定有效长度测试函数；真实训练必须保证 valid_len 与填充语义一致，Loss Mask 改权重不改标签。**
+
+### [工单-485] ❓ EOS 为什么位于 PAD 之前？X 和 Y 都需要加 EOS 吗？
+- **核心疑问**：第二行 `Y=[8,9,<eos>,<pad>]` 中 EOS 不在最末尾，是否意味着先追加 EOS、再 Padding？源语言 X 中没有 EOS 要不要加？
+- **底层解释**：D2L 9.5 的 `build_array_nmt` 先把 `<eos>` 追加到词元列表，再用 `truncate_pad` 截长补短。示例原始 `[5,6,7]`、`[8,9]` → 添加 EOS 得 `[5,6,7,3]`、`[8,9,3]` → 补齐长度 4 得 `[[5,6,7,3],[8,9,3,1]]`（此玩具示例约定 EOS=3、PAD=1）。源语句 X 和目标语句 Y 均可在预处理阶段自动添加 EOS；EOS 计入有效长度，PAD 不计。过长序列经过截断可能使 EOS 被截掉，不可假设所有截断后的序列都有 EOS。
+- **纠偏锚点**：**先 EOS 后 Padding；EOS 是有效结束词元，PAD 是长度对齐用的占位。**
+
+### [工单-486] ❓ Teacher Forcing 为什么不专门删 EOS，却仍然正确对齐训练标签？
+- **核心疑问**：`Y[:, :-1]` 对 `Y=[[5,6,7,3],[8,9,3,1]]` 的两行分别删除了 EOS 和 PAD，为什么都合理？
+- **底层解释**：`Y[:,:-1]` 无条件删除**末列位置**，得到 `[[5,6,7],[8,9,3]]`，开头拼上 `bos=[[2],[2]]`，`dec_input=[[2,5,6,7],[2,8,9,3]]`，Shape `(2,4)`。对应标签 Y 本身不变：第 1 行最后一位输入 7、目标是 EOS；第 2 行最后一位输入 EOS、目标是 PAD，但目标有效长度是 3，最后那个 PAD 位置的损失被屏蔽。训练时使用上一个**真实目标 Token** 是 Teacher Forcing；推理时没有目标真值，必须改用自身预测的 Token。
+- **纠偏锚点**：**右移删除的是 Decoder 输入的最后一列，不是从真实标签里删去“预测 EOS”这一监督任务。**
+
+### [工单-487] ❓ `vocab_size`、`nn.Embedding(...)` 与 `embedding(X)` 到底是什么关系？
+- **核心疑问**：为什么示例 `nn.Embedding(10,3)` 与教材 `nn.Embedding(vocab_size,32)` 可以类比？`vocab_size=10` 怎么和 `X.shape=(4,6)` 联系起来？`embedding(X)` 返回什么？
+- **底层解释**：`vocab_size` 通常是 Python 整数 V，代表可编码 Token 种类数，非 Tensor；`nn.Embedding(V,E)` 创建可训练查找表 `weight:(V,E)`，位置 X 中存储的每个整数 Token ID 是查表行索引。`embedding(X)` **调用这一层进行查表**，将 `X:(B,T)` 变成 `(B,T,E)`，不把 Token ID 当倍数或进行数值放大。例如 `V=10,E=32,X:(4,6)` 时，权重表 `(10,32)`，返回 `(4,6,32)`；`permute(1,0,2)` 后才变 `(6,4,32)` 给默认 time-major GRU。`num_embeddings=10,embedding_dim=3` 与位置参数 `(10,3)` 只是同一构造器的两种写法。
+- **纠偏锚点**：**V 控制“有多少行词向量”，E 控制“每行多长”，X 的 B/T 控制“这次查询多少词元、怎样组织”。**
+
+### [工单-488] 🪤 `output.shape` 为什么不是 `(2,32,64)`，而 `state.shape` 却含层数 2？
+- **错误直觉**：首次把 `num_layers=2` 和 `embed_size=32` 当成 GRU output 的前两个维度；再根据提示独立给出正确的 `state=(2,4,64)`。
+- **认知盲区**：对默认 `batch_first=False` 的单向 GRU，输入是 `(T,B,E)=(6,4,32)`。`output` 是**最后一层**在各时间步输出的隐藏状态，Shape `(T,B,H)=(6,4,64)`；`state/h_n` 保留**各层最终时刻**的隐藏状态，Shape `(L,B,H)=(2,4,64)`。`E=32` 只指输入向量宽度；GRU 输出隐藏特征维由 `hidden_size=64` 决定。单向且无长度打包时 `output[-1]` 对应 `state[-1]`。
+- **纠偏锚点**：**output 保留 T 时间轴，state 保留 L 层数轴，末维均为 H。**
+
+### [工单-489] ❓ 为什么 CE 的标签没有 V 维？Masked Loss 的均值到底怎样计算？
+- **核心疑问**：Decoder 原始 `pred:(B,T,V)` 转置为 `(B,V,T)`，标签仍是 `(B,T)`；`valid_len=3` 时损失 `[0.2,0.5,0.3,4.0]` 为什么最终平均为 `0.25`？
+- **底层解释**：交叉熵输入的类别分数需要 V 维，真实标签只需提供每个位置的**正确类别 ID**，不必额外列出 V 个候选。PyTorch 对三维 CE 输入的类别轴是 dim=1，因此 `pred.permute(0,2,1):(B,V,T)`；`reduction='none'` 得逐位置 Loss `(B,T)`。目标权重 `[1,1,1,0]` 乘出 `[0.2,0.5,0.3,0]`；D2L `.mean(dim=1)` 除以包含 PAD 位置的固定 `T=4`，故 `(0.2+0.5+0.3+0)/4=0.25`，不是除以有效长度 3。该练习答案已独立给出。
+- **纠偏锚点**：**预测给所有候选类别打分、标签只给正确 ID；D2L 此处的 Mask 后 mean 分母仍为 T。**
+
+### [工单-490] 🪤 `argmax(dim=2)` 为什么返回 `(1,1)` 而非 `(1,)`？训练与推理为何不同？
+- **错误直觉**：对于 `logits=[[[0.2,1.5,3.8,0.7]]]:(1,1,4)`，正确判断最大值索引 `2`，但一开始将结果 Shape 误写成 `(1,)`。
+- **认知盲区**：`dim=2` 是 `(B,T,V)` 的**词表类别轴**；`argmax(dim=2)` 选择最大 logit 所在类别索引，默认删掉且只删掉这一个轴，得到 `tensor([[2]]):(1,1)`，可直接用作下一时刻 Decoder 输入；GRU 隐藏状态也要持续传递。训练时 Teacher Forcing 用目标真值作为历史，降低训练早期错误连锁影响、使监督更稳定；推理时没有目标译文，只能以 BOS 起步进行自回归生成。训练/推理历史来源不同会导致 exposure bias，不能把 Teacher Forcing 理解为毫无代价的完美方法。
+- **纠偏锚点**：**`argmax(dim=2)` 去的是类别轴 V，不是 Batch 或时间轴；推理只能把自身已生成 Token 送回下一步。**
+
+### [工单-491] ❓ BLEU 1-gram 为什么是 3/4 而不是 2/3，短译文为何会虚高？
+- **核心疑问**：参考 `A B C D`，预测 `A B B C`，最初把 1-gram 精确率估为 `2/3`；随后正确判断只输出 `A` 时 1-gram 精确率为 100%，长度相等时 BP=1。
+- **底层解释**：1-gram 预测 4 个词元，按截断匹配计数只有 A、一个 B、C 可用，故 `p1=3/4`，重复 B 不可重复得分；2-gram 预测 `AB/BB/BC`，其中 `AB/BC` 匹配，`p2=2/3`，这才是先前 `2/3` 的来源。若只预测 `A`，`p1=1/1=1`，但参考长度 4，长度惩罚 `BP=exp(min(0,1-4/1))=e^{-3}≈0.0498`；当两句长度均 4，`BP=exp(0)=1`。BP=1 只表示无长度惩罚，不保证 BLEU=1；完整 BLEU 还取决于所选各阶 n-gram。
+- **纠偏锚点**：**1-gram 计算单词的截断匹配率，2-gram 计算连续词对；短句靠 BP 防止“只翻一个对的词就高分”。**
+
+
+### 9.7 教材 Seq2Seq Notebook 复现实验（2026-10-19，已运行）
+
+- **完成范围**：在 D2L PyTorch/Jupyter 环境中跟随教材构建 `Seq2SeqEncoder`、`Seq2SeqDecoder`、`EncoderDecoder`，执行 `train_seq2seq` 的网络初始化/训练调用；运行 `predict_seq2seq`，再以 `bleu(..., k=2)` 检查四条英法翻译。报错依次被定位、修复，最终预测单元格正常执行。截图中训练调用配置 `batch_size=64,num_steps=10,lr=0.005,num_epochs=300,device=d2l.try_gpu()`；这些是代码配置，不代表已提交完整的 epoch 曲线或最终 Loss 日志。
+- **复现路径**：数据集读取 → 英法词表/数据迭代 → GRU Encoder–Decoder → Xavier 初始化 → Teacher Forcing + MaskedSoftmaxCELoss → Adam 训练 → `<bos>` 起步的逐 Token 贪心解码 → `<eos>` 停止 → BLEU 打分。
+- **证据边界**：用户提供了四句真实运行后的 Notebook 文本结果（非课堂手算例子），因此本节的**教材代码训练与推理评估已完成**；不能据此推断复杂句泛化、已独立从零实现、训练曲线收敛质量或达到比赛级翻译性能。
+
+| 英文输入 | 参考法语（教材示例） | Notebook 实际预测 | BLEU (`k=2`) | 语义检查 |
+|:---|:---|:---|---:|:---|
+| `go .` | `va !` | `va !` | 1.000 | 正确 |
+| `i lost .` | `j'ai perdu .` | `j'ai perdu .` | 1.000 | 正确 |
+| `he's calm .` | `il est calme .` | `il est venu ?` | 0.537 | 错误：意为「他来了吗？」 |
+| `i'm home .` | `je suis chez moi .` | `je suis malade .` | 0.512 | 错误：意为「我生病了」 |
+
+- **结论**：四条样例 BLEU 分别是 **1.000、1.000、0.537、0.512**；后两条分数并不低，但语义错误，说明 n-gram 匹配不能替代人工语义检查。教材输出不同可能与随机初始化、采样等因素有关；目前无法仅凭四条样例区分具体误差来源。
+- **下一步**：9.7 完成（概念 + 六题 + Notebook 跟随实跑）。9.8 Beam Search 先理解贪心与束宽、候选保留和长度惩罚，再转第 10 章 Attention / Transformer；若要补能力，优先独立用小 Tensor 重写 `loss()`、`sequence_mask`、`argmax`、`bleu` 关键步骤，而不是只反复运行教材完整脚本。
+
+### [工单-492] 🐛 `MaskedSoftmaxCELoss` 与 `super(...)` 黄色波浪线：类名拼写不一致
+- **💻 触发代码**：定义类拼为 `MsakedSoftmaxCELoss`，但 `super(MaskedSoftmaxCELoss,self)` 使用正确拼法。
+- **🧠 底层原因**：Python 名称严格匹配，编辑器提示未定义或可能运行时 `NameError`；可写 `class MaskedSoftmaxCELoss(nn.CrossEntropyLoss)` 并改为 `super().forward(...)` 避免重复书写类名。
+- **💊 修复方案**：统一 `MaskedSoftmaxCELoss`，重新执行类定义单元格。
+
+### [工单-493] 🐛 损失函数测试单元格运行成功却没有输出
+- **💻 触发代码**：`loss=(torch.ones(3,4,10),torch.ones((3,4),dtype=torch.long),torch.tensor([4,2,0]))`。
+- **🧠 底层原因**：`loss = (...)` 是元组赋值，不是 `loss(...)` 调用；而且覆盖了原先的损失函数对象，赋值语句在 Notebook 不自动显示。
+- **💊 修复方案**：重新创建 `loss=MaskedSoftmaxCELoss()`，随后调用 `loss(pred,label,valid_len)` 或打印；正确示例应得 `tensor([2.3026,1.1513,0.0000])`。
+
+### [工单-494] 🐛 `net.apply(...)` 回调变量名黄色波浪线
+- **💻 触发代码**：定义 `xavier_init__weight` 却传入 `net.apply(xavier__init__weights)` 等拼写不同的名字。
+- **🧠 底层原因**：`apply` 需要真实存在的函数对象；形似的拼写和下划线不构成同名。
+- **💊 修复方案**：统一为 `def xavier_init_weights(m): ...` 与 `net.apply(xavier_init_weights)`，并在执行训练调用前重跑函数定义单元格。
+
+### [工单-495] 🐛 Windows 下加载 fra-eng 数据集报 GBK 解码错误
+- **🩸 原始报错**：`UnicodeDecodeError: 'gbk' codec can't decode byte 0xaf ...`，来自 D2L `read_data_nmt()` 对 `fra.txt` 的 `open(...,'r')`。
+- **🧠 底层原因**：当前 Windows 运行环境默认文本编码为 GBK，而翻译数据文件需要按 UTF-8 读取；在模型训练前的数据阶段就失败。
+- **💊 修复方案**：读文件时明确使用 `encoding='utf-8'`，或在 Notebook 中定义 UTF-8 读取函数并覆盖 `d2l.read_data_nmt`；修复后该流程已越过数据加载阶段。**不将其误记成 GRU 错误**。
+
+### [工单-496] 🐛 Xavier 初始化函数拼写错误
+- **🩸 原始报错**：`AttributeError: module 'torch.nn.init' has no attribute 'xaiver_uniform_'`。
+- **🧠 底层原因**：实际 API 是 `nn.init.xavier_uniform_`，错误把 `xavier` 拼成了 `xaiver`；错误位于初始化而非模型训练计算。
+- **💊 修复方案**：修复 Linear/GRU 权重初始化中所有同名调用为 `xavier_uniform_`，重新定义训练函数并调用。
+
+### [工单-497] 🐛 预测函数 `.dtype()` / 词表反查 API 错误
+- **💻 触发代码**：`dec_X.squeeze(dim=0).dtype(torch.int32).item()` 与 `tgt_vocab.to_token(output_seq)`。
+- **🧠 底层原因**：Tensor `.dtype` 是数据类型属性，不能像函数一样调用；D2L 词表的反查接口是复数 `to_tokens`。
+- **💊 修复方案**：本例 `dec_X:(1,1)` 可直接 `pred=dec_X.item()`；末尾使用 `tgt_vocab.to_tokens(output_seq)`；重跑预测函数定义。
+
+### [工单-498] 🐛 BLEU 输出的 f-string 语法错误
+- **🩸 原始报错**：`SyntaxError: f-string: invalid syntax`，定位到内嵌 `bleu` 表达式附近。
+- **🧠 底层原因**：函数调用括号、参数 `k=2` 与浮点格式符 `:.3f` 没有正确组合，解析阶段就终止，尚未真正调用翻译函数。
+- **💊 修复方案**：可先写 `score=bleu(translation,fra,k=2)`，再用 `print(f'{eng} => {translation}, bleu {score:.3f}')`；便于隔离计算和格式化错误。
+
+### [工单-499] 🐛 `UnboundLocalError: num_matches` 实际是变量拼错
+- **🩸 原始报错**：`UnboundLocalError: local variable 'num_matches' referenced before assignment`。
+- **🧠 底层原因**：用户核对后指出真实原因是初始化时写了 `num_matchs`，累计时写 `num_matches+=1`，二者是不同变量；此前解释为「忘记初始化」不精确。
+- **💊 修复方案**：在每一阶 `for n in range(1,k+1)` 内统一使用 `num_matches=0`、`num_matches+=1`；修正后四句 BLEU 成功输出。
+
+### [工单-500] ✅ 四条 BLEU 成功输出，为什么 0.537/0.512 也可能是错译？
+- **核心疑问**：与 D2L 书中数值不同，是否意味着这次实验失败？
+- **底层解释**：用户真实 Notebook 输出 `va !/j'ai perdu ./il est venu ?/je suis malade .`，BLEU 分别 `1.000/1.000/0.537/0.512`；前两句参考匹配正确，后两句语义错误。BLEU 衡量截断 n-gram 匹配与长度，不直接判断语义；随机训练结果与教材示例不必完全相同。**训练/预测/评价链路已跑通，不能把语义错译写成正确翻译，也不能据此推断泛化水平**。
+- **纠偏锚点**：**工程上的“跑通”与模型质量上的“翻译正确”是两个验收维度。**
