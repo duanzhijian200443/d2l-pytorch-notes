@@ -1,0 +1,21 @@
+{
+  "ref": "alexchilton/name-that-llm-0-662-all-public-what-failed",
+  "title": "Name That LLM 0.662: All Public + What Failed",
+  "version": 8,
+  "id": 139599456,
+  "source_sha256": "c155b33f38ccdd04b32a46455755c56f1aa3e851770da0c29d05ef9a7a3fdc56",
+  "code_sha256": "d164e570c03550b08337e9934b5f18af1255aeacdf1e0a0d279547bfac693c6f",
+  "private": false,
+  "directory": "alexchilton--name-that-llm-0-662-all-public-what-failed",
+  "score": 0.662,
+  "url": "https://www.kaggle.com/code/alexchilton/name-that-llm-0-662-all-public-what-failed",
+  "page_order": 2,
+  "rank": 2,
+  "observed_at": "2026-10-30T15:16:41.600Z",
+  "note": "ATLAS20 的全公开依赖复现；Llama 换为公开模型输入，并整理同代码分数波动和失败实验。",
+  "score_is_bound_to_downloaded_version": false,
+  "source_reader": "Kaggle MCP get_notebook_info",
+  "score_reader": "Kaggle Code page rendered Score via browser DOM",
+  "retrieved_by_refresh_date": "2026-10-30",
+  "downloaded_source_executed": false
+}

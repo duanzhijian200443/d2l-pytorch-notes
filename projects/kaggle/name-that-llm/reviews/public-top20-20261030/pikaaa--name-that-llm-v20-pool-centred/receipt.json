@@ -1,0 +1,21 @@
+{
+  "ref": "pikaaa/name-that-llm-v20-pool-centred",
+  "title": "name that llm v20 pool centred",
+  "version": 1,
+  "id": 141478046,
+  "source_sha256": "cda325df2c57b40129932eb377ffb549c1b54b93f4666a25d86bc815260f751a",
+  "code_sha256": "d94f5aae1127dfb44b0df2e70778b838c5927fa495176a946f67ef185ec1538c",
+  "private": false,
+  "directory": "pikaaa--name-that-llm-v20-pool-centred",
+  "score": 0.661,
+  "url": "https://www.kaggle.com/code/pikaaa/name-that-llm-v20-pool-centred",
+  "page_order": 15,
+  "rank": 15,
+  "observed_at": "2026-10-30T15:16:41.600Z",
+  "note": "合并额外 open pool，增加 prompt 中心化 SVC 成员 svc4c，ATLAS 20%。",
+  "score_is_bound_to_downloaded_version": false,
+  "source_reader": "Kaggle MCP get_notebook_info",
+  "score_reader": "Kaggle Code page rendered Score via browser DOM",
+  "retrieved_by_refresh_date": "2026-10-30",
+  "downloaded_source_executed": false
+}

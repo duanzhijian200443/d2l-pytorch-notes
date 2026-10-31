@@ -1,0 +1,1 @@
+Name That LLM: Colab CLI CPU verification 2026-10-29

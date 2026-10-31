@@ -1,0 +1,21 @@
+{
+  "ref": "youdian1s/ntl-0-662-all-public-fork",
+  "title": "NTL 0.662 all-public (fork)",
+  "version": 1,
+  "id": 141532279,
+  "source_sha256": "5189208ae0661fe140d36e0e2a99120967de54409606ccaa53a421c8943b656f",
+  "code_sha256": "67f48bd7116b1c81e57fb89e34926d5b83d8f9d1e3c5dbb21e52a74dc094c58d",
+  "private": false,
+  "directory": "youdian1s--ntl-0-662-all-public-fork",
+  "score": 0.662,
+  "url": "https://www.kaggle.com/code/youdian1s/ntl-0-662-all-public-fork",
+  "page_order": 6,
+  "rank": 6,
+  "observed_at": "2026-10-30T15:16:41.600Z",
+  "note": "沿用 alexchilton 全公开版；缺失路径解析改为返回 None，说明用于未使用的指令模型变量。",
+  "score_is_bound_to_downloaded_version": false,
+  "source_reader": "Kaggle MCP get_notebook_info",
+  "score_reader": "Kaggle Code page rendered Score via browser DOM",
+  "retrieved_by_refresh_date": "2026-10-30",
+  "downloaded_source_executed": false
+}

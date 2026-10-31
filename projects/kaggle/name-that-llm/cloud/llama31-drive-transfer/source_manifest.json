@@ -1,0 +1,85 @@
+{
+  "repo": "NousResearch/Meta-Llama-3.1-8B",
+  "revision": "1f47e50cdbe801ad8a5174156ec3a0655108fb9f",
+  "official_revision": "d04e592bb4f6aa9cfee91e2e20afa771667e1d4b",
+  "files": [
+    {
+      "name": "LICENSE",
+      "size": 7627,
+      "sha256": null,
+      "git_blob_sha1": "a7c3ca16cee30425ed6ad841a809590f2bcbf290"
+    },
+    {
+      "name": "USE_POLICY.md",
+      "size": 4691,
+      "sha256": null,
+      "git_blob_sha1": "81ebb55902285e8dd5804ccf423d17ffb2a622ee"
+    },
+    {
+      "name": "README.md",
+      "size": 40896,
+      "sha256": null,
+      "git_blob_sha1": "b5a7a2779cc65e8458aecedd9b030a6f9afc7c01"
+    },
+    {
+      "name": "config.json",
+      "size": 826,
+      "sha256": null,
+      "git_blob_sha1": "cccf055d6f8f210387a248c91dc40e0c7a4bafab"
+    },
+    {
+      "name": "generation_config.json",
+      "size": 185,
+      "sha256": null,
+      "git_blob_sha1": "fc9506438b7b55383dc04c0816561442324846c3"
+    },
+    {
+      "name": "model.safetensors.index.json",
+      "size": 23950,
+      "sha256": null,
+      "git_blob_sha1": "0fd8120f1c6acddc268ebc2583058efaf699a771"
+    },
+    {
+      "name": "special_tokens_map.json",
+      "size": 73,
+      "sha256": null,
+      "git_blob_sha1": "d8cd5076496dbe4be2320312abc10adc43097b81"
+    },
+    {
+      "name": "tokenizer_config.json",
+      "size": 50500,
+      "sha256": null,
+      "git_blob_sha1": "cb9ec25536e44d86778b10509d3e5bdca459a5cf"
+    },
+    {
+      "name": "tokenizer.json",
+      "size": 9085658,
+      "sha256": null,
+      "git_blob_sha1": "f916e71031fa08f3c6ef1680a590c15b52d3cdd9"
+    },
+    {
+      "name": "model-00001-of-00004.safetensors",
+      "size": 4976698672,
+      "sha256": "f8b9704ab09cdeb097aa4a0a24bca96f906eec36bad63ab495bc21475058601b",
+      "git_blob_sha1": "a70cf544ea82b645a9084d345203e3b855c474af"
+    },
+    {
+      "name": "model-00002-of-00004.safetensors",
+      "size": 4999802720,
+      "sha256": "c28b25e7541751056ee126627e007f8d4288319733285e9f7b17b9ff6eb313f0",
+      "git_blob_sha1": "440f54a28d3e777128cca95168dd93017e99d8ef"
+    },
+    {
+      "name": "model-00003-of-00004.safetensors",
+      "size": 4915916176,
+      "sha256": "d8e9504dd4e4a146d484c52a97584ec14dac92237c46b064934af67a85e7d383",
+      "git_blob_sha1": "b42588cf2677760fc6f6c39b19e55a31fca75e1c"
+    },
+    {
+      "name": "model-00004-of-00004.safetensors",
+      "size": 1168138808,
+      "sha256": "e4486f35c040f683f7d790354f66c169c109eb9fa0954a4a35d7c458a108405d",
+      "git_blob_sha1": "e614ce32dfec70990b7029fb392a318df1622054"
+    }
+  ]
+}

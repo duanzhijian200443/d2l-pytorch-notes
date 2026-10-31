@@ -1,0 +1,38 @@
+{
+  "train_rows": 2699,
+  "prompt_count": 150,
+  "prompt_size_counts": {
+    "18": 149,
+    "17": 1
+  },
+  "exact_duplicate_texts": 0,
+  "training_executed": false,
+  "gpu_allocated": false,
+  "new_submission_created": false,
+  "confirmed_source_findings": [
+    "Original --sim bypasses final typography correction",
+    "Public svc4c mask mixes original group IDs with indices of unique IDs",
+    "Full-data adapter features are used for Gaussian fitting; post-hoc readout CV is not clean end-to-end OOF"
+  ],
+  "cluster_mask_counterexample": {
+    "groups": [
+      0,
+      0,
+      2,
+      2
+    ],
+    "upstream_mask": [
+      true,
+      true,
+      false,
+      false
+    ],
+    "expected_mask": [
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "recommendation": "Start with clean prompt-grouped CPU SVC comparisons; audit checkpoint fold lineage before full-ensemble OOF claims."
+}

@@ -1,0 +1,86 @@
+# Hook for the public 0.66 notebook (cell placed before all other code cells).
+#  * adds our trained l24 members (GLM-4-9B official-only, GLM-4-9B two-stage) to infer.py's --models
+#  * saves the blend log-probs (--save_lp)
+#  * fast preview: when test.csv is the 3-row interactive preview (the commit run), skip the heavy public
+#    stack and run infer.py with ONLY our members (in-sample sanity check of their l24 path). The hidden-test
+#    rerun at submission time runs the full pipeline. Saves ~3 GPU hours per committed variant.
+# Weights come from NTL_W, infer.py overrides from NTL_ARGS (full run only) - one variant per committed version.
+import subprocess as _sp, json as _js, glob as _gl, os as _os
+import pandas as _pd
+
+_W = dict(globals().get('NTL_W', {'glm9': 1.0, 'glm9_2s': 1.0}))
+_FAST = bool(globals().get('NTL_FAST_PREVIEW', True))
+_ARGS = {str(k): str(v) for k, v in dict(globals().get('NTL_ARGS', {})).items()}  # infer.py overrides (full run only)
+_MEMBERS = [('glm9', '**/glm_out/job_final/heads.safetensors'), ('glm9_2s', '**/glm2s_out/job_final/heads.safetensors')]
+
+
+def _first(pat):
+    h = sorted(_gl.glob('/kaggle/input/' + pat, recursive=True))
+    return h[0] if h else None
+
+
+_test = _first('**/name-that-llm/test.csv') or _first('**/test.csv')
+_PREVIEW = _test is not None and len(_pd.read_csv(_test)) < 50
+_GLMC = _first('**/glm4_9b_trunc25/config.json')
+_GLM = _os.path.dirname(_GLMC) if _GLMC else None
+_SPECS = []
+for _name, _pat in _MEMBERS:
+    _h = _first(_pat)
+    if _h and _GLM and _W.get(_name, 0) > 0:
+        _d = _os.path.dirname(_h)
+        _mt = _js.load(open(_os.path.join(_d, 'meta.json')))
+        _SPECS.append({'name': _name, 'type': 'l24', 'path': _GLM, 'adapters': [_d], 'keep': _mt['keep'],
+                       'layers': _mt['layers'], 'w': float(_W[_name]), 'bs': 8, 'max_len': _mt['max_len'],
+                       'twin': 0.35, 'eos_id': _mt['eos_id']})
+print(f'[ntl] preview={_PREVIEW} fast={_FAST} members={[(s["name"], s["w"]) for s in _SPECS]} args={_ARGS}', flush=True)
+
+_orig_run = getattr(_sp, '_ntl_orig_run', _sp.run)
+_sp._ntl_orig_run = _orig_run
+
+
+def _set_arg(cmd, key, val):
+    if key in cmd:
+        cmd[cmd.index(key) + 1] = val
+    else:
+        cmd += [key, val]
+
+
+def _patched_run(cmd, *a, **k):
+    if isinstance(cmd, list) and any(str(c).endswith('infer.py') for c in cmd):
+        cmd = list(cmd)
+        _set_arg(cmd, '--save_lp', '/kaggle/working/blend_lp.npy')
+        if '--models' in cmd:
+            i = cmd.index('--models') + 1
+            models = _js.loads(cmd[i])
+            if _PREVIEW and _FAST:
+                models = list(_SPECS) or models[:1]  # smoke-test only our members (or one public member) on the preview
+                for key in ('--tfidf_w', '--svc_w', '--distort_w', '--comp_w'):
+                    _set_arg(cmd, key, '0')
+                _set_arg(cmd, '--atlas_w', '0')
+                _set_arg(cmd, '--atlas_dir', '')
+            else:
+                models = models + list(_SPECS)
+                for key, val in _ARGS.items():
+                    _set_arg(cmd, key, val)
+            cmd[i] = _js.dumps(models)
+            print('[ntl] infer.py members:', [m['name'] for m in models], flush=True)
+    return _orig_run(cmd, *a, **k)
+
+
+_sp.run = _patched_run
+
+try:  # IPython '!python comp_stack.py' -> skip on the fast preview
+    _ip = get_ipython()  # noqa: F821
+    _orig_system = getattr(_ip, '_ntl_orig_system', _ip.system)
+    _ip._ntl_orig_system = _orig_system
+
+    def _patched_system(cmd, *a, **k):
+        if _PREVIEW and _FAST and 'comp_stack.py' in str(cmd):
+            print('[ntl] preview: complementary stack skipped (runs in the hidden-test rerun)', flush=True)
+            return None
+        return _orig_system(cmd, *a, **k)
+
+    _ip.system = _patched_system
+except NameError:
+    pass
+print('[ntl] hook active', flush=True)

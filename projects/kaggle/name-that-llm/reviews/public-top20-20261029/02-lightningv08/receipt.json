@@ -1,0 +1,70 @@
+{
+  "rank": 2,
+  "ref": "lightningv08/0-661-qwen3-8-27b-lora-spectral-ensemble",
+  "title": "0.661 | Qwen3.8-27B LoRA + Spectral Ensemble",
+  "author": "Vladislav Lavrentev",
+  "last_run_time": "2026-10-29T00:06:25.843Z",
+  "total_votes": 58,
+  "retrieved_at_utc": "2026-10-29T14:05:38.644686+00:00",
+  "source_sha256": "c7558b61034609ead70c7d5a71a6505933d65c223c4c95e493bb229fbe58561a",
+  "directory": "02-lightningv08",
+  "metadata": {
+    "id": 140781577,
+    "ref": "lightningv08/0-661-qwen3-8-27b-lora-spectral-ensemble",
+    "title": "0.661 | Qwen3.8-27B LoRA + Spectral Ensemble",
+    "author": "Vladislav Lavrentev",
+    "slug": "0-661-qwen3-8-27b-lora-spectral-ensemble",
+    "lastRunTime": "2026-10-26T14:05:35.329Z",
+    "language": "python",
+    "kernelType": "notebook",
+    "isPrivate": false,
+    "enableGpu": true,
+    "enableInternet": false,
+    "datasetDataSources": [
+      "dhruvtibarewal/nlm-l24-adapters",
+      "lightningv08/ntl-olmo2-native24-final-inference-assets",
+      "seyitkaangunes/ntl-extra-api-passages",
+      "abdullah1afify/ntl-generations",
+      "dophuchung/ntl-proxy-generations",
+      "zbigniewkirchner/ntl-qwen3-8b-lora-claude-head",
+      "josephadamski91/ntl-atlas-qwen3-8b-v1",
+      "lucasboesen/ntl-free-proxy-generations",
+      "kirilltym/ntl-spectral-style-heads-paired-4404",
+      "dhruvtibarewal/nlm-enc-v5",
+      "nishantdahal/ntl-two-stage-lora",
+      "nishantdahal/ntl-handwriting-blend",
+      "dhruvtibarewal/nlm-l24-adapters-v5",
+      "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+      "bbucxi/qwen35-9b-safetensors",
+      "pjmathematician/ultrabert-380m-ntl"
+    ],
+    "kernelDataSources": [
+      "lucasboesen/name-that-llm-glm4-9b-trunc25",
+      "lucasboesen/name-that-llm-extract-encoders2",
+      "lucasboesen/name-that-llm-electra-large-weights",
+      "lucasboesen/name-that-llm-desklib-weights",
+      "lucasboesen/name-that-llm-train-lora24-s7",
+      "lucasboesen/name-that-llm-train-tokattn",
+      "lucasboesen/name-that-llm-train-tokattn2",
+      "vnton37nguyn/ntl-train-lora-qwen25-instyle"
+    ],
+    "competitionDataSources": [
+      "name-that-llm"
+    ],
+    "totalVotes": 58,
+    "modelDataSources": [
+      "qwen-lm/qwen-3/Transformers/14b-base/1",
+      "qwen-lm/qwen-3/Transformers/8b-base/1",
+      "qwen-lm/qwen-3/Transformers/4b-base/1",
+      "qwen-lm/qwen2.5/Transformers/14b/1",
+      "qwen-lm/qwen2.5/Transformers/7b/1"
+    ],
+    "enableTpu": false,
+    "currentVersionNumber": 21,
+    "dockerImage": "gcr.io/kaggle-private-byod/python@sha256:2757e0c7d1e0a9cb43da657b97e223c321a98f5014bdf64f44f2f6b083ad2b2f",
+    "machineShape": "NvidiaTeslaT4"
+  },
+  "markdown_characters": 5915,
+  "code_characters": 248291,
+  "status": "DOWNLOADED_NOT_EXECUTED"
+}

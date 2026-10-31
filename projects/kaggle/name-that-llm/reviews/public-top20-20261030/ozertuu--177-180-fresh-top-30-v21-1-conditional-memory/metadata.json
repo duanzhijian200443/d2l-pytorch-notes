@@ -1,0 +1,21 @@
+{
+  "id": 129994036,
+  "ref": "ozertuu/177-180-fresh-top-30-v21-1-conditional-memory",
+  "title": "177/180 Fresh Top-30 | v21.1 Conditional Memory",
+  "author": "Ertuğrul Özer",
+  "slug": "177-180-fresh-top-30-v21-1-conditional-memory",
+  "last_run_time": "2026-10-27T15:15:14.691433200Z",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": false,
+  "enable_gpu": true,
+  "enable_internet": false,
+  "competition_data_sources": [
+    "name-that-llm"
+  ],
+  "total_votes": 2,
+  "enable_tpu": false,
+  "current_version_number": 3,
+  "docker_image": "gcr.io/kaggle-images/python@sha256:dafd4ce5668bbf1ad422e4c109e0f18c9623c3a7c7f48b0235f13142755c40b9",
+  "machine_shape": "NvidiaTeslaT4"
+}

@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "entries": 20,
+  "source_hashes": "20/20 PASS",
+  "local_links_checked": 70,
+  "missing_links": [],
+  "detail_cards": 20,
+  "scores_match_captured_page": true,
+  "model_execution": false,
+  "formal_submission": false
+}

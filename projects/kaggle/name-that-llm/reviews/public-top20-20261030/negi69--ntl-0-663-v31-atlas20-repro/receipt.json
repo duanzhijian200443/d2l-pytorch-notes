@@ -1,0 +1,21 @@
+{
+  "ref": "negi69/ntl-0-663-v31-atlas20-repro",
+  "title": "NTL 0.663 V31 + ATLAS20 (repro)",
+  "version": 9,
+  "id": 141546079,
+  "source_sha256": "8da223799a8bd1738fd2da92011ab9be30680378864faae43ad12ec711ce4f5c",
+  "code_sha256": "6fe316270570b3dcd12a9d12b2da26b08c3d378e4b0dc251b8fb68ccf612170a",
+  "private": false,
+  "directory": "negi69--ntl-0-663-v31-atlas20-repro",
+  "score": 0.662,
+  "url": "https://www.kaggle.com/code/negi69/ntl-0-663-v31-atlas20-repro",
+  "page_order": 8,
+  "rank": 8,
+  "observed_at": "2026-10-30T15:16:41.600Z",
+  "note": "最新源码增加显存上限、分块 LoRA 合并及真实样例预检；移除两个 8B 的 dp 标志。",
+  "score_is_bound_to_downloaded_version": false,
+  "source_reader": "Kaggle MCP get_notebook_info",
+  "score_reader": "Kaggle Code page rendered Score via browser DOM",
+  "retrieved_by_refresh_date": "2026-10-30",
+  "downloaded_source_executed": false
+}

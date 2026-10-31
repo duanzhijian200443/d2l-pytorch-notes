@@ -1,0 +1,21 @@
+{
+  "ref": "dosssi4nzk/muse-guard-ntl-youdian1s-0-662-api-copy",
+  "title": "Muse Guard NTL Youdian1s 0.662 API Copy",
+  "version": 1,
+  "id": 141599180,
+  "source_sha256": "5189208ae0661fe140d36e0e2a99120967de54409606ccaa53a421c8943b656f",
+  "code_sha256": "67f48bd7116b1c81e57fb89e34926d5b83d8f9d1e3c5dbb21e52a74dc094c58d",
+  "private": false,
+  "directory": "dosssi4nzk--muse-guard-ntl-youdian1s-0-662-api-copy",
+  "score": 0.662,
+  "url": "https://www.kaggle.com/code/dosssi4nzk/muse-guard-ntl-youdian1s-0-662-api-copy",
+  "page_order": 12,
+  "rank": 12,
+  "observed_at": "2026-10-30T15:16:41.600Z",
+  "note": "全部代码单元与 youdian1s all-public fork 完全相同。",
+  "score_is_bound_to_downloaded_version": false,
+  "source_reader": "Kaggle MCP get_notebook_info",
+  "score_reader": "Kaggle Code page rendered Score via browser DOM",
+  "retrieved_by_refresh_date": "2026-10-30",
+  "downloaded_source_executed": false
+}

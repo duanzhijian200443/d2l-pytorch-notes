@@ -1,0 +1,380 @@
+--- alexchilton--name-that-llm-0-662-all-public-what-failed
++++ pikaaa--name-that-llm-v20-pool-centred
+@@ -1,17 +1,15 @@
+-import matplotlib.pyplot as plt
+-runs = {'nlm-v27': [0.651, 0.651, 0.643, 0.651], 'Who am I?': [0.645, 0.654], 'V31': [0.660, 0.660], '0.663 (this)': [0.662],
+-        'LoRA x AC': [0.549], 'lora-instyle': [0.561], 'Teach + ATLAS': [0.606]}
+-page = {'nlm-v27': 0.651, 'Who am I?': 0.654, 'V31': 0.660, '0.663 (this)': 0.663, 'LoRA x AC': 0.547, 'lora-instyle': 0.563, 'Teach + ATLAS': 0.607}
+-fig, ax = plt.subplots(figsize=(8, 3.2))
+-for i, (k, v) in enumerate(runs.items()):
+-    ax.scatter([i] * len(v), [x - page[k] for x in v], s=60, color='tab:blue', label='our submission, identical code' if i == 0 else None, zorder=3)
+-ax.axhspan(-0.01, 0.01, color='tab:orange', alpha=0.15, label='+-0.01: one submission cannot tell these apart')
+-ax.axhline(0, color='k', lw=0.8)
+-ax.set_xticks(range(len(runs))); ax.set_xticklabels(runs, rotation=20)
+-ax.set_ylabel('score - author page score'); ax.set_title('Same code, different public score')
+-ax.set_ylim(-0.013, 0.013); ax.legend(fontsize=8, loc='upper right'); plt.tight_layout(); plt.show()
+-
+-
++import os
++RERUN = os.getenv('KAGGLE_IS_COMPETITION_RERUN') is not None
++print('competition rerun:', RERUN)
++
++
++# v20 (pikaaa): alexchilton's 0.660 pipeline, unmodified except three additions, each with evidence:
++#   1. pool union 120k nlm_pool_v5 + 245k open pool -> svc4 fit rows 120k -> ~185k
++#   2. new member svc4c: the 4-view LinearSVC on prompt-centred official + open-pool rows, scored on
++#      inferred clusters of 2..18. Grouped-CV member accuracy 0.5001 vs 0.4401 for the plain pool SVC
++#      and 0.4112 for the official-only centred twin (experiments/31_pool_centred_twin.py, 2 folds).
++#   3. ATLAS 0.10 -> 0.20 (omerfarukmerey measured 0.660 -> 0.663 on this exact base).
++# Original header follows.
+ # Name That LLM - full solution: fold-averaged two-stage LoRA24 (Qwen3-8B-Base, Qwen3-14B-Base, Qwen2.5-7B),
+ # Nishant two-stage checkpoints, 4-view n-gram SVM on train+pool, shared-prompt Gaussian, adaptive centred twins,
+ # 10% public ATLAS (source-conditioned likelihood, arXiv 2610.19583) before Sinkhorn balancing.
+@@ -25,12 +23,33 @@
+ def adir(name):
+     h = glob.glob(f'/kaggle/input/**/{name}/heads.pt', recursive=True); assert h, name; return os.path.dirname(h[0])
+ DATA = next(p for p in ['/kaggle/input/competitions/name-that-llm', '/kaggle/input/name-that-llm'] if os.path.exists(p + '/train.csv'))
+-import pandas as _pd
+-FAST_COMMIT = os.getenv('KAGGLE_IS_COMPETITION_RERUN') is None and len(_pd.read_csv(DATA + '/test.csv')) < 50   # ours: the scoring rerun never takes the fast path   # fork: the 3-row commit run skips the heavy cells; the hidden rerun runs everything
+-print('FAST_COMMIT', FAST_COMMIT)
+ HEADS = os.path.dirname(next(iter(glob.glob('/kaggle/input/**/heads/q3_8bx.npz', recursive=True))))
+ EXTRA = next(iter(glob.glob('/kaggle/input/**/nlm_matched_clean.parquet', recursive=True)))
+ POOL = next(iter(glob.glob('/kaggle/input/**/nlm_pool_v5.parquet', recursive=True)))
++# ---- v20: pool union. nlm_pool_v5 (120k) plus the 245k open pool (crtproduction/name-that-llm-open-pool),
++# its own leakage flags dropped, de-duplicated by normalised text, capped at 11k rows per model so the
++# svc4 fit stays inside the time budget. Read by svc4 and by the new prompt-centred member svc4c.
++_OPEN = glob.glob('/kaggle/input/**/ntl_open_pool.parquet', recursive=True)
++if _OPEN:
++    import pandas as _pdp
++    _a = _pdp.read_parquet(POOL).copy()
++    _b = _pdp.read_parquet(_OPEN[0]).copy()
++    _fl = [c for c in ('flag_near_train_prompt', 'flag_train_prompt_regen', 'flag_gemini37_routing_risk') if c in _b.columns]
++    if _fl:
++        _b = _b[~_b[_fl].any(axis=1)]
++    _a['_grp'] = ('nl_' + _a['prompt_id'].astype(str)) if 'prompt_id' in _a.columns else ''
++    _b['_grp'] = 'op_' + _b['prompt_group'].astype(str)
++    _u = _pdp.concat([_a[['text', 'model', '_grp']], _b[['text', 'model', '_grp']]], ignore_index=True)
++    _u['text'] = _u.text.fillna('').astype(str)
++    _u['_k'] = _u.text.str.lower().str.replace(r'\s+', ' ', regex=True)
++    _u = _u[_u._k.str.len() > 0].drop_duplicates('_k')
++    _u = _u.groupby('model', group_keys=False).head(11000)[['text', 'model', '_grp']].reset_index(drop=True)
++    _u.to_parquet('/kaggle/working/pool_union.parquet', index=False)
++    _cnt = _u.groupby('model').size()
++    print(f'v20 pool union {len(_u)} rows ({_cnt.min()}-{_cnt.max()} per model), {int((_u._grp != "").sum())} grouped')
++    POOL = '/kaggle/working/pool_union.parquet'
++else:
++    print('v20: open pool not mounted; keeping', POOL)
+ B8, B14, B25 = mdir('/qwen-3/', '/8b-base/'), mdir('/qwen-3/', '/14b-base/'), mdir('/qwen2.5/', '/7b/')
+ I8, I14 = mdir('/qwen-3/', '/8b/'), mdir('/qwen-3/', '/14b/')
+ A8 = [adir(f'ts_q3b8_f{k}') for k in range(5)] + [adir('ts_q3b8')]
+@@ -44,13 +63,9 @@
+ print('nishant', N8, N8C['keep'], N8C['max_len'], N14, N14C['keep'], N14C['max_len'])
+ ATLAS = os.path.dirname(next(iter(glob.glob('/kaggle/input/**/atlas_bundle.json', recursive=True))))
+ print('atlas', ATLAS)
+-BL = next((os.path.dirname(x) for x in cfgs if '/llama-3-1-8b-base/' in x.lower()), None) or mdir('/llama-3.1/', '/8b/')   # ours: avazaku's cache is gone; same Meta weights from alexchilton/llama-3-1-8b-base
+-_SHARDS = {'model-00001-of-00004.safetensors': 4976698672, 'model-00002-of-00004.safetensors': 4999802720, 'model-00003-of-00004.safetensors': 4915916176, 'model-00004-of-00004.safetensors': 1168138808}
+-assert all(os.path.getsize(os.path.join(BL, f)) == n for f, n in _SHARDS.items()), BL   # fork: Llama-3.1-8B from avazaku's public cache (NousResearch copy)
++# Llama-3.1-8B base: the public model alexchilton/llama-3-1-8b-base (the asset-cache kernel this pipeline used is gone)
++BL = next((os.path.dirname(x) for x in cfgs if '/llama-3-1-8b-base/' in x.lower()), None) or mdir('/llama-3.1/', '/8b/')
+ AL = [adir(f'ts_llama8_f{k}') for k in (0, 2, 4)] + [adir('ts_llama8')]
+-import shutil, time as _tc; _c = _tc.time()
+-shutil.copytree(BL, '/tmp/llama-3.1/8b', dirs_exist_ok=True); BL = '/tmp/llama-3.1/8b'   # fork: see the intro
+-print('llama copied to local disk in', round(_tc.time() - _c), 's')
+ print('llama', BL, AL)
+ A8S7 = [adir(f'ts8_s7_f{k}') for k in (0, 2, 4)] + [adir('ts8_s7')]
+ print('seed7', A8S7)
+@@ -260,6 +275,7 @@
+ p.add_argument('--extra', default='', help='parquet/csv (text, model) of matched external passages, used by TF-IDF/distort members')
+ p.add_argument('--extra_w', type=float, default=0.5)
+ p.add_argument('--svc_w', type=float, default=0.0, help='4-view n-gram LinearSVC on train + --pool')
++p.add_argument('--svc_cent_w', type=float, default=0.0, help='prompt-centred 4-view LinearSVC trained on official + grouped pool rows, scored on clustered test rows')
+ p.add_argument('--pool', default='')
+ p.add_argument('--save_lp', default='', help='also save normalised blend log-probs (n x 18, LABELS order) to this .npy')
+ p.add_argument('--perpassage', type=int, default=1, help='1: test passages treated independently (no clustering/centring/assignment)')
+@@ -409,10 +425,11 @@
+     _parts = []
+     _official = train[['text', 'model']].copy(); _official['text'] = _official.text.fillna('').astype(str)
+     _official['_srcw'] = 1.0
++    _official['_grp'] = 'of_' + train.prompt_id.astype(str)
+     _parts.append(_official)
+     _seen = {_norm_text_key(t) for t in _official.text.values}
+     if len(EXTRA_DF):
+-        _e = EXTRA_DF[['text', 'model']].copy(); _e['_srcw'] = float(a.extra_w)
++        _e = EXTRA_DF[['text', 'model']].copy(); _e['_srcw'] = float(a.extra_w); _e['_grp'] = ''
+         _keep = []
+         for _t in _e.text.values:
+             _k = _norm_text_key(_t); _ok = bool(_k) and _k not in _seen
+@@ -423,7 +440,8 @@
+         _P = pd.read_parquet(a.pool)
+         if not {'text', 'model'}.issubset(_P.columns):
+             raise ValueError(f'Pool must contain text/model columns: {a.pool}')
+-        _P = _P[_P.model.isin(LABELS)][['text', 'model']].copy()
++        _P['_grp'] = _P['_grp'].fillna('').astype(str) if '_grp' in _P.columns else ''
++        _P = _P[_P.model.isin(LABELS)][['text', 'model', '_grp']].copy()
+         _P['text'] = _P.text.fillna('').astype(str); _P['_srcw'] = 0.35
+         if a.sim:
+             _held_keys = {_norm_text_key(t) for t in test.text.values}
+@@ -448,6 +466,46 @@
+     _svc.fit(_hs(_A, format='csr'), _fy, sample_weight=_sw)
+     _d = _svc.decision_function(_hs(_B, format='csr'))
+     LP['svc4'] = (_d - _d.max(1, keepdims=True) - np.log(np.exp(_d - _d.max(1, keepdims=True)).sum(1, keepdims=True))) * a.svc_w
++    if a.svc_cent_w > 0:   # v20: the same views, prompt-centred, trained on grouped official + open-pool rows
++        try:
++            from scipy.sparse import csr_matrix as _csr, diags as _diags
++
++            def _group_centre(X, groups, lo=2, hi=10 ** 9):
++                X = _csr(X)
++                _, _inv, _cnt = np.unique(np.asarray(groups), return_inverse=True, return_counts=True)
++                _kg = np.flatnonzero((_cnt >= lo) & (_cnt <= hi))
++                if not len(_kg):
++                    return X.copy()
++                _col = np.full(len(_cnt), -1); _col[_kg] = np.arange(len(_kg))
++                _rw = np.flatnonzero(_col[_inv] >= 0)
++                _M = _csr((np.ones(len(_rw)), (_rw, _col[_inv][_rw])), shape=(X.shape[0], len(_kg)))
++                return (X - _M @ (_diags(1.0 / _cnt[_kg]) @ (_M.T @ X))).tocsr()
++
++            _grp = _fitdf['_grp'].fillna('').astype(str).to_numpy()
++            _idx = np.flatnonzero(_grp != '')
++            if len(_idx) > 60000:
++                _idx = np.random.default_rng(0).choice(_idx, 60000, replace=False)
++            if len(_idx) >= 1000:
++                _Xc = _group_centre(_hs([_A[v][_idx] for v in range(len(_A))], format='csr'), _grp[_idx])
++                _svcc = LinearSVC(C=0.5, random_state=42, max_iter=5000, class_weight='balanced')
++                _svcc.fit(_Xc, _fy[_idx], sample_weight=_sw[_idx])
++                del _Xc; gc.collect()
++                _sz = np.bincount(np.unique(Gte, return_inverse=True)[1])
++                _cl = np.isin(Gte, np.flatnonzero((_sz >= 2) & (_sz <= 18)))
++                _out = np.zeros((len(test), K), dtype=np.float64)
++                if _cl.any():
++                    _Bc = _group_centre(_hs(_B, format='csr'), Gte)[_cl]
++                    _dc = _svcc.decision_function(_Bc)
++                    _dc = _dc - _dc.max(1, keepdims=True)
++                    _dc = _dc - np.log(np.exp(_dc).sum(1, keepdims=True))
++                    _out[np.flatnonzero(_cl)[:, None], _svcc.classes_[None, :]] = _dc
++                LP['svc4c'] = _out * a.svc_cent_w
++                log(f"svc4c centred member: fit rows {len(_idx)}, scored {int(_cl.sum())}/{len(test)} clustered rows, weight {a.svc_cent_w}")
++                del _svcc, _out; gc.collect()
++            else:
++                log(f'svc4c skipped: only {len(_idx)} grouped fit rows')
++        except Exception as _e:
++            log('svc4c FAILED, continuing without it:', repr(_e))
+     del _A, _B, _parts, _fitdf, _svc; gc.collect(); log('svc4 done')
+ if a.distort_w > 0:  # Stamatatos-style text distortion: keep top-100 frequent words + punctuation, mask the rest
+     import re, collections
+@@ -545,62 +603,34 @@
+     Returns log-probs averaged over adapters (plain, centred-or-None)."""
+     from transformers import AutoConfig
+     from safetensors.torch import load_file
+-    from concurrent.futures import ThreadPoolExecutor
+     adapters = spec.get('adapters') or [spec['adapter']]
+     tok = AutoTokenizer.from_pretrained(spec['path'])
+     if tok.pad_token is None: tok.pad_token = tok.eos_token
+     cfg = AutoConfig.from_pretrained(spec['path']); tc = cfg.text_config if hasattr(cfg, 'text_config') else cfg
+     tc.num_hidden_layers = spec['keep']; tc.use_cache = False
+     if getattr(tc, 'layer_types', None) is not None: tc.layer_types = tc.layer_types[:spec['keep']]
+-    _ms = []   # fork (exp018): with spec['dp'], a full copy on each GPU if the largest batch fits with 1 GiB to spare
+-    if spec.get('dp') and torch.cuda.device_count() >= 2:
+-        try:
+-            for _d in range(2):
+-                _ms.append(AutoModel.from_pretrained(spec['path'], config=cfg, dtype=torch.float16, device_map={'': _d}).eval())
+-                for _n in ('vision_tower', 'multi_modal_projector'):   # Ministral 3's image path; text passes never use it
+-                    if getattr(_ms[-1], _n, None) is not None: setattr(_ms[-1], _n, None)
+-                gc.collect(); torch.cuda.empty_cache(); torch.cuda.reset_peak_memory_stats(_d)
+-                _ms[-1](input_ids=torch.full((spec.get('bs', 16), spec.get('max_len', 384)), tok.pad_token_id, device=f'cuda:{_d}'), output_hidden_states=True, use_cache=False)
+-                assert torch.cuda.max_memory_allocated(_d) < torch.cuda.get_device_properties(_d).total_memory - (1 << 30), 'under 1 GiB to spare'
+-        except Exception as _e:   # out of memory, or anything else: upstream's way
+-            log(f'  l24 {spec["name"]}: one split copy instead of one per GPU ({_e!r:.80})'); _ms = []
+-        gc.collect(); torch.cuda.empty_cache()
+-    if not _ms: _ms = [AutoModel.from_pretrained(spec['path'], config=cfg, dtype=torch.float16, device_map='auto').eval()]
+-    m = _ms[0]
+-    if spec.get('no_final_norm'):
+-        for _m in _ms: _m.norm = torch.nn.Identity()
++    m = AutoModel.from_pretrained(spec['path'], config=cfg, dtype=torch.float16, device_map='auto').eval()
++    if spec.get('no_final_norm'): m.norm = torch.nn.Identity()
+     mods = dict(m.named_modules()); first = next(m.parameters()).device; L = spec['layers']
+-    _mods = [dict(_m.named_modules()) for _m in _ms]
+     _eos = spec.get('eos_id')   # checkpoints trained with an end token appended (Nishant's) need the same id at inference
+     _tk = lambda tx: [x + ([_eos] if _eos is not None else []) for x in tok(list(tx), truncation=True, max_length=spec.get('max_len', 384) - (1 if _eos is not None else 0))['input_ids']]
+     enc = _tk(texts)
+     order = np.argsort([len(x) for x in enc]); bs = spec.get('bs', 16)
+     def lsm(z): return z - z.max(1, keepdims=True) - np.log(np.exp(z - z.max(1, keepdims=True)).sum(1, keepdims=True))
+-    P_acc, C_acc = 0.0, 0.0; FEATS = None; OVF = [0, 0]
++    P_acc, C_acc = 0.0, 0.0; FEATS = None; OVF = [0]
+     if train_texts is not None:
+         enc_tr = _tk(train_texts)
+     def featurize(enc_, norms, hid):
+         order_ = np.argsort([len(x) for x in enc_]); Z_ = np.zeros((len(enc_), hid * len(L)), np.float32)
+-        def _run(k, n):   # fork: upstream's batches in upstream's order, batch i on copy i % n, one thread per copy
+-            mm = _ms[k]; dev = next(mm.parameters()).device
+-            with torch.no_grad():   # grad mode is per thread
+-                for i in range(k * bs, len(order_), bs * n):
+-                    b = order_[i:i + bs]; Lm = max(len(enc_[j]) for j in b)
+-                    ids = torch.full((len(b), Lm), tok.pad_token_id); att = torch.zeros((len(b), Lm), dtype=torch.long)
+-                    for r, j in enumerate(b): ids[r, :len(enc_[j])] = torch.tensor(enc_[j]); att[r, :len(enc_[j])] = 1
+-                    hs = mm(input_ids=ids.to(dev), attention_mask=att.to(dev), output_hidden_states=True, use_cache=False).hidden_states
+-                    if not all(torch.isfinite(hs[l]).all() for l in L):   # fp16 overflow (un-normed deep states): redo this batch in bf16
+-                        mm.to(torch.bfloat16); hs = mm(input_ids=ids.to(dev), attention_mask=att.to(dev), output_hidden_states=True, use_cache=False).hidden_states; mm.to(torch.float16); OVF[k] += 1
+-                    mask = att.unsqueeze(-1).float(); mask[:, 0] = 0; _mg = {d_: mask.to(d_) for d_ in {hs[l].device for l in L}}
+-                    Z_[b] = torch.cat([nm(((hs[l].float() * _mg[hs[l].device]).sum(1) / _mg[hs[l].device].sum(1)).cpu()) for l, nm in zip(L, norms)], -1).numpy()   # fork: masked means on the GPU
+-        if len(_ms) == 1: _run(0, 1)
+-        else:
+-            try:
+-                with ThreadPoolExecutor(len(_ms)) as _ex:
+-                    for _f in [_ex.submit(_run, k, len(_ms)) for k in range(len(_ms))]: _f.result()
+-            except Exception as _e:   # never worse than one GPU: drop the second copy, every batch again on the first
+-                log(f'  l24 {spec["name"]}: two-copy pass failed ({_e!r:.80}), one copy from here on'); del _ms[1:], _mods[1:]
+-                gc.collect(); torch.cuda.empty_cache(); _run(0, 1)
++        for i in range(0, len(order_), bs):
++            b = order_[i:i + bs]; Lm = max(len(enc_[j]) for j in b)
++            ids = torch.full((len(b), Lm), tok.pad_token_id); att = torch.zeros((len(b), Lm), dtype=torch.long)
++            for r, j in enumerate(b): ids[r, :len(enc_[j])] = torch.tensor(enc_[j]); att[r, :len(enc_[j])] = 1
++            hs = m(input_ids=ids.to(first), attention_mask=att.to(first), output_hidden_states=True, use_cache=False).hidden_states
++            if not all(torch.isfinite(hs[l]).all() for l in L):
++                m.to(torch.bfloat16); hs = m(input_ids=ids.to(first), attention_mask=att.to(first), output_hidden_states=True, use_cache=False).hidden_states; m.to(torch.float16); OVF[0] += 1
++            mask = att.unsqueeze(-1).float(); mask[:, 0] = 0
++            Z_[b] = torch.cat([nm((hs[l].float().cpu() * mask).sum(1) / mask.sum(1)) for l, nm in zip(L, norms)], -1).numpy()
+         return Z_
+     for ai, ad in enumerate(adapters):
+         adp = os.path.join(ad, 'adapter') if os.path.exists(os.path.join(ad, 'adapter', 'adapter_config.json')) else ad
+@@ -610,11 +640,9 @@
+             if '.lora_A.' not in k: continue
+             name = k.replace('base_model.model.', '', 1).split('.lora_A.')[0]
+             if name not in mods and ('model.' + name) in mods: name = 'model.' + name
+-            B = sd[k.replace('.lora_A.', '.lora_B.')]
+-            for _md in _mods:   # fork: every copy
+-                W = _md[name].weight
+-                W += ((B.to(W.device, torch.float32) @ v.to(W.device, torch.float32)) * scale).to(W.dtype)
+-                deltas.append((W, B, v))   # keep only the low-rank factors; the dense delta is recomputed to unmerge
++            W = mods[name].weight; B = sd[k.replace('.lora_A.', '.lora_B.')]
++            W += ((B.to(W.device, torch.float32) @ v.to(W.device, torch.float32)) * scale).to(W.dtype)
++            deltas.append((W, B, v))   # keep only the low-rank factors; the dense delta is recomputed to unmerge
+         if os.path.exists(os.path.join(ad, 'heads.pt')): H = torch.load(os.path.join(ad, 'heads.pt'), map_location='cpu')
+         else: H = dict(load_file(os.path.join(ad, 'heads.safetensors')))
+         if os.path.exists(os.path.join(ad, 'meta.json')):   # remap head rows from the checkpoint's label order to ours
+@@ -623,7 +651,16 @@
+         hid = H['norms.0.weight'].shape[0]
+         norms = [torch.nn.LayerNorm(hid) for _ in L]
+         for i, nm in enumerate(norms): nm.load_state_dict({'weight': H[f'norms.{i}.weight'], 'bias': H[f'norms.{i}.bias']})
+-        Z = featurize(enc, norms, hid)   # fork: upstream's loop, now shared with the Gaussian head's train features
++        Z = np.zeros((len(texts), hid * len(L)), np.float32)
++        for i in range(0, len(order), bs):
++            b = order[i:i + bs]; Lm = max(len(enc[j]) for j in b)
++            ids = torch.full((len(b), Lm), tok.pad_token_id); att = torch.zeros((len(b), Lm), dtype=torch.long)
++            for r, j in enumerate(b): ids[r, :len(enc[j])] = torch.tensor(enc[j]); att[r, :len(enc[j])] = 1
++            hs = m(input_ids=ids.to(first), attention_mask=att.to(first), output_hidden_states=True, use_cache=False).hidden_states
++            if not all(torch.isfinite(hs[l]).all() for l in L):   # fp16 overflow (un-normed deep states): redo this batch in bf16
++                m.to(torch.bfloat16); hs = m(input_ids=ids.to(first), attention_mask=att.to(first), output_hidden_states=True, use_cache=False).hidden_states; m.to(torch.float16); OVF[0] += 1
++            mask = att.unsqueeze(-1).float(); mask[:, 0] = 0
++            Z[b] = torch.cat([nm((hs[l].float().cpu() * mask).sum(1) / mask.sum(1)) for l, nm in zip(L, norms)], -1).numpy()
+         if train_texts is not None and ai == len(adapters) - 1:   # full-data adapter: features for the Gaussian head
+             FEATS = (Z.copy(), featurize(enc_tr, norms, hid))
+         for W, B, A_ in deltas:   # unmerge before the next adapter
+@@ -637,8 +674,8 @@
+             for g in np.unique(groups):
+                 ii = groups == g; Zc[ii] -= Zc[ii].mean(0)
+             C_acc = C_acc + hd('centered', Zc) / len(adapters)
+-        log(f'  l24 {spec["name"]}: adapter {os.path.basename(ad)} done (bf16 redo batches {sum(OVF)})')
+-    del m, mods, _ms, _mods; gc.collect(); torch.cuda.empty_cache()
++        log(f'  l24 {spec["name"]}: adapter {os.path.basename(ad)} done (bf16 redo batches {OVF[0]})')
++    del m, mods; gc.collect(); torch.cuda.empty_cache()
+     if train_texts is not None: return P_acc, (C_acc if groups is not None else None), FEATS
+     return P_acc, (C_acc if groups is not None else None)
+ 
+@@ -767,6 +804,9 @@
+             if _b % (25 * a.atlas_bs) == 0 and _done > 0:
+                 _proj = (time.time() - T0) + (time.time() - _t1) / max(float(_ctok[_done - 1]), 1.0) * float(_ctok[-1] - _ctok[_done - 1]) * 1.1
+                 log(f'atlas {os.path.basename(bundle)} {_done}/{len(_ord)} projected finish {_proj:.0f}s')
++                if _done > 50 and _proj > budget:
++                    log(f'atlas predicted overrun; preserving {int(scored.sum())} completed rows')
++                    break
+                 if a.atlas_probe and _done >= a.atlas_probe:
+                     log(f'atlas probe stopped after {int(scored.sum())} scored rows')
+                     break
+@@ -1867,44 +1907,49 @@
+ print(f'COMP STACK DONE {time.time() - T0:.0f}s', flush=True)
+ 
+ 
+-# complementary public stack in its own process (frees all GPU memory when done); its wall time is charged to the ATLAS budget
+-import time as _t
+-_c0 = _t.time()
+-import os; os.environ['NTL_DROP_Q35'] = '0'
+-if not FAST_COMMIT:
++if RERUN:
++    # complementary public stack in its own process (frees all GPU memory when done); its wall time is charged to the ATLAS budget
++    import time as _t
++    _c0 = _t.time()
++    import os; os.environ['NTL_DROP_Q35'] = '0'
+     !python comp_stack.py 2>&1 | grep -vE 'Warning|warn'
+-COMP_SEC = _t.time() - _c0
+-print('comp stack wall time', round(COMP_SEC))
+-
+-
+-W_N14, W_N8 = 1.0, 0.5
+-L = [2, 4, 6, 8, 12, 16, 20, 24]
+-MODELS = [
+-  {"name": "q14v5", "type": "l24", "path": B14, "adapters": AQ14V5, "keep": 27, "layers": L, "w": 3.0, "bs": 8, "max_len": 384, "twin": 0.35, "gauss": 0.70},
+-  {"name": "q8v5", "type": "l24", "path": B8, "adapters": AQ8V5, "keep": 24, "layers": L, "w": 2.0, "bs": 16, "max_len": 384, "twin": 0.35, "gauss": 0.44, "dp": True},
+-  {"name": "ll8v5", "type": "l24", "path": BL, "adapters": ALL8V5, "keep": 24, "layers": L, "w": 1.0, "bs": 16, "max_len": 384, "twin": 0.35, "dp": True},
+-  {"name": "n14b", "type": "l24", "path": B14, "adapters": [N14B], "keep": N14BC['keep'], "layers": N14BC['layers'], "w": 2.5, "bs": 8, "max_len": N14BC['max_len'], "twin": 0.35, "no_final_norm": True, "eos_id": N14BC['eos_id']},
+-  {"name": "q25_14", "type": "l24", "path": B25_14, "adapters": [Q25_14], "keep": Q25_14C['keep'], "layers": Q25_14C['layers'], "w": 1.0, "bs": 8, "max_len": Q25_14C['max_len'], "twin": 0.35, "no_final_norm": True, "eos_id": Q25_14C['eos_id']},
+-  {"name": "deb", "type": "enc", "ckpt": DEB, "w": 1.0},
+-]
+-import pandas as pd
+-ATLAS_BUDGET = int(8.3 * 3600 - COMP_SEC - 600)
+-import subprocess, sys
+-cmd = [sys.executable, 'infer.py', '--data', str(DATA), '--models', json.dumps(MODELS),
+-       '--perpassage', '1', '--extra', str(EXTRA), '--extra_w', '0.5', '--tfidf_w', '0.25',
+-       '--distort_w', '0.10', '--svc_w', '1.5', '--pool', str(POOL), '--adapt_w', '1.0',
+-       '--adapt_thr', '0.15', '--sinkhorn', '0.45', '--sinkhorn_target_mix', '0.35', '--post', '0', '--atlas_dir', str(ATLAS),
+-       '--atlas_base', str(B8), '--atlas_w', '0.20', '--atlas_margin', '0.3',
+-       '--atlas_bs', '4', '--atlas_chunk', '3', '--atlas_budget', str(max(180, ATLAS_BUDGET)),
+-       '--comp_path', '/kaggle/working/comp_logit.npy', '--comp_w', '0.15',
+-       '--out', '/kaggle/working/submission.parquet', '--cache', '/kaggle/working/cache']
+-print('RUNNING MAIN INFERENCE', flush=True)
+-if FAST_COMMIT:   # fork: placeholder from the commit run; Kaggle reruns the notebook on the hidden test
+-    _test_ph = pd.read_csv(os.path.join(DATA, 'test.csv'))
+-    pd.DataFrame({'id': _test_ph.id, 'model': 'gpt-5.5'}).to_parquet('/kaggle/working/submission.parquet', index=False)
++    COMP_SEC = _t.time() - _c0
++    print('comp stack wall time', round(COMP_SEC))
+ else:
++    COMP_SEC = 0
++    print('commit run: comp stack skipped (runs in the competition rerun)')
++
++
++if RERUN:
++    W_N14, W_N8 = 1.0, 0.5
++    L = [2, 4, 6, 8, 12, 16, 20, 24]
++    MODELS = [
++      {"name": "q14v5", "type": "l24", "path": B14, "adapters": AQ14V5, "keep": 27, "layers": L, "w": 3.0, "bs": 8, "max_len": 384, "twin": 0.35, "gauss": 0.70},
++      {"name": "q8v5", "type": "l24", "path": B8, "adapters": AQ8V5, "keep": 24, "layers": L, "w": 2.0, "bs": 16, "max_len": 384, "twin": 0.35, "gauss": 0.44},
++      {"name": "ll8v5", "type": "l24", "path": BL, "adapters": ALL8V5, "keep": 24, "layers": L, "w": 1.0, "bs": 16, "max_len": 384, "twin": 0.35},
++      {"name": "n14b", "type": "l24", "path": B14, "adapters": [N14B], "keep": N14BC['keep'], "layers": N14BC['layers'], "w": 2.5, "bs": 8, "max_len": N14BC['max_len'], "twin": 0.35, "no_final_norm": True, "eos_id": N14BC['eos_id']},
++      {"name": "q25_14", "type": "l24", "path": B25_14, "adapters": [Q25_14], "keep": Q25_14C['keep'], "layers": Q25_14C['layers'], "w": 1.0, "bs": 8, "max_len": Q25_14C['max_len'], "twin": 0.35, "no_final_norm": True, "eos_id": Q25_14C['eos_id']},
++      {"name": "deb", "type": "enc", "ckpt": DEB, "w": 1.0},
++    ]
++    import pandas as pd
++    ATLAS_BUDGET = int(8.3 * 3600 - COMP_SEC - 600)
++    import subprocess, sys
++    cmd = [sys.executable, 'infer.py', '--data', str(DATA), '--models', json.dumps(MODELS),
++           '--perpassage', '1', '--extra', str(EXTRA), '--extra_w', '0.5', '--tfidf_w', '0.25',
++           '--distort_w', '0.10', '--svc_w', '1.5', '--pool', str(POOL), '--adapt_w', '1.0',
++           '--adapt_thr', '0.15', '--sinkhorn', '0.45', '--sinkhorn_target_mix', '0.35', '--post', '0', '--atlas_dir', str(ATLAS),
++           '--atlas_base', str(B8), '--atlas_w', '0.20', '--atlas_margin', '0.3', '--svc_cent_w', '1.0',
++           '--atlas_bs', '4', '--atlas_chunk', '3', '--atlas_budget', str(max(180, ATLAS_BUDGET)),
++           '--comp_path', '/kaggle/working/comp_logit.npy', '--comp_w', '0.15',
++           '--out', '/kaggle/working/submission.parquet', '--cache', '/kaggle/working/cache']
++    print('RUNNING MAIN INFERENCE', flush=True)
+     subprocess.run(cmd, check=True)
+-submission = pd.read_parquet('/kaggle/working/submission.parquet')
+-assert len(submission) == len(pd.read_csv(os.path.join(DATA, 'test.csv')))
+-assert set(submission.columns) == {'id', 'model'} and submission.id.is_unique and submission.model.notna().all()
+-print(submission.head())
++    submission = pd.read_parquet('/kaggle/working/submission.parquet')
++    assert len(submission) == len(pd.read_csv(os.path.join(DATA, 'test.csv')))
++    assert set(submission.columns) == {'id', 'model'} and submission.id.is_unique and submission.model.notna().all()
++    print(submission.head())
++else:
++    import pandas as pd
++    _tr = pd.read_csv(os.path.join(DATA, 'train.csv')); _te = pd.read_csv(os.path.join(DATA, 'test.csv'))
++    pd.DataFrame({'id': _te['id'], 'model': _tr['model'].mode()[0]}).to_parquet('submission.parquet', index=False)
++    print('commit run: placeholder submission', len(_te), 'rows; the real pipeline runs when submitted')

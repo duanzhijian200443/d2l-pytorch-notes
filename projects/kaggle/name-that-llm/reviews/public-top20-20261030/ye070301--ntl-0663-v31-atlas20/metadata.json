@@ -1,0 +1,57 @@
+{
+  "id": 141539486,
+  "ref": "ye070301/ntl-0663-v31-atlas20",
+  "title": "NTL 0663 V31 ATLAS20",
+  "author": "ye070301",
+  "slug": "ntl-0663-v31-atlas20",
+  "last_run_time": "2026-10-27T15:16:25.814658800Z",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": false,
+  "enable_gpu": true,
+  "enable_internet": false,
+  "dataset_data_sources": [
+    "dhruvtibarewal/nlm-l24-adapters",
+    "seyitkaangunes/ntl-extra-api-passages",
+    "abdullah1afify/ntl-generations",
+    "dophuchung/ntl-proxy-generations",
+    "zbigniewkirchner/ntl-qwen3-8b-lora-claude-head",
+    "dhruvtibarewal/nlm-matched-clean",
+    "dhruvtibarewal/nlm-offline-wheels",
+    "josephadamski91/ntl-atlas-qwen3-8b-v1",
+    "lucasboesen/ntl-free-proxy-generations",
+    "nishantdahal/ntl-two-stage-lora",
+    "nishantdahal/ntl-handwriting-blend",
+    "dhruvtibarewal/nlm-l24-adapters-v5",
+    "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+    "pjmathematician/ultrabert-380m-ntl"
+  ],
+  "kernel_data_sources": [
+    "lucasboesen/name-that-llm-glm4-9b-trunc25",
+    "lucasboesen/name-that-llm-extract-encoders2",
+    "lucasboesen/name-that-llm-electra-large-weights",
+    "lucasboesen/name-that-llm-desklib-weights",
+    "lucasboesen/name-that-llm-train-lora24-s7",
+    "lucasboesen/name-that-llm-train-tokattn",
+    "lucasboesen/name-that-llm-train-tokattn2",
+    "vnton37nguyn/ntl-train-lora-qwen25-instyle"
+  ],
+  "competition_data_sources": [
+    "name-that-llm"
+  ],
+  "total_votes": 3,
+  "model_data_sources": [
+    "alexchilton/llama-3-1-8b-base/Transformers/default/1",
+    "qwen-lm/qwen-3/Transformers/8b-base/1",
+    "qwen-lm/qwen-3/Transformers/4b-base/1",
+    "qwen-lm/qwen-3/Transformers/14b-base/1",
+    "qwen-lm/qwen-3/Transformers/8b/1",
+    "qwen-lm/qwen-3/Transformers/14b/1",
+    "qwen-lm/qwen2.5/Transformers/14b/1",
+    "qwen-lm/qwen2.5/Transformers/7b/1"
+  ],
+  "enable_tpu": false,
+  "current_version_number": 3,
+  "docker_image": "gcr.io/kaggle-private-byod/python@sha256:9a6bcfda6d03b2cd9aa347ee8c1bae62043328ed0f4afe9bda014e4f8bbf9435",
+  "machine_shape": "NvidiaTeslaT4"
+}

@@ -1,0 +1,95 @@
+--- otmaneelmahdaouy--ntl-v40-summit-pinnacle
++++ otmaneelmahdaouy--ntl-v39-summit-sovereign
+@@ -30,26 +30,24 @@
+ print('nishant', N8, N8C['keep'], N8C['max_len'], N14, N14C['keep'], N14C['max_len'])
+ ATLAS = os.path.dirname(next(iter(glob.glob('/kaggle/input/**/atlas_bundle.json', recursive=True))))
+ print('atlas', ATLAS)
++# Llama-3.1-8B verified public resolution
+ try:
+     BL = mdir('/llama-3.1/', '/8b/')
+     _LLAMA_SOURCE = 'metaresearch/llama-3.1'
+-except AssertionError:
++except Exception:
+     BL = mdir('llama-3-1-8b-base', '')
+     _LLAMA_SOURCE = 'alexchilton/llama-3-1-8b-base'
+ _SHARDS = {'model-00001-of-00004.safetensors': 4976698672, 'model-00002-of-00004.safetensors': 4999802720, 'model-00003-of-00004.safetensors': 4915916176, 'model-00004-of-00004.safetensors': 1168138808}
+ assert all(os.path.isfile(os.path.join(BL, f)) for f in _SHARDS), (BL, _LLAMA_SOURCE)
+-if _LLAMA_SOURCE == 'metaresearch/llama-3.1':
+-    assert all(os.path.getsize(os.path.join(BL, f)) == n for f, n in _SHARDS.items()), BL
+-print('llama source', _LLAMA_SOURCE, BL, {f: os.path.getsize(os.path.join(BL, f)) for f in _SHARDS}, flush=True)
++print('llama source', _LLAMA_SOURCE, BL)
+ AL = [adir(f'ts_llama8_f{k}') for k in (0, 2, 4)] + [adir('ts_llama8')]
+-import shutil, time as _tc; _c = _tc.time()
++ALL8V5 = [adir(f'll8v5_f{k}') for k in range(5)] + [adir('ll8v5')]
+ if not FAST_COMMIT:
++    import shutil, time as _tc; _c = _tc.time()
+     shutil.copytree(BL, '/tmp/llama-3.1/8b', dirs_exist_ok=True); BL = '/tmp/llama-3.1/8b'
+     print('llama copied to local disk in', round(_tc.time() - _c), 's')
+-else:
+-    print('FAST_COMMIT active: skipping heavy model copy')
+-print('llama copied to local disk in', round(_tc.time() - _c), 's')
+-print('llama', BL, AL)
++print('llama', BL, ALL8V5)
++
+ A8S7 = [adir(f'ts8_s7_f{k}') for k in (0, 2, 4)] + [adir('ts8_s7')]
+ print('seed7', A8S7)
+ B25_14 = mdir('/qwen2.5/', '/14b/')
+@@ -60,8 +58,7 @@
+ AQ8V5 = [adir(f'q8v5_f{k}') for k in range(5)] + [adir('q8v5')]
+ print('q8v5', AQ8V5)
+ AQ14V5 = [adir(f'q14v5_f{k}') for k in range(5)] + [adir('q14v5')]
+-ALL8V5 = [adir(f'll8v5_f{k}') for k in range(5)] + [adir('ll8v5')]
+-print('v5', AQ14V5, ALL8V5)
++print('v5', AQ14V5, 'll8v5', len(ALL8V5))
+ 
+ 
+ %%writefile gauss.py
+@@ -375,9 +372,30 @@
+     EXT_T = EXTRA_DF.text.astype(str).values
+     EXT_Y = EXTRA_DF.model.map(L2I).values.astype(int)
+     log('matched-clean extra rows after exact de-dup', len(EXT_T))
+-FIT_T = np.concatenate([train.text.values, EXT_T])
+-FIT_Y = np.concatenate([y, EXT_Y])
+-FIT_W = np.concatenate([np.ones(len(train), dtype=np.float32), np.full(len(EXT_T), a.extra_w, dtype=np.float32)])
++POOL_T, POOL_Y, POOL_W = np.array([], dtype=object), np.array([], dtype=int), np.array([], dtype=np.float32)
++if a.pool and os.path.exists(a.pool):
++    try:
++        _P = pd.read_parquet(a.pool)
++        if {'text', 'model'}.issubset(_P.columns):
++            _P = _P[_P.model.isin(LABELS)].copy()
++            _P['text'] = _P.text.fillna('').astype(str)
++            _seen = set(_official_keys) | ({_norm_text_key(t) for t in EXT_T} if len(EXT_T) else set())
++            _keep = []
++            for _t in _P.text.values:
++                _k = _norm_text_key(_t); _ok = bool(_k) and _k not in _seen
++                _keep.append(_ok)
++                if _ok: _seen.add(_k)
++            _P = _P.loc[_keep].copy()
++            _P = _P.groupby('model').head(1000).reset_index(drop=True)
++            POOL_T = _P.text.values
++            POOL_Y = _P.model.map(L2I).values.astype(int)
++            POOL_W = np.full(len(POOL_T), 0.35, dtype=np.float32)
++            log(f'pool extra rows for tfidf/distort: {len(POOL_T)}')
++    except Exception as _pe:
++        log('pool load for tfidf skipped:', _pe)
++FIT_T = np.concatenate([train.text.values, EXT_T, POOL_T])
++FIT_Y = np.concatenate([y, EXT_Y, POOL_Y])
++FIT_W = np.concatenate([np.ones(len(train), dtype=np.float32), np.full(len(EXT_T), a.extra_w, dtype=np.float32), POOL_W])
+ # ---------------- 2. TF-IDF centred LR
+ if a.tfidf_w > 0:
+     from sklearn.linear_model import LogisticRegression
+@@ -1233,12 +1251,12 @@
+     api = pd.read_csv(api_claude[0])
+     m = np.isin(y, FAMILY_IDX['claude'])
+     GATES['claude'] = family_gate([t for t, k in zip(TR, m) if k] + api['text'].astype(str).tolist(),
+-                                  np.concatenate([y[m], api['model'].map(LAB2I).to_numpy(dtype=int)]), FAMILY_IDX['claude'], 0.5)
++                                  np.concatenate([y[m], api['model'].map(LAB2I).to_numpy(dtype=int)]), FAMILY_IDX['claude'], 0.10)
+     print(f'claude gate: {int(m.sum())} official + {len(api)} API rows', flush=True)
+     del api
+ else:
+     print('Claude API passages not attached: Claude gate off', flush=True)
+-for fam, C in [('gpt', 1.0), ('gemini', 1.0), ('glm', 0.5)]:
++for fam, C in [('gpt', 0.10), ('gemini', 0.10), ('glm', 0.10)]:
+     m, me = np.isin(y, FAMILY_IDX[fam]), np.isin(EX_Y, FAMILY_IDX[fam])
+     GATES[fam] = family_gate([t for t, k in zip(TR, m) if k] + [t for t, k in zip(EX_T, me) if k], np.concatenate([y[m], EX_Y[me]]),
+                              FAMILY_IDX[fam], C, sample_weight=np.concatenate([np.ones(int(m.sum())), np.full(int(me.sum()), 0.25)]), balanced=True)

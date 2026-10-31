@@ -1,0 +1,142 @@
+{
+  "omerfarukmerey/0-663-0-660-v31-atlas-20": {
+    "family": "V31 融合权重与执行优化",
+    "summary": "ATLAS 10%→20%；Llama 本地加载、双 T4 并行 8B、GPU 池化，给疑难文本复核留下更多时间。",
+    "ideas": ["沿用 V31 的主集成、来源加权文本分类器、家族修正和柔性类别平衡，ATLAS 混合权重改为 0.20。", "两个 8B 成员可分别在两张 T4 放完整副本，交替处理原批次；Llama 先复制到运行时磁盘，池化平均在 GPU 上完成。", "ATLAS 优先短文本，移除基于预计总耗时的提前退出，在真正截止时间到来前继续处理。"],
+    "caveat": "作者报告仅加速为 0.660、加速加 ATLAS 20% 为 0.663；30% 也为 0.663。与我们的固定 V32 比较还包含调度方式变化，不能简单归因为一个权重。公开小样例会走 FAST_COMMIT 占位路径。",
+    "reuse": "优先研究低成本权重消融和 I/O 优化；多数已有输入可复用。双卡部分对单 A100 不直接适用。"
+  },
+  "lightningv08/0-661-qwen3-8-27b-lora-spectral-ensemble": {
+    "family": "V31 + 新增 27B 鉴定模型",
+    "summary": "加入 Qwen3.8-27B GSQ3 LoRA，全长文本推理，ATLAS 后再以 10% 概率份额融合；预拟合 CPU 读出缓存。",
+    "ideas": ["在 0.660 参考集成上增加自训 Qwen3.8-27B GSQ3 LoRA 读出；作者描述为完整公共语料训练后再做两轮官方数据适配。", "保留全部文本 token，单批次一条，跨两张 T4 分配样本；ATLAS 后、类别平衡前加入 10% 新模型概率。", "把稀疏分类器、家族分类器和 Gaussian 的已拟合数值状态预先缓存；逐模型把权重复制到临时盘，结束后释放进程和临时文件。"],
+    "caveat": "页面当前显示 0.661；最新代码说明仍强调参考 0.660 与候选分数的区别。没有逐一核对该页面分数对应的历史保存版本。需要新 27B 资源，不能视作免费后处理。",
+    "reuse": "重点学习预计算 CPU 拟合、完整文本覆盖和逐阶段暂存；新增大模型留到低成本改进验证后。"
+  },
+  "alexchilton/name-that-llm-0-660-full-ensemble-what-failed": {
+    "family": "V31 复现与失败实验档案",
+    "summary": "复现 V31，替换失效的同权重 Llama 挂载，提交准备阶段快速跳过；详细公开失败的加模型和分组分配实验。",
+    "ideas": ["主方法复用 mercurydust 的 V31，Llama 改从作者公开模型输入读取；模型替换的是文件来源，不是新鉴定骨干。", "通过 KAGGLE_IS_COMPETITION_RERUN 区分提交准备与真正隐藏重跑，避免为三条样例重复完整推理。", "报告多组失败对照：额外 LoRA、恢复某些头、强制 Hungarian 分配、在训练完整 prompt 组上过高的线下验证分数等。"],
+    "caveat": "失败表是作者自己的实验陈述，没有在我们环境复跑。作者报告同代码不同隐藏重跑曾有分数波动，不能把一个微小差值直接解释成稳定因果。",
+    "reuse": "很值得读失败表与验证集构造经验；算法上不用作为一套全新集成重新学习。"
+  },
+  "romantamrazov/name-that-llm-who-am-i": {
+    "family": "V31 + 家族内风格残差",
+    "summary": "最新保存版本 33 的正文为 V40A：用 prompt 分组 OOF 估计家族内风格专家的可靠性，再保守修正同家族排序。",
+    "ideas": ["最新源码在既有集成后增加风格特征专家，重点区分同一模型家族内的兄弟模型。", "用 5 折 GroupKFold(prompt_id) 估计修正可靠性，并保持每个家族的总概率质量。", "同时保存修正前参考预测和修正后提交文件，便于同次运行对照。"],
+    "caveat": "页面显示 0.660，不代表最新 V33/V40A 的新增修正已被单独证实有效。我们已冻结的 V30=362877806、V32=363222852 与此次 V33 是不同代码；V32 正文是 V40B 的 ATLAS 调度。",
+    "reuse": "适合低成本家族混淆分析；保持已有基线，单独比较修正前后，不能覆盖原版。"
+  },
+  "mercurydust/name-that-llm-submission": {
+    "family": "V31 主要改进来源",
+    "summary": "有效使用去重外部样本，启用家族修正，采用自适应 Soft Sinkhorn 和带置信度控制的 Bayesian typography。",
+    "ideas": ["官方、matched-clean、公共池按来源加权；恢复 TF-IDF 0.25 和文本变形 0.10 两个辅助分支。", "把已经拟合但原先未用于最终预测的家族分类器接入，主要调整低置信度的家族内部次序。", "Sinkhorn 强度 0.45，目标类别比例混合预测分布和训练先验；37 个格式标记的证据进行平滑、截断和长度/覆盖率控制。"],
+    "caveat": "最新下载为保存版本 3；说明引用已得分的 V31，其他公开作者指向保存版本 2。我们没有重跑此分支。",
+    "reuse": "这是很多 0.660 附近 Notebook 的共同来源，优先读懂一份，不必逐个重复部署。"
+  },
+  "ozertuu/public-lb-0-66": {
+    "family": "V31 相同代码副本",
+    "summary": "下载的所有代码单元与 mercurydust 当前版本完全相同；主要作为公开复现条目。",
+    "ideas": ["代码层面采用同样的外部数据使用、家族修正、柔性平衡和文字格式后处理。", "对拼接后的所有代码单元进行 SHA-256 比较，与 mercurydust 一致，不计为一个新的算法方向。"],
+    "caveat": "代码相同不证明输入附件版本和运行环境也相同；此页附件数量与上游有差异，应另行核验挂载发现的实际文件。",
+    "reuse": "作为同源复现参考；没有必要因为换了作者名再运行整套。"
+  },
+  "roserrll/name-that-llm-glm-augmented-reproduction": {
+    "family": "去 Llama + 新增 GLM 鉴定模型",
+    "summary": "去掉 ll8v5，增加 GLM-4-9B 官方数据训练头与两阶段训练头，各权重 1.0；保存融合分数。",
+    "ideas": ["在 V31 主体上删掉原有 Llama 分支，以两个 GLM LoRA 鉴定员补充：official-only 和公共池→官方数据两阶段。", "入口用压缩 helper 修改实际推理参数，把新增成员加入 --models，并输出 blend_lp.npy。本次仅解码为文本检查，没有执行。", "公开小样例只测试新增成员，隐藏重跑才启动完整集成，降低准备阶段成本。"],
+    "caveat": "说明文字主要继承旧 V31，实际增量藏在 helper 中；必须看实际代码，不能仅凭标题或继承的 0.654/0.660 说明判断。页面分数为 0.659。",
+    "reuse": "有价值的低依赖替代路线；去掉 Llama 和增加 GLM 同时发生，不能把得分差单独归因于任一项。"
+  },
+  "alperensylen/exp25-v31-llamafree-atlas20-sota": {
+    "family": "ATLAS20 的 Llama-free 分支",
+    "summary": "沿用 ATLAS 20% 及加载/并行优化，但移除 ll8v5 以及 Llama 路径依赖。",
+    "ideas": ["把 Llama 路径及 adapter 列表置空，从主 MODELS 中去掉 ll8v5。", "保留其余 V31 主要设置、ATLAS 0.20、柔性类别平衡以及适用的 Qwen 双卡处理。"],
+    "caveat": "平台实际分数是 0.658；正文继承上游的 0.663 介绍和实验表，不能当成该 Llama-free 分支自己的成绩。",
+    "reuse": "可作为降低依赖和运行成本的候选，需与完整版本做受控对照。我们现在已有验证过的 Llama 文件，不必为访问问题立即切换。"
+  },
+  "drozanes/name-that-llm-apex-ensemble-atlas-hungarian": {
+    "family": "多分支合并型集成",
+    "summary": "合并 ATLAS20、27B GSQ、Qwen2.5 v5、Spectral readout 和家族风格残差，增加多种互补证据。",
+    "ideas": ["最新 v21 在 ATLAS20 基础上加入 GSQ27B 概率份额 0.05，以及 spectral helper 份额 0.04。", "新增六个 Qwen2.5-14B v5 adapter 的成员，权重 1.6，同时保留 Nishant 的 Qwen2.5 头；还加入家族风格残差。", "采用 Llama 24 层前缀输入、恢复某些互补成员，并为多个阶段安排隔离进程/资源预算。"],
+    "caveat": "标题包含 Hungarian，但最新主推理命令为 --post 0；不能据标题断言最终强制一一分配。平台 0.657 不保证最新合并的每项都经过单独增益验证，部分分支有错误/超时跳过路径。",
+    "reuse": "当作组件组合地图；组件多、依赖多，先做单项消融，不建议整体照搬作为第一优先。"
+  },
+  "otmaneelmahdaouy/ntl-v35-apex-championship": {
+    "family": "V30 + 软平衡与兄弟模型规则",
+    "summary": "Soft Sinkhorn 0.5，并对 GLM、OpenAI、Gemini 三组易混模型用门控的格式/措辞证据调整 log-odds。",
+    "ideas": ["保留六个主骨干、互补集成、ATLAS 和原有 typography 主体。", "把类别平衡强度降为 0.5；根据破折号、语法短语和功能词密度，对指定兄弟模型对进行小幅连续分数修正。"],
+    "caveat": "平台分数为 0.655。正文中的 0.670+/0.700+ 是目标或宣传性描述，不是平台已验证结果；同页的局部提升百分比不能当成整体 Public LB 增益。",
+    "reuse": "可借鉴低成本、限定范围的修正方式，但固定规则容易贴合训练集，必须按 prompt 分组验证。"
+  },
+  "otmaneelmahdaouy/ntl-v33-championship-veritable": {
+    "family": "V30 类配方复现",
+    "summary": "六主模型 + 原始 SVC + 互补集成 + ATLAS，使用完整均匀 Sinkhorn 和 34 标记的门控 typography。",
+    "ideas": ["主命令保留 --sinkhorn 1.0、--post 1、--atlas_w 0.10，基本属于 0.654 配方路线。", "强调 ATLAS 时间预算和主集成保留，作为同源复现与运行工程参考。"],
+    "caveat": "作者方法名 v33 与我们 Roman 的 Kaggle 保存版本 33 无关。不能只看版本号大小判断更新程度。",
+    "reuse": "我们的 V30 已取得 0.654，这条目主要用来交叉阅读，不必单独再占用 GPU。"
+  },
+  "peterdreamhan/name-that-llm-soft-sinkhorn-0-5-t4": {
+    "family": "单参数后处理消融",
+    "summary": "在 0.651 配方上把 Sinkhorn 强度 1.0 改为 0.5，减少强制均匀类别比例的影响。",
+    "ideas": ["保留原模型与集成系数，主算法变动只有 --sinkhorn 0.5。", "在原预测与完全平衡后的结果之间做较柔和的结合，而不是完全施加等量类别约束。"],
+    "caveat": "正文仍保留未得分时的说明，平台现在显示 0.653。公开小样例走快速格式检查，不能用这个耗时衡量完整算法。",
+    "reuse": "非常适合保存预测后做低成本受控消融，是优先研究项。"
+  },
+  "maverickss26/kaggle-name-the-llm-v3": {
+    "family": "nlm-v27 工程重构",
+    "summary": "集中配置、删除零权重/未使用拟合，先保存 fallback，并导出逐成员预测，目标是保持配方并提升可观测性。",
+    "ideas": ["跳过权重为零的 TF-IDF 拟合和不会进入最终预测的家族 gate 拟合，减少无效 CPU 开销。", "减少未使用输入的强制断言，把 DeBERTa 临时副本移出输出目录。", "先写互补集成 fallback，检查子进程错误，保存 members_logprob.npz，并输出公共池重复诊断。"],
+    "caveat": "作者声明默认配置保持原配方，并报告 synthetic 数值检查；我们没有独立证明全量数值一致。若只剩 fallback，必须记录为降级结果，不能称全模型成功。",
+    "reuse": "对我们最直接的启发是成员分数导出、失败前落盘和减少无效拟合。"
+  },
+  "mohammedafreedpasha/name-that-llm-solution": {
+    "family": "nlm-v27 扩成员与调权",
+    "summary": "增加旧 Llama 两阶段头和 Qwen seed7，调高 Llama/DeBERTa/SVC 权重；ATLAS 改 0.16、阈值 0.38。",
+    "ideas": ["最新源码相对 avazaku 副本增加 ll8_ts 与 q8s7 两个主成员，ll8v5 权重改 1.5、DeBERTa 改 1.3。", "SVC 权重由 1.5 改 1.8，ATLAS 权重 0.16、选择阈值 0.38；如果有 GLM/Kimi 外部 CSV，就合并到 EXTRA。"],
+    "caveat": "说明文字几乎完整继承 avazaku，但实际代码已改模型/权重。当前主命令仍把 TF-IDF 和 distortion 权重设为 0，SVC 仍用旧 pool 路径，因此合并到 EXTRA 的 GLM/Kimi 数据不应直接记为有效增益。页面分数与最新改动版本未逐一绑定。",
+    "reuse": "可列为权重搜索和成员消融候选；不要因继承的 0.651 说明就认定新增成员有效。"
+  },
+  "alexchilton/name-that-llm-0-651-lora24-atlas-ensemble": {
+    "family": "nlm-v27 复现与依赖修复",
+    "summary": "保持 0.651 主流程，换用可读的相同 Llama 模型输入，加提交准备快速路径，并记录验证失配的失败经验。",
+    "ideas": ["算法核心仍为多折 LoRA、SVC、Gaussian/twin、互补集成、ATLAS 和后处理。", "改变 Llama 文件来源和提交准备流程，不把文件运输变化包装成新的模型收益。", "公开了自己的五骨干线下高分在真实榜单明显下降的记录，强调分组结构失配的风险。"],
+    "caveat": "与同作者 0.660 页面大量共享失败实验表；这些不是两组独立证据。",
+    "reuse": "优先阅读验证设计与失败表，避免重复开展已经暴露高风险的整组 Hungarian 假设。"
+  },
+  "dhruvtibarewal/nlm-v27": {
+    "family": "主要公共配方根节点",
+    "summary": "多折两阶段 LoRA + 四视角 SVC + prompt 去影响 + 互补集成 + 10% ATLAS，再做平衡与分组后处理。",
+    "ideas": ["核心是多个已训练骨干及 adapter 的预测平均；Qwen14B、Qwen8B、Llama8B 与其他 encoder/LoRA 成员提供互补特征。", "用 prompt 中心化 twin 与共享 prompt Gaussian 削弱题目内容；在低置信度文本上引入 ATLAS。", "大量后续 0.651～0.663 Notebook 直接复用这一基础配方和公共适配器。"],
+    "caveat": "原 Notebook 没有 Markdown 说明，本次按代码读取，并用 Fully Reproducible 的作者说明补充训练背景。不能从推理代码推断所有训练数据都已经逐项审计。",
+    "reuse": "理解其他分支之前先理解这个根配方；避免把每个 fork 当成独立训练成果。"
+  },
+  "harshitakumari256/nlm-v27": {
+    "family": "nlm-v27 + 额外 Qwen2.5 读出",
+    "summary": "相比原 nlm-v27，增加 ntl-q25v5/Qwen2.5-14B 的 l24 成员，融合权重 0.4。",
+    "ideas": ["保留主体代码，新增 ntl-q25v5 checkpoint 的元数据读取。", "将该读出作为额外 q25v5 主成员加入，使用其自己的层数、最大长度与 eos 配置。"],
+    "caveat": "当前下载版本为 4，平台显示 0.651；没有单独看到证明这个新增成员带来提升的对照结果。",
+    "reuse": "典型的加一个成员实验；应先比较它与现有成员的错误相关性，而不是仅看单模型分数。"
+  },
+  "avazaku/name-that-llm-0-651-verified-reproduction": {
+    "family": "nlm-v27 忠实复现与审计",
+    "summary": "保持原六个代码单元，恢复哈希核验的 Llama 文件依赖，审计成员、数值、环境与实际提交。",
+    "ideas": ["本次下载的全部代码单元与原 nlm-v27 完全一致；主要贡献是文件校验和复现证据。", "明确区分三条样例、训练内 self-check、正式 Public LB，并记录运行耗时、可选成员历史跳过及版本来源。"],
+    "caveat": "原 Llama cache 链接后来不可读；本地保存的说明是历史证据，不能假定今天仍可直接挂载。代码一致不表示访问依赖仍可用。",
+    "reuse": "作为可追溯实验记录的范例；我们已有相似的固定输入和证据流程。"
+  },
+  "dhruvtibarewal/name-that-llm-fully-reproducible": {
+    "family": "两阶段训练配方与训练方法说明",
+    "summary": "说明约 120k 匹配公共数据→官方训练数据的两阶段 LoRA，五折加全量平均，并结合 SVC、Gaussian、ATLAS。",
+    "ideas": ["训练先用大规模匹配公共文本学风格，再用官方 2699 行适配；按 prompt 分五折并额外训练一个全量 adapter。", "截断骨干、多层隐藏状态池化、plain 和 prompt-centred 两套读出，尽量把作者风格与题目内容分开。", "作者给出数据规模、训练 epoch、单模型 OOF 和失败方向，是理解高分来源的重要训练文档。"],
+    "caveat": "训练配方的成本与运行已训练 checkpoint 的推理成本不同。作者列出的 OOF、数据规模效果及隐藏运行耗时尚未由我们复现。",
+    "reuse": "后续如果做自己的模型，先研究匹配数据和验证划分，再考虑从零训练或大规模蒸馏。"
+  },
+  "kozykappa/name-that-llm-enhanced-0-651-recipe": {
+    "family": "SVC 主题偏差修正与运行保障",
+    "summary": "仅在 8～18 条的推断 prompt 组中，软削弱 SVC 的题目偏差；不新增 GPU forward，配合全局截止和原子保存。",
+    "ideas": ["TOPIC_ALPHA=0.62，对稠密组的 SVC 分数做带置信度的 topic correction；稀疏组保持不变。", "采用 5 外折×3 内折的 prompt 分组验证，在完整、稀疏、不均衡场景下选择修正强度；该验证只覆盖 train-only SVC 代理。", "设置 8.5 小时总期限、ATLAS 前保存、检查子进程和输入，输出同次 baseline 与 candidate，并保留可复用预测证据。"],
+    "caveat": "平台显示 0.651，正文仍写增强尚无已测榜单收益；SVC 代理的 +0.01742 等数字不是完整神经集成或正式榜单增益。",
+    "reuse": "优先借鉴实验设计、运行截止和预测导出；主题修正作为单独 CPU 消融，不先重跑全部 GPU。"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "zhjianduan/ntl-colab-cli-offline-check",
+  "title": "NTL Colab CLI Offline Check",
+  "code_file": "verify_transfer.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "dataset_sources": ["zhjianduan/ntl-colab-cli-probe-20261029"],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

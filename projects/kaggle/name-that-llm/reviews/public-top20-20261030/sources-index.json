@@ -1,0 +1,242 @@
+[
+  {
+    "ref": "leoprovorov/he-who-must-not-be-named",
+    "title": "He-Who-Must-Not-Be-Named",
+    "version": 20,
+    "id": 133108545,
+    "source_sha256": "b681aba27422ce9e7f87a28248d5a2fb99b74ff2491223024b7aa69a29ea33e9",
+    "code_sha256": "66b13dd7d2848165701cf66c3e46ec312818825af3d4e179e1abcae5516cc04d",
+    "private": false,
+    "directory": "leoprovorov--he-who-must-not-be-named"
+  },
+  {
+    "ref": "ozertuu/177-180-fresh-top-30-v21-1-conditional-memory",
+    "title": "177/180 Fresh Top-30 | v21.1 Conditional Memory",
+    "version": 3,
+    "id": 129994036,
+    "source_sha256": "1af3ea197cc405b4c70077f959cacd6f06cceb19c21a698e716bfbaf4bff359c",
+    "code_sha256": "817d522cf21720d976587ff0bc5ea7502a7b0ce925526f74c0a38f062123a76d",
+    "private": false,
+    "directory": "ozertuu--177-180-fresh-top-30-v21-1-conditional-memory"
+  },
+  {
+    "ref": "omerfarukmerey/0-663-0-660-v31-atlas-20",
+    "title": "0.663 | 0.660 V31 + ATLAS 20%",
+    "version": 4,
+    "id": 141360898,
+    "source_sha256": "dba1fbfbc4646cb03f92275a2a85acab0e3b90471e90501bf051f09275716c16",
+    "code_sha256": "d02becfe82c55dff37d0076ae752143304b29f88bd14ae7f90486f32408ae221",
+    "private": false,
+    "directory": "omerfarukmerey--0-663-0-660-v31-atlas-20"
+  },
+  {
+    "ref": "alexchilton/name-that-llm-0-662-all-public-what-failed",
+    "title": "Name That LLM 0.662: All Public + What Failed",
+    "version": 8,
+    "id": 139599456,
+    "source_sha256": "c155b33f38ccdd04b32a46455755c56f1aa3e851770da0c29d05ef9a7a3fdc56",
+    "code_sha256": "d164e570c03550b08337e9934b5f18af1255aeacdf1e0a0d279547bfac693c6f",
+    "private": false,
+    "directory": "alexchilton--name-that-llm-0-662-all-public-what-failed"
+  },
+  {
+    "ref": "lightningv08/0-662-qwen3-8-27b-lora-weighted-ensemble",
+    "title": "0.662 | Qwen3.8-27B LoRA + Weighted Ensemble",
+    "version": 33,
+    "id": 139628726,
+    "source_sha256": "8d10a3ef3bee790ae177722146360366adccfa063ca451091c0d2318e94381cd",
+    "code_sha256": "fff6f518d38da0ac396ee67430c55df03eede37c73abf9f9bd0d22a72a3691f1",
+    "private": false,
+    "directory": "lightningv08--0-662-qwen3-8-27b-lora-weighted-ensemble"
+  },
+  {
+    "ref": "roserrll/name-that-llm-0663-v31-atlas20-alex",
+    "title": "name-that-llm-0663-v31-atlas20-alex",
+    "version": 1,
+    "id": 141492101,
+    "source_sha256": "d53efba013e79d77d3b0802ccfe03f5c50a860c4e3202ac326d0a1ebcfaad38e",
+    "code_sha256": "87d7a5a9e8168bf4d35e18fb0f0f5262e81ba32938ca02914d0f1ca920f9bcc1",
+    "private": false,
+    "directory": "roserrll--name-that-llm-0663-v31-atlas20-alex"
+  },
+  {
+    "ref": "huesosinapoganaya/0-663-0-660-v31-atlas-20",
+    "title": "0.663 | 0.660 V31 + ATLAS 20%",
+    "version": 1,
+    "id": 141503746,
+    "source_sha256": "9c110563284b87d6284c47379cdb2144f0cc14872e11ec8702c081741d1d8526",
+    "code_sha256": "0555615debccc6676d5c59abb3e32b350308fe2ae824fed465e2ac0f80838991",
+    "private": false,
+    "directory": "huesosinapoganaya--0-663-0-660-v31-atlas-20"
+  },
+  {
+    "ref": "youdian1s/ntl-0-662-all-public-fork",
+    "title": "NTL 0.662 all-public (fork)",
+    "version": 1,
+    "id": 141532279,
+    "source_sha256": "5189208ae0661fe140d36e0e2a99120967de54409606ccaa53a421c8943b656f",
+    "code_sha256": "67f48bd7116b1c81e57fb89e34926d5b83d8f9d1e3c5dbb21e52a74dc094c58d",
+    "private": false,
+    "directory": "youdian1s--ntl-0-662-all-public-fork"
+  },
+  {
+    "ref": "ye070301/ntl-0663-v31-atlas20",
+    "title": "NTL 0663 V31 ATLAS20",
+    "version": 3,
+    "id": 141539486,
+    "source_sha256": "835694ba7ecf59dfec5fef2d56a210ee18d0b2d6a14ef38b935be0d46ea355c3",
+    "code_sha256": "ae1bc363e4c26405f52f081d8b00c4eda2db551394fd02068483d8662036823b",
+    "private": false,
+    "directory": "ye070301--ntl-0663-v31-atlas20"
+  },
+  {
+    "ref": "negi69/ntl-0-663-v31-atlas20-repro",
+    "title": "NTL 0.663 V31 + ATLAS20 (repro)",
+    "version": 9,
+    "id": 141546079,
+    "source_sha256": "8da223799a8bd1738fd2da92011ab9be30680378864faae43ad12ec711ce4f5c",
+    "code_sha256": "6fe316270570b3dcd12a9d12b2da26b08c3d378e4b0dc251b8fb68ccf612170a",
+    "private": false,
+    "directory": "negi69--ntl-0-663-v31-atlas20-repro"
+  },
+  {
+    "ref": "junaid512/ntl-v1-baseline",
+    "title": "NTL v1 baseline",
+    "version": 1,
+    "id": 141556822,
+    "source_sha256": "c155b33f38ccdd04b32a46455755c56f1aa3e851770da0c29d05ef9a7a3fdc56",
+    "code_sha256": "d164e570c03550b08337e9934b5f18af1255aeacdf1e0a0d279547bfac693c6f",
+    "private": false,
+    "directory": "junaid512--ntl-v1-baseline"
+  },
+  {
+    "ref": "dfenglei/ntl-repro-0662",
+    "title": "NTL Repro 0662",
+    "version": 1,
+    "id": 141587730,
+    "source_sha256": "a3362840ad705b9a0198bc344421f6f148e04eb7d82298757a9002b28e174589",
+    "code_sha256": "d164e570c03550b08337e9934b5f18af1255aeacdf1e0a0d279547bfac693c6f",
+    "private": false,
+    "directory": "dfenglei--ntl-repro-0662"
+  },
+  {
+    "ref": "otmaneelmahdaouy/ntl-v40-summit-pinnacle",
+    "title": "NTL v40 Summit Pinnacle",
+    "version": 1,
+    "id": 141590406,
+    "source_sha256": "e2724209bb5ac47870eef458e1966ec74460332d2d504f6153055e832ff57bf0",
+    "code_sha256": "f818732680a8699fc1516add2d923624f73260497069578de32bfa4596808d26",
+    "private": false,
+    "directory": "otmaneelmahdaouy--ntl-v40-summit-pinnacle"
+  },
+  {
+    "ref": "dosssi4nzk/muse-guard-ntl-youdian1s-0-662-api-copy",
+    "title": "Muse Guard NTL Youdian1s 0.662 API Copy",
+    "version": 1,
+    "id": 141599180,
+    "source_sha256": "5189208ae0661fe140d36e0e2a99120967de54409606ccaa53a421c8943b656f",
+    "code_sha256": "67f48bd7116b1c81e57fb89e34926d5b83d8f9d1e3c5dbb21e52a74dc094c58d",
+    "private": false,
+    "directory": "dosssi4nzk--muse-guard-ntl-youdian1s-0-662-api-copy"
+  },
+  {
+    "ref": "pablodiegoo/name-that-llm-starter-notebook",
+    "title": "Name That LLM Starter Notebook",
+    "version": 2,
+    "id": 139477249,
+    "source_sha256": "a9234b206191450dedd653f70f24c5b20e31b14aa013a1100fdb79fa46c74b01",
+    "code_sha256": "41d514655cee48b2071ad5767c4e8c4abc6f26d8bb107f91565e3396113b6c5b",
+    "private": false,
+    "directory": "pablodiegoo--name-that-llm-starter-notebook"
+  },
+  {
+    "ref": "lightningv08/0-661-qwen3-8-27b-lora-spectral-ensemble",
+    "title": "0.661 | Qwen3.8-27B LoRA + Spectral Ensemble",
+    "version": 21,
+    "id": 140781577,
+    "source_sha256": "9dc9b5fd1c8bb0dc3e51f3a0dec8b25f49c03e195913b4af4455949a47eeeda1",
+    "code_sha256": "ccf20f79c762d4e3e87a22d35bc4f6178bc4c38cbdcaed2add0210c26cc098a2",
+    "private": false,
+    "directory": "lightningv08--0-661-qwen3-8-27b-lora-spectral-ensemble"
+  },
+  {
+    "ref": "pikaaa/name-that-llm-v20-pool-centred",
+    "title": "name that llm v20 pool centred",
+    "version": 1,
+    "id": 141478046,
+    "source_sha256": "cda325df2c57b40129932eb377ffb549c1b54b93f4666a25d86bc815260f751a",
+    "code_sha256": "d94f5aae1127dfb44b0df2e70778b838c5927fa495176a946f67ef185ec1538c",
+    "private": false,
+    "directory": "pikaaa--name-that-llm-v20-pool-centred"
+  },
+  {
+    "ref": "romantamrazov/name-that-llm-who-am-i",
+    "title": "Name That LLM | Who am I?",
+    "version": 33,
+    "id": 140038898,
+    "source_sha256": "1f8e5dc9af9b506bbdd5e1eb503abafce007281522e5fc2fa0a10ca76ba19412",
+    "code_sha256": "37508c3e1d4313f77531dfaa3d94fcbc7db12ecf636d06d747971b4a1b18cb07",
+    "private": false,
+    "directory": "romantamrazov--name-that-llm-who-am-i"
+  },
+  {
+    "ref": "mercurydust/name-that-llm-submission",
+    "title": "Name That LLM-Submission",
+    "version": 3,
+    "id": 141259256,
+    "source_sha256": "6126b351bb2b09ee732fda044757ac5e7145d43b664008912dcfa240a7398f54",
+    "code_sha256": "acac31654c5f11bac9d5ec35435120a31036b6b1bf32b694733bae090cf323d5",
+    "private": false,
+    "directory": "mercurydust--name-that-llm-submission"
+  },
+  {
+    "ref": "ozertuu/public-lb-0-66",
+    "title": "Public LB 0.66",
+    "version": 1,
+    "id": 141379335,
+    "source_sha256": "6101ccdce6b1df5067ee3f4454c35df979602f658e87f72b4733b69dcd0a0bb6",
+    "code_sha256": "acac31654c5f11bac9d5ec35435120a31036b6b1bf32b694733bae090cf323d5",
+    "private": false,
+    "directory": "ozertuu--public-lb-0-66"
+  },
+  {
+    "ref": "otmaneelmahdaouy/ntl-v39-summit-sovereign",
+    "title": "NTL v39 Summit Sovereign",
+    "version": 2,
+    "id": 141545430,
+    "source_sha256": "9163c6c0cd376cff440a8eafe8e72fad3200f66a621c123865444a0a629a3752",
+    "code_sha256": "f7b7c39e488849ff4731d6e4311dc7bc72c00a41d3f5a38818dce99a89aa612b",
+    "private": false,
+    "directory": "otmaneelmahdaouy--ntl-v39-summit-sovereign"
+  },
+  {
+    "ref": "youdian1s/ntl-tuned-blend-calib-refit",
+    "title": "NTL tuned blend (calib refit)",
+    "version": 1,
+    "id": 141593741,
+    "source_sha256": "60c96701d3bca8b459b8e55fdddd2cbc0f9757d87b517b786f6bdf83b1d7c664",
+    "code_sha256": "a1cf39786c297f52a895d04b8daf5ea83738713fe48466c3354b91f4c967d146",
+    "private": false,
+    "directory": "youdian1s--ntl-tuned-blend-calib-refit"
+  },
+  {
+    "ref": "youdian1s/ntl-atlas-0-45-probe",
+    "title": "NTL atlas 0.45 probe",
+    "version": 1,
+    "id": 141610692,
+    "source_sha256": "d3c25a1896312d4e28546ce68e350ea707246174fd6242a9b9c2e340d4204c65",
+    "code_sha256": "0e8f0471ccfcb28c4f5e0a4fa2c433a698345f4c9c9642b2d18a8658ea2e3b40",
+    "private": false,
+    "directory": "youdian1s--ntl-atlas-0-45-probe"
+  },
+  {
+    "ref": "roserrll/name-that-llm-glm-augmented-reproduction",
+    "title": "Name That LLM GLM augmented reproduction",
+    "version": 2,
+    "id": 141432645,
+    "source_sha256": "f5eee7a286121bcaefb5a005ebbe4b2de491a77f9a4906b606b21b60f37e3287",
+    "code_sha256": "d65b1d6494d737e6432fa50bf9d5c4b4d99a17cb43e9e5af83516aca19e78804",
+    "private": false,
+    "directory": "roserrll--name-that-llm-glm-augmented-reproduction"
+  }
+]

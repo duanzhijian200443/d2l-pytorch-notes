@@ -1,0 +1,21 @@
+{
+  "ref": "ye070301/ntl-0663-v31-atlas20",
+  "title": "NTL 0663 V31 ATLAS20",
+  "version": 3,
+  "id": 141539486,
+  "source_sha256": "835694ba7ecf59dfec5fef2d56a210ee18d0b2d6a14ef38b935be0d46ea355c3",
+  "code_sha256": "ae1bc363e4c26405f52f081d8b00c4eda2db551394fd02068483d8662036823b",
+  "private": false,
+  "directory": "ye070301--ntl-0663-v31-atlas20",
+  "score": 0.662,
+  "url": "https://www.kaggle.com/code/ye070301/ntl-0663-v31-atlas20",
+  "page_order": 7,
+  "rank": 7,
+  "observed_at": "2026-10-30T15:16:41.600Z",
+  "note": "ATLAS20 加公开 Llama 路径、提交格式检查、隐藏重跑的集成输出核验。",
+  "score_is_bound_to_downloaded_version": false,
+  "source_reader": "Kaggle MCP get_notebook_info",
+  "score_reader": "Kaggle Code page rendered Score via browser DOM",
+  "retrieved_by_refresh_date": "2026-10-30",
+  "downloaded_source_executed": false
+}

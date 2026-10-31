@@ -1,0 +1,188 @@
+[
+  {
+    "kind": "dataset",
+    "ref": "dhruvtibarewal/nlm-l24-adapters",
+    "version": 7,
+    "path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/dataset/dhruvtibarewal/nlm-l24-adapters/7"
+  },
+  {
+    "kind": "dataset",
+    "ref": "seyitkaangunes/ntl-extra-api-passages",
+    "version": 2,
+    "path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/dataset/seyitkaangunes/ntl-extra-api-passages/2"
+  },
+  {
+    "kind": "dataset",
+    "ref": "abdullah1afify/ntl-generations",
+    "version": 2,
+    "path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/dataset/abdullah1afify/ntl-generations/2"
+  },
+  {
+    "kind": "dataset",
+    "ref": "dophuchung/ntl-proxy-generations",
+    "version": 1,
+    "path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/dataset/dophuchung/ntl-proxy-generations/1"
+  },
+  {
+    "kind": "dataset",
+    "ref": "zbigniewkirchner/ntl-qwen3-8b-lora-claude-head",
+    "version": 1,
+    "path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/dataset/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/1"
+  },
+  {
+    "kind": "dataset",
+    "ref": "dhruvtibarewal/nlm-matched-clean",
+    "version": 3,
+    "path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/dataset/dhruvtibarewal/nlm-matched-clean/3"
+  },
+  {
+    "kind": "dataset",
+    "ref": "dhruvtibarewal/nlm-offline-wheels",
+    "version": 2,
+    "path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/dataset/dhruvtibarewal/nlm-offline-wheels/2"
+  },
+  {
+    "kind": "dataset",
+    "ref": "josephadamski91/ntl-atlas-qwen3-8b-v1",
+    "version": 3,
+    "path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/dataset/josephadamski91/ntl-atlas-qwen3-8b-v1/3"
+  },
+  {
+    "kind": "dataset",
+    "ref": "lucasboesen/ntl-free-proxy-generations",
+    "version": 7,
+    "path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/dataset/lucasboesen/ntl-free-proxy-generations/7"
+  },
+  {
+    "kind": "dataset",
+    "ref": "nishantdahal/ntl-two-stage-lora",
+    "version": 1,
+    "path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/dataset/nishantdahal/ntl-two-stage-lora/1"
+  },
+  {
+    "kind": "dataset",
+    "ref": "nishantdahal/ntl-handwriting-blend",
+    "version": 1,
+    "path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/dataset/nishantdahal/ntl-handwriting-blend/1"
+  },
+  {
+    "kind": "dataset",
+    "ref": "dhruvtibarewal/nlm-l24-adapters-v5",
+    "version": 1,
+    "path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/dataset/dhruvtibarewal/nlm-l24-adapters-v5/1"
+  },
+  {
+    "kind": "dataset",
+    "ref": "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+    "version": 6,
+    "path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/dataset/prvsiyan/prvsiyans-extended-name-that-llm-dataset/6"
+  },
+  {
+    "kind": "dataset",
+    "ref": "pjmathematician/ultrabert-380m-ntl",
+    "version": 1,
+    "path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/dataset/pjmathematician/ultrabert-380m-ntl/1"
+  },
+  {
+    "kind": "dataset",
+    "ref": "zhjianduan/llama31-8b-base-verified",
+    "version": 1,
+    "path": "/content/drive/MyDrive/Kaggle/name-that-llm/models/llama-3.1-8b-base-1f47e50"
+  },
+  {
+    "kind": "notebook",
+    "ref": "lucasboesen/name-that-llm-glm4-9b-trunc25",
+    "version": 1,
+    "path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/notebook/lucasboesen/name-that-llm-glm4-9b-trunc25/1"
+  },
+  {
+    "kind": "notebook",
+    "ref": "lucasboesen/name-that-llm-extract-encoders2",
+    "version": 1,
+    "path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/notebook/lucasboesen/name-that-llm-extract-encoders2/1"
+  },
+  {
+    "kind": "notebook",
+    "ref": "lucasboesen/name-that-llm-electra-large-weights",
+    "version": 1,
+    "path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/notebook/lucasboesen/name-that-llm-electra-large-weights/1"
+  },
+  {
+    "kind": "notebook",
+    "ref": "lucasboesen/name-that-llm-desklib-weights",
+    "version": 1,
+    "path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/notebook/lucasboesen/name-that-llm-desklib-weights/1"
+  },
+  {
+    "kind": "notebook",
+    "ref": "lucasboesen/name-that-llm-train-lora24-s7",
+    "version": 1,
+    "path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/notebook/lucasboesen/name-that-llm-train-lora24-s7/1"
+  },
+  {
+    "kind": "notebook",
+    "ref": "lucasboesen/name-that-llm-train-tokattn",
+    "version": 1,
+    "path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/notebook/lucasboesen/name-that-llm-train-tokattn/1"
+  },
+  {
+    "kind": "notebook",
+    "ref": "lucasboesen/name-that-llm-train-tokattn2",
+    "version": 1,
+    "path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/notebook/lucasboesen/name-that-llm-train-tokattn2/1"
+  },
+  {
+    "kind": "notebook",
+    "ref": "vnton37nguyn/ntl-train-lora-qwen25-instyle",
+    "version": 2,
+    "path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/notebook/vnton37nguyn/ntl-train-lora-qwen25-instyle/2"
+  },
+  {
+    "kind": "model",
+    "ref": "qwen-lm/qwen-3/transformers/8b/1",
+    "version": 1,
+    "path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/model/qwen-lm/qwen-3/transformers/8b/1"
+  },
+  {
+    "kind": "model",
+    "ref": "qwen-lm/qwen-3/transformers/4b-base/1",
+    "version": 1,
+    "path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/model/qwen-lm/qwen-3/transformers/4b-base/1"
+  },
+  {
+    "kind": "model",
+    "ref": "qwen-lm/qwen-3/transformers/8b-base/1",
+    "version": 1,
+    "path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/model/qwen-lm/qwen-3/transformers/8b-base/1"
+  },
+  {
+    "kind": "model",
+    "ref": "qwen-lm/qwen-3/transformers/14b-base/1",
+    "version": 1,
+    "path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/model/qwen-lm/qwen-3/transformers/14b-base/1"
+  },
+  {
+    "kind": "model",
+    "ref": "qwen-lm/qwen-3/transformers/14b/1",
+    "version": 1,
+    "path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/model/qwen-lm/qwen-3/transformers/14b/1"
+  },
+  {
+    "kind": "model",
+    "ref": "qwen-lm/qwen2.5/transformers/7b/1",
+    "version": 1,
+    "path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/model/qwen-lm/qwen2.5/transformers/7b/1"
+  },
+  {
+    "kind": "model",
+    "ref": "qwen-lm/qwen2.5/transformers/14b/1",
+    "version": 1,
+    "path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/model/qwen-lm/qwen2.5/transformers/14b/1"
+  },
+  {
+    "kind": "competition",
+    "ref": "name-that-llm",
+    "version": null,
+    "path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/competition/name-that-llm"
+  }
+]

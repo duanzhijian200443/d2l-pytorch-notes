@@ -1,0 +1,275 @@
+{
+  "kernels": [
+    {
+      "ref": "leoprovorov/he-who-must-not-be-named",
+      "title": "He-Who-Must-Not-Be-Named",
+      "author": "AlekseiProvorov",
+      "last_run_time": "2026-10-17T16:08:20.270Z",
+      "total_votes": 22
+    },
+    {
+      "ref": "ozertuu/177-180-fresh-top-30-v21-1-conditional-memory",
+      "title": "177/180 Fresh Top-30 | v21.1 Conditional Memory",
+      "author": "Ertuğrul Özer",
+      "last_run_time": "2026-10-30T14:11:30.297Z",
+      "total_votes": 2
+    },
+    {
+      "ref": "omerfarukmerey/0-663-0-660-v31-atlas-20",
+      "title": "0.663 | 0.660 V31 + ATLAS 20%",
+      "author": "Omer Faruk Merey",
+      "last_run_time": "2026-10-29T12:27:23.833Z",
+      "total_votes": 102
+    },
+    {
+      "ref": "alexchilton/name-that-llm-0-662-all-public-what-failed",
+      "title": "Name That LLM 0.662: All Public + What Failed",
+      "author": "alex chilton",
+      "last_run_time": "2026-10-29T14:16:21.070Z",
+      "total_votes": 88
+    },
+    {
+      "ref": "lightningv08/0-662-qwen3-8-27b-lora-weighted-ensemble",
+      "title": "0.662 | Qwen3.8-27B LoRA + Weighted Ensemble",
+      "author": "Vladislav Lavrentev",
+      "last_run_time": "2026-10-30T00:15:14.277Z",
+      "total_votes": 148
+    },
+    {
+      "ref": "roserrll/name-that-llm-0663-v31-atlas20-alex",
+      "title": "name-that-llm-0663-v31-atlas20-alex",
+      "author": "Roserrll",
+      "last_run_time": "2026-10-29T10:47:37.373Z",
+      "total_votes": 6
+    },
+    {
+      "ref": "huesosinapoganaya/0-663-0-660-v31-atlas-20",
+      "title": "0.663 | 0.660 V31 + ATLAS 20%",
+      "author": "Tasik",
+      "last_run_time": "2026-10-29T12:29:36.383Z",
+      "total_votes": 1
+    },
+    {
+      "ref": "youdian1s/ntl-0-662-all-public-fork",
+      "title": "NTL 0.662 all-public (fork)",
+      "author": "Youdian1s",
+      "last_run_time": "2026-10-29T16:06:00.700Z",
+      "total_votes": 1
+    },
+    {
+      "ref": "ye070301/ntl-0663-v31-atlas20",
+      "title": "NTL 0663 V31 ATLAS20",
+      "author": "ye070301",
+      "last_run_time": "2026-10-30T01:10:33.440Z",
+      "total_votes": 3
+    },
+    {
+      "ref": "negi69/ntl-0-663-v31-atlas20-repro",
+      "title": "NTL 0.663 V31 + ATLAS20 (repro)",
+      "author": "Saurabh_Negi",
+      "last_run_time": "2026-10-30T01:06:22.977Z"
+    },
+    {
+      "ref": "junaid512/ntl-v1-baseline",
+      "title": "NTL v1 baseline",
+      "author": "Muhammad Junaid",
+      "last_run_time": "2026-10-29T19:29:15.597Z",
+      "total_votes": 16
+    },
+    {
+      "ref": "dfenglei/ntl-repro-0662",
+      "title": "NTL Repro 0662",
+      "author": "FengLei Dou",
+      "last_run_time": "2026-10-30T00:15:54.797Z"
+    },
+    {
+      "ref": "otmaneelmahdaouy/ntl-v40-summit-pinnacle",
+      "title": "NTL v40 Summit Pinnacle",
+      "author": "TTANE",
+      "last_run_time": "2026-10-30T00:46:18.497Z",
+      "total_votes": 3
+    },
+    {
+      "ref": "dosssi4nzk/muse-guard-ntl-youdian1s-0-662-api-copy",
+      "title": "Muse Guard NTL Youdian1s 0.662 API Copy",
+      "author": "ああああ",
+      "last_run_time": "2026-10-30T02:28:28.907Z"
+    },
+    {
+      "ref": "pablodiegoo/name-that-llm-starter-notebook",
+      "title": "Name That LLM Starter Notebook",
+      "author": "Pablo Diego Pereira",
+      "last_run_time": "2026-10-30T00:42:04.917Z",
+      "total_votes": 1
+    },
+    {
+      "ref": "lightningv08/0-661-qwen3-8-27b-lora-spectral-ensemble",
+      "title": "0.661 | Qwen3.8-27B LoRA + Spectral Ensemble",
+      "author": "Vladislav Lavrentev",
+      "last_run_time": "2026-10-29T00:06:25.843Z",
+      "total_votes": 68
+    },
+    {
+      "ref": "pikaaa/name-that-llm-v20-pool-centred",
+      "title": "name that llm v20 pool centred",
+      "author": "PiKaaa",
+      "last_run_time": "2026-10-29T08:52:56.857Z",
+      "total_votes": 2
+    },
+    {
+      "ref": "romantamrazov/name-that-llm-who-am-i",
+      "title": "Name That LLM | Who am I?",
+      "author": "Roman Tamrazov",
+      "last_run_time": "2026-10-28T15:57:30.430Z",
+      "total_votes": 139
+    },
+    {
+      "ref": "mercurydust/name-that-llm-submission",
+      "title": "Name That LLM-Submission",
+      "author": "Mercurydust12",
+      "last_run_time": "2026-10-28T14:00:03.880Z",
+      "total_votes": 48
+    },
+    {
+      "ref": "ozertuu/public-lb-0-66",
+      "title": "Public LB 0.66",
+      "author": "Ertuğrul Özer",
+      "last_run_time": "2026-10-28T17:37:05.017Z",
+      "total_votes": 1
+    },
+    {
+      "ref": "otmaneelmahdaouy/ntl-v39-summit-sovereign",
+      "title": "NTL v39 Summit Sovereign",
+      "author": "TTANE",
+      "last_run_time": "2026-10-29T17:48:00.133Z",
+      "total_votes": 1
+    },
+    {
+      "ref": "youdian1s/ntl-tuned-blend-calib-refit",
+      "title": "NTL tuned blend (calib refit)",
+      "author": "Youdian1s",
+      "last_run_time": "2026-10-30T01:25:23.073Z",
+      "total_votes": 1
+    },
+    {
+      "ref": "youdian1s/ntl-atlas-0-45-probe",
+      "title": "NTL atlas 0.45 probe",
+      "author": "Youdian1s",
+      "last_run_time": "2026-10-30T04:11:09.443Z"
+    },
+    {
+      "ref": "roserrll/name-that-llm-glm-augmented-reproduction",
+      "title": "Name That LLM GLM augmented reproduction",
+      "author": "Roserrll",
+      "last_run_time": "2026-10-29T02:33:23.680Z",
+      "total_votes": 2
+    },
+    {
+      "ref": "otmaneelmahdaouy/ntl-v38-summit-apex",
+      "title": "NTL v38 Summit Apex",
+      "author": "TTANE",
+      "last_run_time": "2026-10-29T11:29:58.883Z",
+      "total_votes": 1
+    },
+    {
+      "ref": "yuna5577/name-that-llm-0-659-0-660-without-llama",
+      "title": "Name That LLM 0.659: 0.660 Without Llama",
+      "author": "yuna5577",
+      "last_run_time": "2026-10-30T05:27:45.857Z",
+      "total_votes": 3
+    },
+    {
+      "ref": "xianyu3/mercury-v31-v9-svc-v1-20261029",
+      "title": "Mercury V31 v9 SVC V1 20261029",
+      "author": "xianyu3",
+      "last_run_time": "2026-10-30T01:52:56.460Z"
+    },
+    {
+      "ref": "alperensylen/exp25-v31-llamafree-atlas20-sota",
+      "title": "exp25-v31-llamafree-atlas20-sota",
+      "author": "Alperen Söylen",
+      "last_run_time": "2026-10-29T07:37:48.267Z",
+      "total_votes": 2
+    },
+    {
+      "ref": "otmaneelmahdaouy/ntl-v37-grandmaster-apex",
+      "title": "NTL v37 Grandmaster Apex",
+      "author": "TTANE",
+      "last_run_time": "2026-10-29T09:23:32.940Z"
+    },
+    {
+      "ref": "drozanes/name-that-llm-apex-ensemble-atlas-hungarian",
+      "title": "Name That LLM Apex Ensemble Atlas Hungarian",
+      "author": "david rozanes",
+      "last_run_time": "2026-10-29T07:30:30.147Z",
+      "total_votes": 1
+    },
+    {
+      "ref": "zhangbowen1005/ntl-660-nocomp",
+      "title": "NTL 660 nocomp",
+      "author": "ZhangBowen1005",
+      "last_run_time": "2026-10-29T08:14:31.277Z",
+      "total_votes": 1
+    },
+    {
+      "ref": "otmaneelmahdaouy/ntl-v35-apex-championship",
+      "title": "NTL v35 Apex Championship",
+      "author": "TTANE",
+      "last_run_time": "2026-10-28T20:25:37.320Z"
+    },
+    {
+      "ref": "otmaneelmahdaouy/ntl-v33-championship-veritable",
+      "title": "NTL v33 Championship Veritable",
+      "author": "TTANE",
+      "last_run_time": "2026-10-28T08:12:02.920Z"
+    },
+    {
+      "ref": "peterdreamhan/name-that-llm-soft-sinkhorn-0-5-t4",
+      "title": "Name That LLM Soft Sinkhorn 0.5 T4",
+      "author": "PeterDreamHan",
+      "last_run_time": "2026-10-28T02:55:20.873Z",
+      "total_votes": 5
+    },
+    {
+      "ref": "stanislavilin2026ai/0-653-soft-sinkhorn-bayesian-typography",
+      "title": "0.653 | Soft Sinkhorn + Bayesian Typography",
+      "author": "Stanislav Ilin",
+      "last_run_time": "2026-10-30T03:47:50.463Z",
+      "total_votes": 1
+    },
+    {
+      "ref": "maverickss26/kaggle-name-the-llm-v3",
+      "title": "Kaggle_name_the_LLM_v3",
+      "author": "maverick_ss_26",
+      "last_run_time": "2026-10-26T14:09:17.530Z",
+      "total_votes": 72
+    },
+    {
+      "ref": "mohammedafreedpasha/name-that-llm-solution",
+      "title": "Name That LLM Solution",
+      "author": "Afreed",
+      "last_run_time": "2026-10-27T00:57:25.040Z",
+      "total_votes": 16
+    },
+    {
+      "ref": "alexchilton/name-that-llm-0-651-lora24-atlas-ensemble",
+      "title": "Name That LLM 0.651: LoRA24 + ATLAS Ensemble",
+      "author": "alex chilton",
+      "last_run_time": "2026-10-27T09:16:02.073Z",
+      "total_votes": 5
+    },
+    {
+      "ref": "dhruvtibarewal/nlm-v27",
+      "title": "nlm-v27",
+      "author": "Dhruv Tibarewal",
+      "last_run_time": "2026-10-25T04:47:18.747Z",
+      "total_votes": 133
+    },
+    {
+      "ref": "harshitakumari256/nlm-v27",
+      "title": "nlm-v27",
+      "author": "Harshita Kumari",
+      "last_run_time": "2026-10-28T05:04:18.607Z"
+    }
+  ]
+}

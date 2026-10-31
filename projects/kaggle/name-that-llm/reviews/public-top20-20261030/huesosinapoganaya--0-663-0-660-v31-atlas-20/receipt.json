@@ -1,0 +1,21 @@
+{
+  "ref": "huesosinapoganaya/0-663-0-660-v31-atlas-20",
+  "title": "0.663 | 0.660 V31 + ATLAS 20%",
+  "version": 1,
+  "id": 141503746,
+  "source_sha256": "9c110563284b87d6284c47379cdb2144f0cc14872e11ec8702c081741d1d8526",
+  "code_sha256": "0555615debccc6676d5c59abb3e32b350308fe2ae824fed465e2ac0f80838991",
+  "private": false,
+  "directory": "huesosinapoganaya--0-663-0-660-v31-atlas-20",
+  "score": 0.662,
+  "url": "https://www.kaggle.com/code/huesosinapoganaya/0-663-0-660-v31-atlas-20",
+  "page_order": 5,
+  "rank": 5,
+  "observed_at": "2026-10-30T15:16:41.600Z",
+  "note": "ATLAS20 副本；更换 Llama 路径并保留分片大小检查；标题 0.663，平台实际 0.662。",
+  "score_is_bound_to_downloaded_version": false,
+  "source_reader": "Kaggle MCP get_notebook_info",
+  "score_reader": "Kaggle Code page rendered Score via browser DOM",
+  "retrieved_by_refresh_date": "2026-10-30",
+  "downloaded_source_executed": false
+}

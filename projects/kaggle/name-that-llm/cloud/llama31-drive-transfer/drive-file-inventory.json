@@ -1,0 +1,101 @@
+{
+  "folder_url": "https://drive.google.com/drive/folders/19cR5tLFlJuvpNA4YEyh99kWtTLpT_P2x",
+  "files": [
+    {
+      "name": "dataset-metadata.json",
+      "id": "1kK1aUygWSZjBKuzFPr71MXAROcc8X6eL",
+      "bytes": 709,
+      "shared": false
+    },
+    {
+      "name": "NOTICE",
+      "id": "1P1A945VEDf1K-6dWJ5tDhyM4ir1b8JIW",
+      "bytes": 116,
+      "shared": false
+    },
+    {
+      "name": "transfer_manifest.json",
+      "id": "1mFbDwWstjUbRC4VC-IqMA4ZBv-Rg82pf",
+      "bytes": 4879,
+      "shared": false
+    },
+    {
+      "name": "model-00004-of-00004.safetensors",
+      "id": "1oc6_e7rdGVXNyVQVha0-eA5rrdPxbhc3",
+      "bytes": 1168138808,
+      "shared": false
+    },
+    {
+      "name": "model-00003-of-00004.safetensors",
+      "id": "1unxQR9qvp_KT7YMmiMd4XbaM-e7022J0",
+      "bytes": 4915916176,
+      "shared": false
+    },
+    {
+      "name": "model-00002-of-00004.safetensors",
+      "id": "1Q8Xd5r8Bay4QT-76msnZJOz_q9CLSf8i",
+      "bytes": 4999802720,
+      "shared": false
+    },
+    {
+      "name": "model-00001-of-00004.safetensors",
+      "id": "1UFPOVuUwi4JYGtDXpocmBfN_FRwx0422",
+      "bytes": 4976698672,
+      "shared": false
+    },
+    {
+      "name": "tokenizer.json",
+      "id": "1xuo2WlC-xyqkQ_H40F7ENvBUPRTqKTEI",
+      "bytes": 9085658,
+      "shared": false
+    },
+    {
+      "name": "tokenizer_config.json",
+      "id": "1V6KPNRE95aOP7LGlHJMDyR8JbVAC7MIc",
+      "bytes": 50500,
+      "shared": false
+    },
+    {
+      "name": "special_tokens_map.json",
+      "id": "127HSgezrtXWHUgFNdiv1jWVxKwMuIl23",
+      "bytes": 73,
+      "shared": false
+    },
+    {
+      "name": "model.safetensors.index.json",
+      "id": "1G9VC1n8hv6r3C6DF_vDCLSQ2UWRFbsQY",
+      "bytes": 23950,
+      "shared": false
+    },
+    {
+      "name": "generation_config.json",
+      "id": "1Qk0dYt3Er1RO7ErcwICgZMkpc5Jm7xfD",
+      "bytes": 185,
+      "shared": false
+    },
+    {
+      "name": "config.json",
+      "id": "1zddpRqa7Jq8yyznbyUtEHrT0hALSHgU8",
+      "bytes": 826,
+      "shared": false
+    },
+    {
+      "name": "README.md",
+      "id": "1mBLb2tfIgT1Hwa7V-AVx7do_UitfxyDN",
+      "bytes": 40896,
+      "shared": false
+    },
+    {
+      "name": "USE_POLICY.md",
+      "id": "180N5kGjKIVxstfdtkbUPcc2iYyDBrq1q",
+      "bytes": 4691,
+      "shared": false
+    },
+    {
+      "name": "LICENSE",
+      "id": "1KjOrWkJhqAdzAJ8PS5x6aQemT4GF03nl",
+      "bytes": 7627,
+      "shared": false
+    }
+  ]
+}

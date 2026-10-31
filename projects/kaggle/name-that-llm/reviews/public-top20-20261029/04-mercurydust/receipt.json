@@ -1,0 +1,74 @@
+{
+  "rank": 4,
+  "ref": "mercurydust/name-that-llm-submission",
+  "title": "Name That LLM-Submission",
+  "author": "Mercurydust12",
+  "last_run_time": "2026-10-28T14:00:03.880Z",
+  "total_votes": 47,
+  "retrieved_at_utc": "2026-10-29T14:05:39.133594+00:00",
+  "source_sha256": "42fbfc99fd90116c317c4c99841dd7ca5c545848871f713542af47db33efb7b1",
+  "directory": "04-mercurydust",
+  "metadata": {
+    "id": 141259256,
+    "ref": "mercurydust/name-that-llm-submission",
+    "title": "Name That LLM-Submission",
+    "author": "Mercurydust12",
+    "slug": "name-that-llm-submission",
+    "lastRunTime": "2026-10-26T14:05:36.392Z",
+    "language": "python",
+    "kernelType": "notebook",
+    "isPrivate": false,
+    "enableGpu": true,
+    "enableInternet": false,
+    "categoryIds": [
+      "gpu"
+    ],
+    "datasetDataSources": [
+      "dhruvtibarewal/nlm-l24-adapters",
+      "seyitkaangunes/ntl-extra-api-passages",
+      "abdullah1afify/ntl-generations",
+      "dophuchung/ntl-proxy-generations",
+      "zbigniewkirchner/ntl-qwen3-8b-lora-claude-head",
+      "dhruvtibarewal/nlm-matched-clean",
+      "dhruvtibarewal/nlm-offline-wheels",
+      "josephadamski91/ntl-atlas-qwen3-8b-v1",
+      "lucasboesen/ntl-free-proxy-generations",
+      "nishantdahal/ntl-two-stage-lora",
+      "nishantdahal/ntl-handwriting-blend",
+      "dhruvtibarewal/nlm-l24-adapters-v5",
+      "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+      "pjmathematician/ultrabert-380m-ntl"
+    ],
+    "kernelDataSources": [
+      "lucasboesen/name-that-llm-glm4-9b-trunc25",
+      "lucasboesen/name-that-llm-extract-encoders2",
+      "lucasboesen/name-that-llm-electra-large-weights",
+      "lucasboesen/name-that-llm-desklib-weights",
+      "lucasboesen/name-that-llm-train-lora24-s7",
+      "lucasboesen/name-that-llm-train-tokattn",
+      "lucasboesen/name-that-llm-train-tokattn2",
+      "vnton37nguyn/ntl-train-lora-qwen25-instyle",
+      "deleted/140855160"
+    ],
+    "competitionDataSources": [
+      "name-that-llm"
+    ],
+    "totalVotes": 47,
+    "modelDataSources": [
+      "qwen-lm/qwen-3/Transformers/14b-base/1",
+      "qwen-lm/qwen-3/Transformers/14b/1",
+      "qwen-lm/qwen-3/Transformers/8b/1",
+      "qwen-lm/qwen-3/Transformers/8b-base/1",
+      "qwen-lm/qwen-3/Transformers/4b-base/1",
+      "qwen-lm/qwen2.5/Transformers/7b/1",
+      "qwen-lm/qwen2.5/Transformers/14b/1"
+    ],
+    "enableTpu": false,
+    "currentVersionNumber": 3,
+    "dockerImage": "gcr.io/kaggle-private-byod/python@sha256:2757e0c7d1e0a9cb43da657b97e223c321a98f5014bdf64f44f2f6b083ad2b2f",
+    "machineShape": "NvidiaTeslaT4"
+  },
+  "markdown_characters": 9849,
+  "code_characters": 113951,
+  "status": "DOWNLOADED_NOT_EXECUTED"
+}

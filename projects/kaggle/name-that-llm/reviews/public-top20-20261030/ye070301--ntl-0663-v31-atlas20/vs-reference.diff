@@ -1,0 +1,37 @@
+--- omerfarukmerey--0-663-0-660-v31-atlas-20
++++ ye070301--ntl-0663-v31-atlas20
+@@ -30,9 +30,9 @@
+ print('nishant', N8, N8C['keep'], N8C['max_len'], N14, N14C['keep'], N14C['max_len'])
+ ATLAS = os.path.dirname(next(iter(glob.glob('/kaggle/input/**/atlas_bundle.json', recursive=True))))
+ print('atlas', ATLAS)
+-BL = mdir('/llama-3.1/', '/8b/')
++BL = mdir('/llama-3-1-8b-base/')
+ _SHARDS = {'model-00001-of-00004.safetensors': 4976698672, 'model-00002-of-00004.safetensors': 4999802720, 'model-00003-of-00004.safetensors': 4915916176, 'model-00004-of-00004.safetensors': 1168138808}
+-assert 'name-that-llm-verified-llama-asset-cache' in BL and all(os.path.getsize(os.path.join(BL, f)) == n for f, n in _SHARDS.items()), BL   # fork: Llama-3.1-8B from avazaku's public cache (NousResearch copy)
++assert all(os.path.getsize(os.path.join(BL, f)) == n for f, n in _SHARDS.items()), BL   # fork: Llama-3.1-8B from alexchilton's public model (same files, hash-checked)
+ AL = [adir(f'ts_llama8_f{k}') for k in (0, 2, 4)] + [adir('ts_llama8')]
+ import shutil, time as _tc; _c = _tc.time()
+ shutil.copytree(BL, '/tmp/llama-3.1/8b', dirs_exist_ok=True); BL = '/tmp/llama-3.1/8b'   # fork: see the intro
+@@ -1894,3 +1894,22 @@
+ assert len(submission) == len(pd.read_csv(os.path.join(DATA, 'test.csv')))
+ assert set(submission.columns) == {'id', 'model'} and submission.id.is_unique and submission.model.notna().all()
+ print(submission.head())
++
++
++# Final submission contract and hidden-run member checks.
++import json, os, numpy as np, pandas as pd
++_test_final = pd.read_csv(os.path.join(DATA, 'test.csv'), dtype={'id': str})
++_sub_final = pd.read_parquet('/kaggle/working/submission.parquet')
++assert list(_sub_final.columns) == ['id', 'model']
++assert len(_sub_final) == len(_test_final) and _sub_final['id'].is_unique
++assert _sub_final['id'].astype(str).tolist() == _test_final['id'].astype(str).tolist()
++assert not _sub_final.isna().any().any()
++if FAST_COMMIT:
++    print('FORMAT PREVIEW ONLY: hidden rerun must execute the full ensemble')
++else:
++    _comp = np.load('/kaggle/working/comp_logit.npy')
++    _meta = json.load(open('/kaggle/working/comp_meta.json'))
++    assert _comp.shape == (len(_test_final), 18) and np.isfinite(_comp).all()
++    assert _meta['ids'] == _test_final['id'].astype(str).tolist()
++    assert os.path.exists('/kaggle/working/v31_diagnostics.json')
++    print('FULL ENSEMBLE VALIDATION PASSED:', len(_sub_final), 'rows')

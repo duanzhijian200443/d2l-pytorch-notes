@@ -1,0 +1,118 @@
+{
+  "observed_at_utc": "2026-10-29T10:52:04.052581+00:00",
+  "kernel": "zhjianduan/name-that-llm-who-am-i-v30-repro",
+  "upstream": {
+    "kernel": "romantamrazov/name-that-llm-who-am-i",
+    "version": 30,
+    "script_version_id": 362877806
+  },
+  "runs": [
+    {
+      "version": 2,
+      "mode": "preflight",
+      "status": "COMPLETE",
+      "script_version_id": 363188234,
+      "assessment": "Input paths and adapters passed; historical dataset versions did not match, so not a faithful reproduction."
+    },
+    {
+      "version": 3,
+      "mode": "pincheck",
+      "status": "ERROR",
+      "script_version_id": 363193727,
+      "assessment": "Guard assumed owner-qualified mount path; FileNotFoundError before inference. Replaced with filename discovery and SHA256 matching."
+    },
+    {
+      "version": 4,
+      "mode": "pincheck",
+      "status": "ERROR",
+      "assessment": "Historical CSV hashes passed. Added guard incorrectly required lora24_public, which original V30 explicitly skipped. Guard corrected to match original run.",
+      "script_version_id": 363195371
+    },
+    {
+      "version": 5,
+      "mode": "pincheck",
+      "status": "ERROR",
+      "assessment": "MCP save discarded input arrays, including Setter fields. Failed after 37 seconds; no model inference. CLI restored attachments in V6."
+    },
+    {
+      "version": 6,
+      "mode": "pincheck",
+      "status": "COMPLETE",
+      "assessment": "PASS: exact historical CSV hashes and complementary checkpoints verified; downloaded outputs passed verify_outputs.py --mode pincheck.",
+      "script_version_id": 363198767
+    },
+    {
+      "version": 7,
+      "mode": "full",
+      "status": "COMPLETE",
+      "script_version_id": 363200699,
+      "url": "https://www.kaggle.com/code/zhjianduan/name-that-llm-who-am-i-v30-repro?scriptVersionId=363200699",
+      "accelerator": "NvidiaTeslaT4",
+      "gpu_display": "GPU T4 x2",
+      "timeout_seconds": 32400,
+      "assessment": "PASS: original core modules and main inference cell preserved, 31 attachments, original container, T4 x2, historical CSV hashes and logged ensemble settings matched; all three visible predictions matched original V30. Hidden-test score remains unverified.",
+      "runtime_gpu_count": 2,
+      "runtime_gpu_names": [
+        "Tesla T4",
+        "Tesla T4"
+      ],
+      "runtime_mode": "full",
+      "runtime_historical_hashes_pass": true,
+      "runtime_input_preflight_pass": true,
+      "verification_result": "outputs/full-v7/local_verification.json",
+      "audit_result": "outputs/full-v7/reproduction-audit.json",
+      "sample_runtime_seconds": 13118.538489206
+    }
+  ],
+  "snapshots": {
+    "zhjianduan/ntl-generations/1": "abdullah1afify/ntl-generations/2",
+    "zhjianduan/ntl-free-proxy-generations/1": "lucasboesen/ntl-free-proxy-generations/7"
+  },
+  "full_gpu_run_started": true,
+  "formal_submission_created": false,
+  "public_score_verified": false,
+  "module_sha256": {
+    "gauss.py": "908b57113f1a7b8ebdbf204c6be87cbc385f765ba50ac07b4e270c64b7cf1000",
+    "infer.py": "4cfb7694d63049a33d12c3b5e40e8a94758adbbf18746b34c5c6b283bb219f66",
+    "comp_stack.py": "91f107b4fd3477da75720d8c3cedbb2e739fcd014ba19014f00cc2ab238ef06b"
+  },
+  "verification_script": "verify_outputs.py",
+  "active_run_version": 7,
+  "automation_id": "kaggle-v30",
+  "automation_interval_minutes": 15,
+  "expected_upstream_skip": "lora24_public; original V30 log explicitly skipped because checkpoint was not attached.",
+  "next_action": "Dot owns active submission monitoring. Preserve submission 57759707/V7 until terminal result; full hidden-test timing remains unverified. Review runtime-risk-audit.json before any later submission. Do not resume kaggle-v30 or duplicate the run.",
+  "last_heartbeat_check": {
+    "observed_at_utc": "2026-10-28T16:08:50.968830+00:00",
+    "version": 7,
+    "status": "RUNNING",
+    "source": "Kaggle MCP get_notebook_session_status",
+    "action": "No action needed; continue scheduled monitoring."
+  },
+  "last_manual_audit": {
+    "observed_at_utc": "2026-10-29T10:52:04.052581+00:00",
+    "version": 7,
+    "status": "COMPLETE_SAMPLE_VERIFICATION_PASS",
+    "audit_file": "outputs/full-v7/reproduction-audit.json"
+  },
+  "account_pending_submission": {
+    "observed_at_utc": "2026-10-29T12:35:54.486606+00:00",
+    "submission_id": 57759707,
+    "status": "SubmissionStatus.PENDING",
+    "date": "2026-10-29T05:14:08.043000",
+    "file_name": "submission.parquet",
+    "public_score": "",
+    "private_score": "",
+    "error_description": "",
+    "description": "",
+    "kernel_version_mapping_verified": true,
+    "kernel_version": 7,
+    "script_version_id": 363200699,
+    "ui_status": "Notebook Running; Scoring..."
+  },
+  "formal_submission_created_note": "Historical flag describes this reproduction setup. A pending account submission was observed on 2026-10-29; its notebook version association is not exposed by the queried API.",
+  "formal_submission_exists": true,
+  "runtime_risk_audit": "outputs/full-v7/runtime-risk-audit.json",
+  "hidden_test_runtime_verified": false,
+  "last_submission_check_at_utc": "2026-10-29T12:35:54.486606+00:00"
+}

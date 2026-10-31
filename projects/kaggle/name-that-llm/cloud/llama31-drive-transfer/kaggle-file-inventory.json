@@ -1,0 +1,79 @@
+{
+  "dataset_files": [
+    {
+      "name": "LICENSE",
+      "creation_date": "2026-10-28T13:26:23.733Z",
+      "total_bytes": "7627"
+    },
+    {
+      "name": "NOTICE",
+      "creation_date": "2026-10-28T13:26:23.627Z",
+      "total_bytes": "116"
+    },
+    {
+      "name": "README.md",
+      "creation_date": "2026-10-28T13:26:23.682Z",
+      "total_bytes": "40896"
+    },
+    {
+      "name": "USE_POLICY.md",
+      "creation_date": "2026-10-28T13:26:23.701Z",
+      "total_bytes": "4691"
+    },
+    {
+      "name": "config.json",
+      "creation_date": "2026-10-28T13:26:23.615Z",
+      "total_bytes": "826"
+    },
+    {
+      "name": "generation_config.json",
+      "creation_date": "2026-10-28T13:26:24.826Z",
+      "total_bytes": "185"
+    },
+    {
+      "name": "model-00001-of-00004.safetensors",
+      "creation_date": "2026-10-28T13:28:07.201Z",
+      "total_bytes": "4976698672"
+    },
+    {
+      "name": "model-00002-of-00004.safetensors",
+      "creation_date": "2026-10-28T13:27:49.467Z",
+      "total_bytes": "4999802720"
+    },
+    {
+      "name": "model-00003-of-00004.safetensors",
+      "creation_date": "2026-10-28T13:27:54.005Z",
+      "total_bytes": "4915916176"
+    },
+    {
+      "name": "model-00004-of-00004.safetensors",
+      "creation_date": "2026-10-28T13:26:40.053Z",
+      "total_bytes": "1168138808"
+    },
+    {
+      "name": "model.safetensors.index.json",
+      "creation_date": "2026-10-28T13:26:23.665Z",
+      "total_bytes": "23950"
+    },
+    {
+      "name": "special_tokens_map.json",
+      "creation_date": "2026-10-28T13:26:23.802Z",
+      "total_bytes": "73"
+    },
+    {
+      "name": "tokenizer.json",
+      "creation_date": "2026-10-28T13:26:24.001Z",
+      "total_bytes": "9085658"
+    },
+    {
+      "name": "tokenizer_config.json",
+      "creation_date": "2026-10-28T13:26:23.672Z",
+      "total_bytes": "50500"
+    },
+    {
+      "name": "transfer_manifest.json",
+      "creation_date": "2026-10-28T13:26:23.740Z",
+      "total_bytes": "4879"
+    }
+  ]
+}

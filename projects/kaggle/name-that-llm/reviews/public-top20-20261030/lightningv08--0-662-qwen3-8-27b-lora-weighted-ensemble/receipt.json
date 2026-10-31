@@ -1,0 +1,21 @@
+{
+  "ref": "lightningv08/0-662-qwen3-8-27b-lora-weighted-ensemble",
+  "title": "0.662 | Qwen3.8-27B LoRA + Weighted Ensemble",
+  "version": 33,
+  "id": 139628726,
+  "source_sha256": "8d10a3ef3bee790ae177722146360366adccfa063ca451091c0d2318e94381cd",
+  "code_sha256": "fff6f518d38da0ac396ee67430c55df03eede37c73abf9f9bd0d22a72a3691f1",
+  "private": false,
+  "directory": "lightningv08--0-662-qwen3-8-27b-lora-weighted-ensemble",
+  "score": 0.662,
+  "url": "https://www.kaggle.com/code/lightningv08/0-662-qwen3-8-27b-lora-weighted-ensemble",
+  "page_order": 3,
+  "rank": 3,
+  "observed_at": "2026-10-30T15:16:41.600Z",
+  "note": "新增 Qwen3.8-27B GSQ3 LoRA，最新源码概率份额 7.5%，ATLAS 20%；预计算 CPU 状态与进程隔离。",
+  "score_is_bound_to_downloaded_version": false,
+  "source_reader": "Kaggle MCP get_notebook_info",
+  "score_reader": "Kaggle Code page rendered Score via browser DOM",
+  "retrieved_by_refresh_date": "2026-10-30",
+  "downloaded_source_executed": false
+}

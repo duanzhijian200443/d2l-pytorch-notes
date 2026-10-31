@@ -1,0 +1,21 @@
+{
+  "ref": "mercurydust/name-that-llm-submission",
+  "title": "Name That LLM-Submission",
+  "version": 3,
+  "id": 141259256,
+  "source_sha256": "6126b351bb2b09ee732fda044757ac5e7145d43b664008912dcfa240a7398f54",
+  "code_sha256": "acac31654c5f11bac9d5ec35435120a31036b6b1bf32b694733bae090cf323d5",
+  "private": false,
+  "directory": "mercurydust--name-that-llm-submission",
+  "score": 0.66,
+  "url": "https://www.kaggle.com/code/mercurydust/name-that-llm-submission",
+  "page_order": 17,
+  "rank": 17,
+  "observed_at": "2026-10-30T15:16:41.600Z",
+  "note": "V31 共同基础：来源加权文本分类器、家族门控、Soft Sinkhorn 与 Bayesian typography。",
+  "score_is_bound_to_downloaded_version": false,
+  "source_reader": "Kaggle MCP get_notebook_info",
+  "score_reader": "Kaggle Code page rendered Score via browser DOM",
+  "retrieved_by_refresh_date": "2026-10-30",
+  "downloaded_source_executed": false
+}

@@ -1,0 +1,45 @@
+{
+  "id": 133108545,
+  "ref": "leoprovorov/he-who-must-not-be-named",
+  "title": "He-Who-Must-Not-Be-Named",
+  "author": "AlekseiProvorov",
+  "slug": "he-who-must-not-be-named",
+  "last_run_time": "2026-10-27T15:14:58.279407900Z",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": false,
+  "enable_gpu": true,
+  "enable_internet": false,
+  "category_ids": [
+    "gpu"
+  ],
+  "dataset_data_sources": [
+    "seyitkaangunes/ntl-extra-api-passages",
+    "zbigniewkirchner/ntl-qwen3-8b-lora-claude-head",
+    "bbucxi/qwen35-9b-safetensors",
+    "pjmathematician/ultrabert-380m-ntl"
+  ],
+  "kernel_data_sources": [
+    "lucasboesen/name-that-llm-glm4-9b-trunc25",
+    "lucasboesen/name-that-llm-extract-encoders2",
+    "lucasboesen/name-that-llm-electra-large-weights",
+    "lucasboesen/name-that-llm-desklib-weights",
+    "",
+    "lucasboesen/name-that-llm-train-lora24-s7",
+    "lucasboesen/name-that-llm-train-tokattn",
+    "lucasboesen/name-that-llm-train-tokattn2"
+  ],
+  "competition_data_sources": [
+    "name-that-llm"
+  ],
+  "total_votes": 22,
+  "model_data_sources": [
+    "qwen-lm/qwen-3/Transformers/8b-base/1",
+    "qwen-lm/qwen-3/Transformers/4b-base/1",
+    "qwen-lm/qwen2.5/Transformers/7b/1"
+  ],
+  "enable_tpu": false,
+  "current_version_number": 20,
+  "docker_image": "gcr.io/kaggle-private-byod/python@sha256:37c64f7dd9c54116ecd1bcc88817c5469b88387388fade02bfa8bf3fc647d461",
+  "machine_shape": "NvidiaTeslaT4"
+}

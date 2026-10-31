@@ -1,0 +1,28 @@
+{
+  "observed_at_utc": "2026-10-30T15:40:20.795855+00:00",
+  "source": "official Kaggle API competition_submissions",
+  "submission": {
+    "ref": 57778357,
+    "totalBytes": 60075,
+    "date": "2026-10-29T17:36:23.270Z",
+    "description": "",
+    "fileName": "submission.parquet",
+    "publicScore": "0.662",
+    "status": "COMPLETE",
+    "submittedBy": "zhjianduan",
+    "submittedByRef": "zhjianduan",
+    "teamName": "zhjian duan",
+    "url": "/code/zhjianduan/name-that-llm-atlas20-repro?scriptVersionId=363569852"
+  },
+  "kernel_script_version_id": 363569852,
+  "notebook_historical_source_downloaded": true,
+  "requested_version_label": "v2",
+  "source_sha256": "6c9145f038ccffbe08dc6da6db3d1dcf3d2e0e7d2286927bfc8800ef5148cfb8",
+  "metadata_file": "baseline-v2-metadata.json",
+  "input_count": 31,
+  "source_cells": 13,
+  "different_cell_indices_vs_public_v4": [
+    2
+  ],
+  "comparison_scope": "cell source only; input version hashes and hidden-run numeric parity not audited"
+}

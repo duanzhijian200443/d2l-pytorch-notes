@@ -1,0 +1,21 @@
+{
+  "ref": "youdian1s/ntl-tuned-blend-calib-refit",
+  "title": "NTL tuned blend (calib refit)",
+  "version": 1,
+  "id": 141593741,
+  "source_sha256": "60c96701d3bca8b459b8e55fdddd2cbc0f9757d87b517b786f6bdf83b1d7c664",
+  "code_sha256": "a1cf39786c297f52a895d04b8daf5ea83738713fe48466c3354b91f4c967d146",
+  "private": false,
+  "directory": "youdian1s--ntl-tuned-blend-calib-refit",
+  "score": 0.66,
+  "url": "https://www.kaggle.com/code/youdian1s/ntl-tuned-blend-calib-refit",
+  "page_order": 20,
+  "rank": 20,
+  "observed_at": "2026-10-30T15:16:41.600Z",
+  "note": "在 all-public fork 上给 Llama 增加 Gaussian 权重 0.7，ATLAS 调至 0.30；平台 0.660。",
+  "score_is_bound_to_downloaded_version": false,
+  "source_reader": "Kaggle MCP get_notebook_info",
+  "score_reader": "Kaggle Code page rendered Score via browser DOM",
+  "retrieved_by_refresh_date": "2026-10-30",
+  "downloaded_source_executed": false
+}

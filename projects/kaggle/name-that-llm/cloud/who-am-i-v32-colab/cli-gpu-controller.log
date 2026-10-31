@@ -1,0 +1,532 @@
+Caching verified Llama weights on Colab disk
+All 31 CLI-prepared inputs linked; historical hashes PASS
+setup-inference.log running 390 seconds 
+setup-inference.log running 406 seconds ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+google-colab 1.0.0 requires pandas==2.2.3, but you have pandas 2.3.3 which is incompatible.
+cuda-preflight.log running 421 seconds {"torch": "2.11.0+cu130", "cuda": "13.0", "gpu": "NVIDIA A100-SXM4-40GB", "operation": "PASS"}
+v32-run.log running 436 seconds ENVIRONMENT {"python": "3.13.16", "gpu_name": "NVIDIA A100-SXM4-40GB", "gpu_count": 1, "gpu_memory_bytes": 42405855232, "packages": {"torch": "2.11.0+cu130", "transformers": "5.16.1", "peft": "0.20.0", "numpy": "2.1.3", "pandas": "2.3.3", "scipy": "1.16.3", "scikit-learn": "1.6.1", "lightgbm": "4.6.0", "safetensors": "0.8.0", "pyarrow": "23.0.1"}, "platform": "Colab A100", "same_container_as_upstream": false}
+v32-run.log running 451 seconds llama /content/ntl_v32/input/datasets/zhjianduan/llama31-8b-base-verified ['/content/ntl_v32/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f0', '/content/ntl_v32/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f2', '/content/ntl_v32/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f4', '/content/ntl_v32/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8']
+seed7 ['/content/ntl_v32/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f0', '/content/ntl_v32/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f2', '/content/ntl_v32/input/datasets/dhruvtibarewal
+v32-run.log running 466 seconds llama /content/ntl_v32/input/datasets/zhjianduan/llama31-8b-base-verified ['/content/ntl_v32/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f0', '/content/ntl_v32/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f2', '/content/ntl_v32/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f4', '/content/ntl_v32/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8']
+seed7 ['/content/ntl_v32/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f0', '/content/ntl_v32/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f2', '/content/ntl_v32/input/datasets/dhruvtibarewal
+v32-run.log running 481 seconds llama /content/ntl_v32/input/datasets/zhjianduan/llama31-8b-base-verified ['/content/ntl_v32/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f0', '/content/ntl_v32/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f2', '/content/ntl_v32/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f4', '/content/ntl_v32/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8']
+seed7 ['/content/ntl_v32/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f0', '/content/ntl_v32/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f2', '/content/ntl_v32/input/datasets/dhruvtibarewal
+v32-run.log running 496 seconds v5 ['/content/ntl_v32/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f0', '/content/ntl_v32/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f1', '/content/ntl_v32/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f2', '/content/ntl_v32/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f3', '/content/ntl_v32/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f4', '/content/ntl_v32/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5'] ['/content/ntl_v32/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f0', '/content/ntl_v32/input/datasets/dhruvtibarew
+v32-run.log running 511 seconds train (2699, 4)  test (3, 2)  gpus 1  smoke False
+extra passages: 10325 rows, 708 prompts
+v32-run.log running 526 seconds train (2699, 4)  test (3, 2)  gpus 1  smoke False
+extra passages: 10325 rows, 708 prompts
+v32-run.log running 541 seconds train (2699, 4)  test (3, 2)  gpus 1  smoke False
+extra passages: 10325 rows, 708 prompts
+v32-run.log running 556 seconds train (2699, 4)  test (3, 2)  gpus 1  smoke False
+extra passages: 10325 rows, 708 prompts
+v32-run.log running 571 seconds train (2699, 4)  test (3, 2)  gpus 1  smoke False
+extra passages: 10325 rows, 708 prompts
+v32-run.log running 586 seconds train (2699, 4)  test (3, 2)  gpus 1  smoke False
+extra passages: 10325 rows, 708 prompts
+v32-run.log running 601 seconds train (2699, 4)  test (3, 2)  gpus 1  smoke False
+extra passages: 10325 rows, 708 prompts
+v32-run.log running 616 seconds train (2699, 4)  test (3, 2)  gpus 1  smoke False
+extra passages: 10325 rows, 708 prompts
+v32-run.log running 631 seconds train (2699, 4)  test (3, 2)  gpus 1  smoke False
+extra passages: 10325 rows, 708 prompts
+v32-run.log running 646 seconds train (2699, 4)  test (3, 2)  gpus 1  smoke False
+extra passages: 10325 rows, 708 prompts
+v32-run.log running 661 seconds train (2699, 4)  test (3, 2)  gpus 1  smoke False
+extra passages: 10325 rows, 708 prompts
+v32-run.log running 676 seconds train (2699, 4)  test (3, 2)  gpus 1  smoke False
+extra passages: 10325 rows, 708 prompts
+v32-run.log running 691 seconds train (2699, 4)  test (3, 2)  gpus 1  smoke False
+extra passages: 10325 rows, 708 prompts
+v32-run.log running 706 seconds train (2699, 4)  test (3, 2)  gpus 1  smoke False
+extra passages: 10325 rows, 708 prompts
+v32-run.log running 721 seconds train (2699, 4)  test (3, 2)  gpus 1  smoke False
+extra passages: 10325 rows, 708 prompts
+v32-run.log running 736 seconds train (2699, 4)  test (3, 2)  gpus 1  smoke False
+extra passages: 10325 rows, 708 prompts
+v32-run.log running 751 seconds train (2699, 4)  test (3, 2)  gpus 1  smoke False
+extra passages: 10325 rows, 708 prompts
+v32-run.log running 766 seconds   centred stylegram self-test on 54 training rows (seen in training): acc 1.00
+  + stylegram            weight 1.516 on 3 rows  (265s)
+v32-run.log running 781 seconds   centred stylegram self-test on 54 training rows (seen in training): acc 1.00
+  + stylegram            weight 1.516 on 3 rows  (265s)
+v32-run.log running 796 seconds   centred stylegram self-test on 54 training rows (seen in training): acc 1.00
+  + stylegram            weight 1.516 on 3 rows  (265s)
+v32-run.log running 811 seconds   + stylegram            weight 1.516 on 3 rows  (265s)
+claude gate: 749 official + 4998 API rows
+v32-run.log running 826 seconds   + stylegram            weight 1.516 on 3 rows  (265s)
+claude gate: 749 official + 4998 API rows
+v32-run.log running 841 seconds claude gate: 749 official + 4998 API rows
+gpt gate: 750 official + 3540 extra rows
+v32-run.log running 856 seconds gemini gate: 600 official + 2309 extra rows
+glm gate: 300 official + 490 extra rows
+v32-run.log running 871 seconds gemini gate: 600 official + 2309 extra rows
+glm gate: 300 official + 490 extra rows
+v32-run.log running 886 seconds   + stylometry_lgb       weight 0.063 on 3 rows  (384s)
+[glm9b] glm4 hidden 4096 parts [(8, 'mean'), (3, 'mean'), (24, 'mean')]
+v32-run.log running 901 seconds   + stylometry_lgb       weight 0.063 on 3 rows  (384s)
+[glm9b] glm4 hidden 4096 parts [(8, 'mean'), (3, 'mean'), (24, 'mean')]
+v32-run.log running 916 seconds 
+Loading weights:   0%|          | 0/327 [00:00<?, ?it/s]
+v32-run.log running 931 seconds 
+Loading weights:   0%|          | 0/327 [00:00<?, ?it/s]
+v32-run.log running 946 seconds 
+Loading weights:   0%|          | 0/327 [00:00<?, ?it/s]
+v32-run.log running 961 seconds Loading weights:   5%|▍         | 16/327 [00:44<06:24,  1.24s/it]
+Loading weights:   6%|▌         | 18/327 [00:47<07:03,  1.37s/it]
+v32-run.log running 976 seconds Loading weights:   9%|▉         | 30/327 [00:58<05:02,  1.02s/it]
+Loading weights:  11%|█         | 36/327 [00:59<03:17,  1.48it/s]
+v32-run.log running 991 seconds Loading weights:  17%|█▋        | 55/327 [01:16<03:46,  1.20it/s]
+Loading weights:  20%|█▉        | 64/327 [01:18<02:27,  1.78it/s]
+v32-run.log running 1006 seconds Loading weights:  28%|██▊       | 90/327 [01:28<01:28,  2.69it/s]
+Loading weights:  28%|██▊       | 92/327 [01:30<01:48,  2.16it/s]
+v32-run.log running 1021 seconds Loading weights:  33%|███▎      | 108/327 [01:44<02:26,  1.49it/s]
+Loading weights:  35%|███▌      | 116/327 [01:48<02:00,  1.75it/s]
+v32-run.log running 1036 seconds Loading weights:  42%|████▏     | 137/327 [01:55<01:11,  2.64it/s]
+Loading weights:  42%|████▏     | 138/327 [01:59<01:48,  1.74it/s]
+v32-run.log running 1051 seconds Loading weights:  51%|█████▏    | 168/327 [02:13<01:04,  2.48it/s]
+Loading weights:  52%|█████▏    | 169/327 [02:15<01:18,  2.02it/s]
+v32-run.log running 1066 seconds Loading weights:  57%|█████▋    | 185/327 [02:31<02:03,  1.15it/s]
+Loading weights:  60%|█████▉    | 195/327 [02:33<01:16,  1.74it/s]
+v32-run.log running 1081 seconds Loading weights:  61%|██████    | 199/327 [02:43<02:06,  1.01it/s]
+Loading weights:  64%|██████▎   | 208/327 [02:47<01:31,  1.30it/s]
+v32-run.log running 1096 seconds Loading weights:  68%|██████▊   | 221/327 [02:55<01:19,  1.33it/s]
+Loading weights:  69%|██████▉   | 225/327 [03:01<01:33,  1.09it/s]
+v32-run.log running 1111 seconds Loading weights:  74%|███████▍  | 243/327 [03:15<01:12,  1.16it/s]
+Loading weights:  76%|███████▋  | 250/327 [03:18<00:52,  1.46it/s]
+v32-run.log running 1126 seconds Loading weights:  81%|████████  | 264/327 [03:28<00:49,  1.26it/s]
+Loading weights:  84%|████████▍ | 274/327 [03:30<00:28,  1.86it/s]
+v32-run.log running 1141 seconds Loading weights:  89%|████████▊ | 290/327 [03:45<00:34,  1.07it/s]
+Loading weights:  92%|█████████▏| 300/327 [03:47<00:15,  1.78it/s]
+v32-run.log running 1156 seconds Loading weights:  96%|█████████▋| 315/327 [03:59<00:08,  1.41it/s]
+Loading weights: 100%|██████████| 327/327 [03:59<00:00,  1.37it/s]
+v32-run.log running 1171 seconds Loading weights:  96%|█████████▋| 315/327 [03:59<00:08,  1.41it/s]
+Loading weights: 100%|██████████| 327/327 [03:59<00:00,  1.37it/s]
+v32-run.log running 1186 seconds test groups (content + GLM L24): 3 rows | singletons 3  2-3: 0  4-18: 0  >18: 0
+  glm9b: plain head has weight 0 in the 0.563 blend, not fitted
+v32-run.log running 1201 seconds test groups (content + GLM L24): 3 rows | singletons 3  2-3: 0  4-18: 0  >18: 0
+  glm9b: plain head has weight 0 in the 0.563 blend, not fitted
+v32-run.log running 1216 seconds test groups (content + GLM L24): 3 rows | singletons 3  2-3: 0  4-18: 0  >18: 0
+  glm9b: plain head has weight 0 in the 0.563 blend, not fitted
+v32-run.log running 1231 seconds   gauss_glm9b_L8 self-test on 54 training rows (seen in training): acc 0.93
+[q3_8b] qwen3 hidden 4096 parts [(7, 'mean'), (22, 'mean')]
+v32-run.log running 1246 seconds 
+Loading weights:   0%|          | 0/255 [00:00<?, ?it/s]
+v32-run.log running 1262 seconds Loading weights:   2%|▏         | 5/255 [00:23<14:49,  3.56s/it]  
+Loading weights:   6%|▌         | 15/255 [00:23<03:38,  1.10it/s]
+v32-run.log running 1277 seconds Loading weights:  13%|█▎        | 34/255 [00:36<02:28,  1.49it/s]
+Loading weights:  15%|█▍        | 38/255 [00:37<02:00,  1.80it/s]
+v32-run.log running 1292 seconds Loading weights:  18%|█▊        | 47/255 [00:45<02:26,  1.42it/s]
+Loading weights:  19%|█▉        | 48/255 [00:48<03:12,  1.08it/s]
+v32-run.log running 1307 seconds Loading weights:  27%|██▋       | 70/255 [01:02<01:36,  1.91it/s]
+Loading weights:  29%|██▉       | 74/255 [01:06<02:10,  1.39it/s]
+v32-run.log running 1322 seconds Loading weights:  39%|███▉      | 100/255 [01:21<01:44,  1.48it/s]
+Loading weights:  40%|████      | 103/255 [01:23<01:46,  1.43it/s]
+v32-run.log running 1337 seconds Loading weights:  52%|█████▏    | 132/255 [01:37<00:53,  2.28it/s]
+Loading weights:  52%|█████▏    | 133/255 [01:38<00:59,  2.06it/s]
+v32-run.log running 1352 seconds Loading weights:  53%|█████▎    | 135/255 [01:39<00:54,  2.22it/s]
+Loading weights:  54%|█████▎    | 137/255 [01:44<01:48,  1.08it/s]
+v32-run.log running 1367 seconds Loading weights:  67%|██████▋   | 170/255 [02:04<00:50,  1.69it/s]
+Loading weights:  69%|██████▉   | 176/255 [02:08<00:46,  1.69it/s]
+v32-run.log running 1382 seconds Loading weights:  82%|████████▏ | 210/255 [02:21<00:19,  2.33it/s]
+Loading weights:  84%|████████▎ | 213/255 [02:21<00:14,  2.90it/s]
+v32-run.log running 1397 seconds Loading weights:  93%|█████████▎| 236/255 [02:35<00:11,  1.66it/s]
+Loading weights:  96%|█████████▌| 244/255 [02:37<00:04,  2.46it/s]
+v32-run.log running 1412 seconds Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+v32-run.log running 1427 seconds - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+  q3_8b: plain head has weight 0 in the 0.563 blend, not fitted
+v32-run.log running 1442 seconds - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+  q3_8b: plain head has weight 0 in the 0.563 blend, not fitted
+v32-run.log running 1457 seconds - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+  q3_8b: plain head has weight 0 in the 0.563 blend, not fitted
+v32-run.log running 1472 seconds   gauss_q3_8b_L22 self-test on 54 training rows (seen in training): acc 0.91
+[q25_7b] qwen2 hidden 3584 parts [(6, 'mean'), (20, 'mean')]
+v32-run.log running 1487 seconds 
+Loading weights:   0%|          | 0/254 [00:00<?, ?it/s]
+v32-run.log running 1502 seconds Loading weights:   2%|▏         | 5/254 [00:13<11:39,  2.81s/it]
+Loading weights:   6%|▋         | 16/254 [00:14<02:16,  1.74it/s]
+v32-run.log running 1517 seconds Loading weights:   7%|▋         | 17/254 [00:27<07:03,  1.79s/it]
+Loading weights:  11%|█         | 28/254 [00:27<02:46,  1.36it/s]
+v32-run.log running 1532 seconds Loading weights:  15%|█▌        | 39/254 [00:41<03:36,  1.01s/it]
+Loading weights:  16%|█▌        | 41/254 [00:43<03:33,  1.00s/it]
+v32-run.log running 1547 seconds Loading weights:  23%|██▎       | 59/254 [00:56<02:32,  1.28it/s]
+Loading weights:  24%|██▍       | 62/254 [00:57<02:18,  1.38it/s]
+v32-run.log running 1562 seconds Loading weights:  26%|██▌       | 66/254 [01:12<04:59,  1.59s/it]
+Loading weights:  28%|██▊       | 71/254 [01:15<03:22,  1.10s/it]
+v32-run.log running 1577 seconds Loading weights:  30%|███       | 77/254 [01:23<03:53,  1.32s/it]
+Loading weights:  31%|███       | 78/254 [01:24<03:57,  1.35s/it]
+v32-run.log running 1592 seconds Loading weights:  35%|███▍      | 88/254 [01:31<02:36,  1.06it/s]
+Loading weights:  37%|███▋      | 93/254 [01:38<02:53,  1.07s/it]
+v32-run.log running 1607 seconds Loading weights:  41%|████▏     | 105/254 [01:55<02:57,  1.19s/it]
+Loading weights:  43%|████▎     | 110/254 [01:59<02:30,  1.04s/it]
+v32-run.log running 1622 seconds Loading weights:  44%|████▍     | 113/254 [02:08<03:28,  1.48s/it]
+Loading weights:  49%|████▉     | 124/254 [02:13<01:53,  1.14it/s]
+v32-run.log running 1637 seconds Loading weights:  56%|█████▋    | 143/254 [02:28<01:35,  1.16it/s]
+Loading weights:  57%|█████▋    | 144/254 [02:29<01:35,  1.15it/s]
+v32-run.log running 1652 seconds Loading weights:  67%|██████▋   | 169/254 [02:43<00:52,  1.62it/s]
+Loading weights:  68%|██████▊   | 172/254 [02:44<00:46,  1.76it/s]
+v32-run.log running 1667 seconds Loading weights:  70%|███████   | 179/254 [02:47<00:37,  2.01it/s]
+Loading weights:  71%|███████▏  | 181/254 [02:53<01:03,  1.14it/s]
+v32-run.log running 1682 seconds Loading weights:  78%|███████▊  | 197/254 [03:11<00:56,  1.01it/s]
+Loading weights:  82%|████████▏ | 208/254 [03:15<00:30,  1.53it/s]
+v32-run.log running 1697 seconds Loading weights:  86%|████████▌ | 219/254 [03:21<00:19,  1.80it/s]
+Loading weights:  87%|████████▋ | 220/254 [03:26<00:26,  1.27it/s]
+v32-run.log running 1712 seconds Loading weights:  87%|████████▋ | 220/254 [03:26<00:26,  1.27it/s]
+Loading weights:  87%|████████▋ | 221/254 [03:37<00:52,  1.60s/it]
+v32-run.log running 1727 seconds Loading weights:  91%|█████████▏| 232/254 [03:55<00:36,  1.66s/it]
+Loading weights:  96%|█████████▌| 244/254 [04:00<00:10,  1.09s/it]
+v32-run.log running 1742 seconds Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+v32-run.log running 1757 seconds - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+  q25_7b: plain head has weight 0 in the 0.563 blend, not fitted
+v32-run.log running 1772 seconds - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+  q25_7b: plain head has weight 0 in the 0.563 blend, not fitted
+v32-run.log running 1787 seconds - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+  q25_7b: plain head has weight 0 in the 0.563 blend, not fitted
+v32-run.log running 1802 seconds   q25_7b twin self-test on 54 training rows (seen in training): acc 1.00
+[q3_4b] qwen3 hidden 2560 parts [(4, 'style'), (7, 'style'), (4, 'mean')]
+v32-run.log running 1817 seconds   q25_7b twin self-test on 54 training rows (seen in training): acc 1.00
+[q3_4b] qwen3 hidden 2560 parts [(4, 'style'), (7, 'style'), (4, 'mean')]
+v32-run.log running 1832 seconds 
+Loading weights:   0%|          | 0/90 [00:00<?, ?it/s]
+v32-run.log running 1847 seconds Loading weights:   0%|          | 0/90 [00:00<?, ?it/s]
+Loading weights:   1%|          | 1/90 [00:14<21:17, 14.35s/it]
+v32-run.log running 1862 seconds Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+v32-run.log running 1877 seconds - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+  q3_4b: plain head has weight 0 in the 0.563 blend, not fitted
+v32-run.log running 1892 seconds - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+  q3_4b: plain head has weight 0 in the 0.563 blend, not fitted
+v32-run.log running 1907 seconds - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+  q3_4b: plain head has weight 0 in the 0.563 blend, not fitted
+v32-run.log running 1922 seconds Loading weights:   7%|▋         | 29/390 [00:02<00:39,  9.10it/s]
+Loading weights:  11%|█▏        | 44/390 [00:02<00:19, 17.96it/s]
+v32-run.log running 1937 seconds Loading weights:  75%|███████▌  | 293/390 [00:16<00:05, 18.04it/s]
+Loading weights:  76%|███████▋  | 298/390 [00:18<00:09,  9.43it/s]
+v32-run.log running 1952 seconds Loading weights:  80%|███████▉  | 311/390 [00:18<00:06, 11.92it/s]
+Loading weights: 100%|██████████| 390/390 [00:19<00:00, 20.51it/s]
+v32-run.log running 1967 seconds Loading weights:  80%|███████▉  | 311/390 [00:18<00:06, 11.92it/s]
+Loading weights: 100%|██████████| 390/390 [00:19<00:00, 20.51it/s]
+v32-run.log running 1982 seconds Loading weights:  80%|███████▉  | 311/390 [00:18<00:06, 11.92it/s]
+Loading weights: 100%|██████████| 390/390 [00:19<00:00, 20.51it/s]
+v32-run.log running 1997 seconds Loading weights:  80%|███████▉  | 311/390 [00:18<00:06, 11.92it/s]
+Loading weights: 100%|██████████| 390/390 [00:19<00:00, 20.51it/s]
+v32-run.log running 2012 seconds Loading weights:  80%|███████▉  | 311/390 [00:18<00:06, 11.92it/s]
+Loading weights: 100%|██████████| 390/390 [00:19<00:00, 20.51it/s]
+v32-run.log running 2027 seconds Loading weights: 100%|██████████| 390/390 [00:19<00:00, 20.51it/s]
+  + debv3l               weight 0.050 on 3 rows  (1521s)
+v32-run.log running 2042 seconds Loading weights: 100%|██████████| 390/390 [00:19<00:00, 20.51it/s]
+  + debv3l               weight 0.050 on 3 rows  (1521s)
+v32-run.log running 2057 seconds Loading weights:   3%|▎         | 13/389 [00:00<00:05, 72.65it/s]
+Loading weights:   5%|▌         | 21/389 [00:01<00:39,  9.39it/s]
+v32-run.log running 2072 seconds Loading weights:  39%|███▊      | 150/389 [00:15<00:29,  8.23it/s]
+Loading weights:  51%|█████     | 197/389 [00:16<00:09, 20.49it/s]
+v32-run.log running 2087 seconds Loading weights:  97%|█████████▋| 378/389 [00:30<00:00, 31.29it/s]
+Loading weights: 100%|██████████| 389/389 [00:30<00:00, 12.57it/s]
+v32-run.log running 2102 seconds Loading weights:  97%|█████████▋| 378/389 [00:30<00:00, 31.29it/s]
+Loading weights: 100%|██████████| 389/389 [00:30<00:00, 12.57it/s]
+v32-run.log running 2117 seconds Loading weights:  97%|█████████▋| 378/389 [00:30<00:00, 31.29it/s]
+Loading weights: 100%|██████████| 389/389 [00:30<00:00, 12.57it/s]
+v32-run.log running 2132 seconds Loading weights:  97%|█████████▋| 378/389 [00:30<00:00, 31.29it/s]
+Loading weights: 100%|██████████| 389/389 [00:30<00:00, 12.57it/s]
+v32-run.log running 2147 seconds Loading weights:  97%|█████████▋| 378/389 [00:30<00:00, 31.29it/s]
+Loading weights: 100%|██████████| 389/389 [00:30<00:00, 12.57it/s]
+v32-run.log running 2162 seconds Loading weights:   7%|▋         | 26/390 [00:01<00:17, 21.33it/s]
+Loading weights:   8%|▊         | 31/390 [00:03<01:03,  5.66it/s]
+v32-run.log running 2178 seconds Loading weights:  36%|███▋      | 142/390 [00:18<00:44,  5.56it/s]
+Loading weights:  39%|███▉      | 153/390 [00:18<00:20, 11.30it/s]
+v32-run.log running 2193 seconds Loading weights:  95%|█████████▌| 372/390 [00:32<00:00, 22.54it/s]
+Loading weights: 100%|██████████| 390/390 [00:32<00:00, 12.11it/s]
+v32-run.log running 2208 seconds Loading weights:  95%|█████████▌| 372/390 [00:32<00:00, 22.54it/s]
+Loading weights: 100%|██████████| 390/390 [00:32<00:00, 12.11it/s]
+v32-run.log running 2223 seconds Loading weights:  95%|█████████▌| 372/390 [00:32<00:00, 22.54it/s]
+Loading weights: 100%|██████████| 390/390 [00:32<00:00, 12.11it/s]
+v32-run.log running 2238 seconds Loading weights:  95%|█████████▌| 372/390 [00:32<00:00, 22.54it/s]
+Loading weights: 100%|██████████| 390/390 [00:32<00:00, 12.11it/s]
+v32-run.log running 2253 seconds Loading weights:  95%|█████████▌| 372/390 [00:32<00:00, 22.54it/s]
+Loading weights: 100%|██████████| 390/390 [00:32<00:00, 12.11it/s]
+v32-run.log running 2268 seconds Loading weights:  95%|█████████▌| 372/390 [00:32<00:00, 22.54it/s]
+Loading weights: 100%|██████████| 390/390 [00:32<00:00, 12.11it/s]
+v32-run.log running 2283 seconds Loading weights:  95%|█████████▌| 372/390 [00:32<00:00, 22.54it/s]
+Loading weights: 100%|██████████| 390/390 [00:32<00:00, 12.11it/s]
+v32-run.log running 2298 seconds Loading weights: 100%|██████████| 390/390 [00:32<00:00, 12.11it/s]
+  + desk                 weight 0.132 on 3 rows  (1792s)
+v32-run.log running 2313 seconds 
+Loading weights:   0%|          | 0/266 [00:00<?, ?it/s]
+v32-run.log running 2328 seconds Loading weights:   8%|▊         | 21/266 [00:18<02:19,  1.76it/s]
+Loading weights:   8%|▊         | 22/266 [00:21<03:22,  1.21it/s]
+v32-run.log running 2343 seconds Loading weights:   8%|▊         | 22/266 [00:21<03:22,  1.21it/s]
+Loading weights:  10%|▉         | 26/266 [00:33<07:18,  1.83s/it]
+v32-run.log running 2358 seconds Loading weights:  18%|█▊        | 48/266 [00:46<03:05,  1.17it/s]
+Loading weights:  22%|██▏       | 58/266 [00:52<02:32,  1.37it/s]
+v32-run.log running 2373 seconds Loading weights:  29%|██▉       | 78/266 [01:03<02:04,  1.50it/s]
+Loading weights:  31%|███       | 82/266 [01:05<01:47,  1.71it/s]
+v32-run.log running 2388 seconds Loading weights:  47%|████▋     | 125/266 [01:22<00:47,  2.98it/s]
+Loading weights:  47%|████▋     | 126/266 [01:22<00:46,  3.02it/s]
+v32-run.log running 2403 seconds Loading weights:  56%|█████▌    | 148/266 [01:33<00:51,  2.28it/s]
+Loading weights:  57%|█████▋    | 152/266 [01:37<01:13,  1.55it/s]
+v32-run.log running 2418 seconds Loading weights:  68%|██████▊   | 180/266 [01:48<00:36,  2.33it/s]
+Loading weights:  68%|██████▊   | 181/266 [01:50<00:52,  1.61it/s]
+v32-run.log running 2433 seconds Loading weights:  86%|████████▌ | 229/266 [02:06<00:10,  3.50it/s]
+Loading weights:  87%|████████▋ | 231/266 [02:09<00:17,  2.01it/s]
+v32-run.log running 2448 seconds   SKIP lora24_public: checkpoint not attached (**/lora24/final/COMPLETE.json)
+[lora24_seed7] /content/ntl_v32/input/notebooks/name-that-llm-train-lora24-s7/lora_out/job_final
+v32-run.log running 2463 seconds   SKIP lora24_public: checkpoint not attached (**/lora24/final/COMPLETE.json)
+[lora24_seed7] /content/ntl_v32/input/notebooks/name-that-llm-train-lora24-s7/lora_out/job_final
+v32-run.log running 2478 seconds   + lora24_seed7         weight 0.113 on 3 rows  (1982s)
+[lora24_claude] /content/ntl_v32/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final
+v32-run.log running 2494 seconds   parity with the checkpoint anchors: max abs 0.0096, mean rel 0.00109
+  + lora24_claude        weight 0.177 on 3 rows  (1994s)
+v32-run.log running 2509 seconds   parity with the checkpoint anchors: max abs 0.0096, mean rel 0.00109
+  + lora24_claude        weight 0.177 on 3 rows  (1994s)
+v32-run.log running 2524 seconds 
+Loading weights:   0%|          | 0/242 [00:00<?, ?it/s]
+v32-run.log running 2539 seconds 
+Loading weights:   0%|          | 0/242 [00:00<?, ?it/s]
+v32-run.log running 2554 seconds Loading weights:   0%|          | 1/242 [00:34<2:17:20, 34.19s/it]
+Loading weights:  21%|██▏       | 52/242 [00:35<01:34,  2.02it/s] 
+v32-run.log running 2569 seconds Loading weights:  23%|██▎       | 56/242 [00:41<01:46,  1.74it/s]
+Loading weights:  26%|██▋       | 64/242 [00:45<01:42,  1.74it/s]
+v32-run.log running 2585 seconds Loading weights:  41%|████▏     | 100/242 [01:07<01:49,  1.30it/s]
+Loading weights:  42%|████▏     | 101/242 [01:08<01:55,  1.22it/s]
+v32-run.log running 2600 seconds Loading weights:  51%|█████     | 124/242 [01:20<01:11,  1.64it/s]
+Loading weights:  56%|█████▌    | 136/242 [01:22<00:42,  2.50it/s]
+v32-run.log running 2615 seconds Loading weights:  62%|██████▏   | 150/242 [01:36<01:03,  1.46it/s]
+Loading weights:  66%|██████▌   | 159/242 [01:38<00:41,  1.99it/s]
+v32-run.log running 2630 seconds Loading weights:  76%|███████▌  | 184/242 [01:50<00:27,  2.12it/s]
+Loading weights:  79%|███████▉  | 191/242 [01:52<00:21,  2.39it/s]
+v32-run.log running 2645 seconds Loading weights:  90%|█████████ | 219/242 [02:02<00:06,  3.56it/s]
+Loading weights:  91%|█████████▏| 221/242 [02:08<00:12,  1.74it/s]
+v32-run.log running 2660 seconds - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[lora20_q25_instyle] /content/ntl_v32/input/notebooks/ntl-train-lora-qwen25-instyle/lora_out/job_final
+v32-run.log running 2675 seconds   + lora20_q25_instyle   weight 0.170 on 3 rows  (2178s)
+  OPTIONAL HEAD SKIPPED tokattn_q35: head=True backbone=False
+v32-run.log running 2690 seconds Loading weights:  35%|███▍      | 135/390 [00:12<00:30,  8.23it/s]
+Loading weights:  36%|███▌      | 141/390 [00:12<00:24, 10.13it/s]
+v32-run.log running 2705 seconds Loading weights:  97%|█████████▋| 379/390 [00:24<00:00, 37.67it/s]
+Loading weights: 100%|██████████| 390/390 [00:24<00:00, 16.04it/s]
+v32-run.log running 2720 seconds Loading weights:  70%|███████   | 274/390 [00:00<00:00, 2739.43it/s]
+Loading weights: 100%|██████████| 390/390 [00:00<00:00, 3109.72it/s]
+v32-run.log running 2735 seconds Loading weights:  11%|█▏        | 25/220 [00:04<00:42,  4.56it/s]
+Loading weights:  12%|█▏        | 26/220 [00:04<00:41,  4.64it/s]
+v32-run.log running 2750 seconds Loading weights:  77%|███████▋  | 170/220 [00:16<00:02, 21.39it/s]
+Loading weights: 100%|██████████| 220/220 [00:16<00:00, 13.36it/s]
+v32-run.log running 2765 seconds Loading weights:   8%|▊         | 18/220 [00:03<00:57,  3.50it/s]
+Loading weights:   9%|▊         | 19/220 [00:03<01:03,  3.15it/s]
+v32-run.log running 2780 seconds Loading weights:  80%|████████  | 177/220 [00:15<00:01, 35.46it/s]
+Loading weights: 100%|██████████| 220/220 [00:15<00:00, 13.99it/s]
+v32-run.log running 2795 seconds Loading weights:  34%|███▎      | 74/220 [00:09<00:15,  9.36it/s]
+Loading weights:  39%|███▊      | 85/220 [00:09<00:08, 15.01it/s]
+v32-run.log running 2810 seconds Loading weights:  77%|███████▋  | 169/220 [00:20<00:13,  3.82it/s]
+Loading weights: 100%|██████████| 220/220 [00:20<00:00, 10.84it/s]
+v32-run.log running 2825 seconds Loading weights:  32%|███▏      | 70/220 [00:09<00:12, 12.21it/s]
+Loading weights:  38%|███▊      | 84/220 [00:09<00:06, 20.38it/s]
+v32-run.log running 2840 seconds Loading weights:  73%|███████▎  | 160/220 [00:19<00:09,  6.07it/s]
+Loading weights: 100%|██████████| 220/220 [00:19<00:00, 11.40it/s]
+v32-run.log running 2855 seconds Loading weights:  35%|███▌      | 78/220 [00:07<00:12, 11.20it/s]
+Loading weights:  37%|███▋      | 82/220 [00:08<00:11, 12.01it/s]
+v32-run.log running 2870 seconds COMP STACK DONE 2377.9769065380096
+RUNNING MAIN INFERENCE
+v32-run.log running 2885 seconds [      2s] test clusters 3 sizes [0, 3]
+[      5s] matched-clean extra rows after exact de-dup 24443
+v32-run.log running 2900 seconds [      2s] test clusters 3 sizes [0, 3]
+[      5s] matched-clean extra rows after exact de-dup 24443
+v32-run.log running 2915 seconds [      2s] test clusters 3 sizes [0, 3]
+[      5s] matched-clean extra rows after exact de-dup 24443
+v32-run.log running 2930 seconds [      2s] test clusters 3 sizes [0, 3]
+[      5s] matched-clean extra rows after exact de-dup 24443
+v32-run.log running 2945 seconds [      2s] test clusters 3 sizes [0, 3]
+[      5s] matched-clean extra rows after exact de-dup 24443
+v32-run.log running 2960 seconds [      2s] test clusters 3 sizes [0, 3]
+[      5s] matched-clean extra rows after exact de-dup 24443
+v32-run.log running 2975 seconds [      2s] test clusters 3 sizes [0, 3]
+[      5s] matched-clean extra rows after exact de-dup 24443
+v32-run.log running 2990 seconds [      2s] test clusters 3 sizes [0, 3]
+[      5s] matched-clean extra rows after exact de-dup 24443
+v32-run.log running 3005 seconds [      2s] test clusters 3 sizes [0, 3]
+[      5s] matched-clean extra rows after exact de-dup 24443
+v32-run.log running 3020 seconds [      2s] test clusters 3 sizes [0, 3]
+[      5s] matched-clean extra rows after exact de-dup 24443
+v32-run.log running 3035 seconds [      2s] test clusters 3 sizes [0, 3]
+[      5s] matched-clean extra rows after exact de-dup 24443
+v32-run.log running 3050 seconds [      2s] test clusters 3 sizes [0, 3]
+[      5s] matched-clean extra rows after exact de-dup 24443
+v32-run.log running 3065 seconds [      2s] test clusters 3 sizes [0, 3]
+[      5s] matched-clean extra rows after exact de-dup 24443
+v32-run.log running 3080 seconds [      2s] test clusters 3 sizes [0, 3]
+[      5s] matched-clean extra rows after exact de-dup 24443
+v32-run.log running 3095 seconds [      2s] test clusters 3 sizes [0, 3]
+[      5s] matched-clean extra rows after exact de-dup 24443
+v32-run.log running 3110 seconds [      2s] test clusters 3 sizes [0, 3]
+[      5s] matched-clean extra rows after exact de-dup 24443
+v32-run.log running 3125 seconds [      2s] test clusters 3 sizes [0, 3]
+[      5s] matched-clean extra rows after exact de-dup 24443
+v32-run.log running 3140 seconds [      2s] test clusters 3 sizes [0, 3]
+[      5s] matched-clean extra rows after exact de-dup 24443
+v32-run.log running 3155 seconds [      2s] test clusters 3 sizes [0, 3]
+[      5s] matched-clean extra rows after exact de-dup 24443
+v32-run.log running 3170 seconds [      2s] test clusters 3 sizes [0, 3]
+[      5s] matched-clean extra rows after exact de-dup 24443
+v32-run.log running 3185 seconds [      2s] test clusters 3 sizes [0, 3]
+[      5s] matched-clean extra rows after exact de-dup 24443
+v32-run.log running 3200 seconds [      2s] test clusters 3 sizes [0, 3]
+[      5s] matched-clean extra rows after exact de-dup 24443
+v32-run.log running 3215 seconds [      2s] test clusters 3 sizes [0, 3]
+[      5s] matched-clean extra rows after exact de-dup 24443
+v32-run.log running 3230 seconds [      2s] test clusters 3 sizes [0, 3]
+[      5s] matched-clean extra rows after exact de-dup 24443
+v32-run.log running 3245 seconds [      2s] test clusters 3 sizes [0, 3]
+[      5s] matched-clean extra rows after exact de-dup 24443
+v32-run.log running 3260 seconds [      2s] test clusters 3 sizes [0, 3]
+[      5s] matched-clean extra rows after exact de-dup 24443
+v32-run.log running 3275 seconds [      5s] matched-clean extra rows after exact de-dup 24443
+[    396s] tfidf done
+v32-run.log running 3290 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3305 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3320 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3335 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3350 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3365 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3380 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3395 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3410 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3425 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3440 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3455 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3470 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3485 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3500 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3515 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3530 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3545 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3560 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3575 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3590 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3605 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3620 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3635 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3650 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3665 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3680 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3695 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3710 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3725 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3740 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3756 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3771 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3786 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3801 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3816 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3831 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3846 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3861 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3876 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3891 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3906 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3921 seconds [    396s] tfidf done
+[    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+v32-run.log running 3936 seconds [    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+[   1056s] svc4 done
+v32-run.log running 3951 seconds [    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+[   1056s] svc4 done
+v32-run.log running 3966 seconds [    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+[   1056s] svc4 done
+v32-run.log running 3981 seconds [    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+[   1056s] svc4 done
+v32-run.log running 3996 seconds [    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+[   1056s] svc4 done
+v32-run.log running 4011 seconds [    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+[   1056s] svc4 done
+v32-run.log running 4026 seconds [    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+[   1056s] svc4 done
+v32-run.log running 4041 seconds [    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+[   1056s] svc4 done
+v32-run.log running 4056 seconds [    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+[   1056s] svc4 done
+v32-run.log running 4071 seconds [    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+[   1056s] svc4 done
+v32-run.log running 4086 seconds [    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+[   1056s] svc4 done
+v32-run.log running 4101 seconds [    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+[   1056s] svc4 done
+v32-run.log running 4116 seconds [    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+[   1056s] svc4 done
+v32-run.log running 4131 seconds [    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+[   1056s] svc4 done
+v32-run.log running 4146 seconds [    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+[   1056s] svc4 done
+v32-run.log running 4161 seconds [    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+[   1056s] svc4 done
+v32-run.log running 4176 seconds [    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+[   1056s] svc4 done
+v32-run.log running 4191 seconds [    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+[   1056s] svc4 done
+v32-run.log running 4206 seconds [    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+[   1056s] svc4 done
+v32-run.log running 4221 seconds [    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+[   1056s] svc4 done
+v32-run.log running 4236 seconds [    408s] svc4 fit rows=123828 source_weighted; external clean=24443
+[   1056s] svc4 done
+v32-run.log running 4251 seconds [   1056s] svc4 done
+[   1381s] distort done
+v32-run.log running 4266 seconds [   1381s] distort done
+[   1386s] l24 q14v5
+v32-run.log running 4281 seconds [   1381s] distort done
+[   1386s] l24 q14v5
+v32-run.log running 4296 seconds 
+Loading weights:   0%|          | 0/299 [00:00<?, ?it/s]
+v32-run.log running 4311 seconds 
+Loading weights:   0%|          | 0/299 [00:00<?, ?it/s]
+v32-run.log running 4326 seconds Loading weights:   0%|          | 0/299 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/299 [00:38<3:09:49, 38.22s/it]
+v32-run.log running 4341 seconds Loading weights:   3%|▎         | 8/299 [00:47<19:52,  4.10s/it]
+Loading weights:   5%|▌         | 15/299 [00:55<10:35,  2.24s/it]
+v32-run.log running 4356 seconds Loading weights:   5%|▌         | 15/299 [00:55<10:35,  2.24s/it]
+Loading weights:   5%|▌         | 16/299 [01:12<18:37,  3.95s/it]
+v32-run.log running 4371 seconds Loading weights:   5%|▌         | 16/299 [01:12<18:37,  3.95s/it]
+Loading weights:   9%|▊         | 26/299 [01:21<09:27,  2.08s/it]
+v32-run.log running 4386 seconds Loading weights:   5%|▌         | 16/299 [01:12<18:37,  3.95s/it]
+Loading weights:   9%|▊         | 26/299 [01:21<09:27,  2.08s/it]

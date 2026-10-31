@@ -1,0 +1,25 @@
+{
+  "observed_at": 1793276574.4271817,
+  "watchdog_alive": true,
+  "processes": [
+    {
+      "pid": 11928,
+      "cpu_percent": 0.0,
+      "cpu_seconds": 4.92,
+      "rss_gib": 0.56,
+      "status": "sleeping"
+    }
+  ],
+  "last_log_lines": [
+    "COMP STACK DONE 2377.9769065380096",
+    "RUNNING MAIN INFERENCE",
+    "[      1s] train 2699 test 3",
+    "[      2s] clustering fallback: max_df corresponds to < documents than min_df",
+    "[      2s] test clusters 3 sizes [0, 3]",
+    "[      5s] matched-clean extra rows after exact de-dup 24443",
+    "[    396s] tfidf done",
+    "[    408s] svc4 fit rows=123828 source_weighted; external clean=24443"
+  ],
+  "traceback": false,
+  "gpu": "NVIDIA A100-SXM4-40GB, 0 %, 6 MiB"
+}

@@ -1,0 +1,21 @@
+{
+  "ref": "omerfarukmerey/0-663-0-660-v31-atlas-20",
+  "title": "0.663 | 0.660 V31 + ATLAS 20%",
+  "version": 4,
+  "id": 141360898,
+  "source_sha256": "dba1fbfbc4646cb03f92275a2a85acab0e3b90471e90501bf051f09275716c16",
+  "code_sha256": "d02becfe82c55dff37d0076ae752143304b29f88bd14ae7f90486f32408ae221",
+  "private": false,
+  "directory": "omerfarukmerey--0-663-0-660-v31-atlas-20",
+  "score": 0.663,
+  "url": "https://www.kaggle.com/code/omerfarukmerey/0-663-0-660-v31-atlas-20",
+  "page_order": 1,
+  "rank": 1,
+  "observed_at": "2026-10-30T15:16:41.600Z",
+  "note": "ATLAS 20%；Llama 本地暂存、双 T4 并行 8B、GPU 池化；仍是本次有效分数最高项。",
+  "score_is_bound_to_downloaded_version": false,
+  "source_reader": "Kaggle MCP get_notebook_info",
+  "score_reader": "Kaggle Code page rendered Score via browser DOM",
+  "retrieved_by_refresh_date": "2026-10-30",
+  "downloaded_source_executed": false
+}

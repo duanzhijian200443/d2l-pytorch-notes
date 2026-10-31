@@ -1,0 +1,148 @@
+{"status": "RUNNING", "completed_inputs": 0, "inputs": 31, "elapsed_seconds": 0.0, "updated_at": 1793261983.7239351}
+{"status": "RUNNING", "completed_inputs": 1, "inputs": 31, "elapsed_seconds": 0.0, "updated_at": 1793261983.7653637, "last_completed": "dataset:dhruvtibarewal/nlm-l24-adapters"}
+{"status": "RUNNING", "completed_inputs": 2, "inputs": 31, "elapsed_seconds": 0.1, "updated_at": 1793261983.784199, "last_completed": "dataset:seyitkaangunes/ntl-extra-api-passages"}
+{"status": "RUNNING", "completed_inputs": 3, "inputs": 31, "elapsed_seconds": 0.1, "updated_at": 1793261983.803064, "last_completed": "dataset:abdullah1afify/ntl-generations"}
+{"status": "RUNNING", "completed_inputs": 4, "inputs": 31, "elapsed_seconds": 0.1, "updated_at": 1793261983.82478, "last_completed": "dataset:dophuchung/ntl-proxy-generations"}
+{"status": "RUNNING", "completed_inputs": 5, "inputs": 31, "elapsed_seconds": 0.1, "updated_at": 1793261983.8450706, "last_completed": "dataset:zbigniewkirchner/ntl-qwen3-8b-lora-claude-head"}
+{"status": "RUNNING", "completed_inputs": 6, "inputs": 31, "elapsed_seconds": 0.1, "updated_at": 1793261983.8669455, "last_completed": "dataset:dhruvtibarewal/nlm-matched-clean"}
+{"status": "RUNNING", "completed_inputs": 7, "inputs": 31, "elapsed_seconds": 0.2, "updated_at": 1793261983.9001331, "last_completed": "dataset:dhruvtibarewal/nlm-offline-wheels"}
+{"status": "RUNNING", "completed_inputs": 8, "inputs": 31, "elapsed_seconds": 0.2, "updated_at": 1793261983.9219182, "last_completed": "dataset:josephadamski91/ntl-atlas-qwen3-8b-v1"}
+{"status": "RUNNING", "completed_inputs": 9, "inputs": 31, "elapsed_seconds": 0.2, "updated_at": 1793261983.942315, "last_completed": "dataset:lucasboesen/ntl-free-proxy-generations"}
+{"status": "RUNNING", "completed_inputs": 10, "inputs": 31, "elapsed_seconds": 0.3, "updated_at": 1793261983.9824915, "last_completed": "dataset:nishantdahal/ntl-two-stage-lora"}
+{"status": "RUNNING", "completed_inputs": 11, "inputs": 31, "elapsed_seconds": 0.3, "updated_at": 1793261984.0014458, "last_completed": "dataset:nishantdahal/ntl-handwriting-blend"}
+{"status": "RUNNING", "completed_inputs": 12, "inputs": 31, "elapsed_seconds": 0.3, "updated_at": 1793261984.0214474, "last_completed": "dataset:dhruvtibarewal/nlm-l24-adapters-v5"}
+{"status": "RUNNING", "completed_inputs": 13, "inputs": 31, "elapsed_seconds": 0.3, "updated_at": 1793261984.0428598, "last_completed": "dataset:prvsiyan/prvsiyans-extended-name-that-llm-dataset"}
+{"status": "RUNNING", "completed_inputs": 14, "inputs": 31, "elapsed_seconds": 0.3, "updated_at": 1793261984.0638928, "last_completed": "dataset:pjmathematician/ultrabert-380m-ntl"}
+{"status": "RUNNING", "completed_inputs": 15, "inputs": 31, "elapsed_seconds": 0.4, "updated_at": 1793261984.0809178, "last_completed": "dataset:zhjianduan/llama31-8b-base-verified"}
+{"status": "RUNNING", "completed_inputs": 15, "inputs": 31, "elapsed_seconds": 0.4, "updated_at": 1793261984.0988653, "current_input": "notebook:lucasboesen/name-that-llm-glm4-9b-trunc25", "current_files": 7}
+Downloaded range glm4_9b_trunc25/config.json 786 / 786
+Downloaded range glm4_9b_trunc25/chat_template.jinja 944 / 944
+Downloaded range glm4_9b_trunc25/tokenizer.json 19966496 / 19966496
+Downloaded range glm4_9b_trunc25/tokenizer_config.json 396 / 396
+Downloaded range glm4_9b_trunc25/trunc_info.json 73 / 73
+Downloaded range submission.parquet 1852 / 1852
+Downloaded range glm4_9b_trunc25/model.safetensors 1073741824 / 11440008912
+Downloaded range glm4_9b_trunc25/model.safetensors 2147483648 / 11440008912
+Downloaded range glm4_9b_trunc25/model.safetensors 3221225472 / 11440008912
+Downloaded range glm4_9b_trunc25/model.safetensors 4294967296 / 11440008912
+Downloaded range glm4_9b_trunc25/model.safetensors 5368709120 / 11440008912
+Downloaded range glm4_9b_trunc25/model.safetensors 6442450944 / 11440008912
+Downloaded range glm4_9b_trunc25/model.safetensors 7516192768 / 11440008912
+Downloaded range glm4_9b_trunc25/model.safetensors 8589934592 / 11440008912
+Downloaded range glm4_9b_trunc25/model.safetensors 9663676416 / 11440008912
+Downloaded range glm4_9b_trunc25/model.safetensors 10737418240 / 11440008912
+Downloaded range glm4_9b_trunc25/model.safetensors 11440008912 / 11440008912
+{"status": "RUNNING", "completed_inputs": 15, "inputs": 31, "elapsed_seconds": 279.6, "updated_at": 1793262263.3638725, "current_input": "notebook:lucasboesen/name-that-llm-glm4-9b-trunc25", "files_done": 7, "files_total": 7}
+{"status": "RUNNING", "completed_inputs": 16, "inputs": 31, "elapsed_seconds": 280.3, "updated_at": 1793262264.023605, "last_completed": "notebook:lucasboesen/name-that-llm-glm4-9b-trunc25"}
+{"status": "RUNNING", "completed_inputs": 16, "inputs": 31, "elapsed_seconds": 280.3, "updated_at": 1793262264.049945, "current_input": "notebook:lucasboesen/name-that-llm-extract-encoders2", "current_files": 10}
+Downloaded range deberta-v3-large/config.json 907 / 907
+Downloaded range deberta-v3-large/tokenizer.json 8339876 / 8339876
+Downloaded range deberta-v3-large/tokenizer_config.json 538 / 538
+Downloaded range enc_debv2xl_train.npz 82954951 / 82954951
+Downloaded range enc_debv2xxl_train.npz 82954951 / 82954951
+Downloaded range enc_debv3l2_train.npz 99537639 / 99537639
+Downloaded range enc_electl_train.npz 55317191 / 55317191
+Downloaded range deberta-v3-large/model.safetensors 1073741824 / 1736094384
+Downloaded range enc_mbertl_train.npz 55317191 / 55317191
+Downloaded range submission.parquet 1852 / 1852
+Downloaded range deberta-v3-large/model.safetensors 1736094384 / 1736094384
+{"status": "RUNNING", "completed_inputs": 16, "inputs": 31, "elapsed_seconds": 320.3, "updated_at": 1793262304.0064077, "current_input": "notebook:lucasboesen/name-that-llm-extract-encoders2", "files_done": 10, "files_total": 10}
+{"status": "RUNNING", "completed_inputs": 17, "inputs": 31, "elapsed_seconds": 320.9, "updated_at": 1793262304.6193306, "last_completed": "notebook:lucasboesen/name-that-llm-extract-encoders2"}
+{"status": "RUNNING", "completed_inputs": 17, "inputs": 31, "elapsed_seconds": 321.0, "updated_at": 1793262304.7066844, "current_input": "notebook:lucasboesen/name-that-llm-electra-large-weights", "current_files": 5}
+Downloaded range electra-large-discriminator/config.json 862 / 862
+Downloaded range electra-large-discriminator/tokenizer.json 711396 / 711396
+Downloaded range electra-large-discriminator/tokenizer_config.json 351 / 351
+Downloaded range submission.parquet 1852 / 1852
+Downloaded range electra-large-discriminator/model.safetensors 1073741824 / 1336413848
+Downloaded range electra-large-discriminator/model.safetensors 1336413848 / 1336413848
+{"status": "RUNNING", "completed_inputs": 17, "inputs": 31, "elapsed_seconds": 353.0, "updated_at": 1793262336.762965, "current_input": "notebook:lucasboesen/name-that-llm-electra-large-weights", "files_done": 5, "files_total": 5}
+{"status": "RUNNING", "completed_inputs": 18, "inputs": 31, "elapsed_seconds": 353.2, "updated_at": 1793262336.8898554, "last_completed": "notebook:lucasboesen/name-that-llm-electra-large-weights"}
+{"status": "RUNNING", "completed_inputs": 18, "inputs": 31, "elapsed_seconds": 353.3, "updated_at": 1793262336.9942153, "current_input": "notebook:lucasboesen/name-that-llm-desklib-weights", "current_files": 5}
+Downloaded range desklib-detector/config.json 905 / 905
+Downloaded range desklib-detector/tokenizer.json 8339875 / 8339875
+Downloaded range desklib-detector/tokenizer_config.json 532 / 532
+Downloaded range submission.parquet 1852 / 1852
+Downloaded range desklib-detector/model.safetensors 1073741824 / 1736094384
+Downloaded range desklib-detector/model.safetensors 1736094384 / 1736094384
+{"status": "RUNNING", "completed_inputs": 18, "inputs": 31, "elapsed_seconds": 420.1, "updated_at": 1793262403.7949975, "current_input": "notebook:lucasboesen/name-that-llm-desklib-weights", "files_done": 5, "files_total": 5}
+{"status": "RUNNING", "completed_inputs": 19, "inputs": 31, "elapsed_seconds": 420.1, "updated_at": 1793262403.838467, "last_completed": "notebook:lucasboesen/name-that-llm-desklib-weights"}
+{"status": "RUNNING", "completed_inputs": 19, "inputs": 31, "elapsed_seconds": 420.2, "updated_at": 1793262403.9212573, "current_input": "notebook:lucasboesen/name-that-llm-train-lora24-s7", "current_files": 29}
+Downloaded range lora_out/job_0/COMPLETE.json 100 / 100
+Downloaded range lora_out/job_0/readouts.npz 4379669 / 4379669
+Downloaded range lora_out/job_1/COMPLETE.json 101 / 101
+Downloaded range lora_out/job_0/valid_features.npz 32983640 / 32983640
+Downloaded range lora_out/job_1/readouts.npz 4379547 / 4379547
+Downloaded range lora_out/job_2/COMPLETE.json 101 / 101
+Downloaded range lora_out/job_1/valid_features.npz 32920785 / 32920785
+Downloaded range lora_out/job_2/readouts.npz 4379728 / 4379728
+Downloaded range lora_out/job_3/COMPLETE.json 86 / 86
+Downloaded range lora_out/job_3/readouts.npz 4380030 / 4380030
+Downloaded range lora_out/job_2/valid_features.npz 32987026 / 32987026
+{"status": "RUNNING", "completed_inputs": 19, "inputs": 31, "elapsed_seconds": 422.6, "updated_at": 1793262406.2829516, "current_input": "notebook:lucasboesen/name-that-llm-train-lora24-s7", "files_done": 10, "files_total": 29}
+Downloaded range lora_out/job_4/COMPLETE.json 101 / 101
+Downloaded range lora_out/job_3/valid_features.npz 32985459 / 32985459
+Downloaded range lora_out/job_4/readouts.npz 4380056 / 4380056
+Downloaded range lora_out/job_final/COMPLETE.json 104 / 104
+Downloaded range lora_out/job_4/valid_features.npz 32983917 / 32983917
+Downloaded range lora_out/job_final/adapter/README.md 5240 / 5240
+Downloaded range lora_out/job_final/adapter/adapter_config.json 1288 / 1288
+Downloaded range lora_out/job_final/norms.safetensors 263384 / 263384
+Downloaded range lora_out/job_final/readouts.npz 4378243 / 4378243
+Downloaded range lora_out/job_final/adapter/adapter_model.safetensors 116434760 / 116434760
+Downloaded range lora_out/job_final/tokenizer/chat_template.jinja 4116 / 4116
+{"status": "RUNNING", "completed_inputs": 19, "inputs": 31, "elapsed_seconds": 426.1, "updated_at": 1793262409.8647647, "current_input": "notebook:lucasboesen/name-that-llm-train-lora24-s7", "files_done": 20, "files_total": 29}
+Downloaded range lora_out/job_final/tokenizer/tokenizer.json 11422748 / 11422748
+Downloaded range lora_out/job_final/tokenizer/tokenizer_config.json 693 / 693
+Downloaded range lora_out/job_final/valid_features.npz 183638 / 183638
+Downloaded range submission.parquet 1852 / 1852
+Downloaded range worker.py 7365 / 7365
+Downloaded range worker0.log 9884 / 9884
+Downloaded range worker1.log 10190 / 10190
+{"status": "RUNNING", "completed_inputs": 19, "inputs": 31, "elapsed_seconds": 428.8, "updated_at": 1793262412.4848745, "current_input": "notebook:lucasboesen/name-that-llm-train-lora24-s7", "files_done": 29, "files_total": 29}
+{"status": "RUNNING", "completed_inputs": 20, "inputs": 31, "elapsed_seconds": 428.9, "updated_at": 1793262412.591805, "last_completed": "notebook:lucasboesen/name-that-llm-train-lora24-s7"}
+{"status": "RUNNING", "completed_inputs": 20, "inputs": 31, "elapsed_seconds": 429.0, "updated_at": 1793262412.7404864, "current_input": "notebook:lucasboesen/name-that-llm-train-tokattn", "current_files": 3}
+Downloaded range submission.parquet 1852 / 1852
+Downloaded range tokattn_final.pt 1095265 / 1095265
+Downloaded range tokattn_oof.npz 259131 / 259131
+{"status": "RUNNING", "completed_inputs": 20, "inputs": 31, "elapsed_seconds": 429.9, "updated_at": 1793262413.6039522, "current_input": "notebook:lucasboesen/name-that-llm-train-tokattn", "files_done": 3, "files_total": 3}
+{"status": "RUNNING", "completed_inputs": 21, "inputs": 31, "elapsed_seconds": 430.0, "updated_at": 1793262413.7335293, "last_completed": "notebook:lucasboesen/name-that-llm-train-tokattn"}
+{"status": "RUNNING", "completed_inputs": 21, "inputs": 31, "elapsed_seconds": 430.1, "updated_at": 1793262413.8585935, "current_input": "notebook:lucasboesen/name-that-llm-train-tokattn2", "current_files": 5}
+Downloaded range submission.parquet 1852 / 1852
+Downloaded range tokattn_debl23_final.pt 284355 / 284355
+Downloaded range tokattn_debl23_oof.npz 259131 / 259131
+Downloaded range tokattn_q8l22_final.pt 1095349 / 1095349
+Downloaded range tokattn_q8l22_oof.npz 259131 / 259131
+{"status": "RUNNING", "completed_inputs": 21, "inputs": 31, "elapsed_seconds": 432.1, "updated_at": 1793262415.8137314, "current_input": "notebook:lucasboesen/name-that-llm-train-tokattn2", "files_done": 5, "files_total": 5}
+{"status": "RUNNING", "completed_inputs": 22, "inputs": 31, "elapsed_seconds": 432.2, "updated_at": 1793262415.9041598, "last_completed": "notebook:lucasboesen/name-that-llm-train-tokattn2"}
+{"status": "RUNNING", "completed_inputs": 22, "inputs": 31, "elapsed_seconds": 432.2, "updated_at": 1793262415.9629776, "current_input": "notebook:vnton37nguyn/ntl-train-lora-qwen25-instyle", "current_files": 23}
+Downloaded range lora_out/job_0/COMPLETE.json 101 / 101
+Downloaded range lora_out/job_0/readouts.npz 3829454 / 3829454
+Downloaded range lora_out/job_1/COMPLETE.json 101 / 101
+Downloaded range lora_out/job_0/valid_features.npz 28877070 / 28877070
+Downloaded range lora_out/job_1/readouts.npz 3829668 / 3829668
+Downloaded range lora_out/job_2/COMPLETE.json 101 / 101
+Downloaded range lora_out/job_1/valid_features.npz 28822901 / 28822901
+Downloaded range lora_out/job_2/readouts.npz 3829538 / 3829538
+Downloaded range lora_out/job_final/COMPLETE.json 88 / 88
+Downloaded range lora_out/job_2/valid_features.npz 28873751 / 28873751
+Downloaded range lora_out/job_final/adapter/README.md 5232 / 5232
+{"status": "RUNNING", "completed_inputs": 22, "inputs": 31, "elapsed_seconds": 437.4, "updated_at": 1793262421.0963986, "current_input": "notebook:vnton37nguyn/ntl-train-lora-qwen25-instyle", "files_done": 10, "files_total": 23}
+Downloaded range lora_out/job_final/adapter/adapter_config.json 1284 / 1284
+Downloaded range lora_out/job_final/norms.safetensors 230616 / 230616
+Downloaded range lora_out/job_final/readouts.npz 3829777 / 3829777
+Downloaded range lora_out/job_final/tokenizer/chat_template.jinja 2427 / 2427
+Downloaded range lora_out/job_final/tokenizer/tokenizer.json 11421990 / 11421990
+Downloaded range lora_out/job_final/tokenizer/tokenizer_config.json 696 / 696
+Downloaded range lora_out/job_final/valid_features.npz 160912 / 160912
+Downloaded range submission.parquet 1852 / 1852
+Downloaded range worker.py 10879 / 10879
+Downloaded range lora_out/job_final/adapter/adapter_model.safetensors 115378992 / 115378992
+Downloaded range worker0.log 10805 / 10805
+{"status": "RUNNING", "completed_inputs": 22, "inputs": 31, "elapsed_seconds": 443.3, "updated_at": 1793262427.053347, "current_input": "notebook:vnton37nguyn/ntl-train-lora-qwen25-instyle", "files_done": 20, "files_total": 23}
+Downloaded range worker1.log 10363 / 10363
+{"status": "RUNNING", "completed_inputs": 22, "inputs": 31, "elapsed_seconds": 446.1, "updated_at": 1793262429.827403, "current_input": "notebook:vnton37nguyn/ntl-train-lora-qwen25-instyle", "files_done": 23, "files_total": 23}
+{"status": "RUNNING", "completed_inputs": 23, "inputs": 31, "elapsed_seconds": 446.7, "updated_at": 1793262430.412197, "last_completed": "notebook:vnton37nguyn/ntl-train-lora-qwen25-instyle"}
+{"status": "RUNNING", "completed_inputs": 23, "inputs": 31, "elapsed_seconds": 446.9, "updated_at": 1793262430.6291242, "current_input": "model:qwen-lm/qwen-3/transformers/8b/1", "current_files": 1}
+{"status": "RUNNING", "completed_inputs": 23, "inputs": 31, "elapsed_seconds": 1045.5, "updated_at": 1793263029.2300653, "current_input": "model:qwen-lm/qwen-3/transformers/8b/1", "files_done": 1, "files_total": 1}
+{"status": "RUNNING", "completed_inputs": 24, "inputs": 31, "elapsed_seconds": 1045.6, "updated_at": 1793263029.2805357, "last_completed": "model:qwen-lm/qwen-3/transformers/8b/1"}
+{"status": "RUNNING", "completed_inputs": 24, "inputs": 31, "elapsed_seconds": 1045.8, "updated_at": 1793263029.4995086, "current_input": "model:qwen-lm/qwen-3/transformers/4b-base/1", "current_files": 1}

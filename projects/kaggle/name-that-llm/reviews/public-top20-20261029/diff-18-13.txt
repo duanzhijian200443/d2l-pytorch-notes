@@ -1,0 +1,260 @@
+--- 
+
++++ 
+
+@@ -1,46 +1,73 @@
+
+-# Name That LLM - full solution: fold-averaged two-stage LoRA24 (Qwen3-8B-Base, Qwen3-14B-Base, Qwen2.5-7B),
+-# Nishant two-stage checkpoints, 4-view n-gram SVM on train+pool, shared-prompt Gaussian, adaptive centred twins,
+-# 10% public ATLAS (source-conditioned likelihood, arXiv 2610.19583) before Sinkhorn balancing.
+-import glob, os, subprocess, json, sys
++import glob, os, sys, json, shutil, subprocess, time
++import numpy as np, pandas as pd
++
++L24_LAYERS = [2, 4, 6, 8, 12, 16, 20, 24]
++W = dict(q14v5=3.0, q8v5=2.0, ll8v5=1.0, n14b=2.5, q25_14=1.0, deb=1.0)   # log-prob weights of the LoRA / encoder members
++TWIN, GAUSS = 0.35, dict(q14v5=0.70, q8v5=0.44)                         # centred twin multiplier; Gaussian group-head weights
++SVC_W, COMP_W = 1.5, 0.15                                                # n-gram SVC weight; linear mix weight of the comp stack
++ATLAS_W, ATLAS_MARGIN = 0.10, 0.3
++INFER_FLAGS = ['--perpassage', '1', '--extra_w', '0.5', '--tfidf_w', '0', '--distort_w', '0', '--adapt_w', '1.0',
++               '--adapt_thr', '0.15', '--sinkhorn', '1.0', '--post', '1', '--atlas_bs', '4', '--atlas_chunk', '3']
++DROP_QWEN35_TOKATTN = True   # original: the comp stack's Qwen3.5-9B token-attention member is dropped (saves 1.7-2.7 h)
+ whl = glob.glob('/kaggle/input/**/bitsandbytes-*.whl', recursive=True)
+-if whl: print(subprocess.run([sys.executable, '-m', 'pip', 'install', '--no-index', '--no-deps', '-q'] + whl, capture_output=True, text=True).returncode)
++if whl:
++    print('bitsandbytes', subprocess.run([sys.executable, '-m', 'pip', 'install', '--no-index', '--no-deps', '-q'] + whl,
++                                         capture_output=True, text=True).returncode)
+ cfgs = sorted(glob.glob('/kaggle/input/**/config.json', recursive=True))
++MISSING = []
++
+ def mdir(*parts):
+     c = [os.path.dirname(x) for x in cfgs if all(p in x.lower() for p in parts)]
+-    assert c, parts; return c[0]
++    if not c: MISSING.append('model ' + ' '.join(parts)); return None
++    return c[0]
++
+ def adir(name):
+-    h = glob.glob(f'/kaggle/input/**/{name}/heads.pt', recursive=True); assert h, name; return os.path.dirname(h[0])
++    h = glob.glob(f'/kaggle/input/**/{name}/heads.pt', recursive=True)
++    if not h: MISSING.append('adapter ' + name); return None
++    return os.path.dirname(h[0])
++
++def nmeta(name):
++    h = glob.glob(f'/kaggle/input/**/{name}/meta.json', recursive=True)
++    if not h: MISSING.append('checkpoint ' + name); return None, {}
++    return os.path.dirname(h[0]), json.load(open(h[0]))['cfg']
++
++def first(pattern, what):
++    h = glob.glob(f'/kaggle/input/**/{pattern}', recursive=True)
++    if not h: MISSING.append(what); return None
++    return h[0]
++
+ DATA = next(p for p in ['/kaggle/input/competitions/name-that-llm', '/kaggle/input/name-that-llm'] if os.path.exists(p + '/train.csv'))
+-HEADS = os.path.dirname(next(iter(glob.glob('/kaggle/input/**/heads/q3_8bx.npz', recursive=True))))
+-EXTRA = next(iter(glob.glob('/kaggle/input/**/nlm_matched_clean.parquet', recursive=True)))
+-POOL = next(iter(glob.glob('/kaggle/input/**/nlm_pool_v5.parquet', recursive=True)))
+-B8, B14, B25 = mdir('/qwen-3/', '/8b-base/'), mdir('/qwen-3/', '/14b-base/'), mdir('/qwen2.5/', '/7b/')
+-I8, I14 = mdir('/qwen-3/', '/8b/'), mdir('/qwen-3/', '/14b/')
+-A8 = [adir(f'ts_q3b8_f{k}') for k in range(5)] + [adir('ts_q3b8')]
+-A14 = [adir(f'ts_q3b14_f{k}') for k in (0, 2, 4)] + [adir('ts_q3b14')]
+-A25 = [adir('ts_q25_7b')]
+-print(B8, B14, B25, I8, I14, A8, A14, A25, HEADS, EXTRA, POOL, sep='\n')
+-def nmeta(name):
+-    h = glob.glob(f'/kaggle/input/**/{name}/meta.json', recursive=True); assert h, name
+-    d = os.path.dirname(h[0]); c = json.load(open(h[0]))['cfg']; return d, c
+-N8, N8C = nmeta('lora8b_v1'); N14, N14C = nmeta('lora14b_v1')
+-print('nishant', N8, N8C['keep'], N8C['max_len'], N14, N14C['keep'], N14C['max_len'])
+-ATLAS = os.path.dirname(next(iter(glob.glob('/kaggle/input/**/atlas_bundle.json', recursive=True))))
+-print('atlas', ATLAS)
+-BL = mdir('/llama-3.1/', '/8b/')
+-AL = [adir(f'ts_llama8_f{k}') for k in (0, 2, 4)] + [adir('ts_llama8')]
+-print('llama', BL, AL)
+-A8S7 = [adir(f'ts8_s7_f{k}') for k in (0, 2, 4)] + [adir('ts8_s7')]
+-print('seed7', A8S7)
+-B25_14 = mdir('/qwen2.5/', '/14b/')
++POOL = first('nlm_pool_v5.parquet', 'dataset dhruvtibarewal/nlm-matched-clean (nlm_pool_v5.parquet)')
++B8, B14 = mdir('/qwen-3/', '/8b-base/'), mdir('/qwen-3/', '/14b-base/')
++BL, B25_14 = mdir('/llama-3.1/', '/8b/'), mdir('/qwen2.5/', '/14b/')
++AQ14V5 = [adir(f'q14v5_f{k}') for k in range(5)] + [adir('q14v5')]
++AQ8V5 = [adir(f'q8v5_f{k}') for k in range(5)] + [adir('q8v5')]
++ALL8V5 = [adir(f'll8v5_f{k}') for k in range(5)] + [adir('ll8v5')]
+ N14B, N14BC = nmeta('lora_qwen3_14b'); Q25_14, Q25_14C = nmeta('lora_qwen25_14b')
+-DEB = os.path.dirname(glob.glob('/kaggle/input/**/deberta_v3_large/meta.json', recursive=True)[0])
+-import shutil; shutil.copytree(DEB, '/kaggle/working/deberta_v3_large', dirs_exist_ok=True); DEB = '/kaggle/working/deberta_v3_large'
+-print('part two', N14B, N14BC['keep'], N14BC['layers'], N14BC.get('eos_id'), Q25_14, Q25_14C['keep'], Q25_14C['layers'], DEB)
+-AQ8V5 = [adir(f'q8v5_f{k}') for k in range(5)] + [adir('q8v5')]
+-print('q8v5', AQ8V5)
+-AQ14V5 = [adir(f'q14v5_f{k}') for k in range(5)] + [adir('q14v5')]
+-ALL8V5 = [adir(f'll8v5_f{k}') for k in range(5)] + [adir('ll8v5')]
+-print('v5', AQ14V5, ALL8V5)
+-
++_deb = first('deberta_v3_large/meta.json', 'dataset nishantdahal/ntl-handwriting-blend (deberta_v3_large)')
++if MISSING:
++    raise FileNotFoundError('Attach these inputs (+ Add Input):\n  ' + '\n  '.join(MISSING))
++DEB = '/kaggle/temp/deberta_v3_large'
++shutil.copytree(os.path.dirname(_deb), DEB, dirs_exist_ok=True)   # one long copy beats many small reads from the mount
++_atlas = glob.glob('/kaggle/input/**/atlas_bundle.json', recursive=True)
++ATLAS = os.path.dirname(_atlas[0]) if _atlas else ''
++print('ATLAS bundle:', ATLAS or 'not attached (ATLAS step skipped)')
++print('part two', N14BC['keep'], N14BC['layers'], N14BC.get('eos_id'), '|', Q25_14C['keep'], Q25_14C['layers'])
++from sklearn.feature_extraction.text import TfidfVectorizer
++_test = pd.read_csv(f'{DATA}/test.csv'); _train = pd.read_csv(f'{DATA}/train.csv')
++_pool = pd.read_parquet(POOL)
++print('nlm_pool_v5:', _pool.shape, 'columns', list(_pool.columns))
++print(_pool['model'].value_counts().to_string() if 'model' in _pool else '')
++if len(_test) < 50:
++    norm = lambda s: ' '.join(str(s).split())
++    pool_set = set(_pool.text.map(norm))
++    print('exact test-in-pool :', sum(norm(t) in pool_set for t in _test.text), 'of', len(_test))
++    print('exact train-in-pool:', sum(norm(t) in pool_set for t in _train.text), 'of', len(_train))
++    v = TfidfVectorizer(analyzer='char', ngram_range=(5, 5), sublinear_tf=True, min_df=1, dtype=np.float32)
++    Xp = v.fit_transform(_pool.text.astype(str)); Xt = v.transform(_test.text.astype(str))
++    sim = (Xt @ Xp.T).toarray()
++    for i, row in enumerate(sim):
++        j = int(row.argmax())
++        print(f'test {i}: nearest pool cosine {row[j]:.3f}  (pool label {_pool.model.iloc[j] if "model" in _pool else "?"})')
++del _pool
+ %%writefile gauss.py
+@@ -193,3 +220,2 @@
+
+     return out
+-
+ %%writefile infer.py
+@@ -327,3 +353,3 @@
+
+ EXT_T, EXT_Y = np.array([], dtype=object), np.array([], dtype=int)
+-if a.extra:
++if a.extra and (a.tfidf_w != 0 or a.distort_w > 0):   # [restructure] extra rows feed only the TF-IDF / distort members
+     _E = pd.read_parquet(a.extra) if a.extra.endswith('.parquet') else pd.read_csv(a.extra)
+@@ -335,15 +361,18 @@
+
+ from sklearn.linear_model import LogisticRegression
+-mats_tr, mats_te = [], []
+-for kw in [dict(analyzer='char_wb', ngram_range=(2, 5), min_df=3, max_features=60000),
+-           dict(token_pattern=r"\w+|[^\w\s]", ngram_range=(1, 2), min_df=3, max_features=30000)]:
+-    vec = TfidfVectorizer(sublinear_tf=True, lowercase=False, **kw).fit(FIT_T if a.perpassage else train.text.values)
+-    mats_tr.append(vec.transform(FIT_T if a.perpassage else train.text.values)); mats_te.append(vec.transform(test.text.values))
+-if a.perpassage:
+-    LP['tfidf'] = LogisticRegression(C=20, max_iter=3000).fit(sp.hstack(mats_tr).tocsr(), FIT_Y, sample_weight=FIT_W).predict_log_proba(sp.hstack(mats_te).tocsr()) * a.tfidf_w
++if a.tfidf_w != 0:   # [restructure] the weight-0 TF-IDF member was fitted but contributed exactly 0: skipped
++    mats_tr, mats_te = [], []
++    for kw in [dict(analyzer='char_wb', ngram_range=(2, 5), min_df=3, max_features=60000),
++               dict(token_pattern=r"\w+|[^\w\s]", ngram_range=(1, 2), min_df=3, max_features=30000)]:
++        vec = TfidfVectorizer(sublinear_tf=True, lowercase=False, **kw).fit(FIT_T if a.perpassage else train.text.values)
++        mats_tr.append(vec.transform(FIT_T if a.perpassage else train.text.values)); mats_te.append(vec.transform(test.text.values))
++    if a.perpassage:
++        LP['tfidf'] = LogisticRegression(C=20, max_iter=3000).fit(sp.hstack(mats_tr).tocsr(), FIT_Y, sample_weight=FIT_W).predict_log_proba(sp.hstack(mats_te).tocsr()) * a.tfidf_w
++    else:
++        Xtr = center_groups(sp.hstack(mats_tr).toarray().astype(np.float32), Gtr)
++        Xte = center_groups(sp.hstack(mats_te).toarray().astype(np.float32), Gte)
++        LP['tfidf'] = LogisticRegression(C=5, max_iter=3000).fit(Xtr, y).predict_log_proba(Xte) * a.tfidf_w
++        del Xtr, Xte
++    gc.collect(); log('tfidf done')
+ else:
+-    Xtr = center_groups(sp.hstack(mats_tr).toarray().astype(np.float32), Gtr)
+-    Xte = center_groups(sp.hstack(mats_te).toarray().astype(np.float32), Gte)
+-    LP['tfidf'] = LogisticRegression(C=5, max_iter=3000).fit(Xtr, y).predict_log_proba(Xte) * a.tfidf_w
+-    del Xtr, Xte
+-gc.collect(); log('tfidf done')
++    log('tfidf skipped (weight 0)')
+ if a.svc_w > 0:  # public 4-view n-gram LinearSVC (char / word+punct / shape / function words) on train + pool
+@@ -717,2 +746,4 @@
+
+     np.save(a.save_lp, _lsm(tot / max(wtot, 1e-6), axis=1).astype(np.float32)); log('saved', a.save_lp, 'norm', wtot)
++np.savez_compressed(os.path.join(os.path.dirname(os.path.abspath(a.out)), 'members_logprob.npz'),   # [restructure] for offline reblending
++                    ids=test.id.astype(str).values, labels=np.asarray(LABELS), final=tot, **LP)
+ sub = pd.DataFrame({'id': test.id.values, 'model': [LABELS[i] for i in pred]})
+@@ -720,3 +751,2 @@
+
+ sub.to_parquet(a.out, index=False); log('wrote', a.out, sub.model.value_counts().to_dict())
+-
+ %%writefile comp_stack.py
+@@ -1033,28 +1063,4 @@
+
+ 
+-# ---- gates: style SVCs that only re-rank inside one family after the blend
+-def family_gate(texts, labels, classes, C, sample_weight=None, balanced=False):
+-    g = StyleGrams().fit(texts)
+-    svc = LinearSVC(C=C, class_weight='balanced' if balanced else None, random_state=42, max_iter=4000).fit(
+-        g.transform(texts), labels, sample_weight=sample_weight)
+-    assert list(svc.classes_) == list(classes)
+-    d = svc.decision_function(g.transform(TE))
+-    return np.column_stack([-d, d]) if len(classes) == 2 else d
+-
+-
+-GATES = {}
+-api_claude = sorted(glob.glob('/kaggle/input/**/ntl_extra_passages_claude.csv', recursive=True))
+-if api_claude:
+-    api = pd.read_csv(api_claude[0])
+-    m = np.isin(y, FAMILY_IDX['claude'])
+-    GATES['claude'] = family_gate([t for t, k in zip(TR, m) if k] + api['text'].astype(str).tolist(),
+-                                  np.concatenate([y[m], api['model'].map(LAB2I).to_numpy(dtype=int)]), FAMILY_IDX['claude'], 0.5)
+-    print(f'claude gate: {int(m.sum())} official + {len(api)} API rows', flush=True)
+-    del api
+-else:
+-    print('Claude API passages not attached: Claude gate off', flush=True)
+-for fam, C in [('gpt', 1.0), ('gemini', 1.0), ('glm', 0.5)]:
+-    m, me = np.isin(y, FAMILY_IDX[fam]), np.isin(EX_Y, FAMILY_IDX[fam])
+-    GATES[fam] = family_gate([t for t, k in zip(TR, m) if k] + [t for t, k in zip(EX_T, me) if k], np.concatenate([y[m], EX_Y[me]]),
+-                             FAMILY_IDX[fam], C, sample_weight=np.concatenate([np.ones(int(m.sum())), np.full(int(me.sum()), 0.25)]), balanced=True)
+-    print(f'{fam} gate: {int(m.sum())} official + {int(me.sum())} extra rows', flush=True)
++# [restructure] the family / Claude gate SVCs of the upstream stack were fitted here but never read: removed.
++GATES = {}   # still written to by the LoRA section below; never read
+ del grams, X_tr, X_ex, X_te
+@@ -1624,24 +1630,39 @@
+
+ print(f'COMP STACK DONE {time.time() - T0:.0f}s', flush=True)
+-
+-# complementary public stack in its own process (frees all GPU memory when done); its wall time is charged to the ATLAS budget
+-import time as _t
+-_c0 = _t.time()
+-import os; os.environ['NTL_DROP_Q35'] = '1'
++_c0 = time.time()
++if DROP_QWEN35_TOKATTN:
++    os.environ['NTL_DROP_Q35'] = '1'
+ !python comp_stack.py 2>&1 | grep -vE 'Warning|warn'
+-COMP_SEC = _t.time() - _c0
++COMP_SEC = time.time() - _c0
+ print('comp stack wall time', round(COMP_SEC))
+ 
+-W_N14, W_N8 = 1.0, 0.5
+-L = [2, 4, 6, 8, 12, 16, 20, 24]
++if os.path.exists('/kaggle/working/comp_logit.npy'):
++    _cm = json.load(open('/kaggle/working/comp_meta.json')); _cl = np.load('/kaggle/working/comp_logit.npy')
++    _P = np.exp(_cl - _cl.max(1, keepdims=True)); _P /= _P.sum(1, keepdims=True)
++    if len(_P) >= 50:
++        for _ in range(100):
++            _P *= (len(_P) / 18) / _P.sum(0, keepdims=True); _P /= _P.sum(1, keepdims=True)
++    pd.DataFrame({'id': _cm['ids'], 'model': np.array(_cm['labels'])[_P.argmax(1)]}).to_parquet('submission.parquet', index=False)
++    print('fallback submission (comp stack only) written')
++else:
++    print('WARNING: comp stack produced no output; stage B will run without it')
+ MODELS = [
+-  {"name": "q14v5", "type": "l24", "path": B14, "adapters": AQ14V5, "keep": 27, "layers": L, "w": 3.0, "bs": 8, "max_len": 384, "twin": 0.35, "gauss": 0.70},
+-  {"name": "q8v5", "type": "l24", "path": B8, "adapters": AQ8V5, "keep": 24, "layers": L, "w": 2.0, "bs": 16, "max_len": 384, "twin": 0.35, "gauss": 0.44},
+-  {"name": "ll8v5", "type": "l24", "path": BL, "adapters": ALL8V5, "keep": 24, "layers": L, "w": 1.0, "bs": 16, "max_len": 384, "twin": 0.35},
+-  {"name": "n14b", "type": "l24", "path": B14, "adapters": [N14B], "keep": N14BC['keep'], "layers": N14BC['layers'], "w": 2.5, "bs": 8, "max_len": N14BC['max_len'], "twin": 0.35, "no_final_norm": True, "eos_id": N14BC['eos_id']},
+-  {"name": "q25_14", "type": "l24", "path": B25_14, "adapters": [Q25_14], "keep": Q25_14C['keep'], "layers": Q25_14C['layers'], "w": 1.0, "bs": 8, "max_len": Q25_14C['max_len'], "twin": 0.35, "no_final_norm": True, "eos_id": Q25_14C['eos_id']},
+-  {"name": "deb", "type": "enc", "ckpt": DEB, "w": 1.0},
++  {"name": "q14v5", "type": "l24", "path": B14, "adapters": AQ14V5, "keep": 27, "layers": L24_LAYERS, "w": W['q14v5'], "bs": 8,  "max_len": 384, "twin": TWIN, "gauss": GAUSS['q14v5']},
++  {"name": "q8v5",  "type": "l24", "path": B8,  "adapters": AQ8V5,  "keep": 24, "layers": L24_LAYERS, "w": W['q8v5'],  "bs": 16, "max_len": 384, "twin": TWIN, "gauss": GAUSS['q8v5']},
++  {"name": "ll8v5", "type": "l24", "path": BL,  "adapters": ALL8V5, "keep": 24, "layers": L24_LAYERS, "w": W['ll8v5'], "bs": 16, "max_len": 384, "twin": TWIN},
++  {"name": "n14b",  "type": "l24", "path": B14, "adapters": [N14B], "keep": N14BC['keep'], "layers": N14BC['layers'], "w": W['n14b'], "bs": 8,
++   "max_len": N14BC['max_len'], "twin": TWIN, "no_final_norm": True, "eos_id": N14BC['eos_id']},
++  {"name": "q25_14", "type": "l24", "path": B25_14, "adapters": [Q25_14], "keep": Q25_14C['keep'], "layers": Q25_14C['layers'], "w": W['q25_14'], "bs": 8,
++   "max_len": Q25_14C['max_len'], "twin": TWIN, "no_final_norm": True, "eos_id": Q25_14C['eos_id']},
++  {"name": "deb", "type": "enc", "ckpt": DEB, "w": W['deb']},
+ ]
+-import pandas as pd
+ ATLAS_BUDGET = int(8.3 * 3600 - COMP_SEC - 600)
+-!python infer.py --data {DATA} --models '{json.dumps(MODELS)}' --perpassage 1 --extra {EXTRA} --extra_w 0.5 --tfidf_w 0 --distort_w 0 --svc_w 1.5 --pool {POOL} --adapt_w 1.0 --adapt_thr 0.15 --sinkhorn 1.0 --post 1 --atlas_dir {ATLAS} --atlas_base {B8} --atlas_w 0.10 --atlas_margin 0.3 --atlas_bs 4 --atlas_chunk 3 --atlas_budget {ATLAS_BUDGET} --comp_path /kaggle/working/comp_logit.npy --comp_w 0.15 --out submission.parquet --cache /kaggle/working/cache
++cmd = [sys.executable, 'infer.py', '--data', DATA, '--models', json.dumps(MODELS), '--svc_w', str(SVC_W), '--pool', POOL,
++       '--comp_path', '/kaggle/working/comp_logit.npy', '--comp_w', str(COMP_W),
++       '--out', 'submission.parquet', '--cache', '/kaggle/temp/cache', *INFER_FLAGS]
++if ATLAS:
++    cmd += ['--atlas_dir', ATLAS, '--atlas_base', B8, '--atlas_w', str(ATLAS_W), '--atlas_margin', str(ATLAS_MARGIN),
++            '--atlas_budget', str(ATLAS_BUDGET)]
++rc = subprocess.run(cmd).returncode
++print('=' * 80)
++print('STAGE B OK: full blend submitted' if rc == 0 else f'STAGE B FAILED (exit {rc}): the comp-stack fallback submission is in place')
+ print(pd.read_parquet('submission.parquet').head())

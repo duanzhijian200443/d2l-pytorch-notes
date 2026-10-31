@@ -1,0 +1,170 @@
+{
+  "observed_at": "2026-10-30T15:16:41.600Z",
+  "url": "https://www.kaggle.com/competitions/name-that-llm/code?competitionId=170484&sortBy=scoreDescending&excludeNonAccessedDatasources=true",
+  "rows": [
+    {
+      "text": "Score: 0.322 · 0 comments · Name That LLM",
+      "url": "https://www.kaggle.com/code/martynaplomecka/starter-notebook-for-name-that-llm-competition"
+    },
+    {
+      "text": "Score: 1645.5 · 0 comments · Name That LLM +15",
+      "url": "https://www.kaggle.com/code/leoprovorov/he-who-must-not-be-named"
+    },
+    {
+      "text": "Score: 1019.8 · 0 comments · Name That LLM",
+      "url": "https://www.kaggle.com/code/ozertuu/177-180-fresh-top-30-v21-1-conditional-memory"
+    },
+    {
+      "text": "Score: 0.663 · 0 comments · Name That LLM +29",
+      "url": "https://www.kaggle.com/code/omerfarukmerey/0-663-0-660-v31-atlas-20"
+    },
+    {
+      "text": "Score: 0.662 · 0 comments · Name That LLM +30",
+      "url": "https://www.kaggle.com/code/alexchilton/name-that-llm-0-662-all-public-what-failed"
+    },
+    {
+      "text": "Score: 0.662 · 3 comments · Name That LLM +29",
+      "url": "https://www.kaggle.com/code/lightningv08/0-662-qwen3-8-27b-lora-weighted-ensemble"
+    },
+    {
+      "text": "Score: 0.662 · 0 comments · Name That LLM +30",
+      "url": "https://www.kaggle.com/code/roserrll/name-that-llm-0663-v31-atlas20-alex"
+    },
+    {
+      "text": "Score: 0.662 · 0 comments · Name That LLM +30",
+      "url": "https://www.kaggle.com/code/huesosinapoganaya/0-663-0-660-v31-atlas-20"
+    },
+    {
+      "text": "Score: 0.662 · 0 comments · Name That LLM +28",
+      "url": "https://www.kaggle.com/code/youdian1s/ntl-0-662-all-public-fork"
+    },
+    {
+      "text": "Score: 0.662 · 0 comments · Name That LLM +30",
+      "url": "https://www.kaggle.com/code/ye070301/ntl-0663-v31-atlas20"
+    },
+    {
+      "text": "Score: 0.662 · 0 comments · Name That LLM +30",
+      "url": "https://www.kaggle.com/code/negi69/ntl-0-663-v31-atlas20-repro"
+    },
+    {
+      "text": "Score: 0.662 · 0 comments · Name That LLM +30",
+      "url": "https://www.kaggle.com/code/junaid512/ntl-v1-baseline"
+    },
+    {
+      "text": "Score: 0.662 · 0 comments · Name That LLM +30",
+      "url": "https://www.kaggle.com/code/dfenglei/ntl-repro-0662"
+    },
+    {
+      "text": "Score: 0.662 · 0 comments · Name That LLM +30",
+      "url": "https://www.kaggle.com/code/otmaneelmahdaouy/ntl-v40-summit-pinnacle"
+    },
+    {
+      "text": "Score: 0.662 · 0 comments · Name That LLM +28",
+      "url": "https://www.kaggle.com/code/dosssi4nzk/muse-guard-ntl-youdian1s-0-662-api-copy"
+    },
+    {
+      "text": "Score: 0.661 · 0 comments · Name That LLM +30",
+      "url": "https://www.kaggle.com/code/pablodiegoo/name-that-llm-starter-notebook"
+    },
+    {
+      "text": "Score: 0.661 · 0 comments · Name That LLM +29",
+      "url": "https://www.kaggle.com/code/lightningv08/0-661-qwen3-8-27b-lora-spectral-ensemble"
+    },
+    {
+      "text": "Score: 0.661 · 0 comments · Name That LLM +31",
+      "url": "https://www.kaggle.com/code/pikaaa/name-that-llm-v20-pool-centred"
+    },
+    {
+      "text": "Score: 0.66 · 5 comments · Name That LLM +30",
+      "url": "https://www.kaggle.com/code/romantamrazov/name-that-llm-who-am-i"
+    },
+    {
+      "text": "Score: 0.66 · 0 comments · Name That LLM +30",
+      "url": "https://www.kaggle.com/code/mercurydust/name-that-llm-submission"
+    },
+    {
+      "text": "Score: 0.66 · 1 comment · Name That LLM +34",
+      "url": "https://www.kaggle.com/code/ozertuu/public-lb-0-66"
+    },
+    {
+      "text": "Score: 0.66 · 0 comments · Name That LLM +30",
+      "url": "https://www.kaggle.com/code/otmaneelmahdaouy/ntl-v39-summit-sovereign"
+    },
+    {
+      "text": "Score: 0.66 · 0 comments · Name That LLM +28",
+      "url": "https://www.kaggle.com/code/youdian1s/ntl-tuned-blend-calib-refit"
+    },
+    {
+      "text": "Score: 0.66 · 0 comments · Name That LLM +28",
+      "url": "https://www.kaggle.com/code/youdian1s/ntl-atlas-0-45-probe"
+    },
+    {
+      "text": "Score: 0.659 · 0 comments · Name That LLM +29",
+      "url": "https://www.kaggle.com/code/roserrll/name-that-llm-glm-augmented-reproduction"
+    },
+    {
+      "text": "Score: 0.659 · 0 comments · Name That LLM +29",
+      "url": "https://www.kaggle.com/code/otmaneelmahdaouy/ntl-v38-summit-apex"
+    },
+    {
+      "text": "Score: 0.659 · 0 comments · Name That LLM +29",
+      "url": "https://www.kaggle.com/code/yuna5577/name-that-llm-0-659-0-660-without-llama"
+    },
+    {
+      "text": "Score: 0.658 · 0 comments · Name That LLM +31",
+      "url": "https://www.kaggle.com/code/xianyu3/mercury-v31-v9-svc-v1-20261029"
+    },
+    {
+      "text": "Score: 0.658 · 0 comments · Name That LLM +29",
+      "url": "https://www.kaggle.com/code/alperensylen/exp25-v31-llamafree-atlas20-sota"
+    },
+    {
+      "text": "Score: 0.658 · 0 comments · Name That LLM +29",
+      "url": "https://www.kaggle.com/code/otmaneelmahdaouy/ntl-v37-grandmaster-apex"
+    },
+    {
+      "text": "Score: 0.657 · 0 comments · Name That LLM +27",
+      "url": "https://www.kaggle.com/code/drozanes/name-that-llm-apex-ensemble-atlas-hungarian"
+    },
+    {
+      "text": "Score: 0.656 · 0 comments · Name That LLM +30",
+      "url": "https://www.kaggle.com/code/zhangbowen1005/ntl-660-nocomp"
+    },
+    {
+      "text": "Score: 0.655 · 0 comments · Name That LLM +30",
+      "url": "https://www.kaggle.com/code/otmaneelmahdaouy/ntl-v35-apex-championship"
+    },
+    {
+      "text": "Score: 0.654 · 0 comments · Name That LLM +30",
+      "url": "https://www.kaggle.com/code/otmaneelmahdaouy/ntl-v33-championship-veritable"
+    },
+    {
+      "text": "Score: 0.653 · 0 comments · Name That LLM +30",
+      "url": "https://www.kaggle.com/code/peterdreamhan/name-that-llm-soft-sinkhorn-0-5-t4"
+    },
+    {
+      "text": "Score: 0.653 · 0 comments · Name That LLM +30",
+      "url": "https://www.kaggle.com/code/stanislavilin2026ai/0-653-soft-sinkhorn-bayesian-typography"
+    },
+    {
+      "text": "Score: 0.651 · 2 comments · Name That LLM +31",
+      "url": "https://www.kaggle.com/code/maverickss26/kaggle-name-the-llm-v3"
+    },
+    {
+      "text": "Score: 0.651 · 0 comments · Name That LLM +32",
+      "url": "https://www.kaggle.com/code/mohammedafreedpasha/name-that-llm-solution"
+    },
+    {
+      "text": "Score: 0.651 · 0 comments · Name That LLM +30",
+      "url": "https://www.kaggle.com/code/alexchilton/name-that-llm-0-651-lora24-atlas-ensemble"
+    },
+    {
+      "text": "Score: 0.651 · 2 comments · Name That LLM +30",
+      "url": "https://www.kaggle.com/code/dhruvtibarewal/nlm-v27"
+    },
+    {
+      "text": "Score: 0.651 · 0 comments · Name That LLM +32",
+      "url": "https://www.kaggle.com/code/harshitakumari256/nlm-v27"
+    }
+  ]
+}

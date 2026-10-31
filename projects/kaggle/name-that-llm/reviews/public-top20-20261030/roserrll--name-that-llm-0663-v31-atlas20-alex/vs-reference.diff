@@ -1,0 +1,22 @@
+--- omerfarukmerey--0-663-0-660-v31-atlas-20
++++ roserrll--name-that-llm-0663-v31-atlas20-alex
+@@ -30,9 +30,17 @@
+ print('nishant', N8, N8C['keep'], N8C['max_len'], N14, N14C['keep'], N14C['max_len'])
+ ATLAS = os.path.dirname(next(iter(glob.glob('/kaggle/input/**/atlas_bundle.json', recursive=True))))
+ print('atlas', ATLAS)
+-BL = mdir('/llama-3.1/', '/8b/')
++try:
++    BL = mdir('/llama-3.1/', '/8b/')
++    _LLAMA_SOURCE = 'metaresearch/llama-3.1'
++except AssertionError:
++    BL = mdir('llama-3-1-8b-base', '')
++    _LLAMA_SOURCE = 'alexchilton/llama-3-1-8b-base'
+ _SHARDS = {'model-00001-of-00004.safetensors': 4976698672, 'model-00002-of-00004.safetensors': 4999802720, 'model-00003-of-00004.safetensors': 4915916176, 'model-00004-of-00004.safetensors': 1168138808}
+-assert 'name-that-llm-verified-llama-asset-cache' in BL and all(os.path.getsize(os.path.join(BL, f)) == n for f, n in _SHARDS.items()), BL   # fork: Llama-3.1-8B from avazaku's public cache (NousResearch copy)
++assert all(os.path.isfile(os.path.join(BL, f)) for f in _SHARDS), (BL, _LLAMA_SOURCE)
++if _LLAMA_SOURCE == 'metaresearch/llama-3.1':
++    assert all(os.path.getsize(os.path.join(BL, f)) == n for f, n in _SHARDS.items()), BL
++print('llama source', _LLAMA_SOURCE, BL, {f: os.path.getsize(os.path.join(BL, f)) for f in _SHARDS}, flush=True)
+ AL = [adir(f'ts_llama8_f{k}') for k in (0, 2, 4)] + [adir('ts_llama8')]
+ import shutil, time as _tc; _c = _tc.time()
+ shutil.copytree(BL, '/tmp/llama-3.1/8b', dirs_exist_ok=True); BL = '/tmp/llama-3.1/8b'   # fork: see the intro

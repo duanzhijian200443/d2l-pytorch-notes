@@ -1,0 +1,37 @@
+{"status": "RUNNING", "completed_inputs": 0, "inputs": 31, "elapsed_seconds": 0.0, "updated_at": 1793269872.0713382}
+{"status": "RUNNING", "completed_inputs": 1, "inputs": 31, "elapsed_seconds": 2.4, "updated_at": 1793269874.444109, "last_completed": "dataset:dhruvtibarewal/nlm-l24-adapters"}
+{"status": "RUNNING", "completed_inputs": 2, "inputs": 31, "elapsed_seconds": 3.6, "updated_at": 1793269875.700298, "last_completed": "dataset:seyitkaangunes/ntl-extra-api-passages"}
+{"status": "RUNNING", "completed_inputs": 3, "inputs": 31, "elapsed_seconds": 4.7, "updated_at": 1793269876.7366793, "last_completed": "dataset:abdullah1afify/ntl-generations"}
+{"status": "RUNNING", "completed_inputs": 4, "inputs": 31, "elapsed_seconds": 5.4, "updated_at": 1793269877.4285502, "last_completed": "dataset:dophuchung/ntl-proxy-generations"}
+{"status": "RUNNING", "completed_inputs": 5, "inputs": 31, "elapsed_seconds": 6.0, "updated_at": 1793269878.0866807, "last_completed": "dataset:zbigniewkirchner/ntl-qwen3-8b-lora-claude-head"}
+{"status": "RUNNING", "completed_inputs": 6, "inputs": 31, "elapsed_seconds": 6.5, "updated_at": 1793269878.6054535, "last_completed": "dataset:dhruvtibarewal/nlm-matched-clean"}
+{"status": "RUNNING", "completed_inputs": 7, "inputs": 31, "elapsed_seconds": 7.1, "updated_at": 1793269879.1892905, "last_completed": "dataset:dhruvtibarewal/nlm-offline-wheels"}
+{"status": "RUNNING", "completed_inputs": 8, "inputs": 31, "elapsed_seconds": 7.9, "updated_at": 1793269879.99149, "last_completed": "dataset:josephadamski91/ntl-atlas-qwen3-8b-v1"}
+{"status": "RUNNING", "completed_inputs": 9, "inputs": 31, "elapsed_seconds": 8.6, "updated_at": 1793269880.6792011, "last_completed": "dataset:lucasboesen/ntl-free-proxy-generations"}
+{"status": "RUNNING", "completed_inputs": 10, "inputs": 31, "elapsed_seconds": 9.3, "updated_at": 1793269881.3352587, "last_completed": "dataset:nishantdahal/ntl-two-stage-lora"}
+{"status": "RUNNING", "completed_inputs": 11, "inputs": 31, "elapsed_seconds": 10.0, "updated_at": 1793269882.0576699, "last_completed": "dataset:nishantdahal/ntl-handwriting-blend"}
+{"status": "RUNNING", "completed_inputs": 12, "inputs": 31, "elapsed_seconds": 10.6, "updated_at": 1793269882.6339097, "last_completed": "dataset:dhruvtibarewal/nlm-l24-adapters-v5"}
+{"status": "RUNNING", "completed_inputs": 13, "inputs": 31, "elapsed_seconds": 11.3, "updated_at": 1793269883.3537302, "last_completed": "dataset:prvsiyan/prvsiyans-extended-name-that-llm-dataset"}
+{"status": "RUNNING", "completed_inputs": 14, "inputs": 31, "elapsed_seconds": 12.0, "updated_at": 1793269884.0585246, "last_completed": "dataset:pjmathematician/ultrabert-380m-ntl"}
+{"status": "RUNNING", "completed_inputs": 15, "inputs": 31, "elapsed_seconds": 12.2, "updated_at": 1793269884.2818077, "last_completed": "dataset:zhjianduan/llama31-8b-base-verified"}
+{"status": "RUNNING", "completed_inputs": 16, "inputs": 31, "elapsed_seconds": 13.4, "updated_at": 1793269885.4355025, "last_completed": "notebook:lucasboesen/name-that-llm-glm4-9b-trunc25"}
+{"status": "RUNNING", "completed_inputs": 17, "inputs": 31, "elapsed_seconds": 14.0, "updated_at": 1793269886.0547004, "last_completed": "notebook:lucasboesen/name-that-llm-extract-encoders2"}
+{"status": "RUNNING", "completed_inputs": 18, "inputs": 31, "elapsed_seconds": 14.5, "updated_at": 1793269886.6172636, "last_completed": "notebook:lucasboesen/name-that-llm-electra-large-weights"}
+{"status": "RUNNING", "completed_inputs": 19, "inputs": 31, "elapsed_seconds": 15.1, "updated_at": 1793269887.1358125, "last_completed": "notebook:lucasboesen/name-that-llm-desklib-weights"}
+{"status": "RUNNING", "completed_inputs": 20, "inputs": 31, "elapsed_seconds": 15.6, "updated_at": 1793269887.6804976, "last_completed": "notebook:lucasboesen/name-that-llm-train-lora24-s7"}
+{"status": "RUNNING", "completed_inputs": 21, "inputs": 31, "elapsed_seconds": 16.2, "updated_at": 1793269888.251105, "last_completed": "notebook:lucasboesen/name-that-llm-train-tokattn"}
+{"status": "RUNNING", "completed_inputs": 22, "inputs": 31, "elapsed_seconds": 16.7, "updated_at": 1793269888.8161278, "last_completed": "notebook:lucasboesen/name-that-llm-train-tokattn2"}
+{"status": "RUNNING", "completed_inputs": 23, "inputs": 31, "elapsed_seconds": 17.7, "updated_at": 1793269889.7719398, "last_completed": "notebook:vnton37nguyn/ntl-train-lora-qwen25-instyle"}
+{"status": "RUNNING", "completed_inputs": 24, "inputs": 31, "elapsed_seconds": 18.9, "updated_at": 1793269891.005447, "last_completed": "model:qwen-lm/qwen-3/transformers/8b/1"}
+{"status": "RUNNING", "completed_inputs": 25, "inputs": 31, "elapsed_seconds": 19.5, "updated_at": 1793269891.5699348, "last_completed": "model:qwen-lm/qwen-3/transformers/4b-base/1"}
+{"status": "RUNNING", "completed_inputs": 26, "inputs": 31, "elapsed_seconds": 20.1, "updated_at": 1793269892.1244528, "last_completed": "model:qwen-lm/qwen-3/transformers/8b-base/1"}
+{"status": "RUNNING", "completed_inputs": 27, "inputs": 31, "elapsed_seconds": 20.6, "updated_at": 1793269892.7107856, "last_completed": "model:qwen-lm/qwen-3/transformers/14b-base/1"}
+{"status": "RUNNING", "completed_inputs": 28, "inputs": 31, "elapsed_seconds": 21.2, "updated_at": 1793269893.2672453, "last_completed": "model:qwen-lm/qwen-3/transformers/14b/1"}
+{"status": "RUNNING", "completed_inputs": 29, "inputs": 31, "elapsed_seconds": 22.1, "updated_at": 1793269894.1745532, "last_completed": "model:qwen-lm/qwen2.5/transformers/7b/1"}
+{"status": "RUNNING", "completed_inputs": 29, "inputs": 31, "elapsed_seconds": 22.3, "updated_at": 1793269894.3655655, "current_input": "model:qwen-lm/qwen2.5/transformers/14b/1", "current_files": 1}
+{"status": "RUNNING", "completed_inputs": 29, "inputs": 31, "elapsed_seconds": 1262.6, "updated_at": 1793271134.6609535, "current_input": "model:qwen-lm/qwen2.5/transformers/14b/1", "files_done": 1, "files_total": 1}
+{"status": "RUNNING", "completed_inputs": 30, "inputs": 31, "elapsed_seconds": 1263.0, "updated_at": 1793271135.0479832, "last_completed": "model:qwen-lm/qwen2.5/transformers/14b/1"}
+{"status": "RUNNING", "completed_inputs": 30, "inputs": 31, "elapsed_seconds": 1263.4, "updated_at": 1793271135.514231, "current_input": "competition:name-that-llm", "current_files": 1}
+{"status": "RUNNING", "completed_inputs": 30, "inputs": 31, "elapsed_seconds": 1264.9, "updated_at": 1793271136.946249, "current_input": "competition:name-that-llm", "files_done": 1, "files_total": 1}
+{"status": "RUNNING", "completed_inputs": 31, "inputs": 31, "elapsed_seconds": 1265.3, "updated_at": 1793271137.3291671, "last_completed": "competition:name-that-llm"}
+{"status": "READY", "completed_inputs": 31, "inputs": 31, "elapsed_seconds": 1268.2, "updated_at": 1793271140.2992597, "historical_hashes": "PASS"}

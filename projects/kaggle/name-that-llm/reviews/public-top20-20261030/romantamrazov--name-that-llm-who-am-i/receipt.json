@@ -1,0 +1,21 @@
+{
+  "ref": "romantamrazov/name-that-llm-who-am-i",
+  "title": "Name That LLM | Who am I?",
+  "version": 33,
+  "id": 140038898,
+  "source_sha256": "1f8e5dc9af9b506bbdd5e1eb503abafce007281522e5fc2fa0a10ca76ba19412",
+  "code_sha256": "37508c3e1d4313f77531dfaa3d94fcbc7db12ecf636d06d747971b4a1b18cb07",
+  "private": false,
+  "directory": "romantamrazov--name-that-llm-who-am-i",
+  "score": 0.66,
+  "url": "https://www.kaggle.com/code/romantamrazov/name-that-llm-who-am-i",
+  "page_order": 16,
+  "rank": 16,
+  "observed_at": "2026-10-30T15:16:41.600Z",
+  "note": "最新保存版 33，正文为 V40A：按 prompt 分组 OOF 控制家族内风格残差。",
+  "score_is_bound_to_downloaded_version": false,
+  "source_reader": "Kaggle MCP get_notebook_info",
+  "score_reader": "Kaggle Code page rendered Score via browser DOM",
+  "retrieved_by_refresh_date": "2026-10-30",
+  "downloaded_source_executed": false
+}

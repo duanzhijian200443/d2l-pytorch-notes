@@ -1,0 +1,33 @@
+--- V32
++++ ATLAS20
+@@ -2,8 +2,8 @@
+ L = [2, 4, 6, 8, 12, 16, 20, 24]
+ MODELS = [
+   {"name": "q14v5", "type": "l24", "path": B14, "adapters": AQ14V5, "keep": 27, "layers": L, "w": 3.0, "bs": 8, "max_len": 384, "twin": 0.35, "gauss": 0.70},
+-  {"name": "q8v5", "type": "l24", "path": B8, "adapters": AQ8V5, "keep": 24, "layers": L, "w": 2.0, "bs": 16, "max_len": 384, "twin": 0.35, "gauss": 0.44},
+-  {"name": "ll8v5", "type": "l24", "path": BL, "adapters": ALL8V5, "keep": 24, "layers": L, "w": 1.0, "bs": 16, "max_len": 384, "twin": 0.35},
++  {"name": "q8v5", "type": "l24", "path": B8, "adapters": AQ8V5, "keep": 24, "layers": L, "w": 2.0, "bs": 16, "max_len": 384, "twin": 0.35, "gauss": 0.44, "dp": True},
++  {"name": "ll8v5", "type": "l24", "path": BL, "adapters": ALL8V5, "keep": 24, "layers": L, "w": 1.0, "bs": 16, "max_len": 384, "twin": 0.35, "dp": True},
+   {"name": "n14b", "type": "l24", "path": B14, "adapters": [N14B], "keep": N14BC['keep'], "layers": N14BC['layers'], "w": 2.5, "bs": 8, "max_len": N14BC['max_len'], "twin": 0.35, "no_final_norm": True, "eos_id": N14BC['eos_id']},
+   {"name": "q25_14", "type": "l24", "path": B25_14, "adapters": [Q25_14], "keep": Q25_14C['keep'], "layers": Q25_14C['layers'], "w": 1.0, "bs": 8, "max_len": Q25_14C['max_len'], "twin": 0.35, "no_final_norm": True, "eos_id": Q25_14C['eos_id']},
+   {"name": "deb", "type": "enc", "ckpt": DEB, "w": 1.0},
+@@ -15,12 +15,16 @@
+        '--perpassage', '1', '--extra', str(EXTRA), '--extra_w', '0.5', '--tfidf_w', '0.25',
+        '--distort_w', '0.10', '--svc_w', '1.5', '--pool', str(POOL), '--adapt_w', '1.0',
+        '--adapt_thr', '0.15', '--sinkhorn', '0.45', '--sinkhorn_target_mix', '0.35', '--post', '0', '--atlas_dir', str(ATLAS),
+-       '--atlas_base', str(B8), '--atlas_w', '0.10', '--atlas_margin', '0.3',
+-       '--atlas_bs', '4', '--atlas_chunk', '3', '--atlas_schedule', 'value', '--atlas_budget', str(max(180, ATLAS_BUDGET)),
++       '--atlas_base', str(B8), '--atlas_w', '0.20', '--atlas_margin', '0.3',
++       '--atlas_bs', '4', '--atlas_chunk', '3', '--atlas_budget', str(max(180, ATLAS_BUDGET)),
+        '--comp_path', '/kaggle/working/comp_logit.npy', '--comp_w', '0.15',
+        '--out', '/kaggle/working/submission.parquet', '--cache', '/kaggle/working/cache']
+ print('RUNNING MAIN INFERENCE', flush=True)
+-subprocess.run(cmd, check=True)
++if FAST_COMMIT:   # fork: placeholder from the commit run; Kaggle reruns the notebook on the hidden test
++    _test_ph = pd.read_csv(os.path.join(DATA, 'test.csv'))
++    pd.DataFrame({'id': _test_ph.id, 'model': 'gpt-5.5'}).to_parquet('/kaggle/working/submission.parquet', index=False)
++else:
++    subprocess.run(cmd, check=True)
+ submission = pd.read_parquet('/kaggle/working/submission.parquet')
+ assert len(submission) == len(pd.read_csv(os.path.join(DATA, 'test.csv')))
+ assert set(submission.columns) == {'id', 'model'} and submission.id.is_unique and submission.model.notna().all()

@@ -1,0 +1,10 @@
+{"status": "RUNNING", "completed_inputs": 0, "inputs": 31, "elapsed_seconds": 0.0, "updated_at": 1793261207.0608902}
+{"status": "RUNNING", "completed_inputs": 0, "inputs": 31, "elapsed_seconds": 0.1, "updated_at": 1793261207.120659, "current_input": "dataset:dhruvtibarewal/nlm-l24-adapters", "current_files": 88}
+{"status": "RUNNING", "completed_inputs": 0, "inputs": 31, "elapsed_seconds": 6.3, "updated_at": 1793261213.371041, "current_input": "dataset:dhruvtibarewal/nlm-l24-adapters", "files_done": 10, "files_total": 88}
+{"status": "RUNNING", "completed_inputs": 0, "inputs": 31, "elapsed_seconds": 16.9, "updated_at": 1793261223.9915562, "current_input": "dataset:dhruvtibarewal/nlm-l24-adapters", "files_done": 20, "files_total": 88}
+{"status": "RUNNING", "completed_inputs": 0, "inputs": 31, "elapsed_seconds": 28.6, "updated_at": 1793261235.626731, "current_input": "dataset:dhruvtibarewal/nlm-l24-adapters", "files_done": 30, "files_total": 88}
+{"status": "RUNNING", "completed_inputs": 0, "inputs": 31, "elapsed_seconds": 46.7, "updated_at": 1793261253.773108, "current_input": "dataset:dhruvtibarewal/nlm-l24-adapters", "files_done": 40, "files_total": 88}
+{"status": "RUNNING", "completed_inputs": 0, "inputs": 31, "elapsed_seconds": 56.2, "updated_at": 1793261263.2229683, "current_input": "dataset:dhruvtibarewal/nlm-l24-adapters", "files_done": 50, "files_total": 88}
+{"status": "RUNNING", "completed_inputs": 0, "inputs": 31, "elapsed_seconds": 68.2, "updated_at": 1793261275.2621913, "current_input": "dataset:dhruvtibarewal/nlm-l24-adapters", "files_done": 60, "files_total": 88}
+{"status": "RUNNING", "completed_inputs": 0, "inputs": 31, "elapsed_seconds": 83.7, "updated_at": 1793261290.7294643, "current_input": "dataset:dhruvtibarewal/nlm-l24-adapters", "files_done": 70, "files_total": 88}
+{"status": "RUNNING", "completed_inputs": 0, "inputs": 31, "elapsed_seconds": 96.5, "updated_at": 1793261303.5704095, "current_input": "dataset:dhruvtibarewal/nlm-l24-adapters", "files_done": 80, "files_total": 88}

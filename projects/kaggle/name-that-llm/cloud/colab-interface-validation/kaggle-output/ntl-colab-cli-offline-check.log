@@ -1,0 +1,8 @@
+[{"stream_name":"stdout","time":1.746589768,"data":"{\"status\": \"PASS\", \"bytes\": 53, \"sha256\": \"38b1059fe3fe4a52df37c7e633312af2c5f9b55db5ea50bc8481651d35dd68a1\", \"file\": \"/kaggle/input/datasets/zhjianduan/ntl-colab-cli-probe-20261029/ntl_cli_probe.txt\", \"python\": \"3.13.15\", \"competition_submission\": false, \"transport\": \"Colab CPU -\u003e local staging -\u003e private Kaggle Dataset -\u003e offline CPU Notebook\"}\n"}
+,{"stream_name":"stderr","time":4.898846972,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":4.898885774,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":5.486085071,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":5.486117145,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":7.8409834069999995,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":9.280075067,"data":"[NbConvertApp] Writing 277596 bytes to __results__.html\n"}
+]

@@ -1,0 +1,21 @@
+{
+  "ref": "otmaneelmahdaouy/ntl-v39-summit-sovereign",
+  "title": "NTL v39 Summit Sovereign",
+  "version": 2,
+  "id": 141545430,
+  "source_sha256": "9163c6c0cd376cff440a8eafe8e72fad3200f66a621c123865444a0a629a3752",
+  "code_sha256": "f7b7c39e488849ff4731d6e4311dc7bc72c00a41d3f5a38818dce99a89aa612b",
+  "private": false,
+  "directory": "otmaneelmahdaouy--ntl-v39-summit-sovereign",
+  "score": 0.66,
+  "url": "https://www.kaggle.com/code/otmaneelmahdaouy/ntl-v39-summit-sovereign",
+  "page_order": 19,
+  "rank": 19,
+  "observed_at": "2026-10-30T15:16:41.600Z",
+  "note": "把公共池加入 TF-IDF/文本变形训练，并把家族分类器 C 调为 0.10；正文 0.670+ 未实现。",
+  "score_is_bound_to_downloaded_version": false,
+  "source_reader": "Kaggle MCP get_notebook_info",
+  "score_reader": "Kaggle Code page rendered Score via browser DOM",
+  "retrieved_by_refresh_date": "2026-10-30",
+  "downloaded_source_executed": false
+}

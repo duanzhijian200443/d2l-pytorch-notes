@@ -1,0 +1,21 @@
+{
+  "ref": "dfenglei/ntl-repro-0662",
+  "title": "NTL Repro 0662",
+  "version": 1,
+  "id": 141587730,
+  "source_sha256": "a3362840ad705b9a0198bc344421f6f148e04eb7d82298757a9002b28e174589",
+  "code_sha256": "d164e570c03550b08337e9934b5f18af1255aeacdf1e0a0d279547bfac693c6f",
+  "private": false,
+  "directory": "dfenglei--ntl-repro-0662",
+  "score": 0.662,
+  "url": "https://www.kaggle.com/code/dfenglei/ntl-repro-0662",
+  "page_order": 10,
+  "rank": 10,
+  "observed_at": "2026-10-30T15:16:41.600Z",
+  "note": "全部代码单元与本轮 alexchilton V8 完全相同；页面得分 0.662。",
+  "score_is_bound_to_downloaded_version": false,
+  "source_reader": "Kaggle MCP get_notebook_info",
+  "score_reader": "Kaggle Code page rendered Score via browser DOM",
+  "retrieved_by_refresh_date": "2026-10-30",
+  "downloaded_source_executed": false
+}

@@ -1,0 +1,14 @@
+--- omerfarukmerey--0-663-0-660-v31-atlas-20
++++ huesosinapoganaya--0-663-0-660-v31-atlas-20
+@@ -30,9 +30,9 @@
+ print('nishant', N8, N8C['keep'], N8C['max_len'], N14, N14C['keep'], N14C['max_len'])
+ ATLAS = os.path.dirname(next(iter(glob.glob('/kaggle/input/**/atlas_bundle.json', recursive=True))))
+ print('atlas', ATLAS)
+-BL = mdir('/llama-3.1/', '/8b/')
++BL = mdir('/llama-3-1-8b-base/', '/default/')
+ _SHARDS = {'model-00001-of-00004.safetensors': 4976698672, 'model-00002-of-00004.safetensors': 4999802720, 'model-00003-of-00004.safetensors': 4915916176, 'model-00004-of-00004.safetensors': 1168138808}
+-assert 'name-that-llm-verified-llama-asset-cache' in BL and all(os.path.getsize(os.path.join(BL, f)) == n for f, n in _SHARDS.items()), BL   # fork: Llama-3.1-8B from avazaku's public cache (NousResearch copy)
++assert all(os.path.getsize(os.path.join(BL, f)) == n for f, n in _SHARDS.items()), BL
+ AL = [adir(f'ts_llama8_f{k}') for k in (0, 2, 4)] + [adir('ts_llama8')]
+ import shutil, time as _tc; _c = _tc.time()
+ shutil.copytree(BL, '/tmp/llama-3.1/8b', dirs_exist_ok=True); BL = '/tmp/llama-3.1/8b'   # fork: see the intro

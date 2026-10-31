@@ -1,0 +1,13 @@
+{
+  "status": "READY",
+  "started_at": 1793271501.9098456,
+  "torch": "2.11.0+cu128",
+  "wheel": "torch-2.11.0+cu128-cp313-cp313-manylinux_2_28_x86_64.whl",
+  "cuda_dependencies": [
+    "Requires-Dist: nvidia-cudnn-cu12==9.19.0.56; platform_system == \"Linux\"",
+    "Requires-Dist: nvidia-cusparselt-cu12==0.7.1; platform_system == \"Linux\"",
+    "Requires-Dist: nvidia-nccl-cu12==2.28.9; platform_system == \"Linux\"",
+    "Requires-Dist: nvidia-nvshmem-cu12==3.4.5; platform_system == \"Linux\""
+  ],
+  "elapsed_seconds": 131.88250398635864
+}

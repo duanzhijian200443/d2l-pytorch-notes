@@ -1,0 +1,227 @@
+{
+  "upstream_notebook": "romantamrazov/name-that-llm-who-am-i",
+  "upstream_version": 30,
+  "upstream_script_version_id": 362877806,
+  "datasets": [
+    {
+      "ref": "dhruvtibarewal/nlm-l24-adapters",
+      "id": 12688517,
+      "version": 7,
+      "bytes": "3730983134",
+      "last_updated": "2026-10-21T16:52:23.293Z",
+      "license": "MIT",
+      "pinned_version": 7
+    },
+    {
+      "ref": "seyitkaangunes/ntl-extra-api-passages",
+      "id": 12631102,
+      "version": 2,
+      "bytes": "4660571",
+      "last_updated": "2026-10-16T15:52:16.823Z",
+      "license": "Attribution 4.0 International (CC BY 4.0)",
+      "pinned_version": 2
+    },
+    {
+      "ref": "abdullah1afify/ntl-generations",
+      "id": 12645823,
+      "version": 3,
+      "bytes": "1546490",
+      "last_updated": "2026-10-28T05:30:11.163Z",
+      "license": "Attribution 4.0 International (CC BY 4.0)",
+      "pinned_version": 2,
+      "snapshot_ref": "zhjianduan/ntl-generations",
+      "snapshot_version": 1,
+      "source_version_id": 21008519
+    },
+    {
+      "ref": "dophuchung/ntl-proxy-generations",
+      "id": 12649356,
+      "version": 1,
+      "bytes": "891947",
+      "last_updated": "2026-10-17T07:22:31.420Z",
+      "license": "Attribution 4.0 International (CC BY 4.0)",
+      "pinned_version": 1
+    },
+    {
+      "ref": "zbigniewkirchner/ntl-qwen3-8b-lora-claude-head",
+      "id": 12641408,
+      "version": 1,
+      "bytes": "321066208",
+      "last_updated": "2026-10-16T21:51:36.877Z",
+      "license": "Apache 2.0",
+      "pinned_version": 1
+    },
+    {
+      "ref": "dhruvtibarewal/nlm-matched-clean",
+      "id": 12688396,
+      "version": 3,
+      "bytes": "83376272",
+      "last_updated": "2026-10-23T17:10:01.517Z",
+      "license": "MIT",
+      "pinned_version": 3
+    },
+    {
+      "ref": "dhruvtibarewal/nlm-offline-wheels",
+      "id": 12654727,
+      "version": 2,
+      "bytes": "45193795",
+      "last_updated": "2026-10-17T12:20:52.603Z",
+      "license": "Other (specified in description)",
+      "pinned_version": 2
+    },
+    {
+      "ref": "josephadamski91/ntl-atlas-qwen3-8b-v1",
+      "id": 12657014,
+      "version": 3,
+      "bytes": "462803915",
+      "last_updated": "2026-10-20T14:22:33.173Z",
+      "license": "Other (specified in description)",
+      "pinned_version": 3
+    },
+    {
+      "ref": "lucasboesen/ntl-free-proxy-generations",
+      "id": 12653766,
+      "version": 9,
+      "bytes": "6068379",
+      "last_updated": "2026-10-26T23:48:38.273Z",
+      "license": "Attribution 4.0 International (CC BY 4.0)",
+      "pinned_version": 7,
+      "snapshot_ref": "zhjianduan/ntl-free-proxy-generations",
+      "snapshot_version": 1,
+      "source_version_id": 21116786
+    },
+    {
+      "ref": "nishantdahal/ntl-two-stage-lora",
+      "id": 12693662,
+      "version": 1,
+      "bytes": "317728259",
+      "last_updated": "2026-10-19T01:34:11.527Z",
+      "license": "CC BY-SA 4.0",
+      "pinned_version": 1
+    },
+    {
+      "ref": "nishantdahal/ntl-handwriting-blend",
+      "id": 12792418,
+      "version": 1,
+      "bytes": "1281363560",
+      "last_updated": "2026-10-23T02:17:46.923Z",
+      "license": "CC BY-SA 4.0",
+      "pinned_version": 1
+    },
+    {
+      "ref": "dhruvtibarewal/nlm-l24-adapters-v5",
+      "id": 12836595,
+      "version": 1,
+      "bytes": "2591835972",
+      "last_updated": "2026-10-25T04:45:56.100Z",
+      "license": "Other (specified in description)",
+      "pinned_version": 1
+    },
+    {
+      "ref": "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+      "id": 12658362,
+      "version": 6,
+      "bytes": "97252706",
+      "last_updated": "2026-10-22T12:41:07.410Z",
+      "license": "Attribution 4.0 International (CC BY 4.0)",
+      "pinned_version": 6
+    },
+    {
+      "ref": "pjmathematician/ultrabert-380m-ntl",
+      "id": 12591571,
+      "version": 1,
+      "bytes": "3819222687",
+      "last_updated": "2026-10-14T21:10:11.313Z",
+      "license": "Apache 2.0",
+      "pinned_version": 1
+    },
+    {
+      "ref": "zhjianduan/llama31-8b-base-verified",
+      "id": 12922785,
+      "version": 1,
+      "bytes": "16069775777",
+      "private": true,
+      "last_updated": "2026-10-28T13:26:16.763Z",
+      "license": "Other (specified in description)",
+      "pinned_version": 1
+    }
+  ],
+  "kernels": [
+    {
+      "ref": "lucasboesen/name-that-llm-glm4-9b-trunc25",
+      "id": 138856246,
+      "version": 1,
+      "last_run_time": "2026-10-25T13:40:16.487729800Z",
+      "private": false
+    },
+    {
+      "ref": "lucasboesen/name-that-llm-extract-encoders2",
+      "id": 138887571,
+      "version": 1,
+      "last_run_time": "2026-10-25T13:40:15.433176900Z",
+      "private": false
+    },
+    {
+      "ref": "lucasboesen/name-that-llm-electra-large-weights",
+      "id": 138893550,
+      "version": 1,
+      "last_run_time": "2026-10-25T13:40:17.602614500Z",
+      "private": false
+    },
+    {
+      "ref": "lucasboesen/name-that-llm-desklib-weights",
+      "id": 138899794,
+      "version": 1,
+      "last_run_time": "2026-10-25T13:40:18.670837300Z",
+      "private": false
+    },
+    {
+      "ref": "lucasboesen/name-that-llm-train-lora24-s7",
+      "id": 138978436,
+      "version": 1,
+      "last_run_time": "2026-10-25T13:40:20.141802600Z",
+      "private": false
+    },
+    {
+      "ref": "lucasboesen/name-that-llm-train-tokattn",
+      "id": 138986721,
+      "version": 1,
+      "last_run_time": "2026-10-25T13:40:22.128634400Z",
+      "private": false
+    },
+    {
+      "ref": "lucasboesen/name-that-llm-train-tokattn2",
+      "id": 138997255,
+      "version": 1,
+      "last_run_time": "2026-10-25T13:40:25.073463100Z",
+      "private": false
+    },
+    {
+      "ref": "vnton37nguyn/ntl-train-lora-qwen25-instyle",
+      "id": 139394335,
+      "version": 2,
+      "last_run_time": "2026-10-25T13:40:23.751545400Z",
+      "private": false
+    }
+  ],
+  "models": [
+    "qwen-lm/qwen-3/Transformers/8b/1",
+    "qwen-lm/qwen-3/Transformers/4b-base/1",
+    "qwen-lm/qwen-3/Transformers/8b-base/1",
+    "qwen-lm/qwen-3/Transformers/14b-base/1",
+    "qwen-lm/qwen-3/Transformers/14b/1",
+    "qwen-lm/qwen2.5/Transformers/7b/1",
+    "qwen-lm/qwen2.5/Transformers/14b/1"
+  ],
+  "removed_kernel": "avazaku/name-that-llm-verified-llama-asset-cache",
+  "replaced_with_dataset": "zhjianduan/llama31-8b-base-verified/1",
+  "changed_dataset_version_ids": {
+    "abdullah1afify/ntl-generations/2": 21008519,
+    "lucasboesen/ntl-free-proxy-generations/7": 21116786
+  },
+  "pinned_csv_sha256": {
+    "ntl-generations/ntl_generations.csv": "83003454e3cc0368cae8b05bca243daf036b64a42a792c3f7bfd5fd91b3db378",
+    "ntl-generations/prompts_used.csv": "b42003b1068ba24de1accf33265e208e1a492d1ca8c81eb581d256b54bdefdbc",
+    "ntl-free-proxy-generations/gen_passages.csv": "d037d212e17a7e98465f9c606f4437225fb221939a5f51b0f8150d15c07c68a5"
+  }
+}

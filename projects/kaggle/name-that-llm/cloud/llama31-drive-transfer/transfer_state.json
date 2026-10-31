@@ -1,0 +1,22 @@
+{
+  "notebook_id": "1QbrtwMFqwpabIRfIkWa0r-InWH8VaE60",
+  "notebook_url": "https://colab.research.google.com/drive/1QbrtwMFqwpabIRfIkWa0r-InWH8VaE60",
+  "notebook_private": true,
+  "runtime_accelerator_observed": "CPU",
+  "runtime_status_observed": "CONNECTED",
+  "blocking_message": null,
+  "download_started": true,
+  "expected_file_count": 13,
+  "expected_bytes": 16069770782,
+  "drive_model_path": "MyDrive/Kaggle/name-that-llm/models/llama-3.1-8b-base-1f47e50",
+  "target_kaggle_dataset": "zhjianduan/llama31-8b-base-verified",
+  "target_dataset_created": true,
+  "local_validation": "Notebook schema and Python syntax passed. SHA-256 and Git blob checks rejected altered and truncated synthetic files.",
+  "resume": "Complete the Colab runtime connection, run the notebook, authorize Drive when prompted, then supply Kaggle credentials through Colab Secrets or the hidden prompt. Verify the Dataset after upload.",
+  "phase": "COMPLETE",
+  "drive_folder_id": "19cR5tLFlJuvpNA4YEyh99kWtTLpT_P2x",
+  "verified_weight_shards_observed": 4,
+  "observed_at_utc": "2026-10-28T13:20:00.0607912Z",
+  "completed_notebook_validation": "6 executed code cells; no saved errors; final source matches the local repair; no raw API token in notebook.",
+  "completion_receipt": "transfer-completion.json"
+}

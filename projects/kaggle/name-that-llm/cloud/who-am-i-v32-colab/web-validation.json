@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "tests_run": 7,
+  "failures": [],
+  "scope": "local CPU and mocked lifecycle only; full A100 execution is not performed"
+}

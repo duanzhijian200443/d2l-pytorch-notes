@@ -1,0 +1,11 @@
+--- V32
++++ ATLAS20
+@@ -2,6 +2,7 @@
+ import time as _t
+ _c0 = _t.time()
+ import os; os.environ['NTL_DROP_Q35'] = '0'
+-!python comp_stack.py 2>&1 | grep -vE 'Warning|warn'
++if not FAST_COMMIT:
++    !python comp_stack.py 2>&1 | grep -vE 'Warning|warn'
+ COMP_SEC = _t.time() - _c0
+ print('comp stack wall time', round(COMP_SEC))

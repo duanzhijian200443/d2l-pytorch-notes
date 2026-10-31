@@ -1,0 +1,14 @@
+{
+  "submission_id": 57778357,
+  "status": "COMPLETE",
+  "public_score": 0.662,
+  "submission_date_utc": "2026-10-29 17:36:23.270000",
+  "submission_date_beijing": "2026-10-30 01:36:23",
+  "filename": "submission.parquet",
+  "method_label": "ATLAS20 reproduction, identified by user; score independently verified by official CLI",
+  "kernel_version_binding_verified_this_refresh": true,
+  "kernel_script_version_id": 363569852,
+  "kernel_url": "https://www.kaggle.com/code/zhjianduan/name-that-llm-atlas20-repro?scriptVersionId=363569852",
+  "kernel_binding_verified_at_utc": "2026-10-30T15:40:20.795855+00:00",
+  "kernel_binding_evidence": "../own-scheme-readiness-20261030/baseline-submission-binding.json"
+}

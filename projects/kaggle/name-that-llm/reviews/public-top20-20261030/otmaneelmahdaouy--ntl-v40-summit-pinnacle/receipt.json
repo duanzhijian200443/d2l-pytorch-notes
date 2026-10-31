@@ -1,0 +1,21 @@
+{
+  "ref": "otmaneelmahdaouy/ntl-v40-summit-pinnacle",
+  "title": "NTL v40 Summit Pinnacle",
+  "version": 1,
+  "id": 141590406,
+  "source_sha256": "e2724209bb5ac47870eef458e1966ec74460332d2d504f6153055e832ff57bf0",
+  "code_sha256": "f818732680a8699fc1516add2d923624f73260497069578de32bfa4596808d26",
+  "private": false,
+  "directory": "otmaneelmahdaouy--ntl-v40-summit-pinnacle",
+  "score": 0.662,
+  "url": "https://www.kaggle.com/code/otmaneelmahdaouy/ntl-v40-summit-pinnacle",
+  "page_order": 11,
+  "rank": 11,
+  "observed_at": "2026-10-30T15:16:41.600Z",
+  "note": "ATLAS20 主体；Llama 来源回退与 FAST_COMMIT 跳过复制；正文写 0.670+，平台实际 0.662。",
+  "score_is_bound_to_downloaded_version": false,
+  "source_reader": "Kaggle MCP get_notebook_info",
+  "score_reader": "Kaggle Code page rendered Score via browser DOM",
+  "retrieved_by_refresh_date": "2026-10-30",
+  "downloaded_source_executed": false
+}

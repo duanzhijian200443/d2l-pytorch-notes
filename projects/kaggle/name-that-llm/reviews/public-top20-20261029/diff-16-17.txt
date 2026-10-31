@@ -1,0 +1,19 @@
+--- 
+
++++ 
+
+@@ -36,2 +36,3 @@
+
+ N14B, N14BC = nmeta('lora_qwen3_14b'); Q25_14, Q25_14C = nmeta('lora_qwen25_14b')
++Q25V5, Q25V5C = nmeta('ntl-q25v5')
+ DEB = os.path.dirname(glob.glob('/kaggle/input/**/deberta_v3_large/meta.json', recursive=True)[0])
+@@ -44,3 +45,2 @@
+
+ print('v5', AQ14V5, ALL8V5)
+-
+ %%writefile gauss.py
+@@ -1641,2 +1641,3 @@
+
+   {"name": "q25_14", "type": "l24", "path": B25_14, "adapters": [Q25_14], "keep": Q25_14C['keep'], "layers": Q25_14C['layers'], "w": 1.0, "bs": 8, "max_len": Q25_14C['max_len'], "twin": 0.35, "no_final_norm": True, "eos_id": Q25_14C['eos_id']},
++  {"name": "q25v5", "type": "l24", "path": B25_14, "adapters": [Q25V5], "keep": Q25V5C['keep'], "layers": Q25V5C['layers'], "w": 0.4, "bs": 8, "max_len": Q25V5C['max_len'], "twin": 0.35, "no_final_norm": True, "eos_id": Q25V5C['eos_id']},
+   {"name": "deb", "type": "enc", "ckpt": DEB, "w": 1.0},

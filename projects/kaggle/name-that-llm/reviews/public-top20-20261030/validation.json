@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "ranked_rows": 20,
+  "sources_saved": 24,
+  "score_distribution": {
+    "0.663": 1,
+    "0.662": 11,
+    "0.661": 3,
+    "0.660": 5
+  },
+  "same_code_groups": [
+    [
+      2,
+      9,
+      10
+    ],
+    [
+      6,
+      12
+    ],
+    [
+      17,
+      18
+    ]
+  ],
+  "own_score": 0.662,
+  "own_submission_status": "COMPLETE",
+  "missing_relative_links": [],
+  "report_sha256": "7ab7b3dba47afb56439328518a636ac6a6bee494d1061a4ba47d0c6fa66ee2de",
+  "history_preserved": true,
+  "observed_at": "2026-10-30T15:16:41.600Z"
+}

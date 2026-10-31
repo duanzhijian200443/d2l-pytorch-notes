@@ -1,0 +1,31 @@
+{
+  "status": "COMPLETE",
+  "dataset": {
+    "id": 12922785,
+    "ref": "zhjianduan/llama31-8b-base-verified",
+    "url": "https://www.kaggle.com/datasets/zhjianduan/llama31-8b-base-verified",
+    "version": 1,
+    "is_private": true,
+    "api_status": "ready",
+    "file_count": 15,
+    "total_bytes": 16069775777
+  },
+  "drive": {
+    "folder_id": "19cR5tLFlJuvpNA4YEyh99kWtTLpT_P2x",
+    "folder_url": "https://drive.google.com/drive/folders/19cR5tLFlJuvpNA4YEyh99kWtTLpT_P2x",
+    "file_count": 16,
+    "all_files_private": true
+  },
+  "notebook_url": "https://colab.research.google.com/drive/1QbrtwMFqwpabIRfIkWa0r-InWH8VaE60",
+  "validation": [
+    "All 13 source files verified in Colab before upload; four weight shards matched the pinned official SHA-256 values.",
+    "All 15 Kaggle file names and exact sizes match Drive (dataset-metadata.json is upload configuration only).",
+    "The manifest downloaded from Kaggle is byte-for-byte identical to the Drive manifest.",
+    "Official Kaggle status returned ready; metadata and the dataset page both show version 1 and private visibility."
+  ],
+  "resolved_issues": [
+    "Initial Colab reCAPTCHA connectivity and Drive authorization were completed by the user.",
+    "The immediate post-upload status query returned HTTP 403 while the dataset was being created; subsequent status and metadata reads succeeded.",
+    "The upload step now persists a receipt and does not repeat an accepted upload when its following status query fails."
+  ]
+}

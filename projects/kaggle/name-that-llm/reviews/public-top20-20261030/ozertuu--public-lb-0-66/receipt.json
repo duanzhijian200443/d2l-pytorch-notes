@@ -1,0 +1,21 @@
+{
+  "ref": "ozertuu/public-lb-0-66",
+  "title": "Public LB 0.66",
+  "version": 1,
+  "id": 141379335,
+  "source_sha256": "6101ccdce6b1df5067ee3f4454c35df979602f658e87f72b4733b69dcd0a0bb6",
+  "code_sha256": "acac31654c5f11bac9d5ec35435120a31036b6b1bf32b694733bae090cf323d5",
+  "private": false,
+  "directory": "ozertuu--public-lb-0-66",
+  "score": 0.66,
+  "url": "https://www.kaggle.com/code/ozertuu/public-lb-0-66",
+  "page_order": 18,
+  "rank": 18,
+  "observed_at": "2026-10-30T15:16:41.600Z",
+  "note": "全部代码单元与 mercurydust 当前 V3 相同；输入附件仍应单独核验。",
+  "score_is_bound_to_downloaded_version": false,
+  "source_reader": "Kaggle MCP get_notebook_info",
+  "score_reader": "Kaggle Code page rendered Score via browser DOM",
+  "retrieved_by_refresh_date": "2026-10-30",
+  "downloaded_source_executed": false
+}

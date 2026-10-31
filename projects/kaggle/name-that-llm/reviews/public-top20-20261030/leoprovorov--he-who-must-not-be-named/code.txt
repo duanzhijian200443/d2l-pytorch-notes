@@ -1,0 +1,855 @@
+# Name That LLM - v5: log-prob blend of
+#   style-aware n-grams + LinearSVC | stylometric features + LightGBM |
+#   Qwen3-8B-Base L7+L22 and Qwen2.5-7B L6+L20 (mean-pooled hidden states, layers concatenated) + LR |
+#   public UltraBERT-380M 5-fold ensemble.
+# CV 0.4927 (half-split held-out blend 0.4928) vs 0.450 for v4 (LB 0.436): paired +0.033 [+0.018, +0.048].
+# Notebook settings: GPU T4 x2, internet off. Inputs: competition data; models qwen-lm/qwen-3 (transformers 8b-base),
+# qwen-lm/qwen2.5 (transformers 7b); dataset pjmathematician/ultrabert-380m-ntl (fold weights, code = dmis-lab's).
+# v7 = v6 + Qwen3-4B style-token-pooled head (L4+L7) + GLM-4-9B-0414 head (L8+L3, weights from a training-kernel output).
+# v6 = v5 + two transductive steps (no labels used): test-set standardization of the LM-head features and
+# Sinkhorn marginal balancing of the final posterior (alpha 0.5).
+# v8 = v7 + capped adaptive prompt-centering for the 4 LM heads: test passages whose topic cluster (content-word
+# TF-IDF, average linkage, cosine-distance cut ADAPT_THRESH) has ADAPT_MIN..ADAPT_MAX members use a prompt-centered
+# twin of each head on cluster-centered features; everything else keeps the plain head. Never centers singletons
+# (v1's failure) and never centers clusters > 18 (certainly mixed prompts). Simulated on held-out prompts (pooled
+# 150-prompt test, v7 stack): +0.000 (1-2 passages/prompt) / +0.019 (1-5) / +0.034 (3-8) / +0.056 (all 18).
+# v9 = v8 with the centered twins ADDED as extra blend evidence (plain heads kept for every passage) from cluster
+# size 2 (as in the public 0.490 notebook). Pooled 150-prompt sim on the v7 stack, add>=2 vs plain:
+# +0.024 (1-2 passages/prompt) / +0.042 (1-5) / +0.043 (3-8) / +0.052 (all 18); v8's replace>=4: 0 / +0.019 / +0.034 / +0.056.
+# v10 = v9 with better test grouping and stronger centered evidence (pooled sim by session 4e): clusters from the
+# average of the content-word TF-IDF cosine distance and the GLM-4-9B layer-24 cosine distance (mean-centered,
+# L2-normalized) cut at 0.62 (at 0.65: same-prompt pair recall 0.89 vs 0.78 for TF-IDF alone, precision 0.97); centered
+# twins with C x1.0 (was x0.4) and their evidence x1.5. Pooled-sim grid vs v9: 1-5 passages/prompt about +0.008,
+# 1-2 about +0.003..+0.008, 3-8 / all-18 about +0.02; non-negative in every cell.
+# v11 = v10 + a FROZEN DeBERTa-v3-large head (masked mean pool of layers 24+6, StandardScaler + LR C=0.005; CV 0.445
+# alone, held-out +0.0061 on the v7 set, 18/20 splits; idea from Rudra's public fusion, which uses a frozen v3-base).
+# Plain blend weights refit (L-BFGS, seed-0 OOF). The centered evidence is DECOUPLED from them: each twin gets an
+# explicit weight TWIN_W (v10's 1.5 x v10 weight for the 4 LM twins, unchanged) plus a DeBERTa twin at 0.25.
+# Pooled 150-prompt sim, 40 fresh draws, paired vs v10: 1-2 / 1-5 / 2-4 / 3-8 passages per prompt =
+# +0.010 / +0.007 / +0.007 / +0.013 (SE 0.001-0.003; best of 6 variants, all of which beat v10 everywhere).
+# v12 = v11 with better frozen encoders: DeBERTa-v3-large mean L23 + style-token pool L23 (0.450 alone) and
+# ELECTRA-large discriminator mean L21 + style L24 (0.434). Held-out blend vs the v10 member set: +0.0157 (v11 set: +0.0061).
+# v13 = v11 (same DeBERTa member and same twins) + frozen ELECTRA-large + frozen desklib AI-text detector (a DeBERTa-v3-large
+# fine-tuned to detect AI text; mean L23 + style L23, 0.428 alone). Plain held-out +0.0088 vs the v11 set (20/20). In the
+# pooled adapt sim v12 tied v11, while this set (v11 twins kept) beat v11 by +0.008/+0.000/+0.005/+0.003 (1-2/1-5/2-4/3-8).
+# v13 public LB 0.532 (v8 0.499).
+# v14 = v13 + a public LoRA classifier: Qwen3-8B-Base truncated to 24 layers, LoRA r16 on all linear layers, mean pool
+# (first token masked) of layers 2/4/6/8/12/16/20/24, each with its own LayerNorm, concatenated -> linear head; trained on
+# same-prompt triplets with plain + centered heads (kernel output lightningv08/ntl-lora24-fivefold-training, 'final' fit;
+# its 5-fold OOF plain head = 0.4816 balanced accuracy). Here: inference only, plain head, as one more blend member.
+# v15 = v14 + the LoRA's CENTERED head as a twin on clustered test rows (cluster-centered LoRA features -> centered
+# readout, weight 0.15) + a learned token-attention head on frozen Qwen3.5-9B layer-18 token states (public recipe
+# kirilltym/0-525-learned-token-attention, trained by kernel lucasboesen/name-that-llm-train-tokattn; OOF 0.394 alone).
+# v16 = v15 + our own run of the LoRA24 recipe (seed 7, our folds; kernel lucasboesen/name-that-llm-train-lora24-s7; OOF
+# 0.4804, argmax agreement with the public LoRA 0.69) + the same token-attention head on frozen DeBERTa-v3-large L23
+# (kernel lucasboesen/name-that-llm-train-tokattn2; OOF 0.411). Held-out +0.0060 vs the v15 set (20/20 splits).
+ADAPT, ADAPT_THRESH, ADAPT_MIN, ADAPT_MAX, ADAPT_C_MULT = True, 0.85, 2, 18, 1.0
+TWIN_W = {'q3_8b_cat7+22': 1.5 * 0.219, 'q25_7b_cat6+20': 1.5 * 0.141, 'style4b': 1.5 * 0.083, 'glm9b': 1.5 * 0.110,
+          'debv3l': 0.25}   # centered-evidence weight per twin (add mode); the first four = v10 exactly
+CLUSTER_MODE, CLUSTER_THRESH_MIX, CLUSTER_LAYER = 'mixglm', 0.60, 24   # 'tfidf' = v9 clustering; 0.60: false-positive
+#   pair rate at m=150 prompts sits between th0.58 (0.012, R 0.72) and th0.62 (0.059, R 0.85); tfidf 0.85: 0.053, R 0.80
+ADAPT_MODE = 'add'     # 'add': plain + centered evidence on cluster rows; 'replace': centered only (v8)
+SMOKE = False          # local code-path test: tiny models, 200 train rows, CPU ok
+BALANCE_ALPHA = 0.5
+TRANS_STD_MIN = 2      # min test rows for test-set standardization (2 so the 3-row interactive run exercises it)
+W = {'stylegram': 1.516, 'q3_8b_cat7+22': 0.0, 'q25_7b_cat6+20': 0.0, 'style_lgb': 0.063, 'ultrabert': 0.095,
+     'style4b': 0.0, 'glm9b': 0.0, 'debv3l': 0.05, 'electl': 0.032, 'desk': 0.132, 'lora': 0.177, 'tokattn': 0.153,
+     'lora2': 0.113, 'lora3': 0.177, 'tokattn_deb': 0.185}
+# L-BFGS on seed-0 OOF; held-out +0.0060 vs the v15 set (20/20 splits). Pooled adapt sim vs v15 (60 fresh draws): a TIE
+# (+0.000 / +0.001 / +0.002 / -0.001), so v16 is submitted as an EXPERIMENT (does a plain-only gain transfer to the LB?).
+LORA = dict(enabled=True, layers=[2, 4, 6, 8, 12, 16, 20, 24], max_len=447, bs=8)
+LORAS = [  # (key, checkpoint marker glob, norms file, anchor-features file): all share the Qwen3-8B-Base 24-layer trunk
+    ('lora', '**/lora24/final/COMPLETE.json', 'heads.safetensors', 'anchor_features.npz'),   # public lightningv08 run
+    ('lora2', '**/lora_out/job_final/COMPLETE.json', 'norms.safetensors', 'valid_features.npz'),   # our seed-7 run
+    ('lora3', '**/ntl-qwen3-8b-lora-claude-head/**/final/COMPLETE.json', 'heads.safetensors', 'anchor_features.npz'),   # zbigniewkirchner: + Claude head
+]
+TWIN_W_LORA = {'lora': 0.15, 'lora3': 0.15}   # centered-readout evidence on clustered rows (add mode)
+TOKATTN = dict(enabled=True, bs=8)
+TOKATTN_HEADS = [  # (key, head file from a training-kernel output, backbone)
+    ('tokattn', 'tokattn_final.pt', 'qwen3_5'),            # Qwen3.5-9B L18 (decoder, fp16)
+    ('tokattn_deb', 'tokattn_debl23_final.pt', 'deberta'),   # DeBERTa-v3-large L23 (encoder, fp32)
+]
+ENCODERS = [  # (key, Kaggle input dir name holding fold0..fold4, config model_type, trust_remote_code, local fallbacks)
+    ('ultrabert', 'ultrabert-380m-ntl', 'ultrabert', True,
+     ['external/ultrabert-380m-ntl', '../../external/ultrabert-380m-ntl']),
+]
+LLM_HEADS = [  # (key, model_type, hidden_size, layers (concatenated), C, smoke HF id, pooling)
+    ('q3_8b_cat7+22', 'qwen3', 4096, [7, 22], 0.0025, 'Qwen/Qwen3-0.6B-Base', 'mean'),
+    ('q25_7b_cat6+20', 'qwen2', 3584, [6, 20], 0.0025, 'Qwen/Qwen2.5-0.5B', 'mean'),
+    ('style4b', 'qwen3', 2560, [4, 7], 0.0025, 'Qwen/Qwen3-0.6B-Base', 'style'),   # Qwen3-4B-Base, style-token pooling
+    ('glm9b', 'glm4', 4096, [8, 3], 0.0025, 'Qwen/Qwen2.5-0.5B', 'mean'),         # GLM-4-9B-0414 truncated to 25 layers
+]
+FROZEN_ENC = [  # (key, input dir name, [(layer, pool)] concatenated, C, smoke HF id): bidirectional encoders, fp32
+    ('debv3l', 'deberta-v3-large', [(24, 'mean'), (6, 'mean')], 0.005, 'microsoft/deberta-v3-xsmall'),   # = v11 member
+    ('electl', 'electra-large-discriminator', [(21, 'mean'), (24, 'style')], 0.005, 'google/electra-small-discriminator'),
+    ('desk', 'desklib-detector', [(23, 'mean'), (23, 'style')], 0.005, 'microsoft/deberta-v3-xsmall'),
+]   # weights: kernel outputs name-that-llm-extract-encoders2, -electra-large-weights, -desklib-weights (found by dir name:
+#     desklib and DeBERTa-v3-large share model_type/hidden size)
+
+import gc
+import glob
+import json
+import os
+import pathlib
+import re
+import time
+
+import numpy as np
+import pandas as pd
+import torch
+from scipy.cluster.hierarchy import fcluster, linkage
+from scipy.sparse import hstack
+from scipy.spatial.distance import squareform
+from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS, TfidfVectorizer
+from sklearn.linear_model import LogisticRegression
+from sklearn.preprocessing import StandardScaler
+from sklearn.svm import LinearSVC
+from transformers import AutoConfig, AutoModel, AutoModelForSequenceClassification, AutoTokenizer
+
+T0 = time.time()
+LABELS = sorted([
+    'gpt-5.5', 'gpt-5.6-luna', 'gpt-5.6-sol', 'gpt-5.6-terra', 'gpt-6-astra',
+    'gemini-3.1-pro-preview', 'gemini-3.6-flash', 'gemini-3.7-flash', 'gemini-3.8-flash',
+    'claude-fable-5', 'claude-opus-4-6', 'claude-opus-4-8', 'claude-opus-5', 'claude-sonnet-5',
+    'qwen3.8-max', 'glm-5.3', 'glm-5.3-flash', 'kimi-k3'])
+K = len(LABELS)
+DATA_DIR = next(p for p in [pathlib.Path('/kaggle/input/competitions/name-that-llm'),
+                            pathlib.Path('/kaggle/input/name-that-llm'),
+                            pathlib.Path('data')] if (p / 'train.csv').exists())
+train = pd.read_csv(DATA_DIR / 'train.csv')
+test = pd.read_csv(DATA_DIR / 'test.csv')
+if SMOKE:
+    train = train.sample(200, random_state=0).reset_index(drop=True)
+test['text'] = test['text'].fillna('').astype(str)
+y = train['model'].map({l: i for i, l in enumerate(LABELS)}).values
+TR, TE = train['text'].tolist(), test['text'].tolist()
+DEV = 'cuda' if torch.cuda.is_available() else 'cpu'
+NGPU = torch.cuda.device_count()
+print('train', train.shape, 'test', test.shape, 'gpus', NGPU, flush=True)
+LOGIT = np.zeros((len(test), K))
+
+
+def add(key, prob):
+    LOGIT[:] += W[key] * np.log(np.clip(prob, 1e-9, 1))
+    print(f'{key} done ({time.time() - T0:.0f}s)', flush=True)
+
+
+def topic_clusters(texts, thresh):
+    """Average-linkage clusters on cosine distance of content-word TF-IDF (stop words removed)."""
+    if len(texts) < 2:
+        return np.ones(len(texts), dtype=int)
+    X = TfidfVectorizer(stop_words='english', sublinear_tf=True).fit_transform(texts)
+    D = np.clip(1 - (X @ X.T).toarray(), 0, None)
+    np.fill_diagonal(D, 0)
+    return fcluster(linkage(squareform(D, checks=False), method='average'), thresh, criterion='distance')
+
+
+def group_center(X, groups):
+    X = np.asarray(X, dtype=np.float32).copy()
+    for g in np.unique(groups):
+        i = groups == g
+        X[i] -= X[i].mean(0)
+    return X
+
+
+def mixed_clusters(texts, E, thresh):
+    """Average-linkage clusters on the mean of the TF-IDF cosine distance and the cosine distance of the
+    mean-centered, L2-normalized embeddings E (GLM-4-9B layer 24)."""
+    if len(texts) < 2:
+        return np.ones(len(texts), dtype=int)
+    X = TfidfVectorizer(stop_words='english', sublinear_tf=True).fit_transform(texts)
+    Dt = np.clip(1 - (X @ X.T).toarray(), 0, None)
+    Z = np.asarray(E, dtype=np.float64)
+    Z = Z - Z.mean(0)
+    Z /= np.linalg.norm(Z, axis=1, keepdims=True) + 1e-12
+    D = (Dt + np.clip(1 - Z @ Z.T, 0, None)) / 2
+    np.fill_diagonal(D, 0)
+    return fcluster(linkage(squareform(D, checks=False), method='average'), thresh, criterion='distance')
+
+
+def compute_groups(E_te=None, E_selftest=None):
+    """Adaptive-centering targets: test passages in clusters of size ADAPT_MIN..ADAPT_MAX (+ tiny-test self-test)."""
+    global G_TE, ADAPT_ROWS, SELFTEST
+    use_mix = CLUSTER_MODE == 'mixglm' and E_te is not None
+    G_TE = (mixed_clusters(TE, E_te, CLUSTER_THRESH_MIX) if use_mix else topic_clusters(TE, ADAPT_THRESH)) \
+        if ADAPT else np.ones(len(TE), dtype=int)
+    sz = np.bincount(G_TE)[G_TE]
+    ADAPT_ROWS = ADAPT & (sz >= ADAPT_MIN) & (sz <= ADAPT_MAX)
+    print('clustering', 'mixglm' if use_mix else 'tfidf', '| test cluster sizes (passages): 1:', int((sz == 1).sum()),
+          ' 2-3:', int(((sz >= 2) & (sz <= 3)).sum()), ' 4-18:', int(((sz >= 4) & (sz <= 18)).sum()),
+          ' >18:', int((sz > 18).sum()), ' | adapt rows:', int(ADAPT_ROWS.sum()), ADAPT_MODE, flush=True)
+    SELFTEST = None
+    if ADAPT and len(TE) < 50:   # interactive 3-row test: exercise the adapt branch on train rows (output discarded)
+        st = np.where(train['prompt_id'].isin(train['prompt_id'].drop_duplicates().iloc[:3]).values)[0]
+        txt = [TR[i] for i in st]
+        g = mixed_clusters(txt, E_selftest[st], CLUSTER_THRESH_MIX) if (use_mix and E_selftest is not None) \
+            else topic_clusters(txt, ADAPT_THRESH)
+        s = np.bincount(g)[g]
+        keep = (s >= ADAPT_MIN) & (s <= ADAPT_MAX)
+        SELFTEST = (st[keep], g[keep])
+        print('adapt self-test rows:', int(keep.sum()), 'of', len(st), flush=True)
+        if use_mix and E_selftest is not None:   # clustering QA on a train-built pseudo-test (1-5 passages/prompt)
+            rng = np.random.RandomState(0)
+            pid = train['prompt_id'].values
+            qa = np.concatenate([rng.choice(np.where(pid == p)[0], min(rng.randint(1, 6), int((pid == p).sum())),
+                                            replace=False) for p in np.unique(pid)])
+            gq = mixed_clusters([TR[i] for i in qa], E_selftest[qa], CLUSTER_THRESH_MIX)
+            sq = np.bincount(gq)[gq]
+            same_c = gq[:, None] == gq[None, :]
+            same_p = pid[qa][:, None] == pid[qa][None, :]
+            off = ~np.eye(len(qa), dtype=bool)
+            tp = (same_c & same_p & off).sum()
+            print(f'clustering QA on {len(qa)} train passages (1-5/prompt): pair precision '
+                  f'{tp / max((same_c & off).sum(), 1):.3f} recall {tp / max((same_p & off).sum(), 1):.3f} | sizes 1:',
+                  int((sq == 1).sum()), ' 2-3:', int(((sq >= 2) & (sq <= 3)).sum()), ' 4-18:',
+                  int(((sq >= 4) & (sq <= 18)).sum()), ' >18:', int((sq > 18).sum()), flush=True)
+
+
+G_TE, ADAPT_ROWS, SELFTEST = None, None, None   # set by compute_groups() after the GLM pass (section 3)
+
+
+# ------------------------------------------------ 1) style-aware n-grams + LinearSVC
+FUNCTION_WORDS = set("a an the and or but if while although because as so than that which who whom whose this these those it its they them their theirs he him his she her hers we us our ours you your yours i me my mine in on at to from with without for of by over under between through into about is are was were be been being have has had do does did can could will would shall should may might must not no nor all any some each every both either neither other another such only also just very too more most less least here there when where why how what whether then now still yet even much many few little".split())
+SPEC = [('char', 3, 5, False, 250000, 1.0), ('word', 1, 3, False, 180000, 0.7),
+        ('shape', 2, 6, False, 60000, 0.5), ('function', 1, 3, False, 50000, 0.5)]
+
+
+def shape_text(text):
+    return re.sub(r"[^\W\d_]+", lambda m: "X" if m[0].isupper() else "x", text)
+
+
+def function_text(text):
+    return " ".join(t.lower() if t.lower() in FUNCTION_WORDS or not t.isalnum() else "CONTENT"
+                    for t in re.findall(r"\w+|[^\w\s]", text))
+
+
+A, B = [], []
+for analyzer, lo, hi, lower, maxf, w in SPEC:
+    tf = shape_text if analyzer == 'shape' else function_text if analyzer == 'function' else str
+    actual = 'char' if analyzer == 'shape' else 'word' if analyzer == 'function' else analyzer
+    opts = dict(analyzer=actual, ngram_range=(lo, hi), lowercase=lower, sublinear_tf=True, min_df=2,
+                max_features=maxf, dtype=np.float64)
+    if actual == 'word':
+        opts['token_pattern'] = r"(?u)\b\w+\b|[^\w\s]"
+    v = TfidfVectorizer(**opts)
+    A.append(v.fit_transform([tf(t) for t in TR]) * w)
+    B.append(v.transform([tf(t) for t in TE]) * w)
+svc = LinearSVC(C=0.5, random_state=42, max_iter=4000).fit(hstack(A, format='csr'), y)
+s = svc.decision_function(hstack(B, format='csr'))
+s = np.exp(s - s.max(1, keepdims=True))
+p = np.zeros((len(TE), K))
+p[:, svc.classes_] = s / s.sum(1, keepdims=True)
+add('stylegram', p)
+del A, B, svc
+
+# ------------------------------------------------ 1b) within-Claude SVC on original Claude rows + free public Claude API passages
+# (dataset seyitkaangunes/ntl-extra-api-passages). Used only to choose WHICH Claude after the final blend says "Claude".
+# Local GroupKFold CV on the stylegram model: 0.3845 -> 0.3967 (Claude recall 0.393 -> 0.438, other classes unchanged).
+CLAUDE_GATE_LAM = 1.5
+CLAUDE_LORA_LAM = 1.0
+LC_TE = None
+_api_hits = glob.glob('/kaggle/input/**/ntl_extra_passages_claude.csv', recursive=True)
+CLAUDE_IDX = np.array([i for i, l in enumerate(LABELS) if l.startswith('claude')])
+DC_TE = None
+if _api_hits:
+    _api = pd.read_csv(_api_hits[0])
+    _m = np.isin(y, CLAUDE_IDX)
+    _ft = [t for t, k in zip(TR, _m) if k] + _api['text'].astype(str).tolist()
+    _fy = np.concatenate([y[_m], _api['model'].map({l: i for i, l in enumerate(LABELS)}).values])
+    A, B = [], []
+    for analyzer, lo, hi, lower, maxf, w in SPEC:
+        tf = shape_text if analyzer == 'shape' else function_text if analyzer == 'function' else str
+        actual = 'char' if analyzer == 'shape' else 'word' if analyzer == 'function' else analyzer
+        opts = dict(analyzer=actual, ngram_range=(lo, hi), lowercase=lower, sublinear_tf=True, min_df=2,
+                    max_features=maxf, dtype=np.float64)
+        if actual == 'word':
+            opts['token_pattern'] = r"(?u)\b\w+\b|[^\w\s]"
+        v = TfidfVectorizer(**opts)
+        A.append(v.fit_transform([tf(t) for t in _ft]) * w)
+        B.append(v.transform([tf(t) for t in TE]) * w)
+    _svc = LinearSVC(C=0.5, random_state=42, max_iter=4000).fit(hstack(A, format='csr'), _fy)
+    assert list(_svc.classes_) == list(CLAUDE_IDX)
+    DC_TE = _svc.decision_function(hstack(B, format='csr'))
+    print('claude gate model trained on', len(_ft), 'rows', flush=True)
+    del A, B, _svc, _api
+else:
+    print('WARNING: Claude API passages not attached, gate disabled', flush=True)
+
+
+# ------------------------------------------------ 2) stylometric features + LightGBM
+PUNCT = list(',.;:!?()[]"\'-') + ['—', '–', '‘', '’', '“', '”', '…', '*', '/', '%']
+FUNC = sorted(ENGLISH_STOP_WORDS)
+SENT = re.compile(r'(?<=[.!?])\s+')
+WORD = re.compile(r"[A-Za-z’']+")
+
+
+def stylometric_features(t):
+    words = WORD.findall(t)
+    nw, nc = max(len(words), 1), max(len(t), 1)
+    sents = [x for x in SENT.split(t.strip()) if x]
+    sl = np.array([len(WORD.findall(x)) for x in sents]) if sents else np.array([0])
+    wl = np.array([len(x) for x in words]) if words else np.array([0])
+    lw = [x.lower() for x in words]
+    f = [np.log1p(nw), len(sents), sl.mean(), sl.std(), sl.max(), sl.min(), wl.mean(), wl.std(),
+         (wl >= 9).mean(), len(set(lw)) / nw, sum(c.isupper() for c in t) / nc, sum(c.isdigit() for c in t) / nc,
+         sum(ord(c) > 127 for c in t) / nc, t.count(', ') / nw, t.count(' and ') / nw, t.count(' but ') / nw,
+         sum(1 for x in sents if x[:1].isupper() and x.split()[0].lower() in ('this', 'these', 'it', 'they')) / max(len(sents), 1),
+         sum(1 for x in words if x.endswith('ly')) / nw, sum(1 for x in words if x.endswith('ing')) / nw,
+         sum(1 for x in words if x.endswith('tion')) / nw]
+    f += [t.count(q) / nw for q in PUNCT]
+    cnt = {}
+    for x in lw:
+        cnt[x] = cnt.get(x, 0) + 1
+    f += [cnt.get(x, 0) / nw for x in FUNC]
+    return f
+
+
+import lightgbm as lgb
+lg = lgb.LGBMClassifier(n_estimators=400, learning_rate=0.03, num_leaves=15, min_child_samples=10, subsample=0.8,
+                        subsample_freq=1, colsample_bytree=0.5, reg_lambda=1.0, random_state=0, verbose=-1, n_jobs=4)
+lg.fit(np.array([stylometric_features(t) for t in TR], dtype=np.float32), y)
+p = np.zeros((len(TE), K))
+p[:, lg.classes_] = lg.predict_proba(np.array([stylometric_features(t) for t in TE], dtype=np.float32))
+add('style_lgb', p)
+
+
+# ------------------------------------------------ 3) frozen LLM heads (truncated to layer+1, fp16 on GPU)
+def find_model_dir(model_type, hidden):
+    for cfg in sorted(glob.glob('/kaggle/input/**/config.json', recursive=True)):
+        try:
+            c = json.load(open(cfg))
+        except Exception:
+            continue
+        if c.get('model_type') == model_type and c.get('hidden_size') == hidden:
+            return os.path.dirname(cfg)
+    return None
+
+
+def load_truncated(path, keep, dtype):
+    cfg = AutoConfig.from_pretrained(path)
+    cfg.num_hidden_layers = keep
+    if getattr(cfg, 'layer_types', None):
+        cfg.layer_types = cfg.layer_types[:keep]
+    kw = dict(config=cfg, dtype=dtype)
+    if DEV == 'cuda':
+        kw['device_map'] = 'auto'
+    return AutoModel.from_pretrained(path, **kw).eval()
+
+
+def style_mask(tok):
+    """Vocab mask of 'style' tokens: decoded piece is an English stop word or pure punctuation."""
+    func = frozenset(ENGLISH_STOP_WORDS)
+    pieces = [tok.decode([i]) for i in range(len(tok))]
+    return torch.tensor([(p.strip().lower() in func) or bool(re.fullmatch(r'\s*[^\w\s]+\s*', p)) for p in pieces])
+
+
+@torch.no_grad()
+def embed_layers(model, tok, texts, layers, bs=8, max_len=512, pool='mean', smask=None):
+    """Pooled hidden_states[L] for each L in layers, concatenated -> (n, len(layers) * hidden).
+    pool='mean': all tokens; pool='style': only tokens in smask (function words / punctuation)."""
+    H = model.config.hidden_size
+    out = np.zeros((len(texts), len(layers) * H), dtype=np.float32)
+    order = np.argsort([len(t) for t in texts])
+    dev = next(model.parameters()).device
+    bad = 0
+    for b0 in range(0, len(texts), bs):
+        idx = order[b0:b0 + bs]
+        batch = [(tok.bos_token + texts[i]) if tok.bos_token else texts[i] for i in idx]
+        enc = tok(batch, return_tensors='pt', padding=True, truncation=True, max_length=max_len,
+                  add_special_tokens=False).to(dev)
+        hs = model(**enc, output_hidden_states=True).hidden_states
+        if not all(torch.isfinite(hs[L]).all() for L in layers):   # fp16 overflow guard: switch to bf16, redo
+            bad += 1
+            model.to(torch.bfloat16)
+            hs = model(**enc, output_hidden_states=True).hidden_states
+        for li, L in enumerate(layers):
+            h = hs[L]
+            m = enc['attention_mask'].float()
+            if pool == 'style':
+                m = m * smask.to(m.device)[enc['input_ids']].float()
+            m = m.unsqueeze(-1).to(h.device)
+            out[idx, li * H:(li + 1) * H] = ((h.float() * m).sum(1) / m.sum(1).clamp(min=1)).cpu().numpy()
+        del hs, enc
+    if bad:
+        print('  non-finite fp16 batches redone in bf16:', bad, flush=True)
+    return np.nan_to_num(out)
+
+
+def extract(key, mt, hid, lays, smoke_id, pool):
+    """Pooled hidden states of layers `lays` (concatenated) for train and test, model truncated to max(lays)+1."""
+    path = smoke_id if SMOKE else find_model_dir(mt, hid)
+    print(key, path, lays, pool, flush=True)
+    assert path is not None, f'model for {key} ({mt}, hidden {hid}) not found under /kaggle/input'
+    tok = AutoTokenizer.from_pretrained(path)
+    tok.padding_side = 'right'
+    if tok.pad_token is None:
+        tok.pad_token = tok.eos_token
+    smask = style_mask(tok) if pool == 'style' else None
+    dtype = torch.float16 if DEV == 'cuda' else torch.float32
+    model = load_truncated(path, max(lays) + 1, dtype)
+    if SMOKE:   # truncation must not change hidden_states[L]
+        full = AutoModel.from_pretrained(path, dtype=dtype).eval()
+        e1 = embed_layers(model, tok, TE, lays, pool=pool, smask=smask)
+        e2 = embed_layers(full, tok, TE, lays, pool=pool, smask=smask)
+        print('  truncation max abs diff', float(np.abs(e1 - e2).max()), flush=True)
+        assert np.allclose(e1, e2, atol=1e-4)
+        del full
+    Etr = embed_layers(model, tok, TR, lays, pool=pool, smask=smask)
+    Ete = embed_layers(model, tok, TE, lays, pool=pool, smask=smask)
+    del model, tok
+    gc.collect()
+    if DEV == 'cuda':
+        torch.cuda.empty_cache()
+    return Etr, Ete
+
+
+def smoke_layers(layers):
+    return [min(L, 3 + i) for i, L in enumerate(layers)] if SMOKE else list(layers)
+
+
+# GLM pre-pass: the GLM head's layers plus the clustering layer in one forward pass; then build the test groups.
+CACHE = {}
+_glm = next((h for h in LLM_HEADS if h[1] == 'glm4'), None)
+if _glm is not None and CLUSTER_MODE == 'mixglm' and ADAPT:
+    _gl = smoke_layers(_glm[3])
+    _cl = 5 if SMOKE else CLUSTER_LAYER
+    _Etr, _Ete = extract(_glm[0], _glm[1], _glm[2], _gl + [_cl], _glm[5], _glm[6])
+    _H = _Etr.shape[1] // (len(_gl) + 1)
+    CACHE[_glm[0]] = (_Etr[:, :len(_gl) * _H], _Ete[:, :len(_gl) * _H])
+    compute_groups(_Ete[:, len(_gl) * _H:], _Etr[:, len(_gl) * _H:])
+    del _Etr, _Ete
+else:
+    compute_groups()
+
+def fit_head(key, Etr, Ete, C):
+    """StandardScaler + LR head on pooled features; optional prompt-centered twin on clustered test rows."""
+    sc = StandardScaler().fit(Etr)
+    clf = LogisticRegression(C=C, max_iter=5000).fit(sc.transform(Etr), y)
+    # transductive standardization: test features scaled with TEST mean/std (labels never used); CV: never
+    # negative, +0.002..+0.01 depending on test size. Train stats fallback for tiny tests (3-row interactive file).
+    Xte = (Ete - Ete.mean(0)) / (Ete.std(0) + 1e-6) if len(Ete) >= TRANS_STD_MIN else sc.transform(Ete)
+    p = np.zeros((len(TE), K))
+    p[:, clf.classes_] = clf.predict_proba(Xte)
+    if ADAPT and key in TWIN_W:   # prompt-centered twin, used only on test passages in clusters of ADAPT_MIN..ADAPT_MAX
+        Xc = group_center(Etr, train['prompt_id'].values)
+        csc = StandardScaler().fit(Xc)
+        cclf = LogisticRegression(C=ADAPT_C_MULT * C, max_iter=5000).fit(csc.transform(Xc), y)
+        if ADAPT_ROWS.any():
+            pc = np.zeros((int(ADAPT_ROWS.sum()), K))
+            pc[:, cclf.classes_] = cclf.predict_proba(csc.transform(group_center(Ete[ADAPT_ROWS], G_TE[ADAPT_ROWS])))
+            if ADAPT_MODE == 'replace':
+                p[ADAPT_ROWS] = pc
+            else:   # add the centered head's evidence on top of the plain head (applied after add(key, p))
+                LOGIT[ADAPT_ROWS] += TWIN_W[key] * np.log(np.clip(pc, 1e-9, 1))
+        if SELFTEST is not None and len(SELFTEST[0]):
+            ps = cclf.predict_proba(csc.transform(group_center(Etr[SELFTEST[0]], SELFTEST[1])))
+            print(f'  adapt self-test ({len(SELFTEST[0])} train rows, seen in training): '
+                  f'acc {np.mean(cclf.classes_[ps.argmax(1)] == y[SELFTEST[0]]):.2f}', flush=True)
+    add(key, p)
+
+
+for key, mt, hid, layers, C, smoke_id, pool in LLM_HEADS:
+    if key in CACHE:
+        Etr, Ete = CACHE.pop(key)
+    else:
+        Etr, Ete = extract(key, mt, hid, smoke_layers(layers), smoke_id, pool)
+    fit_head(key, Etr, Ete, C)
+
+
+# ------------------------------------------------ 3b) frozen bidirectional encoders (fp32, masked mean pool incl. [CLS]/[SEP])
+@torch.no_grad()
+def embed_encoder(model, tok, texts, parts, smask, bs=16, max_len=512):
+    """parts = [(layer, 'mean'|'style')]: masked mean of hidden_states[layer] over all tokens (incl. [CLS]/[SEP]) or
+    over style tokens only (stop words / punctuation), concatenated -> (n, len(parts) * hidden)."""
+    H = model.config.hidden_size
+    out = np.zeros((len(texts), len(parts) * H), dtype=np.float32)
+    order = np.argsort([len(t) for t in texts])
+    dev = next(model.parameters()).device
+    smask = smask.to(dev)
+    for b0 in range(0, len(texts), bs):
+        idx = order[b0:b0 + bs]
+        enc = tok([texts[i] for i in idx], padding=True, truncation=True, max_length=max_len, return_tensors='pt').to(dev)
+        hs = model(**enc, output_hidden_states=True).hidden_states
+        m = enc['attention_mask'].unsqueeze(-1).float()
+        ms = m * smask[enc['input_ids']].unsqueeze(-1).float()
+        for li, (L, pool) in enumerate(parts):
+            w = ms if pool == 'style' else m
+            out[idx, li * H:(li + 1) * H] = ((hs[L].float() * w).sum(1) / w.sum(1).clamp(min=1)).cpu().numpy()
+        del hs, enc
+    return np.nan_to_num(out)
+
+
+def find_dir(name):
+    hits = sorted(glob.glob(f'/kaggle/input/**/{name}/config.json', recursive=True))
+    return os.path.dirname(hits[0]) if hits else None
+
+
+for key, dname, parts, C, smoke_id in FROZEN_ENC:
+    path = smoke_id if SMOKE else find_dir(dname)
+    print(key, path, parts, flush=True)
+    assert path is not None, f'encoder for {key} (dir {dname}) not found under /kaggle/input'
+    etok = AutoTokenizer.from_pretrained(path)
+    emodel = AutoModel.from_pretrained(path, dtype=torch.float32).to(DEV).eval()
+    if SMOKE:
+        parts = [(min(L, 3 + i), pool) for i, (L, pool) in enumerate(parts)]
+    sm = style_mask(etok)
+    Etr, Ete = embed_encoder(emodel, etok, TR, parts, sm), embed_encoder(emodel, etok, TE, parts, sm)
+    del emodel, etok
+    gc.collect()
+    if DEV == 'cuda':
+        torch.cuda.empty_cache()
+    fit_head(key, Etr, Ete, C)
+
+# ------------------------------------------------ 3c) public LoRA classifier (inference only, plain head)
+@torch.no_grad()
+def run_loras(texts, parity_texts):
+    """Pooled LoRA features of every checkpoint in LORAS (one Qwen3-8B-Base trunk, adapters swapped). For each: plain
+    readout -> blend member W[key]; centered readout on cluster-centered features -> twin evidence TWIN_W_LORA[key]."""
+    import importlib.util as _iu
+    _fs = _iu.find_spec   # Kaggle ships torchao 0.10, which peft rejects; hide it (unused)
+    _iu.find_spec = lambda name, *a, **k: None if name.split('.')[0] == 'torchao' else _fs(name, *a, **k)
+    from peft import PeftModel
+    import peft.import_utils as _pi
+    _pi.is_torchao_available = lambda *a, **k: False
+    from safetensors.torch import load_file
+    base_dir = find_model_dir('qwen3', 4096)
+    cfg = AutoConfig.from_pretrained(base_dir)
+    cfg.num_hidden_layers, cfg.use_cache = 24, False
+    if getattr(cfg, 'layer_types', None) is not None:
+        cfg.layer_types = cfg.layer_types[:24]
+    trunk = AutoModel.from_pretrained(base_dir, config=cfg, dtype=torch.float16, device_map='auto').eval()
+    L = LORA['layers']
+    for key, marker, norms_file, anchors_file in LORAS:
+        hits = sorted(glob.glob('/kaggle/input/' + marker, recursive=True))
+        assert hits, f'LoRA checkpoint for {key} not attached ({marker})'
+        ck = pathlib.Path(os.path.dirname(hits[0]))
+        print(key, ck, flush=True)
+        ltok = AutoTokenizer.from_pretrained(ck / 'tokenizer')
+        ltok.padding_side = 'right'
+        if ltok.pad_token is None:
+            ltok.pad_token = ltok.eos_token
+        lm = PeftModel.from_pretrained(trunk, ck / 'adapter').eval()
+        heads = load_file(str(ck / norms_file))
+        norms = torch.nn.ModuleList([torch.nn.LayerNorm(4096) for _ in L])
+        norms.load_state_dict({k[len('norms.'):]: v for k, v in heads.items() if k.startswith('norms.')})
+        ro = np.load(ck / 'readouts.npz')
+        assert list(ro['classes']) == LABELS and list(ro['pool_layers']) == L
+        dev = lm.get_input_embeddings().weight.device
+        norms = norms.to(dev).float()
+
+        def embed(tl, bs):
+            Z = np.zeros((len(tl), 4096 * len(L)), dtype=np.float32)
+            order = np.argsort([len(t) for t in tl], kind='stable')
+            for b0 in range(0, len(order), bs):
+                idx = order[b0:b0 + bs]
+                batch = ltok.pad({'input_ids': [tl[i] for i in idx]}, return_tensors='pt').to(dev)
+                with torch.autocast('cuda', dtype=torch.float16):
+                    hs = lm(**batch, output_hidden_states=True, use_cache=False).hidden_states
+                m = batch['attention_mask'].unsqueeze(-1).float()
+                m[:, 0] = 0
+                Z[idx] = torch.cat([nm((hs[l].float() * m.to(hs[l].device)).sum(1).to(dev) / m.sum(1).to(dev))
+                                    for l, nm in zip(L, norms)], -1).cpu().numpy()
+                del hs, batch
+            return Z
+
+        def tokens_of(tx):
+            return [ids + [ltok.eos_token_id] for ids in
+                    ltok(list(tx), add_special_tokens=False, truncation=True, max_length=LORA['max_len'])['input_ids']]
+
+        if (ck / anchors_file).exists():   # the checkpoint saved its features for train rows 0..2
+            a = np.load(ck / anchors_file)['features'].astype(np.float32)
+            Za = embed(tokens_of(parity_texts), 3)
+            rel = float(np.abs(Za - a).mean() / (np.abs(a).mean() + 1e-9))
+            print(f'  {key} parity vs saved anchor features: max abs {float(np.abs(Za - a).max()):.4f}, mean rel {rel:.5f}',
+                  flush=True)
+            assert rel < 0.02, f'{key}: features do not match the checkpoint anchors'
+        Z = embed(tokens_of(texts), LORA['bs'])
+        lg = Z @ ro['plain_coef'].T + ro['plain_intercept']
+        lg -= lg.max(1, keepdims=True)
+        p = np.exp(lg)
+        add(key, p / p.sum(1, keepdims=True))
+        if 'claude_coef' in ro.files:   # within-Claude head (orig Claude rows + public Claude API passages)
+            global LC_TE
+            lc5 = Z @ ro['claude_coef'].T + ro['claude_intercept']
+            lc5 -= lc5.max(1, keepdims=True)
+            LC_TE = lc5 - np.log(np.exp(lc5).sum(1, keepdims=True))
+        if ADAPT and key in TWIN_W_LORA and ADAPT_ROWS.any():
+            Zc = group_center(Z[ADAPT_ROWS], G_TE[ADAPT_ROWS])
+            lc = Zc @ ro['center_coef'].T + ro['center_intercept']
+            lc -= lc.max(1, keepdims=True)
+            LOGIT[ADAPT_ROWS] += TWIN_W_LORA[key] * (lc - np.log(np.exp(lc).sum(1, keepdims=True)))
+            print(f'  {key} centered twin on {int(ADAPT_ROWS.sum())} clustered rows', flush=True)
+        trunk = lm.unload()   # drop this adapter, keep the trunk for the next checkpoint
+        del lm
+        gc.collect()
+        torch.cuda.empty_cache()
+    del trunk
+    gc.collect()
+    torch.cuda.empty_cache()
+
+
+if LORA['enabled'] and not SMOKE:
+    run_loras(TE, TR[:3])
+
+
+# ------------------------------------------------ 3d) learned token-attention head on frozen Qwen3.5-9B layer-18 states
+class TokAttn(torch.nn.Module):   # same module as the training kernels lucasboesen/name-that-llm-train-tokattn(2)
+    def __init__(self, k, h=4096):
+        super().__init__()
+        self.drop = torch.nn.Dropout(0.2)
+        self.proj = torch.nn.Linear(h, 64)
+        self.score = torch.nn.Linear(64, 1)
+        self.out = torch.nn.Linear(128, k)
+
+    def forward(self, x, m):
+        h = torch.tanh(self.proj(self.drop(x)))
+        s = self.score(h).squeeze(-1).masked_fill(~m, -1e4)
+        a = torch.softmax(s, -1).unsqueeze(-1)
+        mf = m.unsqueeze(-1).float()
+        mean = (h * mf).sum(1) / mf.sum(1).clamp(min=1)
+        return self.out(self.drop(torch.cat([mean, (a * h).sum(1)], -1)))
+
+
+@torch.no_grad()
+def tokattn_proba(texts, head_file, backbone):
+    hits = sorted(glob.glob('/kaggle/input/**/' + head_file, recursive=True))
+    assert hits, f'attach the training-kernel output holding {head_file}'
+    d = torch.load(hits[0], map_location='cpu')
+    assert list(d['classes']) == LABELS
+    decoder = d.get('decoder', True)
+    if backbone == 'qwen3_5':
+        path = None
+        for c in sorted(glob.glob('/kaggle/input/**/config.json', recursive=True)):
+            try:
+                if json.load(open(c)).get('model_type') == 'qwen3_5':
+                    path = os.path.dirname(c)
+                    break
+            except Exception:
+                continue
+    else:
+        path = find_dir('deberta-v3-large')
+    assert path, f'backbone {backbone} not attached'
+    cfg = AutoConfig.from_pretrained(path)
+    if decoder:
+        tc = getattr(cfg, 'text_config', None) or cfg
+        tc.num_hidden_layers = d['keep']
+        if getattr(tc, 'layer_types', None):
+            tc.layer_types = tc.layer_types[:d['keep']]
+        lm = AutoModel.from_pretrained(path, config=cfg, dtype=torch.float16, device_map='auto').eval()
+    else:
+        lm = AutoModel.from_pretrained(path, dtype=torch.float32).to(DEV).eval()
+    qtok = AutoTokenizer.from_pretrained(path)
+    qtok.padding_side = 'right'
+    if qtok.pad_token is None:
+        qtok.pad_token = qtok.eos_token
+    H = d.get('hidden', 4096)
+    net = TokAttn(len(LABELS), H)
+    net.load_state_dict(d['state_dict'])
+    dev = lm.get_input_embeddings().weight.device
+    net = net.to(dev).eval()
+    mu, sd = d['mu'].float().to(dev), d['sd'].float().to(dev)
+    ids = qtok(list(texts), add_special_tokens=not decoder, truncation=True, max_length=d['max_len'])['input_ids']
+    P = np.zeros((len(texts), len(LABELS)))
+    order = np.argsort([len(t) for t in ids])
+    for b0 in range(0, len(order), TOKATTN['bs']):
+        idx = order[b0:b0 + TOKATTN['bs']]
+        batch = qtok.pad({'input_ids': [ids[i] for i in idx]}, return_tensors='pt').to(dev)
+        out = lm(input_ids=batch['input_ids'], attention_mask=batch['attention_mask'], output_hidden_states=True)
+        hs = (out.hidden_states if getattr(out, 'hidden_states', None) is not None
+              else out.language_model_outputs.hidden_states)[d['layer']]
+        n = batch['attention_mask'].sum(1)
+        T = int(n.max()) - 1
+        x = torch.zeros(len(idx), max(T, 1), H, device=dev)
+        m = torch.zeros(len(idx), max(T, 1), dtype=torch.bool, device=dev)
+        for r in range(len(idx)):   # first token dropped, as in training (states stored in fp16 there)
+            k = int(n[r]) - 1
+            if k > 0:
+                st = torch.nan_to_num(hs[r, 1:k + 1].to(dev).float()).half().float()
+                x[r, :k] = ((st - mu) / sd).clamp(-8, 8)
+                m[r, :k] = True
+        P[idx] = torch.softmax(net(x, m), -1).cpu().numpy()
+        del hs, out, batch
+    del lm
+    gc.collect()
+    torch.cuda.empty_cache()
+    return P
+
+
+if TOKATTN['enabled'] and not SMOKE:
+    for tkey, tfile, tbackbone in TOKATTN_HEADS:
+        if len(TE) < 50:   # interactive run: sanity-check each head on train rows it was fit on (in-sample, must be high)
+            pt = tokattn_proba(TR[:40], tfile, tbackbone)
+            acc_t = float(np.mean(pt.argmax(1) == y[:40]))
+            print(f'  {tkey} in-sample check on 40 train rows: acc {acc_t:.2f}', flush=True)
+            assert acc_t > 0.5, f'{tkey} does not reproduce its training fit'
+        add(tkey, tokattn_proba(TE, tfile, tbackbone))
+
+
+# ------------------------------------------------ 4) fine-tuned encoder fold ensembles (softmax averaged over folds)
+def find_folds(dir_name, model_type, local_fallbacks):
+    """Fold dirs (fold0..fold4) under a Kaggle input dir named dir_name whose config has model_type."""
+    roots = glob.glob(f'/kaggle/input/**/{dir_name}', recursive=True) + local_fallbacks
+    for r in roots:
+        fs = sorted(glob.glob(os.path.join(r, 'fold*')))
+        fs = [f for f in fs if os.path.isdir(f) and os.path.exists(os.path.join(f, 'config.json'))
+              and json.load(open(os.path.join(f, 'config.json'))).get('model_type') == model_type]
+        if len(fs) == 5:
+            return fs
+    raise FileNotFoundError(f'no 5 {model_type} folds under {dir_name}')
+
+
+@torch.no_grad()
+def encoder_ensemble(folds, remote_code):
+    etok = AutoTokenizer.from_pretrained(folds[0], trust_remote_code=remote_code)
+    enc = etok(TE, truncation=True, max_length=512)['input_ids']
+    order = np.argsort([len(e) for e in enc])
+    P = np.zeros((len(TE), K))
+    for fp in folds:
+        em = AutoModelForSequenceClassification.from_pretrained(
+            fp, trust_remote_code=remote_code, dtype=torch.float16 if DEV == 'cuda' else torch.float32,
+            attn_implementation='sdpa').to(DEV).eval()
+        cols = [LABELS.index(em.config.id2label[i]) for i in range(len(em.config.id2label))]
+        for i in range(0, len(order), 32):
+            idx = order[i:i + 32]
+            b = etok.pad({'input_ids': [enc[j] for j in idx]}, return_tensors='pt').to(DEV)
+            P[np.ix_(idx, cols)] += em(**b).logits.float().softmax(-1).cpu().numpy() / len(folds)
+        del em
+        gc.collect()
+        if DEV == 'cuda':
+            torch.cuda.empty_cache()
+    return P
+
+
+for key, dir_name, model_type, remote_code, local in ENCODERS:
+    add(key, encoder_ensemble(find_folds(dir_name, model_type, local), remote_code))
+
+# ------------------------------------------------ blend + experiment outputs
+# Keep the public v6 posterior available before any transductive balancing or rules.
+def logits_to_probabilities(logits):
+    probabilities = np.exp(logits - logits.max(1, keepdims=True))
+    probabilities /= probabilities.sum(1, keepdims=True)
+    return probabilities
+
+
+def sinkhorn_balance(probabilities, alpha, iterations=50):
+    """Partially balance class mass while preserving the public v6 algorithm."""
+    balanced = probabilities.copy()
+    before = balanced.argmax(1)
+    if alpha > 0 and len(balanced) >= 2:
+        target = (1 - alpha) * balanced.sum(0) + alpha * np.full(K, len(balanced) / K)
+        for _ in range(iterations):
+            balanced *= (target / (balanced.sum(0) + 1e-12))[None, :]
+            balanced /= balanced.sum(1, keepdims=True) + 1e-12
+    print(
+        f'alpha={alpha:g} balancing changed',
+        int((balanced.argmax(1) != before).sum()),
+        'of', len(balanced),
+        flush=True,
+    )
+    return balanced
+
+
+def apply_public_punctuation_rules(probabilities, texts, log_penalty=-2.0):
+    """Apply the optional public punctuation heuristics after balancing."""
+    adjusted_log_probabilities = np.log(np.clip(probabilities, 1e-12, 1))
+    claude_glm_idx = np.array([
+        i for i, label in enumerate(LABELS)
+        if label.lower().startswith(('claude', 'glm'))
+    ], dtype=int)
+    gemini_idx = np.array([
+        i for i, label in enumerate(LABELS)
+        if label.lower().startswith('gemini')
+    ], dtype=int)
+
+    curved_quote_rows = np.array([
+        any(mark in text for mark in ('\u2019', '\u201c', '\u201d')) for text in texts
+    ], dtype=bool)
+    repeated_em_dash_rows = np.array([
+        text.count('\u2014') >= 2 for text in texts
+    ], dtype=bool)
+
+    if claude_glm_idx.size:
+        adjusted_log_probabilities[np.ix_(curved_quote_rows, claude_glm_idx)] += log_penalty
+    if gemini_idx.size:
+        adjusted_log_probabilities[np.ix_(repeated_em_dash_rows, gemini_idx)] += log_penalty
+
+    print(
+        'punctuation rules:',
+        int(curved_quote_rows.sum()), 'curved-quote rows;',
+        int(repeated_em_dash_rows.sum()), 'multi-em-dash rows;',
+        f'log penalty {log_penalty:g}',
+        flush=True,
+    )
+    adjusted = np.exp(
+        adjusted_log_probabilities - adjusted_log_probabilities.max(1, keepdims=True)
+    )
+    adjusted /= adjusted.sum(1, keepdims=True)
+    return adjusted
+
+
+def apply_claude_gate(pred, probabilities):
+    """Retain the public v6 Claude-family gate after Sinkhorn balancing."""
+    gated = pred.copy()
+    if DC_TE is not None:
+        is_claude = np.isin(gated, CLAUDE_IDX)
+        scores = np.log(np.clip(probabilities[:, CLAUDE_IDX], 1e-12, 1)) + CLAUDE_GATE_LAM * DC_TE
+        if LC_TE is not None:
+            scores = scores + CLAUDE_LORA_LAM * LC_TE
+        replacements = CLAUDE_IDX[scores.argmax(1)]
+        print(
+            'claude gate changed',
+            int((replacements[is_claude] != gated[is_claude]).sum()),
+            'of', int(is_claude.sum()), 'Claude predictions',
+            flush=True,
+        )
+        gated[is_claude] = replacements[is_claude]
+    return gated
+
+
+def make_submission(raw_logits, alpha, output_path, punctuation_rules=False):
+    probabilities = logits_to_probabilities(raw_logits)
+    probabilities = sinkhorn_balance(probabilities, alpha)
+    if punctuation_rules:
+        probabilities = apply_public_punctuation_rules(probabilities, TE, log_penalty=-2.0)
+    pred = apply_claude_gate(probabilities.argmax(1), probabilities)
+    submission = pd.DataFrame({'id': test['id'], 'model': [LABELS[i] for i in pred]})
+    assert submission['id'].is_unique
+    assert submission['model'].isin(LABELS).all()
+    assert len(submission) == len(test)
+    submission.to_parquet(output_path, index=False)
+    print(f'wrote {output_path}', flush=True)
+    return submission
+
+
+RAW_LOGITS = LOGIT.copy()
+RAW_PROBABILITIES = logits_to_probabilities(RAW_LOGITS)
+np.save('raw_logits.npy', RAW_LOGITS)
+np.save('raw_probabilities.npy', RAW_PROBABILITIES)
+with open('label_order.json', 'w', encoding='utf-8') as f:
+    json.dump(LABELS, f, ensure_ascii=False, indent=2)
+print('saved raw_logits.npy, raw_probabilities.npy, and label_order.json', flush=True)
+
+ALPHA_OUTPUTS = {
+    0.0: 'submission_alpha_0.parquet',
+    0.1: 'submission_alpha_0p1.parquet',
+    0.25: 'submission_alpha_0p25.parquet',
+    0.5: 'submission_alpha_0p5.parquet',
+}
+
+submissions = {}
+for alpha, output_path in ALPHA_OUTPUTS.items():
+    submissions[alpha] = make_submission(RAW_LOGITS, alpha, output_path)
+
+punctuation_submission = make_submission(
+    RAW_LOGITS,
+    0.5,
+    'submission_alpha_0p5_punctuation.parquet',
+    punctuation_rules=True,
+)
+
+# Explicit v11 leaderboard candidate: weaker Sinkhorn alpha=0.25, no punctuation rules.
+sub = submissions[0.25]
+sub.to_parquet('submission.parquet', index=False)
+print('wrote submission.parquet (v6 alpha=0.25 + Claude gate; punctuation disabled)', flush=True)
+print(sub['model'].value_counts().to_string())
+print(f'total {time.time() - T0:.0f}s')

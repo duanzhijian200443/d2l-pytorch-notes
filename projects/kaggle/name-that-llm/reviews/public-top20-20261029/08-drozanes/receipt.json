@@ -1,0 +1,71 @@
+{
+  "rank": 8,
+  "ref": "drozanes/name-that-llm-apex-ensemble-atlas-hungarian",
+  "title": "Name That LLM Apex Ensemble Atlas Hungarian",
+  "author": "david rozanes",
+  "last_run_time": "2026-10-29T07:30:30.147Z",
+  "total_votes": 1,
+  "retrieved_at_utc": "2026-10-29T14:05:42.633713+00:00",
+  "source_sha256": "cd31a1bf68ec3078fc94b5668aed88ceb997993760d4eb42d80ad0ddd8e8a6cf",
+  "directory": "08-drozanes",
+  "metadata": {
+    "id": 139887261,
+    "ref": "drozanes/name-that-llm-apex-ensemble-atlas-hungarian",
+    "title": "Name That LLM Apex Ensemble Atlas Hungarian",
+    "author": "david rozanes",
+    "slug": "name-that-llm-apex-ensemble-atlas-hungarian",
+    "lastRunTime": "2026-10-26T14:05:40.572Z",
+    "language": "python",
+    "kernelType": "notebook",
+    "isPrivate": false,
+    "enableGpu": true,
+    "enableInternet": false,
+    "categoryIds": [
+      "gpu"
+    ],
+    "datasetDataSources": [
+      "lightningv08/ntl-olmo2-native24-final-inference-assets",
+      "seyitkaangunes/ntl-extra-api-passages",
+      "abdullah1afify/ntl-generations",
+      "dophuchung/ntl-proxy-generations",
+      "zbigniewkirchner/ntl-qwen3-8b-lora-claude-head",
+      "dhruvtibarewal/nlm-matched-clean",
+      "josephadamski91/ntl-atlas-qwen3-8b-v1",
+      "lucasboesen/ntl-free-proxy-generations",
+      "dhruvtibarewal/nlm-q25-v5",
+      "kirilltym/ntl-spectral-style-heads-paired-4404",
+      "nishantdahal/ntl-handwriting-blend",
+      "dhruvtibarewal/nlm-l24-adapters-v5",
+      "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+      "pjmathematician/ultrabert-380m-ntl"
+    ],
+    "kernelDataSources": [
+      "lucasboesen/name-that-llm-glm4-9b-trunc25",
+      "lucasboesen/name-that-llm-extract-encoders2",
+      "lucasboesen/name-that-llm-electra-large-weights",
+      "lucasboesen/name-that-llm-desklib-weights",
+      "lucasboesen/name-that-llm-train-lora24-s7",
+      "lucasboesen/name-that-llm-train-tokattn",
+      "lucasboesen/name-that-llm-train-tokattn2",
+      "vnton37nguyn/ntl-train-lora-qwen25-instyle"
+    ],
+    "competitionDataSources": [
+      "name-that-llm"
+    ],
+    "totalVotes": 1,
+    "modelDataSources": [
+      "qwen-lm/qwen-3/Transformers/8b-base/1",
+      "qwen-lm/qwen-3/Transformers/14b-base/1",
+      "qwen-lm/qwen-3/Transformers/4b-base/1",
+      "qwen-lm/qwen2.5/Transformers/14b/1",
+      "qwen-lm/qwen2.5/Transformers/7b/1"
+    ],
+    "enableTpu": false,
+    "currentVersionNumber": 21,
+    "dockerImage": "gcr.io/kaggle-private-byod/python@sha256:2757e0c7d1e0a9cb43da657b97e223c321a98f5014bdf64f44f2f6b083ad2b2f",
+    "machineShape": "NvidiaTeslaT4"
+  },
+  "markdown_characters": 930,
+  "code_characters": 160356,
+  "status": "DOWNLOADED_NOT_EXECUTED"
+}

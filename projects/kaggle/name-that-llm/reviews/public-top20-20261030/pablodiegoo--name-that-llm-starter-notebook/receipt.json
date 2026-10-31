@@ -1,0 +1,21 @@
+{
+  "ref": "pablodiegoo/name-that-llm-starter-notebook",
+  "title": "Name That LLM Starter Notebook",
+  "version": 2,
+  "id": 139477249,
+  "source_sha256": "a9234b206191450dedd653f70f24c5b20e31b14aa013a1100fdb79fa46c74b01",
+  "code_sha256": "41d514655cee48b2071ad5767c4e8c4abc6f26d8bb107f91565e3396113b6c5b",
+  "private": false,
+  "directory": "pablodiegoo--name-that-llm-starter-notebook",
+  "score": 0.661,
+  "url": "https://www.kaggle.com/code/pablodiegoo/name-that-llm-starter-notebook",
+  "page_order": 13,
+  "rank": 13,
+  "observed_at": "2026-10-30T15:16:41.600Z",
+  "note": "完整多骨干 ATLAS20 集成，加 V40A 家族风格残差与分组验证展示；并非官方轻量 Starter。",
+  "score_is_bound_to_downloaded_version": false,
+  "source_reader": "Kaggle MCP get_notebook_info",
+  "score_reader": "Kaggle Code page rendered Score via browser DOM",
+  "retrieved_by_refresh_date": "2026-10-30",
+  "downloaded_source_executed": false
+}

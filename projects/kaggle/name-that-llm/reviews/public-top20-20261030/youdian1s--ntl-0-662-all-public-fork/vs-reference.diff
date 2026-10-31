@@ -1,0 +1,13 @@
+--- alexchilton--name-that-llm-0-662-all-public-what-failed
++++ youdian1s--ntl-0-662-all-public-fork
+@@ -21,7 +21,9 @@
+ cfgs = sorted(glob.glob('/kaggle/input/**/config.json', recursive=True))
+ def mdir(*parts):
+     c = [os.path.dirname(x) for x in cfgs if all(p in x.lower() for p in parts)]
+-    assert c, parts; return c[0]
++    if not c:   # ours: qwen-3 instruct 8b/14b are gated and cannot be attached; I8/I14 are never read
++        print('MISSING', parts); return None
++    return c[0]
+ def adir(name):
+     h = glob.glob(f'/kaggle/input/**/{name}/heads.pt', recursive=True); assert h, name; return os.path.dirname(h[0])
+ DATA = next(p for p in ['/kaggle/input/competitions/name-that-llm', '/kaggle/input/name-that-llm'] if os.path.exists(p + '/train.csv'))

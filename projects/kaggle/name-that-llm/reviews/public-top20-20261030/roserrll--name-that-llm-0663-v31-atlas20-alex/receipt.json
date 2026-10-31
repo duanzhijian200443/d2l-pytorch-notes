@@ -1,0 +1,21 @@
+{
+  "ref": "roserrll/name-that-llm-0663-v31-atlas20-alex",
+  "title": "name-that-llm-0663-v31-atlas20-alex",
+  "version": 1,
+  "id": 141492101,
+  "source_sha256": "d53efba013e79d77d3b0802ccfe03f5c50a860c4e3202ac326d0a1ebcfaad38e",
+  "code_sha256": "87d7a5a9e8168bf4d35e18fb0f0f5262e81ba32938ca02914d0f1ca920f9bcc1",
+  "private": false,
+  "directory": "roserrll--name-that-llm-0663-v31-atlas20-alex",
+  "score": 0.662,
+  "url": "https://www.kaggle.com/code/roserrll/name-that-llm-0663-v31-atlas20-alex",
+  "page_order": 4,
+  "rank": 4,
+  "observed_at": "2026-10-30T15:16:41.600Z",
+  "note": "相对 ATLAS20 主要增加 Llama 两种来源的解析与检查；属于依赖修复复现。",
+  "score_is_bound_to_downloaded_version": false,
+  "source_reader": "Kaggle MCP get_notebook_info",
+  "score_reader": "Kaggle Code page rendered Score via browser DOM",
+  "retrieved_by_refresh_date": "2026-10-30",
+  "downloaded_source_executed": false
+}

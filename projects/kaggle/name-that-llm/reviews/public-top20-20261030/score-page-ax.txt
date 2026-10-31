@@ -1,0 +1,428 @@
+Browser tab: 639773744, Title: "Name That LLM | Kaggle", URL: "https://www.kaggle.com/competitions/name-that-llm/code?competitionId=170484&sortBy=scoreDescending&excludeNonAccessedDatasources=true".
+The following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+~0 AXWebArea Name That LLM | Kaggle, URL: kaggle.com/competitions/name-that-llm/code
+~			4 link Description: Skip to content, Value: kaggle.com/competitions/name-that-llm/code
+~								24 link (collapsed) Description: Data Hub, Value: kaggle.com/competitions/name-that-llm/code, Secondary Actions: Expand
+~								29 link (collapsed) Description: More on Kaggle, Value: kaggle.com/competitions/name-that-llm/code, Secondary Actions: Expand
+~							38 link (collapsed) Description: Expand Viewed, Value: kaggle.com/competitions/name-that-llm/code, Secondary Actions: Expand
+~							42 link (expanded) Description: Collapse Edited, Value: kaggle.com/competitions/name-that-llm/code, Secondary Actions: Collapse
+~						108 link Description: 0 comments, Value: kaggle.com/code/martynaplomecka/starter-notebook-for-name-that-llm-co…
+~						149 link Description: Kaito Fukami, Value: kaggle.com/code/kaitofukami/177-180-fresh-top-30-v21-1-conditional-me…
+~						156 link Description: 0 comments, Value: kaggle.com/code/ozertuu/177-180-fresh-top-30-v21-1-conditional-memory…
+~						195 link Description: 0 comments, Value: kaggle.com/code/alexchilton/name-that-llm-0-662-all-public-what-faile…
+~						220 link Description: 3 comments, Value: kaggle.com/code/lightningv08/0-662-qwen3-8-27b-lora-weighted-ensemble…
+~						408 link Description: 0 comments, Value: kaggle.com/code/dosssi4nzk/muse-guard-ntl-youdian1s-0-662-api-copy/co…
+~						451 link Description: 0 comments, Value: kaggle.com/code/lightningv08/0-661-qwen3-8-27b-lora-spectral-ensemble…
++				567 container NTL v39 Summit Sovereign List Item
++					568 link NTL v39 Summit Sovereign
++						569 link Description: TTANE's profile (opens in a new tab), Value: kaggle.com/otmaneelmahdaouy
++						570 text NTL v39 Summit Sovereign
++						571 text Updated 
++						572 container Description: 21 hours ago, Help: Fri Oct 30 2026 01:48:00 GMT+0800 (中国标准时间)
++							573 text 21h ago
++						574 text Score: 0.66
++						575 text  · 
++						576 link Description: 0 comments, Value: kaggle.com/code/otmaneelmahdaouy/ntl-v39-summit-sovereign/comments
++						577 text  · 
++						578 text Name That LLM
++						579 container
++							580 text  +
++							581 text 30
++					582 container
++						583 button Upvote
++						584 container 1 votes
++							585 text 1
++					586 button More options for this notebook
++				587 container NTL tuned blend (calib refit) List Item
++					588 link NTL tuned blend (calib refit)
++						589 link Description: Youdian1s's profile (opens in a new tab), Value: kaggle.com/youdian1s
++						590 text NTL tuned blend (calib refit)
++						591 text Updated 
++						592 container Description: 14 hours ago, Help: Fri Oct 30 2026 09:25:23 GMT+0800 (中国标准时间)
++							593 text 14h ago
++						594 text Score: 0.66
++						595 text  · 
++						596 link Description: 0 comments, Value: kaggle.com/code/youdian1s/ntl-tuned-blend-calib-refit/comments
++						597 text  · 
++						598 text Name That LLM
++						599 container
++							600 text  +
++							601 text 28
++					602 container
++						603 button Upvote
++						604 container 1 votes
++							605 text 1
++					606 button More options for this notebook
++				607 container NTL atlas 0.45 probe List Item
++					608 link NTL atlas 0.45 probe
++						609 link Description: Youdian1s's profile (opens in a new tab), Value: kaggle.com/youdian1s
++						610 text NTL atlas 0.45 probe
++						611 text Updated 
++						612 container Description: 11 hours ago, Help: Fri Oct 30 2026 12:11:09 GMT+0800 (中国标准时间)
++							613 text 11h ago
++						614 text Score: 0.66
++						615 text  · 
++						616 link Description: 0 comments, Value: kaggle.com/code/youdian1s/ntl-atlas-0-45-probe/comments
++						617 text  · 
++						618 text Name That LLM
++						619 container
++							620 text  +
++							621 text 28
++					622 container
++						623 button Upvote
++						624 container 0 votes
++							625 text 0
++					626 button More options for this notebook
++				627 container Name That LLM GLM augmented reproduction List Item
++					628 link Name That LLM GLM augmented reproduction
++						629 link Description: Roserrll's profile (opens in a new tab), Value: kaggle.com/roserrll
++						630 text Name That LLM GLM augmented reproduction
++						631 text Updated 
++						632 container Description: 2 days ago, Help: Thu Oct 29 2026 10:33:23 GMT+0800 (中国标准时间)
++							633 text 2d ago
++						634 text Score: 0.659
++						635 text  · 
++						636 link Description: 0 comments, Value: kaggle.com/code/roserrll/name-that-llm-glm-augmented-reproduction/com…
++						637 text  · 
++						638 text Name That LLM
++						639 container
++							640 text  +
++							641 text 29
++					642 container
++						643 button Upvote
++						644 container 2 votes
++							645 text 2
++					646 button More options for this notebook
++				647 container NTL v38 Summit Apex List Item
++					648 link NTL v38 Summit Apex
++						649 link Description: TTANE's profile (opens in a new tab), Value: kaggle.com/otmaneelmahdaouy
++						650 text NTL v38 Summit Apex
++						651 text Updated 
++						652 container Description: a day ago, Help: Thu Oct 29 2026 19:29:58 GMT+0800 (中国标准时间)
++							653 text 1d ago
++						654 text Score: 0.659
++						655 text  · 
++						656 link Description: 0 comments, Value: kaggle.com/code/otmaneelmahdaouy/ntl-v38-summit-apex/comments
++						657 text  · 
++						658 text Name That LLM
++						659 container
++							660 text  +
++							661 text 29
++					662 container
++						663 button Upvote
++						664 container 1 votes
++							665 text 1
++					666 button More options for this notebook
++				667 container Name That LLM 0.659: 0.660 Without Llama List Item
++					668 link Name That LLM 0.659: 0.660 Without Llama
++						669 link Description: yuna5577's profile (opens in a new tab), Value: kaggle.com/yuna5577
++						670 text Name That LLM 0.659: 0.660 Without Llama
++						671 text Updated 
++						672 container Description: 10 hours ago, Help: Fri Oct 30 2026 13:27:45 GMT+0800 (中国标准时间)
++							673 text 10h ago
++						674 text Score: 0.659
++						675 text  · 
++						676 link Description: 0 comments, Value: kaggle.com/code/yuna5577/name-that-llm-0-659-0-660-without-llama/comm…
++						677 text  · 
++						678 text Name That LLM
++						679 container
++							680 text  +
++							681 text 29
++					682 container
++						683 button Upvote
++						684 container 3 votes
++							685 text 3
++					686 button More options for this notebook
++				687 container Mercury V31 v9 SVC V1 20261029 List Item
++					688 link Mercury V31 v9 SVC V1 20261029
++						689 link Description: xianyu3's profile (opens in a new tab), Value: kaggle.com/xianyu3
++						690 text Mercury V31 v9 SVC V1 20261029
++						691 text Updated 
++						692 container Description: 13 hours ago, Help: Fri Oct 30 2026 09:52:56 GMT+0800 (中国标准时间)
++							693 text 13h ago
++						694 text Score: 0.658
++						695 text  · 
++						696 link Description: 0 comments, Value: kaggle.com/code/xianyu3/mercury-v31-v9-svc-v1-20261029/comments
++						697 text  · 
++						698 text Name That LLM
++						699 container
++							700 text  +
++							701 text 31
++					702 container
++						703 button Upvote
++						704 container 0 votes
++							705 text 0
++					706 button More options for this notebook
++				707 container exp25-v31-llamafree-atlas20-sota List Item
++					708 link exp25-v31-llamafree-atlas20-sota
++						709 link Description: Alperen Söylen's profile (opens in a new tab), Value: kaggle.com/alperensylen
++						710 text exp25-v31-llamafree-atlas20-sota
++						711 text Updated 
++						712 container Description: a day ago, Help: Thu Oct 29 2026 15:37:48 GMT+0800 (中国标准时间)
++							713 text 1d ago
++						714 text Score: 0.658
++						715 text  · 
++						716 link Description: 0 comments, Value: kaggle.com/code/alperensylen/exp25-v31-llamafree-atlas20-sota/comments
++						717 text  · 
++						718 text Name That LLM
++						719 container
++							720 text  +
++							721 text 29
++					722 container
++						723 button Upvote
++						724 container 2 votes
++							725 text 2
++					726 button More options for this notebook
++				727 container NTL v37 Grandmaster Apex List Item
++					728 link NTL v37 Grandmaster Apex
++						729 link Description: TTANE's profile (opens in a new tab), Value: kaggle.com/otmaneelmahdaouy
++						730 text NTL v37 Grandmaster Apex
++						731 text Updated 
++						732 container Description: a day ago, Help: Thu Oct 29 2026 17:23:32 GMT+0800 (中国标准时间)
++							733 text 1d ago
++						734 text Score: 0.658
++						735 text  · 
++						736 link Description: 0 comments, Value: kaggle.com/code/otmaneelmahdaouy/ntl-v37-grandmaster-apex/comments
++						737 text  · 
++						738 text Name That LLM
++						739 container
++							740 text  +
++							741 text 29
++					742 container
++						743 button Upvote
++						744 container 0 votes
++							745 text 0
++					746 button More options for this notebook
++				747 container Name That LLM Apex Ensemble Atlas Hungarian List Item
++					748 link Name That LLM Apex Ensemble Atlas Hungarian
++						749 link Description: david rozanes's profile (opens in a new tab), Value: kaggle.com/drozanes
++						750 text Name That LLM Apex Ensemble Atlas Hungarian
++						751 text Updated 
++						752 container Description: a day ago, Help: Thu Oct 29 2026 15:30:30 GMT+0800 (中国标准时间)
++							753 text 1d ago
++						754 text Score: 0.657
++						755 text  · 
++						756 link Description: 0 comments, Value: kaggle.com/code/drozanes/name-that-llm-apex-ensemble-atlas-hungarian/…
++						757 text  · 
++						758 text Name That LLM
++						759 container
++							760 text  +
++							761 text 27
++					762 container
++						763 button Upvote
++						764 container 1 votes
++							765 text 1
++					766 button More options for this notebook
++				767 container NTL 660 nocomp List Item
++					768 link NTL 660 nocomp
++						769 link Description: ZhangBowen1005's profile (opens in a new tab), Value: kaggle.com/zhangbowen1005
++						770 text NTL 660 nocomp
++						771 text Updated 
++						772 container Description: a day ago, Help: Thu Oct 29 2026 16:14:31 GMT+0800 (中国标准时间)
++							773 text 1d ago
++						774 text Score: 0.656
++						775 text  · 
++						776 link Description: 0 comments, Value: kaggle.com/code/zhangbowen1005/ntl-660-nocomp/comments
++						777 text  · 
++						778 text Name That LLM
++						779 container
++							780 text  +
++							781 text 30
++					782 container
++						783 button Upvote
++						784 container 1 votes
++							785 text 1
++					786 button More options for this notebook
++				787 container NTL v35 Apex Championship List Item
++					788 link NTL v35 Apex Championship
++						789 link Description: TTANE's profile (opens in a new tab), Value: kaggle.com/otmaneelmahdaouy
++						790 text NTL v35 Apex Championship
++						791 text Updated 
++						792 container Description: 2 days ago, Help: Thu Oct 29 2026 04:25:37 GMT+0800 (中国标准时间)
++							793 text 2d ago
++						794 text Score: 0.655
++						795 text  · 
++						796 link Description: 0 comments, Value: kaggle.com/code/otmaneelmahdaouy/ntl-v35-apex-championship/comments
++						797 text  · 
++						798 text Name That LLM
++						799 container
++							800 text  +
++							801 text 30
++					802 container
++						803 button Upvote
++						804 container 0 votes
++							805 text 0
++					806 button More options for this notebook
++				807 container NTL v33 Championship Veritable List Item
++					808 link NTL v33 Championship Veritable
++						809 link Description: TTANE's profile (opens in a new tab), Value: kaggle.com/otmaneelmahdaouy
++						810 text NTL v33 Championship Veritable
++						811 text Updated 
++						812 container Description: 2 days ago, Help: Wed Oct 28 2026 16:12:02 GMT+0800 (中国标准时间)
++							813 text 2d ago
++						814 text Score: 0.654
++						815 text  · 
++						816 link Description: 0 comments, Value: kaggle.com/code/otmaneelmahdaouy/ntl-v33-championship-veritable/comme…
++						817 text  · 
++						818 text Name That LLM
++						819 container
++							820 text  +
++							821 text 30
++					822 container
++						823 button Upvote
++						824 container 0 votes
++							825 text 0
++					826 button More options for this notebook
++				827 container Name That LLM Soft Sinkhorn 0.5 T4 List Item
++					828 link Name That LLM Soft Sinkhorn 0.5 T4
++						829 link Description: PeterDreamHan's profile (opens in a new tab), Value: kaggle.com/peterdreamhan
++						830 text Name That LLM Soft Sinkhorn 0.5 T4
++						831 text Updated 
++						832 container Description: 3 days ago, Help: Wed Oct 28 2026 10:55:20 GMT+0800 (中国标准时间)
++							833 text 3d ago
++						834 text Score: 0.653
++						835 text  · 
++						836 link Description: 0 comments, Value: kaggle.com/code/peterdreamhan/name-that-llm-soft-sinkhorn-0-5-t4/comm…
++						837 text  · 
++						838 text Name That LLM
++						839 container
++							840 text  +
++							841 text 30
++					842 container
++						843 button Upvote
++						844 container 5 votes
++							845 text 5
++					846 button More options for this notebook
++				847 container 0.653 | Soft Sinkhorn + Bayesian Typography List Item
++					848 link 0.653 | Soft Sinkhorn + Bayesian Typography
++						849 link Description: Stanislav Ilin's profile (opens in a new tab), Value: kaggle.com/stanislavilin2026ai
++						850 text 0.653 | Soft Sinkhorn + Bayesian Typography
++						851 text Notebook copied with edits from
++						852 link Description: PeterDreamHan, Value: …
++						853 text  · 
++						854 text Updated 
++						855 container Description: 11 hours ago, Help: Fri Oct 30 2026 11:47:50 GMT+0800 (中国标准时间)
++							856 text 11h ago
++						857 text Score: 0.653
++						858 text  · 
++						859 link Description: 0 comments, Value: …
++						860 text  · 
++						861 text Name That LLM
++						862 container
++							863 text  +
++							864 text 30
++					865 container
++						866 button Upvote
++						867 container 1 votes
++							868 text 1
++					869 button More options for this notebook
++				870 container Kaggle_name_the_LLM_v3 List Item
++					871 link Kaggle_name_the_LLM_v3
++						872 link Description: maverick_ss_26's profile (opens in a new tab), Value: kaggle.com/maverickss26
++						873 text Kaggle_name_the_LLM_v3
++						874 text Updated 
++						875 container Description: 4 days ago, Help: Mon Oct 26 2026 22:09:17 GMT+0800 (中国标准时间)
++							876 text 4d ago
++						877 text Score: 0.651
++						878 text  · 
++						879 link Description: 2 comments, Value: …
++						880 text  · 
++						881 text Name That LLM
++						882 container
++							883 text  +
++							884 text 31
++					885 container
++						886 button Upvote
++						887 container 72 votes
++							888 text 72
++					889 image silver medal
++					890 text  Silver
++					891 button More options for this notebook
++				892 container Name That LLM Solution List Item
++					893 link Name That LLM Solution
++						894 link Description: Afreed's profile (opens in a new tab), Value: …
++						895 text Name That LLM Solution
++						896 text Updated 
++						897 container Description: 4 days ago, Help: Tue Oct 27 2026 08:57:25 GMT+0800 (中国标准时间)
++							898 text 4d ago
++						899 text Score: 0.651
++						900 text  · 
++						901 link Description: 0 comments, Value: …
++						902 text  · 
++						903 text Name That LLM
++						904 container
++							905 text  +
++							906 text 32
++					907 container
++						908 button Upvote
++						909 container 16 votes
++							910 text 16
++					911 image bronze medal
++					912 text  Bronze
++					913 button More options for this notebook
++				914 container Name That LLM 0.651: LoRA24 + ATLAS Ensemble List Item
++					915 link Name That LLM 0.651: LoRA24 + ATLAS Ensemble
++						916 link Description: alex chilton's profile (opens in a new tab), Value: …
++						917 text Name That LLM 0.651: LoRA24 + ATLAS Ensemble
++						918 text Updated 
++						919 container Description: 3 days ago, Help: Tue Oct 27 2026 17:16:02 GMT+0800 (中国标准时间)
++							920 text 3d ago
++						921 text Score: 0.651
++						922 text  · 
++						923 link Description: 0 comments, Value: …
++						924 text  · 
++						925 text Name That LLM
++						926 container
++							927 text  +
++							928 text 30
++					929 container
++						930 button Upvote
++						931 container 5 votes
++							932 text 5
++					933 button More options for this notebook
++				934 container nlm-v27 List Item
++					935 link nlm-v27
++						936 link Description: Dhruv Tibarewal's profile (opens in a new tab), Value: …
++						937 text nlm-v27
++						938 text Updated 
++						939 container Description: 5 days ago, Help: Sun Oct 25 2026 12:47:18 GMT+0800 (中国标准时间)
++							940 text 5d ago
++						941 text Score: 0.651
++						942 text  · 
++						943 link Description: 2 comments, Value: …
++						944 text  · 
++						945 text Name That LLM
++						946 container
++							947 text  +
++							948 text 30
++					949 container
++						950 button Upvote
++						951 container 133 votes
++							952 text 133
++					953 image silver medal
++					954 text  Silver
++					955 button More options for this notebook
++				956 container nlm-v27 List Item
++					957 link nlm-v27
++						958 link Description: Harshita Kumari's profile (opens in a new tab), Value: …
++						959 text nlm-v27
++						960 text Notebook copied with edits from
++						961 link Description: Dhruv Tibarewal, Value: …
++						962 text  · 
++						963 text Updated 
++						964 container Description: 2 days ago, Help: Wed Oct 28 2026 13:04:18 GMT+0800 (中国标准时间)
++							965 text 2d ago
++						966 text Score: 0.651
++						967 text  · 
++						968 link Description: 0 comments, Value: …
++						969 text  · 
++						970 text Name That LLM
++						971 container
++							972 text  +
++							973 text 32
++					974 container
++						975 button Upvote
++						976 container 0 votes
++							977 text 0
++					978 button More options for this notebook
+The focused UI element is 0 AXWebArea Name That LLM | Kaggle, URL: kaggle.com/competitions/name-that-llm/code

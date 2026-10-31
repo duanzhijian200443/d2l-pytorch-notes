@@ -1,0 +1,8 @@
+ref,fileName,date,description,status,publicScore,privateScore
+
+57778357,submission.parquet,2026-10-29 17:36:23.270000,,SubmissionStatus.COMPLETE,0.662,
+
+57759707,submission.parquet,2026-10-29 05:14:08.043000,,SubmissionStatus.COMPLETE,0.654,
+
+57736953,submission.parquet,2026-10-28 12:46:34.197000,No-Llama word+char TF-IDF / LinearSVC baseline; prompt-grouped 5-fold OOF BA 0.3122446; notebook v4,SubmissionStatus.COMPLETE,0.308,
+
