@@ -1,0 +1,6 @@
+{"type":"thread.started","thread_id":"01a19753-4118-7eb3-8494-4c2d2ca4a1ea"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in C:\\Users\\34331\\.codex\\config.toml."}}
+{"type":"item.completed","item":{"id":"item_1","type":"error","message":"Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."}}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"Try a five-minute closing ritual: jot down tomorrow’s first task, close your tabs, and silence work notifications. Put your laptop, charger, and notes in a basket out of sight, then wipe the table. Swap your work mug for a water glass, add a placemat, or change the lighting to signal a different use of the space. A short walk, a favorite song, or changing into comfortable clothes can provide a transition before you return to eat or relax."}}
+{"type":"turn.completed","usage":{"input_tokens":4326,"cached_input_tokens":3072,"cache_write_input_tokens":0,"output_tokens":99,"reasoning_output_tokens":0}}

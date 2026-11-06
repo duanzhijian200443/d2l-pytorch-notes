@@ -1,0 +1,70 @@
+{
+  "category": "solutions",
+  "title": "ntl-fork-664",
+  "author": "闪客阿凡提",
+  "observed_at": "2026-11-01T07:35:07.405244+00:00",
+  "source_version": {
+    "notebook_version": 1,
+    "script_version_id": null,
+    "source_sha256": "cf492c8f199ee4e9e3dbf1926f9a5b68bf2221f344f23365e7af2642b387c389",
+    "code_sha256": "e4d918a3c9a53bf5121c48224878b50cb0011780e0e24ec2ba11cce883945715",
+    "notebook_id": 141931974
+  },
+  "public_score": {
+    "value": 0.659,
+    "evidence_type": "platform_page",
+    "bound_to_source": false,
+    "script_version_id": null
+  },
+  "summary": "与SRC-022 judith V6代码完全一致，没有新增算法。页面实际0.659，不是标题0.664。",
+  "author_claim": "正文称fork自0.664上游且代码未改；该0.664属于上游得分V2，无法继承到本fork。",
+  "verified": "固定V1已重取匹配源码SHA；Sinkhorn=0.60、target_mix=0.35、ATLAS=.20、标点=1.2。与SRC-022 judith V6代码完全一致，没有新增算法。",
+  "use_for_us": "作为同源后处理参数扫描与标题/得分错绑反例。",
+  "test_plan": "固定预测、输入与标点参数，单独比较Sinkhorn或target_mix；先绑定各页得分版本，不用标题推断。",
+  "limitations": "页面分数未绑定V1，未运行。未显示分数不等于0、失败或等待状态；依赖输入版本未逐一审计。",
+  "tags": [
+    "postprocessing",
+    "parameter-sweep",
+    "version-binding",
+    "same-family",
+    "same-code"
+  ],
+  "related_sources": [
+    "SRC-022",
+    "SRC-021"
+  ],
+  "schema_version": 1,
+  "id": "SRC-050",
+  "artifact_dir": "research/solutions/SRC-050-afantihust-ntl-fork-664-v1",
+  "notes_path": "research/solutions/SRC-050-afantihust-ntl-fork-664-v1/notes.md",
+  "kind": "notebook",
+  "url": "https://www.kaggle.com/code/afantihust/ntl-fork-664",
+  "collection_observation_note": "源码/API时间见回执。浏览器仅记录2026-11-01 UTC采集日期及07:35:57 UTC汇总截至时刻，不将其伪作逐页精确读取时间。",
+  "supersedes": null,
+  "family_id": "code-e4d918a3c9a5",
+  "evidence": [
+    "research/solutions/SRC-050-afantihust-ntl-fork-664-v1/notes.md",
+    "research/solutions/SRC-050-afantihust-ntl-fork-664-v1/code.txt",
+    "research/solutions/SRC-050-afantihust-ntl-fork-664-v1/description.md",
+    "research/solutions/SRC-050-afantihust-ntl-fork-664-v1/metadata.json",
+    "research/solutions/SRC-050-afantihust-ntl-fork-664-v1/receipt.json",
+    "research/solutions/SRC-050-afantihust-ntl-fork-664-v1/source.ipynb",
+    "research/solutions/SRC-050-afantihust-ntl-fork-664-v1/vs-SRC-022.diff",
+    "tracking/snapshots/20261101T073557Z-community-refresh/score-list-dom-observation.json",
+    "tracking/snapshots/20261101T073557Z-community-refresh/search-0664-dom-observation.json"
+  ],
+  "same_code_sources": [
+    "SRC-022"
+  ],
+  "evidence_sha256": {
+    "research/solutions/SRC-050-afantihust-ntl-fork-664-v1/notes.md": "1a2d25f4fe618857df32048392a79af8116b667db1c44cf8f59273a930c201ef",
+    "research/solutions/SRC-050-afantihust-ntl-fork-664-v1/code.txt": "2cb1a28f473dd373d7adc53921415bc62b7dee518b493da3f63545b136b3cb94",
+    "research/solutions/SRC-050-afantihust-ntl-fork-664-v1/description.md": "08e3ea7095b86d60a101448665155b0f4483cbc583cf41607004d470211f6816",
+    "research/solutions/SRC-050-afantihust-ntl-fork-664-v1/metadata.json": "6af65fd0487651f86c83f65c7e7c2fc8e7a8b55a8676edb75fa75fed5eadcc84",
+    "research/solutions/SRC-050-afantihust-ntl-fork-664-v1/receipt.json": "eaba234659ca21160efaa691d2ca0f30c38afdb0c5d17df0002ebc18874d64ca",
+    "research/solutions/SRC-050-afantihust-ntl-fork-664-v1/source.ipynb": "cf492c8f199ee4e9e3dbf1926f9a5b68bf2221f344f23365e7af2642b387c389",
+    "research/solutions/SRC-050-afantihust-ntl-fork-664-v1/vs-SRC-022.diff": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tracking/snapshots/20261101T073557Z-community-refresh/score-list-dom-observation.json": "dd3d6bcf84ff467a6b47f594d7ba9ef888b776c319b8b2dfae31c49ab4dd1fd2",
+    "tracking/snapshots/20261101T073557Z-community-refresh/search-0664-dom-observation.json": "830019135b8a239cee4684ed235682b78788848caef8f8b0f54c2ea68ceb05e7"
+  }
+}

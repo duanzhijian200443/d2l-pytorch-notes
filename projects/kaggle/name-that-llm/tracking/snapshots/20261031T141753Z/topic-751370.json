@@ -1,0 +1,34 @@
+{
+  "observed_at": "2026-10-31T14:18:03.700202+00:00",
+  "topic": {
+    "id": 751370,
+    "title": "Gemini-3.7 Flash requests routed to Gemini-3.8 Flash",
+    "url": "/competitions/name-that-llm/discussion/751370",
+    "postDate": "2026-10-21T15:16:51.292Z",
+    "authorName": "Darragh1Walsh",
+    "authorUrl": "https://www.kaggle.com/darragh1walsh",
+    "votes": 4,
+    "commentCount": 2,
+    "forumName": "Name That LLM",
+    "forumId": 13688374,
+    "content": "<p>Hey all,</p>\n<p>I’ve been working through a couple of approaches to this over the last couple of days, and have noticed consistent misclassification of Gemini 3.7 Flash as Gemini 3.8 Flash. Obviously, differentiating between these two will be a bit of a challenge, given they’re the same tier of model from the same provider with only minor upgrades. However, I have found <a href=\"https://discuss.ai.google.dev/t/gemini-3-7-flash-requests-are-answered-as-gemini-3-8-flash/187817\" target=\"_blank\">this</a> thread, mentioning that due to the depreciation of 3.7 on the 8th of October, any requests through it’s endpoint are automatically routed to Gemini 3.8 Flash. </p>\n<p>Given that the miss rate isn’t 100%, it’s safe to assume that some of the data is actually from Gemini 3.7 Flash, but unless my solution is poorly implemented (which isn’t unlikely either 😅), is it possible that a chunk of the 3.7 Flash data is actually from 3.8 Flash?</p>\n<p>Interested to hear if anybody with a little bit more experience Kaggling has some insight to provide on this!</p>"
+  },
+  "comments": [
+    {
+      "id": 3542495,
+      "authorName": "GoPain",
+      "postDate": "2026-10-22T01:17:13.647Z",
+      "content": "<p>I checked this on the host's train set and on the public in-style pool (<code>prvsiyan/ntl-public-in-style-pool-v1</code>). Short version: the host's labels show no sign of it. In the pool I find no clear sign either: one source is ambiguous to my detector, and dropping its 3.7 rows makes 3.7 worse, not better.</p>\n<p><strong>Host train.</strong> These are prompt-grouped out-of-fold predictions (150 passages per model, 5 folds by <code>prompt_id</code>). If some of the host's \"3.7\" passages were really 3.8, the extra errors would show up as 3.7 called 3.8. My two-stage LoRA errs mostly the other way:</p>\n<table>\n<thead>\n<tr>\n<th>true \\ predicted</th>\n<th>3.6-flash</th>\n<th>3.7-flash</th>\n<th>3.8-flash</th>\n<th>3.1-pro</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>3.7-flash (LoRA)</td>\n<td>29</td>\n<td><strong>79</strong></td>\n<td>32</td>\n<td>7</td>\n</tr>\n<tr>\n<td>3.8-flash (LoRA)</td>\n<td>18</td>\n<td>55</td>\n<td><strong>64</strong></td>\n<td>7</td>\n</tr>\n<tr>\n<td>3.7-flash (n-gram SVC)</td>\n<td>14</td>\n<td><strong>56</strong></td>\n<td>65</td>\n<td>11</td>\n</tr>\n<tr>\n<td>3.8-flash (n-gram SVC)</td>\n<td>17</td>\n<td>36</td>\n<td><strong>87</strong></td>\n<td>6</td>\n</tr>\n</tbody>\n</table>\n<p>The two models lean in opposite directions, so the misses look like the usual difficulty of telling two close versions of the same model apart, not label noise. 3.7 against 3.8 is simply the hardest pair: the LoRA gets about half of each right.</p>\n<p><strong>The pool.</strong> I trained a binary 3.7-vs-3.8 n-gram SVM on the host's 300 passages only. Its labels are the ones we trust. Then I scored each pool source's passages. The detector is weak: in grouped CV on train it calls 37% of the true 3.7 passages \"3.8\", against 52% of the true 3.8 ones. A source whose \"3.7\" passages were really 3.8 should therefore show about the same rate for both labels.</p>\n<table>\n<thead>\n<tr>\n<th>pool source</th>\n<th>\"3.7\" rows called 3.8</th>\n<th>\"3.8\" rows called 3.8</th>\n<th>n (3.7 / 3.8)</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>alperen5252525/ntl-vertex-gemini-proxy-gpt-generations</td>\n<td>0.34</td>\n<td>0.40</td>\n<td>817 / 763</td>\n</tr>\n<tr>\n<td>lxdlxdlxd/ntl-synth-generations-v1</td>\n<td>0.29</td>\n<td>0.37</td>\n<td>382 / 327</td>\n</tr>\n<tr>\n<td>michaelsemenoff/ntl-own-extra-v1</td>\n<td>0.36</td>\n<td>0.42</td>\n<td>294 / 77</td>\n</tr>\n<tr>\n<td>prvsiyan/prvsiyans-extended-name-that-llm-dataset</td>\n<td>0.37</td>\n<td>0.49</td>\n<td>222 / 201</td>\n</tr>\n<tr>\n<td>willrice/name-that-llm-openrouter-harvest</td>\n<td>0.40</td>\n<td>0.42</td>\n<td>750 / 833</td>\n</tr>\n</tbody>\n</table>\n<p>In four sources the \"3.7\" rows sit at or below the host's 3.7 rate (0.37), with a clear gap to that source's 3.8 rows. <strong>willrice</strong> is the exception: a gap of 0.02 ± 0.025, so its 3.7 and 3.8 rows look alike to this detector.</p>\n<p>So I dropped willrice's 750 \"3.7\" rows and retrained my four-view n-gram SVM on train plus the pool, with the same prompt-grouped folds and class-balanced pool weights:</p>\n<table>\n<thead>\n<tr>\n<th>pool</th>\n<th>OOF balanced accuracy</th>\n<th>3.7 recall</th>\n<th>3.8 recall</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>full</td>\n<td>0.4668</td>\n<td>56 / 150</td>\n<td>87 / 150</td>\n</tr>\n<tr>\n<td>without willrice's 3.7 rows</td>\n<td>0.4664</td>\n<td>53 / 150</td>\n<td>95 / 150</td>\n</tr>\n</tbody>\n</table>\n<p>The overall score doesn't move, and 3.7 recall goes <em>down</em>: those rows were helping the model find 3.7, not teaching it 3.8. If a large share of them had been routed 3.8 output, dropping them should have helped 3.7. My reading is that willrice's 3.7 rows are mostly real 3.7 and are just harder for my detector.</p>\n<p>Two more observations:</p>\n<ul>\n<li>7 of the 12 sources in the pool have <strong>no</strong> 3.7 passages at all, against 17 to 374 for 3.8. That fits 3.7 no longer being available when they were generated. The pool has 2,465 rows for 3.7 and 3,312 for 3.8, so a model trained on it without class weights leans towards 3.8.</li>\n<li>Every detector rate on the pool is lower than on train, which is the domain shift between pool and host. Only compare rates within one source.</li>\n</ul>\n<p>What I'd do with it: keep the 3.7 rows, and weight pool classes so that each one gets the same total weight (or balance the predictions afterwards). Otherwise the missing 3.7 rows in seven sources push the model towards 3.8. If your classifier is stronger than mine, the per-source check above takes a few minutes to repeat.</p>",
+      "votes": 2,
+      "replies": [
+        {
+          "id": 3542691,
+          "authorName": "Darragh1Walsh",
+          "postDate": "2026-10-22T09:16:19.187Z",
+          "content": "<p>Hey, thanks for your discussion! Glad to hear its something that can be worked on!</p>"
+        }
+      ]
+    }
+  ],
+  "next_page_token_present": false
+}

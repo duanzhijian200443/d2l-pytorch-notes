@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-030",
+  "retry_of": "EXP-025",
+  "collection_directory": "experiments/EXP-023-codex-subscription-pilot-r1",
+  "sampling_config": "experiments/EXP-023-codex-subscription-pilot-r1/config.json",
+  "sampling_config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+  "planned_total_responses": 1000,
+  "already_saved_and_verified": 558,
+  "remaining_requests": 442,
+  "max_workers": 2,
+  "wall_seconds": 21600,
+  "controller_automatic_retries": 0,
+  "local_file_replace_retries_seconds": [
+    0.05,
+    0.1,
+    0.2,
+    0.4,
+    0.8
+  ],
+  "history_receipt": "experiments/EXP-030-codex-subscription-pilot-r3/metrics/resume-preflight.json",
+  "replay_policy": "User-authorized reissue of two inspected empty failed attempts only; no automatic retry for new failures."
+}

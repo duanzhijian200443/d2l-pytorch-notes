@@ -1,0 +1,13 @@
+{
+  "method": "hierarchical_beta_bernoulli_typography_v2",
+  "fit_scope": "full official train labels, used only for final submission inference; not an OOF validation claim",
+  "pre_bayes_changed": 25,
+  "trained_rows": 105,
+  "tested_rows": 60,
+  "marker_count": 37,
+  "mean_gate": 0.5388743556775578,
+  "length_gate_mean": 0.8009414672851562,
+  "coverage_gate_mean": 0.9196152091026306,
+  "sinkhorn": 0.45,
+  "sinkhorn_target_mix": 0.35
+}

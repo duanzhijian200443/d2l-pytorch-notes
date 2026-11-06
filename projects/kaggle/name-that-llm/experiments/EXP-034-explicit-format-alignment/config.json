@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-034",
+  "status": "PREPARED_NOT_GENERATED",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "requirements_file": "format-instructions.txt",
+  "aligned_prompts_file": "prompts.jsonl",
+  "base_prompts_file": "experiments/EXP-021-codex-subscription-pilot/prompts.jsonl",
+  "full_bank": {
+    "prompts": 250,
+    "train_groups": 200,
+    "holdout_groups": 50,
+    "eligible_model_labels": [
+      "gpt-5.6-luna",
+      "gpt-5.6-terra",
+      "gpt-5.6-sol",
+      "gpt-6-astra"
+    ]
+  },
+  "prepared_paired_panel": {
+    "prompt_ids": [
+      "cp0001",
+      "cp0022",
+      "cp0043",
+      "cp0064",
+      "cp0081",
+      "cp0102",
+      "cp0123",
+      "cp0144",
+      "cp0161",
+      "cp0182"
+    ],
+    "models": [
+      "gpt-5.6-luna",
+      "gpt-5.6-terra"
+    ],
+    "prompts": 10,
+    "requests_per_route_per_repeat": 20,
+    "repeat_count": null,
+    "total_requests": null,
+    "generation_authorized": false,
+    "api_budget_usd": null
+  },
+  "shared_requested_settings": {
+    "reasoning_effort": "low",
+    "base_instruction": "Answer the user's request.",
+    "temperature": "omitted; effective default unknown",
+    "top_p": "omitted; effective default unknown",
+    "seed": "omitted; effective default unknown",
+    "fresh_conversation_each_request": true
+  },
+  "remaining_differences": {
+    "kaggle_max_completion_tokens": 1024,
+    "codex_explicit_output_cap": null,
+    "message_roles": "API system message vs Codex base instructions; same text does not establish full role/context equivalence",
+    "backend_snapshot": "unknown"
+  },
+  "safety_and_integrity": {
+    "max_codex_concurrency": 2,
+    "automatic_generation_retries": 0,
+    "raw_output_preserved": true,
+    "format_failures": "mark and review; no cleanup/drop/regeneration by this preparation",
+    "all_variants_and_repeats_keep_original_prompt_group": true
+  },
+  "source_protocols": [
+    "lucas-v7: single paragraph, no title/headings, low reasoning",
+    "prvs-raw-v6-new: single self-contained paragraph, no headings/lists"
+  ],
+  "alignment_scope": "Common visible formatting requirements only; not exact source reconstruction and not hidden-prompt removal."
+}

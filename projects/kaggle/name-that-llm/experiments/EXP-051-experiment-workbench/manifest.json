@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-051",
+  "freeze_status": "DELIVERY_SNAPSHOT_VERIFIED",
+  "created_at": "2026-11-02T05:02:13.520079+00:00",
+  "note": "Delivery snapshot of code/config/docs and scoped evidence. Future new observations do not rewrite this snapshot. No claim of hidden inference.",
+  "files": [
+    {
+      "path": "experiment.py",
+      "bytes": 244,
+      "sha256": "2e26aa1298159c00a00e1b5efd9730c46111df377777bc9c142d930f169041c7"
+    },
+    {
+      "path": "src/workbench_core.py",
+      "bytes": 8442,
+      "sha256": "3b2f1339a3fa8963ba3ba554f93bd1f39b300e6647ff53f0278ddd996810057f"
+    },
+    {
+      "path": "src/workbench_remote.py",
+      "bytes": 7964,
+      "sha256": "8d89953b33a7e8ddabb55067736470611c2a53e3b11fa3b4fbf51807861d278c"
+    },
+    {
+      "path": "src/workbench_parquet.py",
+      "bytes": 4724,
+      "sha256": "c4a33b39094f2e734743807b1c8043ed47476b703ba89186d6560b5d360d9393"
+    },
+    {
+      "path": "src/workbench_local.py",
+      "bytes": 1312,
+      "sha256": "e4a9cde9e6826034a321adbd9c18c4c193a2ea7e3fad8165700901ff241d11d4"
+    },
+    {
+      "path": "src/experiment_workbench.py",
+      "bytes": 13644,
+      "sha256": "f51f24c35f8a968bffefbfde5f1828bb1bbcdd099008ae7fff250814e5dd053e"
+    },
+    {
+      "path": "configs/experiment-workbench.json",
+      "bytes": 3423,
+      "sha256": "70da3c2c1c7377f40aaf0524211a27cafbfa535d617770d553e3af6529bf1629"
+    },
+    {
+      "path": "src/test_experiment_workbench.py",
+      "bytes": 7270,
+      "sha256": "1b2aab325ea8d9d8f0e7ed0f0e513cc5402ffa7494cc5d56c6c2eb3c95ccd12b"
+    },
+    {
+      "path": "src/test_workbench_review.py",
+      "bytes": 8354,
+      "sha256": "14ed6ad37358b51a5b63a8742f3c49e55ad8d8772c62a8795aab74d6370979ea"
+    },
+    {
+      "path": "experiments/EXP-051-experiment-workbench/config.json",
+      "bytes": 1007,
+      "sha256": "6f0c554092bee8c62a9b1bbaee557ade43fd66fca6f6d7e2648a34e0995547d6"
+    },
+    {
+      "path": "experiments/EXP-051-experiment-workbench/guide.md",
+      "bytes": 5494,
+      "sha256": "c21b7ca28c02704faf4c3636ea0d8f4dc0af913f77ac483fc8095e27e6c62bbb"
+    },
+    {
+      "path": "experiments/EXP-051-experiment-workbench/month-plan.md",
+      "bytes": 5239,
+      "sha256": "471af958f1cd7ef35e67597b69baf3c04cbe9ded49f89c7742d41734df1735db"
+    },
+    {
+      "path": "experiments/EXP-051-experiment-workbench/report.md",
+      "bytes": 4558,
+      "sha256": "bf49994d40921fd85c1e42ca5bd84b8b9ede51f546a10c0b26f594e3a8ab56b9"
+    },
+    {
+      "path": "experiments/EXP-051-experiment-workbench/metrics/local-smoke.json",
+      "bytes": 1117,
+      "sha256": "0cc028c0474f1fdabcd4fa8aac19779cd5fdc9b369efe31fe9ed3d10d6df53a8"
+    },
+    {
+      "path": "experiments/EXP-051-experiment-workbench/metrics/implementation-review.json",
+      "bytes": 4281,
+      "sha256": "ee0948f25d3af1a3224bce2118f33cbcb842612869c459b4b58e5dc4b50cf44f"
+    },
+    {
+      "path": "experiments/EXP-051-experiment-workbench/metrics/implementation-review-followup.json",
+      "bytes": 4949,
+      "sha256": "9fb5b14446e4ddcb9947547a5b5f5b056e69f28bb959527a959eade197d78b81"
+    }
+  ],
+  "registered_source_gate": "each remote profile binds canonical ref/version/submission/scriptVersionId/source hash",
+  "registry_hash": "70da3c2c1c7377f40aaf0524211a27cafbfa535d617770d553e3af6529bf1629",
+  "readonly_remote_observations": {
+    "EXP-046": {
+      "status": {
+        "path": "experiments/EXP-051-experiment-workbench/observations/EXP-046/20261102T045512678309Z-status-3e21aa/receipt.json",
+        "sha256": "ecbbffee70826bb4109e2b488e562933c94737e9371f7693bca1926e389e5291",
+        "status": "COMPLETE",
+        "observed_at": "2026-11-02T04:55:18.121555+00:00",
+        "score": 0.663,
+        "submission_id": 57879463,
+        "script_version_id": 364624288,
+        "commit_status": "COMPLETE"
+      },
+      "collect": {
+        "path": "experiments/EXP-051-experiment-workbench/observations/EXP-046/20261102T045518223628Z-collect-64bdcd/receipt.json",
+        "sha256": "deebfa1b031834ce8a1ddadec9fcd9247509292fda48a4f8cb4838f6c3840e04",
+        "status": "COLLECTED_COMMIT_OUTPUTS",
+        "observed_at": "2026-11-02T04:55:45.917640+00:00",
+        "files": 6,
+        "bytes": 32195,
+        "scope": "saved_notebook_outputs_not_hidden_rerun_artifacts"
+      },
+      "verify": {
+        "path": "experiments/EXP-051-experiment-workbench/observations/EXP-046/20261102T045546094624Z-verify-29f922/receipt.json",
+        "sha256": "68076bfaa24ac8a25aa3034129dbaf7d7440458c9204de0b578e7999fb128d6e",
+        "status": "PASS_COMMIT_SAMPLE_ONLY",
+        "observed_at": "2026-11-02T04:55:47.103881+00:00"
+      }
+    },
+    "EXP-048": {
+      "status": {
+        "path": "experiments/EXP-051-experiment-workbench/observations/EXP-048/20261102T045512685199Z-status-be9cf6/receipt.json",
+        "sha256": "3baad775dd662d2f1e4bfaad01054852d4e7743c8216354676ccc2b831bb020d",
+        "status": "PENDING",
+        "observed_at": "2026-11-02T04:55:18.325541+00:00",
+        "score": null,
+        "submission_id": 57893384,
+        "script_version_id": 364733823,
+        "commit_status": "COMPLETE"
+      },
+      "collect": {
+        "path": "experiments/EXP-051-experiment-workbench/observations/EXP-048/20261102T045518421940Z-collect-59475a/receipt.json",
+        "sha256": "3dfbeac13f85772837249a656833c1274903489c98831718239868477da1e797",
+        "status": "COLLECTED_COMMIT_OUTPUTS",
+        "observed_at": "2026-11-02T04:55:47.378297+00:00",
+        "files": 7,
+        "bytes": 33072,
+        "scope": "saved_notebook_outputs_not_hidden_rerun_artifacts"
+      },
+      "verify": {
+        "path": "experiments/EXP-051-experiment-workbench/observations/EXP-048/20261102T045547548584Z-verify-6dbac9/receipt.json",
+        "sha256": "d786ab7e40d77c2e3b513287c76b907468f39c93af95473e0bc2bde30f124bdd",
+        "status": "PASS_COMMIT_SAMPLE_ONLY",
+        "observed_at": "2026-11-02T04:55:48.460189+00:00"
+      }
+    },
+    "EXP-049": {
+      "verify": {
+        "path": "experiments/EXP-051-experiment-workbench/observations/EXP-049/20261102T045443799371Z-verify-dfbf24/receipt.json",
+        "sha256": "5048bca617837d9a508bc88fa20fb67aeb6ba9ee7ef29b79623ec8bea3b9927e",
+        "status": "PASS_FIXED_LOCAL_JOB",
+        "observed_at": "2026-11-02T04:54:45.981720+00:00"
+      }
+    },
+    "EXP-050": {
+      "verify": {
+        "path": "experiments/EXP-051-experiment-workbench/observations/EXP-050/20261102T045446210364Z-verify-ed0c15/receipt.json",
+        "sha256": "29a162255115e55a6ccf8e0e960ee3844f1d2b566e0a3447700f9a77acaf33c7",
+        "status": "PASS_FIXED_LOCAL_JOB",
+        "observed_at": "2026-11-02T04:54:47.572425+00:00"
+      }
+    }
+  },
+  "environment": {
+    "python": "3.13.13",
+    "system": "Windows",
+    "interpreters": {
+      "analysis": "current",
+      "kaggle": "C:/Users/34331/AppData/Roaming/uv/tools/kaggle/Scripts/python.exe",
+      "parquet": "C:/Users/34331/AppData/Local/uv/cache/environments-v2/audit-e5542b9a7a231d97/Scripts/python.exe"
+    }
+  }
+}

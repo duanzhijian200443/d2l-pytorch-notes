@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-042",
+  "freeze_status": "FROZEN_BEFORE_TRAINING",
+  "observed_at": "2026-11-01T14:30:57.883486+00:00",
+  "run_id": "exp042-20261101T143057Z",
+  "config": {
+    "path": "experiments/EXP-042-luna-terra120-ablation/config.json",
+    "sha256": "0d24a23932524507dca84d04a40de6688c80e4c92eef7bbc89c3f706b799a4a9",
+    "bytes": 7190
+  },
+  "inputs": [
+    {
+      "path": "experiments/EXP-040-codex300-concurrency2/collection/combined-records.jsonl",
+      "sha256": "2d6c691016a6ae6f789d5c6a625a207a3ec89e5093bf804c5052b11c90a6125b",
+      "bytes": 1165478
+    },
+    {
+      "path": "experiments/EXP-041-aligned-channel-repeat-audit/metrics/training-eligibility.jsonl",
+      "sha256": "e84bb7ab68584911be74d49f4377a28df99fb6fe216f45a63b6eb0dc6336f645",
+      "bytes": 155286
+    },
+    {
+      "path": "experiments/EXP-023-codex-subscription-pilot-r1/collection/records.jsonl",
+      "sha256": "cb903279b3727b31ce2125b89c5ce8f530d769a984f49c2cb86e4fbefb1e9722",
+      "bytes": 2428324
+    },
+    {
+      "path": "experiments/EXP-038-paired-cloud-precheck-recovery/collection/combined-records.jsonl",
+      "sha256": "2c560d93f9cce57e42607886cb54449f84e88858a9370d3f175bcf441aea86e7",
+      "bytes": 1233569
+    },
+    {
+      "path": "experiments/EXP-042-luna-terra120-ablation/metrics/data-review.json",
+      "sha256": "ea949232e8294884c677a54c0bbf18e62b3ba9f839fc29d98cb40f29ed18d471",
+      "bytes": 32163
+    },
+    {
+      "path": "cloud/luna-terra120-042/payload/new120.csv",
+      "sha256": "cbb0f2227f7748d9172f04d23c1653403103a192dbb7503d897153d24bb00acd",
+      "bytes": 159306
+    },
+    {
+      "path": "cloud/luna-terra120-042/payload/extra.csv",
+      "sha256": "1e9125fd49b19084842332ede84ea65bc0174ee1bb28c8d48acc8ddbd5e36c0e",
+      "bytes": 8672205
+    },
+    {
+      "path": "cloud/luna-terra120-042/payload/train.csv",
+      "sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+      "bytes": 2139418
+    },
+    {
+      "path": "cloud/luna-terra120-042/payload/folds.csv",
+      "sha256": "e8ba1e3712852168dc57f56960d4f3e00be612d639ade8a7dcb0f0d8335ce551",
+      "bytes": 267236
+    }
+  ],
+  "code": [
+    {
+      "path": "experiments/EXP-042-luna-terra120-ablation/prepare.py",
+      "sha256": "7f2b5e877d7e22af2fc69bb85567adbf0f18802f38fbf5d2943d8b0fded171e8",
+      "bytes": 12651
+    },
+    {
+      "path": "experiments/EXP-042-luna-terra120-ablation/runner.py",
+      "sha256": "de60b60bfd138b834d8723bbd832fd0522453f549c4050256197f6babe4ed45a",
+      "bytes": 22257
+    },
+    {
+      "path": "experiments/EXP-042-luna-terra120-ablation/test_runner.py",
+      "sha256": "5836c5cc7725cd65e12a69759cde3cc83e17cc6184977725c570458b6296435b",
+      "bytes": 9073
+    },
+    {
+      "path": "cloud/luna-terra120-042/payload/guard.py",
+      "sha256": "eaf2c31758045488eb53ba3f9c7f824c848bfe0a33698fab816d96485f9b6d3b",
+      "bytes": 9621
+    },
+    {
+      "path": "cloud/luna-terra120-042/payload/stylegram_core.py",
+      "sha256": "caa46bd121164aba891c3d78e662540db9294d653db09f53d02833c1b4ab77ef",
+      "bytes": 4061
+    },
+    {
+      "path": "cloud/luna-terra120-042/kernel/experiment.ipynb",
+      "sha256": "55e83c3d8ee7480d5700e4aa8b6edbc94ade75458d6530534a88060758820dda",
+      "bytes": 98116
+    },
+    {
+      "path": "experiments/EXP-042-luna-terra120-ablation/launch.py",
+      "sha256": "32a1c0982c7adacafe7d3262d283e33d4cbba42a2136520260984c9761e50c1b",
+      "bytes": 5269
+    }
+  ],
+  "protocol": {
+    "path": "cloud/luna-terra120-042/payload/protocol.json",
+    "sha256": "35e546b80c1e0ef0a3f489575260bbb5b64eca4e4b6ef553e359ead9f6135a1b",
+    "bytes": 958
+  },
+  "model_calls": 0,
+  "formal_pool_ingestion": false
+}

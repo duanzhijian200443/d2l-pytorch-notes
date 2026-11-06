@@ -1,0 +1,78 @@
+{
+  "role": "observed public Kaggle Code ranking, notebook Best Score, input cards and public commit log excerpts",
+  "recorded_at": "2026-11-02T07:11:45Z",
+  "ranking_url": "https://www.kaggle.com/competitions/name-that-llm/code?competitionId=170484&sortBy=scoreDescending&excludeNonAccessedDatasources=true",
+  "ranking_scope": "Public Notebook Code page, sorted by Public Score, initial visible entries; competition leaderboard has a separate scope.",
+  "leading_rows": [
+    [
+      "leoprovorov/he-who-must-not-be-named",
+      1645.5,
+      "outside metric"
+    ],
+    [
+      "ozertuu/fresh-top-30",
+      1019.8,
+      "outside metric"
+    ],
+    [
+      "synthreaper/ntl-sovereign-gold-apex",
+      0.665
+    ],
+    [
+      "chyibo/name-that-llm-0663-fork",
+      0.665
+    ],
+    [
+      "kirilltym/lora-trained27-independent-votes",
+      0.664
+    ],
+    [
+      "hardikgautam25/two-stage-lora-pool-champion",
+      0.664
+    ],
+    [
+      "mohammedafreedpasha/name-that-llm-solution",
+      0.664
+    ]
+  ],
+  "notebooks": [
+    {
+      "ref": "synthreaper/ntl-sovereign-gold-apex",
+      "version": 1,
+      "of": 1,
+      "score": 0.665,
+      "best_score_url": "https://www.kaggle.com/code/synthreaper/ntl-sovereign-gold-apex?scriptVersionId=364684268",
+      "commit_runtime_display": "9m 60s · GPU T4 x2",
+      "input_tab_pool_title": "Name That LLM Open Pool: 191k Clean Passages",
+      "input_card_version": 13,
+      "author_pool_release": "v11",
+      "commit_log_url": "https://www.kaggle.com/code/synthreaper/ntl-sovereign-gold-apex/log?scriptVersionId=364684268",
+      "commit_log_lines": [
+        "41.3s 10 FAST_COMMIT True",
+        "585.9s 31 variant E dropped flag_gemini37_routing_risk 0",
+        "587.2s 32 variant E svc pool = open safe pool 190588",
+        "587.4s 38 comp stack wall time 0"
+      ]
+    },
+    {
+      "ref": "chyibo/name-that-llm-0663-fork",
+      "version": 1,
+      "of": 1,
+      "score": 0.665,
+      "best_score_url": "https://www.kaggle.com/code/chyibo/name-that-llm-0663-fork?scriptVersionId=364709540",
+      "commit_runtime_display": "6m 35s · GPU T4 x2",
+      "input_tab_pool_title": "Name That LLM Open Pool: 191k Clean Passages",
+      "input_card_version": 13,
+      "author_pool_release": "v11",
+      "commit_log_url": "https://www.kaggle.com/code/chyibo/name-that-llm-0663-fork/log?scriptVersionId=364709540",
+      "commit_log_lines": [
+        "19.9s 10 FAST_COMMIT True",
+        "385.0s 31 variant E dropped flag_gemini37_routing_risk 0",
+        "386.3s 32 variant E svc pool = open safe pool 190588",
+        "386.4s 37 infer.py patched: evidence coeff 1.2; size 48980",
+        "386.5s 39 comp stack wall time 0"
+      ]
+    }
+  ],
+  "limit": "Logs refer to saved public sample runs. Prepared pool counts precede the main SVC's deduplication and do not identify hidden rerun metrics or time."
+}

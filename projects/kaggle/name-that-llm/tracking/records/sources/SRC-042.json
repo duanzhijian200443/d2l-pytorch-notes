@@ -1,0 +1,70 @@
+{
+  "category": "solutions",
+  "title": "lomnafsk V3：0.60/1.2与被覆盖的guard",
+  "author": "Mahmoud Nasser",
+  "url": "https://www.kaggle.com/code/lomnafsk/ntl-0-664-public-pipeline",
+  "observed_at": "2026-11-01T07:35:57Z",
+  "source_version": {
+    "notebook_version": 3,
+    "script_version_id": null,
+    "source_sha256": "2e0783b06cf99e74a89b613fd9302b8333c9c786e69c5b99022adc9619ddc74a",
+    "code_sha256": "ea3905785055fd2ed8517531f09c04574b96c8a6111fb6d51ffc3ff3b3c51cd9",
+    "notebook_id": 141984870
+  },
+  "public_score": {
+    "value": 0.659,
+    "evidence_type": "platform_page",
+    "bound_to_source": false,
+    "script_version_id": null
+  },
+  "summary": "页面0.659未绑定V3；当前0.60/1.2加post1，但最终typography覆盖guard改动。",
+  "author_claim": "标题自称0.664 public pipeline，当前列表实际0.659且未绑定固定版本。",
+  "verified": "V3静态设置为0.60/1.2、post=1并去Hungarian；新增guard结果被后续typography输出覆盖。",
+  "use_for_us": "作为后处理先后顺序与中间结果被覆盖的反例。",
+  "test_plan": "固定输入概率逐步记录guard前后及最终输出，单独验证新分支能否影响最终预测。",
+  "limitations": "覆盖结论来自源码数据流；未执行，页面0.659不能直接归因当前V3。",
+  "tags": [
+    "ensemble",
+    "postprocessing",
+    "runtime"
+  ],
+  "schema_version": 1,
+  "id": "SRC-042",
+  "artifact_dir": "research/solutions/SRC-042-lomnafsk-ntl-0-664-public-pipeline-v3",
+  "notes_path": "research/solutions/SRC-042-lomnafsk-ntl-0-664-public-pipeline-v3/notes.md",
+  "kind": "notebook",
+  "related_sources": [
+    "SRC-002",
+    "SRC-022"
+  ],
+  "collection_observation_note": "源码/API时间见回执。浏览器仅记录2026-11-01 UTC采集日期及07:35:57 UTC汇总截至时刻，不将其伪作逐页精确读取时间。",
+  "supersedes": null,
+  "family_id": "code-ea3905785055",
+  "evidence": [
+    "research/solutions/SRC-042-lomnafsk-ntl-0-664-public-pipeline-v3/notes.md",
+    "research/solutions/SRC-042-lomnafsk-ntl-0-664-public-pipeline-v3/analysis-evidence.json",
+    "research/solutions/SRC-042-lomnafsk-ntl-0-664-public-pipeline-v3/code.txt",
+    "research/solutions/SRC-042-lomnafsk-ntl-0-664-public-pipeline-v3/description.md",
+    "research/solutions/SRC-042-lomnafsk-ntl-0-664-public-pipeline-v3/diff-vs-SRC-002.patch",
+    "research/solutions/SRC-042-lomnafsk-ntl-0-664-public-pipeline-v3/download-receipt.json",
+    "research/solutions/SRC-042-lomnafsk-ntl-0-664-public-pipeline-v3/metadata.json",
+    "research/solutions/SRC-042-lomnafsk-ntl-0-664-public-pipeline-v3/snapshots/browser-observation-20261101.json",
+    "research/solutions/SRC-042-lomnafsk-ntl-0-664-public-pipeline-v3/source.ipynb",
+    "tracking/snapshots/20261101T073557Z-community-refresh/score-list-dom-observation.json",
+    "tracking/snapshots/20261101T073557Z-community-refresh/search-0664-dom-observation.json"
+  ],
+  "same_code_sources": [],
+  "evidence_sha256": {
+    "research/solutions/SRC-042-lomnafsk-ntl-0-664-public-pipeline-v3/notes.md": "c1f07fd6bc791e133dab3da6e12dde28ca700d295c4b77c7273d78dac1e59780",
+    "research/solutions/SRC-042-lomnafsk-ntl-0-664-public-pipeline-v3/analysis-evidence.json": "f2360b4a59384f654a2eea03cceef2ab8b7cbc7b6da9f8e30948506084690d9b",
+    "research/solutions/SRC-042-lomnafsk-ntl-0-664-public-pipeline-v3/code.txt": "a2654aa47b92bcb5fc86666a3c744e136b8ea8573aec8f2e394c81fb4783a8b2",
+    "research/solutions/SRC-042-lomnafsk-ntl-0-664-public-pipeline-v3/description.md": "a5eef3582bf39118fba034d8a169f177cdfbb4d822ee891efb28eb4730a888f8",
+    "research/solutions/SRC-042-lomnafsk-ntl-0-664-public-pipeline-v3/diff-vs-SRC-002.patch": "6b517e31da494456dd3861eb0bd685389dff323d18689b91535b457b9b67440e",
+    "research/solutions/SRC-042-lomnafsk-ntl-0-664-public-pipeline-v3/download-receipt.json": "779b11ff8e80661226209e48607193c7287dff70cb16a043c4441e1b129931c5",
+    "research/solutions/SRC-042-lomnafsk-ntl-0-664-public-pipeline-v3/metadata.json": "b4a6a9b397b1d9888cbce0645784962777ba62d99f0ebd167d49d864dffa425a",
+    "research/solutions/SRC-042-lomnafsk-ntl-0-664-public-pipeline-v3/snapshots/browser-observation-20261101.json": "de7306d0c8cc1777529101b312d6e08f7274d94df6ef31de90599220c8571d95",
+    "research/solutions/SRC-042-lomnafsk-ntl-0-664-public-pipeline-v3/source.ipynb": "2e0783b06cf99e74a89b613fd9302b8333c9c786e69c5b99022adc9619ddc74a",
+    "tracking/snapshots/20261101T073557Z-community-refresh/score-list-dom-observation.json": "dd3d6bcf84ff467a6b47f594d7ba9ef888b776c319b8b2dfae31c49ab4dd1fd2",
+    "tracking/snapshots/20261101T073557Z-community-refresh/search-0664-dom-observation.json": "830019135b8a239cee4684ed235682b78788848caef8f8b0f54c2ea68ceb05e7"
+  }
+}

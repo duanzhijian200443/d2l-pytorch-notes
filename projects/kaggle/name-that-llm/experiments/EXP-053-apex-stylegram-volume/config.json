@@ -1,0 +1,43 @@
+{
+  "experiment_id": "EXP-053",
+  "status": "PREREGISTERED",
+  "created_at": "2026-11-02T07:25:15.932395+00:00",
+  "source": "SRC-067",
+  "author_script_version_id": 364684268,
+  "source_sha256": "ca4c9e18ed32dcd8168b8118b192d39d657803d30dcd89a564b1c2d1d9c846dd",
+  "arms": [
+    "zero",
+    "four120",
+    "four240"
+  ],
+  "only_change": "raw Codex training rows local to Stylegram; freeze base public denominator",
+  "source_pool_v13_sha256": "38e48b40e1db0ab1bf6e4f29d3697e37307c49d1ae5020a7af3cd59c484657d5",
+  "fixed_new_rows": "EXP052 exact nested data, original groups and holdout policy",
+  "primary_endpoint": "pooled official 18-class Stylegram five-fold OOF on 2699 rows / 150 prompts",
+  "primary_comparison": "four240 minus four120",
+  "secondary_comparisons": [
+    "four240 minus zero",
+    "four120 minus zero"
+  ],
+  "bootstrap": {
+    "draws": 2000,
+    "seed": 42,
+    "unit": "official prompt_id"
+  },
+  "panel": "729/56 already-viewed diagnostic only. 698 match the V13 main SVC training pool. No generalization claim from panel.",
+  "stack": "Reweight only actual refit main V13 probabilities by 12 per source; unchanged heavy legacy cache conditional on historical lineage; ATLAS missing rows may not be filled, no final full score on incomplete arms.",
+  "budget": {
+    "cpu_jobs": 2,
+    "seconds_per_job": 6600,
+    "gpu_seconds": 0,
+    "model_api_usd": 0,
+    "submissions": 0
+  },
+  "notebook_policy": "private CPU; identical environment for three arms; record CPU image vs author GPU image separately",
+  "known_prompt_isolation": "At official fold k, remove all shared public regeneration groups mapped to official prompts held in fold k before fitting each arm, including zero. All 10743 shared rows retained for full-data panel fits.",
+  "fold_regeneration_map": "inputs/regen-fold-map.csv",
+  "shared_rows": 10743,
+  "known_regen_rows": 252,
+  "known_regen_groups": 14,
+  "author_runtime_inputs": "reconstructed fixed public snapshot, not fully attested historical weights"
+}

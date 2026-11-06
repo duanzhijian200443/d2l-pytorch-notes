@@ -1,0 +1,9 @@
+{
+  "current_guard_seconds": 1693.798696257,
+  "historical_exp042_guard_seconds": 2896.151367565,
+  "observed_wall_reduction_fraction": 0.4151553281273772,
+  "observed_wall_ratio": 1.7098557071539786,
+  "peak_rss_gib": 9.843589782714844,
+  "parallel_workers_observed": 2,
+  "scope": "Similar-size20-fit/5-fold comparisons with different added texts/arms, not a controlled identical-input speed benchmark."
+}

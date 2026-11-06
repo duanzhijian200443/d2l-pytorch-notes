@@ -1,0 +1,95 @@
+{
+  "analyzer_sha256": "3f020ab05591d82525d1d0c2ff1e7544a5f3e6782ce3c7d3c3e7fcbe2f1013e4",
+  "result_sha256": "63033ad87bbef1d470320fade729a5ef0b10453fa7b018933cd4a0e1f7bcb764",
+  "frozen_manifest_sha256": "98b3469bcebc190db0bb6cf9f1a69ca4a9328f339e6fe6529de367251c29053a",
+  "config_sha256": "26245b0e84805401a427f8a0a288af223db17b4b3c6a65f4b7f33c619ad7c278",
+  "runner_sha256": "3dc0bb2d44660e8710b15ec41c649c0fcbcbe8b7d0dd30ae32ad8e243aefe5f5",
+  "historical_inputs": {
+    "train": {
+      "path": "cloud/luna-terra120-042/payload/train.csv",
+      "sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707"
+    },
+    "folds": {
+      "path": "cloud/luna-terra120-042/payload/folds.csv",
+      "sha256": "e8ba1e3712852168dc57f56960d4f3e00be612d639ade8a7dcb0f0d8335ce551"
+    },
+    "acceptance": {
+      "path": "experiments/EXP-042-luna-terra120-ablation/metrics/final-acceptance.json",
+      "sha256": "cb31c04481bedab1ad9af1751ee64f0758b95fb41b2f8656eb305d2cdbf4ed58"
+    },
+    "verification": {
+      "path": "experiments/EXP-042-luna-terra120-ablation/analysis-v1/verification.json",
+      "sha256": "8f26ded67e0d275151cbdb3dde20ddd12d6692ee2c1163b12d90c08c36817a2a"
+    },
+    "inventory": {
+      "path": "cloud/luna-terra120-042/outputs-v2/results/artifacts.json",
+      "sha256": "bd4d9c2913924659fa0b83af99e08e0aa65393ee8848af54b2889939086ec2bb"
+    },
+    "exp010_acceptance": {
+      "path": "experiments/EXP-010-012-stylegram-share/acceptance-20261101/acceptance-status.json",
+      "sha256": "6295fd0b9f93b67bd1c4ecf6102082ffb2f17f08b1d30b02b1ed946b21ec4023"
+    },
+    "exp010_oof": {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/oof-share0.5.npy",
+      "sha256": "d0215a7bd06d5f7dfbf2119c67db5892eef54e78dae4173225254da664e8baa7"
+    },
+    "exp010_csv": {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/oof-share0.5.csv",
+      "sha256": "5ffdf9ed9085a4a1dd0d11f78113638ae609694e4b389d466d08e9400946aa0e"
+    },
+    "control_oof": {
+      "path": "cloud/luna-terra120-042/outputs-v2/results/oof/control.npz",
+      "sha256": "633bb49ee1c25bbdf94921de6c9497be31423de1941a7a6e62208fa6d8b8f4d2"
+    }
+  },
+  "inventory": [
+    {
+      "name": "bootstrap-draws.csv",
+      "bytes": 142835,
+      "sha256": "e8b817d4a3479c6ea4479635c6cbd0eaeb057a951fe7f039a5dde9bb0a189f8f"
+    },
+    {
+      "name": "class-comparisons.csv",
+      "bytes": 3184,
+      "sha256": "c642043ec1758c169c0e1cb68924a9b737a4a3daabd768d45ae2131fbf9f71c5"
+    },
+    {
+      "name": "fold-comparisons.csv",
+      "bytes": 860,
+      "sha256": "e57a47ad020df81238fa5184d21882bd040beb189a120410e89e97ae05b8a621"
+    },
+    {
+      "name": "per-class.csv",
+      "bytes": 3737,
+      "sha256": "e9c1542533a660d82bbd6ce8a38baa3357fe733349f5b32dc054cc0b3bf3eb57"
+    },
+    {
+      "name": "per-fold.csv",
+      "bytes": 973,
+      "sha256": "1cf47c71e33cf40078d081208ae1fb5964643af29fdefd8bbfe155d977472089"
+    },
+    {
+      "name": "predictions.csv",
+      "bytes": 337672,
+      "sha256": "1228a4334684397ab87f31adfaa5096ac5c336dd2a89b1cb3378490c8ab2d632"
+    },
+    {
+      "name": "sparse-predictions.csv",
+      "bytes": 681472,
+      "sha256": "a2219cb91ed45ede62d3e8a45ab3095e3ebb8241d20e56e80571af9e71a129ce"
+    },
+    {
+      "name": "sparse-repeats.csv",
+      "bytes": 2085,
+      "sha256": "e020aa0281c133261189f0f460f4d30a97634f1c9b0738d33f88af3b676a844c"
+    },
+    {
+      "name": "summary.json",
+      "bytes": 4969,
+      "sha256": "f37ef8e2fefbcd49e06bc4a28b9dfe38187b22412a55e38b496ff7f1d1c9b762"
+    }
+  ],
+  "generated_at": "2026-11-02T07:10:34.615898+00:00",
+  "numpy_version": "2.4.4",
+  "pandas_version": "3.0.6"
+}

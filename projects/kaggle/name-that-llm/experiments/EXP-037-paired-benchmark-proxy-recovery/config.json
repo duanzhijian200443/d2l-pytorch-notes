@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-037",
+  "status": "AUTHORIZED_CLOUD_RECOVERY_FROZEN",
+  "authorization": {
+    "preparation": true,
+    "generation": true,
+    "approved_at": "2026-11-01T12:39:44.437473+00:00",
+    "basis": "排查一下 Kaggle 的连接错误，修好后按原来的条数和预算继续采集，已成功的数据不要重复采。",
+    "approval_path": "recovery-receipt.json"
+  },
+  "design": {
+    "base_prompts": 10,
+    "models": [
+      "gpt-5.6-luna",
+      "gpt-5.6-terra"
+    ],
+    "routes": [
+      "codex_subscription",
+      "kaggle_model_proxy"
+    ],
+    "repeats_per_cell_per_route": 2,
+    "total_new_requests": 80,
+    "requests_per_route": 40,
+    "independent_prompt_groups": 10,
+    "global_max_inflight": 1,
+    "route_order": "randomized cell order; ABBA/BAAB within each cell",
+    "order_seed": 20261101,
+    "sampling_seed": "omitted; order seed is not a generation seed",
+    "all_variants_keep_base_prompt_group": true,
+    "request_count_scope": "80 original cumulative dispatches;3historical count andskip;at most77new",
+    "additional_requests_this_recovery": 77
+  },
+  "proposed_budget": {
+    "funding": "Existing Kaggle free allowance only; no top-up or paid fallback",
+    "target_usd": 0.25,
+    "stop_dispatch_at_confirmed_cost_usd": 0.1,
+    "hard_cap": false,
+    "unknown_cost_stops_dispatch": true,
+    "maximum_kaggle_requests": 40,
+    "maximum_codex_requests": 40,
+    "codex_funding": "Existing subscription allowance; no API key",
+    "historical_same_volume_cost_usd": "0.0429388",
+    "historical_by_model_usd": {
+      "gpt-5.6-luna": "0.0046388",
+      "gpt-5.6-terra": "0.03830"
+    },
+    "estimate_limit": "Uses prior actual spend, not current pricing or a guaranteed bound. Longer format prompt and generation variability may increase cost. Last request may cross the confirmed-spend threshold.",
+    "approved": true,
+    "unknown_cost_stop_scope": "Retain2historicalunknown underexplicitrecovery;any NEWunknownhalts. Confirmedcostthreshold0.10soft only."
+  },
+  "stop_rules": [
+    "Any transport/auth/rate/unknown-outcome failure stops all new dispatch",
+    "NEW missing or invalid cost, returned model mismatch, explicit truncation or unknown finish stops all new dispatch; historical unknown is retained and disclosed per explicit recovery authorization",
+    "Maximum request counts are dispatch limits, not a target that can be topped up after failures",
+    "No automatic retries; retain incomplete attempts and inspect before any resumption"
+  ],
+  "result_handling": [
+    "Keep all raw results including format violations, target-length deviations, refusals and identical repeated outputs",
+    "Do not rewrite, filter away, replace or regenerate nonconforming responses",
+    "Report partial/failed/format-nonconforming outcomes separately"
+  ],
+  "analysis_plan": [
+    "Check exact user-message hashes, route/model/repeat identities and completion evidence",
+    "Compare requested format adherence before and after as a descriptive historical comparison",
+    "Compare within-route repeat variation with cross-route differences at the cell level",
+    "Aggregate uncertainty by the 10 base prompt groups; never treat 80 answers or all cross-pairs as independent prompts",
+    "Use only complete paired cells for paired summaries and also report every incomplete cell",
+    "No classifier training, scoring, competition submission or publication"
+  ],
+  "known_limits": [
+    "Two repeats provide only a preliminary variability baseline",
+    "Actual backend snapshot and complete runtime context remain unknown",
+    "Kaggle has explicit 1024 completion-token cap; existing Codex configuration has no equivalent cap",
+    "The earlier unaligned pilot is historical, not a simultaneous randomized format-control arm"
+  ],
+  "execution_preflight": [
+    "Refresh model/low availability and free proxy quota before any request",
+    "Kaggle connector has no generation tool in this session; execution needs the official SDK or an explicitly authorized handoff",
+    "A separate execution runner must respect repeat-aware job_id; do not use the old single-repeat resume key unchanged"
+  ],
+  "retry_of": "EXP-036",
+  "recovery": {
+    "historical_dispatches": 3,
+    "historical_successes": 1,
+    "historical_uncertain": 2,
+    "new_dispatch_cap": 77,
+    "historical_cost_known": false,
+    "preserve_historical_uncertainty": true,
+    "transport_fix": "Official private Benchmark CPU execution, one exact planned API payload per task creation; no separate task run; no GPU, no cache, no retry, no publication"
+  }
+}

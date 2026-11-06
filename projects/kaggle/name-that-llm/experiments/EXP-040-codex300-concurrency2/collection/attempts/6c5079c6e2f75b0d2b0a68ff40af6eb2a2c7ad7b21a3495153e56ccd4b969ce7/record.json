@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0007",
+  "prompt": "A household has accumulated many unmatched food containers and lids. Explain an efficient way to sort them and prevent the collection from growing again. Keep your response near 120 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "everyday_advice",
+  "target_words": 120,
+  "prompt_group": "cp0007",
+  "split": "train",
+  "source": "codex_subscription",
+  "base_prompt": "A household has accumulated many unmatched food containers and lids. Explain an efficient way to sort them and prevent the collection from growing again. Keep your response near 120 words.",
+  "base_prompt_sha256": "d9f5408fc1a68b2998f157338bb5c1a63e80d72149a585619f374201768c1c1b",
+  "base_prompt_id": "cp0007",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0007::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "6c5079c6e2f75b0d2b0a68ff40af6eb2a2c7ad7b21a3495153e56ccd4b969ce7",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:28:07.867155+00:00",
+  "ended_at": "2026-11-01T13:28:25.797657+00:00",
+  "prompt_sha256": "e8cb89194fd972a028d014a4ff1fc2cc383972b3493a89878b5ac6e008e3139c",
+  "text": "Empty the cupboard and place every container and lid on a large table or clean floor. Group containers by shape and size, then match each one with a lid, testing the fit rather than relying on appearance. Recycle or discard cracked, warped, stained, or lidless pieces, and remove lids with no matching container. Keep only enough sets for normal household use, preferably stackable models from a small number of compatible product lines. Store containers nested by size, with lids upright in a divided bin, or place each lid beneath its container if space allows. To prevent future buildup, adopt a one-in, one-out rule, avoid keeping disposable takeaway tubs, and buy replacements only when necessary. Repeat a quick matching check every few months and discard damaged pieces immediately.",
+  "text_sha256": "bdf32d15fad2f7351777e60f9c347a1edd75eefbdf67ce68241e2619432095a2",
+  "raw_final_sha256": "bdf32d15fad2f7351777e60f9c347a1edd75eefbdf67ce68241e2619432095a2",
+  "word_count": 127,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4213,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 180,
+      "reasoning_output_tokens": 22
+    }
+  ],
+  "attempt_path": "collection\\attempts\\6c5079c6e2f75b0d2b0a68ff40af6eb2a2c7ad7b21a3495153e56ccd4b969ce7",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

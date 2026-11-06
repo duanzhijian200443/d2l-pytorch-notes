@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0049",
+  "prompt": "How can version control help two writers edit the same technical document? Use a non-programming example and avoid commands. Aim for about 200 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "technology_explanation",
+  "target_words": 200,
+  "prompt_group": "cp0049",
+  "split": "train",
+  "source": "codex_subscription",
+  "base_prompt": "How can version control help two writers edit the same technical document? Use a non-programming example and avoid commands. Aim for about 200 words.",
+  "base_prompt_sha256": "ec1cbf47395fc3644fa8dbe2ee2710117be0a4a562a449da7e16d2c319f3a4ba",
+  "base_prompt_id": "cp0049",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0049::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "e0797441961a98c3b397eec57f5e415e7b226d19fcee5a9d40848281ffaaf05d",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:57:27.931180+00:00",
+  "ended_at": "2026-11-01T13:57:43.948118+00:00",
+  "prompt_sha256": "8c96613f1b7429659207658b4c847a7fcc384d6d6ec891b340323f8785a912e0",
+  "text": "Version control helps two writers collaborate by keeping a shared history of a document, recording who changed what, and allowing earlier versions to be restored if needed. Imagine two safety specialists revising an instruction manual for operating a laboratory centrifuge. One writer updates the section on loading samples, while the other improves the emergency shutdown procedure. Each works on a separate copy linked to the same project history, so neither must wait for the other to finish. When their revisions are brought together, the system can usually combine changes made in different sections automatically. If both writers edit the same sentence, it identifies the overlap and asks them to decide which wording to keep or how to blend their ideas. They can also attach short explanations to their revisions, such as noting that a warning was rewritten to meet a new safety standard. This makes review easier because an editor can compare versions and focus only on changed passages rather than rereading the entire manual. If a revision introduces an error or removes an important detail, the team can recover the previous wording without reconstructing it from memory. Version control therefore reduces accidental overwriting, clarifies responsibility, supports parallel work, and creates an audit trail that is especially valuable for technical documents requiring accuracy and formal approval.",
+  "text_sha256": "7b7d35dc21cd7ed54c53821c5c78df917c37f7daf61b0fcfaf21027c201206db",
+  "raw_final_sha256": "7b7d35dc21cd7ed54c53821c5c78df917c37f7daf61b0fcfaf21027c201206db",
+  "word_count": 216,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4209,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 261,
+      "reasoning_output_tokens": 12
+    }
+  ],
+  "attempt_path": "collection\\attempts\\e0797441961a98c3b397eec57f5e415e7b226d19fcee5a9d40848281ffaaf05d",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

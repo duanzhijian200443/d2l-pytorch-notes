@@ -1,0 +1,20 @@
+--- reviews\public-top20-20261030\alexchilton--name-that-llm-0-662-all-public-what-failed\source.ipynb
++++ source.ipynb
+@@ -64,6 +64,9 @@
+ AQ14V5 = [adir(f'q14v5_f{k}') for k in range(5)] + [adir('q14v5')]
+ ALL8V5 = [adir(f'll8v5_f{k}') for k in range(5)] + [adir('ll8v5')]
+ print('v5', AQ14V5, ALL8V5)
++
++OURS = sorted(os.path.dirname(h) for h in glob.glob('/kaggle/input/**/ours8_fold*/heads.pt', recursive=True))
++print('ours member dirs', OURS)
+ 
+ 
+ %%writefile gauss.py
+@@ -1886,6 +1889,7 @@
+   {"name": "n14b", "type": "l24", "path": B14, "adapters": [N14B], "keep": N14BC['keep'], "layers": N14BC['layers'], "w": 2.5, "bs": 8, "max_len": N14BC['max_len'], "twin": 0.35, "no_final_norm": True, "eos_id": N14BC['eos_id']},
+   {"name": "q25_14", "type": "l24", "path": B25_14, "adapters": [Q25_14], "keep": Q25_14C['keep'], "layers": Q25_14C['layers'], "w": 1.0, "bs": 8, "max_len": Q25_14C['max_len'], "twin": 0.35, "no_final_norm": True, "eos_id": Q25_14C['eos_id']},
+   {"name": "deb", "type": "enc", "ckpt": DEB, "w": 1.0},
++  {"name": "ours8", "type": "l24", "path": B8, "adapters": OURS, "keep": 24, "layers": L, "w": 1.5, "bs": 16, "max_len": 384, "twin": 0.0},
+ ]
+ import pandas as pd
+ ATLAS_BUDGET = int(8.3 * 3600 - COMP_SEC - 600)

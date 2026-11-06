@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "id": "SRC-022",
+  "kind": "notebook",
+  "title": "Who are U 作者 V6：Sinkhorn=0.60；标点修正=1.2",
+  "url": "https://www.kaggle.com/code/judith007/0-664-hyperparameter-tuned-who-are-u",
+  "observed_at": "2026-11-02T03:59:47.222709+00:00",
+  "source_version": {
+    "notebook_version": 6,
+    "script_version_id": null,
+    "code_sha256": "e4d918a3c9a53bf5121c48224878b50cb0011780e0e24ec2ba11cce883945715"
+  },
+  "public_score": {
+    "value": null,
+    "evidence_type": "not_verified",
+    "bound_to_source": false,
+    "script_version_id": null
+  },
+  "summary": "最新API仍为V6且代码不变：Sinkhorn .60、标点1.2；不能继承V2的0.664。",
+  "author_claim": "Notebook标题沿用0.664，不能用标题给最新V6登记成绩。",
+  "verified": "本地旧V6代码hash匹配；主窗口本轮重新下载API最新V6也确认相同。网页默认选择V2而API最新为V6。 2026-11-02再次读取当前V6，全部代码单元与历史固定版本相同。",
+  "use_for_us": "保留为两参数组合候选，帮助避免默认页面版本与最新下载源码错绑。",
+  "test_plan": "固定缓存先分开验证Sinkhorn与标点系数，再评估组合，不能从一次两参数改变推导单项收益。",
+  "limitations": "V6没有已核验的版本成绩，附件内容和完整运行未验收。",
+  "evidence": [
+    "reviews/judith007-0664-20261031/0-664-hyperparameter-tuned-who-are-u.ipynb",
+    "reviews/judith007-0664-20261031/review-evidence.json",
+    "reviews/judith007-0664-20261031/notes.md",
+    "tracking/snapshots/20261101T073557Z-community-refresh/score-list-dom-observation.json",
+    "tracking/snapshots/20261101T073557Z-community-refresh/SRC-022-refetch-receipt.json",
+    "tracking/snapshots/20261101T073557Z-community-refresh/judith-versions-dom-observation.json",
+    "reviews/judith007-0664-20261031/snapshots/20261102-community-factcheck/receipt.json",
+    "reviews/judith007-0664-20261031/snapshots/20261102-community-factcheck/metadata.json"
+  ],
+  "category": "solutions",
+  "artifact_dir": "reviews/judith007-0664-20261031",
+  "notes_path": "reviews/judith007-0664-20261031/notes.md",
+  "tags": [
+    "ensemble",
+    "version-binding",
+    "postprocessing"
+  ],
+  "related_sources": [
+    "SRC-002",
+    "SRC-021",
+    "SRC-050"
+  ],
+  "evidence_sha256": {
+    "reviews/judith007-0664-20261031/0-664-hyperparameter-tuned-who-are-u.ipynb": "cd5c96f4f045928b860fa6c4d008af3d6edcf4c52b101a1bafca9ed20c7d9c9d",
+    "reviews/judith007-0664-20261031/review-evidence.json": "781b31efad8d6beda4eb7756b9e23bc96e9e531bbecb506c8ab18ea746f6e4df",
+    "reviews/judith007-0664-20261031/notes.md": "c3026569c050b48b449b11e85e472d2235437a9c50b21389bb57e76863a0a3ce",
+    "tracking/snapshots/20261101T073557Z-community-refresh/score-list-dom-observation.json": "dd3d6bcf84ff467a6b47f594d7ba9ef888b776c319b8b2dfae31c49ab4dd1fd2",
+    "tracking/snapshots/20261101T073557Z-community-refresh/SRC-022-refetch-receipt.json": "4a576a3f6b37920e25d7233eefd34c8a2c1d33493e07b1aab138410aba640518",
+    "tracking/snapshots/20261101T073557Z-community-refresh/judith-versions-dom-observation.json": "3ec59d3461213e6c36203f4d093c90e5fe5ee49406ff5003518c1e4c2c870b55",
+    "reviews/judith007-0664-20261031/snapshots/20261102-community-factcheck/receipt.json": "71b95628b537c5662006da8fd80f82b5a770548a6989ae0f2d4a97690883c9c0",
+    "reviews/judith007-0664-20261031/snapshots/20261102-community-factcheck/metadata.json": "5b08012fff46d28649bb1b2465d773cf924d35e03593f85b9c601e1ce82a36f5"
+  },
+  "collection_observation_note": "源码/API时间见回执。浏览器仅记录2026-11-01 UTC采集日期及07:35:57 UTC汇总截至时刻，不将其伪作逐页精确读取时间。",
+  "family_id": "code-e4d918a3c9a5",
+  "same_code_sources": [
+    "SRC-050"
+  ]
+}

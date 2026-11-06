@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "SRC-002",
+  "kind": "notebook",
+  "title": "Name That LLM 0.662: All Public + What Failed",
+  "url": "https://www.kaggle.com/code/alexchilton/name-that-llm-0-662-all-public-what-failed",
+  "observed_at": "2026-11-02T07:17:28.700312+00:00",
+  "source_version": {
+    "notebook_version": 8,
+    "script_version_id": null,
+    "source_sha256": "c155b33f38ccdd04b32a46455755c56f1aa3e851770da0c29d05ef9a7a3fdc56",
+    "code_sha256": "d164e570c03550b08337e9934b5f18af1255aeacdf1e0a0d279547bfac693c6f"
+  },
+  "family_id": "code-d164e570c035",
+  "public_score": {
+    "value": 0.662,
+    "evidence_type": "platform_page",
+    "bound_to_source": false,
+    "script_version_id": null
+  },
+  "summary": "全公开ATLAS20 V8为多份新页面的同代码上游；保持0.662页面分数未绑定V8。",
+  "author_claim": "作者报告自己ATLAS20运行0.662、若干失败消融与相同代码重复分数差；这些是作者自报。",
+  "verified": "固定V8源码/正文可读且hash匹配；新junaid V3、sujan V12、dazhijiang V1、gloria V1代码均与本条完全相同。页面仍显示0.662，但未查得分版本。 2026-11-02 已登记同一 Notebook ID 139599456 的 V9 为 SRC-069，V9 的 0.663 单独绑定。",
+  "use_for_us": "作为当前ATLAS20同源基线比较和失败实验线索；复用原件避免重复归档同一固定版本。",
+  "test_plan": "固定输入版本、训练来源与预测缓存，以prompt分组和稀疏场景对照；新方法先验证互补性而非只看单成员OOF。",
+  "limitations": "平台0.662未绑定V8；作者自报未独立重训；输入依赖内容仍需版本审核。",
+  "evidence": [
+    "reviews/public-top20-20261030/alexchilton--name-that-llm-0-662-all-public-what-failed/source.ipynb",
+    "reviews/public-top20-20261030/alexchilton--name-that-llm-0-662-all-public-what-failed/metadata.json",
+    "reviews/public-top20-20261030/alexchilton--name-that-llm-0-662-all-public-what-failed/description.md",
+    "reviews/public-top20-20261030/ui-scores.json",
+    "reviews/public-top20-20261030/alexchilton--name-that-llm-0-662-all-public-what-failed/notes.md",
+    "tracking/snapshots/20261101T073557Z-community-refresh/score-list-dom-observation.json",
+    "research/solutions/SRC-069-alexchilton-all-public-v9/notes.md"
+  ],
+  "category": "solutions",
+  "artifact_dir": "reviews/public-top20-20261030/alexchilton--name-that-llm-0-662-all-public-what-failed",
+  "notes_path": "reviews/public-top20-20261030/alexchilton--name-that-llm-0-662-all-public-what-failed/notes.md",
+  "tags": [
+    "ensemble",
+    "same-code",
+    "runtime",
+    "negative-results"
+  ],
+  "related_sources": [
+    "SRC-001",
+    "SRC-009",
+    "SRC-010",
+    "SRC-021",
+    "SRC-022",
+    "SRC-046",
+    "SRC-047",
+    "SRC-048",
+    "SRC-049",
+    "SRC-069"
+  ],
+  "evidence_sha256": {
+    "reviews/public-top20-20261030/alexchilton--name-that-llm-0-662-all-public-what-failed/source.ipynb": "c155b33f38ccdd04b32a46455755c56f1aa3e851770da0c29d05ef9a7a3fdc56",
+    "reviews/public-top20-20261030/alexchilton--name-that-llm-0-662-all-public-what-failed/metadata.json": "0d88d8097daefbf79342645ebf4e3e237aec24588a8fed37e710fd416c639b63",
+    "reviews/public-top20-20261030/alexchilton--name-that-llm-0-662-all-public-what-failed/description.md": "03a04dedd933b12466e6c6678fd6b82817d3fc786bef0d77ea92dd2dbf9fbb04",
+    "reviews/public-top20-20261030/ui-scores.json": "0b3242f2ab3c96428f6220ae713a3b34c978f0fa2b9c06a51840e829bbad8416",
+    "reviews/public-top20-20261030/alexchilton--name-that-llm-0-662-all-public-what-failed/notes.md": "736a75c954d5ed914f4c8801fafa18eb98e4c68e136db9e341271b9a52a6e81c",
+    "tracking/snapshots/20261101T073557Z-community-refresh/score-list-dom-observation.json": "dd3d6bcf84ff467a6b47f594d7ba9ef888b776c319b8b2dfae31c49ab4dd1fd2",
+    "research/solutions/SRC-069-alexchilton-all-public-v9/notes.md": "6df88965f6f2c290d55a5430924db1a3df0251e262353b05c6f4d9f36ab98e57"
+  },
+  "collection_observation_note": "源码/API时间见回执。浏览器仅记录2026-11-01 UTC采集日期及07:35:57 UTC汇总截至时刻，不将其伪作逐页精确读取时间。",
+  "same_code_sources": [
+    "SRC-009",
+    "SRC-010",
+    "SRC-046",
+    "SRC-047",
+    "SRC-048",
+    "SRC-049"
+  ]
+}

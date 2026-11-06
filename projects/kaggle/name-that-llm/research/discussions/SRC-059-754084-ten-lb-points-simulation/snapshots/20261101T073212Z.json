@@ -1,0 +1,70 @@
+{
+  "observed_at": "2026-11-01T07:32:12.412394+00:00",
+  "retrieval": {
+    "method": "read-only POST",
+    "topic_endpoint": "https://www.kaggle.com/api/i/discussions.DiscussionsService/GetForumTopicById",
+    "comments_endpoint": "https://www.kaggle.com/api/i/discussions.DiscussionsService/GetForumMessagesInTopic"
+  },
+  "topic_response": {
+    "forumTopic": {
+      "authorId": 3897663,
+      "authorThumbnailName": "3897663-kg.jpg?t=2026-10-14-14-18-45",
+      "authorUserDisplayName": "GoPain",
+      "authorUserName": "locdunhat",
+      "commentSort": "COMMENT_LIST_SORT_BY_HOT",
+      "firstMessage": {
+        "id": 3547084,
+        "postDate": "2026-10-30T06:15:02.230Z",
+        "rawMarkdown": "Many of us score several offline versions of the same blend (full-prompt OOF, prompts cut to a few answers, a holdout) and check which one moves with the public LB. I did that and it went wrong for me: over ten submissions, one cut of my OOF had Spearman 0.82 with the LB. I picked the next five by it, and on those five its Spearman was 0.05 (details in a reply on 753177).\n\nSo I simulated the situation with a known ground truth. Each configuration has a latent quality. Each proxy tracks it with correlation rho, and the proxies can share part of their error, as cuts of one OOF matrix do. The LB tracks it with correlation r. Phase 1 submits n configurations and picks the proxy with the best Spearman; phase 2 submits the top 5 by that proxy. Notebook (CPU, under a minute):\nhttps://www.kaggle.com/code/locdunhat/which-offline-score-tracks-the-lb\n\nWhat came out, for r = 0.7 and 10 phase-1 submissions:\n\n- **The best-correlated proxy is often not the best proxy.** When the proxies are close in quality, it is truly the best 28–41% of the time (chance is 25%). Well-separated proxies only reach 43–64%.\n- **The winning correlation is inflated.** On average it is 0.65, against a true 0.47. Four identical proxies show exactly the same inflation, so a high winning correlation tells you little.\n- **A collapse on the next five is expected.** On the five configurations a proxy ranks highest, its correlation with the LB averaged between −0.02 and 0.27 everywhere in the grid, even when it was truly the best proxy. Those five are about equally good, so LB noise sets their order. A proxy that \"stopped working\" may be as good as before.\n- **Average or select, depending on shared error.** If the proxies' errors are independent, averaging them beats even the best single one. If they share most of their error (cuts of the same OOF), averaging dilutes the best one. Then choosing by correlation pays off only once you have about 20 points.\n\nWhat I do now: I only submit a change if it improves every cut of the OOF, not just the one that looked best on the LB, and I do not read much into the order of my top few submissions. The model is simple (Gaussian, no directional bias in the proxies, and LB noise independent across submissions, while a real public split is fixed), so treat the numbers as orders of magnitude.\n\nCode and the 180,000 simulated seasons are public (CC0):\nhttps://www.kaggle.com/datasets/locdunhat/proxy-selection-simulations",
+        "content": "<p>Many of us score several offline versions of the same blend (full-prompt OOF, prompts cut to a few answers, a holdout) and check which one moves with the public LB. I did that and it went wrong for me: over ten submissions, one cut of my OOF had Spearman 0.82 with the LB. I picked the next five by it, and on those five its Spearman was 0.05 (details in a reply on 753177).</p>\n<p>So I simulated the situation with a known ground truth. Each configuration has a latent quality. Each proxy tracks it with correlation rho, and the proxies can share part of their error, as cuts of one OOF matrix do. The LB tracks it with correlation r. Phase 1 submits n configurations and picks the proxy with the best Spearman; phase 2 submits the top 5 by that proxy. Notebook (CPU, under a minute):\n<a href=\"https://www.kaggle.com/code/locdunhat/which-offline-score-tracks-the-lb\" target=\"_blank\">https://www.kaggle.com/code/locdunhat/which-offline-score-tracks-the-lb</a></p>\n<p>What came out, for r = 0.7 and 10 phase-1 submissions:</p>\n<ul>\n<li><strong>The best-correlated proxy is often not the best proxy.</strong> When the proxies are close in quality, it is truly the best 28–41% of the time (chance is 25%). Well-separated proxies only reach 43–64%.</li>\n<li><strong>The winning correlation is inflated.</strong> On average it is 0.65, against a true 0.47. Four identical proxies show exactly the same inflation, so a high winning correlation tells you little.</li>\n<li><strong>A collapse on the next five is expected.</strong> On the five configurations a proxy ranks highest, its correlation with the LB averaged between −0.02 and 0.27 everywhere in the grid, even when it was truly the best proxy. Those five are about equally good, so LB noise sets their order. A proxy that \"stopped working\" may be as good as before.</li>\n<li><strong>Average or select, depending on shared error.</strong> If the proxies' errors are independent, averaging them beats even the best single one. If they share most of their error (cuts of the same OOF), averaging dilutes the best one. Then choosing by correlation pays off only once you have about 20 points.</li>\n</ul>\n<p>What I do now: I only submit a change if it improves every cut of the OOF, not just the one that looked best on the LB, and I do not read much into the order of my top few submissions. The model is simple (Gaussian, no directional bias in the proxies, and LB noise independent across submissions, while a real public split is fixed), so treat the numbers as orders of magnitude.</p>\n<p>Code and the 180,000 simulated seasons are public (CC0):\n<a href=\"https://www.kaggle.com/datasets/locdunhat/proxy-selection-simulations\" target=\"_blank\">https://www.kaggle.com/datasets/locdunhat/proxy-selection-simulations</a></p>",
+        "parent": {},
+        "author": {
+          "displayName": "GoPain",
+          "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/3897663-kg.jpg?t=2026-10-14-14-18-45",
+          "url": "/locdunhat",
+          "tier": "CONTRIBUTOR",
+          "id": 3897663,
+          "progressionOptOut": false
+        },
+        "authorType": "TOPIC",
+        "votes": {
+          "canUpvote": true
+        },
+        "kernelVersion": 0,
+        "competitionRanking": 1364,
+        "feedbackTrackingData": {},
+        "isThankYou": false,
+        "teamUpInfo": {
+          "teamLeader": {
+            "displayName": "GoPain",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/3897663-kg.jpg?t=2026-10-14-14-18-45",
+            "url": "/locdunhat",
+            "userName": "locdunhat",
+            "tier": "CONTRIBUTOR",
+            "id": 3897663,
+            "profileUrl": "/locdunhat",
+            "performanceTier": "CONTRIBUTOR",
+            "userId": 3897663,
+            "progressionOptOut": false
+          },
+          "intro": ""
+        }
+      },
+      "firstMessageId": 3547084,
+      "forumId": 13688374,
+      "forumName": "Name That LLM",
+      "id": 754084,
+      "name": "Ten LB points can't tell you which OOF to trust: a small simulation",
+      "parentName": "name-that-llm",
+      "parentUrl": "/competitions/name-that-llm",
+      "postDate": "2026-10-30T06:15:02.230226600Z",
+      "url": "/competitions/name-that-llm/discussion/754084",
+      "authorPerformanceTier": "CONTRIBUTOR",
+      "authorProgressionOptOut": false
+    }
+  },
+  "comments_response": {
+    "commentSort": "COMMENT_LIST_SORT_BY_NEW"
+  },
+  "hydrated_message_responses": []
+}

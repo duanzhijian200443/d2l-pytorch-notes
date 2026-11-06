@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0227",
+  "prompt": "Write a story that begins with someone returning a borrowed ladder and ends with them accepting an invitation. Keep your response near 120 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "creative_short_fiction",
+  "target_words": 120,
+  "prompt_group": "cp0227",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "base_prompt": "Write a story that begins with someone returning a borrowed ladder and ends with them accepting an invitation. Keep your response near 120 words.",
+  "base_prompt_sha256": "e02ebf437ce5fc34d02b0b4eaf8a4c8d0de39c0c06ce0e6dd298b8845ad4b669",
+  "base_prompt_id": "cp0227",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0227::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "8d181a6456314fd1740942578a12db5778bcd021b875de3ee3565675ec6bc244",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:57:43.972382+00:00",
+  "ended_at": "2026-11-01T13:58:08.359869+00:00",
+  "prompt_sha256": "1029488bb380a6a8704ff7ec0b7c54370aadc829f18a73648b7f4887be593748",
+  "text": "Mara returned the borrowed ladder to Mr. Bell just before sunset, carrying it carefully across the narrow lane. He thanked her and asked whether she had finally repaired the loose gutter that had caused all the trouble. She laughed and admitted that she had, though not before dropping a bucket of water on her own head. As they chatted, she noticed warm light glowing from his kitchen and smelled cinnamon, apples, and something savory. Mr. Bell explained that he was hosting a small harvest supper for neighbors that evening. Mara hesitated, remembering the unfinished book waiting beside her chair, but the evening air felt welcoming, and she had been lonely lately. Smiling, she accepted his invitation and promised to bring a pie.",
+  "text_sha256": "9fc754d2d6fa26fee51192e7a0467573e960b5cc5e331b966b59cb4b41f2cbe5",
+  "raw_final_sha256": "9fc754d2d6fa26fee51192e7a0467573e960b5cc5e331b966b59cb4b41f2cbe5",
+  "word_count": 122,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2671,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 181,
+      "reasoning_output_tokens": 32
+    }
+  ],
+  "attempt_path": "collection\\attempts\\8d181a6456314fd1740942578a12db5778bcd021b875de3ee3565675ec6bc244",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

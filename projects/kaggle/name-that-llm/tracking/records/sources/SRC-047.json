@@ -1,0 +1,77 @@
+{
+  "category": "solutions",
+  "title": "NTL Apex SOTA Atlas Hungarian",
+  "author": "ItsmeSujan",
+  "observed_at": "2026-11-01T07:32:19.753501+00:00",
+  "source_version": {
+    "notebook_version": 12,
+    "script_version_id": null,
+    "source_sha256": "ecedd5ddbf1942f0f541f0a2d7b26df23804ec25ab16625b257965026c65474d",
+    "code_sha256": "d164e570c03550b08337e9934b5f18af1255aeacdf1e0a0d279547bfac693c6f",
+    "notebook_id": 139942584
+  },
+  "public_score": {
+    "value": 0.662,
+    "bound_to_source": false,
+    "evidence_type": "parent_observed_platform_page",
+    "script_version_id": null
+  },
+  "summary": "V12 代码逐字同 SRC-002/009/010；保留公开出处，不计为新方法。",
+  "author_claim": "Notebook 正文沿用 alexchilton 的全公开ATLAS20说明和失败实验表；不能把其中第一人称实验当作本页面作者新做的实验。",
+  "verified": "全部代码单元拼接SHA256为d164e570c03550b08337e9934b5f18af1255aeacdf1e0a0d279547bfac693c6f，与SRC-002/009/010完全一致。",
+  "use_for_us": "追踪公开复现出处及附件可用性；不作为独立算法或收益证据。",
+  "test_plan": "若需重跑先核查固定得分版本与附件版本/哈希；无需为同代码副本新增算法实验。",
+  "limitations": "页面0.662尚未绑定固定源码；附件版本未逐一核查，代码相同不保证运行输入与结果相同。",
+  "tags": [
+    "ensemble",
+    "version-binding",
+    "same-code"
+  ],
+  "related_sources": [
+    "SRC-002",
+    "SRC-009",
+    "SRC-010",
+    "SRC-046",
+    "SRC-048",
+    "SRC-049"
+  ],
+  "schema_version": 1,
+  "id": "SRC-047",
+  "artifact_dir": "research/solutions/SRC-047-sujanmajhisuzan-ntl-apex-sota-atlas-hungarian-v12",
+  "notes_path": "research/solutions/SRC-047-sujanmajhisuzan-ntl-apex-sota-atlas-hungarian-v12/notes.md",
+  "kind": "notebook",
+  "url": "https://www.kaggle.com/code/sujanmajhisuzan/ntl-apex-sota-atlas-hungarian",
+  "collection_observation_note": "源码/API时间见回执。浏览器仅记录2026-11-01 UTC采集日期及07:35:57 UTC汇总截至时刻，不将其伪作逐页精确读取时间。",
+  "supersedes": null,
+  "family_id": "code-d164e570c035",
+  "evidence": [
+    "research/solutions/SRC-047-sujanmajhisuzan-ntl-apex-sota-atlas-hungarian-v12/notes.md",
+    "research/solutions/SRC-047-sujanmajhisuzan-ntl-apex-sota-atlas-hungarian-v12/code.txt",
+    "research/solutions/SRC-047-sujanmajhisuzan-ntl-apex-sota-atlas-hungarian-v12/description.md",
+    "research/solutions/SRC-047-sujanmajhisuzan-ntl-apex-sota-atlas-hungarian-v12/metadata.json",
+    "research/solutions/SRC-047-sujanmajhisuzan-ntl-apex-sota-atlas-hungarian-v12/receipt.json",
+    "research/solutions/SRC-047-sujanmajhisuzan-ntl-apex-sota-atlas-hungarian-v12/source.ipynb",
+    "research/solutions/SRC-047-sujanmajhisuzan-ntl-apex-sota-atlas-hungarian-v12/vs-SRC-010.diff",
+    "tracking/snapshots/20261101T073557Z-community-refresh/score-list-dom-observation.json",
+    "tracking/snapshots/20261101T073557Z-community-refresh/search-0664-dom-observation.json"
+  ],
+  "same_code_sources": [
+    "SRC-002",
+    "SRC-009",
+    "SRC-010",
+    "SRC-046",
+    "SRC-048",
+    "SRC-049"
+  ],
+  "evidence_sha256": {
+    "research/solutions/SRC-047-sujanmajhisuzan-ntl-apex-sota-atlas-hungarian-v12/notes.md": "d4ac8bc6530335bc281117ec1e185fcbcb85c141ac08b3ccc9df55a97028955a",
+    "research/solutions/SRC-047-sujanmajhisuzan-ntl-apex-sota-atlas-hungarian-v12/code.txt": "ecf2c54e0e28380e8a1be0de64ac16eed58b7d2c2169f23c3b6d4546341d1648",
+    "research/solutions/SRC-047-sujanmajhisuzan-ntl-apex-sota-atlas-hungarian-v12/description.md": "03a04dedd933b12466e6c6678fd6b82817d3fc786bef0d77ea92dd2dbf9fbb04",
+    "research/solutions/SRC-047-sujanmajhisuzan-ntl-apex-sota-atlas-hungarian-v12/metadata.json": "a364f2f21a581e286d22cb9af06e8809c52079eedb6e1878e36eb749f96136ee",
+    "research/solutions/SRC-047-sujanmajhisuzan-ntl-apex-sota-atlas-hungarian-v12/receipt.json": "9904b6012235d6f3384442886f2d0e474e8466d3446d71ff9d18c4bc40f5613c",
+    "research/solutions/SRC-047-sujanmajhisuzan-ntl-apex-sota-atlas-hungarian-v12/source.ipynb": "ecedd5ddbf1942f0f541f0a2d7b26df23804ec25ab16625b257965026c65474d",
+    "research/solutions/SRC-047-sujanmajhisuzan-ntl-apex-sota-atlas-hungarian-v12/vs-SRC-010.diff": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tracking/snapshots/20261101T073557Z-community-refresh/score-list-dom-observation.json": "dd3d6bcf84ff467a6b47f594d7ba9ef888b776c319b8b2dfae31c49ab4dd1fd2",
+    "tracking/snapshots/20261101T073557Z-community-refresh/search-0664-dom-observation.json": "830019135b8a239cee4684ed235682b78788848caef8f8b0f54c2ea68ceb05e7"
+  }
+}

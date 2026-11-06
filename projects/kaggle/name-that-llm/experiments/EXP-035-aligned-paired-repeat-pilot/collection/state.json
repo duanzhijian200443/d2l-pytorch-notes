@@ -1,0 +1,42 @@
+{
+  "status": "STOPPED_FAILURE",
+  "phase": "TERMINAL",
+  "run_id": "aaa1304cf3e04ad0bfaff5d889e5a0d4",
+  "controller_pid": 31904,
+  "started_at": "2026-11-01T12:21:14.291551+00:00",
+  "observed_at": "2026-11-01T12:21:59.693655+00:00",
+  "target_total": 80,
+  "saved_total": 1,
+  "saved_this_run": 1,
+  "already_saved": 0,
+  "launched_this_run": 2,
+  "requests_sent_total": 2,
+  "requests_by_route": {
+    "codex_subscription": 1,
+    "kaggle_model_proxy": 1
+  },
+  "active": [],
+  "failures": [
+    {
+      "job_id": "70b6ce572cadd5f96fe3ccc5b694ba913902e902dafe3c149a90275d6b016b36",
+      "route": "kaggle_model_proxy",
+      "status": "UNCERTAIN",
+      "started_at": "2026-11-01T12:21:54.649562+00:00",
+      "ended_at": "2026-11-01T12:21:59.667356+00:00",
+      "reasons": [
+        "EXCEPTION_KaggleTransportError"
+      ],
+      "stage": "generate",
+      "error_type": "APIConnectionError"
+    }
+  ],
+  "local_errors": [],
+  "failed_this_run": 1,
+  "confirmed_cost_usd": "0",
+  "cost_known": false,
+  "global_max_inflight": 1,
+  "preflight_observed_at": "2026-11-01T12:20:32.992956+00:00",
+  "elapsed_seconds": 45.39,
+  "audit_status": "INCOMPLETE",
+  "audit_run_id": "aaa1304cf3e04ad0bfaff5d889e5a0d4"
+}

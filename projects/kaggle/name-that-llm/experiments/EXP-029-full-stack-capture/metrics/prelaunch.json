@@ -1,0 +1,28 @@
+{
+  "status": "PASS_LOCAL_PRELAUNCH_CHECKS",
+  "observed_at_utc": "2026-11-01T10:22:33.725698+00:00",
+  "controller_fake_api_tests": 17,
+  "packaging_tests": 2,
+  "runtime_no_gpu_checks": 12,
+  "source_bindings": {
+    "cloud/full-stack-capture/launch_after_preflight.py": "efd07b68fe497b71d95d103af39096c2bcf7cb5cbf8fe62c0e346ba88bd2fe25",
+    "cloud/full-stack-capture/prepare_capture.py": "e1a02caa58163e7d14a8e5dfcde5fb341960fd4e2f27e44c84ee6996b7cf71c3",
+    "cloud/full-stack-capture/runner.py": "923c05137561bc0571b64975c809ee67b2fce192d7165299c00c63e1de6ceb76",
+    "cloud/full-stack-capture/build_runtime.py": "d022edd5cb18362467010dd9311c596e43b8e0fb66e7b723fdff4f7196e04394",
+    "cloud/full-stack-capture/preflight.py": "364f36ec708ab3c7e800465d02429cb51be7b643279101a677e541f2df1c1887",
+    "cloud/full-stack-capture/preflight_config.json": "1218d5f2b66ad78484c2278f10cee0bec4e1a7bfef10912cd7d81aebbdd3fe80",
+    "cloud/full-stack-capture/preflight-kernel/kernel-metadata.json": "23c1a5548689896cef0279c16ee5a23434d4b8b8e08ea6d8a906aee5f1221d0b",
+    "experiments/EXP-029-full-stack-capture/panel/test.csv": "8eeec7f64e924f0fd79dca57d324d42d269f400bdfbfff76d60b4c168d9ae6f2",
+    "reviews/own-scheme-readiness-20261030/baseline-v2.ipynb": "6c9145f038ccffbe08dc6da6db3d1dcf3d2e0e7d2286927bfc8800ef5148cfb8",
+    "cloud/full-stack-cache/package-manifest.json": "7c6c6c25ba06f3d66a43c51768ebc945803484921ee99fba496ded3dcbefabec",
+    "cloud/full-stack-cache/generated/comp_stack.py": "64d061ebe633f2ba328b630041a7ddf1d21f09ac774d7cd818ea629a13bfa194",
+    "cloud/full-stack-cache/generated/full_stack_cache.py": "ff6b28d7834bdd4bd26bfb1fa69b3b9dc4ccaf194d968cf9b2d8ac4652df85a9",
+    "cloud/full-stack-cache/generated/full_stack_observer.py": "ada0dc10ba451308f453dd709540193b04912b95eb585abcbd36c87c0e8db5ca",
+    "cloud/full-stack-cache/generated/full_stack_replay.py": "b1bab1993fb17850d8b3cfb26716f47c869dbca5107c3435b859864d2ca99586",
+    "cloud/full-stack-cache/generated/gauss.py": "908b57113f1a7b8ebdbf204c6be87cbc385f765ba50ac07b4e270c64b7cf1000",
+    "cloud/full-stack-cache/generated/infer.py": "8b97f40e4fedf79c842c886e62419144d2e6d0c2e743779c264f7d3074d5f4f7",
+    "cloud/full-stack-cache/generated/instrumentation-receipt.json": "0370d47dc7463f80ff9e2eefb06acea44b197a3ae8141b7cbdfaeef5f96ae3fc"
+  },
+  "real_gpu_started": false,
+  "actual_linux_gpu_cleanup_tested": false
+}

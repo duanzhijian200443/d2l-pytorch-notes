@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "total_tests": 32,
+  "results": [
+    {
+      "name": "package",
+      "chunk_id": "d5b457",
+      "wall_time_seconds": 0.3930788,
+      "exit_code": 0,
+      "original_token_count": 27,
+      "output": "....\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.041s\r\n\r\nOK\r\n"
+    },
+    {
+      "name": "math",
+      "chunk_id": "b26fc7",
+      "wall_time_seconds": 0.9564232,
+      "exit_code": 0,
+      "original_token_count": 28,
+      "output": ".......\r\n----------------------------------------------------------------------\r\nRan 7 tests in 0.092s\r\n\r\nOK\r\n"
+    },
+    {
+      "name": "statistics",
+      "chunk_id": "133884",
+      "wall_time_seconds": 1.0253313,
+      "exit_code": 0,
+      "original_token_count": 28,
+      "output": ".......\r\n----------------------------------------------------------------------\r\nRan 7 tests in 0.022s\r\n\r\nOK\r\n"
+    },
+    {
+      "name": "postprocess",
+      "chunk_id": "836434",
+      "wall_time_seconds": 3.1223042,
+      "exit_code": 0,
+      "original_token_count": 30,
+      "output": "..............\r\n----------------------------------------------------------------------\r\nRan 14 tests in 1.588s\r\n\r\nOK\r\n"
+    }
+  ]
+}

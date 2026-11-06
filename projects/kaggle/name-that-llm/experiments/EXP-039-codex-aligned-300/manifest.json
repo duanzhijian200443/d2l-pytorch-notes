@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-039",
+  "freeze_status": "AUTHORIZED_FROZEN",
+  "frozen_at": "2026-11-01T13:04:34.042574+00:00",
+  "generation_authorized": true,
+  "config": {
+    "path": "experiments/EXP-039-codex-aligned-300/config.json",
+    "sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f"
+  },
+  "inputs": [
+    {
+      "path": "experiments/EXP-030-codex-subscription-pilot-r3/code/codex_collect.py",
+      "sha256": "5c1d5ccd66fec5d4cea4b0e9ea526c9cbfc171f73d7e81e5b23d9188ccda1d24"
+    },
+    {
+      "path": "experiments/EXP-034-explicit-format-alignment/code/prepare_alignment.py",
+      "sha256": "13c222146dff8380ad1e9e7188768c25a49f2eeb2f95eed4daf382a6b908c226"
+    },
+    {
+      "path": "experiments/EXP-034-explicit-format-alignment/prompts.jsonl",
+      "sha256": "ae45936ba73373d551f9ac44ce13df906f1e32bfb468198b1683992cb9f02103"
+    },
+    {
+      "path": "experiments/EXP-034-explicit-format-alignment/config.json",
+      "sha256": "debb4cce6a7d1d995b639bcf720c50327ae51896addaa553fdd7be77efa5b6a8"
+    },
+    {
+      "path": "experiments/EXP-034-explicit-format-alignment/pilot/config.json",
+      "sha256": "57d8c463af42b76e7f4263dc4982e8cd34ea2cbc550f6cafefc7731059737856"
+    },
+    {
+      "path": "experiments/EXP-034-explicit-format-alignment/manifest.json",
+      "sha256": "03a753b61dea7f02deaa7336c1360b3b833b6391a3948bff72946913a77f8653"
+    },
+    {
+      "path": "experiments/EXP-021-codex-subscription-pilot/model-instructions.txt",
+      "sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb"
+    },
+    {
+      "path": "experiments/EXP-021-codex-subscription-pilot/prompts.jsonl",
+      "sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0"
+    },
+    {
+      "path": "experiments/EXP-023-codex-subscription-pilot-r1/collection/records.jsonl",
+      "sha256": "cb903279b3727b31ce2125b89c5ce8f530d769a984f49c2cb86e4fbefb1e9722"
+    },
+    {
+      "path": "experiments/EXP-039-codex-aligned-300/prompts.jsonl",
+      "sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41"
+    },
+    {
+      "path": "experiments/EXP-039-codex-aligned-300/metrics/execution-preflight.json",
+      "sha256": "7a9d21f69229f6e95cffae8b40ba6077695567e28236978323c3def3dfc2bdc5"
+    }
+  ],
+  "code": [
+    {
+      "path": "experiments/EXP-039-codex-aligned-300/code/prepare_batch.py",
+      "sha256": "dfeded6f7397f8921b866a99cf9d841fcbe9dc7c4177b3e9889ecb52188e10fd"
+    },
+    {
+      "path": "experiments/EXP-039-codex-aligned-300/code/run_batch.py",
+      "sha256": "4dc834d49edde3b379f1794041b97be95a2993c4ed6a5d822915662a606329cb"
+    },
+    {
+      "path": "experiments/EXP-039-codex-aligned-300/code/test_run_batch.py",
+      "sha256": "5b12dd0361baf8d84d8dfa51eb999912348805381c82fe036112af90ff0b3504"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "experiments/EXP-039-codex-aligned-300/request-plan.jsonl",
+      "sha256": "59169d277e9ff34d883a47b015af325cefa13c95fbcc5fbdc73e1ac9ca1949d6"
+    },
+    {
+      "path": "experiments/EXP-039-codex-aligned-300/metrics/selection-audit.json",
+      "sha256": "beebf4baaf092d0aae31eff5d36ccee6b758f37e75d94137e971dd827479c2f1"
+    }
+  ],
+  "environment": {
+    "platform": "localWindowsCodexChatGPTsubscription",
+    "codex_sha256": "3097c909fb6d5cd63510d44aceb1d42df9f6e85722a3e447e477def1ecf60e16",
+    "workers": 1,
+    "companion_EXP038_workers": 1,
+    "combined_collection_cap": 2
+  }
+}

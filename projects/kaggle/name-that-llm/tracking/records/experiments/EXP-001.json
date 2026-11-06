@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "id": "EXP-001",
+  "title": "无 Llama 的词与字符 TF-IDF / LinearSVC 基线",
+  "baseline_id": null,
+  "hypothesis": "建立低成本、按 prompt 分组的基准。",
+  "changes": [
+    "仅官方训练数据"
+  ],
+  "observed_at": "2026-10-31T16:47:08.050889+00:00",
+  "source": {
+    "notebook_ref": "zhjianduan/name-that-llm-no-llama-groupcv",
+    "notebook_version": 4,
+    "script_version_id": 363168447,
+    "local_path": "experiments/EXP-007-validation-foundation/reference/exp-001-v4/name-that-llm-no-llama-groupcv.ipynb",
+    "sha256": "4f62f2879ee2a71a888406517d293d9eb005a3b537b4ff601ad587520f23d5a0"
+  },
+  "inputs": {
+    "manifest_path": "validation/prompt-group-v1/manifest.json",
+    "validation_split_id": "prompt-group-v1",
+    "content_hashes_verified": true
+  },
+  "config": {
+    "folds": 5,
+    "split": "GroupKFold(prompt_id)"
+  },
+  "environment": {
+    "platform": "Kaggle CPU",
+    "accelerator": null
+  },
+  "execution": {
+    "scope": "commit",
+    "status": "COMPLETE"
+  },
+  "submission": {
+    "id": 57736953,
+    "status": "COMPLETE",
+    "script_version_id": 363168447,
+    "public_score": 0.308,
+    "submitted_at": "2026-10-28T12:46:34.197Z",
+    "observed_at": "2026-10-31T15:57:13.732725+00:00",
+    "url": "https://www.kaggle.com/code/zhjianduan/name-that-llm-no-llama-groupcv?scriptVersionId=363168447"
+  },
+  "validation": {
+    "balanced_accuracy": 0.3122445935868755,
+    "scope": "EXP-007 downloaded V4 artifacts and independently recomputed complete OOF and each-fold metrics; no retraining",
+    "leakage_audit": "EXP-007 source and artifact audit: fresh per-fold Pipeline fitted only on training rows; no prompt overlap; official CSV hashes match",
+    "per_class_recall_path": "experiments/EXP-007-validation-foundation/outputs/per_class.csv",
+    "oof_path": "experiments/EXP-007-validation-foundation/outputs/oof_diagnostics.csv"
+  },
+  "cost": {
+    "gpu_seconds": null,
+    "api_usd": null,
+    "colab_cu": null
+  },
+  "timing_note": null,
+  "conclusion": "正式 Public LB 0.308；可作为验证流程参考，不能代表强集成的效果。",
+  "limitations": "不能把该模型的 OOF 改善直接换算为 ATLAS20 的提升。",
+  "next_action": "复用 prompt 分组原则，不重跑整个历史实验。",
+  "related_sources": [],
+  "evidence": [
+    "cloud/no-llama-groupcv/baseline.py",
+    "tracking/snapshots/20261031T141753Z/submissions.json",
+    "tracking/snapshots/20261031T142240175966Z/submissions.json",
+    "tracking/snapshots/20261031T152451658633Z/submissions.json",
+    "tracking/snapshots/20261031T155715059384Z/submissions.json",
+    "experiments/EXP-007-validation-foundation/report.md",
+    "experiments/EXP-007-validation-foundation/outputs/reference-integrity.json"
+  ]
+}

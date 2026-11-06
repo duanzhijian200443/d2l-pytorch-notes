@@ -1,0 +1,42 @@
+{
+  "job": {
+    "request_index": 75,
+    "block_index": 19,
+    "job_id": "67ee0cdd242015947a07f0865feb116b7b141076a0c77c02e83d99276c9b1305",
+    "cell_id": "cp0022|gpt-5.6-terra",
+    "route": "kaggle_model_proxy",
+    "repeat_id": 2,
+    "prompt_id": "cp0022",
+    "prompt_group": "cp0022",
+    "split": "train",
+    "model_label": "gpt-5.6-terra",
+    "protocol_version": "single-paragraph-plain-text-v1",
+    "target_words": 120,
+    "user_message": "Explain why a puddle can disappear on a cool day even though the water never gets close to boiling. Please answer in roughly 120 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+    "user_message_sha256": "8a85b1b94777f8fe34f2727a545727139d91c766209af6910e4b0f7c209b5ca7",
+    "base_instruction": "Answer the user's request.",
+    "reasoning_effort": "low",
+    "execution_authorized": true,
+    "state": "AUTHORIZED_NOT_SENT",
+    "api_payload": {
+      "model": "openai/gpt-5.6-terra",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Answer the user's request."
+        },
+        {
+          "role": "user",
+          "content": "Explain why a puddle can disappear on a cool day even though the water never gets close to boiling. Please answer in roughly 120 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph."
+        }
+      ],
+      "reasoning_effort": "low",
+      "max_completion_tokens": 1024,
+      "stream": false,
+      "n": 1
+    }
+  },
+  "started_at": "2026-11-01T13:42:52.092936+00:00",
+  "run_id": "75230ec19d8d4d4daf6e771359fd475b",
+  "controller_pid": 33640
+}

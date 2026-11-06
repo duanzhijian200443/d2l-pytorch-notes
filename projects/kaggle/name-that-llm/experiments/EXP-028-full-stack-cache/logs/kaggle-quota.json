@@ -1,0 +1,20 @@
+{
+  "observed_at": "2026-11-01T09:40:44.058Z",
+  "quota": {
+    "quota_refresh_time": "2026-11-07T00:00:00Z",
+    "gpu_quota": {
+      "time_used": "1286.760s",
+      "time_reserved": "0s",
+      "total_time_allowed": "108000s",
+      "minimum_time_allowed": "108000s",
+      "has_ever_run": true
+    },
+    "tpu_quota": {
+      "time_used": "0s",
+      "time_reserved": "0s",
+      "total_time_allowed": "72000s",
+      "minimum_time_allowed": "72000s"
+    }
+  },
+  "query_only": true
+}

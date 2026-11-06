@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "id": "EXP-051",
+  "title": "低额度实验入口：整合状态、取回、核验与中文报告",
+  "baseline_id": "EXP-046",
+  "hypothesis": "把固定实验的状态/取回/核验/中文报告统一为低操作成本入口，并防止误报分数或重复计算。",
+  "changes": [
+    "根入口experiment.py和四个固定对象注册表。",
+    "远端只读查询/小产物下载，独立绑定保存状态与正式评分；本地哈希核验后复用。",
+    "错误收据、历史确认分数保护、局部文件锁与中文差异报告；日常指南与一个月排期。"
+  ],
+  "observed_at": "2026-11-02T05:01:30.791970+00:00",
+  "source": {
+    "notebook_ref": null,
+    "notebook_version": null,
+    "script_version_id": null,
+    "local_path": "experiment.py",
+    "sha256": "2e26aa1298159c00a00e1b5efd9730c46111df377777bc9c142d930f169041c7"
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-051-experiment-workbench/manifest.json",
+    "validation_split_id": null,
+    "content_hashes_verified": true
+  },
+  "config": {
+    "note": "仅作台账索引；完整参数以 config_path 指向的 config.json 为准。"
+  },
+  "environment": {
+    "platform": "Windows CPU + read-only official Kaggle SDK",
+    "accelerator": "No new GPU task",
+    "container": null,
+    "seed": null
+  },
+  "execution": {
+    "scope": "local_tool_implementation_and_readonly_remote_smoke",
+    "status": "COMPLETE",
+    "observed_at": "2026-11-02T05:01:30.791970+00:00"
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": "tool contracts, independent code review, real saved-output checks; not hidden/model evaluation",
+    "per_class_recall_path": null,
+    "oof_path": null,
+    "leakage_audit": "No training or data generation executed."
+  },
+  "cost": {
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0
+  },
+  "timing_note": "网络下载与本地工具耗时不能当作Kaggle隐藏运行耗时。",
+  "conclusion": "四对象入口完成；046/048真实只读取回与公开样例核验通过；049/050只读复用核验通过。既有048评分仍PENDING。",
+  "limitations": "只支持注册的四个固定对象；原始hidden日志/完整hidden输出不在小型保存产物验收内；未做所有HTTP端到端故障注入；解释器路径绑定本机。",
+  "next_action": "使用experiment.py check codex120收结果；参数/数据新实验另登记并固定预算，不自动启动。",
+  "related_sources": [],
+  "evidence": [
+    "experiments/EXP-051-experiment-workbench/config.json",
+    "experiments/EXP-051-experiment-workbench/manifest.json",
+    "experiments/EXP-051-experiment-workbench/report.md",
+    "experiments/EXP-051-experiment-workbench/guide.md",
+    "experiments/EXP-051-experiment-workbench/month-plan.md",
+    "experiments/EXP-051-experiment-workbench/metrics/local-smoke.json",
+    "experiments/EXP-051-experiment-workbench/metrics/implementation-review-followup.json",
+    "experiments/EXP-051-experiment-workbench/metrics/acceptance.json"
+  ],
+  "config_path": "experiments/EXP-051-experiment-workbench/config.json"
+}

@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "run_id": "exp042-20261101T143057Z",
+  "config_sha256": "0d24a23932524507dca84d04a40de6688c80e4c92eef7bbc89c3f706b799a4a9",
+  "runner_sha256": "de60b60bfd138b834d8723bbd832fd0522453f549c4050256197f6babe4ed45a",
+  "external_artifacts_sha256": "bd4d9c2913924659fa0b83af99e08e0aa65393ee8848af54b2889939086ec2bb",
+  "stable_files": 211,
+  "runtime_environment": {
+    "numpy": "2.1.3",
+    "pandas": "2.3.3",
+    "scipy": "1.16.3",
+    "sklearn": "1.6.1"
+  },
+  "runtime_environment_source": "results/preflight.json.environment",
+  "cloud_version_receipt": {
+    "experiment_id": "EXP-042",
+    "status": "RUNNING",
+    "observed_at": "2026-11-01T14:33:02.633709+00:00",
+    "run_id": "exp042-20261101T143057Z",
+    "notebook_ref": "zhjianduan/name-that-llm-luna-terra120-042",
+    "version": 2,
+    "cloud_run_requests": 1,
+    "gpu": false,
+    "internet": false,
+    "platform_wall_seconds": 7200,
+    "work_budget_seconds": 6600,
+    "duplicate_run_allowed": false,
+    "automatic_retry_allowed": false,
+    "protocol_sha256": "35e546b80c1e0ef0a3f489575260bbb5b64eca4e4b6ef553e359ead9f6135a1b",
+    "config_sha256": "0d24a23932524507dca84d04a40de6688c80e4c92eef7bbc89c3f706b799a4a9",
+    "readback_verified": true
+  },
+  "cloud_version_receipt_sha256": "aaa28c0db9c81ca40ddc1cc9d65a6ff8a012c2bca42ac4edb38f77ac897f719e",
+  "cloud_version_limit": "Local execution receipt linked by run_id; external artifacts anchor supplied separately by caller.",
+  "official_rows": 2699,
+  "dense_fold_caches": 10,
+  "sparse_fold_caches": 150,
+  "trained_svms": 20,
+  "historical_control": {
+    "status": "PASS",
+    "prediction_disagreements": 0,
+    "matrix_byte_values_equal": true,
+    "max_abs_margin_delta": 0.0,
+    "old_download_manifest_sha256": "18ff74fbef79d8082c1b6bdfc4eb3d90a54188fa9fecf25add31e31bbfe31390",
+    "old_oof_sha256": "d0215a7bd06d5f7dfbf2119c67db5892eef54e78dae4173225254da664e8baa7",
+    "requirement": "same predictions required; margin differences reported explicitly"
+  },
+  "verifier_sha256": "525bb72d185a176773c5e4e30ec7771cc3bf451f8c85efda3f4c597599d0661e",
+  "observed_at": "2026-11-01T16:05:04.218186+00:00"
+}

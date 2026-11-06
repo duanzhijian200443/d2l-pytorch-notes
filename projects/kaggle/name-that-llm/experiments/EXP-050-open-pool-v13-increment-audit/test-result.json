@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "tests": 10,
+  "failures": 0,
+  "errors": 0,
+  "command": "python -B -X utf8 -m unittest discover -s src -p test_open_pool_audit.py -v",
+  "test_code": {
+    "path": "src/test_open_pool_audit.py",
+    "bytes": 5031,
+    "sha256": "fb1af9cfe4d12011eff691eeb533722d9cd11689fcbe58abfb8400373324d39e"
+  },
+  "tested_code": {
+    "path": "src/open_pool_audit.py",
+    "bytes": 24387,
+    "sha256": "f1bfe94ab448ba1a01a32e4fdc8a02b31de7a8eaef0bcb748dcabc3ab5f63e34"
+  },
+  "observation_note": "10 tests passed in the tool execution immediately before final audit completion; this is a result receipt, not a raw stdout capture.",
+  "receipt_written_at": "2026-11-02T04:47:07.127137+00:00"
+}

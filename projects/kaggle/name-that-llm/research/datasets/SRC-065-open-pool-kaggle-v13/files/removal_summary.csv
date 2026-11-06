@@ -1,0 +1,13 @@
+reason,rows_removed
+off_genre_source,30992
+api_dump,13114
+gemini37_route_unverified,10593
+source_unavailable,9815
+tested_no_gain,7492
+refusal,6939
+licence_risk,4289
+off_format,2197
+truncated,1515
+typography_mismatch,1278
+train_prompt_overlap,284
+(kept in v11),190588

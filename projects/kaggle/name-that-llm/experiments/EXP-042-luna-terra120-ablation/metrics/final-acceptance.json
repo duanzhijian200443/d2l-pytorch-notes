@@ -1,0 +1,48 @@
+{
+  "status": "PASS_VERIFIED_NEGATIVE_OR_INCONCLUSIVE_PRIMARY_RESULT",
+  "observed_at": "2026-11-01T16:07:10.010304+00:00",
+  "run_id": "exp042-20261101T143057Z",
+  "source_zip_sha256": "48dcc28e6fe80add96c1da94ce8641f737c673b44ec7ae76b6684c3b11f415d8",
+  "source_artifacts_sha256": "bd4d9c2913924659fa0b83af99e08e0aa65393ee8848af54b2889939086ec2bb",
+  "analysis": [
+    {
+      "path": "experiments/EXP-042-luna-terra120-ablation/analysis-v1/baseline_prediction_differences.csv",
+      "sha256": "689e73ff53af3ccbba6b88c058e93e1dd2d2b91b0b8c674a9aa65b4d5ac78906"
+    },
+    {
+      "path": "experiments/EXP-042-luna-terra120-ablation/analysis-v1/dense_perclass.csv",
+      "sha256": "73aaf66ea066a5b7b41d44ddb9e14ec4593cf365e1efb12125c773cc722f4120"
+    },
+    {
+      "path": "experiments/EXP-042-luna-terra120-ablation/analysis-v1/fold_metrics.json",
+      "sha256": "397cc9de455c0e47e410274235c8a0832590356c7e4e922af459b785c69ff2ca"
+    },
+    {
+      "path": "experiments/EXP-042-luna-terra120-ablation/analysis-v1/predictions.csv",
+      "sha256": "19dad2a5fa8cae583053f86cf8a52a6fce207feb74416c58dbe03234cac669e5"
+    },
+    {
+      "path": "experiments/EXP-042-luna-terra120-ablation/analysis-v1/sparse_aggregate.csv",
+      "sha256": "f455cce9f418b3115a768d029ff9dbdd6081f526d2b11277c6dffa81ae33052a"
+    },
+    {
+      "path": "experiments/EXP-042-luna-terra120-ablation/analysis-v1/sparse_summary.json",
+      "sha256": "6e52cd5d42d3ddbcd9281380e1fd2e62d647a89d416f1aac4e038276549fb0ae"
+    },
+    {
+      "path": "experiments/EXP-042-luna-terra120-ablation/analysis-v1/summary.json",
+      "sha256": "06e9519b2d9fbc721aaf37cd07eb758c9db944af3f3bdf7adc26c5af6d2b40f6"
+    },
+    {
+      "path": "experiments/EXP-042-luna-terra120-ablation/analysis-v1/target_class_tradeoff.json",
+      "sha256": "70bd8b2f3e9933a66d9caf59b3da1354da109936c2a3620f13eb8d28c861a4c0"
+    },
+    {
+      "path": "experiments/EXP-042-luna-terra120-ablation/analysis-v1/verification.json",
+      "sha256": "8f26ded67e0d275151cbdb3dde20ddd12d6692ee2c1163b12d90c08c36817a2a"
+    }
+  ],
+  "independent_check_sha256": "a106d17543bc4e7097622bf26f933c8ba7f981636cacddd2b023d63a779c86d7",
+  "original_config_sha256": "0d24a23932524507dca84d04a40de6688c80e4c92eef7bbc89c3f706b799a4a9",
+  "no_additional_training": true
+}

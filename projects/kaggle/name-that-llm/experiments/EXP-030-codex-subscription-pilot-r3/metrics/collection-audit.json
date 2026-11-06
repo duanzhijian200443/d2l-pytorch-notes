@@ -1,0 +1,39 @@
+{
+  "observed_at": "2026-11-01T11:33:42.587268+00:00",
+  "status": "COLLECTED_UNVALIDATED",
+  "responses": 1000,
+  "by_model": {
+    "gpt-5.6-luna": 250,
+    "gpt-5.6-terra": 250,
+    "gpt-5.6-sol": 250,
+    "gpt-6-astra": 250
+  },
+  "by_split": {
+    "train": 800,
+    "holdout": 200
+  },
+  "flags": {},
+  "prompt_groups": 250,
+  "duplicate_job_keys": 0,
+  "duplicate_text_rows": 0,
+  "text_hash_errors": [],
+  "split_leaks": [],
+  "peak_attempt_concurrency": 2,
+  "attempts_by_status": {
+    "SUCCEEDED": 1000
+  },
+  "preserved_initial_responses": 558,
+  "historical_failed_attempts": 2,
+  "historical_failure_evidence": "experiments/EXP-030-codex-subscription-pilot-r3/metrics/resume-preflight.json",
+  "all_attempts_by_status": {
+    "SUCCEEDED": 1000,
+    "FAILED": 2
+  },
+  "controller_status": "COMPLETE",
+  "collector_returncode": 0,
+  "summary_run_id": "248f72de6cad48dd806a066115a94d92",
+  "state_run_id": "248f72de6cad48dd806a066115a94d92",
+  "training_acceptance": "NOT_EVALUATED",
+  "source": "codex_subscription",
+  "model_snapshot_verification": "NOT_ESTABLISHED"
+}

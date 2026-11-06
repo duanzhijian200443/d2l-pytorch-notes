@@ -1,0 +1,31 @@
+{
+  "observed_at": "2026-11-01T13:17:14.883881+00:00",
+  "run_id": "1e1164753d6946c6b620d1c002d55cb6",
+  "controller_pid": 30508,
+  "status": "RUNNING",
+  "workers": 2,
+  "inherited_records": 20,
+  "new_saved": 4,
+  "combined_saved": 24,
+  "counts": {
+    "gpt-5.6-luna": 6,
+    "gpt-5.6-terra": 6,
+    "gpt-5.6-sol": 6,
+    "gpt-6-astra": 6
+  },
+  "new_active_keys": [
+    "64bf4b4824aceab4088d45f80c7eba20338bd3f419e2f9eceb267582810e401a",
+    "fe243902d94e7711cb6666ce804d52e0dc3b04e46589860b07a29360e395a400"
+  ],
+  "companion_run_id": "75230ec19d8d4d4daf6e771359fd475b",
+  "companion_status": "RUNNING",
+  "companion_inflight": 1,
+  "combined_inflight": 3,
+  "combined_cap": 3,
+  "duplicate_successful_job_keys": 0,
+  "prior20_raw_unchanged": true,
+  "new_raw_matches": true,
+  "current_failures": [],
+  "current_local_errors": [],
+  "scope": "Liveconcurrencyhandoffvalidation,not300complete"
+}

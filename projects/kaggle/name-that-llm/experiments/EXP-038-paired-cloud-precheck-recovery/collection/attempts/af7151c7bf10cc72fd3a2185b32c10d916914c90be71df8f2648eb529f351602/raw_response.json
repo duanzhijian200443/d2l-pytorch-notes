@@ -1,0 +1,38 @@
+{
+  "id": "chatcmpl-EfPj0R6uiyeFLCCgQzzsS2JNFixk3",
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "message": {
+        "content": "A password manager reduces the need to remember many passwords by securely storing account credentials in an encrypted vault and automatically filling them in when needed. Instead of creating and memorizing a different password for every website, the user can generate long, random, unique passwords for each account and let the manager retain them. This improves security because a breach of one service is less likely to expose access to other accounts through password reuse. Most password managers require the user to remember only one strong master password, or to use a protected authentication method such as biometrics. However, the user still has important responsibilities: they must create and safeguard that master password, avoid sharing it or storing it insecurely, enable multi-factor authentication where available, keep recovery information safe, and remain alert to phishing sites that may try to steal credentials. They should also maintain device security and review their stored accounts regularly.",
+        "refusal": "",
+        "role": "assistant",
+        "annotations": null,
+        "audio": null,
+        "function_call": null,
+        "tool_calls": null
+      }
+    }
+  ],
+  "created": 1793539042,
+  "model": "openai/gpt-5.6-terra",
+  "object": "chat.completion",
+  "metadata": null,
+  "moderation": null,
+  "service_tier": null,
+  "system_fingerprint": null,
+  "usage": {
+    "completion_tokens": 176,
+    "prompt_tokens": 133,
+    "total_tokens": 309,
+    "completion_tokens_details": null,
+    "prompt_tokens_details": null,
+    "cost": {
+      "input_tokens_cost_nanodollars": 266000,
+      "output_tokens_cost_nanodollars": 2112000
+    },
+    "total_backend_latency_ms": 2407
+  }
+}

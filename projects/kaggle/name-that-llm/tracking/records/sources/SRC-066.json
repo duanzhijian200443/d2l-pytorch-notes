@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "SRC-066",
+  "kind": "dataset",
+  "category": "datasets",
+  "artifact_dir": "research/datasets/SRC-066-lucas-free-proxy-v12",
+  "notes_path": "research/datasets/SRC-066-lucas-free-proxy-v12/notes.md",
+  "author": "lucasboesen",
+  "tags": [
+    "data",
+    "incremental",
+    "dedup",
+    "provenance",
+    "version-binding"
+  ],
+  "related_sources": [
+    "SRC-034",
+    "SRC-038"
+  ],
+  "supersedes": null,
+  "title": "Lucas GPT/Gemini平台V12：7906行与新增192实测",
+  "url": "https://www.kaggle.com/datasets/lucasboesen/ntl-free-proxy-generations/versions/12",
+  "observed_at": "2026-11-02T04:01:26.482255+00:00",
+  "source_version": {
+    "dataset_version_number": 12,
+    "author_release_label": "v2b21",
+    "version_created_at": "2026-11-01T14:39:54Z"
+  },
+  "public_score": null,
+  "summary": "固定CSV实测7906行/1872题/8类；较V11+192、较V7+3651。只有363题齐8类，合并OpenPool需去重。",
+  "author_claim": "新增192条，来自prompt-bank-v2/v2b21，Kaggle Proxy单段协议。",
+  "verified": "V11/V12全字段多重集与V7原件比对；+192/-0、48新增题、四类各48；行/正文/prompt-model无精确重复。OpenPool V11 source清单已列该来源3511行。",
+  "use_for_us": "可作为原始公共数据增量审计候选；标签覆盖与来源重叠需单独处理。",
+  "test_plan": "先与当前10073公共池/OpenPool做全文及prompt祖先去重，再做固定协议的加入/不加入对照。",
+  "limitations": "无finish_reason列，未完成截断/拒答/语义去重或实际served-model认证。未逐行联结OpenPool，不能断言新192全部净新增。",
+  "evidence": [
+    "research/datasets/SRC-066-lucas-free-proxy-v12/actual-counts.json",
+    "research/datasets/SRC-066-lucas-free-proxy-v12/api-dataset-get.json",
+    "research/datasets/SRC-066-lucas-free-proxy-v12/dataset-card-current-v12.md",
+    "research/datasets/SRC-066-lucas-free-proxy-v12/factcheck.json",
+    "research/datasets/SRC-066-lucas-free-proxy-v12/manifest.json",
+    "research/datasets/SRC-066-lucas-free-proxy-v12/notes.md",
+    "research/datasets/SRC-066-lucas-free-proxy-v12/open-pool-v11/sources.csv",
+    "research/datasets/SRC-066-lucas-free-proxy-v12/v11/README.md",
+    "research/datasets/SRC-066-lucas-free-proxy-v12/v11-files.json",
+    "research/datasets/SRC-066-lucas-free-proxy-v12/v12/README.md",
+    "research/datasets/SRC-066-lucas-free-proxy-v12/v12-files.json",
+    "research/datasets/SRC-066-lucas-free-proxy-v12/version-history.json"
+  ],
+  "evidence_sha256": {
+    "research/datasets/SRC-066-lucas-free-proxy-v12/actual-counts.json": "18a9cf78dc625cd23243837789a32b5570d114f1dc1e169f573e42351e809c64",
+    "research/datasets/SRC-066-lucas-free-proxy-v12/api-dataset-get.json": "a6ee58f3ec66649364685d21f6c75bff86e33748dae448aeae9ef88b6e3e2c5c",
+    "research/datasets/SRC-066-lucas-free-proxy-v12/dataset-card-current-v12.md": "cb644614f0ee34aa2efcae6575725071d4f18737ee94db2b038fc56ee1040be3",
+    "research/datasets/SRC-066-lucas-free-proxy-v12/factcheck.json": "b75606b97827e6c9a17c758fcd227c88f7fb3aeee494b0b5e8d57ecafb13994d",
+    "research/datasets/SRC-066-lucas-free-proxy-v12/manifest.json": "171b7fafba089ed25cfade948f3b94c3a15e5e3ad63e362229af61754f1d4db2",
+    "research/datasets/SRC-066-lucas-free-proxy-v12/notes.md": "a7d9822c87c5d36de15434b7c40e3c527ccf797baa888cff00b3edfbf00acf33",
+    "research/datasets/SRC-066-lucas-free-proxy-v12/open-pool-v11/sources.csv": "ea9f83935bbb7409dc9fd5043659fdc32e8bbc6eeb614b3502d928d8f759ddd2",
+    "research/datasets/SRC-066-lucas-free-proxy-v12/v11/README.md": "216c7cf5f92168f346a047da526f0a34788a7fdffba9e8a943c60906c9711220",
+    "research/datasets/SRC-066-lucas-free-proxy-v12/v11-files.json": "251559cf2692fe5b738f22225e3f249b4ba4fa5ea8bb9317b56b68d929af6cb1",
+    "research/datasets/SRC-066-lucas-free-proxy-v12/v12/README.md": "f4c337ea0ac33b234cce838d0cd8daeaee722ec74c84155feea0fe716e640ece",
+    "research/datasets/SRC-066-lucas-free-proxy-v12/v12-files.json": "7fbcc5747520d4c150dff5e2e6469b03910855ab3c9c6a839a4929a79f3d3c1a",
+    "research/datasets/SRC-066-lucas-free-proxy-v12/version-history.json": "5dc369f28041b4c1c28b05ffced4bf587d5450ae0e93018e75b03bedf7a50301"
+  }
+}

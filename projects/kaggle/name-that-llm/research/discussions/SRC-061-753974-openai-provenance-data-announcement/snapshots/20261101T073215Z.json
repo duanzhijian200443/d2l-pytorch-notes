@@ -1,0 +1,172 @@
+{
+  "observed_at": "2026-11-01T07:32:15.438860+00:00",
+  "retrieval": {
+    "method": "read-only POST",
+    "topic_endpoint": "https://www.kaggle.com/api/i/discussions.DiscussionsService/GetForumTopicById",
+    "comments_endpoint": "https://www.kaggle.com/api/i/discussions.DiscussionsService/GetForumMessagesInTopic"
+  },
+  "topic_response": {
+    "forumTopic": {
+      "authorId": 2630633,
+      "authorThumbnailName": "2630633-kg.png",
+      "authorUserDisplayName": "Enai",
+      "authorUserName": "enaimaan",
+      "comments": [
+        {
+          "id": 3547475,
+          "postDate": "2026-10-31T01:34:24.253Z",
+          "rawMarkdown": "upvoted. People need to upvote datasets more.",
+          "content": "<p>upvoted. People need to upvote datasets more.</p>",
+          "parent": {},
+          "author": {
+            "displayName": "Wilmer E. Henao",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/820904-kg.png?t=2023-11-17-02-57-59",
+            "url": "/verracodeguacas",
+            "tier": "GRANDMASTER",
+            "id": 820904,
+            "progressionOptOut": false
+          },
+          "authorType": "COMMENT",
+          "votes": {
+            "canUpvote": true
+          },
+          "kernelVersion": 0,
+          "competitionRanking": 12,
+          "feedbackTrackingData": {},
+          "isThankYou": false,
+          "reactions": [
+            {
+              "emoji": "THANK_YOU",
+              "featuredUserNames": [
+                "enaimaan"
+              ],
+              "userCount": 1
+            }
+          ],
+          "teamUpInfo": {
+            "teamLeader": {
+              "displayName": "Wilmer E. Henao",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/820904-kg.png?t=2023-11-17-02-57-59",
+              "url": "/verracodeguacas",
+              "userName": "verracodeguacas",
+              "tier": "GRANDMASTER",
+              "id": 820904,
+              "profileUrl": "/verracodeguacas",
+              "performanceTier": "GRANDMASTER",
+              "userId": 820904,
+              "progressionOptOut": false
+            },
+            "intro": ""
+          }
+        }
+      ],
+      "commentSort": "COMMENT_LIST_SORT_BY_HOT",
+      "firstMessage": {
+        "id": 3546911,
+        "postDate": "2026-10-29T23:25:13.997Z",
+        "rawMarkdown": "![poster](https://www.googleapis.com/download/storage/v1/b/kaggle-forum-message-attachments/o/inbox%2F2630633%2F18084b750746f074599f44ce8248de5a%2Fname-that-llm-dataset-poster-landscape.png?generation=1793316136170612&alt=media)\n\nNew external dataset for NTL:\n\n[Name That LLM – OpenAI Generated Responses](https://www.kaggle.com/datasets/enaimaan/ntl-openai-generated-responses)\n\nIt contains 9,719 responses across four models:\n\n- GPT-5.6 Luna: 2,341\n- GPT-5.6 Sol: 2,338\n- GPT-5.6 Terra: 2,336\n- GPT-6 Astra: 2,704\n\nThe collection includes 4,311 responses filling missing model coverage on existing community prompts, plus 5,408 responses forming additional prompt panels. Prompt sources include community banks and selected Dolly instructions.\n\nThe release includes raw responses, exact system/user messages where supplied, generation settings, prompt provenance, source attribution, and license notices. Responses are available in CSV and Parquet, with prompts in JSONL.\n\nMore data is coming soon!",
+        "content": "<p><img src=\"https://www.googleapis.com/download/storage/v1/b/kaggle-forum-message-attachments/o/inbox%2F2630633%2F18084b750746f074599f44ce8248de5a%2Fname-that-llm-dataset-poster-landscape.png?generation=1793316136170612&amp;alt=media\" alt=\"poster\"></p>\n<p>New external dataset for NTL:</p>\n<p><a href=\"https://www.kaggle.com/datasets/enaimaan/ntl-openai-generated-responses\" target=\"_blank\">Name That LLM – OpenAI Generated Responses</a></p>\n<p>It contains 9,719 responses across four models:</p>\n<ul>\n<li>GPT-5.6 Luna: 2,341</li>\n<li>GPT-5.6 Sol: 2,338</li>\n<li>GPT-5.6 Terra: 2,336</li>\n<li>GPT-6 Astra: 2,704</li>\n</ul>\n<p>The collection includes 4,311 responses filling missing model coverage on existing community prompts, plus 5,408 responses forming additional prompt panels. Prompt sources include community banks and selected Dolly instructions.</p>\n<p>The release includes raw responses, exact system/user messages where supplied, generation settings, prompt provenance, source attribution, and license notices. Responses are available in CSV and Parquet, with prompts in JSONL.</p>\n<p>More data is coming soon!</p>",
+        "parent": {},
+        "author": {
+          "displayName": "Enai",
+          "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/2630633-kg.png",
+          "url": "/enaimaan",
+          "tier": "CONTRIBUTOR",
+          "id": 2630633,
+          "progressionOptOut": false
+        },
+        "authorType": "TOPIC",
+        "votes": {
+          "totalVotes": 2,
+          "canUpvote": true,
+          "totalUpvotes": 3
+        },
+        "kernelVersion": 0,
+        "competitionRanking": 2475,
+        "feedbackTrackingData": {},
+        "isThankYou": false,
+        "teamUpInfo": {
+          "teamLeader": {
+            "displayName": "Enai",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/2630633-kg.png",
+            "url": "/enaimaan",
+            "userName": "enaimaan",
+            "tier": "CONTRIBUTOR",
+            "id": 2630633,
+            "profileUrl": "/enaimaan",
+            "performanceTier": "CONTRIBUTOR",
+            "userId": 2630633,
+            "progressionOptOut": false
+          },
+          "intro": ""
+        }
+      },
+      "firstMessageId": 3546911,
+      "forumId": 13688374,
+      "forumName": "Name That LLM",
+      "id": 753974,
+      "name": "New external dataset: 9,719 OpenAI responses with exact prompts and provenance",
+      "parentName": "name-that-llm",
+      "parentUrl": "/competitions/name-that-llm",
+      "postDate": "2026-10-29T23:25:13.996281900Z",
+      "totalVotes": 2,
+      "url": "/competitions/name-that-llm/discussion/753974",
+      "totalMessages": 1,
+      "authorPerformanceTier": "CONTRIBUTOR",
+      "authorProgressionOptOut": false
+    }
+  },
+  "comments_response": {
+    "comments": [
+      {
+        "id": 3547475,
+        "postDate": "2026-10-31T01:34:24.253Z",
+        "rawMarkdown": "upvoted. People need to upvote datasets more.",
+        "content": "<p>upvoted. People need to upvote datasets more.</p>",
+        "parent": {},
+        "author": {
+          "displayName": "Wilmer E. Henao",
+          "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/820904-kg.png?t=2023-11-17-02-57-59",
+          "url": "/verracodeguacas",
+          "tier": "GRANDMASTER",
+          "id": 820904,
+          "progressionOptOut": false
+        },
+        "authorType": "COMMENT",
+        "votes": {
+          "canUpvote": true
+        },
+        "kernelVersion": 0,
+        "competitionRanking": 12,
+        "feedbackTrackingData": {},
+        "isThankYou": false,
+        "reactions": [
+          {
+            "emoji": "THANK_YOU",
+            "featuredUserNames": [
+              "enaimaan"
+            ],
+            "userCount": 1
+          }
+        ],
+        "teamUpInfo": {
+          "teamLeader": {
+            "displayName": "Wilmer E. Henao",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/820904-kg.png?t=2023-11-17-02-57-59",
+            "url": "/verracodeguacas",
+            "userName": "verracodeguacas",
+            "tier": "GRANDMASTER",
+            "id": 820904,
+            "profileUrl": "/verracodeguacas",
+            "performanceTier": "GRANDMASTER",
+            "userId": 820904,
+            "progressionOptOut": false
+          },
+          "intro": ""
+        }
+      }
+    ],
+    "commentSort": "COMMENT_LIST_SORT_BY_NEW"
+  },
+  "hydrated_message_responses": []
+}

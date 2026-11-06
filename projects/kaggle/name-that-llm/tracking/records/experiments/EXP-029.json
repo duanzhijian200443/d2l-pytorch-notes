@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "id": "EXP-029",
+  "title": "完整ATLAS20真实预测缓存：729条外部诊断面板",
+  "baseline_id": "EXP-004",
+  "hypothesis": "完整固定基线在已知729条外部面板生成真实阶段分数，原算法保持，缓存能独立重放；隔离未知仅作探索。",
+  "changes": [
+    "增加真实阶段分数缓存，不改变模型数学",
+    "盲化729条外部输入标识，不上传标签",
+    "31固定输入先CPU核验，再一次8小时内T4x2"
+  ],
+  "observed_at": "2026-11-01T10:59:47.866Z",
+  "source": {
+    "notebook_ref": "zhjianduan/name-that-llm-cache-capture-029",
+    "notebook_version": 3,
+    "script_version_id": null,
+    "local_path": "cloud/full-stack-capture/launch-notebook-v2/kernel/capture.ipynb",
+    "sha256": "bc513c1061a1f5451bebd7c5513f9cd0519abee609c10c7af875a5bbcf06cbbf"
+  },
+  "inputs": {
+    "manifest_path": "cloud/full-stack-capture/preflight-output-v1/preflight/preflight_manifest.json",
+    "validation_split_id": null,
+    "content_hashes_verified": true
+  },
+  "config": {
+    "note": "仅作台账索引；完整参数以 config_path 指向的 config.json 为准。"
+  },
+  "environment": {
+    "platform": "Kaggle",
+    "accelerator": "NvidiaTeslaT4 x2 after CPU preflight",
+    "internet": false
+  },
+  "execution": {
+    "scope": "real_full_stack_exploratory_capture",
+    "status": "ERROR",
+    "observed_at": "2026-11-01T10:59:47.866Z",
+    "notebook_version": 3,
+    "real_gpu_run_requested": true,
+    "actual_hardware_verified": false,
+    "model_inference_started": false,
+    "failure_cause": "Required original optional input is absent: lora24_public"
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": null,
+    "per_class_recall_path": null,
+    "oof_path": null,
+    "leakage_audit": "not_audited"
+  },
+  "cost": {
+    "gpu_seconds": null,
+    "api_usd": null,
+    "colab_cu": null
+  },
+  "timing_note": "Guard 41.966s; account GPU quota rose from1286.760s to1345.327s in this observation window (58.567s), not an independently metered per-job bill.",
+  "conclusion": "V3已失败退出，guard约41.97秒；新增检查错误地强制要求原算法允许缺省的lora24_public，未进入模型推理。",
+  "limitations": "全成员训练隔离未知，不是OOF或正式得分；附件版本新冻结不宣称全部恢复历史输入。",
+  "next_action": "保留失败原件；根据531文件清单恢复原算法的可选分支规则并先CPU验证。之后重跑另建EXP，不自动重开GPU。",
+  "related_sources": [],
+  "evidence": [
+    "experiments/EXP-029-full-stack-capture/config.json",
+    "experiments/EXP-029-full-stack-capture/manifest.json",
+    "experiments/EXP-029-full-stack-capture/report.md",
+    "experiments/EXP-029-full-stack-capture/panel-manifest.json",
+    "cloud/full-stack-capture/execution-state.json",
+    "cloud/full-stack-capture/attachment-bindings.json",
+    "cloud/full-stack-capture/README.md",
+    "cloud/full-stack-capture/controller-session.json",
+    "cloud/full-stack-capture/preflight-save-readback.json",
+    "cloud/full-stack-capture/controller-readiness.json",
+    "experiments/EXP-029-full-stack-capture/metrics/prelaunch.json",
+    "cloud/full-stack-capture-planning/dataflow-review.json",
+    "cloud/full-stack-capture/recovery-result.json",
+    "cloud/full-stack-capture/notebook-v3-readback/verified.json",
+    "cloud/full-stack-capture/preflight-output-v1/preflight/preflight_manifest.json",
+    "cloud/full-stack-capture/v3-terminal-readback.json",
+    "cloud/full-stack-capture/outputs-v3/results/failure.json",
+    "experiments/EXP-029-full-stack-capture/metrics/failed-run-verification.json",
+    "cloud/full-stack-capture-planning/v3-input-failure-review.json"
+  ],
+  "config_path": "experiments/EXP-029-full-stack-capture/config.json",
+  "account_gpu_quota_delta_seconds": 58.567
+}

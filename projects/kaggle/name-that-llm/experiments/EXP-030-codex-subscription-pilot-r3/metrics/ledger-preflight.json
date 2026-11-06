@@ -1,0 +1,12 @@
+{
+  "check": {
+    "returncode": 1,
+    "stdout": "ERROR: EXP-029: source hash mismatch\n",
+    "stderr": ""
+  },
+  "render": {
+    "returncode": 1,
+    "stdout": "ERROR: EXP-029: source hash mismatch\n",
+    "stderr": ""
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "observed_at": "2026-10-31T14:18:01.351412+00:00",
+  "topic": {
+    "id": 671648,
+    "title": "[Other feedback] Where can Kaggle AI be applied?",
+    "url": "/discussions/product-feedback/671648",
+    "postDate": "2026-02-03T06:07:49.761Z",
+    "authorName": "water joe",
+    "authorUrl": "https://www.kaggle.com/waterjoe",
+    "votes": 2,
+    "commentCount": 3,
+    "forumName": "Product Feedback",
+    "forumId": 809,
+    "content": "<p>I noticed that Kaggle offers an additional option called \"ai\": Daily: $10.00 out of a total of $10.00. How is this used? Is it related to the API for model inference?</p>"
+  },
+  "comments": [
+    {
+      "id": 3401394,
+      "authorName": "Nicholas Kang",
+      "postDate": "2026-02-03T16:19:40.373Z",
+      "content": "<p>Yup the quota is for model inference for Kaggle Benchmarks: <a href=\"https://www.kaggle.com/benchmarks\" target=\"_blank\">https://www.kaggle.com/benchmarks</a></p>\n<p>You basically get access to a bunch of SOTA models from different providers: Deepmind, Anthropic, Deepseek, Qwen, etc. that you can use to build benchmarks! Learn more here: <a href=\"https://www.kaggle.com/docs/benchmarks\" target=\"_blank\">https://www.kaggle.com/docs/benchmarks</a></p>\n<p>Lmk if you've more qs!</p>",
+      "votes": 4
+    },
+    {
+      "id": 3401306,
+      "authorName": "Ayush Khaire",
+      "postDate": "2026-02-03T12:20:10.497Z",
+      "content": "<p>I'm not sure , but most probably it's for benchmark :)</p>",
+      "votes": 2,
+      "replies": [
+        {
+          "id": 3401315,
+          "authorName": "water joe",
+          "postDate": "2026-02-03T12:52:26.253Z",
+          "content": "<p>Well, disappointed.</p>",
+          "votes": 1
+        }
+      ]
+    }
+  ],
+  "next_page_token_present": false
+}

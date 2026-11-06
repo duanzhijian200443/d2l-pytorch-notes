@@ -1,0 +1,99 @@
+{
+  "experiment_id": "EXP-052",
+  "freeze_status": "FROZEN_BEFORE_TRAINING",
+  "observed_at": "2026-11-02T06:42:44.183240+00:00",
+  "run_id": "exp052-stylegram-four-volume-v1",
+  "files": [
+    {
+      "path": "cloud/luna-terra120-042/payload/train.csv",
+      "bytes": 2139418,
+      "sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707"
+    },
+    {
+      "path": "cloud/luna-terra120-042/payload/folds.csv",
+      "bytes": 267236,
+      "sha256": "e8ba1e3712852168dc57f56960d4f3e00be612d639ade8a7dcb0f0d8335ce551"
+    },
+    {
+      "path": "cloud/luna-terra120-042/payload/extra.csv",
+      "bytes": 8672205,
+      "sha256": "1e9125fd49b19084842332ede84ea65bc0174ee1bb28c8d48acc8ddbd5e36c0e"
+    },
+    {
+      "path": "cloud/luna-terra120-042/payload/stylegram_core.py",
+      "bytes": 4061,
+      "sha256": "caa46bd121164aba891c3d78e662540db9294d653db09f53d02833c1b4ab77ef"
+    },
+    {
+      "path": "cloud/luna-terra120-042/payload/runner.py",
+      "bytes": 22257,
+      "sha256": "de60b60bfd138b834d8723bbd832fd0522453f549c4050256197f6babe4ed45a"
+    },
+    {
+      "path": "cloud/format120-044/payload/runner.py",
+      "bytes": 38373,
+      "sha256": "2bb7e8376b44b3450cc5fc2b71f315a8cd1acea29b26d05e207bc3d666fbce8d"
+    },
+    {
+      "path": "experiments/EXP-052-stylegram-four-model-volume/train_volume.py",
+      "bytes": 17741,
+      "sha256": "3dc0bb2d44660e8710b15ec41c649c0fcbcbe8b7d0dd30ae32ad8e243aefe5f5"
+    },
+    {
+      "path": "experiments/EXP-052-stylegram-four-model-volume/metrics/data-gate.json",
+      "bytes": 10881,
+      "sha256": "6949e5af09d14bc0485dfd8e5d849ebbb55ceae157baf4be15842e3b0f6234ee"
+    },
+    {
+      "path": "experiments/EXP-052-stylegram-four-model-volume/data/four120.csv",
+      "bytes": 159249,
+      "sha256": "a4e86314a77f7ed699dbfb107b32a8263a1ff09fc7c3ec92b98d4028d487005d"
+    },
+    {
+      "path": "experiments/EXP-052-stylegram-four-model-volume/data/four240.csv",
+      "bytes": 320771,
+      "sha256": "694d91e2536db2d77d81f8d8b32a802763a750a2e9643fdb0ba6a10b76755a01"
+    },
+    {
+      "path": "experiments/EXP-052-stylegram-four-model-volume/config.json",
+      "bytes": 6900,
+      "sha256": "26245b0e84805401a427f8a0a288af223db17b4b3c6a65f4b7f33c619ad7c278"
+    },
+    {
+      "path": "experiments/EXP-052-stylegram-four-model-volume/prepare_data.py",
+      "bytes": 15428,
+      "sha256": "0116345cc4bdb03067fb5cf0a407fa626e1faf8a8525904996fddd05dbc9eb06"
+    },
+    {
+      "path": "experiments/EXP-052-stylegram-four-model-volume/cloud_run.py",
+      "bytes": 12456,
+      "sha256": "253662ded3bc05a5df425e610813f09a18628560e8b502379f9937f01477764c"
+    },
+    {
+      "path": "cloud/luna-terra120-042/outputs-v2/results/oof/control.npz",
+      "bytes": 762902,
+      "sha256": "633bb49ee1c25bbdf94921de6c9497be31423de1941a7a6e62208fa6d8b8f4d2"
+    },
+    {
+      "path": "cloud/luna-terra120-042/outputs-v2/results/artifacts.json",
+      "bytes": 34236,
+      "sha256": "bd4d9c2913924659fa0b83af99e08e0aa65393ee8848af54b2889939086ec2bb"
+    },
+    {
+      "path": "cloud/stylegram-volume-052/kernel/experiment.ipynb",
+      "bytes": 245904,
+      "sha256": "1f341997a7f78ffa21b857b7043a1ca3ed2f16e3f545e17150ca1fb5404e54f6"
+    },
+    {
+      "path": "cloud/stylegram-volume-052/kernel/kernel-metadata.json",
+      "bytes": 651,
+      "sha256": "2d5222fdf7c2133684d559f864ce4dde9a79c8a73b9177a401260e599bd9d7b0"
+    }
+  ],
+  "baseline_prediction": {
+    "path": "cloud/luna-terra120-042/outputs-v2/results/oof/control.npz",
+    "bytes": 762902,
+    "sha256": "633bb49ee1c25bbdf94921de6c9497be31423de1941a7a6e62208fa6d8b8f4d2"
+  },
+  "no_new_control_fits": true
+}

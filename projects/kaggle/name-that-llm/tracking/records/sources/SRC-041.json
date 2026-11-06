@@ -1,0 +1,74 @@
+{
+  "category": "solutions",
+  "title": "bgunshui One Swap V1：原作者V3同代码副本",
+  "author": "bgunshui",
+  "url": "https://www.kaggle.com/code/bgunshui/ntl-one-swap",
+  "observed_at": "2026-11-01T07:35:57Z",
+  "source_version": {
+    "notebook_version": 1,
+    "script_version_id": null,
+    "source_sha256": "86a72c03d95a46a3378b6e736a23fa0cc8dbc55bc50542852a07c8fe492aa628",
+    "code_sha256": "d8c630d3b9fd1b3b0453de6fffb9e5d613f7a9c1c79cf47ab42f7dd9ad30321f",
+    "notebook_id": 142034859
+  },
+  "public_score": null,
+  "summary": "与原作者One Swap V3完整代码相同；页面未显示Score，不把继承0.664正文作为本副本成绩。",
+  "author_claim": "作者称原样运行One Swap配方；列表未显示成绩。",
+  "verified": "固定V1全部代码SHA与原作者One Swap V3即SRC-037一致。",
+  "use_for_us": "保留传播出处与同源关系，不计新方法或第二次0.664成功证据。",
+  "test_plan": "需要复现时优先核对原作者得分V1与输入版本，无需因副本另建算法实验。",
+  "limitations": "本页未显示Score且scriptVersionId未知，不能继承原作者V1的0.664。",
+  "tags": [
+    "ensemble",
+    "svm",
+    "data",
+    "duplicate-code",
+    "same-code"
+  ],
+  "schema_version": 1,
+  "id": "SRC-041",
+  "artifact_dir": "research/solutions/SRC-041-bgunshui-ntl-one-swap-v1",
+  "notes_path": "research/solutions/SRC-041-bgunshui-ntl-one-swap-v1/notes.md",
+  "kind": "notebook",
+  "related_sources": [
+    "SRC-002",
+    "SRC-027",
+    "SRC-037"
+  ],
+  "collection_observation_note": "源码/API时间见回执。浏览器仅记录2026-11-01 UTC采集日期及07:35:57 UTC汇总截至时刻，不将其伪作逐页精确读取时间。",
+  "supersedes": null,
+  "family_id": "code-d8c630d3b9fd",
+  "evidence": [
+    "research/solutions/SRC-041-bgunshui-ntl-one-swap-v1/notes.md",
+    "research/solutions/SRC-041-bgunshui-ntl-one-swap-v1/analysis-evidence.json",
+    "research/solutions/SRC-041-bgunshui-ntl-one-swap-v1/code.txt",
+    "research/solutions/SRC-041-bgunshui-ntl-one-swap-v1/description.md",
+    "research/solutions/SRC-041-bgunshui-ntl-one-swap-v1/diff-vs-original-one-swap-v1.patch",
+    "research/solutions/SRC-041-bgunshui-ntl-one-swap-v1/diff-vs-original-one-swap-v3.patch",
+    "research/solutions/SRC-041-bgunshui-ntl-one-swap-v1/diff-vs-SRC-002.patch",
+    "research/solutions/SRC-041-bgunshui-ntl-one-swap-v1/download-receipt.json",
+    "research/solutions/SRC-041-bgunshui-ntl-one-swap-v1/metadata.json",
+    "research/solutions/SRC-041-bgunshui-ntl-one-swap-v1/snapshots/browser-observation-20261101.json",
+    "research/solutions/SRC-041-bgunshui-ntl-one-swap-v1/source.ipynb",
+    "tracking/snapshots/20261101T073557Z-community-refresh/score-list-dom-observation.json",
+    "tracking/snapshots/20261101T073557Z-community-refresh/search-0664-dom-observation.json"
+  ],
+  "same_code_sources": [
+    "SRC-037"
+  ],
+  "evidence_sha256": {
+    "research/solutions/SRC-041-bgunshui-ntl-one-swap-v1/notes.md": "837a9015625fa7b8e5060ce8323f163ebf00ee7b55e44934687739f04fa93bd3",
+    "research/solutions/SRC-041-bgunshui-ntl-one-swap-v1/analysis-evidence.json": "cdef34422efeafbd1f5cff6826a599b456fe473277bfaf047a1df7553f038e5c",
+    "research/solutions/SRC-041-bgunshui-ntl-one-swap-v1/code.txt": "cb912c8f8d47a991c6a91a480e2f265b0c6a198319176c9622e5d1ea152fff5d",
+    "research/solutions/SRC-041-bgunshui-ntl-one-swap-v1/description.md": "28352ddebf9ae1e7637e0885922f88f253296ca6f28e37f8db8dfe35329c19d9",
+    "research/solutions/SRC-041-bgunshui-ntl-one-swap-v1/diff-vs-original-one-swap-v1.patch": "1bd24091b433854f0c0ac7e8ad39ffd45943ed5b6c7ea8d5cea9e5d47534f1a0",
+    "research/solutions/SRC-041-bgunshui-ntl-one-swap-v1/diff-vs-original-one-swap-v3.patch": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "research/solutions/SRC-041-bgunshui-ntl-one-swap-v1/diff-vs-SRC-002.patch": "19d9db527a96e262db6b4bc076d49d09ba92b3e8bb7174db6332b90033809ed0",
+    "research/solutions/SRC-041-bgunshui-ntl-one-swap-v1/download-receipt.json": "8469f27192ea0b3373f26824a1f68391616502ef5ba4e8ba7f630adbfa72dcad",
+    "research/solutions/SRC-041-bgunshui-ntl-one-swap-v1/metadata.json": "bb939e2c0918ef0e0e66d76f19e8306d222b57faaa52e4b03bee2b8c4489e4af",
+    "research/solutions/SRC-041-bgunshui-ntl-one-swap-v1/snapshots/browser-observation-20261101.json": "770f2e5b02f3d04b4d8c42895e53b7175b893bce68fb34abb98b031286e69dbe",
+    "research/solutions/SRC-041-bgunshui-ntl-one-swap-v1/source.ipynb": "86a72c03d95a46a3378b6e736a23fa0cc8dbc55bc50542852a07c8fe492aa628",
+    "tracking/snapshots/20261101T073557Z-community-refresh/score-list-dom-observation.json": "dd3d6bcf84ff467a6b47f594d7ba9ef888b776c319b8b2dfae31c49ab4dd1fd2",
+    "tracking/snapshots/20261101T073557Z-community-refresh/search-0664-dom-observation.json": "830019135b8a239cee4684ed235682b78788848caef8f8b0f54c2ea68ceb05e7"
+  }
+}

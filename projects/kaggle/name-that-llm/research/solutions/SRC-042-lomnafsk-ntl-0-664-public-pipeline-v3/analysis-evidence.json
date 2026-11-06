@@ -1,0 +1,10 @@
+{
+  "role": "static-analysis-evidence-not-canonical-index",
+  "same_code_existing_src": [],
+  "code_sha256": "ea3905785055fd2ed8517531f09c04574b96c8a6111fb6d51ffc3ff3b3c51cd9",
+  "executed": false,
+  "compared_to": [
+    "SRC-002"
+  ],
+  "source_notebook_version": 3
+}

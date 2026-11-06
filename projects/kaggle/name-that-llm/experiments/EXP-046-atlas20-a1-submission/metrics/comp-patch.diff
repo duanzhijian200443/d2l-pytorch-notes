@@ -1,0 +1,64 @@
+--- original/comp_stack.py
++++ A1/comp_stack.py
+@@ -274,39 +274,21 @@
+     return np.concatenate([w_tr, w_ex])
+ 
+ 
+-grams = StyleGrams().fit(TR + EX_T)                       # vocabulary and idf from train + extra
+-X_tr, X_ex, X_te = grams.transform(TR), grams.transform(EX_T) if len(EX_T) else None, grams.transform(TE)
+-
+-
+-def fit_svc(X, labels, C=0.5, **kw):
+-    return LinearSVC(C=C, random_state=42, max_iter=4000).fit(X, labels, **kw)
+-
+-
+-if X_ex is not None:
+-    svc_plain = fit_svc(vstack([X_tr, X_ex]).tocsr(), np.concatenate([y, EX_Y]), sample_weight=extra_sample_weights())
+-else:
+-    svc_plain = fit_svc(X_tr, y)
+-P_style = svc_probs(svc_plain, X_te)
+-
+-# centred twin: prompt-centred training rows (extra rows centred within their own prompts) -> inferred test groups
+-X_tr_c = sparse_group_centre(X_tr, PROMPT)
+-if X_ex is not None:
+-    svc_centred = fit_svc(vstack([X_tr_c, sparse_group_centre(X_ex, EX_G, GROUP_MIN, 10 ** 6)]).tocsr(), np.concatenate([y, EX_Y]),
+-                          sample_weight=extra_sample_weights())
+-else:
+-    svc_centred = fit_svc(X_tr_c, y)
+-G_style = normalised_content_groups(TE)
+-rows_style = eligible(G_style)
++# EXP046 A1: local Stylegram-only data replacement. Gate EX_T/EX_Y/EX_G remain untouched.
++import sys as _a1_sys
++_a1_module_dir = pathlib.Path(os.environ['NTL_A1_MODULE_DIR']).resolve()
++if _a1_module_dir != pathlib.Path('/kaggle/working/ntl_a1_payload'):
++    raise ValueError('A1 modules must come from the frozen working payload directory')
++_a1_sys.path.insert(0, str(_a1_module_dir))
++import a1_stylegram as _a1_module
++if pathlib.Path(_a1_module.__file__).resolve() != _a1_module_dir / 'a1_stylegram.py':
++    raise ValueError('Wrong imported A1 module path')
++P_style, _a1_metadata = _a1_module.predict(TR, y, PROMPT, TE, os.environ['NTL_A1_EXTRA'], labels=LABELS)
++G_style, rows_style = _a1_metadata['groups'], _a1_metadata['centred_mask']
+ describe_groups('stylegram groups', G_style)
+-if rows_style.any():
+-    P_style[rows_style] = svc_probs(svc_centred, sparse_group_centre(X_te[rows_style], G_style[rows_style]))
+-if TINY:   # exercise the centred path on training rows grouped by their true prompt (output discarded)
+-    st_idx, st_g = self_test_rows()
+-    acc = np.mean(svc_centred.classes_[svc_centred.decision_function(sparse_group_centre(X_tr[st_idx], st_g)).argmax(1)] == y[st_idx])
+-    print(f'  centred stylegram self-test on {len(st_idx)} training rows (seen in training): acc {acc:.2f}', flush=True)
++print('A1_STYLEGRAM_RECEIPT ' + json.dumps(_a1_metadata['receipt'], sort_keys=True), flush=True)
+ add_member('stylegram', P_style)
+-del X_tr_c, svc_plain, svc_centred, P_style
+-
++del P_style, _a1_metadata, _a1_module, _a1_module_dir, _a1_sys
+ 
+ # ---- gates: style SVCs that only re-rank inside one family after the blend
+ def family_gate(texts, labels, classes, C, sample_weight=None, balanced=False):
+@@ -334,7 +316,7 @@
+     GATES[fam] = family_gate([t for t, k in zip(TR, m) if k] + [t for t, k in zip(EX_T, me) if k], np.concatenate([y[m], EX_Y[me]]),
+                              FAMILY_IDX[fam], C, sample_weight=np.concatenate([np.ones(int(m.sum())), np.full(int(me.sum()), 0.25)]), balanced=True)
+     print(f'{fam} gate: {int(m.sum())} official + {int(me.sum())} extra rows', flush=True)
+-del grams, X_tr, X_ex, X_te
++# A1 Stylegram matrices and fitted models are local to a1_stylegram.predict.
+ 
+ # ============================================================ 3. stylometric features + LightGBM
+ PUNCT = list(',.;:!?()[]"\'-') + ['—', '–', '‘', '’', '“', '”', '…', '*', '/', '%']

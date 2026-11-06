@@ -1,0 +1,28 @@
+--- alex-v8
+
++++ swap-v1
+
+@@ -64,6 +64,12 @@
+
+ AQ14V5 = [adir(f'q14v5_f{k}') for k in range(5)] + [adir('q14v5')]
+ ALL8V5 = [adir(f'll8v5_f{k}') for k in range(5)] + [adir('ll8v5')]
+ print('v5', AQ14V5, ALL8V5)
++
++# SVC pool = the open pool (crtproduction/name-that-llm-open-pool, CC BY-SA 4.0); it contains all of nlm_pool_v5
++import pandas as pd
++_op = pd.read_parquet(glob.glob('/kaggle/input/**/ntl_open_pool.parquet', recursive=True)[0], columns=['text', 'model', 'flag_train_prompt_regen'])
++_op[~_op.flag_train_prompt_regen.astype(bool)][['text', 'model']].to_parquet('/kaggle/working/open_pool.parquet')
++POOL = '/kaggle/working/open_pool.parquet'; print('svc pool = open pool', len(_op))
+ 
+ 
+ %%writefile gauss.py
+@@ -1892,7 +1898,7 @@
+
+ import subprocess, sys
+ cmd = [sys.executable, 'infer.py', '--data', str(DATA), '--models', json.dumps(MODELS),
+        '--perpassage', '1', '--extra', str(EXTRA), '--extra_w', '0.5', '--tfidf_w', '0.25',
+-       '--distort_w', '0.10', '--svc_w', '1.5', '--pool', str(POOL), '--adapt_w', '1.0',
++       '--distort_w', '0.10', '--svc_w', '12', '--pool', str(POOL), '--adapt_w', '1.0',
+        '--adapt_thr', '0.15', '--sinkhorn', '0.45', '--sinkhorn_target_mix', '0.35', '--post', '0', '--atlas_dir', str(ATLAS),
+        '--atlas_base', str(B8), '--atlas_w', '0.20', '--atlas_margin', '0.3',
+        '--atlas_bs', '4', '--atlas_chunk', '3', '--atlas_budget', str(max(180, ATLAS_BUDGET)),

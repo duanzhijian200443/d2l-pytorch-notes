@@ -1,0 +1,32 @@
+{
+  "observed_at": "2026-11-01T13:11:05.257278+00:00",
+  "run_id": "2f5308a40ed74d748cf6354c77612627",
+  "status": "INCOMPLETE",
+  "responses": 20,
+  "by_model": {
+    "gpt-5.6-luna": 5,
+    "gpt-5.6-terra": 5,
+    "gpt-5.6-sol": 5,
+    "gpt-6-astra": 5
+  },
+  "by_split": {
+    "train": 12,
+    "holdout": 8
+  },
+  "prompt_groups": 5,
+  "duplicate_job_keys": 0,
+  "duplicate_text_rows": 0,
+  "attempts_by_status": {
+    "SUCCEEDED": 20
+  },
+  "integrity_errors": [
+    "UNFINISHED_ATTEMPT"
+  ],
+  "flags": {},
+  "model_observation_scopes": {
+    "requested_only": 20
+  },
+  "workers": 1,
+  "training_acceptance": "NOT_EVALUATED",
+  "bare_api_equivalence": "NOT_ESTABLISHED"
+}

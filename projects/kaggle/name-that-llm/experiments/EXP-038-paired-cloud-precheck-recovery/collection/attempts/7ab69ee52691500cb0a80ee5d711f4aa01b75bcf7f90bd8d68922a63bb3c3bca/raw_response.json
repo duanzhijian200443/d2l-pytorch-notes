@@ -1,0 +1,38 @@
+{
+  "id": "chatcmpl-EfPNyjYa9ySEAA1pYO86LNTB4Wn5p",
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "message": {
+        "content": "To book a room, first send us the date and time you would like to use it. We will then check whether the room is available during that period. After we receive your request, we will send you a message confirming that it has been received. Please note that this receipt confirmation does not mean your booking has been approved. Your requested time is only confirmed once we let you know that the room is available and your reservation has been accepted.",
+        "refusal": "",
+        "role": "assistant",
+        "annotations": null,
+        "audio": null,
+        "function_call": null,
+        "tool_calls": null
+      }
+    }
+  ],
+  "created": 1793537738,
+  "model": "openai/gpt-5.6-terra",
+  "object": "chat.completion",
+  "metadata": null,
+  "moderation": null,
+  "service_tier": null,
+  "system_fingerprint": null,
+  "usage": {
+    "completion_tokens": 92,
+    "prompt_tokens": 155,
+    "total_tokens": 247,
+    "completion_tokens_details": null,
+    "prompt_tokens_details": null,
+    "cost": {
+      "input_tokens_cost_nanodollars": 310000,
+      "output_tokens_cost_nanodollars": 1104000
+    },
+    "total_backend_latency_ms": 1312
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "observed_at": "2026-11-01T12:25:51.299198+00:00",
+  "generation_requests": 0,
+  "base_host": "mp-staging.kaggle.net",
+  "base_path": "/models/openapi/",
+  "token_expires": "2026-11-01T14:16:30.253000+00:00",
+  "checks": [
+    {
+      "method": "GET",
+      "relative_path": "models",
+      "payload": null,
+      "purpose": "metadata or invalid empty request; no model specified",
+      "status": 404,
+      "body_bytes": 0,
+      "content_type": null
+    },
+    {
+      "method": "POST",
+      "relative_path": "chat/completions",
+      "payload": {},
+      "purpose": "metadata or invalid empty request; no model specified",
+      "status": 404,
+      "body_bytes": 116,
+      "content_type": "application/json",
+      "error_code": null,
+      "error_type": null
+    }
+  ]
+}

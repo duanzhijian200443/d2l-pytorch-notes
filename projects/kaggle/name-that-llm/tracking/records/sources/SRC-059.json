@@ -1,0 +1,42 @@
+{
+  "kind": "discussion",
+  "category": "discussions",
+  "title": "GoPain：用十个LB点挑OOF指标的选择偏差模拟",
+  "author": "locdunhat",
+  "url": "https://www.kaggle.com/competitions/name-that-llm/discussion/754084",
+  "observed_at": "2026-11-01T07:32:12.412394+00:00",
+  "source_version": {
+    "topic_id": 754084,
+    "snapshot_sha256": "4031f6acfe62b9a925ec827767b2f6d1ce2a5733c9933ec1d994eaa1d1aea2ab"
+  },
+  "public_score": null,
+  "summary": "模拟解释最佳相关OOF的赢家偏差与top5范围收缩；统计数字受高斯模型与独立LB噪声假设限制。",
+  "author_claim": "十点中选最高相关proxy常不是真最优；平均观测相关0.65而真实0.47，后续top5相关下降并非必然失效。",
+  "verified": "已读原帖，确认该结果是模拟，非新的比赛LB成绩；源码与180000模拟样本本轮未执行。",
+  "use_for_us": "避免凭少量Public提交选验证器；预先固定验证协议并检查多个prompt组大小。",
+  "test_plan": "固定多个proxy与后续独立候选；做prompt级重采样和固定public子集误差的模拟，而非按已看LB重选指标。",
+  "limitations": "高斯无方向偏差、跨提交独立LB噪声与真实固定Public split不同；20点不是通用阈值。",
+  "tags": [
+    "validation",
+    "selection-bias",
+    "simulation",
+    "oof"
+  ],
+  "related_sources": [
+    "SRC-026"
+  ],
+  "schema_version": 1,
+  "id": "SRC-059",
+  "artifact_dir": "research/discussions/SRC-059-754084-ten-lb-points-simulation",
+  "notes_path": "research/discussions/SRC-059-754084-ten-lb-points-simulation/notes.md",
+  "collection_observation_note": "源码/API时间见回执。浏览器仅记录2026-11-01 UTC采集日期及07:35:57 UTC汇总截至时刻，不将其伪作逐页精确读取时间。",
+  "supersedes": null,
+  "evidence": [
+    "research/discussions/SRC-059-754084-ten-lb-points-simulation/notes.md",
+    "research/discussions/SRC-059-754084-ten-lb-points-simulation/snapshots/20261101T073212Z.json"
+  ],
+  "evidence_sha256": {
+    "research/discussions/SRC-059-754084-ten-lb-points-simulation/notes.md": "bbbdec42c38bab877bd1ec9a9124fb684925f36bc194ce09a4bf5d26b66be32f",
+    "research/discussions/SRC-059-754084-ten-lb-points-simulation/snapshots/20261101T073212Z.json": "4031f6acfe62b9a925ec827767b2f6d1ce2a5733c9933ec1d994eaa1d1aea2ab"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "id": "SRC-031",
+  "kind": "dataset",
+  "title": "abdullah V2：GPT/Gemini proxy 与设置混合",
+  "url": "https://www.kaggle.com/datasets/abdullah1afify/ntl-generations/versions/2",
+  "observed_at": "2026-10-31T17:00:43.016193+00:00",
+  "source_version": {
+    "dataset_version": 2,
+    "files_sha256": {
+      "README.md": "14697a7a068fcaa260aa96ea5418624b2c4a19a6bcae89a7e8e21630960344b8",
+      "make_tasks.py": "35ee0cf1a3c3ed6670c704b1d61d132bbfeb0d6f17a93b53bffb3644243419f6",
+      "ntl_generations.csv": "83003454e3cc0368cae8b05bca243daf036b64a42a792c3f7bfd5fd91b3db378",
+      "prompts_used.csv": "b42003b1068ba24de1accf33265e208e1a492d1ca8c81eb581d256b54bdefdbc"
+    },
+    "download_manifest_sha256": "5f2da21401efada94e636fd2fb843013c7eff6ae1ed2d07a5a2771c3ed071cfa"
+  },
+  "public_score": null,
+  "summary": "1033 条/8 类，返回 slug 与标签一致；297 条 finish_reason 缺失，设置 843 default/104 low/86 none。",
+  "author_claim": "作者声明使用公共 Seyit prompt bank 和 Kaggle Benchmarks；默认设置为主，另有 none/low 试验。",
+  "verified": "1033 条/8 类，返回 slug 与标签一致；297 条 finish_reason 缺失，设置 843 default/104 low/86 none。",
+  "use_for_us": "候选 1033 条；保留 setting/batch，不能把公共 prompt 当新独立题目。",
+  "test_plan": "固定 prompt-group-v1、同一轻量分类器与环境，按来源/设置分层做加数据对照；本轮只审计，尚未验证分数收益。",
+  "limitations": "model_seen 是 proxy 标识；没有原始服务商逐行日志，结束状态存在缺失。",
+  "evidence": [
+    "experiments/EXP-008-public-pool-audit/report.md",
+    "experiments/EXP-008-public-pool-audit/download-manifest.json",
+    "experiments/EXP-008-public-pool-audit/outputs/profiles.json",
+    "experiments/EXP-008-public-pool-audit/outputs/row_flags.parquet"
+  ]
+}

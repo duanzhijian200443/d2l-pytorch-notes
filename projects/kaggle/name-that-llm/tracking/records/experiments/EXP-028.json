@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "id": "EXP-028",
+  "title": "完整基线缓存工具：导出、完整性与重放一致性",
+  "baseline_id": "EXP-004",
+  "hypothesis": "保持原算法的观测副本可保存各阶段分数，并由独立CPU代码准确重放；缺ATLAS覆盖必须拒绝完整验收。",
+  "changes": [
+    "新增观测副本与原精度缓存格式",
+    "三场景合成源码等价及独立重放",
+    "导入旧V30汇总；核对已知Kaggle/Drive输出范围"
+  ],
+  "observed_at": "2026-11-01T09:50:40.400832+00:00",
+  "source": {
+    "notebook_ref": "zhjianduan/name-that-llm-atlas20-repro",
+    "notebook_version": 2,
+    "script_version_id": 363569852,
+    "local_path": "reviews/own-scheme-readiness-20261030/baseline-v2.ipynb",
+    "sha256": "6c9145f038ccffbe08dc6da6db3d1dcf3d2e0e7d2286927bfc8800ef5148cfb8",
+    "role": "unchanged parent baseline; no new notebook run"
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-028-full-stack-cache/manifest.json",
+    "validation_split_id": null,
+    "content_hashes_verified": true,
+    "scope": "local source/synthetic fixture/legacy aggregate only; actual full-stack inputs unbound"
+  },
+  "config": {
+    "note": "仅作台账索引；完整参数以 config_path 指向的 config.json 为准。"
+  },
+  "environment": {
+    "platform": "Windows local CPU",
+    "accelerator": null,
+    "container": null,
+    "seed": null,
+    "versions": {
+      "python": "3.13.13",
+      "numpy": "2.4.4",
+      "scipy": "1.17.1",
+      "pandas": "3.0.6"
+    }
+  },
+  "execution": {
+    "scope": "local_cache_engineering",
+    "status": "COMPLETE",
+    "observed_at": "2026-11-01T09:50:40.400832+00:00",
+    "result_status": "PASS_ENGINEERING_ONLY_REAL_CACHE_NOT_GENERATED",
+    "real_model_predictions_generated": false
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": "synthetic selected-source math, cache byte integrity and legacy aggregate roundtrip; no accuracy experiment",
+    "per_class_recall_path": null,
+    "oof_path": null,
+    "leakage_audit": "Full-stack isolation NOT_CERTIFIED; see data-scope.json",
+    "acceptance_path": "experiments/EXP-028-full-stack-cache/metrics/engineering-acceptance.json"
+  },
+  "cost": {
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0
+  },
+  "timing_note": "Local engineering/IO; no benchmark of model runtime or GPU cost.",
+  "conclusion": "缓存工程验收通过：三场景原/插桩12数组逐位一致，87/81/87项重放误差0，ATLAS部分覆盖拒绝完整验收；真实全模型缓存未生成。",
+  "limitations": "合成输出与旧V30三样例不是完整真实预测、OOF或新榜单；真实输入/成员与训练暴露尚未绑定，Parquet引擎及计时覆盖未实测。",
+  "next_action": "固定真实面板用途、模型/输入版本、成员清单与单次预算后生成真实缓存；独立性合格再比较Sinkhorn0.45/0.30。",
+  "related_sources": [],
+  "evidence": [
+    "experiments/EXP-028-full-stack-cache/config.json",
+    "experiments/EXP-028-full-stack-cache/manifest.json",
+    "experiments/EXP-028-full-stack-cache/report.md",
+    "experiments/EXP-028-full-stack-cache/metrics/engineering-acceptance.json",
+    "experiments/EXP-028-full-stack-cache/metrics/legacy-import.json",
+    "experiments/EXP-028-full-stack-cache/metrics/entrypoints-verified.json",
+    "cloud/full-stack-cache/README.md",
+    "cloud/full-stack-cache/data-scope.json",
+    "cloud/full-stack-cache/package-manifest.json"
+  ],
+  "config_path": "experiments/EXP-028-full-stack-cache/config.json"
+}

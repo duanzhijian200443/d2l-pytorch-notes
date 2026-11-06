@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "id": "EXP-045",
+  "title": "原公共数据候选接入完整ATLAS20：本地缓存四臂验证",
+  "baseline_id": "EXP-031",
+  "hypothesis": "将既有公共数据Stylegram配方、margin标准化和固定10% raw svc4分步接入完整ATLAS20，检验对当前外部面板的最终预测影响。",
+  "changes": [
+    "只替换comp中Stylegram位置，保留原main svc4及其他成员",
+    "四臂重新计算家族gate、动态ATLAS、固定Sinkhorn及标点后处理；缺ATLAS行拒绝计分"
+  ],
+  "observed_at": "2026-11-01T16:58:36.8919882+00:00",
+  "source": {
+    "notebook_ref": null,
+    "notebook_version": null,
+    "script_version_id": null,
+    "local_path": "experiments/EXP-045-public-data-full-stack/run_local.py",
+    "sha256": "8eb6226ffab3387a915c4090813576a9a3844eafea6e30a70672132a584d604f"
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-045-public-data-full-stack/manifest.json",
+    "validation_split_id": "EXP027-SRC063-fixed729-seen-external-panel",
+    "content_hashes_verified": true
+  },
+  "config": {
+    "note": "仅作台账索引；完整参数以 config_path 指向的 config.json 为准。"
+  },
+  "environment": {
+    "platform": "local Windows CPU, frozen cached predictions",
+    "accelerator": null,
+    "container": null,
+    "seed": 42
+  },
+  "execution": {
+    "scope": "exploratory external full-stack cached counterfactual",
+    "status": "PARTIAL_ATLAS_COVERAGE",
+    "observed_at": "2026-11-01T16:58:36.8919882+00:00",
+    "scored_arms": [
+      "A0",
+      "A1"
+    ],
+    "missing_atlas_rows": 4
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": "729 rows / 56 prompts / 17-covered-class macro recall with18 prediction columns; not clean OOF",
+    "per_class_recall_path": null,
+    "oof_path": null,
+    "leakage_audit": "Lightweight known/exact isolation checked; panel already inspected; full-checkpoint training isolation unknown.",
+    "macro_recall_17": 0.6010754296632905,
+    "delta_a1_a0": 0.0
+  },
+  "cost": {
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0
+  },
+  "timing_note": "Local cached acceptance/replay/metrics 7.17 seconds; excludes implementation and independent review.",
+  "conclusion": "独立复核通过：A0/A1完整动态流程均488/729、17类宏召回0.601075，最终改判0；A1分数确实变化。A2/A3缺相同4条ATLAS输出，完整分数未计算。",
+  "limitations": "已评过的17类面板，非独立OOF/LB；A1实际10469→10073的配方替换，不是纯删252。CI[0,0]来自固定预测相同，不证明未来等价。",
+  "next_action": "若继续完整组合评估，另行授权相同ATLAS权重/设置补4条，复用现有全部其他缓存；不自动开GPU或提交。",
+  "related_sources": [],
+  "evidence": [
+    "experiments/EXP-045-public-data-full-stack/config.json",
+    "experiments/EXP-045-public-data-full-stack/manifest.json",
+    "experiments/EXP-045-public-data-full-stack/report.md",
+    "experiments/EXP-045-public-data-full-stack/metrics/input-review.json",
+    "experiments/EXP-045-public-data-full-stack/metrics/independent-review.json",
+    "experiments/EXP-045-public-data-full-stack/outputs/summary.json",
+    "experiments/EXP-045-public-data-full-stack/outputs/baseline-parity.json",
+    "experiments/EXP-045-public-data-full-stack/outputs/atlas-completion-plan.json",
+    "experiments/EXP-045-public-data-full-stack/outputs/artifacts.json",
+    "experiments/EXP-045-public-data-full-stack/figures/public-data-full-stack.png"
+  ],
+  "config_path": "experiments/EXP-045-public-data-full-stack/config.json",
+  "related_experiments": [
+    "EXP-004",
+    "EXP-010",
+    "EXP-018",
+    "EXP-024",
+    "EXP-027",
+    "EXP-031",
+    "EXP-032"
+  ]
+}

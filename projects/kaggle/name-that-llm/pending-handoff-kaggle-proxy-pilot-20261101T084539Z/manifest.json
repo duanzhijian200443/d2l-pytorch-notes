@@ -1,0 +1,53 @@
+{
+  "run_id": "kaggle-proxy-pilot-20261101T084539Z",
+  "experiment_id": null,
+  "registration": "pending_handoff_no_local_ledger_write",
+  "created_utc": "2026-11-01T08:50:24.711802+00:00",
+  "input_drive_file_id": "1vo9FnCW94yQwBbiwWoa38srgpyHPZyC4",
+  "input_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+  "input_bytes": 87764,
+  "record_count": 250,
+  "selected_count": 10,
+  "selection_all_train": true,
+  "selection_unique_categories": 10,
+  "source": "kaggle_model_proxy",
+  "requested_config_sha256": "8eaae26b09855adee081b390500c05465fa629f66ffa456297be166c32c62dec",
+  "requests_sent": 0,
+  "responses_saved": 0,
+  "failures_sent": 0,
+  "not_sent": 20,
+  "by_model": {
+    "gpt-5.6-luna": 0,
+    "gpt-5.6-terra": 0
+  },
+  "generation_cost_usd": 0,
+  "generation_cost_basis": "No generation requests were sent; not an inference from absent usage metadata.",
+  "account_billed_total_usd": null,
+  "status": "blocked_before_first_generation",
+  "stop_reason": "Cannot verify a conservative pre-request cost upper bound including reasoning, nor a $1 task hard cap.",
+  "models_identity_verified": false,
+  "runtime_parameters_verified": false,
+  "official_repo_tree_sha": "8eb812de4a2529b2e8aee6fbde0cea2e3bc0aedb",
+  "observed_quota": {
+    "at_utc": "2026-11-01T08:49:23Z",
+    "daily_available_usd": 10,
+    "daily_total_usd": 10,
+    "monthly_available_usd": 99.99,
+    "monthly_total_usd": 100
+  },
+  "untouched": [
+    "existing Codex collection",
+    "project ledger",
+    "competition submissions",
+    "training pools"
+  ],
+  "unknowns": [
+    "target model callable keys in current account",
+    "underlying snapshots",
+    "installed notebook SDK version",
+    "model-specific low acceptance",
+    "effective temperature/seed/output cap",
+    "Kaggle target-model price schedule including reasoning",
+    "hard request/task cost cap"
+  ]
+}

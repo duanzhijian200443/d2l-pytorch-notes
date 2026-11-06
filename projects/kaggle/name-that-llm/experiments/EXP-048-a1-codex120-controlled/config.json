@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-048",
+  "baseline_id": "EXP-046",
+  "baseline_public_score": 0.663,
+  "scope": "register existing external-window-controlled submission; no run started here",
+  "source_handoff_marker": "pending-handoff-stylegram-add120-20261102T014124Z",
+  "changes": {
+    "branch": "Stylegram only",
+    "add_rows": 120,
+    "models": {
+      "gpt-5.6-luna": 60,
+      "gpt-5.6-terra": 60
+    },
+    "base_prompt_groups": 60,
+    "source": "EXP040 raw train subset identical to EXP042 new120.csv",
+    "raw_sha256": "cbb0f2227f7748d9172f04d23c1653403103a192dbb7503d897153d24bb00acd",
+    "text_formatting": "raw; no newline/bold cleaning",
+    "fit": "refit Stylegram TF-IDF and plain/centred SVC with additions",
+    "sample_weights": "existing official/public row weights unchanged; added rows inherit same-class existing public per-row weight; no renormalization",
+    "training_rows": 12892
+  },
+  "ensemble": {
+    "atlas_w": 0.2,
+    "comp_w": 0.15,
+    "sinkhorn": 0.45,
+    "sinkhorn_target_mix": 0.35,
+    "typography_scale": 1.5
+  },
+  "preserve": [
+    "other main/comp model members and weights",
+    "family-gate shared training pool",
+    "main svc4",
+    "dynamic ATLAS route"
+  ],
+  "validation": {
+    "holdout_included": false,
+    "held_out_original_prompt_hash_count": 50,
+    "added_rows_overlapping_held_out_original_prompts": 0,
+    "scope": "static data/group boundary verification; not hidden execution success"
+  },
+  "environment": {
+    "platform": "Kaggle",
+    "requested_accelerator": "T4 x2",
+    "internet": false,
+    "private": true,
+    "container": "gcr.io/kaggle-private-byod/python@sha256:2757e0c7d1e0a9cb43da657b97e223c321a98f5014bdf64f44f2f6b083ad2b2f"
+  },
+  "budget": {
+    "new_runs_started_by_this_registration": 0,
+    "api_usd": null,
+    "gpu_seconds": null,
+    "colab_cu": null
+  }
+}

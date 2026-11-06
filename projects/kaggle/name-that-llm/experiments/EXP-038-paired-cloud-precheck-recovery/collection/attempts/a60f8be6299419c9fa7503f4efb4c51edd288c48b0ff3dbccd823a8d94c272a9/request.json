@@ -1,0 +1,34 @@
+{
+  "job": {
+    "request_index": 25,
+    "block_index": 7,
+    "job_id": "a60f8be6299419c9fa7503f4efb4c51edd288c48b0ff3dbccd823a8d94c272a9",
+    "cell_id": "cp0102|gpt-5.6-terra",
+    "route": "codex_subscription",
+    "repeat_id": 1,
+    "prompt_id": "cp0102",
+    "prompt_group": "cp0102",
+    "split": "train",
+    "model_label": "gpt-5.6-terra",
+    "protocol_version": "single-paragraph-plain-text-v1",
+    "target_words": 120,
+    "user_message": "Create a scene in which two siblings sorting an attic disagree over an unremarkable blue cup. Reveal the emotional reason through their actions rather than a long explanation. Keep your response near 120 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+    "user_message_sha256": "371f13bd194d5e3af381f1df588551dbf70175870c8ef8c508160123f5727d57",
+    "base_instruction": "Answer the user's request.",
+    "reasoning_effort": "low",
+    "execution_authorized": true,
+    "state": "AUTHORIZED_NOT_SENT",
+    "codex_execution_contract": {
+      "fresh_ephemeral_exec": true,
+      "ignore_user_config": true,
+      "sandbox": "read-only",
+      "frozen_runtime_config": "experiments/EXP-034-explicit-format-alignment/pilot/config.json",
+      "remove_api_key_env_overrides": true,
+      "attempt_path": "collection/codex_subscription/cp0102/gpt-5.6-terra/repeat-01",
+      "note": "Use job_id/repeat_id for durable identity. Never put repeat identifiers into the model-visible prompt."
+    }
+  },
+  "started_at": "2026-11-01T13:03:22.747184+00:00",
+  "run_id": "75230ec19d8d4d4daf6e771359fd475b",
+  "controller_pid": 33640
+}

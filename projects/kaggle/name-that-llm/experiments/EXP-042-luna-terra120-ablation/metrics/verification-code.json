@@ -1,0 +1,26 @@
+{
+  "status": "PREPARED_NOT_REAL_RESULTS_VERIFIED",
+  "observed_at": "2026-11-01T14:33:54.865265+00:00",
+  "run_id": "exp042-20261101T143057Z",
+  "config_sha256": "0d24a23932524507dca84d04a40de6688c80e4c92eef7bbc89c3f706b799a4a9",
+  "verification_code": [
+    {
+      "path": "experiments/EXP-042-luna-terra120-ablation/verify_outputs.py",
+      "sha256": "525bb72d185a176773c5e4e30ec7771cc3bf451f8c85efda3f4c597599d0661e"
+    },
+    {
+      "path": "experiments/EXP-042-luna-terra120-ablation/test_verify_outputs.py",
+      "sha256": "b00886a25286f5ac45d70c7210f80e73039518de536d4b821da9da7742912f19"
+    }
+  ],
+  "synthetic_tests_passed": 7,
+  "runtime_real_outputs_available": false,
+  "primary_metric": "18-class pooled OOF balanced accuracy",
+  "bootstrap": {
+    "prompt_groups": 150,
+    "draws": 2000,
+    "seed": 42
+  },
+  "historical_control_required": "EXP010 share0.5 predictions must match before interpreting gain",
+  "no_retuning": true
+}

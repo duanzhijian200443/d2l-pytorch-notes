@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "id": "EXP-044",
+  "title": "旧120原文与去格式120：两路并行及逐折续跑",
+  "baseline_id": "EXP-042",
+  "hypothesis": "在相同旧120条、权重、原配方及五折验证下，去换行和加粗是否提升Stylegram OOF；两路并行只改调度。",
+  "changes": [
+    "原文120 vs EXP043去格式120，同60题和两标签",
+    "两路CPU并行、逐fold/arm哈希checkpoint与显式续跑"
+  ],
+  "observed_at": "2026-11-01T17:14:44.828738+00:00",
+  "source": {
+    "notebook_ref": "zhjianduan/name-that-llm-format120-044",
+    "notebook_version": 2,
+    "script_version_id": 364606984,
+    "local_path": "cloud/format120-044/kernel/experiment.ipynb",
+    "sha256": "0fb2167ceb48752e98d7cc98c2e250e50e38db22ad7bbe884b60f540b12c37cc"
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-044-format120-parallel/manifest.json",
+    "validation_split_id": "prompt-group-v1",
+    "content_hashes_verified": true
+  },
+  "config": {
+    "note": "仅作台账索引；完整参数以 config_path 指向的 config.json 为准。"
+  },
+  "environment": {
+    "platform": "Kaggle CPU",
+    "accelerator": null,
+    "container": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "seed": 42,
+    "versions": {
+      "numpy": "2.1.3",
+      "pandas": "2.3.3",
+      "scipy": "1.16.3",
+      "sklearn": "1.6.1",
+      "python": "3.13.15"
+    },
+    "gpu_used": false,
+    "parallel_workers": 2
+  },
+  "execution": {
+    "scope": "Stylegram raw120 versus clean120 grouped OOF",
+    "status": "COMPLETE",
+    "observed_at": "2026-11-01T17:14:44.828738+00:00",
+    "run_id": "exp044-20261101T163138Z",
+    "notebook_version": 2,
+    "cloud_run_requests": 1,
+    "result_status": "PASS_FROZEN_RAW_CLEAN_OOF",
+    "trained_svms": 20,
+    "completed_jobs": 10
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": 0.46564752672135223,
+    "scope": "clean120 versus raw120 Stylegram18-class grouped development OOF, not full ensemble or leaderboard",
+    "per_class_recall_path": "experiments/EXP-044-format120-parallel/metrics/per_class.csv",
+    "oof_path": "cloud/format120-044/outputs-v2/results/aggregates/attempt-0001/oof-clean120.npz",
+    "leakage_audit": "PASS known/exact checks; protected holdout excluded; semantic independence not certified",
+    "control_balanced_accuracy": 0.466388267462093,
+    "paired_difference": -0.000740740740740764,
+    "ci95": [
+      -0.0025925925925925925,
+      0.0011111111111111111
+    ],
+    "acceptance_path": "experiments/EXP-044-format120-parallel/metrics/verified.json"
+  },
+  "cost": {
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0
+  },
+  "timing_note": "Guard 1693.799s, two CPU workers, peak9.844GiB; platform log~1719s. Compared EXP042 different arms, not matched speed benchmark.",
+  "conclusion": "完整及独立验收通过：去格式BA差−0.0741个百分点、净少对2条，95%区间跨0；无稳定收益，原文/基线保留。两路CPU守护28分14秒。",
+  "limitations": "已查看的单成员开发OOF，非整栈或LB；CI不含重训不确定性。稀疏场景相关；实际跨云续跑未执行。",
+  "next_action": "暂不采用默认去格式或自动扩量；保留全部产物。完整公共候选比较的4条ATLAS缺口另见EXP045，需另行授权模型推理。",
+  "related_sources": [],
+  "evidence": [
+    "experiments/EXP-044-format120-parallel/config.json",
+    "experiments/EXP-044-format120-parallel/manifest.json",
+    "experiments/EXP-044-format120-parallel/report.md",
+    "experiments/EXP-044-format120-parallel/metrics/data-review.json",
+    "experiments/EXP-044-format120-parallel/metrics/data-review.md",
+    "experiments/EXP-044-format120-parallel/prepare_inputs.py",
+    "cloud/format120-044/run-ack.json",
+    "cloud/format120-044/readback-v2/verified.json",
+    "cloud/format120-044/execution-state.json",
+    "experiments/EXP-044-format120-parallel/metrics/code-review.json",
+    "experiments/EXP-044-format120-parallel/metrics/code-review.md",
+    "experiments/EXP-044-format120-parallel/metrics/local-validation.json",
+    "experiments/EXP-044-format120-parallel/verify_outputs.py",
+    "cloud/format120-044/README.md",
+    "cloud/format120-044/prelaunch-remote-check.json",
+    "experiments/EXP-044-format120-parallel/metrics/verified.json",
+    "experiments/EXP-044-format120-parallel/metrics/independent-result-review.json",
+    "experiments/EXP-044-format120-parallel/metrics/runtime-comparison.json",
+    "experiments/EXP-044-format120-parallel/metrics/per_class.csv",
+    "experiments/EXP-044-format120-parallel/metrics/per_fold.csv",
+    "experiments/EXP-044-format120-parallel/metrics/sparse_summary.csv",
+    "cloud/format120-044/outputs-v2/download-receipt.json",
+    "cloud/format120-044/outputs-v2/remote-file-list.json",
+    "experiments/EXP-044-format120-parallel/finalize_results.py"
+  ],
+  "config_path": "experiments/EXP-044-format120-parallel/config.json"
+}

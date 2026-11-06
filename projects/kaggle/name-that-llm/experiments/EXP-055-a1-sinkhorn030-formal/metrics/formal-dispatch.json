@@ -1,0 +1,28 @@
+{
+  "experiment": "EXP-055",
+  "source_file": "cloud/a1-sinkhorn030-049/kernel/a1.ipynb",
+  "source_sha256": "35ddcc24900d4bace4b3c4cc167475ad2c119af83a9eb687ef717f7bea1200b5",
+  "submission_id": 57903087,
+  "source_version_id": 364819470,
+  "status_at_binding": "PENDING",
+  "public_score_at_binding": null,
+  "observed_at": "2026-11-02T09:12:36.013263+00:00",
+  "receipts": [
+    {
+      "path": "cloud/a1-sinkhorn030-055/ready-for-submission.json",
+      "sha256": "466e7357795490be65b704d505905986227ce99ebdfc62d11244cae69b70cdc0"
+    },
+    {
+      "path": "cloud/a1-sinkhorn030-055/formal-submit-intent.json",
+      "sha256": "7d853772eaa912570e4590f8eb08b297000d91b594f30037fd512b3d764d9145"
+    },
+    {
+      "path": "cloud/a1-sinkhorn030-055/formal-submit-ack.json",
+      "sha256": "a2ffd8681b5b436ce0c6113a543f959cd80d2af501ad753b73e4cc38dd0332e8"
+    },
+    {
+      "path": "cloud/a1-sinkhorn030-055/formal-submit-binding.json",
+      "sha256": "21613e92ea6a251584e76fd43dcab4d3256dc14ee1b33c3e0c29f8a152c917b5"
+    }
+  ]
+}

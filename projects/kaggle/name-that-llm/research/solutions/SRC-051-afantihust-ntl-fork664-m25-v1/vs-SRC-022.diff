@@ -1,0 +1,11 @@
+--- SRC-022
++++ afantihust/ntl-fork664-m25
+@@ -1893,7 +1893,7 @@
+ cmd = [sys.executable, 'infer.py', '--data', str(DATA), '--models', json.dumps(MODELS),
+        '--perpassage', '1', '--extra', str(EXTRA), '--extra_w', '0.5', '--tfidf_w', '0.25',
+        '--distort_w', '0.10', '--svc_w', '1.5', '--pool', str(POOL), '--adapt_w', '1.0',
+-       '--adapt_thr', '0.15', '--sinkhorn', '0.60', '--sinkhorn_target_mix', '0.35', '--post', '0', '--atlas_dir', str(ATLAS),
++       '--adapt_thr', '0.15', '--sinkhorn', '0.60', '--sinkhorn_target_mix', '0.25', '--post', '0', '--atlas_dir', str(ATLAS),
+        '--atlas_base', str(B8), '--atlas_w', '0.20', '--atlas_margin', '0.3',
+        '--atlas_bs', '4', '--atlas_chunk', '3', '--atlas_budget', str(max(180, ATLAS_BUDGET)),
+        '--comp_path', '/kaggle/working/comp_logit.npy', '--comp_w', '0.15',

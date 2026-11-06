@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0232",
+  "prompt": "A workshop can give participants identical materials or let each person bring whatever they have. Discuss fairness, creativity, and convenience. Please answer in roughly 120 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "tradeoff_argument",
+  "target_words": 120,
+  "prompt_group": "cp0232",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "base_prompt": "A workshop can give participants identical materials or let each person bring whatever they have. Discuss fairness, creativity, and convenience. Please answer in roughly 120 words.",
+  "base_prompt_sha256": "a93bb2aae1b553fd362010ccc62b68af5d30a53e1df762c76abb7a1446c88deb",
+  "base_prompt_id": "cp0232",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0232::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "9c58aa9a378b5a672ead13b230b3f9581e15739c63f161cf10889d59f8a423b5",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:48:42.341814+00:00",
+  "ended_at": "2026-11-01T13:48:58.187867+00:00",
+  "prompt_sha256": "8b2fe7508d99a7b075e19cdbbbd63fd2897c43be67f6b5f820b19342a24b0e50",
+  "text": "A workshop that provides identical materials creates a clear sense of fairness because everyone starts with the same resources and no participant is disadvantaged by cost, availability, or personal circumstances. It also makes teaching easier, since the instructor can give precise instructions and expect similar results. However, allowing people to bring whatever they have can encourage greater creativity and personal expression. Participants may discover unusual techniques, reuse everyday objects, and produce work that reflects their individual experiences. This option can also be more convenient for organizers and environmentally friendly because it reduces purchasing and waste. Nevertheless, differences in material quality may affect outcomes and make some people feel excluded. A balanced approach could provide essential materials while inviting optional personal additions, combining equality with freedom and creativity.",
+  "text_sha256": "eb3d9c3aded9ef277fe1fec905934ce1dbe02b06d66e672a860a97e4610d1146",
+  "raw_final_sha256": "eb3d9c3aded9ef277fe1fec905934ce1dbe02b06d66e672a860a97e4610d1146",
+  "word_count": 127,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2676,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 170,
+      "reasoning_output_tokens": 22
+    }
+  ],
+  "attempt_path": "collection\\attempts\\9c58aa9a378b5a672ead13b230b3f9581e15739c63f161cf10889d59f8a423b5",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

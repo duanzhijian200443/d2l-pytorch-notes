@@ -1,0 +1,230 @@
+{
+  "scope": "Read-only inventory and loss-weight accounting; not a learning curve or new training result",
+  "inputs": [
+    {
+      "path": "experiments/EXP-023-codex-subscription-pilot-r1/collection/records.jsonl",
+      "sha256": "cb903279b3727b31ce2125b89c5ce8f530d769a984f49c2cb86e4fbefb1e9722"
+    },
+    {
+      "path": "experiments/EXP-040-codex300-concurrency2/collection/combined-records.jsonl",
+      "sha256": "2d6c691016a6ae6f789d5c6a625a207a3ec89e5093bf804c5052b11c90a6125b"
+    },
+    {
+      "path": "experiments/EXP-033-codex-source-contamination-audit/code/compare_sources.py",
+      "sha256": "82f26509ead14faec08c548c8c971f44d3b873772c23f7c99d03729e6a747ede"
+    },
+    {
+      "path": "experiments/EXP-034-explicit-format-alignment/code/prepare_alignment.py",
+      "sha256": "13c222146dff8380ad1e9e7188768c25a49f2eeb2f95eed4daf382a6b908c226"
+    }
+  ],
+  "old1000": {
+    "answers": 1000,
+    "prompt_groups": 250,
+    "models": {
+      "gpt-5.6-luna": 250,
+      "gpt-5.6-terra": 250,
+      "gpt-5.6-sol": 250,
+      "gpt-6-astra": 250
+    },
+    "splits": {
+      "train": 800,
+      "holdout": 200
+    },
+    "newline": 709,
+    "bold": 215,
+    "no_exp034_format_flags": 272,
+    "no_format_flags_by_model": {
+      "gpt-5.6-luna": 93,
+      "gpt-5.6-terra": 62,
+      "gpt-5.6-sol": 63,
+      "gpt-6-astra": 54
+    }
+  },
+  "old_train800": {
+    "answers": 800,
+    "prompt_groups": 200,
+    "models": {
+      "gpt-5.6-luna": 200,
+      "gpt-5.6-terra": 200,
+      "gpt-5.6-sol": 200,
+      "gpt-6-astra": 200
+    },
+    "splits": {
+      "train": 800
+    },
+    "newline": 576,
+    "bold": 178,
+    "no_exp034_format_flags": 208,
+    "no_format_flags_by_model": {
+      "gpt-5.6-luna": 72,
+      "gpt-5.6-terra": 46,
+      "gpt-5.6-sol": 48,
+      "gpt-6-astra": 42
+    }
+  },
+  "old_luna_terra400": {
+    "answers": 400,
+    "prompt_groups": 200,
+    "models": {
+      "gpt-5.6-luna": 200,
+      "gpt-5.6-terra": 200
+    },
+    "splits": {
+      "train": 400
+    },
+    "newline": 270,
+    "bold": 68,
+    "no_exp034_format_flags": 118,
+    "no_format_flags_by_model": {
+      "gpt-5.6-luna": 72,
+      "gpt-5.6-terra": 46
+    }
+  },
+  "old_matched120": {
+    "answers": 120,
+    "prompt_groups": 60,
+    "models": {
+      "gpt-5.6-luna": 60,
+      "gpt-5.6-terra": 60
+    },
+    "splits": {
+      "train": 120
+    },
+    "newline": 84,
+    "bold": 18,
+    "no_exp034_format_flags": 33,
+    "no_format_flags_by_model": {
+      "gpt-5.6-luna": 20,
+      "gpt-5.6-terra": 13
+    }
+  },
+  "new300": {
+    "answers": 300,
+    "prompt_groups": 75,
+    "models": {
+      "gpt-5.6-luna": 75,
+      "gpt-5.6-terra": 75,
+      "gpt-5.6-sol": 75,
+      "gpt-6-astra": 75
+    },
+    "splits": {
+      "train": 240,
+      "holdout": 60
+    },
+    "newline": 0,
+    "bold": 0,
+    "no_exp034_format_flags": 300,
+    "no_format_flags_by_model": {
+      "gpt-5.6-luna": 75,
+      "gpt-5.6-terra": 75,
+      "gpt-5.6-sol": 75,
+      "gpt-6-astra": 75
+    }
+  },
+  "new_train240": {
+    "answers": 240,
+    "prompt_groups": 60,
+    "models": {
+      "gpt-5.6-luna": 60,
+      "gpt-5.6-terra": 60,
+      "gpt-5.6-sol": 60,
+      "gpt-6-astra": 60
+    },
+    "splits": {
+      "train": 240
+    },
+    "newline": 0,
+    "bold": 0,
+    "no_exp034_format_flags": 240,
+    "no_format_flags_by_model": {
+      "gpt-5.6-luna": 60,
+      "gpt-5.6-terra": 60,
+      "gpt-5.6-sol": 60,
+      "gpt-6-astra": 60
+    }
+  },
+  "new_luna_terra120": {
+    "answers": 120,
+    "prompt_groups": 60,
+    "models": {
+      "gpt-5.6-luna": 60,
+      "gpt-5.6-terra": 60
+    },
+    "splits": {
+      "train": 120
+    },
+    "newline": 0,
+    "bold": 0,
+    "no_exp034_format_flags": 120,
+    "no_format_flags_by_model": {
+      "gpt-5.6-luna": 60,
+      "gpt-5.6-terra": 60
+    }
+  },
+  "old_extra_training_prompt_groups": 140,
+  "old_luna_terra_rows_on_extra_prompts": 280,
+  "old_train800_plus_new120_unique_prompt_groups": 200,
+  "holdout_prompt_union": 50,
+  "fold_weight_accounting": [
+    {
+      "fold": 0,
+      "official_train_rows": 2159,
+      "baseline_raw_rows": 12232,
+      "added_raw_rows": 120,
+      "additional_rows_over_base": 0.009810333551340745,
+      "added_sample_weight_mass": 10.374639769452466,
+      "baseline_sample_weight_mass": 2159,
+      "added_fraction_of_final_sample_weight": 0.00478231817559876,
+      "target_class_added_mass_over_base": 0.043227665706051875
+    },
+    {
+      "fold": 1,
+      "official_train_rows": 2159,
+      "baseline_raw_rows": 12232,
+      "added_raw_rows": 120,
+      "additional_rows_over_base": 0.009810333551340745,
+      "added_sample_weight_mass": 10.374639769452466,
+      "baseline_sample_weight_mass": 2159,
+      "added_fraction_of_final_sample_weight": 0.00478231817559876,
+      "target_class_added_mass_over_base": 0.043227665706051875
+    },
+    {
+      "fold": 2,
+      "official_train_rows": 2159,
+      "baseline_raw_rows": 12232,
+      "added_raw_rows": 120,
+      "additional_rows_over_base": 0.009810333551340745,
+      "added_sample_weight_mass": 10.374639769452466,
+      "baseline_sample_weight_mass": 2159,
+      "added_fraction_of_final_sample_weight": 0.00478231817559876,
+      "target_class_added_mass_over_base": 0.043227665706051875
+    },
+    {
+      "fold": 3,
+      "official_train_rows": 2159,
+      "baseline_raw_rows": 12232,
+      "added_raw_rows": 120,
+      "additional_rows_over_base": 0.009810333551340745,
+      "added_sample_weight_mass": 10.374639769452466,
+      "baseline_sample_weight_mass": 2159,
+      "added_fraction_of_final_sample_weight": 0.00478231817559876,
+      "target_class_added_mass_over_base": 0.043227665706051875
+    },
+    {
+      "fold": 4,
+      "official_train_rows": 2160,
+      "baseline_raw_rows": 12233,
+      "added_raw_rows": 120,
+      "additional_rows_over_base": 0.009809531594866345,
+      "added_sample_weight_mass": 10.374639769452466,
+      "baseline_sample_weight_mass": 2160,
+      "added_fraction_of_final_sample_weight": 0.004780114722753353,
+      "target_class_added_mass_over_base": 0.043227665706051875
+    }
+  ],
+  "weight_fraction_is_not_information_fraction": true,
+  "new_generation": false,
+  "classifier_training": false,
+  "formal_pool_ingestion": false
+}

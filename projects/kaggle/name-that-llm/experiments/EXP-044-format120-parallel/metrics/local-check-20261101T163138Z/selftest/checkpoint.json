@@ -1,0 +1,17 @@
+{
+  "identity_sha256": "94d7251ed232ef21beba3039471199d939402864a538aada8e5a8f25fd31bdc4",
+  "completed": [
+    {
+      "fold": 0,
+      "arm": "raw120",
+      "path": "jobs/f0-raw120/attempt-0001",
+      "completion_sha256": "4759452f4321118a918c3aa6d416dc83028e0175ebf6aaf91d37c174b6590304"
+    },
+    {
+      "fold": 0,
+      "arm": "clean120",
+      "path": "jobs/f0-clean120/attempt-0001",
+      "completion_sha256": "ed66266f1c5b7bf20b528ea04a4fcf84eed15c92db2cc7e0555889755c37be00"
+    }
+  ]
+}

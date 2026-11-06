@@ -1,0 +1,136 @@
+{
+  "status": "FIXED_INPUT_CODE_AND_JOB_BINDINGS",
+  "experiment_id": "EXP-053",
+  "observed_at": "2026-11-02T07:29:17.568422+00:00",
+  "source": "SRC-067, scriptVersionId=364684268",
+  "data_provenance_source": "SRC-068 identical effective comp_stack loader; current fixed reader snapshot",
+  "files": [
+    {
+      "path": "research/solutions/SRC-067-synthreaper-sovereign-gold-apex-v1/source.ipynb",
+      "bytes": 134149,
+      "sha256": "ca4c9e18ed32dcd8168b8118b192d39d657803d30dcd89a564b1c2d1d9c846dd"
+    },
+    {
+      "path": "experiments/EXP-053-apex-stylegram-volume/config.json",
+      "bytes": 2054,
+      "sha256": "36fb2a18a570ee8fc2b0da80baf0125d845ae91d5f9dd2c9bcbd01cd371dbebe"
+    },
+    {
+      "path": "experiments/EXP-053-apex-stylegram-volume/main_cpu.py",
+      "bytes": 3720,
+      "sha256": "9f82bcf0ed265318731ff1b5dd282c993c25c13d093c229821387e26f2559ea2"
+    },
+    {
+      "path": "experiments/EXP-053-apex-stylegram-volume/style_cpu.py",
+      "bytes": 24280,
+      "sha256": "10e9a7c8faad81d752b7362b4bd2add81610aed52921dea26a91bfbca522dc1d"
+    },
+    {
+      "path": "experiments/EXP-053-apex-stylegram-volume/prepare_inputs.py",
+      "bytes": 19279,
+      "sha256": "26c0ddba89daca999072ceab336af4aca764d506d24653b2a4faad9ddafb1579"
+    },
+    {
+      "path": "experiments/EXP-053-apex-stylegram-volume/inputs/shared.csv",
+      "bytes": 8137804,
+      "sha256": "b98c246578afbc38b9bf3c0be1e666a41cc15d051c64d03e875ab0c85da1bd3b"
+    },
+    {
+      "path": "experiments/EXP-053-apex-stylegram-volume/inputs/panel.csv",
+      "bytes": 655284,
+      "sha256": "8eeec7f64e924f0fd79dca57d324d42d269f400bdfbfff76d60b4c168d9ae6f2"
+    },
+    {
+      "path": "experiments/EXP-053-apex-stylegram-volume/inputs/input-receipt.json",
+      "bytes": 7980,
+      "sha256": "be761d522ebbd611f512782448fd137f62c0319eeb3c41c886c1137055e1019e"
+    },
+    {
+      "path": "experiments/EXP-053-apex-stylegram-volume/inputs/regen-fold-map.csv",
+      "bytes": 295,
+      "sha256": "2d7680e2001d711d5a7ec92d9cc6c8bd8ef0b197b81a79ee795c298c1a0b56c5"
+    },
+    {
+      "path": "experiments/EXP-053-apex-stylegram-volume/inputs/regen-fold-map.receipt.json",
+      "bytes": 944,
+      "sha256": "7986746cd502a98f93a2d8be64ed39fe1a58b28c4fd13682bf1c5edb75103ae9"
+    },
+    {
+      "path": "experiments/EXP-053-apex-stylegram-volume/inputs/local-only/evaluation.csv",
+      "bytes": 156374,
+      "sha256": "f5425fbae56355e72537074cf5eef514c0319cd67489fc63c36fe07b2ff2302b"
+    },
+    {
+      "path": "experiments/EXP-053-apex-stylegram-volume/inputs/local-only/panel-overlap.csv",
+      "bytes": 198242,
+      "sha256": "fe83ea9cef3f21183d6040b6aaf7f1b3f4e917e15216c310fa7572a0ef1ab9c0"
+    },
+    {
+      "path": "experiments/EXP-052-stylegram-four-model-volume/data/four120.csv",
+      "bytes": 159249,
+      "sha256": "a4e86314a77f7ed699dbfb107b32a8263a1ff09fc7c3ec92b98d4028d487005d"
+    },
+    {
+      "path": "experiments/EXP-052-stylegram-four-model-volume/data/four240.csv",
+      "bytes": 320771,
+      "sha256": "694d91e2536db2d77d81f8d8b32a802763a750a2e9643fdb0ba6a10b76755a01"
+    },
+    {
+      "path": "train.csv",
+      "bytes": 2139418,
+      "sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707"
+    },
+    {
+      "path": "validation/prompt-group-v1/folds.csv",
+      "bytes": 267236,
+      "sha256": "e8ba1e3712852168dc57f56960d4f3e00be612d639ade8a7dcb0f0d8335ce551"
+    },
+    {
+      "path": "cloud/full-stack-capture-r1/outputs-v2/results/artifacts.json",
+      "bytes": 98232,
+      "sha256": "1732849196220d023716a2dc912d660282c94022c2df370c69d9a6c2899bac63"
+    },
+    {
+      "path": "cloud/apex-stylegram-053/main/experiment-config.json",
+      "bytes": 1215,
+      "sha256": "20e49b6b50a2261f9fc32c938d816971991b22849c4b5ecf389c0ae9371a4c81"
+    },
+    {
+      "path": "cloud/apex-stylegram-053/main/kernel/experiment.ipynb",
+      "bytes": 398266,
+      "sha256": "d04b6ff1a34a12c491baf62e31c41677ad9a3cfd16ef34044e8c4b6f1345a547"
+    },
+    {
+      "path": "cloud/apex-stylegram-053/main/kernel/kernel-metadata.json",
+      "bytes": 675,
+      "sha256": "96cdcd69ea35ef4a6b39adfee0eae5b3abbb1aeb94bd8560e33f445d0f2ed3f6"
+    },
+    {
+      "path": "cloud/apex-stylegram-053/main/ack.json",
+      "bytes": 125,
+      "sha256": "fb0a92198239b0378e4a144f5160066455489c00bf1d1d7ade009f7a2bb4ade4"
+    },
+    {
+      "path": "cloud/apex-stylegram-053/style/experiment-config.json",
+      "bytes": 1913,
+      "sha256": "0360dc996b9a88b03bdbb4bc183d0e241e2fdf591fa1aa41497829a03e096dec"
+    },
+    {
+      "path": "cloud/apex-stylegram-053/style/kernel/experiment.ipynb",
+      "bytes": 788304,
+      "sha256": "4d60b81254b5368b7decc8ebc4bef8713da00c276a1314b75c23a3a3434fd0fe"
+    },
+    {
+      "path": "cloud/apex-stylegram-053/style/kernel/kernel-metadata.json",
+      "bytes": 827,
+      "sha256": "7f550c5593d881e175b3497272610f3d29302bd695b6471e31be7b7e862aa610"
+    },
+    {
+      "path": "cloud/apex-stylegram-053/style/ack.json",
+      "bytes": 126,
+      "sha256": "47ad1f5b330f23c017fc1d08891e1ee2decbd30476a86901faeb8823a680528e"
+    }
+  ],
+  "no_gpu": true,
+  "no_competition_submission": true
+}

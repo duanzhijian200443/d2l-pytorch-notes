@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "id": "SRC-026",
+  "kind": "discussion",
+  "title": "成员OOF与集成收益：稀疏验证及互补性后续核查",
+  "url": "https://www.kaggle.com/competitions/name-that-llm/discussion/753177",
+  "observed_at": "2026-11-01T07:32:15.618870+00:00",
+  "source_version": {
+    "topic_id": 753177,
+    "snapshot_sha256": "99223d9c2b132e8e8308126e50559343a7440ed22bd3152453a7382e2d0096c5"
+  },
+  "public_score": null,
+  "summary": "复用SRC-026；原帖6条评论无新实质结果，保留OOF与集成脱节及稀疏验证失效边界。",
+  "author_claim": "重训q25 OOF0.569→0.605，替换LB0.651→0.647，旧+新权重0.4为0.650；m=2前十/后五相关差异明显。",
+  "verified": "11月1日重读原帖与6条评论，最新仍为10月31日12:09UTC；与旧快照实质一致，删除评论内容仍不可读。",
+  "use_for_us": "继续保留旧成员互补性与抽稀后重建组计算的验证约束，不把旧结果当最新增益。",
+  "test_plan": "单独比较替换/加入/置零、错误分歧，多个m值抽稀后重建聚类与中心化。",
+  "limitations": "社区自报未重训；全局指标相关不能证明接近配置排序能力；评论推测不同数据增益仍未证实。",
+  "evidence": [
+    "tracking/snapshots/20261031T141753Z/topic-753177.json",
+    "research/discussions/SRC-026-753177-member-oof-and-sparse-validation/notes.md",
+    "research/discussions/SRC-026-753177-member-oof-and-sparse-validation/snapshots/20261101T073215Z.json"
+  ],
+  "author": "harshitakumari256",
+  "category": "discussions",
+  "tags": [
+    "ensemble",
+    "validation",
+    "oof",
+    "ablation",
+    "negative-result"
+  ],
+  "artifact_dir": "research/discussions/SRC-026-753177-member-oof-and-sparse-validation",
+  "notes_path": "research/discussions/SRC-026-753177-member-oof-and-sparse-validation/notes.md",
+  "related_sources": [],
+  "evidence_sha256": {
+    "tracking/snapshots/20261031T141753Z/topic-753177.json": "7b816c2c72b50b95eeb9decfa18c9f8508847eb6e7b81cf37671e3c496d9c4dd",
+    "research/discussions/SRC-026-753177-member-oof-and-sparse-validation/notes.md": "18f410278e75b014748555b299a0a697080acd96725b244b7ae1717dfb24bcd5",
+    "research/discussions/SRC-026-753177-member-oof-and-sparse-validation/snapshots/20261101T073215Z.json": "99223d9c2b132e8e8308126e50559343a7440ed22bd3152453a7382e2d0096c5"
+  },
+  "collection_observation_note": "源码/API时间见回执。浏览器仅记录2026-11-01 UTC采集日期及07:35:57 UTC汇总截至时刻，不将其伪作逐页精确读取时间。"
+}

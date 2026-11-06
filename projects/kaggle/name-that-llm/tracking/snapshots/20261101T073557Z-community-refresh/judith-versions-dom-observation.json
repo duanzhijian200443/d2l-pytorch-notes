@@ -1,0 +1,18 @@
+{
+  "role": "browser_dom_observation",
+  "browser_read_date_utc": "2026-11-01",
+  "collection_end_at_utc": "2026-11-01T07:35:57Z",
+  "observed_at": "2026-11-01T07:35:57Z",
+  "exact_per_page_read_at": null,
+  "observation_time_precision": "collection-end only; per-page time unknown",
+  "recorded_at": "2026-11-01T07:39:54.639Z",
+  "url": "https://www.kaggle.com/code/judith007/0-664-hyperparameter-tuned-who-are-u",
+  "displayed_version": 2,
+  "total_versions": 6,
+  "public_score": 0.664,
+  "best_score_link": "https://www.kaggle.com/code/judith007/0-664-hyperparameter-tuned-who-are-u?scriptVersionId=363834272",
+  "best_score_version": 2,
+  "displayed_runtime_seconds": 556.3,
+  "output_files": 10,
+  "limitation": "Unparameterized URL rendered V2 in this session; latest API download remains V6. Save runtime is not hidden scoring runtime."
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "SRC-027",
+  "kind": "discussion",
+  "title": "Open Pool v10 清洗与配对比较",
+  "url": "https://www.kaggle.com/competitions/name-that-llm/discussion/752766",
+  "observed_at": "2026-10-31T14:18:03.523431+00:00",
+  "source_version": {
+    "topic_id": 752766,
+    "snapshot_sha256": "7f79b08dc5a3fc7273d397ecb0533d24b56f41f1f238451f7b4153564bd4d19c"
+  },
+  "public_score": null,
+  "summary": "Open Pool v10 清洗与配对比较",
+  "author_claim": "作者报告 raw v7 254k / LB 0.585，clean v9 193k / LB 0.587；v10 为 198507 条。评论补充：微小分差的不确定性与两方案错误分歧有关。",
+  "verified": "本轮重新读取了帖子及返回的全部评论页；这是来源核查，不是实验复现。",
+  "use_for_us": "固定分类器做原池/清洗池的等量与全量对照，记录各来源和类别权重。",
+  "test_plan": "固定分类器做原池/清洗池的等量与全量对照，记录各来源和类别权重。",
+  "limitations": "作者自报，未独立复现；不能把 0.01 当成通用噪声阈值。按标点过滤可能强化已有偏差，需对照验证。",
+  "evidence": [
+    "tracking/snapshots/20261031T141753Z/topic-752766.json"
+  ]
+}

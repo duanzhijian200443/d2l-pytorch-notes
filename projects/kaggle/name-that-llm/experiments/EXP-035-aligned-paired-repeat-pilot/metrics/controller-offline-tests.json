@@ -1,0 +1,20 @@
+{
+  "observed_at": "2026-11-01T12:21:05.437765+00:00",
+  "status": "PASS",
+  "tests": 18,
+  "duration_seconds": 23.102,
+  "network_or_generation": false,
+  "code": {
+    "path": "experiments/EXP-035-aligned-paired-repeat-pilot/code/run_trial.py",
+    "sha256": "dbb82923c3a24adc896d9d8c2bea5da77b89f8beb1c59013a5a5f96cadd8c5d5"
+  },
+  "tests_code": {
+    "path": "experiments/EXP-035-aligned-paired-repeat-pilot/code/test_run_trial.py",
+    "sha256": "4055498ee42417f7b9de56860d08a5dbaee24b5a90a286666813edb36e403a63"
+  },
+  "fixes": [
+    "exact catalog provider-wrapper mapping",
+    "halt heartbeat before candidate COMPLETE",
+    "final audit failure fails closed"
+  ]
+}

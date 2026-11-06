@@ -1,0 +1,12 @@
+{
+  "status": "FAILED_RUN_ARTIFACTS_VERIFIED",
+  "files_verified": 18,
+  "archive_sha256": "ce995f5dcb889bf0663b865ecc7b00c324d841102a297eada101a94f1fb3bced",
+  "result_status": "ERROR",
+  "worker_seconds": 41.966066111,
+  "failure": "Required original optional input is absent: lora24_public",
+  "diagnosis": "New wrapper required a branch that frozen upstream skips when unattached; not a missing mandatory baseline model.",
+  "model_inference_started": false,
+  "formal_submission_created": false,
+  "observed_at_utc": "2026-11-01T10:59:47.866Z"
+}

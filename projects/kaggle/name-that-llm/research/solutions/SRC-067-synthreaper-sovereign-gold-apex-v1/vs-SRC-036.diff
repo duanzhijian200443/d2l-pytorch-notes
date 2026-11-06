@@ -1,0 +1,218 @@
+--- SRC-036
+
++++ Apex V1
+
+@@ -1,17 +1,3 @@
+
+-import matplotlib.pyplot as plt
+-runs = {'nlm-v27': [0.651, 0.651, 0.643, 0.651], 'Who am I?': [0.645, 0.654], 'V31': [0.660, 0.660], '0.663 (this)': [0.662],
+-        'LoRA x AC': [0.549], 'lora-instyle': [0.561], 'Teach + ATLAS': [0.606]}
+-page = {'nlm-v27': 0.651, 'Who am I?': 0.654, 'V31': 0.660, '0.663 (this)': 0.663, 'LoRA x AC': 0.547, 'lora-instyle': 0.563, 'Teach + ATLAS': 0.607}
+-fig, ax = plt.subplots(figsize=(8, 3.2))
+-for i, (k, v) in enumerate(runs.items()):
+-    ax.scatter([i] * len(v), [x - page[k] for x in v], s=60, color='tab:blue', label='our submission, identical code' if i == 0 else None, zorder=3)
+-ax.axhspan(-0.01, 0.01, color='tab:orange', alpha=0.15, label='+-0.01: one submission cannot tell these apart')
+-ax.axhline(0, color='k', lw=0.8)
+-ax.set_xticks(range(len(runs))); ax.set_xticklabels(runs, rotation=20)
+-ax.set_ylabel('score - author page score'); ax.set_title('Same code, different public score')
+-ax.set_ylim(-0.013, 0.013); ax.legend(fontsize=8, loc='upper right'); plt.tight_layout(); plt.show()
+-
+-
+ # Name That LLM - full solution: fold-averaged two-stage LoRA24 (Qwen3-8B-Base, Qwen3-14B-Base, Qwen2.5-7B),
+ # Nishant two-stage checkpoints, 4-view n-gram SVM on train+pool, shared-prompt Gaussian, adaptive centred twins,
+ # 10% public ATLAS (source-conditioned likelihood, arXiv 2610.19583) before Sinkhorn balancing.
+@@ -26,7 +12,7 @@
+
+     h = glob.glob(f'/kaggle/input/**/{name}/heads.pt', recursive=True); assert h, name; return os.path.dirname(h[0])
+ DATA = next(p for p in ['/kaggle/input/competitions/name-that-llm', '/kaggle/input/name-that-llm'] if os.path.exists(p + '/train.csv'))
+ import pandas as _pd
+-FAST_COMMIT = os.getenv('KAGGLE_IS_COMPETITION_RERUN') is None and len(_pd.read_csv(DATA + '/test.csv')) < 50   # ours: the scoring rerun never takes the fast path   # fork: the 3-row commit run skips the heavy cells; the hidden rerun runs everything
++FAST_COMMIT = os.getenv('KAGGLE_IS_COMPETITION_RERUN') is None and len(_pd.read_csv(DATA + '/test.csv')) < 50   # alexchilton: the scoring rerun never takes the fast path   # fork: the 3-row commit run skips the heavy cells; the hidden rerun runs everything
+ print('FAST_COMMIT', FAST_COMMIT)
+ HEADS = os.path.dirname(next(iter(glob.glob('/kaggle/input/**/heads/q3_8bx.npz', recursive=True))))
+ EXTRA = next(iter(glob.glob('/kaggle/input/**/nlm_matched_clean.parquet', recursive=True)))
+@@ -44,9 +30,17 @@
+
+ print('nishant', N8, N8C['keep'], N8C['max_len'], N14, N14C['keep'], N14C['max_len'])
+ ATLAS = os.path.dirname(next(iter(glob.glob('/kaggle/input/**/atlas_bundle.json', recursive=True))))
+ print('atlas', ATLAS)
+-BL = next((os.path.dirname(x) for x in cfgs if '/llama-3-1-8b-base/' in x.lower()), None) or mdir('/llama-3.1/', '/8b/')   # ours: avazaku's cache is gone; same Meta weights from alexchilton/llama-3-1-8b-base
++try:
++    BL = mdir('/llama-3.1/', '/8b/')
++    _LLAMA_SOURCE = 'metaresearch/llama-3.1'
++except AssertionError:
++    BL = mdir('llama-3-1-8b-base', '')
++    _LLAMA_SOURCE = 'alexchilton/llama-3-1-8b-base'
+ _SHARDS = {'model-00001-of-00004.safetensors': 4976698672, 'model-00002-of-00004.safetensors': 4999802720, 'model-00003-of-00004.safetensors': 4915916176, 'model-00004-of-00004.safetensors': 1168138808}
+-assert all(os.path.getsize(os.path.join(BL, f)) == n for f, n in _SHARDS.items()), BL   # fork: Llama-3.1-8B from avazaku's public cache (NousResearch copy)
++assert all(os.path.isfile(os.path.join(BL, f)) for f in _SHARDS), (BL, _LLAMA_SOURCE)
++if _LLAMA_SOURCE == 'metaresearch/llama-3.1':
++    assert all(os.path.getsize(os.path.join(BL, f)) == n for f, n in _SHARDS.items()), BL
++print('llama source', _LLAMA_SOURCE, BL, {f: os.path.getsize(os.path.join(BL, f)) for f in _SHARDS}, flush=True)
+ AL = [adir(f'ts_llama8_f{k}') for k in (0, 2, 4)] + [adir('ts_llama8')]
+ import shutil, time as _tc; _c = _tc.time()
+ shutil.copytree(BL, '/tmp/llama-3.1/8b', dirs_exist_ok=True); BL = '/tmp/llama-3.1/8b'   # fork: see the intro
+@@ -65,11 +59,28 @@
+
+ ALL8V5 = [adir(f'll8v5_f{k}') for k in range(5)] + [adir('ll8v5')]
+ print('v5', AQ14V5, ALL8V5)
+ 
+-# SVC pool = the open pool (crtproduction/name-that-llm-open-pool, CC BY-SA 4.0); it contains all of nlm_pool_v5
+-import pandas as pd
+-_op = pd.read_parquet(glob.glob('/kaggle/input/**/ntl_open_pool.parquet', recursive=True)[0], columns=['text', 'model', 'flag_train_prompt_regen'])
+-_op[~_op.flag_train_prompt_regen.astype(bool)][['text', 'model']].to_parquet('/kaggle/working/open_pool.parquet')
+-POOL = '/kaggle/working/open_pool.parquet'; print('svc pool = open pool', len(_op))
++
++# variant E: replace the SVC training pool with the full public 198k clean pool (safe subset)
++import glob as _glob
++import pandas as _pd
++_pool_src = sorted(_glob.glob('/kaggle/input/**/ntl_open_pool.parquet', recursive=True))
++if _pool_src:
++    _op = _pd.read_parquet(_pool_src[0])
++    _lab18 = set(_pd.read_csv(DATA + '/train.csv').model.unique())
++    _op = _op[_op['model'].isin(_lab18)].copy()
++    if 'flag_train_prompt_regen' in _op.columns:
++        _op = _op[~_op['flag_train_prompt_regen'].astype(bool)]
++    for _f in ('flag_gemini37_routing_risk',):
++        if _f in _op.columns:
++            _n = int(_op[_f].astype(bool).sum()); _op = _op[~_op[_f].astype(bool)]
++            print('variant E dropped', _f, _n, flush=True)
++    _op = _op[['text', 'model']].copy(); _op['text'] = _op['text'].fillna('').astype(str)
++    _op.to_parquet('/kaggle/working/pool_open_safe.parquet', index=False)
++    POOL = '/kaggle/working/pool_open_safe.parquet'
++    print('variant E svc pool = open safe pool', len(_op), flush=True)
++    print(_op['model'].value_counts().to_dict(), flush=True)
++else:
++    print('variant E: open pool dataset not attached, keeping nlm_pool_v5', flush=True)
+ 
+ 
+ %%writefile gauss.py
+@@ -219,6 +230,86 @@
+
+     if s1.any(): out[s1] = log_softmax(singleton_ll(U[s1], prm["m"], prm["lam"]) / T1)
+     for g in np.where(sizes >= 2)[0]:
+         ii = np.where(lab == g)[0]; out[ii] = group_logpost(U[ii], prm, T1, Tg, cfg)
++    return out
++
++
++%%writefile sibling_style.py
++import re
++import numpy as np
++from functools import lru_cache
++MARKERS = [',','.', ';', ':', '!', '?','—','–','-','’','‘','“','”','"',"'",'(',')','[',']','{','}','*','`','•','…','/','\\',':','\n','\n\n','\n-','\n1.','\n2.','##','```','**','> ','\t',' = ', ' e.g.', ' i.e.', 'However,','Overall,','In conclusion','Therefore,','Moreover,','First,','Finally,',' - ',': ', ' ; ', '  ']
++WORDS = ['the','and','but','that','which','with','into','from','for','you','your','our','we','I','it','its','they','their','there','this','these','those','however','therefore','moreover','although','because','perhaps','might','would','could','should','like','such','just','very','also','not','if','or','as','so','by','of','to','in','on','at','is','are','be','was','were','have','has','had','may','must','all','any','each','every','many','some','more','most','only','even','still','then','when','where','why','how','what','who']
++WRE=re.compile(r"[A-Za-z]+(?:[’'][A-Za-z]+)?")
++SRE=re.compile(r'(?<=[.?!])\s+')
++@lru_cache(maxsize=15000)
++def row(t):
++    t = str(t)
++    s = WRE.findall(t); lo=[z.lower() for z in s]; n=max(len(s),1); nt=max(len(t),1); ns=max(len(t.splitlines()),1)
++    lens=np.array([len(z) for z in s] or [0]); sent_lens=np.array([len(WRE.findall(z)) for z in SRE.split(t) if z.strip()] or [0])
++    base = [np.log1p(n),np.log1p(nt), nt/n,ns/n,len(set(lo))/n, float(np.mean(lens)), float(np.std(lens)), float(np.mean(sent_lens)), float(np.std(sent_lens)),float(np.max(sent_lens)),float(np.mean(lens>=8)),sum(c.isupper() for c in t)/nt, sum(c.isdigit() for c in t)/nt,sum(ord(c)>127 for c in t)/nt, sum(c.isspace() for c in t)/nt, sum(c=='\n' for c in t)/nt]
++    base += [min(t.count(m)/n,3) for m in MARKERS]
++    cnt = {}
++    for w in lo: cnt[w]=cnt.get(w,0)+1
++    base += [cnt.get(w,0)/n for w in WORDS]
++    return np.array(base, dtype=np.float32)
++def features(texts):
++    return np.stack([row(str(t)) for t in texts])
++
++
++def apply_grouped_style_residual(logits, train_text, test_text, labels, y, groups, max_alpha=0.08, diagnostics_path=None):
++    """OOF-estimated, conservative sibling re-ranking. Cross-family probability mass is unchanged."""
++    import json
++    import numpy as np
++    from scipy.special import logsumexp, softmax
++    from sklearn.model_selection import GroupKFold
++    from sklearn.linear_model import LogisticRegression
++    from sklearn.preprocessing import StandardScaler
++    from sklearn.pipeline import make_pipeline
++    from sklearn.metrics import balanced_accuracy_score
++    Xt = features(train_text)
++    Xq = features(test_text)
++    out = np.asarray(logits, dtype=np.float64).copy()
++    lab = np.asarray(labels)
++    yy = np.asarray(y)
++    g = np.asarray(groups)
++    diag = {}
++    for family, C in [('claude', 0.003), ('gemini', 0.003), ('gpt', 0.003), ('glm', 0.03)]:
++        cols = np.flatnonzero(np.char.startswith(lab.astype(str), family))
++        if len(cols) < 2:
++            continue
++        train_mask = np.isin(yy, cols)
++        inds = np.flatnonzero(train_mask)
++        X = Xt[inds]
++        target = np.searchsorted(cols, yy[inds])
++        grp = g[inds]
++        oof = np.empty(len(target), dtype=np.int32)
++        for a, b in GroupKFold(n_splits=5).split(X, target, groups=grp):
++            model = make_pipeline(StandardScaler(), LogisticRegression(C=C, max_iter=400, class_weight='balanced'))
++            model.fit(X[a], target[a])
++            oof[b] = model.predict(X[b])
++        bacc = float(balanced_accuracy_score(target, oof))
++        chance = 1.0 / len(cols)
++        reliability = np.clip((bacc - chance) / 0.15, 0.0, 1.0)
++        if reliability <= 0:
++            diag[family] = dict(oof_balanced_accuracy=bacc, random_level=chance, alpha_mean=0.)
++            continue
++        model = make_pipeline(StandardScaler(), LogisticRegression(C=C, max_iter=400, class_weight='balanced'))
++        model.fit(X, target)
++        style_p = np.maximum(model.predict_proba(Xq), 1e-8)
++        old_logits = out[:, cols].copy()
++        old_p = softmax(old_logits, axis=1)
++        margin = np.partition(old_p, -2, axis=1)[:, -1] - np.partition(old_p, -2, axis=1)[:, -2]
++        # Only modestly modify disputed sibling identities; preserve total provider mass.
++        gate = np.clip((0.65 - margin) / 0.65, 0., 1.)
++        strength = (max_alpha * reliability) * gate
++        mix = (1. - strength[:, None]) * old_p + strength[:, None] * style_p
++        out[:, cols] = logsumexp(old_logits, axis=1, keepdims=True) + np.log(np.maximum(mix, 1e-12))
++        assert np.allclose(logsumexp(out[:, cols], axis=1), logsumexp(old_logits, axis=1), atol=1e-8)
++        diag[family] = dict(oof_balanced_accuracy=bacc, random_level=chance,
++                            alpha_mean=float(strength.mean()), alpha_max=float(strength.max()),
++                            changed_within_family=int(np.sum(old_p.argmax(1) != mix.argmax(1))))
++    if diagnostics_path:
++        with open(diagnostics_path, 'w') as f: json.dump(diag, f, indent=2)
+     return out
+ 
+ 
+@@ -883,7 +974,7 @@
+
+     _evidence = (_Xte * _fw[None, :]) @ _log_rate.T + ((1.0 - _Xte) * _fw[None, :]) @ _log_not_rate.T
+     _evidence -= (((_Xte * _fw[None, :]) @ _base_log_rate) + (((1.0 - _Xte) * _fw[None, :]) @ _base_log_not_rate))[:, None]
+     _evidence -= _evidence.mean(axis=1, keepdims=True)
+-    _evidence = np.clip(1.5 * _evidence / max(float(_fw.sum()), 1e-6), -0.30, 0.30)
++    _evidence = np.clip(1.2 * _evidence / max(float(_fw.sum()), 1e-6), -0.30, 0.30)
+     _raw = _v38_before_hard.copy()
+     _probs = _v38sp.softmax(_raw, axis=1)
+     _sorted = np.sort(_probs, axis=1)
+@@ -895,6 +986,19 @@
+
+     _coverage_gate = np.clip(np.sqrt((_active_markers + 1.0) / 4.0), 0.45, 1.0)
+     _gate = _confidence_gate * _length_gate * _coverage_gate
+     _safe_logits = _raw + _gate[:, None] * _evidence
++    # V40A: explicitly preserve the original mercury-based candidate before the family residual.
++    _reference_logits = _safe_logits.copy()
++    _v31_sub = lambda zz: pd.DataFrame({'id': test.id.values, 'model': [LABELS[int(i)] for i in zz.argmax(axis=1)]})
++    _v31_sub(_reference_logits).to_parquet(_out.with_name('candidate_reference_0660.parquet'), index=False)
++    try:
++        from sibling_style import apply_grouped_style_residual
++        _safe_logits = apply_grouped_style_residual(
++            _safe_logits, train.text.values, test.text.values, LABELS, y, Gtr,
++            max_alpha=0.08, diagnostics_path=str(_out.with_name('v40a_style_oof.json')))
++        log('V40A family-only OOF residual fitted')
++    except Exception as _style_error:
++        log('V40A family-only residual failed; using exact inherited prediction:', repr(_style_error))
++        _safe_logits = _reference_logits
+     def _v31_sub(z):
+         return pd.DataFrame({'id': test.id.values, 'model': [LABELS[int(i)] for i in z.argmax(axis=1)]})
+     _raw_sub = _v31_sub(_raw)
+@@ -1899,7 +2003,7 @@
+
+ cmd = [sys.executable, 'infer.py', '--data', str(DATA), '--models', json.dumps(MODELS),
+        '--perpassage', '1', '--extra', str(EXTRA), '--extra_w', '0.5', '--tfidf_w', '0.25',
+        '--distort_w', '0.10', '--svc_w', '12', '--pool', str(POOL), '--adapt_w', '1.0',
+-       '--adapt_thr', '0.15', '--sinkhorn', '0.45', '--sinkhorn_target_mix', '0.35', '--post', '0', '--atlas_dir', str(ATLAS),
++       '--adapt_thr', '0.15', '--sinkhorn', '0.60', '--sinkhorn_target_mix', '0.35', '--post', '0', '--atlas_dir', str(ATLAS),
+        '--atlas_base', str(B8), '--atlas_w', '0.20', '--atlas_margin', '0.3',
+        '--atlas_bs', '4', '--atlas_chunk', '3', '--atlas_budget', str(max(180, ATLAS_BUDGET)),
+        '--comp_path', '/kaggle/working/comp_logit.npy', '--comp_w', '0.15',

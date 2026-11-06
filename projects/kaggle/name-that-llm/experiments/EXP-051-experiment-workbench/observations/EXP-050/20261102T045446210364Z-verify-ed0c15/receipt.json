@@ -1,0 +1,13 @@
+{
+  "status": "PASS_FIXED_LOCAL_JOB",
+  "job": "verify-results",
+  "scope": "local_only_no_training_or_remote_launch",
+  "observed_at": "2026-11-02T04:54:47.572425+00:00",
+  "exit_code": 0,
+  "verified_summary": {
+    "path": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/summary.json",
+    "sha256": "a3ce8dbd386d7d0567513831500a91f79f7b2e21c2c720eb5c4b6ad464eb72ae"
+  },
+  "experiment_id": "EXP-050",
+  "operation": "verify"
+}

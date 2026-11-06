@@ -1,0 +1,62 @@
+[
+  {
+    "source": "official-train",
+    "all_label_rows": 2699,
+    "normalized_exact_overlap_rows": 0,
+    "unique_codex_hashes_matched": 0
+  },
+  {
+    "source": "abdullah-v2",
+    "all_label_rows": 1033,
+    "normalized_exact_overlap_rows": 0,
+    "unique_codex_hashes_matched": 0
+  },
+  {
+    "source": "dophuchung-v1",
+    "all_label_rows": 1029,
+    "normalized_exact_overlap_rows": 0,
+    "unique_codex_hashes_matched": 0
+  },
+  {
+    "source": "lucas-v7",
+    "all_label_rows": 4255,
+    "normalized_exact_overlap_rows": 0,
+    "unique_codex_hashes_matched": 0
+  },
+  {
+    "source": "prvs-raw-v6",
+    "all_label_rows": 9290,
+    "normalized_exact_overlap_rows": 0,
+    "unique_codex_hashes_matched": 0
+  },
+  {
+    "source": "prvs-clean-v6",
+    "all_label_rows": 4926,
+    "normalized_exact_overlap_rows": 0,
+    "unique_codex_hashes_matched": 0
+  },
+  {
+    "source": "matched-v3",
+    "all_label_rows": 24443,
+    "normalized_exact_overlap_rows": 0,
+    "unique_codex_hashes_matched": 0
+  },
+  {
+    "source": "pool-v5",
+    "all_label_rows": 119899,
+    "normalized_exact_overlap_rows": 0,
+    "unique_codex_hashes_matched": 0
+  },
+  {
+    "source": "enai-v3",
+    "all_label_rows": 9719,
+    "normalized_exact_overlap_rows": 0,
+    "unique_codex_hashes_matched": 0
+  },
+  {
+    "source": "earthmaker-v1",
+    "all_label_rows": 749,
+    "normalized_exact_overlap_rows": 0,
+    "unique_codex_hashes_matched": 0
+  }
+]

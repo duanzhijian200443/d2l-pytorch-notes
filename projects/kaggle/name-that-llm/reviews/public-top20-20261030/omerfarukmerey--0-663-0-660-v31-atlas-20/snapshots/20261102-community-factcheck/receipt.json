@@ -1,0 +1,14 @@
+{
+  "observed_at": "2026-11-02T03:59:47.268854+00:00",
+  "existing_source": "SRC-001",
+  "ref": "omerfarukmerey/0-663-0-660-v31-atlas-20",
+  "current_version": 4,
+  "old_version": 4,
+  "source_sha256": "ea724d4f506688db3c72a0b53fae511494c45f9471164c51f37428efb43f8821",
+  "code_sha256": "d02becfe82c55dff37d0076ae752143304b29f88bd14ae7f90486f32408ae221",
+  "old_code_same_method_sha256": "d02becfe82c55dff37d0076ae752143304b29f88bd14ae7f90486f32408ae221",
+  "code_equal": true,
+  "old_source_path": "reviews/public-top20-20261030/omerfarukmerey--0-663-0-660-v31-atlas-20/source.ipynb",
+  "directory": "research/inbox/20261102-community-factcheck/solutions/omerfarukmerey--v4",
+  "score_binding": "not_established_by_latest_metadata"
+}

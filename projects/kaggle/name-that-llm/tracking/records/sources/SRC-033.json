@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "id": "SRC-033",
+  "kind": "dataset",
+  "title": "matched V3 / pool-v2 / pool-v5：聚合池追溯缺口",
+  "url": "https://www.kaggle.com/datasets/dhruvtibarewal/nlm-matched-clean/versions/3",
+  "observed_at": "2026-10-31T17:00:43.016193+00:00",
+  "source_version": {
+    "dataset_version": 3,
+    "files_sha256": {
+      "nlm_matched_clean.parquet": "000f8d541f7c4c5942a18c4fcf557aa01756882931307414cf2530ac21980482",
+      "nlm_pool_v2.parquet": "064ecd0dfa43ac9b0d4a7be9d89264333698ff727a5926f44856de2f7a92350d",
+      "nlm_pool_v5.parquet": "040afb3609d7f6586d57c89ddb42d9bf4b58cc26426104b57390bdf6312b4650"
+    },
+    "download_manifest_sha256": "5f2da21401efada94e636fd2fb843013c7eff6ae1ed2d07a5a2771c3ed071cfa"
+  },
+  "public_score": null,
+  "summary": "实际三个固定文件分别 24443、37252、119899 行；v5 有 46 个 src、至少 121 条关联官方 prompt、2470 条空或占位 prompt_key；v2 36779 条与 v5 重叠。",
+  "author_claim": "作者声明去重、移除官方文本、按官方类标点规律过滤，并沿用上游来源许可；当前数据卡主要描述 pool-v2。",
+  "verified": "实际三个固定文件分别 24443、37252、119899 行；v5 有 46 个 src、至少 121 条关联官方 prompt、2470 条空或占位 prompt_key；v2 36779 条与 v5 重叠。",
+  "use_for_us": "作为单独汇总池对照；先恢复已知官方 prompt 及来源，再处理缺失键；不要与其原始来源简单叠加。",
+  "test_plan": "固定 prompt-group-v1、同一轻量分类器与环境，按来源/设置分层做加数据对照；本轮只审计，尚未验证分数收益。",
+  "limitations": "其他上游没有逐个下载；全量官方标签统计参与上游筛选，使严格独立 OOF 有额外限制；无逐行原始 API 溯源。",
+  "evidence": [
+    "experiments/EXP-008-public-pool-audit/report.md",
+    "experiments/EXP-008-public-pool-audit/download-manifest.json",
+    "experiments/EXP-008-public-pool-audit/outputs/profiles.json",
+    "experiments/EXP-008-public-pool-audit/outputs/row_flags.parquet"
+  ]
+}

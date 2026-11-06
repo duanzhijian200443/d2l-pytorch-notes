@@ -1,0 +1,81 @@
+{
+  "status": "FACTCHECKED_PENDING_IMPORT",
+  "ref": "mercurydust/name-that-llm-submission",
+  "related_sources": [
+    "SRC-017"
+  ],
+  "notebook_version": 11,
+  "body_version": "V34.1",
+  "script_version_id": null,
+  "publication_time": null,
+  "published_today_verified": false,
+  "observed_at": "2026-11-02T03:59:27.657746+00:00",
+  "source_sha256": "5335c55713f17f5cebf7b262ce7bfac9b86ccb79366d3cb8c1c4907628b020d8",
+  "code_sha256": "d7d0a8a91052183c9d6677c7eebd106540c259053270680939ad2b7cef575f23",
+  "latest_matches_v11": true,
+  "public_score": {
+    "author_claimed_prior_v31": 0.66,
+    "new_v11_bound_score": null
+  },
+  "method": {
+    "pair_classifier": "LogisticRegression",
+    "features": 10,
+    "refs_per_class": 6,
+    "aggregate": "top3_mean",
+    "batch": 128,
+    "fusion": "gate times centered log probability correction",
+    "weight": 0.1,
+    "gate_threshold": 0.35
+  },
+  "findings": [
+    {
+      "priority": 1,
+      "title": "Global test arrays indexed by batch-local offsets",
+      "code_lines": [
+        2068,
+        2069,
+        2073,
+        2074
+      ],
+      "actual_call": "main -> inference batch loop -> XF -> verifier.predict_proba",
+      "first_affected_row_1based": 129,
+      "affected_features": [
+        "char_cosine",
+        "word_cosine",
+        "length_ratio",
+        "punctuation_similarity"
+      ],
+      "correct_features": [
+        "A_profile_cosine",
+        "A_profile_mean_absolute_difference",
+        "four_B_attributes"
+      ],
+      "proof": "minimal-proof-result.json",
+      "effect_on_lb": "not measured"
+    }
+  ],
+  "attachment": {
+    "ref": "mercurydust/ntllm-chatgpt-a-b",
+    "public_search_confirmed": true,
+    "platform_version": 1,
+    "author_claimed_revision": "03",
+    "last_updated": "2026-10-30T01:53:51.670Z",
+    "license": "Unknown",
+    "file_contents_downloaded": false,
+    "all_required_files_verified": false
+  },
+  "scope": {
+    "full_notebook_executed": false,
+    "model_fit": false,
+    "gpu": false,
+    "submission": false,
+    "official_ledger_modified": false
+  },
+  "unverified": [
+    "publication date",
+    "scriptVersionId",
+    "V11 LB score",
+    "full A/B dataset row/hash integrity",
+    "real model prediction impact"
+  ]
+}

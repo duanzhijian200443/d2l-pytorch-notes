@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "id": "EXP-021",
+  "title": "Codex订阅原文试采：1000条，最多2并发",
+  "baseline_id": "EXP-004",
+  "hypothesis": "Collect 1000 traceable Codex subscription responses for a later prompt-isolated utility comparison; collection alone does not establish training benefit.",
+  "changes": [
+    "250 original English prompts shared across four exact requested GPT labels",
+    "Independent CLI sessions; low reasoning; minimal base instructions",
+    "Maximum two workers; no controller retries; stop dispatch on failure; raw preservation and resume deduplication"
+  ],
+  "observed_at": "2026-11-01T08:21:35.459123+00:00",
+  "source": {
+    "notebook_ref": null,
+    "notebook_version": null,
+    "script_version_id": null,
+    "local_path": "experiments/EXP-021-codex-subscription-pilot/code/codex_collect.py",
+    "sha256": "1e407b9461edfdbe75d7377fcb79e6842b6879c4f4b64e3fc29afc1cb8a2cbbc"
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-021-codex-subscription-pilot/manifest.json",
+    "validation_split_id": "codex-pilot-prompt-v1",
+    "content_hashes_verified": true
+  },
+  "config": {
+    "note": "仅作台账索引；完整参数以 config_path 指向的 config.json 为准。"
+  },
+  "environment": {
+    "platform": "local_windows_codex_cli_chatgpt_auth",
+    "accelerator": "none",
+    "container": null,
+    "seed": null
+  },
+  "execution": {
+    "scope": "1000-response collection, not model training",
+    "status": "FAILED_LOCAL_CONFIG",
+    "observed_at": "2026-11-01T08:21:35.459123+00:00"
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": null,
+    "per_class_recall_path": null,
+    "oof_path": null,
+    "leakage_audit": "not_audited"
+  },
+  "cost": {
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0
+  },
+  "timing_note": null,
+  "conclusion": "Two local CLI processes rejected reserved built-in provider overrides before event streaming. Zero saved responses; no model inference observed.",
+  "limitations": "Requested model slug does not independently establish backend snapshot; residual runtime instructions possible; provider internal retries not proven disabled; no OOF/LB results; subscription cost equivalent unknown.",
+  "next_action": "Create a separate retry experiment removing only unsupported provider retry overrides; reuse the exact frozen prompts and base instructions.",
+  "related_sources": [],
+  "evidence": [
+    "experiments/EXP-021-codex-subscription-pilot/config.json",
+    "experiments/EXP-021-codex-subscription-pilot/manifest.json",
+    "experiments/EXP-021-codex-subscription-pilot/report.md",
+    "experiments/EXP-021-codex-subscription-pilot/prompts.jsonl",
+    "experiments/EXP-021-codex-subscription-pilot/runtime-preflight.json",
+    "experiments/EXP-021-codex-subscription-pilot/metrics/offline-preflight.json",
+    "src/codex_collect.py",
+    "src/test_codex_collect.py",
+    "experiments/EXP-021-codex-subscription-pilot/collection/summary.json",
+    "experiments/EXP-021-codex-subscription-pilot/code/codex_collect.py"
+  ],
+  "config_path": "experiments/EXP-021-codex-subscription-pilot/config.json"
+}

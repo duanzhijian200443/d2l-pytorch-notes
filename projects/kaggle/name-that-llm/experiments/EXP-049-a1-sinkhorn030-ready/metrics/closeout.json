@@ -1,0 +1,40 @@
+{
+  "experiment_id": "EXP-049",
+  "remote_status": "READY_NOT_LAUNCHED",
+  "local_status": "COMPLETE_LOCAL_DIAGNOSTIC",
+  "files": [
+    {
+      "path": "experiments/EXP-049-a1-sinkhorn030-ready/manifest.json",
+      "sha256": "aaeb4788a95d39d94953d449ecf6165916a59d059daa09a566cf023126f8acbd"
+    },
+    {
+      "path": "experiments/EXP-049-a1-sinkhorn030-ready/config.json",
+      "sha256": "9315c06bfa6a5d9cfbb3990bb9aea6a83fcc2225d8eee9cbe128b5d72d74b64f"
+    },
+    {
+      "path": "experiments/EXP-049-a1-sinkhorn030-ready/report.md",
+      "sha256": "e17bcbeeff02b4839d2fc77e807e4eab4d1c57efcc5498743add5376b1c896c4"
+    },
+    {
+      "path": "experiments/EXP-049-a1-sinkhorn030-ready/outputs/summary.json",
+      "sha256": "d20c3926e99f6c5b4dd691ada5908af935ccea2ed89b28a81baea39d5bd3975a"
+    },
+    {
+      "path": "experiments/EXP-049-a1-sinkhorn030-ready/outputs/artifacts.json",
+      "sha256": "e7e306ef4b4f7d31ad2e342ed980255e12c758242340ffda24085528952d8383"
+    },
+    {
+      "path": "experiments/EXP-049-a1-sinkhorn030-ready/metrics/package-verification.json",
+      "sha256": "161f4291856cbd0d43a226e6e9981de1afe75bba139f1340ff0192f712128813"
+    },
+    {
+      "path": "experiments/EXP-049-a1-sinkhorn030-ready/metrics/tests.json",
+      "sha256": "c97041c1ca108a7db16a51d9bd3ccb9d87e9ed055978bb930ea5be04281476f1"
+    }
+  ],
+  "remote_runs": 0,
+  "remote_saves": 0,
+  "submissions": 0,
+  "model_fits": 0,
+  "model_inference_calls": 0
+}

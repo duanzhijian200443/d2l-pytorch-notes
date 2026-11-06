@@ -1,0 +1,24 @@
+--- author-v2-score-0664
++++ own-fork-v1
+@@ -876,9 +876,9 @@
+     # Matrix form: weighted Bernoulli log likelihood ratio for each class.
+     _evidence = (_Xte * _fw[None, :]) @ _log_rate.T + ((1.0 - _Xte) * _fw[None, :]) @ _log_not_rate.T
+     _evidence -= (((_Xte * _fw[None, :]) @ _base_log_rate) + (((1.0 - _Xte) * _fw[None, :]) @ _base_log_not_rate))[:, None]
+     _evidence -= _evidence.mean(axis=1, keepdims=True)
+-    _evidence = np.clip(1.5 * _evidence / max(float(_fw.sum()), 1e-6), -0.30, 0.30)
++    _evidence = np.clip(1.2 * _evidence / max(float(_fw.sum()), 1e-6), -0.30, 0.30)
+     _raw = _v38_before_hard.copy()
+     _probs = _v38sp.softmax(_raw, axis=1)
+     _sorted = np.sort(_probs, axis=1)
+     _margin = _sorted[:, -1] - _sorted[:, -2]
+@@ -1892,9 +1892,9 @@
+ import subprocess, sys
+ cmd = [sys.executable, 'infer.py', '--data', str(DATA), '--models', json.dumps(MODELS),
+        '--perpassage', '1', '--extra', str(EXTRA), '--extra_w', '0.5', '--tfidf_w', '0.25',
+        '--distort_w', '0.10', '--svc_w', '1.5', '--pool', str(POOL), '--adapt_w', '1.0',
+-       '--adapt_thr', '0.15', '--sinkhorn', '0.30', '--sinkhorn_target_mix', '0.35', '--post', '0', '--atlas_dir', str(ATLAS),
++       '--adapt_thr', '0.15', '--sinkhorn', '0.60', '--sinkhorn_target_mix', '0.35', '--post', '0', '--atlas_dir', str(ATLAS),
+        '--atlas_base', str(B8), '--atlas_w', '0.20', '--atlas_margin', '0.3',
+        '--atlas_bs', '4', '--atlas_chunk', '3', '--atlas_budget', str(max(180, ATLAS_BUDGET)),
+        '--comp_path', '/kaggle/working/comp_logit.npy', '--comp_w', '0.15',
+        '--out', '/kaggle/working/submission.parquet', '--cache', '/kaggle/working/cache']

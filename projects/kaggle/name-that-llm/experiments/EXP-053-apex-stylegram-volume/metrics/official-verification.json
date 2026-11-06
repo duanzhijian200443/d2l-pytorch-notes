@@ -1,0 +1,25 @@
+{
+  "status": "PASS_INDEPENDENT_OFFICIAL_OOF",
+  "verified_source_jobs": 18,
+  "stylegram_fits": 36,
+  "additional_common_gate_fits": 3,
+  "baseline_refit": true,
+  "shared_rows_full": 10743,
+  "excluded_regeneration_rows_by_validation_fold": [
+    36,
+    54,
+    36,
+    72,
+    54
+  ],
+  "bound_official_rows": 2699,
+  "bootstrap_draws_verified": 2000,
+  "paired_comparisons_verified": 3,
+  "primary_delta": -0.003703703703703598,
+  "score_confidence_interval": [
+    -0.007407407407407408,
+    -0.00037037037037037024
+  ],
+  "style_output_receipt_sha256": "db7794779bac3ca9f33d54c40ad30e130a5c0eff2fe7888d82e03301e03f9bd4",
+  "scope": "known prompt-isolated official development folds, Stylegram only; no hidden score"
+}

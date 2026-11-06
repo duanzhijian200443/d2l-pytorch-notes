@@ -1,0 +1,69 @@
+{
+  "category": "solutions",
+  "title": "vasily61 V1：SRC-021同代码与Claude覆盖负结果",
+  "author": "Селиванов Василий",
+  "url": "https://www.kaggle.com/code/vasily61/name-that-llm-0-664-reproduction-notes",
+  "observed_at": "2026-11-01T07:35:57Z",
+  "source_version": {
+    "notebook_version": 1,
+    "script_version_id": null,
+    "source_sha256": "50b5a89254096f8088f4bbde3e592e639adffb923364418ea95d7bef89f5a39a",
+    "code_sha256": "f9fbf9845de6c62c9bca9a753d2fe5aac1d35e106541c1e07ca5755a6449bce9",
+    "notebook_id": 141956325
+  },
+  "public_score": null,
+  "summary": "代码与SRC-021完全相同；作者明确本fork未评分，外部350行Claude覆盖仅4纠错却68改错。",
+  "author_claim": "作者明确本fork未评分；另一个350行Claude覆盖尝试4错改对、68对改错，未纳入配方。",
+  "verified": "V1代码SHA完全同SRC-021得分V2；该新页面列表未显示Score。",
+  "use_for_us": "保留复现出处与类内覆盖负结果，避免把上游成绩当新作者复现成功。",
+  "test_plan": "冻结基础预测并检查新增规则净修正、错误交集及稀疏prompt表现。",
+  "limitations": "未绑定本fork成绩；350行覆盖负结果为作者自报，不能泛化全部Claude集成。",
+  "tags": [
+    "ensemble",
+    "duplicate-code",
+    "ablation",
+    "validation",
+    "same-code"
+  ],
+  "schema_version": 1,
+  "id": "SRC-043",
+  "artifact_dir": "research/solutions/SRC-043-vasily61-name-that-llm-0-664-reproduction-notes-v1",
+  "notes_path": "research/solutions/SRC-043-vasily61-name-that-llm-0-664-reproduction-notes-v1/notes.md",
+  "kind": "notebook",
+  "related_sources": [
+    "SRC-021",
+    "SRC-002"
+  ],
+  "collection_observation_note": "源码/API时间见回执。浏览器仅记录2026-11-01 UTC采集日期及07:35:57 UTC汇总截至时刻，不将其伪作逐页精确读取时间。",
+  "supersedes": null,
+  "family_id": "code-f9fbf9845de6",
+  "evidence": [
+    "research/solutions/SRC-043-vasily61-name-that-llm-0-664-reproduction-notes-v1/notes.md",
+    "research/solutions/SRC-043-vasily61-name-that-llm-0-664-reproduction-notes-v1/analysis-evidence.json",
+    "research/solutions/SRC-043-vasily61-name-that-llm-0-664-reproduction-notes-v1/code.txt",
+    "research/solutions/SRC-043-vasily61-name-that-llm-0-664-reproduction-notes-v1/description.md",
+    "research/solutions/SRC-043-vasily61-name-that-llm-0-664-reproduction-notes-v1/diff-vs-SRC-002.patch",
+    "research/solutions/SRC-043-vasily61-name-that-llm-0-664-reproduction-notes-v1/download-receipt.json",
+    "research/solutions/SRC-043-vasily61-name-that-llm-0-664-reproduction-notes-v1/metadata.json",
+    "research/solutions/SRC-043-vasily61-name-that-llm-0-664-reproduction-notes-v1/snapshots/browser-observation-20261101.json",
+    "research/solutions/SRC-043-vasily61-name-that-llm-0-664-reproduction-notes-v1/source.ipynb",
+    "tracking/snapshots/20261101T073557Z-community-refresh/score-list-dom-observation.json",
+    "tracking/snapshots/20261101T073557Z-community-refresh/search-0664-dom-observation.json"
+  ],
+  "same_code_sources": [
+    "SRC-021"
+  ],
+  "evidence_sha256": {
+    "research/solutions/SRC-043-vasily61-name-that-llm-0-664-reproduction-notes-v1/notes.md": "a008ac0fb4ac35eb8fa341b8896769df46e736a588d3980183c53d454adbe90e",
+    "research/solutions/SRC-043-vasily61-name-that-llm-0-664-reproduction-notes-v1/analysis-evidence.json": "9d06d93c834d82b97b9bd199432a1955153bbe02b3ead2e89d1f0f5cd66a061d",
+    "research/solutions/SRC-043-vasily61-name-that-llm-0-664-reproduction-notes-v1/code.txt": "42ec5b3ca477875c15b3deecb0ef4ddb10756536719eafe1b8c83659ee59a8e6",
+    "research/solutions/SRC-043-vasily61-name-that-llm-0-664-reproduction-notes-v1/description.md": "5061404c5b295b635482addc09ab9d7cf7355422fbb6f8105d7f0c2f3b4498ce",
+    "research/solutions/SRC-043-vasily61-name-that-llm-0-664-reproduction-notes-v1/diff-vs-SRC-002.patch": "b05797973da88aa61683239ad6ff3427a307cf0068ca5c1468c033cd3e9aee0a",
+    "research/solutions/SRC-043-vasily61-name-that-llm-0-664-reproduction-notes-v1/download-receipt.json": "9622a915264fc6f55c5158a853b5e465adcb272584e952ef25b45b9249adc361",
+    "research/solutions/SRC-043-vasily61-name-that-llm-0-664-reproduction-notes-v1/metadata.json": "ab82a0e301bf544653abea5c9b3d8ac29c7bd5527a85dad9c9127fc30fce635b",
+    "research/solutions/SRC-043-vasily61-name-that-llm-0-664-reproduction-notes-v1/snapshots/browser-observation-20261101.json": "3a336691304fa945360d1b5aa50ea98bf653090173911877cb57f833a79d7c52",
+    "research/solutions/SRC-043-vasily61-name-that-llm-0-664-reproduction-notes-v1/source.ipynb": "50b5a89254096f8088f4bbde3e592e639adffb923364418ea95d7bef89f5a39a",
+    "tracking/snapshots/20261101T073557Z-community-refresh/score-list-dom-observation.json": "dd3d6bcf84ff467a6b47f594d7ba9ef888b776c319b8b2dfae31c49ab4dd1fd2",
+    "tracking/snapshots/20261101T073557Z-community-refresh/search-0664-dom-observation.json": "830019135b8a239cee4684ed235682b78788848caef8f8b0f54c2ea68ceb05e7"
+  }
+}

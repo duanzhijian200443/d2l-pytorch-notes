@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0173",
+  "prompt": "Write to the organizer of a neighborhood cleanup explaining that you can help with sorting supplies but cannot stay for the whole event. Aim for about 120 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "short_email",
+  "target_words": 120,
+  "prompt_group": "cp0173",
+  "split": "train",
+  "source": "codex_subscription",
+  "base_prompt": "Write to the organizer of a neighborhood cleanup explaining that you can help with sorting supplies but cannot stay for the whole event. Aim for about 120 words.",
+  "base_prompt_sha256": "812d7f16b42bf35bbce618206a8597cd4f7a91bd2d0431e080c5dc2129893898",
+  "base_prompt_id": "cp0173",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0173::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "1afb1962ef244f53554991018249ee3cdd8a00bfee4c16391f781ec93d19f086",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:26:21.501897+00:00",
+  "ended_at": "2026-11-01T13:26:47.389819+00:00",
+  "prompt_sha256": "810733a52e3252ba2d79b59c4cecadc88275780025b0d6d7f53fbb34f8f87379",
+  "text": "Hello, I’m glad to hear about the neighborhood cleanup and would be happy to help with sorting and organizing supplies before the event begins. I can assist with separating gloves, bags, recycling materials, sign-in items, and any other equipment that needs to be prepared or distributed. Unfortunately, I won’t be able to stay for the entire cleanup because I have another commitment later that day. Please let me know what time you would like volunteers to arrive for setup and how long the supply-sorting work is likely to take. I’d still like to contribute as much as I can during the time I’m available, and I appreciate all the effort you’re putting into organizing this event.",
+  "text_sha256": "40a4c63df72f48bf1d22e7b20cb81a71b3c34ecc2bbf0623737ba7049f26b7d3",
+  "raw_final_sha256": "40a4c63df72f48bf1d22e7b20cb81a71b3c34ecc2bbf0623737ba7049f26b7d3",
+  "word_count": 116,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4210,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 153,
+      "reasoning_output_tokens": 11
+    }
+  ],
+  "attempt_path": "collection\\attempts\\1afb1962ef244f53554991018249ee3cdd8a00bfee4c16391f781ec93d19f086",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

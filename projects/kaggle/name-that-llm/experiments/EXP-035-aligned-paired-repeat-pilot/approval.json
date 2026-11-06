@@ -1,0 +1,26 @@
+{
+  "observed_at": "2026-11-01T12:12:25.650053+00:00",
+  "user_statement": "确认，你能直接调用kaggle吗",
+  "approved_plan": "EXP-035 preparation/request-plan.jsonl",
+  "approved_plan_sha256": "3bb10302cc87ad0f3d8f02b0e78b59bdb187d840327ee98406d00b07837dcfa7",
+  "scope": {
+    "total_new_requests_max": 80,
+    "kaggle_requests_max": 40,
+    "codex_requests_max": 40,
+    "prompt_count": 10,
+    "models": [
+      "gpt-5.6-luna",
+      "gpt-5.6-terra"
+    ],
+    "repeats_per_route": 2,
+    "global_max_inflight": 1,
+    "funding": "existing subscription and Kaggle free allowance only",
+    "target_usd": 0.25,
+    "stop_dispatch_at_confirmed_cost_usd": 0.1,
+    "hard_cap": false,
+    "automatic_retries": 0,
+    "no_top_up": true,
+    "no_paid_fallback": true
+  },
+  "changed_visible_payloads": false
+}

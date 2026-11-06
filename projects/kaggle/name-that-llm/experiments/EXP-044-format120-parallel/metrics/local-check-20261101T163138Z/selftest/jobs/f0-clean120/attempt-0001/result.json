@@ -1,0 +1,16 @@
+{
+  "run_id": "exp044-synthetic",
+  "config_sha256": "265b91445f556379321a88ff5ca49cb86c639effce0ee3327ba706076a7c2e27",
+  "runner_sha256": "2bb7e8376b44b3450cc5fc2b71f315a8cd1acea29b26d05e207bc3d666fbce8d",
+  "legacy_runner_sha256": "de60b60bfd138b834d8723bbd832fd0522453f549c4050256197f6babe4ed45a",
+  "core_sha256": "caa46bd121164aba891c3d78e662540db9294d653db09f53d02833c1b4ab77ef",
+  "identity_sha256": "94d7251ed232ef21beba3039471199d939402864a538aada8e5a8f25fd31bdc4",
+  "status": "COMPLETE",
+  "fold": 0,
+  "arm": "clean120",
+  "features": 2675,
+  "rows": 18,
+  "balanced_accuracy": 1.0,
+  "trained_svms": 2,
+  "seconds": 0.21003889999701641
+}

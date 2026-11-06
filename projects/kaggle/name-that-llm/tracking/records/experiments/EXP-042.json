@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "id": "EXP-042",
+  "title": "Luna/Terra120增量：固定Stylegram与五折验证",
+  "baseline_id": "EXP-010",
+  "hypothesis": "Only add 120 aligned Luna/Terra training answers to frozen Stylegram recipe; compare against freshly trained control on unchanged prompt-group-v1 official development OOF.",
+  "changes": [
+    "Add120 raw answers only; retain old row weights, existing model parameters and validation folds",
+    "Added row weights equal the same-class original public row weights; no sweep"
+  ],
+  "observed_at": "2026-11-01T16:07:10.010304+00:00",
+  "source": {
+    "notebook_ref": "zhjianduan/name-that-llm-luna-terra120-042",
+    "notebook_version": 2,
+    "script_version_id": null,
+    "local_path": "cloud/luna-terra120-042/kernel/experiment.ipynb",
+    "sha256": "55e83c3d8ee7480d5700e4aa8b6edbc94ade75458d6530534a88060758820dda"
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-042-luna-terra120-ablation/manifest.json",
+    "validation_split_id": "prompt-group-v1",
+    "content_hashes_verified": true
+  },
+  "config": {
+    "note": "仅作台账索引；完整参数以 config_path 指向的 config.json 为准。"
+  },
+  "environment": {
+    "platform": "Kaggle CPU",
+    "accelerator": null,
+    "container": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "seed": 42
+  },
+  "execution": {
+    "scope": "isolated Stylegram fixed grouped OOF data-addition ablation",
+    "status": "COMPLETE",
+    "observed_at": "2026-11-01T16:07:10.010304+00:00",
+    "run_id": "exp042-20261101T143057Z",
+    "cloud_run_requests": 1,
+    "notebook_version": 2,
+    "outputs_verified": true,
+    "actual_environment_verified": true,
+    "trained_svms": 20,
+    "cpu_wall_seconds": 2896.151367565
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": 0.46750186428038787,
+    "scope": "Verified fixed official 18-class development OOF, isolated Stylegram; not full stack or leaderboard",
+    "per_class_recall_path": "experiments/EXP-042-luna-terra120-ablation/analysis-v1/dense_perclass.csv",
+    "oof_path": "cloud/luna-terra120-042/outputs-v2/results/oof/add120.npz",
+    "leakage_audit": "PASS_KNOWN_EXACT; semantic overlap not exhaustive; new60 holdout excluded",
+    "control_balanced_accuracy": 0.4682426050211286,
+    "delta_balanced_accuracy": -0.0007407407407407085,
+    "delta_ci95": [
+      -0.0033333333333333335,
+      0.002222222222222222
+    ]
+  },
+  "cost": {
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0
+  },
+  "timing_note": "CPU守护墙钟2896.151秒（约48分16秒），训练进程2892.316秒；峰值进程树RSS约4.82GiB，未使用GPU。",
+  "conclusion": "新增120条未证明总体收益：BA0.468243→0.467502，改对6/改错8，净少对2；95%差值区间[-0.3333,+0.2222]个百分点跨0。",
+  "limitations": "请求模型身份未独立认证；已查看开发五折，非全ATLAS20或榜单。新增两类总有效权重各增加约4.32%，保持旧行权重不变。EXP027有近似题，不作为独立验证；60新holdout不评分。",
+  "next_action": "保留原基线与数据，不正式入池、不据此扩采；次要稀疏正均值只作诊断，后续改配方需单独固定实验。",
+  "related_sources": [],
+  "evidence": [
+    "experiments/EXP-042-luna-terra120-ablation/config.json",
+    "experiments/EXP-042-luna-terra120-ablation/manifest.json",
+    "experiments/EXP-042-luna-terra120-ablation/report.md",
+    "experiments/EXP-042-luna-terra120-ablation/metrics/data-review.json",
+    "experiments/EXP-042-luna-terra120-ablation/metrics/data-review.md",
+    "experiments/EXP-042-luna-terra120-ablation/metrics/preflight/preflight.json",
+    "experiments/EXP-042-luna-terra120-ablation/runner.py",
+    "experiments/EXP-042-luna-terra120-ablation/test_runner.py",
+    "experiments/EXP-042-luna-terra120-ablation/prepare.py",
+    "experiments/EXP-042-luna-terra120-ablation/launch.py",
+    "cloud/luna-terra120-042/run-ack.json",
+    "cloud/luna-terra120-042/readback-v2/verified.json",
+    "cloud/luna-terra120-042/execution-state.json",
+    "experiments/EXP-042-luna-terra120-ablation/metrics/code-review.json",
+    "experiments/EXP-042-luna-terra120-ablation/metrics/verification-code.json",
+    "experiments/EXP-042-luna-terra120-ablation/metrics/download-receipt.json",
+    "experiments/EXP-042-luna-terra120-ablation/metrics/independent-result-check.json",
+    "experiments/EXP-042-luna-terra120-ablation/analysis-v1/verification.json",
+    "experiments/EXP-042-luna-terra120-ablation/analysis-v1/summary.json",
+    "experiments/EXP-042-luna-terra120-ablation/analysis-v1/target_class_tradeoff.json",
+    "cloud/luna-terra120-042/outputs-v2/results/guard.json",
+    "cloud/luna-terra120-042/outputs-v2/results/result.json",
+    "experiments/EXP-042-luna-terra120-ablation/data-volume-analysis.md",
+    "experiments/EXP-042-luna-terra120-ablation/metrics/data-volume-analysis.json",
+    "experiments/EXP-042-luna-terra120-ablation/analyze_data_volume.py"
+  ],
+  "config_path": "experiments/EXP-042-luna-terra120-ablation/config.json",
+  "related_experiments": [
+    "EXP-004",
+    "EXP-010",
+    "EXP-041"
+  ]
+}

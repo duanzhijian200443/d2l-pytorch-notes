@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "runner_tests": 16,
+  "verifier_tests": 20,
+  "runner_sha256": "80ba5cd354fd41ce177d8e3816b8cdb9f031161116febedf70c719641b19b639",
+  "runner_tests_sha256": "17835023373b4ab9a5519afe2b333a0099df39f2b0355e1ea33026eba22803ad",
+  "verifier_sha256": "9d206098ce8e6f002547cf9dd74e709189370f7bba034dc9121a4beb69ac56aa",
+  "verifier_tests_sha256": "b319d2df35d6dfc98c32a3d6cb1272e54d80306511f66cdb29aec0504480df11",
+  "observed_at_utc": "2026-11-01T09:11:47.723428+00:00",
+  "no_test_training": true,
+  "verifier_test_note": "20 tests passed before the metadata-only V1-to-V2 declaration correction; mathematical checks unchanged. Real result verification uses the final recorded verifier hash."
+}

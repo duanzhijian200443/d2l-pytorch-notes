@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "SRC-026",
+  "kind": "discussion",
+  "title": "单模型 OOF 提升却损害集成；稀疏验证的后续更新",
+  "url": "https://www.kaggle.com/competitions/name-that-llm/discussion/753177",
+  "observed_at": "2026-10-31T14:18:03.343050+00:00",
+  "source_version": {
+    "topic_id": 753177,
+    "snapshot_sha256": "7b816c2c72b50b95eeb9decfa18c9f8508847eb6e7b81cf37671e3c496d9c4dd"
+  },
+  "public_score": null,
+  "summary": "单模型 OOF 提升却损害集成；稀疏验证的后续更新",
+  "author_claim": "作者报告成员 OOF 0.569→0.605，替换后集成 LB 0.651→0.647；保留旧成员再加新成员得 0.650。GoPain 更新：m=2 在前 10 次相关 0.91，后 5 次为 -0.22，全部 15 次为 0.79。",
+  "verified": "本轮重新读取了帖子及返回的全部评论页；这是来源核查，不是实验复现。",
+  "use_for_us": "比较单成员和加入集成的增量；先抽稀回答再重建聚类与中心化，保留多种组大小。",
+  "test_plan": "比较单成员和加入集成的增量；先抽稀回答再重建聚类与中心化，保留多种组大小。",
+  "limitations": "均为社区自报，未独立重训。不能只摘取 0.91；稀疏验证主要用于排除明显差配置，未证明能排序微小差异。",
+  "evidence": [
+    "tracking/snapshots/20261031T141753Z/topic-753177.json"
+  ]
+}

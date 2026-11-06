@@ -1,0 +1,15 @@
+{
+  "role": "read-only-download-evidence",
+  "ref": "lomnafsk/ntl-0-664-public-pipeline",
+  "observed_at": "2026-11-01T07:34:35.964552+00:00",
+  "notebook_version": 3,
+  "script_version_id": null,
+  "source_sha256": "2e0783b06cf99e74a89b613fd9302b8333c9c786e69c5b99022adc9619ddc74a",
+  "code_sha256": "ea3905785055fd2ed8517531f09c04574b96c8a6111fb6d51ffc3ff3b3c51cd9",
+  "metadata_sha256": "b4a6a9b397b1d9888cbce0645784962777ba62d99f0ebd167d49d864dffa425a",
+  "executed": false,
+  "url": "https://www.kaggle.com/code/lomnafsk/ntl-0-664-public-pipeline",
+  "method": "MCP get_notebook_info determined current version; Kaggle API get_kernel fetched fixed version_label",
+  "status": "DOWNLOADED_NOT_EXECUTED",
+  "same_code_existing_src": []
+}

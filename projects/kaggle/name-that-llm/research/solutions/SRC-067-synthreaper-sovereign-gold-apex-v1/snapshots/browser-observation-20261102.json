@@ -1,0 +1,20 @@
+{
+  "role": "selected_observations_from_merge_window_browser",
+  "observation_date": "2026-11-02",
+  "source": "Parent merge window read the Kaggle notebook/version view and its Input card; exact per-page capture time not recorded here.",
+  "url": "https://www.kaggle.com/code/synthreaper/ntl-sovereign-gold-apex?scriptVersionId=364684268",
+  "version_display": "Version 1 of 1",
+  "public_score": 0.665,
+  "best_score": 0.665,
+  "best_version": 1,
+  "script_version_id": 364684268,
+  "commit_runtime_display": "9m 60s",
+  "commit_devices_display": "2 × T4",
+  "open_pool_input": {
+    "ref": "crtproduction/name-that-llm-open-pool",
+    "kaggle_version": 13,
+    "author_release_label": "v11",
+    "displayed_size": "191k Clean Passages"
+  },
+  "scope": "The displayed runtime is for the saved version. See commit-output-comparison.json for the actual fast path, prepared row counts and placeholder predictions."
+}

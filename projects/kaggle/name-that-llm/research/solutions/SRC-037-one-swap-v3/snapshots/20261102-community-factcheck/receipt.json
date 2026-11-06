@@ -1,0 +1,14 @@
+{
+  "observed_at": "2026-11-02T03:59:47.195259+00:00",
+  "existing_source": "SRC-037",
+  "ref": "zbigniewkirchner/0-664-one-swap-198k-clean-pool-fully-public",
+  "current_version": 3,
+  "old_version": 3,
+  "source_sha256": "86a72c03d95a46a3378b6e736a23fa0cc8dbc55bc50542852a07c8fe492aa628",
+  "code_sha256": "d8c630d3b9fd1b3b0453de6fffb9e5d613f7a9c1c79cf47ab42f7dd9ad30321f",
+  "old_code_same_method_sha256": "d8c630d3b9fd1b3b0453de6fffb9e5d613f7a9c1c79cf47ab42f7dd9ad30321f",
+  "code_equal": true,
+  "old_source_path": "research/solutions/SRC-037-one-swap-v3/source.ipynb",
+  "directory": "research/inbox/20261102-community-factcheck/solutions/zbigniewkirchner--v3",
+  "score_binding": "not_established_by_latest_metadata"
+}

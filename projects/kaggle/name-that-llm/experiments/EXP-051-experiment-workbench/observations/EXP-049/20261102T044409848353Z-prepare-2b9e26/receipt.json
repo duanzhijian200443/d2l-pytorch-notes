@@ -1,0 +1,9 @@
+{
+  "status": "PASS_FIXED_LOCAL_JOB",
+  "job": "verify-package",
+  "scope": "local_only_no_training_or_remote_launch",
+  "observed_at": "2026-11-02T04:44:09.994141+00:00",
+  "exit_code": 0,
+  "experiment_id": "EXP-049",
+  "operation": "prepare"
+}

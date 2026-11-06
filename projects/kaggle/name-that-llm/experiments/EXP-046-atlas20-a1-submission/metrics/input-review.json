@@ -1,0 +1,216 @@
+{
+  "status": "PASS_LOCAL_INPUT_COMPATIBILITY_PREPARATION",
+  "runtime_mounted_preflight_executed": false,
+  "source_manifest": {
+    "path": "cloud/full-stack-capture-r1/outputs-v2/results/inputs/preflight_manifest.json",
+    "sha256": "de7a305b5d26a5ad0cca0ed41cf31e2af1f85037dd354286aeef77ac67aaabf5",
+    "files": 531
+  },
+  "attachments": {
+    "baseline_count": 31,
+    "new_count": 32,
+    "added_dataset": "zhjianduan/ntl-stylegram-cv-inputs-v1/1",
+    "metadata": "cloud/full-stack-capture-r1/kernel/kernel-metadata.json",
+    "original_baseline_metadata": "reviews/own-scheme-readiness-20261030/baseline-v2-metadata.json",
+    "same_model_refs": true,
+    "same_notebook_refs": true,
+    "same_container": true,
+    "container": "gcr.io/kaggle-private-byod/python@sha256:2757e0c7d1e0a9cb43da657b97e223c321a98f5014bdf64f44f2f6b083ad2b2f",
+    "historical_byte_equivalence_limit": "Baseline V2 metadata does not bind every original immutable version/byte. EXP031 pinned snapshots are the runtime reference, not proof of exact historical0.662 inputs."
+  },
+  "mirrors": [
+    {
+      "original": "abdullah1afify/ntl-generations/2",
+      "mirror": "zhjianduan/ntl-generations/1",
+      "original_local": "data/public-pools/abdullah1afify/ntl-generations/v2/ntl_generations.csv",
+      "sha256": "83003454e3cc0368cae8b05bca243daf036b64a42a792c3f7bfd5fd91b3db378",
+      "bytes": 870886,
+      "mounted_path": "/kaggle/input/datasets/zhjianduan/ntl-generations/ntl_generations.csv",
+      "same_content": true
+    },
+    {
+      "original": "abdullah1afify/ntl-generations/2",
+      "mirror": "zhjianduan/ntl-generations/1",
+      "original_local": "data/public-pools/abdullah1afify/ntl-generations/v2/prompts_used.csv",
+      "sha256": "b42003b1068ba24de1accf33265e208e1a492d1ca8c81eb581d256b54bdefdbc",
+      "bytes": 32000,
+      "mounted_path": "/kaggle/input/datasets/zhjianduan/ntl-generations/prompts_used.csv",
+      "same_content": true
+    },
+    {
+      "original": "lucasboesen/ntl-free-proxy-generations/7",
+      "mirror": "zhjianduan/ntl-free-proxy-generations/1",
+      "original_local": "data/public-pools/lucasboesen/ntl-free-proxy-generations/v7/gen_passages.csv",
+      "sha256": "d037d212e17a7e98465f9c606f4437225fb221939a5f51b0f8150d15c07c68a5",
+      "bytes": 3835894,
+      "mounted_path": "/kaggle/input/datasets/zhjianduan/ntl-free-proxy-generations/gen_passages.csv",
+      "same_content": true
+    }
+  ],
+  "extra_dataset": {
+    "fixed_version": 1,
+    "mcp_read_only_inventory_verified": true,
+    "remote_inventory_scope": "Names and byte sizes only; runtime full SHA remains mandatory. No new remote download.",
+    "local_zip": "experiments/EXP-010-012-stylegram-share/dataset/experiment_payload.zip",
+    "local_zip_sha256": "e44548ad58f3dbeb2ee39a666ee47035c2ca2800d1fb9341e3ad9fbdf6795f3d",
+    "local_zip_members_hash_verified": true,
+    "manifest": {
+      "schema_version": 1,
+      "dataset_ref": "zhjianduan/ntl-stylegram-cv-inputs-v1",
+      "dataset_version": 1,
+      "source": "Fixed V1 Kaggle MCP file inventory and local experiment_payload.zip bytes",
+      "candidate_relative_directories": [
+        "datasets/zhjianduan/ntl-stylegram-cv-inputs-v1",
+        "ntl-stylegram-cv-inputs-v1"
+      ],
+      "files": [
+        {
+          "path": "extra.csv",
+          "bytes": 8672205,
+          "sha256": "1e9125fd49b19084842332ede84ea65bc0174ee1bb28c8d48acc8ddbd5e36c0e"
+        },
+        {
+          "path": "folds.csv",
+          "bytes": 267236,
+          "sha256": "e8ba1e3712852168dc57f56960d4f3e00be612d639ade8a7dcb0f0d8335ce551"
+        },
+        {
+          "path": "protocol.json",
+          "bytes": 1759,
+          "sha256": "3983ceb881750b9b138ee59a3c03ba1acb2dd0f04c2b56bbe96ec682446ce50c"
+        },
+        {
+          "path": "runner.py",
+          "bytes": 9497,
+          "sha256": "74d9aa65c128b6b1490f965002bed56024e9ca08c9bfa62546dc2d70724cb4c4"
+        },
+        {
+          "path": "stylegram_core.py",
+          "bytes": 4061,
+          "sha256": "caa46bd121164aba891c3d78e662540db9294d653db09f53d02833c1b4ab77ef"
+        }
+      ],
+      "roles": {
+        "extra_csv": "A1 Stylegram-only explicit input",
+        "stylegram_core": "Explicit import by verified path",
+        "other_files": "Verify only; never execute legacy CV runner or use folds to select hidden rows"
+      },
+      "forbidden_effects": [
+        "No new matches to original six public-passage globs",
+        "No replacement of original global EXTRA or family gate training inputs"
+      ]
+    }
+  },
+  "resolver_simulation": {
+    "old_file_count": 531,
+    "new_file_count": 536,
+    "all_resolved_paths_equal": true,
+    "expected_comp_members_equal": true,
+    "expected_comp_members": [
+      "stylegram",
+      "stylometry_lgb",
+      "glm9b_twin",
+      "gauss_glm9b_L8",
+      "q3_8b_twin",
+      "gauss_q3_8b_L22",
+      "q25_7b_twin",
+      "q3_4b_twin",
+      "gauss_q3_4b_L4",
+      "debv3l",
+      "debv3l_twin",
+      "gauss_debv3l_L24",
+      "electl",
+      "desk",
+      "lora24_seed7",
+      "lora24_claude",
+      "lora24_claude_twin",
+      "lora20_q25_instyle",
+      "tokattn_deb",
+      "ultrabert"
+    ],
+    "allowed_omissions": [
+      "lora24_public",
+      "lora24_public_twin",
+      "tokattn_q35"
+    ],
+    "old_paths_sha256": "74049cb29dc8d6dfec06e20200fff55624528c5229125f0dd7fde0f9b370eb61",
+    "new_paths_sha256": "b64ef6ebbd829ecc43568a6a4f35dd31f74720e6c88a9b5fcebca10b666e398e",
+    "new_public_glob_matches": 0,
+    "public_globs_checked": [
+      "**/ntl_extra_passages_claude.csv",
+      "**/gen_passages.csv",
+      "**/ntl_generations.csv",
+      "**/ntl_proxy_generations.csv",
+      "**/ntl_generated*.csv",
+      "**/passages_clean.csv"
+    ],
+    "note": "Full path count/digest intentionally changes; do not reuse equality to the531-file inventory. New five files contain no config.json/train.csv/test.csv or model markers."
+  },
+  "preflight_contract": {
+    "baseline_noncompetition_files": 528,
+    "small_threshold_bytes": 16777216,
+    "small_files_full_hash": 398,
+    "small_bytes": 576874614,
+    "large_files_size_only": 130,
+    "large_bytes": 190244277214,
+    "large_hash_policy": "Not rehashed in this run; rely on pinned attachment versions, historical full hash and current exact size. Do not claim new full-weight byte verification.",
+    "official_train_sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+    "hidden_test": "Must have exact id,text CSV schema, nonempty unique ids and nonempty texts; arbitrary positive row count. Old sample hash/size/row count not enforced.",
+    "sample_submission": "Old public sample hash/size deliberately not checked.",
+    "extra_files": "Exactly five named files in exactly one accepted mount directory; all sizes/hashes checked.",
+    "extra_directory_candidates": [
+      "datasets/zhjianduan/ntl-stylegram-cv-inputs-v1",
+      "ntl-stylegram-cv-inputs-v1"
+    ],
+    "api": "run_preflight(manifest_path, extra_manifest_path, receipt_path=None, input_root=Path(/kaggle/input))",
+    "returns": [
+      "data_dir",
+      "extra_dir",
+      "extra_path",
+      "stylegram_core_path",
+      "test_rows",
+      "counts"
+    ],
+    "copy_to_notebook_payload": [
+      "input_preflight.py",
+      "extra-inputs.json",
+      "cloud/full-stack-capture-r1/outputs-v2/results/inputs/preflight_manifest.json as preflight_manifest.json"
+    ],
+    "receipt": "/kaggle/working/input_preflight.json, written only after success",
+    "limitations": "Checks fixed file paths only, not a recursive assertion that every unrelated mounted file is absent. Builder must freeze the32 attachment refs and retain original loader behavior."
+  },
+  "integration_rules": [
+    "Read A1 extra.csv through returned extra_path; preserve original global EXTRA/EX_T/EX_Y/EX_G and family gate inputs.",
+    "Import verified stylegram_core_path explicitly by module path; never execute the mounted CV runner.py.",
+    "New source data does not match original public CSV globs, nor model config/adapter/head globs.",
+    "Keep official hidden DATA from returned data_dir; never substitute external729 diagnostic panel."
+  ],
+  "code": {
+    "input_preflight.py": "26ee6c2a149a5b0e48f8016cd4427ef1576f02b178de85fab2ba9e5f4dc10d57",
+    "test_input_preflight.py": "6df0cee1eb7b2890bb6cae2c4fe9be9d167fb4ca91f3b2b77175fd46ee02e151",
+    "extra-inputs.json": "b7bf1347c6185c14d2480975873989f58115c02de65dc8bbd12ab09697faa687"
+  },
+  "local_tests": {
+    "command": "python -B -X utf8 -m unittest discover -s experiments/EXP-046-atlas20-a1-submission -p test_input_preflight.py -v",
+    "passed": 11,
+    "includes": [
+      "hidden4000 with changed sample bytes",
+      "train same-size hash tamper rejection",
+      "small/extra same-size tamper rejection",
+      "duplicate exact extra mounts rejection",
+      "shortmount support and unrelated extra.csv ignored",
+      "added unknown file rejection",
+      "empty/duplicate/malformed hidden CSV rejection",
+      "large size-only semantics and wrong-size rejection",
+      "unsafe/duplicate specs rejection",
+      "unfrozen manifest rejected without receipt"
+    ]
+  },
+  "execution": {
+    "training": false,
+    "gpu": false,
+    "remote_writes": false,
+    "large_weight_download": false,
+    "installed_dependencies": false
+  }
+}

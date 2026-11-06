@@ -1,0 +1,1 @@
+Attendance increased by 10 people from a base of 20, so the percentage increase was 10 ÷ 20 = 50%. When attendance later fell by 10 people, the base was 30, so the percentage decrease was 10 ÷ 30 = 33⅓%. The numerical change was the same both times, but percentages use the starting amount for each change, and those starting amounts were different.

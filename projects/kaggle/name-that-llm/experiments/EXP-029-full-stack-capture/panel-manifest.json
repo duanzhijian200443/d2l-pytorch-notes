@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-029",
+  "observed_at_utc": "2026-11-01T09:54:14.552387+00:00",
+  "status": "PANEL_PREPARED_NOT_EXECUTED",
+  "scope": "exploratory_external",
+  "inputs": [
+    {
+      "path": "experiments/EXP-027-multiclass-external-validation/evaluation.csv",
+      "bytes": 721966,
+      "sha256": "8ec3217f1f469b66170f68f7abdb3ef1973a64e47d983c59b40a4d1ce2094670"
+    },
+    {
+      "path": "experiments/EXP-027-multiclass-external-validation/metrics/data-gate.json",
+      "bytes": 12265,
+      "sha256": "cead2f4745a3e4af6a8adffe2361efd725e2710971a12123083b927589f573e5"
+    },
+    {
+      "path": "train.csv",
+      "bytes": 2139418,
+      "sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707"
+    }
+  ],
+  "preparation_code": {
+    "path": "experiments/EXP-029-full-stack-capture/prepare_panel.py",
+    "bytes": 9306,
+    "sha256": "addb1bfe473be60cf54e6cdbc71f76f41ed4a4d3475c9072ff17f8402f62893c"
+  },
+  "rows": 729,
+  "source_prompt_groups": 56,
+  "covered_class_count": 17,
+  "output_class_count": 18,
+  "output_labels": [
+    "claude-fable-5",
+    "claude-opus-4-6",
+    "claude-opus-4-8",
+    "claude-opus-5",
+    "claude-sonnet-5",
+    "gemini-3.1-pro-preview",
+    "gemini-3.6-flash",
+    "gemini-3.7-flash",
+    "gemini-3.8-flash",
+    "glm-5.3",
+    "glm-5.3-flash",
+    "gpt-5.5",
+    "gpt-5.6-luna",
+    "gpt-5.6-sol",
+    "gpt-5.6-terra",
+    "gpt-6-astra",
+    "kimi-k3",
+    "qwen3.8-max"
+  ],
+  "covered_labels": [
+    "claude-fable-5",
+    "claude-opus-4-6",
+    "claude-opus-4-8",
+    "claude-opus-5",
+    "claude-sonnet-5",
+    "gemini-3.1-pro-preview",
+    "gemini-3.6-flash",
+    "gemini-3.8-flash",
+    "glm-5.3",
+    "glm-5.3-flash",
+    "gpt-5.5",
+    "gpt-5.6-luna",
+    "gpt-5.6-sol",
+    "gpt-5.6-terra",
+    "gpt-6-astra",
+    "kimi-k3",
+    "qwen3.8-max"
+  ],
+  "class_counts_local_audit_only": {
+    "claude-fable-5": 19,
+    "claude-opus-4-6": 55,
+    "claude-opus-4-8": 55,
+    "claude-opus-5": 54,
+    "claude-sonnet-5": 52,
+    "gemini-3.1-pro-preview": 54,
+    "gemini-3.6-flash": 51,
+    "gemini-3.8-flash": 54,
+    "glm-5.3": 16,
+    "glm-5.3-flash": 17,
+    "gpt-5.5": 54,
+    "gpt-5.6-luna": 52,
+    "gpt-5.6-sol": 54,
+    "gpt-5.6-terra": 53,
+    "gpt-6-astra": 54,
+    "kimi-k3": 17,
+    "qwen3.8-max": 18
+  },
+  "source_id_contains_truth_label_rows": 729,
+  "id_rule": "x27- plus first 24 lowercase hex characters of SHA256(unchanged UTF-8 response text)",
+  "row_order": "ascending opaque id, stable sort; independent of source model/prompt metadata",
+  "selection": "All 729 already accepted EXP027 rows; no new exclusions, truncation, filtering or sampling",
+  "test": {
+    "path": "panel/test.csv",
+    "columns": [
+      "id",
+      "text"
+    ],
+    "rows": 729,
+    "bytes": 655284,
+    "sha256": "8eeec7f64e924f0fd79dca57d324d42d269f400bdfbfff76d60b4c168d9ae6f2",
+    "ids_unique": true,
+    "text_bytes_unchanged": true,
+    "cloud_input_allowed": true
+  },
+  "labels_local_only": {
+    "path": "labels-local-only.csv",
+    "columns": [
+      "id",
+      "source_id",
+      "prompt_id",
+      "model",
+      "text_sha256"
+    ],
+    "rows": 729,
+    "bytes": 156374,
+    "sha256": "f5425fbae56355e72537074cf5eef514c0319cd67489fc63c36fe07b2ff2302b",
+    "cloud_upload_allowed": false,
+    "model_process_access_allowed": false
+  },
+  "cloud_panel_file_allowlist": [
+    "panel/test.csv"
+  ],
+  "training": {
+    "path": "train.csv",
+    "rows": 2699,
+    "prompt_groups": 150,
+    "classes": 18,
+    "sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+    "instruction": "Copy official train.csv bytes unchanged into the same runtime input directory; this script does not replace training data."
+  },
+  "runtime_requirements": [
+    "Main --data and comp DATA_DIR must resolve to the same panel directory containing this test.csv and unchanged official train.csv.",
+    "Keep source evaluation.csv and labels-local-only.csv outside the uploaded inference payload and model process inputs.",
+    "Use all 18 output classes and original predicted/train-based priors. The 17-class coverage and local class counts must not mask outputs or set Sinkhorn targets.",
+    "No --sim/--fake_test, NTL_FAKE_TEST or NTL_SMOKE path. Infer groups from texts; never pass source prompt_id as model group assignments."
+  ],
+  "limits": [
+    "The EXP027 gate covers only the specified two lightweight training recipes and known/exact ancestry; independence from every full-stack checkpoint is not certified.",
+    "This panel has already been inspected and its publisher filtered using official 8grams. It is an exploratory external diagnostic, not fresh confirmatory validation or clean official OOF.",
+    "Gemini 3.7 is absent, class supports differ, and most of the 56 true task groups are incomplete. Report covered-17-class metrics only after inference, using the local sidecar."
+  ],
+  "training_performed": false,
+  "model_predictions_read": false,
+  "remote_operations_performed": false
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "SRC-025",
+  "kind": "discussion",
+  "title": "API 数据成本、公开和复现义务",
+  "url": "https://www.kaggle.com/competitions/name-that-llm/discussion/751011",
+  "observed_at": "2026-10-31T14:18:01.746683+00:00",
+  "source_version": {
+    "topic_id": 751011,
+    "snapshot_sha256": "3e38dbd5c817aa0157f9013f0d38ee9b0263caa2f60cfe0ff48aa28c3830d0ce"
+  },
+  "public_score": null,
+  "summary": "API 数据成本、公开和复现义务",
+  "author_claim": "作者集中提出六个规则问题；现有回复继续请求澄清。",
+  "verified": "本轮重新读取了帖子及返回的全部评论页；这是来源核查，不是实验复现。",
+  "use_for_us": "保留生成成本、许可证和版本记录，正式采用前核对规则。",
+  "test_plan": "保留生成成本、许可证和版本记录，正式采用前核对规则。",
+  "limitations": "尚未从这个线程得到成本上限、公开期限等明确主办方答复。",
+  "evidence": [
+    "tracking/snapshots/20261031T141753Z/topic-751011.json"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "observed_at": "2026-11-02T05:03:21.061681+00:00",
+  "delivery_files_hashed": 16,
+  "review_matches_current_code": true,
+  "source065_evidence_hashes_verified": 28,
+  "guide_report_month_plan_links_checked": 13,
+  "ledger_check": "PASS: 51 experiments, 66 sources, 8 ideas",
+  "views_rendered": 4,
+  "scope": "delivery integrity only; not hidden inference or performance proof"
+}

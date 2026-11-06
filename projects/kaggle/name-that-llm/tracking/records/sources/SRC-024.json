@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "SRC-024",
+  "kind": "discussion",
+  "title": "比赛内生成数据的规则问题",
+  "url": "https://www.kaggle.com/competitions/name-that-llm/discussion/750038",
+  "observed_at": "2026-10-31T14:18:01.559378+00:00",
+  "source_version": {
+    "topic_id": 750038,
+    "snapshot_sha256": "855a2633fcc9be670176145bab67b0a6c49da38de1ac9ccb7f5e14f26d1a65fb"
+  },
+  "public_score": null,
+  "summary": "比赛内生成数据的规则问题",
+  "author_claim": "帖子询问免费额度能否生成训练数据；现有肯定回复来自参赛者。",
+  "verified": "本轮重新读取了帖子及返回的全部评论页；这是来源核查，不是实验复现。",
+  "use_for_us": "追踪主办方正式澄清；在未确认前不预记生成额度为已授权支出。",
+  "test_plan": "追踪主办方正式澄清；在未确认前不预记生成额度为已授权支出。",
+  "limitations": "不能把参赛者回复写成主办方批准。",
+  "evidence": [
+    "tracking/snapshots/20261031T141753Z/topic-750038.json"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "job": "verify-results",
+  "script": "experiments/EXP-049-a1-sinkhorn030-ready/verify_results.py",
+  "sha256": "e6cec99016e7043ed5f19596908fae4cfb6e6c515dc987e27b56f3f077780106",
+  "timeout_seconds": 300,
+  "scope": "audited fixed local operation; environment GPU hiding is not a security sandbox",
+  "attempted_at": "2026-11-02T04:54:44.048437+00:00"
+}

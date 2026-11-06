@@ -1,0 +1,14 @@
+{
+  "observed_at": "2026-11-01T12:51:57.909618+00:00",
+  "run_id": "75230ec19d8d4d4daf6e771359fd475b",
+  "responses": 6,
+  "duplicate_job_ids": 0,
+  "invalid_text_hashes": 0,
+  "flags": {},
+  "counts": {
+    "codex_subscription|gpt-5.6-terra": 2,
+    "kaggle_model_proxy|gpt-5.6-luna": 2,
+    "codex_subscription|gpt-5.6-luna": 2
+  },
+  "scope": "live savedrecords only, notfinalaudit"
+}

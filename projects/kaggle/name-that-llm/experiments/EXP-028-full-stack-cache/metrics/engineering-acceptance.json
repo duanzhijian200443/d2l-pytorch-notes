@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "status": "PASS_ENGINEERING_ONLY_REAL_CACHE_NOT_GENERATED",
+  "observed_at_utc": "2026-11-01T09:50:40.400832+00:00",
+  "fixtures": [
+    {
+      "case": "n60_full-r2",
+      "fixture": {
+        "path": "experiments/EXP-028-full-stack-cache/fixtures/n60_full-r2/fixture.json",
+        "sha256": "be7cc270ec4e71095ba57d0dfd5c45962c55005aa2a34b148c7acdf90a5b52cc",
+        "bytes": 14521
+      },
+      "replay": {
+        "path": "experiments/EXP-028-full-stack-cache/fixtures/n60_full-r2/replay-review.json",
+        "sha256": "8ff7b1c0bc8626edf9142ad845146e5697b412721a79828c092892d368404318",
+        "bytes": 18410
+      },
+      "rows": 60,
+      "bitwise_equal_arrays": 12,
+      "stage_checks": 87,
+      "max_abs_error": 0,
+      "replay_status": "PASS_CACHED_BASELINE_MATH",
+      "accepted": true
+    },
+    {
+      "case": "n3_full-r2",
+      "fixture": {
+        "path": "experiments/EXP-028-full-stack-cache/fixtures/n3_full-r2/fixture.json",
+        "sha256": "529f80e110d22cb2d8aa00bb0d49c62db5a09d43fc2b1f291c1ef3e04cca9c7b",
+        "bytes": 13718
+      },
+      "replay": {
+        "path": "experiments/EXP-028-full-stack-cache/fixtures/n3_full-r2/replay-review.json",
+        "sha256": "d54c7f9d1a07f9f2a2ac2366a52d1c522b31f173af09763b3576d024525ce15b",
+        "bytes": 17351
+      },
+      "rows": 3,
+      "bitwise_equal_arrays": 12,
+      "stage_checks": 81,
+      "max_abs_error": 0,
+      "replay_status": "PASS_CACHED_BASELINE_MATH",
+      "accepted": true
+    },
+    {
+      "case": "n60_partial-r2",
+      "fixture": {
+        "path": "experiments/EXP-028-full-stack-cache/fixtures/n60_partial-r2/fixture.json",
+        "sha256": "1d278ab364615ea6fc21b46c664af43ef49f5d28323bd640fec8cc1f22e4df58",
+        "bytes": 14346
+      },
+      "replay": {
+        "path": "experiments/EXP-028-full-stack-cache/fixtures/n60_partial-r2/replay-review.json",
+        "sha256": "6ebde556b07af9054af7b0af67599a3571582efb8f5111554eba96c69ed33af1",
+        "bytes": 19287
+      },
+      "rows": 60,
+      "bitwise_equal_arrays": 12,
+      "stage_checks": 87,
+      "max_abs_error": 0,
+      "replay_status": "NEEDS_ADDITIONAL_ATLAS_SCORES",
+      "accepted": false
+    }
+  ],
+  "unit_checks": {
+    "cache_format": 15,
+    "observer": 5,
+    "result": "PASS",
+    "scope": "local unit runs; not model execution"
+  },
+  "entrypoint_checks": {
+    "path": "experiments/EXP-028-full-stack-cache/metrics/entrypoints-verified.json",
+    "sha256": "468f8d2340a3d38b4cb3dcabc5dd3ac5760f2867a92adfb57bf8f5641dace8e6",
+    "bytes": 1083
+  },
+  "legacy_import": {
+    "path": "experiments/EXP-028-full-stack-cache/metrics/legacy-import.json",
+    "sha256": "d64697e8c11d73d41e2781183d8ea1e6d526fb27456c125d39cb048aa3225907",
+    "bytes": 4524
+  },
+  "source_sha256_unchanged": "6c9145f038ccffbe08dc6da6db3d1dcf3d2e0e7d2286927bfc8800ef5148cfb8",
+  "model_predictions_generated": false,
+  "clean_full_stack_oof": false,
+  "new_submission": false,
+  "gpu_seconds": 0,
+  "review_findings_closed": [
+    "reject null external anchors",
+    "validate generated source before assembly",
+    "bind actual imported helper bytes"
+  ],
+  "remaining_gaps": [
+    "real model input/checkpoint version binding",
+    "real member inventory",
+    "real forward/cache capture",
+    "all-member training exposure",
+    "real Parquet IO",
+    "wall-clock effect on ATLAS coverage"
+  ]
+}

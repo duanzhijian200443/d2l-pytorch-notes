@@ -1,0 +1,32 @@
+--- SRC-002
++++ source.ipynb
+@@ -831,10 +831,7 @@
+         for _i, _t in enumerate(test.text.values):
+             if _mark in _t and LABELS[int(tot[_i].argmax())] not in _allowed:
+                 tot[_i, _forb] = -1e9; _nfix += 1
+-    _sz = np.bincount(Gte)[Gte]; _nh = 0
+-    for _g in np.unique(Gte[(_sz >= 12) & (_sz <= 18)]):
+-        _ii = np.where(Gte == _g)[0]; _r, _c = linear_sum_assignment(-tot[_ii]); _nh += int((tot[_ii].argmax(1)[_r] != _c).sum())
+-        tot[_ii[_r]] = -1e9; tot[_ii[_r], _c] = 0.0
++    _sz = np.bincount(Gte)[Gte]; _nh = 0  # guard-only variant: dense-cluster Hungarian disabled
+     log(f'post: em-dash guard fixed {_nfix}, dense-cluster Hungarian changed {_nh}')
+ pred = tot.argmax(1) if a.perpassage else hungarian(tot, Gte)
+ if a.sim:
+@@ -877,7 +874,7 @@
+     _evidence = (_Xte * _fw[None, :]) @ _log_rate.T + ((1.0 - _Xte) * _fw[None, :]) @ _log_not_rate.T
+     _evidence -= (((_Xte * _fw[None, :]) @ _base_log_rate) + (((1.0 - _Xte) * _fw[None, :]) @ _base_log_not_rate))[:, None]
+     _evidence -= _evidence.mean(axis=1, keepdims=True)
+-    _evidence = np.clip(1.5 * _evidence / max(float(_fw.sum()), 1e-6), -0.30, 0.30)
++    _evidence = np.clip(1.2 * _evidence / max(float(_fw.sum()), 1e-6), -0.30, 0.30)
+     _raw = _v38_before_hard.copy()
+     _probs = _v38sp.softmax(_raw, axis=1)
+     _sorted = np.sort(_probs, axis=1)
+@@ -1893,7 +1890,7 @@
+ cmd = [sys.executable, 'infer.py', '--data', str(DATA), '--models', json.dumps(MODELS),
+        '--perpassage', '1', '--extra', str(EXTRA), '--extra_w', '0.5', '--tfidf_w', '0.25',
+        '--distort_w', '0.10', '--svc_w', '1.5', '--pool', str(POOL), '--adapt_w', '1.0',
+-       '--adapt_thr', '0.15', '--sinkhorn', '0.45', '--sinkhorn_target_mix', '0.35', '--post', '0', '--atlas_dir', str(ATLAS),
++       '--adapt_thr', '0.15', '--sinkhorn', '0.60', '--sinkhorn_target_mix', '0.35', '--post', '1', '--atlas_dir', str(ATLAS),
+        '--atlas_base', str(B8), '--atlas_w', '0.20', '--atlas_margin', '0.3',
+        '--atlas_bs', '4', '--atlas_chunk', '3', '--atlas_budget', str(max(180, ATLAS_BUDGET)),
+        '--comp_path', '/kaggle/working/comp_logit.npy', '--comp_w', '0.15',

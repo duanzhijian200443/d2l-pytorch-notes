@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0041",
+  "prompt": "Explain browser caching to someone who wonders why an updated website still looks unchanged on their laptop. Please answer in roughly 80 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "technology_explanation",
+  "target_words": 80,
+  "prompt_group": "cp0041",
+  "split": "train",
+  "source": "codex_subscription",
+  "base_prompt": "Explain browser caching to someone who wonders why an updated website still looks unchanged on their laptop. Please answer in roughly 80 words.",
+  "base_prompt_sha256": "b3d203b54beca04c6f6ff7c06677a80771c913716d6fcb389e06cfaa4b8f8d10",
+  "base_prompt_id": "cp0041",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0041::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "4ccee44bdda34e29dd3ab3360710ae9e53928956f18fe6dea308d452521718c1",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:17:30.126920+00:00",
+  "ended_at": "2026-11-01T13:17:49.813723+00:00",
+  "prompt_sha256": "c7b0b2161b00e6d7500fa3d121ee4052c226e155abf357a6bd00f78eb446364c",
+  "text": "Your browser saves copies of website files, such as images, styles, and scripts, on your laptop so pages load faster next time. This storage is called a cache. After a website is updated, your browser may still reuse older saved files, making the site look unchanged. Try a hard refresh, which asks the browser to reload files, or clear that site’s cached data. If it still looks old, the website’s servers may also be caching content, so the delay might not be on your laptop.",
+  "text_sha256": "ff413b739b8ee4268a717a075320bd518cc1214bb663dd974559610a9a98c397",
+  "raw_final_sha256": "ff413b739b8ee4268a717a075320bd518cc1214bb663dd974559610a9a98c397",
+  "word_count": 85,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4319,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 106,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\4ccee44bdda34e29dd3ab3360710ae9e53928956f18fe6dea308d452521718c1",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

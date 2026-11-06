@@ -1,0 +1,207 @@
+{
+  "status": "PASS_SCOPED_TOOL_HANDOFF",
+  "observed_at": "2026-11-02T05:02:13.520079+00:00",
+  "manifest_sha256": "9d66021d4c28140ea3d1b15b4721cca6b17b4fa8b21e01f283f18efb157d7b3c",
+  "tests": {
+    "command": "python -B -X utf8 -m unittest discover -s src -p 'test*workbench*.py' -v",
+    "passed": 21,
+    "failed": 0,
+    "independent_tests_added": 9,
+    "test_file": "src/test_workbench_review.py",
+    "temporary_only": true
+  },
+  "review_status": "PASS_SCOPED_CODE_REVIEW",
+  "review_sha256": "9fb5b14446e4ddcb9947547a5b5f5b056e69f28bb959527a959eade197d78b81",
+  "offline_commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "-X",
+        "utf8",
+        "experiment.py",
+        "doctor"
+      ],
+      "exit_code": 0,
+      "stdout": "analysis: C:\\Users\\34331\\AppData\\Local\\Programs\\Python\\Python313\\python.exe\nkaggle: C:/Users/34331/AppData/Roaming/uv/tools/kaggle/Scripts/python.exe\nparquet: C:/Users/34331/AppData/Local/uv/cache/environments-v2/audit-e5542b9a7a231d97/Scripts/python.exe\n远端能力：只读查询与小文件下载。未提供保存、启动、取消、提交或生成数据命令。"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-X",
+        "utf8",
+        "experiment.py",
+        "list"
+      ],
+      "exit_code": 0,
+      "stdout": "EXP-046 | a1 | A1公共数据Stylegram配方：ATLAS20正式提交 | 正式分数 0.663\nEXP-048 | codex120 | A1加EXP040原文Luna/Terra120：正式对照（外部窗口启动） | 正式分数 未确认\nEXP-049 | sinkhorn030 | A1只改Sinkhorn为0.30：候选准备与固定缓存诊断 | 正式分数 未确认\nEXP-050 | pool-v13 | Open Pool V13对实际训练池的增量与隔离审计 | 正式分数 未确认"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-X",
+        "utf8",
+        "experiment.py",
+        "report",
+        "a1"
+      ],
+      "exit_code": 0,
+      "stdout": "报告：C:\\计算机学习\\深度学习\\projects\\kaggle\\name-that-llm\\experiments\\EXP-051-experiment-workbench\\reports\\EXP-046.md\n本次操作：OFFLINE_REPORT"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-X",
+        "utf8",
+        "experiment.py",
+        "report",
+        "codex120"
+      ],
+      "exit_code": 0,
+      "stdout": "报告：C:\\计算机学习\\深度学习\\projects\\kaggle\\name-that-llm\\experiments\\EXP-051-experiment-workbench\\reports\\EXP-048.md\n本次操作：OFFLINE_REPORT"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-X",
+        "utf8",
+        "experiment.py",
+        "report",
+        "sinkhorn030"
+      ],
+      "exit_code": 0,
+      "stdout": "报告：C:\\计算机学习\\深度学习\\projects\\kaggle\\name-that-llm\\experiments\\EXP-051-experiment-workbench\\reports\\EXP-049.md\n本次操作：OFFLINE_REPORT"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-X",
+        "utf8",
+        "experiment.py",
+        "report",
+        "pool-v13"
+      ],
+      "exit_code": 0,
+      "stdout": "报告：C:\\计算机学习\\深度学习\\projects\\kaggle\\name-that-llm\\experiments\\EXP-051-experiment-workbench\\reports\\EXP-050.md\n本次操作：OFFLINE_REPORT"
+    }
+  ],
+  "local_reuse_smoke": {
+    "status": "PASS",
+    "runs": [
+      {
+        "args": [
+          "prepare",
+          "sinkhorn030"
+        ],
+        "exit_code": 0,
+        "output": "报告：C:\\计算机学习\\深度学习\\projects\\kaggle\\name-that-llm\\experiments\\EXP-051-experiment-workbench\\reports\\EXP-049.md\n本次操作：PASS_FIXED_LOCAL_JOB"
+      },
+      {
+        "args": [
+          "run-local",
+          "sinkhorn030"
+        ],
+        "exit_code": 0,
+        "output": "固定诊断结果已存在：已核验复用，没有重算或覆盖。\n报告：C:\\计算机学习\\深度学习\\projects\\kaggle\\name-that-llm\\experiments\\EXP-051-experiment-workbench\\reports\\EXP-049.md\n本次操作：PASS_FIXED_LOCAL_JOB"
+      },
+      {
+        "args": [
+          "verify",
+          "pool-v13"
+        ],
+        "exit_code": 0,
+        "output": "报告：C:\\计算机学习\\深度学习\\projects\\kaggle\\name-that-llm\\experiments\\EXP-051-experiment-workbench\\reports\\EXP-050.md\n本次操作：PASS_FIXED_LOCAL_JOB"
+      }
+    ],
+    "package_receipt_sha256_unchanged": true,
+    "package_receipt_mtime_unchanged": true
+  },
+  "real_readonly_remote_smoke": {
+    "EXP-046": {
+      "status": {
+        "path": "experiments/EXP-051-experiment-workbench/observations/EXP-046/20261102T045512678309Z-status-3e21aa/receipt.json",
+        "sha256": "ecbbffee70826bb4109e2b488e562933c94737e9371f7693bca1926e389e5291",
+        "status": "COMPLETE",
+        "observed_at": "2026-11-02T04:55:18.121555+00:00",
+        "score": 0.663,
+        "submission_id": 57879463,
+        "script_version_id": 364624288,
+        "commit_status": "COMPLETE"
+      },
+      "collect": {
+        "path": "experiments/EXP-051-experiment-workbench/observations/EXP-046/20261102T045518223628Z-collect-64bdcd/receipt.json",
+        "sha256": "deebfa1b031834ce8a1ddadec9fcd9247509292fda48a4f8cb4838f6c3840e04",
+        "status": "COLLECTED_COMMIT_OUTPUTS",
+        "observed_at": "2026-11-02T04:55:45.917640+00:00",
+        "files": 6,
+        "bytes": 32195,
+        "scope": "saved_notebook_outputs_not_hidden_rerun_artifacts"
+      },
+      "verify": {
+        "path": "experiments/EXP-051-experiment-workbench/observations/EXP-046/20261102T045546094624Z-verify-29f922/receipt.json",
+        "sha256": "68076bfaa24ac8a25aa3034129dbaf7d7440458c9204de0b578e7999fb128d6e",
+        "status": "PASS_COMMIT_SAMPLE_ONLY",
+        "observed_at": "2026-11-02T04:55:47.103881+00:00"
+      }
+    },
+    "EXP-048": {
+      "status": {
+        "path": "experiments/EXP-051-experiment-workbench/observations/EXP-048/20261102T045512685199Z-status-be9cf6/receipt.json",
+        "sha256": "3baad775dd662d2f1e4bfaad01054852d4e7743c8216354676ccc2b831bb020d",
+        "status": "PENDING",
+        "observed_at": "2026-11-02T04:55:18.325541+00:00",
+        "score": null,
+        "submission_id": 57893384,
+        "script_version_id": 364733823,
+        "commit_status": "COMPLETE"
+      },
+      "collect": {
+        "path": "experiments/EXP-051-experiment-workbench/observations/EXP-048/20261102T045518421940Z-collect-59475a/receipt.json",
+        "sha256": "3dfbeac13f85772837249a656833c1274903489c98831718239868477da1e797",
+        "status": "COLLECTED_COMMIT_OUTPUTS",
+        "observed_at": "2026-11-02T04:55:47.378297+00:00",
+        "files": 7,
+        "bytes": 33072,
+        "scope": "saved_notebook_outputs_not_hidden_rerun_artifacts"
+      },
+      "verify": {
+        "path": "experiments/EXP-051-experiment-workbench/observations/EXP-048/20261102T045547548584Z-verify-6dbac9/receipt.json",
+        "sha256": "d786ab7e40d77c2e3b513287c76b907468f39c93af95473e0bc2bde30f124bdd",
+        "status": "PASS_COMMIT_SAMPLE_ONLY",
+        "observed_at": "2026-11-02T04:55:48.460189+00:00"
+      }
+    },
+    "EXP-049": {
+      "verify": {
+        "path": "experiments/EXP-051-experiment-workbench/observations/EXP-049/20261102T045443799371Z-verify-dfbf24/receipt.json",
+        "sha256": "5048bca617837d9a508bc88fa20fb67aeb6ba9ee7ef29b79623ec8bea3b9927e",
+        "status": "PASS_FIXED_LOCAL_JOB",
+        "observed_at": "2026-11-02T04:54:45.981720+00:00"
+      }
+    },
+    "EXP-050": {
+      "verify": {
+        "path": "experiments/EXP-051-experiment-workbench/observations/EXP-050/20261102T045446210364Z-verify-ed0c15/receipt.json",
+        "sha256": "29a162255115e55a6ccf8e0e960ee3844f1d2b566e0a3447700f9a77acaf33c7",
+        "status": "PASS_FIXED_LOCAL_JOB",
+        "observed_at": "2026-11-02T04:54:47.572425+00:00"
+      }
+    }
+  },
+  "new_gpu_tasks": 0,
+  "new_model_api_generation_calls": 0,
+  "new_submissions": 0,
+  "hidden_execution_verified": false,
+  "limitations": [
+    "This reviewer made no network calls; real remote status/collect/check completion is owned by parent and must be linked separately.",
+    "No hidden-run outputs, OOF/model fitting or leaderboard gain validated by this review.",
+    "No end-to-end injected HTTP redirect/pagination timeout tests; malformed/oversized/truncated streams and unsafe hosts covered at unit level.",
+    "Local execution remains a fixed-script allowlist with bounded subprocess, not an OS network/filesystem security sandbox.",
+    "Provider SDK materializes list response/log before the application log-size guard; guard prevents persistence and continued processing, not upstream response allocation."
+  ]
+}

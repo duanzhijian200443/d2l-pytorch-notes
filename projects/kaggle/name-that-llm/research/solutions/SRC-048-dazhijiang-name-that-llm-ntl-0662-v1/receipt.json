@@ -1,0 +1,46 @@
+{
+  "ref": "dazhijiang/name-that-llm-ntl-0662",
+  "title": "Name That LLM NTL 0662",
+  "author": "Zhizhi Jiang",
+  "category": "solutions",
+  "notebook_version": 1,
+  "script_version_id": null,
+  "observed_at": "2026-11-01T07:32:23.227826+00:00",
+  "source_sha256": "ecedd5ddbf1942f0f541f0a2d7b26df23804ec25ab16625b257965026c65474d",
+  "code_sha256": "d164e570c03550b08337e9934b5f18af1255aeacdf1e0a0d279547bfac693c6f",
+  "public_score": {
+    "value": 0.662,
+    "bound_to_source": false,
+    "evidence_type": "parent_observed_platform_page",
+    "script_version_id": null
+  },
+  "related_sources": [],
+  "same_code_sources": [
+    "SRC-002",
+    "SRC-009",
+    "SRC-010"
+  ],
+  "source_executed": false,
+  "action": "NEW_FIXED_VERSION",
+  "artifact_dir": "research/inbox/20261101-community-variants/solutions/dazhijiang--name-that-llm-ntl-0662-v1",
+  "nearest_sources": [
+    {
+      "source": "SRC-010",
+      "line_similarity": 1.0
+    },
+    {
+      "source": "SRC-009",
+      "line_similarity": 1.0
+    },
+    {
+      "source": "SRC-002",
+      "line_similarity": 1.0
+    },
+    {
+      "source": "SRC-021",
+      "line_similarity": 0.9994764397905759
+    }
+  ],
+  "fixed_version_refetch_verified_at": "2026-11-01T07:33:47.364052+00:00",
+  "fixed_version_request_label": "v1"
+}

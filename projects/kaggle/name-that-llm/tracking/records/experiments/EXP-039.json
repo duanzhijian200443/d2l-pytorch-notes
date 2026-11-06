@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "EXP-039",
+  "title": "显式格式对齐Codex增采：四模型各75条，共300条",
+  "baseline_id": "EXP-034",
+  "hypothesis": "Collect300newunalteredCodexresponsesunderfrozenvisibleformatprotocol,4models75each;utilitynotyetevaluated.",
+  "changes": [
+    "75sharedoriginalgroups60train15holdout,excludedpaired10panel",
+    "ExactEXP034visibleformatvariant,lowandminimalbaseunchanged",
+    "Oneadditionalcollectorworker;existingEXP038notinterrupted"
+  ],
+  "observed_at": "2026-11-01T13:12:56.505333+00:00",
+  "source": {
+    "notebook_ref": null,
+    "notebook_version": null,
+    "script_version_id": null,
+    "local_path": "experiments/EXP-039-codex-aligned-300/code/run_batch.py",
+    "sha256": "4dc834d49edde3b379f1794041b97be95a2993c4ed6a5d822915662a606329cb"
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-039-codex-aligned-300/manifest.json",
+    "validation_split_id": "codex-pilot-prompt-v1",
+    "content_hashes_verified": true
+  },
+  "config": {
+    "note": "仅作台账索引；完整参数以 config_path 指向的 config.json 为准。"
+  },
+  "environment": {
+    "platform": "local_Codex_subscription",
+    "accelerator": "none",
+    "container": null,
+    "seed": 20261101039
+  },
+  "execution": {
+    "scope": "Authorized300responsesstarted,oneworker;existingpairedcollectionleftactive",
+    "status": "STOPPED_FOR_CONCURRENCY_HANDOFF",
+    "observed_at": "2026-11-01T13:11:05.265771+00:00",
+    "run_id": "2f5308a40ed74d748cf6354c77612627",
+    "controller_pid": 22420,
+    "saved_responses": 20,
+    "launched_this_run": 7,
+    "actual_model_requests": 20,
+    "raw_controller_status": "LOCAL_ERROR",
+    "handoff_gate_model_requests": 0
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": "11offlinechecksPASS;all4routesinitialresponsesverified;modelidentityrequested_only,notunderlyingsnapshotproof",
+    "per_class_recall_path": null,
+    "oof_path": null,
+    "leakage_audit": "not_audited"
+  },
+  "cost": {
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0,
+    "subscription_usage": "unmetered_in_local_record"
+  },
+  "timing_note": null,
+  "conclusion": "Userrequestedtotalconcurrency3;activeanswerfinished,20successesretained.ExplicitunstartedattemptgatecausedprePopenFileExistsErrorandcleanprocessdrain;noinflightmodelkilled.",
+  "limitations": "75sharedoldbasegroupsnot300independentprompts;requestedmodelonlymaylackbackendidentity;bareAPIequivalencenotestablished.",
+  "next_action": "EXP040continuesremaining280with2workersusingoriginaljobkeys;EXP038staysserial1.",
+  "related_sources": [],
+  "evidence": [
+    "experiments/EXP-039-codex-aligned-300/config.json",
+    "experiments/EXP-039-codex-aligned-300/manifest.json",
+    "experiments/EXP-039-codex-aligned-300/report.md",
+    "experiments/EXP-039-codex-aligned-300/prompts.jsonl",
+    "experiments/EXP-039-codex-aligned-300/request-plan.jsonl",
+    "experiments/EXP-039-codex-aligned-300/metrics/selection-audit.json",
+    "experiments/EXP-039-codex-aligned-300/metrics/offline-validation.json",
+    "experiments/EXP-039-codex-aligned-300/metrics/execution-preflight.json",
+    "experiments/EXP-039-codex-aligned-300/code/run_batch.py",
+    "experiments/EXP-039-codex-aligned-300/collection/state.json",
+    "experiments/EXP-039-codex-aligned-300/collection/records.jsonl",
+    "experiments/EXP-039-codex-aligned-300/metrics/launch.json",
+    "experiments/EXP-039-codex-aligned-300/metrics/live-verification.json",
+    "experiments/EXP-039-codex-aligned-300/metrics/monitor-binding.json"
+  ],
+  "config_path": "experiments/EXP-039-codex-aligned-300/config.json"
+}

@@ -1,0 +1,167 @@
+{
+  "role": "PENDING_IMPORT handoff only, not canonical source ledger",
+  "status": "PENDING_IMPORT",
+  "category": "datasets",
+  "slug": "open-pool-v13",
+  "source_url": "https://www.kaggle.com/datasets/crtproduction/name-that-llm-open-pool/versions/13",
+  "source_version": {
+    "dataset_id": 12862556,
+    "dataset_version_number": 13,
+    "author_release_label": "v11 fix"
+  },
+  "comparison_only_version": 12,
+  "existing_source_candidates": [
+    "SRC-038"
+  ],
+  "observed_collection_day_utc": "2026-11-02",
+  "completed_at_utc": "2026-11-02T04:02:18.216662+00:00",
+  "notes_path": "notes.md",
+  "factcheck_path": "factcheck.json",
+  "evidence_time_note": "Exact footer retrieval times in range-fetch-log.json; other snapshots use local last-write times as acquisition completion proxies, not remote source event timestamps. API version creation timestamps are distinct.",
+  "files": [
+    {
+      "path": "api-info.json",
+      "bytes": 28781,
+      "sha256": "378f3abf6e5735b0fe27b6064a1d35e93e94bdbec67bb0619a2110643b66df30",
+      "local_last_write_utc": "2026-11-02T03:59:44.876373+00:00"
+    },
+    {
+      "path": "dataset-metadata.json",
+      "bytes": 32134,
+      "sha256": "d1f3e6acd811438e5c7fbd0e45875e68efaa70256cfe83bad552b3a8ca6dd607",
+      "local_last_write_utc": "2026-11-02T03:59:24.555879+00:00"
+    },
+    {
+      "path": "factcheck.json",
+      "bytes": 3510,
+      "sha256": "3f30641a490737ec625e2e143816876e528e67ad2ab93716961b461f4cfe2f99",
+      "local_last_write_utc": "2026-11-02T04:02:18.245147+00:00"
+    },
+    {
+      "path": "fetch-footers.py",
+      "bytes": 1601,
+      "sha256": "c7b21f3a9ce2bdc85260a8d6fbde336a59504e33bd9d45005890bd5a9433c4f3",
+      "local_last_write_utc": "2026-11-02T04:00:44.430131+00:00"
+    },
+    {
+      "path": "files/dataq4_paired.csv",
+      "bytes": 1885,
+      "sha256": "7d73f34cdf2300ebfccb788ae9140afd8680adf6eaedca4fc9bc5582fb9c81c4",
+      "local_last_write_utc": "2026-11-01T13:34:21+00:00"
+    },
+    {
+      "path": "files/dataq4_runs.csv",
+      "bytes": 911,
+      "sha256": "fac0d980eace9c1b736d36052d497ca8ff6a2dfe639ba8accb98fa42e5444d3f",
+      "local_last_write_utc": "2026-11-01T13:34:21+00:00"
+    },
+    {
+      "path": "files/panel_gaps.csv",
+      "bytes": 1141138,
+      "sha256": "38d743bcbba58cf089a137cf6a6a91a7225a26e56dd20847ede813ecb9d20ed3",
+      "local_last_write_utc": "2026-11-01T13:34:23+00:00"
+    },
+    {
+      "path": "files/per_model.csv",
+      "bytes": 679,
+      "sha256": "8e5d16fa5d114f4dabcba3af2fe6f904afb025dfbf2bd8c3a98a805898500815",
+      "local_last_write_utc": "2026-11-01T13:34:23+00:00"
+    },
+    {
+      "path": "files/removal_summary.csv",
+      "bytes": 280,
+      "sha256": "aa8ac1faeb1530109345eb0c5e80d08cf1a90e4fd364a544ec3a038cbc65fde1",
+      "local_last_write_utc": "2026-11-01T13:34:23+00:00"
+    },
+    {
+      "path": "files/sources.csv",
+      "bytes": 4338,
+      "sha256": "a077c9666935040658854885d6c878c218982c98757f14d1629a11d5dcf39d94",
+      "local_last_write_utc": "2026-11-01T13:34:23+00:00"
+    },
+    {
+      "path": "files/typography_match.csv",
+      "bytes": 11312,
+      "sha256": "ba86e947e40c77763a599ca03a9f9e00d1b728632b87b89ed44b85981b683526",
+      "local_last_write_utc": "2026-11-01T13:34:23+00:00"
+    },
+    {
+      "path": "files/v11_append_log.csv",
+      "bytes": 678,
+      "sha256": "606db6d76989cc1458876dc6e4ebbb43198d002f18c7ba8b8f9f4d478a7821dd",
+      "local_last_write_utc": "2026-11-01T13:34:23+00:00"
+    },
+    {
+      "path": "files-v12.json",
+      "bytes": 1848,
+      "sha256": "61a2d1fba328bb61bb4685fcdb3d277007add9f34d3ab625e9ddd327142062a3",
+      "local_last_write_utc": "2026-11-02T03:59:25.882829+00:00"
+    },
+    {
+      "path": "files-v13.json",
+      "bytes": 1848,
+      "sha256": "b9c23b6bd96160408d65d6d7c6942ff9d42e480f3ae64abafcd21445dff9ee2b",
+      "local_last_write_utc": "2026-11-02T03:59:28.039986+00:00"
+    },
+    {
+      "path": "inspect-footers.py",
+      "bytes": 1587,
+      "sha256": "9bd4940dbe5bcacfb81920024764af3b4f417ff0d3207cd0d40c5001d71201cf",
+      "local_last_write_utc": "2026-11-02T04:01:10.477897+00:00"
+    },
+    {
+      "path": "mcp-files-summary-v13.json",
+      "bytes": 671,
+      "sha256": "994491b4c18910ae29e1736ca252700ec343b777815ea7e946525c4dba988305",
+      "local_last_write_utc": "2026-11-02T04:01:22.797973+00:00"
+    },
+    {
+      "path": "notes.md",
+      "bytes": 6287,
+      "sha256": "e9645979c8615403a916d9930eb179ec72645918fe9fb054d7e6e0fbfe32cc7c",
+      "local_last_write_utc": "2026-11-02T04:01:59.156820+00:00"
+    },
+    {
+      "path": "parquet-metadata-check.json",
+      "bytes": 13962,
+      "sha256": "09996d60b11c834cf987bcb409432c547ecc0188f553d0c42c37be87248c029f",
+      "local_last_write_utc": "2026-11-02T04:01:10.789986+00:00"
+    },
+    {
+      "path": "parquet-tail.bin",
+      "bytes": 65536,
+      "sha256": "f7a21c3c80c175385c0565918a7b12687f3018e9e1206e3a2c692e3871373f9e",
+      "local_last_write_utc": "2026-11-02T04:00:23.040823+00:00"
+    },
+    {
+      "path": "range-fetch-log.json",
+      "bytes": 2213,
+      "sha256": "9aa09ae2df649ec3c5f733c2692d90182c37058765bd7a0b02540419cf7cfe97",
+      "local_last_write_utc": "2026-11-02T04:01:07.422155+00:00"
+    },
+    {
+      "path": "v12-ntl_open_pool.parquet-tail.bin",
+      "bytes": 65536,
+      "sha256": "4625ae4f393a6bcfd04f85219642e0c698a0e6f970efb16c93051447cc217619",
+      "local_last_write_utc": "2026-11-02T04:00:52.342577+00:00"
+    },
+    {
+      "path": "v13-gemini37_unverified.parquet-tail.bin",
+      "bytes": 65536,
+      "sha256": "c009b39068d1090dbbb397e5dd94d16023cd7456d8f51231002672096e3380ea",
+      "local_last_write_utc": "2026-11-02T04:01:02.207902+00:00"
+    },
+    {
+      "path": "v13-ntl_open_pool.parquet-tail.bin",
+      "bytes": 65536,
+      "sha256": "f7a21c3c80c175385c0565918a7b12687f3018e9e1206e3a2c692e3871373f9e",
+      "local_last_write_utc": "2026-11-02T04:00:57.546227+00:00"
+    },
+    {
+      "path": "v13-prompts.parquet-tail.bin",
+      "bytes": 65536,
+      "sha256": "4e97e5589e1a1ccc338b4425419caca003b9100c24fc62bdd0663deab97ad367",
+      "local_last_write_utc": "2026-11-02T04:01:07.422155+00:00"
+    }
+  ]
+}

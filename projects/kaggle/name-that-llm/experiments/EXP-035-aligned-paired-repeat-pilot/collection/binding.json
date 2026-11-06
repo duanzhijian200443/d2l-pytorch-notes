@@ -1,0 +1,10 @@
+{
+  "experiments/EXP-030-codex-subscription-pilot-r3/code/codex_collect.py": "5c1d5ccd66fec5d4cea4b0e9ea526c9cbfc171f73d7e81e5b23d9188ccda1d24",
+  "experiments/EXP-034-explicit-format-alignment/code/prepare_alignment.py": "13c222146dff8380ad1e9e7188768c25a49f2eeb2f95eed4daf382a6b908c226",
+  "experiments/EXP-034-explicit-format-alignment/pilot/config.json": "57d8c463af42b76e7f4263dc4982e8cd34ea2cbc550f6cafefc7731059737856",
+  "experiments/EXP-021-codex-subscription-pilot/model-instructions.txt": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+  "experiments/EXP-035-aligned-paired-repeat-pilot/config.json": "01faf37992431b52bbcd22b19e6ff3f9589183f17b216903eeaeb86c62c119d6",
+  "experiments/EXP-035-aligned-paired-repeat-pilot/request-plan.jsonl": "f9f99650c639208729a2e9dc3401bece9e6dd05ca8f64975c5eb847b64838e8c",
+  "experiments/EXP-035-aligned-paired-repeat-pilot/code/run_trial.py": "dbb82923c3a24adc896d9d8c2bea5da77b89f8beb1c59013a5a5f96cadd8c5d5",
+  "experiments/EXP-035-aligned-paired-repeat-pilot/code/kaggle_transport.py": "8062cbaab2b553d6d6ad90391a13a4d9024686cff3a4d9c28ae40a9911ff5b76"
+}

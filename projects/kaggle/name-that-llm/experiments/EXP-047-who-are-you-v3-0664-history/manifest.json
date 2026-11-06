@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-047",
+  "freeze_status": "HISTORICAL_COMPLETE_SUBMISSION_SOURCE_BOUND",
+  "observed_at": "2026-11-01T17:21:54Z",
+  "registered_at": "2026-11-01T17:34:25.102026+00:00",
+  "config": {
+    "path": "experiments/EXP-047-who-are-you-v3-0664-history/config.json",
+    "sha256": "bdf4f3d3e80d4c344134c3505ccdb14838f8ee79596e6517d0f9676c4188ba56",
+    "bytes": 2103
+  },
+  "source": {
+    "path": "experiments/EXP-047-who-are-you-v3-0664-history/source/who-are-you-v3.ipynb",
+    "sha256": "b4a716ba3c1cdc4a5c976a0cb9ff2c863e53ed7e63a8da1becfa2e70d422f5d6",
+    "bytes": 131604
+  },
+  "inputs": [
+    {
+      "path": "experiments/EXP-047-who-are-you-v3-0664-history/source/notebook-v3-metadata.json",
+      "sha256": "9de0c53920b76055c508057b3299157a01d3c65d88b15dadfa896d637a5f6fd5",
+      "bytes": 2424
+    }
+  ],
+  "evidence": [
+    {
+      "path": "experiments/EXP-047-who-are-you-v3-0664-history/metrics/mcp-readback.json",
+      "sha256": "ebcbb43ff6f84385b9e0e741ab5349cf77e4378ad53564e3d100f9bc3da0d9a8",
+      "bytes": 139372
+    },
+    {
+      "path": "experiments/EXP-047-who-are-you-v3-0664-history/metrics/submission-57843313.json",
+      "sha256": "f3357d3a6e97a66b5196081bd94a7d927d6678e9db6cbee879e3cff9968dc826",
+      "bytes": 562
+    },
+    {
+      "path": "experiments/EXP-047-who-are-you-v3-0664-history/metrics/submission-source-binding.json",
+      "sha256": "14316a099dab21a992808317dc19d39e1ca6a1bcd3128c30f247ad0d3009601f",
+      "bytes": 1908
+    },
+    {
+      "path": "experiments/EXP-047-who-are-you-v3-0664-history/metrics/registration-check.json",
+      "sha256": "032b17b391142dd39f835e3556a07658d14e707c50e8ed78ae7861f1de6951ac",
+      "bytes": 963
+    },
+    {
+      "path": "experiments/EXP-047-who-are-you-v3-0664-history/report.md",
+      "sha256": "43a3ca50b3fc26ec8cb7cea2f71e0c9a7ae1c75b3193c45428cffbc3ca6246fd",
+      "bytes": 1890
+    }
+  ],
+  "code": [],
+  "binding": {
+    "submission_id": 57843313,
+    "script_version_id": 364274017,
+    "notebook_version": 3,
+    "status": "COMPLETE",
+    "public_score": 0.664
+  },
+  "input_content_hashes_verified": false,
+  "historical_cost_unknown": true,
+  "note": "This is a historical source/submission binding, not a pre-training freeze or whole-attachment audit."
+}

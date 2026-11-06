@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "id": "SRC-011",
+  "kind": "notebook",
+  "title": "NTL v40 Summit Pinnacle",
+  "url": "https://www.kaggle.com/code/otmaneelmahdaouy/ntl-v40-summit-pinnacle",
+  "observed_at": "2026-10-30T15:16:41.600Z",
+  "source_version": {
+    "notebook_version": 1,
+    "script_version_id": null,
+    "source_sha256": "e2724209bb5ac47870eef458e1966ec74460332d2d504f6153055e832ff57bf0",
+    "code_sha256": "f818732680a8699fc1516add2d923624f73260497069578de32bfa4596808d26"
+  },
+  "family_id": "code-f818732680a8",
+  "public_score": {
+    "value": 0.662,
+    "evidence_type": "platform_page",
+    "bound_to_source": false,
+    "script_version_id": null
+  },
+  "summary": "ATLAS20 主体；Llama 来源回退与 FAST_COMMIT 跳过复制；正文写 0.670+，平台实际 0.662。",
+  "author_claim": "正文声明保存在下方 description.md；标题分数不作为独立证据。",
+  "verified": "2026-10-30 已观察页面分数并保存源码；增量说明见摘要。",
+  "use_for_us": "用于选择对照实验，不直接替换当前基线。",
+  "test_plan": "先核对具体得分版本，再把单项差异变成 IDEA。",
+  "limitations": "页面分数与下载源码版本未绑定；排名只代表当日快照。同代码的副本不是独立算法。",
+  "evidence": [
+    "reviews/public-top20-20261030/otmaneelmahdaouy--ntl-v40-summit-pinnacle/source.ipynb",
+    "reviews/public-top20-20261030/otmaneelmahdaouy--ntl-v40-summit-pinnacle/metadata.json",
+    "reviews/public-top20-20261030/otmaneelmahdaouy--ntl-v40-summit-pinnacle/description.md",
+    "reviews/public-top20-20261030/ui-scores.json"
+  ]
+}

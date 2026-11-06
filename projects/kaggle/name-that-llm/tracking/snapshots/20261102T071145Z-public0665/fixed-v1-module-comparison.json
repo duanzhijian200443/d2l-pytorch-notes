@@ -1,0 +1,240 @@
+{
+  "checked_at": "2026-11-02T07:11:32.120999+00:00",
+  "refs": [
+    "synthreaper/ntl-sovereign-gold-apex",
+    "chyibo/name-that-llm-0663-fork",
+    "bgunshui/ntl-apex-e"
+  ],
+  "results": [
+    {
+      "ref": "synthreaper/ntl-sovereign-gold-apex",
+      "source_version_requested": "v1",
+      "source_sha256": "ca4c9e18ed32dcd8168b8118b192d39d657803d30dcd89a564b1c2d1d9c846dd",
+      "code_sha256": "5e2bbb0482edbc63ff2b9afc59c8855a8d90e1385b91036b11549a9fd6c72b28",
+      "id": 142184076,
+      "metadata_current_version": 1,
+      "machine_shape": "NvidiaTeslaT4",
+      "outputs": {
+        "infer.py": {
+          "sha256": "63112c88d43f9d69b3132243315e0db28c40b4bf0f42bac651f73ef07a67f9bb",
+          "bytes": 49002,
+          "file": "synthreaper\\infer.py",
+          "nl_CRLF": 0,
+          "ast_sha256": "577197424c0255937c1f068b3c404403c187be909a19eb105abe86ef2ff0e8a5"
+        },
+        "gauss.py": {
+          "sha256": "908b57113f1a7b8ebdbf204c6be87cbc385f765ba50ac07b4e270c64b7cf1000",
+          "bytes": 8219,
+          "file": "synthreaper\\gauss.py",
+          "nl_CRLF": 0,
+          "ast_sha256": "996e89e51426ddb349da32b137ff2c07563555ea332c4361e6ae86af680f1ad0"
+        },
+        "comp_stack.py": {
+          "sha256": "4a4b800a5380094d78da66d140d224f8a3974d1e3012086783d5bf81b1264514",
+          "bytes": 53256,
+          "file": "synthreaper\\comp_stack.py",
+          "nl_CRLF": 0,
+          "ast_sha256": "69b7642c7382d2bd61eca40fe1386571408352c09e4828e5fcbe408c5181eef8"
+        },
+        "sibling_style.py": {
+          "sha256": "8a7f3b3dad7cbe1755b66e8455a157894cac92b8983fc805f5ed6286ea915e66",
+          "bytes": 4970,
+          "file": "synthreaper\\sibling_style.py",
+          "nl_CRLF": 0,
+          "ast_sha256": "7b9f87179edafc1f642f4aaed2fbbfeae0f7e579f6518309f726fed7c3b69cf7"
+        }
+      },
+      "cmd_hash": "a1c543b8c7af60bed4ab390d371be8ef60e273b58bef45bace22238c9fd83653",
+      "cmd_preview": [
+        "cmd = [sys.executable, 'infer.py', '--data', str(DATA), '--models', json.dumps(MODELS),\n       '--perpassage', '1', '--extra', str(EXTRA), '--extra_w', '0.5', '--tfidf_w', '0.25',\n       '--distort_w', '0.10', '--svc_w', '12', '--pool', str(POOL), '--adapt_w', '1.0',\n       '--adapt_thr', '0.15', '--sinkhorn', '0.60', '--sinkhorn_target_mix', '0.35', '--post', '0', '--atlas_dir', str(ATLAS),\n       '--atlas_base', str(B8), '--atlas_w', '0.20', '--atlas_margin', '0.3',\n       '--atlas_bs', '4', '--atlas_chunk', '3', '--atlas_budget', str(max(180, ATLAS_BUDGET)),\n       '--comp_path', '/kaggle/working/comp_logit.npy', '--comp_w', '0.15',\n       '--out', '/kaggle/working/submission.parquet', '--cache', '/kaggle/working/cache']"
+      ],
+      "saved_version_log": {
+        "name": "ntl-sovereign-gold-apex.log",
+        "sha256": "715f0839c9c6014965bc917910a6753bcad679872cae66550e523c39666875a6",
+        "bytes": 8909,
+        "selected_public_log_messages": [
+          {
+            "line_no": 10,
+            "message": "FAST_COMMIT True"
+          },
+          {
+            "line_no": 31,
+            "message": "variant E dropped flag_gemini37_routing_risk 0"
+          },
+          {
+            "line_no": 32,
+            "message": "variant E svc pool = open safe pool 190588"
+          },
+          {
+            "line_no": 38,
+            "message": "comp stack wall time 0"
+          },
+          {
+            "line_no": 39,
+            "message": "RUNNING MAIN INFERENCE"
+          }
+        ],
+        "flagged_dropped_count": 0,
+        "safe_pool_rows_printed": 190588,
+        "scope": "FAST_COMMIT=True public sample save; selected pool output before main SVC exact dedup/fit; not the hidden scoring log"
+      }
+    },
+    {
+      "ref": "chyibo/name-that-llm-0663-fork",
+      "source_version_requested": "v1",
+      "source_sha256": "07cb21ed6f9b2b2d0920756a8fea64ec5a5d37637d7ea4fad07ab6eb85ce5140",
+      "code_sha256": "e3b8fa97495e45873b1297b782488819b4a04ac53cd08baa74e3637505b54605",
+      "id": 142199340,
+      "metadata_current_version": 1,
+      "machine_shape": "NvidiaTeslaT4",
+      "outputs": {
+        "infer.py": {
+          "sha256": "63112c88d43f9d69b3132243315e0db28c40b4bf0f42bac651f73ef07a67f9bb",
+          "bytes": 49002,
+          "file": "chyibo\\infer.py",
+          "nl_CRLF": 0,
+          "ast_sha256": "577197424c0255937c1f068b3c404403c187be909a19eb105abe86ef2ff0e8a5"
+        },
+        "gauss.py": {
+          "sha256": "908b57113f1a7b8ebdbf204c6be87cbc385f765ba50ac07b4e270c64b7cf1000",
+          "bytes": 8219,
+          "file": "chyibo\\gauss.py",
+          "nl_CRLF": 0,
+          "ast_sha256": "996e89e51426ddb349da32b137ff2c07563555ea332c4361e6ae86af680f1ad0"
+        },
+        "comp_stack.py": {
+          "sha256": "4a4b800a5380094d78da66d140d224f8a3974d1e3012086783d5bf81b1264514",
+          "bytes": 53256,
+          "file": "chyibo\\comp_stack.py",
+          "nl_CRLF": 0,
+          "ast_sha256": "69b7642c7382d2bd61eca40fe1386571408352c09e4828e5fcbe408c5181eef8"
+        },
+        "sibling_style.py": {
+          "sha256": "8a7f3b3dad7cbe1755b66e8455a157894cac92b8983fc805f5ed6286ea915e66",
+          "bytes": 4970,
+          "file": "chyibo\\sibling_style.py",
+          "nl_CRLF": 0,
+          "ast_sha256": "7b9f87179edafc1f642f4aaed2fbbfeae0f7e579f6518309f726fed7c3b69cf7"
+        }
+      },
+      "cmd_hash": "a1c543b8c7af60bed4ab390d371be8ef60e273b58bef45bace22238c9fd83653",
+      "cmd_preview": [
+        "cmd = [sys.executable, 'infer.py', '--data', str(DATA), '--models', json.dumps(MODELS),\n       '--perpassage', '1', '--extra', str(EXTRA), '--extra_w', '0.5', '--tfidf_w', '0.25',\n       '--distort_w', '0.10', '--svc_w', '12', '--pool', str(POOL), '--adapt_w', '1.0',\n       '--adapt_thr', '0.15', '--sinkhorn', '0.60', '--sinkhorn_target_mix', '0.35', '--post', '0', '--atlas_dir', str(ATLAS),\n       '--atlas_base', str(B8), '--atlas_w', '0.20', '--atlas_margin', '0.3',\n       '--atlas_bs', '4', '--atlas_chunk', '3', '--atlas_budget', str(max(180, ATLAS_BUDGET)),\n       '--comp_path', '/kaggle/working/comp_logit.npy', '--comp_w', '0.15',\n       '--out', '/kaggle/working/submission.parquet', '--cache', '/kaggle/working/cache']"
+      ],
+      "saved_version_log": {
+        "name": "name-that-llm-0663-fork.log",
+        "sha256": "61fd2a13a1e9669f179d1b2ad9db1b5a328e2831eee9bd8eca53e2f83825d011",
+        "bytes": 9234,
+        "selected_public_log_messages": [
+          {
+            "line_no": 10,
+            "message": "FAST_COMMIT True"
+          },
+          {
+            "line_no": 31,
+            "message": "variant E dropped flag_gemini37_routing_risk 0"
+          },
+          {
+            "line_no": 32,
+            "message": "variant E svc pool = open safe pool 190588"
+          },
+          {
+            "line_no": 37,
+            "message": "infer.py patched: evidence coeff 1.2; size 48980"
+          },
+          {
+            "line_no": 39,
+            "message": "comp stack wall time 0"
+          },
+          {
+            "line_no": 40,
+            "message": "RUNNING MAIN INFERENCE"
+          }
+        ],
+        "flagged_dropped_count": 0,
+        "safe_pool_rows_printed": 190588,
+        "scope": "FAST_COMMIT=True public sample save; selected pool output before main SVC exact dedup/fit; not the hidden scoring log"
+      }
+    },
+    {
+      "ref": "bgunshui/ntl-apex-e",
+      "source_version_requested": "v1",
+      "source_sha256": "ccb4549744df976c6dfa9da31f761a9bc4acfaeea34588e4c9bdae7aa4829f7a",
+      "code_sha256": "176028c830935d9ed88a36e659fd55294cc07ccf398d874161f20ff7207e93e6",
+      "id": 142000613,
+      "metadata_current_version": 1,
+      "machine_shape": "NvidiaTeslaT4",
+      "outputs": {
+        "infer.py": {
+          "sha256": "63112c88d43f9d69b3132243315e0db28c40b4bf0f42bac651f73ef07a67f9bb",
+          "bytes": 49002,
+          "file": "bgunshui\\infer.py",
+          "nl_CRLF": 0,
+          "ast_sha256": "577197424c0255937c1f068b3c404403c187be909a19eb105abe86ef2ff0e8a5"
+        },
+        "gauss.py": {
+          "sha256": "908b57113f1a7b8ebdbf204c6be87cbc385f765ba50ac07b4e270c64b7cf1000",
+          "bytes": 8219,
+          "file": "bgunshui\\gauss.py",
+          "nl_CRLF": 0,
+          "ast_sha256": "996e89e51426ddb349da32b137ff2c07563555ea332c4361e6ae86af680f1ad0"
+        },
+        "comp_stack.py": {
+          "sha256": "4a4b800a5380094d78da66d140d224f8a3974d1e3012086783d5bf81b1264514",
+          "bytes": 53256,
+          "file": "bgunshui\\comp_stack.py",
+          "nl_CRLF": 0,
+          "ast_sha256": "69b7642c7382d2bd61eca40fe1386571408352c09e4828e5fcbe408c5181eef8"
+        },
+        "sibling_style.py": {
+          "sha256": "8a7f3b3dad7cbe1755b66e8455a157894cac92b8983fc805f5ed6286ea915e66",
+          "bytes": 4970,
+          "file": "bgunshui\\sibling_style.py",
+          "nl_CRLF": 0,
+          "ast_sha256": "7b9f87179edafc1f642f4aaed2fbbfeae0f7e579f6518309f726fed7c3b69cf7"
+        }
+      },
+      "cmd_hash": "a1c543b8c7af60bed4ab390d371be8ef60e273b58bef45bace22238c9fd83653",
+      "cmd_preview": [
+        "cmd = [sys.executable, 'infer.py', '--data', str(DATA), '--models', json.dumps(MODELS),\n       '--perpassage', '1', '--extra', str(EXTRA), '--extra_w', '0.5', '--tfidf_w', '0.25',\n       '--distort_w', '0.10', '--svc_w', '12', '--pool', str(POOL), '--adapt_w', '1.0',\n       '--adapt_thr', '0.15', '--sinkhorn', '0.60', '--sinkhorn_target_mix', '0.35', '--post', '0', '--atlas_dir', str(ATLAS),\n       '--atlas_base', str(B8), '--atlas_w', '0.20', '--atlas_margin', '0.3',\n       '--atlas_bs', '4', '--atlas_chunk', '3', '--atlas_budget', str(max(180, ATLAS_BUDGET)),\n       '--comp_path', '/kaggle/working/comp_logit.npy', '--comp_w', '0.15',\n       '--out', '/kaggle/working/submission.parquet', '--cache', '/kaggle/working/cache']"
+      ],
+      "saved_version_log": {
+        "name": "ntl-apex-e.log",
+        "sha256": "5949615950afb54108f3f57573dbdc38c175f9c03ea34b7775f4c802bf1841b8",
+        "bytes": 8991,
+        "selected_public_log_messages": [
+          {
+            "line_no": 10,
+            "message": "FAST_COMMIT True"
+          },
+          {
+            "line_no": 31,
+            "message": "variant E dropped flag_gemini37_routing_risk 8297"
+          },
+          {
+            "line_no": 32,
+            "message": "variant E svc pool = open safe pool 190210"
+          },
+          {
+            "line_no": 37,
+            "message": "infer.py patched: evidence coeff 1.2; size 48980"
+          },
+          {
+            "line_no": 39,
+            "message": "comp stack wall time 0"
+          },
+          {
+            "line_no": 40,
+            "message": "RUNNING MAIN INFERENCE"
+          }
+        ],
+        "flagged_dropped_count": 8297,
+        "safe_pool_rows_printed": 190210,
+        "scope": "FAST_COMMIT=True public sample save; selected pool output before main SVC exact dedup/fit; not the hidden scoring log"
+      }
+    }
+  ],
+  "diffs": {},
+  "method": "Kaggle API fixed owner/slug/1 file-pattern selected four public outputs; official Kaggle get_kernel(version_label=v1); raw byte SHA256 and parsed AST without execution. V1 commit outputs only.",
+  "scope_limit": "The four generated scripts and literal launch argument list are byte-identical; the saved-version logs record different retained pool counts. This does not prove identical input content, fitted models, runtime routing, coverage, or hidden predictions."
+}

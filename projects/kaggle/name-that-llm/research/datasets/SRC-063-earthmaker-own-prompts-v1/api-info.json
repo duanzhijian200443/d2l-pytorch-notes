@@ -1,0 +1,28 @@
+{
+  "id": 12783752,
+  "ref": "earthmaker/ntl-own-prompt-generations",
+  "subtitle": "Passages by 18 candidate LLMs from our own prompts (Oct 2026)",
+  "creator_name": "earthmaker",
+  "total_bytes": "754629",
+  "last_updated": "2026-10-22T15:10:08.193Z",
+  "download_count": 606,
+  "license_name": "Attribution 4.0 International (CC BY 4.0)",
+  "description": "# Name That LLM: own-prompt generations (pilot + v22)\n\n749 single-paragraph passages written by the candidate models of the Kaggle competition \"Name That LLM\", generated\nby us from prompts we wrote ourselves. Published under CC BY 4.0 so that every participant has the same free access\n(the competition rules on external data).\n\n## Provenance statement\n\nNo competition passage, id or prompt was sent to any model. The prompts are our own (files `prompts_pilot.json` and\n`prompts_v22.json`). Their topics follow only the six domains named on the public competition Description page\n(philosophy, physics, mathematics, biology, computer science, creative prose). Word targets: pilot = hand-picked integers\n45-250; v22 = uniform random integers 40-250 (seed 20261022). Each request is one user message built from a template in\n`templates.json`; no system prompt, max_tokens 8000, all other sampling settings left at provider defaults.\n\n## Batches and call paths\n\n| batch | generated (UTC) | call path | models | rows |\n|---|---|---|---|---|\n| pilot_20261015 | 2026-10-15 | Kaggle Benchmarks Model Proxy | 13 (gpt-5.5, gpt-5.6-luna, gpt-5.6-sol, gpt-5.6-terra, gpt-6-astra, gemini-3.1-pro-preview, gemini-3.6-flash, gemini-3.7-flash, gemini-3.8-flash, claude-opus-4-6, claude-opus-4-8, claude-opus-5, claude-sonnet-5) | 242 |\n| pilot_20261015 | 2026-10-15 | OpenRouter | 5 (claude-fable-5, qwen3.8-max, glm-5.3, glm-5.3-flash, kimi-k3) | 87 |\n| v22_20261022 | 2026-10-22 | Kaggle Benchmarks Model Proxy | 12 (the pilot proxy list without gemini-3.7-flash) | 420 |\n\nThe exact model string sent with each request is in the `request_slug` column.\n\n## Filtering\n\n- Pilot: 360 passages were generated (18 models x 20 prompts). 31 were removed because they share at least one\n  8-word sequence with a competition passage (topic coincidence on classic subjects; removed to keep the release free of\n  competition text).\n- v22: 432 passages were generated (12 models x 36 prompts). 12 were removed by our own quality filters: 1 truncated\n  (finish_reason \"length\") and 11 by format and content-overlap checks.\n- Every string in this release was checked to share no 8-word sequence with any competition passage.\n\n## Caveat on gemini-3.7-flash\n\nThe pilot rows labelled gemini-3.7-flash were requested with the model string `gemini-3.7-flash` through the Kaggle\nproxy on 2026-10-15. That string was not among the proxy's listed models; the response reported the same model name,\nbut we cannot verify which model version actually served these requests. The v22 batch does not include this model.\n\n## Files\n\n- `passages.csv`: id, batch, prompt_id, model (label = the requested model), text, target_words, template_id, route,\n  request_slug, generated_on\n- `prompts_pilot.json`, `prompts_v22.json`: our prompts (pid, words, task; v22 also domain and template index)\n- `templates.json`: the three request templates (the pilot used template 0)\n\n## Rows per model\n\n| model | pilot_20261015 | v22_20261022 |\n|---|---|---|\n| claude-fable-5 | 19 | 0 |\n| claude-opus-4-6 | 19 | 36 |\n| claude-opus-4-8 | 19 | 36 |\n| claude-opus-5 | 18 | 36 |\n| claude-sonnet-5 | 18 | 34 |\n| gemini-3.1-pro-preview | 20 | 34 |\n| gemini-3.6-flash | 19 | 32 |\n| gemini-3.7-flash | 20 | 0 |\n| gemini-3.8-flash | 20 | 34 |\n| glm-5.3 | 16 | 0 |\n| glm-5.3-flash | 17 | 0 |\n| gpt-5.5 | 18 | 36 |\n| gpt-5.6-luna | 18 | 34 |\n| gpt-5.6-sol | 18 | 36 |\n| gpt-5.6-terra | 17 | 36 |\n| gpt-6-astra | 18 | 36 |\n| kimi-k3 | 17 | 0 |\n| qwen3.8-max | 18 | 0 |\n\n## License and attribution\n\nCC BY 4.0. Suggested attribution: \"Name That LLM own-prompt generations (pilot + v22), Kaggle user earthmaker, October 2026\".\nModel outputs may also be subject to the terms of the respective model providers.\n",
+  "owner_name": "earthmaker",
+  "owner_ref": "earthmaker",
+  "title": "NTL own-prompt generations (pilot + v22)",
+  "view_count": 50,
+  "current_version_number": 1,
+  "usability_rating": 0.47058824,
+  "versions": [
+    {
+      "version_number": 1,
+      "creation_date": "2026-10-22T15:10:08.193Z",
+      "creator_name": "earthmaker",
+      "creator_ref": "ntl-own-prompt-generations",
+      "version_notes": "Initial release",
+      "status": "Ready"
+    }
+  ],
+  "thumbnail_image_url": "https://storage.googleapis.com/kaggle-datasets-images/new-version-temp-images/default-backgrounds-91.png-36151663/dataset-thumbnail.png"
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "id": "SRC-013",
+  "kind": "notebook",
+  "title": "Name That LLM Starter Notebook",
+  "url": "https://www.kaggle.com/code/pablodiegoo/name-that-llm-starter-notebook",
+  "observed_at": "2026-10-30T15:16:41.600Z",
+  "source_version": {
+    "notebook_version": 2,
+    "script_version_id": null,
+    "source_sha256": "a9234b206191450dedd653f70f24c5b20e31b14aa013a1100fdb79fa46c74b01",
+    "code_sha256": "41d514655cee48b2071ad5767c4e8c4abc6f26d8bb107f91565e3396113b6c5b"
+  },
+  "family_id": "code-41d514655cee",
+  "public_score": {
+    "value": 0.661,
+    "evidence_type": "platform_page",
+    "bound_to_source": false,
+    "script_version_id": null
+  },
+  "summary": "完整多骨干 ATLAS20 集成，加 V40A 家族风格残差与分组验证展示；并非官方轻量 Starter。",
+  "author_claim": "正文声明保存在下方 description.md；标题分数不作为独立证据。",
+  "verified": "2026-10-30 已观察页面分数并保存源码；增量说明见摘要。",
+  "use_for_us": "用于选择对照实验，不直接替换当前基线。",
+  "test_plan": "先核对具体得分版本，再把单项差异变成 IDEA。",
+  "limitations": "页面分数与下载源码版本未绑定；排名只代表当日快照。同代码的副本不是独立算法。",
+  "evidence": [
+    "reviews/public-top20-20261030/pablodiegoo--name-that-llm-starter-notebook/source.ipynb",
+    "reviews/public-top20-20261030/pablodiegoo--name-that-llm-starter-notebook/metadata.json",
+    "reviews/public-top20-20261030/pablodiegoo--name-that-llm-starter-notebook/description.md",
+    "reviews/public-top20-20261030/ui-scores.json"
+  ]
+}

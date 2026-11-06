@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0233",
+  "prompt": "Is it better to keep a private journal regularly or write only when something feels important? Present both perspectives. Use approximately 160 words for the response.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "tradeoff_argument",
+  "target_words": 160,
+  "prompt_group": "cp0233",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "base_prompt": "Is it better to keep a private journal regularly or write only when something feels important? Present both perspectives. Use approximately 160 words for the response.",
+  "base_prompt_sha256": "581538cc4e12e066600d410af342f6603aaa06e8fdf7a8cf720e1144502b373b",
+  "base_prompt_id": "cp0233",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0233::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "f2e20eed1a061230c67259657ca94739bf834e92e57e4c8db8c079f704ac0e01",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:59:02.407218+00:00",
+  "ended_at": "2026-11-01T13:59:18.414098+00:00",
+  "prompt_sha256": "d94b234872e3cfb3fa6e28386f31a8b9ee165e3a5c24ab386767c1801e1c8ea0",
+  "text": "Keeping a private journal regularly can create a reliable space for reflection, even when nothing dramatic happens. The habit helps people notice patterns in their moods, clarify goals, remember ordinary experiences, and process emotions before they become overwhelming. Regular writing may also strengthen self-awareness and provide a comforting record of personal growth. However, writing only when something feels important has its own advantages. It can make journaling feel more natural and meaningful rather than like another obligation. Entries may be deeper, more emotionally honest, and focused on events or ideas that genuinely deserve attention. This approach also suits people who find daily routines restrictive or who lose interest when activities become repetitive. Its drawback is that important feelings may be overlooked between entries, and the habit may disappear entirely during busy periods. Ultimately, regular journaling is better for consistency and long-term insight, while occasional journaling may encourage greater spontaneity and emotional depth. The best choice depends on whether structure or freedom helps someone reflect most honestly.",
+  "text_sha256": "dca23cb5d96f11bce86e4344afb6dcfc6bfd184f179a9f8454fca3be295b96cf",
+  "raw_final_sha256": "dca23cb5d96f11bce86e4344afb6dcfc6bfd184f179a9f8454fca3be295b96cf",
+  "word_count": 166,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2674,
+      "cached_input_tokens": 2432,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 215,
+      "reasoning_output_tokens": 17
+    }
+  ],
+  "attempt_path": "collection\\attempts\\f2e20eed1a061230c67259657ca94739bf834e92e57e4c8db8c079f704ac0e01",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

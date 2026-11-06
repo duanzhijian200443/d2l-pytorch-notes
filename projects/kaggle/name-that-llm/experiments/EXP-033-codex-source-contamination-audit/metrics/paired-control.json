@@ -1,0 +1,99 @@
+{
+  "n": 20,
+  "independent_prompt_groups": 10,
+  "mean_abs_relative_length_difference": 0.05563703987533336,
+  "features": {
+    "newline": {
+      "kaggle": 13,
+      "codex": 13,
+      "codex_only": 0,
+      "kaggle_only": 0
+    },
+    "paragraph": {
+      "kaggle": 13,
+      "codex": 13,
+      "codex_only": 0,
+      "kaggle_only": 0
+    },
+    "bold": {
+      "kaggle": 1,
+      "codex": 6,
+      "codex_only": 5,
+      "kaggle_only": 0
+    },
+    "heading": {
+      "kaggle": 0,
+      "codex": 0,
+      "codex_only": 0,
+      "kaggle_only": 0
+    },
+    "bullet": {
+      "kaggle": 1,
+      "codex": 0,
+      "codex_only": 0,
+      "kaggle_only": 1
+    },
+    "numbered_list": {
+      "kaggle": 0,
+      "codex": 0,
+      "codex_only": 0,
+      "kaggle_only": 0
+    },
+    "code_fence": {
+      "kaggle": 0,
+      "codex": 0,
+      "codex_only": 0,
+      "kaggle_only": 0
+    },
+    "em_dash": {
+      "kaggle": 5,
+      "codex": 4,
+      "codex_only": 3,
+      "kaggle_only": 4
+    },
+    "curly_quote": {
+      "kaggle": 11,
+      "codex": 11,
+      "codex_only": 0,
+      "kaggle_only": 0
+    },
+    "preface": {
+      "kaggle": 0,
+      "codex": 0,
+      "codex_only": 0,
+      "kaggle_only": 0
+    },
+    "assistant_self_reference": {
+      "kaggle": 0,
+      "codex": 0,
+      "codex_only": 0,
+      "kaggle_only": 0
+    },
+    "closing_offer": {
+      "kaggle": 0,
+      "codex": 0,
+      "codex_only": 0,
+      "kaggle_only": 0
+    },
+    "role_markup": {
+      "kaggle": 0,
+      "codex": 0,
+      "codex_only": 0,
+      "kaggle_only": 0
+    },
+    "cjk": {
+      "kaggle": 0,
+      "codex": 0,
+      "codex_only": 0,
+      "kaggle_only": 0
+    }
+  },
+  "input_token_offsets": {
+    "gpt-5.6-luna": [
+      2543
+    ],
+    "gpt-5.6-terra": [
+      4078
+    ]
+  }
+}

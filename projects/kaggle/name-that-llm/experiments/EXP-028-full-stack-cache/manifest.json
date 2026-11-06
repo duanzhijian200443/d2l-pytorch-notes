@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-028",
+  "created_at": "2026-11-01T09:31:17.033127+00:00",
+  "verified_at": "2026-11-01T09:50:40.400832+00:00",
+  "freeze_status": "ENGINEERING_BYTES_VERIFIED_REAL_INPUTS_UNBOUND",
+  "config": {
+    "path": "experiments/EXP-028-full-stack-cache/config.json",
+    "sha256": "eda2aae3f316b476b7a4936e5ff22eae2d84c7f1506adcf24070f974f55713cd",
+    "bytes": 1666
+  },
+  "code": [
+    {
+      "path": "src/full_stack_cache.py",
+      "sha256": "ff6b28d7834bdd4bd26bfb1fa69b3b9dc4ccaf194d968cf9b2d8ac4652df85a9",
+      "bytes": 17055
+    },
+    {
+      "path": "src/test_full_stack_cache.py",
+      "sha256": "944ac9d16ce0eeabfa24c37b338e807596e24c5a13c98088d27d777e79450dce",
+      "bytes": 11709
+    },
+    {
+      "path": "src/full_stack_observer.py",
+      "sha256": "ada0dc10ba451308f453dd709540193b04912b95eb585abcbd36c87c0e8db5ca",
+      "bytes": 8228
+    },
+    {
+      "path": "src/test_full_stack_observer.py",
+      "sha256": "94c987708ac4940339e9bc936b88b64867be12deb8e38bea49bedab8d695dbe3",
+      "bytes": 4545
+    },
+    {
+      "path": "src/full_stack_replay.py",
+      "sha256": "b1bab1993fb17850d8b3cfb26716f47c869dbca5107c3435b859864d2ca99586",
+      "bytes": 39577
+    },
+    {
+      "path": "cloud/full-stack-cache/instrument.py",
+      "sha256": "1a3a4f2635139828a6cf3dc4d9e142c9ebd7ac4ceac16f53bec7fd6006f7d569",
+      "bytes": 14222
+    },
+    {
+      "path": "cloud/full-stack-cache/hook-spec.json",
+      "sha256": "14c6f5a136ce89636b0694420af862afdcf7f11dd307c2a32ff36e328b950dc7",
+      "bytes": 29548
+    },
+    {
+      "path": "cloud/full-stack-cache/assemble.py",
+      "sha256": "27365dd9ceaf8c7622f5950f64cac70c1717e5ffc26e52479b508cfe6ddc23d3",
+      "bytes": 4369
+    },
+    {
+      "path": "cloud/full-stack-cache/verify_cache.py",
+      "sha256": "4f0034ee5f33a2809a84c851d8c9b7ad65e80d198094c79e2679e68d08d26688",
+      "bytes": 4994
+    },
+    {
+      "path": "experiments/EXP-028-full-stack-cache/run_parity.py",
+      "sha256": "bda8b282ebcfc45d90d812008575f279c304702a76260e64880d0b4c7642bf2d",
+      "bytes": 26509
+    },
+    {
+      "path": "experiments/EXP-028-full-stack-cache/import_legacy.py",
+      "sha256": "18c38ed605c65cdc73d1155a5a8885f2a03456a016d4c5dcb1735ba3f5d9e1df",
+      "bytes": 2899
+    },
+    {
+      "path": "experiments/EXP-028-full-stack-cache/check_entrypoints.py",
+      "sha256": "5a7895e9163ae6f9d5d8ac6d912ed20b830982873327f2be4bac818e661b8b9e",
+      "bytes": 4063
+    }
+  ],
+  "inputs": [
+    {
+      "path": "reviews/own-scheme-readiness-20261030/baseline-v2.ipynb",
+      "sha256": "6c9145f038ccffbe08dc6da6db3d1dcf3d2e0e7d2286927bfc8800ef5148cfb8",
+      "bytes": 140355
+    },
+    {
+      "path": "experiments/EXP-009-baseline-data-lineage/infer.py",
+      "sha256": "022cafd2e6504dd7cf38c8675b9597fb4fbd4c9dd0be69d38918293d9caac9b3",
+      "bytes": 48798
+    },
+    {
+      "path": "experiments/EXP-009-baseline-data-lineage/comp_stack.py",
+      "sha256": "b6b6a7b8adbe50580c2d0de5a41d0764ae752fe729e1471872a9197ac956f222",
+      "bytes": 54212
+    },
+    {
+      "path": "test.csv",
+      "sha256": "4545aa3a3459f4c0724f97ad5bd06c4caa3506bdfea5fab905e8203184fc0c57",
+      "bytes": 2218
+    },
+    {
+      "path": "experiments/EXP-028-full-stack-cache/legacy-v30/comp_logit.npy",
+      "sha256": "290d49e304894d426b654785a23163d19bacac7a04b6c670b4018224bae2a1b9",
+      "bytes": 560
+    },
+    {
+      "path": "experiments/EXP-028-full-stack-cache/legacy-v30/comp_meta.json",
+      "sha256": "8a8009a71281108b2fc577412e6cf956aa11d50657df126444a7e604468bda27",
+      "bytes": 406
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "experiments/EXP-028-full-stack-cache/metrics/engineering-acceptance.json",
+      "sha256": "a2160f8bed36c1b5ad2c1cb925fa8b0bf31171909a47311cb128f760c4c3034d",
+      "bytes": 3494
+    },
+    {
+      "path": "experiments/EXP-028-full-stack-cache/metrics/entrypoints-verified.json",
+      "sha256": "468f8d2340a3d38b4cb3dcabc5dd3ac5760f2867a92adfb57bf8f5641dace8e6",
+      "bytes": 1083
+    },
+    {
+      "path": "experiments/EXP-028-full-stack-cache/metrics/legacy-import.json",
+      "sha256": "d64697e8c11d73d41e2781183d8ea1e6d526fb27456c125d39cb048aa3225907",
+      "bytes": 4524
+    },
+    {
+      "path": "cloud/full-stack-cache/package-manifest.json",
+      "sha256": "7c6c6c25ba06f3d66a43c51768ebc945803484921ee99fba496ded3dcbefabec",
+      "bytes": 1906
+    },
+    {
+      "path": "cloud/full-stack-cache/data-scope.json",
+      "sha256": "58a51579ac3680fc63ecc16cf487b0c835a47471011a82b7a46fb722c0e883ba",
+      "bytes": 16909
+    },
+    {
+      "path": "cloud/full-stack-cache/capture-context-template.json",
+      "sha256": "5f49205740bfcd6470cd5ae6b16e06d7dcf8e2407e78f5dc1f6ae9bf8b6e32c1",
+      "bytes": 1037
+    },
+    {
+      "path": "experiments/EXP-028-full-stack-cache/logs/drive-folder-readback.json",
+      "sha256": "ffa63d175130d9d07f013ee040df9f828f67431edd38f57836d26266e58f3504",
+      "bytes": 6501
+    },
+    {
+      "path": "experiments/EXP-028-full-stack-cache/logs/drive-v32-run-output-readback.json",
+      "sha256": "4a9d569a04ce0a759f09c45295a3c5c940d0932bd56ab66ff1037ab8e415b806",
+      "bytes": 2278
+    },
+    {
+      "path": "experiments/EXP-028-full-stack-cache/logs/kaggle-baseline-v2-output.json",
+      "sha256": "fad6e4bc8ff1e7fcc000980f3ab653e4d691c85f00b7a33fca100be3daffb7d1",
+      "bytes": 9035
+    },
+    {
+      "path": "experiments/EXP-028-full-stack-cache/logs/kaggle-quota.json",
+      "sha256": "7ff4a31912936e9d596177ac5be2d72f105b91922726666ca400af788ec6dd40",
+      "bytes": 488
+    },
+    {
+      "path": "experiments/EXP-028-full-stack-cache/logs/kaggle-v30-v7-output.json",
+      "sha256": "52d2398300a967c3309d5975395df3344efd9265c1ececf480831aebe1ef4f29",
+      "bytes": 352519
+    },
+    {
+      "path": "experiments/EXP-028-full-stack-cache/fixtures/n60_full-r2/fixture.json",
+      "sha256": "be7cc270ec4e71095ba57d0dfd5c45962c55005aa2a34b148c7acdf90a5b52cc",
+      "bytes": 14521
+    },
+    {
+      "path": "experiments/EXP-028-full-stack-cache/fixtures/n60_full-r2/replay-review.json",
+      "sha256": "8ff7b1c0bc8626edf9142ad845146e5697b412721a79828c092892d368404318",
+      "bytes": 18410
+    },
+    {
+      "path": "experiments/EXP-028-full-stack-cache/fixtures/n60_full-r2/cache/main/manifest.json",
+      "sha256": "cf22fc04fb6072d0c33a9b910135c96ed5706930c150a99bb7c683af18814ea0",
+      "bytes": 23405
+    },
+    {
+      "path": "experiments/EXP-028-full-stack-cache/fixtures/n60_full-r2/cache/comp/manifest.json",
+      "sha256": "8e49616115db609a59c561f975da801dca45e5c7cff49f1f842017b9adf1ad51",
+      "bytes": 35864
+    },
+    {
+      "path": "experiments/EXP-028-full-stack-cache/fixtures/n60_full-r2/cli-verification-r3.json",
+      "sha256": "a63b2deeab1b45d11dea804be862e58df2c43413ede6aa057032395b28ccf7cf",
+      "bytes": 21065
+    },
+    {
+      "path": "experiments/EXP-028-full-stack-cache/fixtures/n3_full-r2/fixture.json",
+      "sha256": "529f80e110d22cb2d8aa00bb0d49c62db5a09d43fc2b1f291c1ef3e04cca9c7b",
+      "bytes": 13718
+    },
+    {
+      "path": "experiments/EXP-028-full-stack-cache/fixtures/n3_full-r2/replay-review.json",
+      "sha256": "d54c7f9d1a07f9f2a2ac2366a52d1c522b31f173af09763b3576d024525ce15b",
+      "bytes": 17351
+    },
+    {
+      "path": "experiments/EXP-028-full-stack-cache/fixtures/n3_full-r2/cache/main/manifest.json",
+      "sha256": "d0820407b7283a5652bd821a7747b6359b0e9ff5ab51e6f9cef19b2c465fc40d",
+      "bytes": 16878
+    },
+    {
+      "path": "experiments/EXP-028-full-stack-cache/fixtures/n3_full-r2/cache/comp/manifest.json",
+      "sha256": "313a018b78d9d16f5502b7475d296a383dab284cb2aa681a2c3ab314398305d0",
+      "bytes": 30781
+    },
+    {
+      "path": "experiments/EXP-028-full-stack-cache/fixtures/n60_partial-r2/fixture.json",
+      "sha256": "1d278ab364615ea6fc21b46c664af43ef49f5d28323bd640fec8cc1f22e4df58",
+      "bytes": 14346
+    },
+    {
+      "path": "experiments/EXP-028-full-stack-cache/fixtures/n60_partial-r2/replay-review.json",
+      "sha256": "6ebde556b07af9054af7b0af67599a3571582efb8f5111554eba96c69ed33af1",
+      "bytes": 19287
+    },
+    {
+      "path": "experiments/EXP-028-full-stack-cache/fixtures/n60_partial-r2/cache/main/manifest.json",
+      "sha256": "767f773364946d0bddc62c977c1c2bff4791fef82908b7b7b4b55f62c080f8ae",
+      "bytes": 23609
+    },
+    {
+      "path": "experiments/EXP-028-full-stack-cache/fixtures/n60_partial-r2/cache/comp/manifest.json",
+      "sha256": "81a8e2a40db44f26a2165a191c27b670352095af153f68e89f8eb472f6890696",
+      "bytes": 36053
+    },
+    {
+      "path": "experiments/EXP-028-full-stack-cache/fixtures/n60_partial-r2/cli-verification-r3.json",
+      "sha256": "332da729c8c796f54c598c3020bde60443284fd78d7fede57d97f53683ec1182",
+      "bytes": 21996
+    }
+  ],
+  "note": "Closing engineering manifest. Per-fixture receipts bind opening/closing helper bytes; component manifests transitively bind arrays. No historical full checkpoint binding or real new inference is claimed."
+}

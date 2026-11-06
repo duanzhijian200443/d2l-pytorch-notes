@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "EXP-054",
+  "title": "Apex V1 原配方 0 条自采：固定版本正式提交",
+  "baseline_id": "EXP-047",
+  "hypothesis": "测量作者Apex V1原配方在本账户的独立正式结果，作后续实验的0条自采对照。",
+  "changes": [
+    "复用SRC067固定V1完整Notebook，0条自采；私有副本在隐藏测试重跑。"
+  ],
+  "observed_at": "2026-11-02T16:27:10.518052+00:00",
+  "source": {
+    "notebook_ref": "zhjianduan/ntl-apex-zero-054",
+    "notebook_version": 2,
+    "script_version_id": 364820326,
+    "local_path": "cloud/apex-zero-054/kernel/apex-zero.ipynb",
+    "sha256": "ca4c9e18ed32dcd8168b8118b192d39d657803d30dcd89a564b1c2d1d9c846dd"
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-054-apex-zero-formal/manifest.json",
+    "validation_split_id": null,
+    "content_hashes_verified": false
+  },
+  "config": {
+    "note": "仅作台账索引；完整参数以 config_path 指向的 config.json 为准。"
+  },
+  "environment": {
+    "platform": "Kaggle",
+    "accelerator": "T4 x2",
+    "container": "gcr.io/kaggle-private-byod/python@sha256:9a6bcfda6d03b2cd9aa347ee8c1bae62043328ed0f4afe9bda014e4f8bbf9435",
+    "seed": null,
+    "internet": false,
+    "private": true
+  },
+  "execution": {
+    "scope": "competition_rerun",
+    "status": "COMPLETE",
+    "observed_at": "2026-11-02T16:27:10.518052+00:00",
+    "receipt_path": "cloud/apex-zero-054/formal-submit-binding.json"
+  },
+  "submission": {
+    "id": 57903109,
+    "script_version_id": 364820326,
+    "notebook_version": 2,
+    "observed_at": "2026-11-02T16:27:10.518052+00:00",
+    "submitted_at": "2026-11-02T09:12:48.027Z",
+    "status": "COMPLETE",
+    "public_score": 0.665,
+    "url": "https://www.kaggle.com/code/zhjianduan/ntl-apex-zero-054?scriptVersionId=364820326",
+    "request_count": 1
+  },
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": null,
+    "per_class_recall_path": null,
+    "oof_path": null,
+    "leakage_audit": "not_audited"
+  },
+  "cost": {
+    "gpu_seconds": null,
+    "api_usd": 0,
+    "colab_cu": 0
+  },
+  "timing_note": null,
+  "conclusion": "正式提交 57903109，状态 COMPLETE。Public LB 0.665。",
+  "limitations": "公共三行占位输出只验证保存运行；榜单成绩须等该提交完成隐藏测试。历史输入大文件未全部逐字节核对。",
+  "next_action": "待 0/120/240 条各自完成，以绑定的实际分数比较。",
+  "related_sources": [
+    "SRC-067"
+  ],
+  "evidence": [
+    "experiments/EXP-054-apex-zero-formal/config.json",
+    "experiments/EXP-054-apex-zero-formal/manifest.json",
+    "experiments/EXP-054-apex-zero-formal/report.md",
+    "cloud/apex-zero-054/ready-for-submission.json",
+    "cloud/apex-zero-054/formal-submit-intent.json",
+    "cloud/apex-zero-054/formal-submit-ack.json",
+    "cloud/apex-zero-054/formal-submit-binding.json",
+    "experiments/EXP-054-apex-zero-formal/metrics/formal-dispatch.json",
+    "experiments/EXP-054-apex-zero-formal/metrics/formal-latest.json"
+  ],
+  "config_path": "experiments/EXP-054-apex-zero-formal/config.json"
+}

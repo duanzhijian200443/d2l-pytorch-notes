@@ -1,0 +1,16 @@
+{
+  "status": "RUNNING",
+  "identity_sha256": "94d7251ed232ef21beba3039471199d939402864a538aada8e5a8f25fd31bdc4",
+  "attempt": "selftest",
+  "completed": [],
+  "active": [
+    [
+      0,
+      "raw120"
+    ],
+    [
+      0,
+      "clean120"
+    ]
+  ]
+}

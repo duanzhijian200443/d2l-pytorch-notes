@@ -1,0 +1,12 @@
+{
+  "job_id": "b0dce4333b70e99470db4ebe8e96b89a8eb29e05d4221db6838323cada78f6b9",
+  "route": "kaggle_model_proxy",
+  "status": "SUCCEEDED",
+  "started_at": "2026-11-01T12:51:58.251360+00:00",
+  "ended_at": "2026-11-01T12:53:04.458155+00:00",
+  "reasons": [],
+  "cost_usd": "0.0001878",
+  "cost_nanodollars": 187800,
+  "text_sha256": "f001ac44b1deaf5eccefec52526a826f5c2ffc12beffd01387ea7009920e9b88",
+  "provider_response_id": "chatcmpl-EfPLB7ahV3N151g8rEbXZQclRp3i0"
+}

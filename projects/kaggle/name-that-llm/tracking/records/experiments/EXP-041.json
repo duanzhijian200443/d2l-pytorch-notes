@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "id": "EXP-041",
+  "title": "对齐后双渠道重复对照与Codex训练准入审计",
+  "baseline_id": "EXP-033",
+  "hypothesis": "Align explicit formats, then compare cross-channel text distance against within-channel repeats; assess training candidacy without claiming causal prompt removal.",
+  "changes": [
+    "Use final EXP038 78 responses including historical successes exactly once",
+    "Use 19 complete cells clustered by10 original prompts; 9 prompt sensitivity",
+    "Compare matched old/new300 and preserve cross-protocol group splits"
+  ],
+  "observed_at": "2026-11-01T14:14:30.868480+00:00",
+  "source": {
+    "notebook_ref": null,
+    "notebook_version": null,
+    "script_version_id": null,
+    "local_path": "experiments/EXP-041-aligned-channel-repeat-audit/code/analyze.py",
+    "sha256": "d059c0bb4f635738d8adba420ef4766c69ccd5efd7cdbc9426555838b8616503"
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-041-aligned-channel-repeat-audit/manifest.json",
+    "validation_split_id": "codex-pilot-prompt-v1",
+    "content_hashes_verified": true
+  },
+  "config": {
+    "note": "仅作台账索引；完整参数以 config_path 指向的 config.json 为准。"
+  },
+  "environment": {
+    "platform": "local_cpu_offline",
+    "accelerator": "none",
+    "container": null,
+    "seed": 2026110141
+  },
+  "execution": {
+    "scope": "Offline analysis only; no generation or classifier fitting",
+    "status": "COMPLETED_OFFLINE_DIAGNOSTIC",
+    "observed_at": "2026-11-01T14:14:30.868480+00:00",
+    "paired_rows": 78,
+    "complete_cells": 19,
+    "independent_prompt_groups": 10,
+    "aligned_batch_rows": 300
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": "378raw hashes;19 complete cells;prompt-cluster bootstrap independently recomputed;training utility not evaluated",
+    "per_class_recall_path": null,
+    "oof_path": null,
+    "leakage_audit": "Structural prompt-group consistency checked; semantic overlap unknown"
+  },
+  "cost": {
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0
+  },
+  "timing_note": null,
+  "conclusion": "Format shift reduced (matched300 newline224→0,bold58→0). Cross-within lexical excess0.0200,95%CI[-0.0085,0.0607],not equivalence proof. Luna/Terra controlled training candidates;Sol/Astra lack paired route evidence;no formal pool acceptance.",
+  "limitations": "Only10 prompts and2 repeats;1 missingTerra cell;requested_only Codex labels,unknown snapshots/runtime/sampling;no training benefit estimate;old/new sameprompt groups must stay together.",
+  "next_action": "If training is later authorized, fixed baseline ablation: add Luna/Terra120 train candidates first; Sol/Astra120 as separate arm; preserve60 holdout and all cross-protocol prompt groups.",
+  "related_sources": [],
+  "evidence": [
+    "experiments/EXP-041-aligned-channel-repeat-audit/config.json",
+    "experiments/EXP-041-aligned-channel-repeat-audit/manifest.json",
+    "experiments/EXP-041-aligned-channel-repeat-audit/report.md",
+    "experiments/EXP-041-aligned-channel-repeat-audit/code/analyze.py",
+    "experiments/EXP-041-aligned-channel-repeat-audit/code/finish_analysis.py",
+    "experiments/EXP-041-aligned-channel-repeat-audit/metrics/analysis.json",
+    "experiments/EXP-041-aligned-channel-repeat-audit/metrics/input-hashes.json",
+    "experiments/EXP-041-aligned-channel-repeat-audit/metrics/row-screen.json",
+    "experiments/EXP-041-aligned-channel-repeat-audit/metrics/provenance-review.md",
+    "experiments/EXP-041-aligned-channel-repeat-audit/metrics/provenance-review.json",
+    "experiments/EXP-041-aligned-channel-repeat-audit/metrics/historical-review.md",
+    "experiments/EXP-041-aligned-channel-repeat-audit/metrics/historical-review.json",
+    "experiments/EXP-041-aligned-channel-repeat-audit/metrics/independent-verification.json",
+    "experiments/EXP-041-aligned-channel-repeat-audit/metrics/independent-verification.md",
+    "experiments/EXP-041-aligned-channel-repeat-audit/metrics/frozen-reference-overlap.json",
+    "experiments/EXP-041-aligned-channel-repeat-audit/metrics/training-eligibility.jsonl",
+    "experiments/EXP-041-aligned-channel-repeat-audit/metrics/training-eligibility-summary.json",
+    "experiments/EXP-041-aligned-channel-repeat-audit/metrics/validation.json",
+    "experiments/EXP-041-aligned-channel-repeat-audit/figures/aligned-comparison.png"
+  ],
+  "config_path": "experiments/EXP-041-aligned-channel-repeat-audit/config.json"
+}

@@ -1,0 +1,8 @@
+{
+  "job": "verify-results",
+  "script": "src/open_pool_audit.py",
+  "sha256": "f1bfe94ab448ba1a01a32e4fdc8a02b31de7a8eaef0bcb748dcabc3ab5f63e34",
+  "timeout_seconds": 300,
+  "scope": "audited fixed local operation; environment GPU hiding is not a security sandbox",
+  "attempted_at": "2026-11-02T04:54:46.213494+00:00"
+}

@@ -1,0 +1,111 @@
+{
+  "status": "PASS_FROZEN_LOCAL_DERIVED_VIEW",
+  "observed_at": "2026-11-01T16:17:52.673737+00:00",
+  "reviewer": "independent format_transform_review agent",
+  "manifest_sha256": "98dbb285863a5e9d806b1399b96a76e09554249b549455c1fa75777fd0565deb",
+  "hash_entries_verified_before_and_after": [
+    {
+      "path": "experiments/EXP-043-codex-format-view/config.json",
+      "sha256": "a3a989d6e9734ef0eaf065f63684ce376a5ef291b640522dc33bb94e2c3e40f2",
+      "bytes": 1130
+    },
+    {
+      "path": "experiments/EXP-023-codex-subscription-pilot-r1/collection/records.jsonl",
+      "sha256": "cb903279b3727b31ce2125b89c5ce8f530d769a984f49c2cb86e4fbefb1e9722",
+      "bytes": 2428324
+    },
+    {
+      "path": "experiments/EXP-040-codex300-concurrency2/collection/combined-records.jsonl",
+      "sha256": "2d6c691016a6ae6f789d5c6a625a207a3ec89e5093bf804c5052b11c90a6125b",
+      "bytes": 1165478
+    },
+    {
+      "path": "experiments/EXP-043-codex-format-view/transform.py",
+      "sha256": "dadcce47a6a16e01f692e9b40b1e688b9dafdf3a06125f35ed53b4bb213aa422",
+      "bytes": 3147
+    },
+    {
+      "path": "experiments/EXP-043-codex-format-view/test_transform.py",
+      "sha256": "4f1e77afeaceb9606e6006690dcbe98406ca4a537dbb98ebbe377f56b4cc79b7",
+      "bytes": 1787
+    },
+    {
+      "path": "experiments/EXP-043-codex-format-view/build_view.py",
+      "sha256": "ce452c52ece3c061ec7422781521d39a7a9635795073d7bc3c8b76f37cc959bb",
+      "bytes": 7834
+    },
+    {
+      "path": "experiments/EXP-043-codex-format-view/derived/holdout.jsonl",
+      "sha256": "a11dfa645ab153e6e5d1898bf2557d0acd6bffaea443a96ad85163c05bfd4063",
+      "bytes": 396280
+    },
+    {
+      "path": "experiments/EXP-043-codex-format-view/derived/row-changes.jsonl",
+      "sha256": "98c35df6b2e6a0c7899ee29e204b0a11fea9ed41d0788927a2a13aff2669c45a",
+      "bytes": 778008
+    },
+    {
+      "path": "experiments/EXP-043-codex-format-view/derived/selections.json",
+      "sha256": "b2fe0393c93856cb9aa092e45b87a3573cea60935819932959eba5aed69f58e7",
+      "bytes": 61685
+    },
+    {
+      "path": "experiments/EXP-043-codex-format-view/derived/train.jsonl",
+      "sha256": "157c7f45c635160718f47f6e018f5553b52b8b38fc23eaf9ad495aa554bb9ffb",
+      "bytes": 1574130
+    },
+    {
+      "path": "experiments/EXP-043-codex-format-view/metrics/derivation.json",
+      "sha256": "188b4f75747957bc638875cd952a64eabf4df957942cd309251ef8b73dabcce5",
+      "bytes": 1242
+    }
+  ],
+  "findings": [],
+  "counts": {
+    "rows": 1000,
+    "changed_rows": 727,
+    "bold_rows": 215,
+    "bold_pairs": 537,
+    "newline_rows": 709,
+    "newline_runs": 2906
+  },
+  "independent_oracle_rows_equal": 1000,
+  "row_edit_ledgers_independently_reconstructed": 1000,
+  "metadata_preserved_rows": 1000,
+  "train_rows": 800,
+  "holdout_rows": 200,
+  "train_prompt_groups": 200,
+  "holdout_prompt_groups": 50,
+  "single_star_characters_preserved": 86,
+  "backtick_rows": 12,
+  "code_spans": 44,
+  "cross_line_strong": [
+    {
+      "job_key": "bedb99a677f3c2f8fe9abd00a2f734f5028b13e8d77ac5ff0114c161daa53ccc",
+      "body": "THE LIGHTHOUSE  \nNorth Head"
+    },
+    {
+      "job_key": "df0217247947c25b3e27e866ae4e0df80195efde8acd8a674a7f6010d92962c2",
+      "body": "THE LIGHTHOUSE  \nBLACKWATER POINT"
+    }
+  ],
+  "double_underscore_rows": 0,
+  "unpaired_or_literal_double_star_runs": 0,
+  "duplicate_groups_exact_and_nfkc_casefold_whitespace": 0,
+  "old_new_cross_job_collisions": 0,
+  "luna_terra_selection_rows": 400,
+  "matched_aligned_selection_rows": 120,
+  "tests": {
+    "returncode": 0,
+    "output": "test_code_inside_bold (test_transform.TransformTests.test_code_inside_bold) ... ok\ntest_cross_line_bold_keeps_body (test_transform.TransformTests.test_cross_line_bold_keeps_body) ... ok\ntest_headings_lists_preserved (test_transform.TransformTests.test_headings_lists_preserved) ... ok\ntest_idempotent (test_transform.TransformTests.test_idempotent) ... ok\ntest_inline_code_and_single_emphasis_preserved (test_transform.TransformTests.test_inline_code_and_single_emphasis_preserved) ... ok\ntest_literal_dunder_preserved (test_transform.TransformTests.test_literal_dunder_preserved) ... ok\ntest_one_letter_and_punctuation (test_transform.TransformTests.test_one_letter_and_punctuation) ... ok\ntest_plain_line_breaks_and_existing_spaces (test_transform.TransformTests.test_plain_line_breaks_and_existing_spaces) ... ok\ntest_unpaired_and_triple_are_flagged (test_transform.TransformTests.test_unpaired_and_triple_are_flagged) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.001s\n\nOK\n"
+  },
+  "scope": [
+    "Read source files and code; independently reconstructed every expected transform and every recorded edit.",
+    "Read-only verification except this JSON and companion Markdown. No generation, training, network, upload, or source edits."
+  ],
+  "limits": [
+    "Acceptance applies only to the frozen 1000-row dataset and listed hashes; transform is not a general Markdown parser.",
+    "No classifier training or utility evaluation; source labels remain requested_only.",
+    "No new whole-public-pool overlap audit; only this source/view and inherited split separation checked."
+  ]
+}

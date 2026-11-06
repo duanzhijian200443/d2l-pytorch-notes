@@ -1,0 +1,25 @@
+{
+  "role": "decision_input_snapshot_not_current_experiment_state",
+  "observed_at": "2026-11-01T08:55:13.090528+00:00",
+  "baseline": "EXP-004",
+  "formal_baseline_public_score": 0.662,
+  "input_sha256": {
+    "tracking/records/experiments/EXP-004.json": "f0cef27c942819d1f3ca828e579e19419752f68024041792613bac508a79b50f",
+    "tracking/records/experiments/EXP-005.json": "21a9bf29bd4f98b3785483d8bab546b3cf4605d71781b613c5ee53f36a4ce3e1",
+    "tracking/records/experiments/EXP-018.json": "a26e5525acbcf91559432e8c48d24573429526856616ae77655d520e4eac264c",
+    "tracking/records/experiments/EXP-024.json": "6b35b2d9ffcacb10ce8f210e75b3420d2bb8f5b0b37def157fd848480ad25de1",
+    "tracking/records/experiments/EXP-025.json": "a04ddd8ed52415ead925f47d06c4eec28a7e1e9a8ec427cb483779bf71bb2dc3",
+    "tracking/records/experiments/EXP-026.json": "44fd43c1f785c71f5f9df76c8a9b3dc5cb6b95befa62ea2f90f686d54b684396",
+    "tracking/records/sources/SRC-038.json": "9e12f5fd2182fb8f4d700fdba1d0181327fc803e1b1cefc174703388cfff726d",
+    "tracking/records/sources/SRC-062.json": "3b27f14a7ba5fb35cfa6c5b058aff36ed7501ae080b850a7cfa61245c94a9fb9",
+    "tracking/records/experiments/EXP-027.json": "7b8b29f79542b5d3f09c82cae44030d0bb3dcdf206ab6b676134e1a0a756374b",
+    "tracking/records/sources/SRC-063.json": "6302e7fc42475ebd572ff55c37abd6a2fe014b19ff5a7cea500a55b1f2f458bc"
+  },
+  "ideas_before_sha256": "2f927c4b97aa04db83862aa364a8f4357cedd39c8960d51e747070b323ffcf6a",
+  "ideas_after_sha256": "9c2b98519d970e57960d2af7ec4109cf0bf7c094d4b05634804f187a5a2706c9",
+  "new_training_started": false,
+  "new_submission": false,
+  "note": "EXP-026 completed independently during this analysis; reread its final canonical record and artifacts before ranking. Existing controllers not modified.",
+  "finalized_at": "2026-11-01T08:56:50.118787+00:00",
+  "existing_planned_experiment_reused": "EXP-027"
+}

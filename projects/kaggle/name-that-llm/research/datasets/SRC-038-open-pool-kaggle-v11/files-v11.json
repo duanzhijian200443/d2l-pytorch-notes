@@ -1,0 +1,64 @@
+{
+  "dataset_files": [
+    {
+      "name": "dataq_results.csv",
+      "creation_date": "2026-10-30T07:53:24.740Z",
+      "total_bytes": "1514"
+    },
+    {
+      "name": "fig1_clean_vs_raw.png",
+      "creation_date": "2026-10-30T07:53:24.471Z",
+      "total_bytes": "82858"
+    },
+    {
+      "name": "fig2_label_gain.png",
+      "creation_date": "2026-10-30T07:53:24.402Z",
+      "total_bytes": "83155"
+    },
+    {
+      "name": "fig3_style_gap.png",
+      "creation_date": "2026-10-30T07:53:24.402Z",
+      "total_bytes": "89960"
+    },
+    {
+      "name": "fig4_round2.png",
+      "creation_date": "2026-10-30T07:53:24.418Z",
+      "total_bytes": "82347"
+    },
+    {
+      "name": "ntl_open_pool.parquet",
+      "creation_date": "2026-10-30T07:53:28.860Z",
+      "total_bytes": "99263691"
+    },
+    {
+      "name": "per_model.csv",
+      "creation_date": "2026-10-30T07:53:25.764Z",
+      "total_bytes": "684"
+    },
+    {
+      "name": "removal_summary.csv",
+      "creation_date": "2026-10-30T07:53:25.706Z",
+      "total_bytes": "225"
+    },
+    {
+      "name": "removed_rows.csv",
+      "creation_date": "2026-10-30T07:53:25.809Z",
+      "total_bytes": "1988363"
+    },
+    {
+      "name": "sources.csv",
+      "creation_date": "2026-10-30T07:53:25.805Z",
+      "total_bytes": "4262"
+    },
+    {
+      "name": "style_gap.csv",
+      "creation_date": "2026-10-30T07:53:25.856Z",
+      "total_bytes": "475"
+    },
+    {
+      "name": "v10_append_log.csv",
+      "creation_date": "2026-10-30T07:53:25.834Z",
+      "total_bytes": "551"
+    }
+  ]
+}

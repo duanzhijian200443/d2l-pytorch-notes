@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "EXP-040",
+  "title": "Codex300并发调整：保留成功原文，新批2并发，总计3并发",
+  "baseline_id": "EXP-039",
+  "hypothesis": "OnlyincreaseCodex300collectorconcurrencyfrom1to2underusercombined3cap;preserveoriginaldataandplan.",
+  "changes": [
+    "Keep20successfuloriginalrecordsandoriginaljobkeys",
+    "Resumeonlyremaining280using2workers;pairedEXP038unchangedat1",
+    "Drainoldworkerwithzero-model predispatchgate, preserveoriginaldeadline"
+  ],
+  "observed_at": "2026-11-01T13:17:14.883881+00:00",
+  "source": {
+    "notebook_ref": null,
+    "notebook_version": null,
+    "script_version_id": null,
+    "local_path": "experiments/EXP-040-codex300-concurrency2/code/run_batch.py",
+    "sha256": "2a9764444fb2e819d3ae90013b7044bc78ea5847a8d58ae78c5ce3bb92db050f"
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-040-codex300-concurrency2/manifest.json",
+    "validation_split_id": "codex-pilot-prompt-v1",
+    "content_hashes_verified": true
+  },
+  "config": {
+    "note": "仅作台账索引；完整参数以 config_path 指向的 config.json 为准。"
+  },
+  "environment": {
+    "platform": "local_Codex_subscription",
+    "accelerator": "none",
+    "container": null,
+    "seed": 20261101039
+  },
+  "execution": {
+    "scope": "Actual2concurrentCodexjobs verified;companionserial1active;globalcap3",
+    "status": "RUNNING",
+    "observed_at": "2026-11-01T13:17:14.519949+00:00",
+    "saved_responses": 24,
+    "workers": 2,
+    "run_id": "1e1164753d6946c6b620d1c002d55cb6",
+    "controller_pid": 30508,
+    "inherited_responses": 20,
+    "new_responses": 4
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": "Handoff20successesrawverified;worker2andno-replayofflinechecksPASS;final300auditpending",
+    "per_class_recall_path": null,
+    "oof_path": null,
+    "leakage_audit": "not_audited"
+  },
+  "cost": {
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0,
+    "subscription_usage": "unmetered_in_local_record"
+  },
+  "timing_note": null,
+  "conclusion": "Userrequested3totalconcurrencyactive:Codexbatch2+paired1.Original20successesunchanged,no repeatedsuccessfuljobkeys;continuationrunning.",
+  "limitations": "Collection/sourceprovenanceonly;no bareAPIequivalence/trainingutility claim. Modelbackend snapshot remainsunknown.",
+  "next_action": "Continueoriginal300target;15minuteunifiedmonitorid15;finalsame-runcombinedauditrequired.",
+  "related_sources": [],
+  "evidence": [
+    "experiments/EXP-040-codex300-concurrency2/config.json",
+    "experiments/EXP-040-codex300-concurrency2/manifest.json",
+    "experiments/EXP-040-codex300-concurrency2/report.md",
+    "experiments/EXP-040-codex300-concurrency2/recovery-receipt.json",
+    "experiments/EXP-040-codex300-concurrency2/metrics/handover-gate.json",
+    "experiments/EXP-040-codex300-concurrency2/metrics/handover-audit.json",
+    "experiments/EXP-040-codex300-concurrency2/metrics/offline-validation.json",
+    "experiments/EXP-040-codex300-concurrency2/metrics/execution-preflight.json",
+    "experiments/EXP-040-codex300-concurrency2/code/run_batch.py",
+    "experiments/EXP-040-codex300-concurrency2/request-plan.jsonl",
+    "experiments/EXP-040-codex300-concurrency2/metrics/launch.json",
+    "experiments/EXP-040-codex300-concurrency2/metrics/live-concurrency-verification.json",
+    "experiments/EXP-040-codex300-concurrency2/metrics/monitor-binding.json",
+    "experiments/EXP-040-codex300-concurrency2/collection/state.json",
+    "experiments/EXP-040-codex300-concurrency2/collection/records.jsonl"
+  ],
+  "config_path": "experiments/EXP-040-codex300-concurrency2/config.json"
+}

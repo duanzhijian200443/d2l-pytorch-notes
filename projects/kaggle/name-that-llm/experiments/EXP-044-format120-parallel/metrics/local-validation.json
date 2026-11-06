@@ -1,0 +1,64 @@
+{
+  "status": "PASS",
+  "observed_at": "20261101T163138Z",
+  "full_training_started": false,
+  "config_sha256": "2b53034c7489370a387827b9bf21a5dbd5ccc0c5a008f27a1da37ad7aff443d7",
+  "runner_sha256": "2bb7e8376b44b3450cc5fc2b71f315a8cd1acea29b26d05e207bc3d666fbce8d",
+  "guard_sha256": "037977b7320a76fef57f1909289c0bbde789511a50ad88ff993932dfea8f6673",
+  "steps": [
+    {
+      "name": "unit",
+      "exit_code": 0,
+      "log": "experiments/EXP-044-format120-parallel/metrics/local-check-20261101T163138Z/unit.log",
+      "sha256": "e49bd6550a962b9d33b7d3ecdfc9b7640be37ece2ac5f80fd0b1d0999c0df978"
+    },
+    {
+      "name": "preflight",
+      "exit_code": 0,
+      "log": "experiments/EXP-044-format120-parallel/metrics/local-check-20261101T163138Z/preflight.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "parity",
+      "exit_code": 0,
+      "log": "experiments/EXP-044-format120-parallel/metrics/local-check-20261101T163138Z/parity.log",
+      "sha256": "4a09af6a953312767c3d0152825e558b4033e9b79e8c608a49c9b380e7a0a945"
+    }
+  ],
+  "parity": {
+    "status": "PASS",
+    "environment": {
+      "numpy": "2.4.4",
+      "pandas": "3.0.6",
+      "scipy": "1.17.1",
+      "sklearn": "1.8.0",
+      "python": "3.13.13"
+    },
+    "runner_sha256": "2bb7e8376b44b3450cc5fc2b71f315a8cd1acea29b26d05e207bc3d666fbce8d",
+    "legacy_runner_sha256": "de60b60bfd138b834d8723bbd832fd0522453f549c4050256197f6babe4ed45a",
+    "core_sha256": "caa46bd121164aba891c3d78e662540db9294d653db09f53d02833c1b4ab77ef",
+    "classes": 18,
+    "parallel_workers_observed": 2,
+    "max_abs_score_difference": 0.0,
+    "completed_resume_reused": true,
+    "corruption_rejected": true,
+    "scope": "small real StyleGrams numerical/concurrency test; not full model training or accuracy evidence"
+  },
+  "check_directory": "experiments/EXP-044-format120-parallel/metrics/local-check-20261101T163138Z",
+  "payload_allowlist": [
+    "clean120.csv",
+    "config.json",
+    "data-gate.json",
+    "guard.py",
+    "legacy_runner.py",
+    "protocol.json",
+    "raw120.csv",
+    "runner.py",
+    "stylegram_core.py",
+    "test_runner.py"
+  ],
+  "protected_answer_count": 460,
+  "protected_answer_matches": 0,
+  "environment_scope": "Local behavior and small numerical test only; cloud strict versions still required",
+  "manifest_sha256": "8394945649ea7e3c14e8becd9aa483d7f9e499182996f5be328327a28026a853"
+}

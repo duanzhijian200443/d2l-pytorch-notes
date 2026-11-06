@@ -1,0 +1,16 @@
+{
+  "status": "VERIFIED_FORMAL_PUBLIC_RESULT",
+  "observed_at": "2026-11-02T03:55:07.208171+00:00",
+  "submission_id": 57879463,
+  "script_version_id": 364624288,
+  "notebook_version": 2,
+  "public_score": 0.663,
+  "baseline_exp": "EXP-004",
+  "baseline_displayed_score": 0.662,
+  "displayed_delta": 0.001,
+  "displayed_delta_percentage_points": 0.1,
+  "single_run": true,
+  "statistical_significance": "not_established",
+  "source_evidence": "tracking/snapshots/20261102T035507208171Z/submissions.json",
+  "active_followup_submission_id": 57893384
+}

@@ -1,0 +1,540 @@
+{
+  "status": "IMPORTED",
+  "role": "historical_import_receipt_not_authoritative_registry",
+  "scope": "New forum topics 2026-10-30 through 2026-11-01 and relevant updates to existing discussions; new-sort pages 1-2 inspected",
+  "records": [
+    {
+      "topic_id": 754426,
+      "slug": "halx-fork-guards",
+      "category": "discussions",
+      "url": "https://www.kaggle.com/competitions/name-that-llm/discussion/754426",
+      "title": "Harden a fork, then measure every part on the hidden test: my cheap ablation workflow",
+      "author": "mizuno0522",
+      "observed_at": "2026-11-01T07:32:09.649536+00:00",
+      "post_date": "2026-10-31T05:49:31.631723300Z",
+      "notes_path": "discussions/754426-halx-fork-guards/notes.md",
+      "snapshot_path": "discussions/754426-halx-fork-guards/snapshots/20261101T073209Z.json",
+      "snapshot_sha256": "bd8d33e1becf8f2a1737b2fd4ffddd4f90e211f02632898e860728affaa9ab67",
+      "existing_src_candidate": null,
+      "status": "PENDING_IMPORT",
+      "source_record_proposal": {
+        "title": "HALX：轻量保存、输入检查与适配器本地暂存",
+        "tags": [
+          "runtime",
+          "ablation",
+          "light-commit",
+          "io",
+          "ensemble"
+        ],
+        "related_sources": [
+          "SRC-026"
+        ],
+        "summary": "作者将主流程 4884→2866 秒归因于适配器暂存；轻量 commit 成功不能证明隐藏重跑成功。",
+        "author_claim": "轻量 commit 约1.8小时→167秒；适配器暂存 /tmp 后主流程4884→2866秒且预测相同。",
+        "verified": "已读取 2026-10-31 原帖及当前评论响应；本轮未运行工具 Notebook 或复现计时。",
+        "use_for_us": "把输入解析、CUDA 环境和必要输出完整性纳入保存前检查，测量适配器加载耗时。",
+        "test_plan": "先固定同一源码/输入/环境，测 mount 与本地暂存的加载与主流程时间及预测哈希；可选支路降级需单独验证输出完整性。",
+        "limitations": "作者单一环境自报，4884/2866 是主流程，不是完整隐藏评分；GPU额度观察不是平台政策。",
+        "kind": "discussion",
+        "category": "discussions",
+        "public_score": null,
+        "source_version": {
+          "topic_id": 754426,
+          "snapshot_sha256": "bd8d33e1becf8f2a1737b2fd4ffddd4f90e211f02632898e860728affaa9ab67"
+        }
+      },
+      "action": "IMPORT_NEW_SOURCE"
+    },
+    {
+      "topic_id": 754427,
+      "slug": "halx-no-llama-ablations",
+      "category": "discussions",
+      "url": "https://www.kaggle.com/competitions/name-that-llm/discussion/754427",
+      "title": "I couldn't replace the Llama member: three add-on attempts that didn't recover the score",
+      "author": "mizuno0522",
+      "observed_at": "2026-11-01T07:32:09.650901+00:00",
+      "post_date": "2026-10-31T05:50:13.135235200Z",
+      "notes_path": "discussions/754427-halx-no-llama-ablations/notes.md",
+      "snapshot_path": "discussions/754427-halx-no-llama-ablations/snapshots/20261101T073209Z.json",
+      "snapshot_sha256": "2215f139c39e997dd064ac8ee58f033ae11dab739f35a32f61151ef86fbe2fe3",
+      "existing_src_candidate": null,
+      "status": "PENDING_IMPORT",
+      "source_record_proposal": {
+        "title": "HALX：无 Llama 配方与补充成员的负结果",
+        "tags": [
+          "ablation",
+          "llama",
+          "ensemble",
+          "negative-result"
+        ],
+        "related_sources": [
+          "SRC-026"
+        ],
+        "summary": "0.651→0.642 同时移除 Llama 并改运行保护；ModernBERT/Mistral 未补回差距，不能外推所有集成。",
+        "author_claim": "无 Llama 的 v22 为0.642；加入 ModernBERT/Mistral 的多种设置最高仍0.642。",
+        "verified": "已读取原帖的七行结果及作者未隔离移除效应的明确限制；未取得对应提交ID与固定版本映射。",
+        "use_for_us": "保留低单模OOF但互补的成员；针对当前集成做逐一添加/移除与权重对照。",
+        "test_plan": "固定其余条件只将 Llama 权重设0，再比较新成员小权重加入与替换，并记录错误分歧。",
+        "limitations": "原表两行均写v26且无scriptVersionId；0.009下降混合了运行保护等变化，不能视为严格Llama消融。",
+        "kind": "discussion",
+        "category": "discussions",
+        "public_score": null,
+        "source_version": {
+          "topic_id": 754427,
+          "snapshot_sha256": "2215f139c39e997dd064ac8ee58f033ae11dab739f35a32f61151ef86fbe2fe3"
+        }
+      },
+      "action": "IMPORT_NEW_SOURCE"
+    },
+    {
+      "topic_id": 754657,
+      "slug": "gopain-tpu-qwen-lora",
+      "category": "discussions",
+      "url": "https://www.kaggle.com/competitions/name-that-llm/discussion/754657",
+      "title": "The free TPU v5e-8 trains a Qwen3-8B LoRA classifier ~14x faster than 2xT4 (and bf16 ends the fp16 overflows)",
+      "author": "locdunhat",
+      "observed_at": "2026-11-01T07:32:09.651508+00:00",
+      "post_date": "2026-11-01T03:34:51.322208300Z",
+      "notes_path": "discussions/754657-gopain-tpu-qwen-lora/notes.md",
+      "snapshot_path": "discussions/754657-gopain-tpu-qwen-lora/snapshots/20261101T073209Z.json",
+      "snapshot_sha256": "26947c583fff875a37630abae324df9bea90f601d0512b98d9d3ed44d84a7922",
+      "existing_src_candidate": null,
+      "status": "PENDING_IMPORT",
+      "source_record_proposal": {
+        "title": "GoPain：TPU v5e-8 的 Qwen3-8B LoRA 吞吐探针",
+        "tags": [
+          "tpu",
+          "runtime",
+          "lora",
+          "bf16",
+          "training"
+        ],
+        "related_sources": [],
+        "summary": "11月1日新帖报告8芯TPU探针12.5k padded tokens/s；约14.2倍为特定配置吞吐，完整训练收益尚未验证。",
+        "author_claim": "Qwen3-8B截断24层、LoRA r16、bf16；8芯SPMD 64×384每步1.97秒，约为2×T4 fp16的14.2倍。",
+        "verified": "已读取原帖，作者说在迁移真实训练前测量；未取得其完整probe源码、日志或完成训练结果。",
+        "use_for_us": "作为后续LoRA训练的候选硬件路线，先测固定形状、编译、吞吐、收敛与GPU导入兼容。",
+        "test_plan": "相同样本顺序与有效token预算比较T4和TPU，统计有效token吞吐、编译/排队时间及相同训练步数OOF。",
+        "limitations": "14.2倍为padded-token probe，不是端到端训练或LB提升；0.5小时是按约7小时阶段推算；额度/镜像须另核官方实时信息。",
+        "kind": "discussion",
+        "category": "discussions",
+        "public_score": null,
+        "source_version": {
+          "topic_id": 754657,
+          "snapshot_sha256": "26947c583fff875a37630abae324df9bea90f601d0512b98d9d3ed44d84a7922"
+        }
+      },
+      "action": "IMPORT_NEW_SOURCE"
+    },
+    {
+      "topic_id": 754463,
+      "slug": "public-066-to-070-gap",
+      "category": "discussions",
+      "url": "https://www.kaggle.com/competitions/name-that-llm/discussion/754463",
+      "title": "Title: Beginner question: where does the gap between ~0.66 and ~0.70+ come from?",
+      "author": "kratagyajain5846",
+      "observed_at": "2026-11-01T07:32:12.410601+00:00",
+      "post_date": "2026-10-31T07:14:04.390343100Z",
+      "notes_path": "discussions/754463-public-066-to-070-gap/notes.md",
+      "snapshot_path": "discussions/754463-public-066-to-070-gap/snapshots/20261101T073212Z.json",
+      "snapshot_sha256": "6780adcce015c4466c3870ff60eb5113e910b9a3dba465d66aa79de8425c9343",
+      "existing_src_candidate": null,
+      "status": "PENDING_IMPORT",
+      "source_record_proposal": {
+        "title": "0.66到0.70差距提问：方向意见而非高分配方",
+        "tags": [
+          "community",
+          "data",
+          "negative-result",
+          "unverified-claim"
+        ],
+        "related_sources": [],
+        "summary": "提问者报告标点、平衡、SVM伪标签和ATLAS覆盖改动未超出重跑波动；回复没有可核验0.70配方。",
+        "author_claim": "复现公共0.66配方后，硬标点、更软平衡、n-gram SVM伪标签、更大ATLAS覆盖均在重跑波动内。",
+        "verified": "已读原帖与2条评论；评论仅称数据和建模/管线都重要，没有版本、数值或消融证据。",
+        "use_for_us": "登记弱证据负结果，避免把泛泛社区回复升级为高分路线证明。",
+        "test_plan": "若跟进某个方向需先取得固定源码、参数和对照；不按此帖直接扩大训练。",
+        "limitations": "无精确基线、版本绑定、提交ID、数据清单；不能确认0.70方案用何数据/模型。",
+        "kind": "discussion",
+        "category": "discussions",
+        "public_score": null,
+        "source_version": {
+          "topic_id": 754463,
+          "snapshot_sha256": "6780adcce015c4466c3870ff60eb5113e910b9a3dba465d66aa79de8425c9343"
+        }
+      },
+      "action": "IMPORT_NEW_SOURCE"
+    },
+    {
+      "topic_id": 754131,
+      "slug": "atlas-vs-uniform-smoothing",
+      "category": "discussions",
+      "url": "https://www.kaggle.com/competitions/name-that-llm/discussion/754131",
+      "title": "My popular ATLAS adapter vs Uniform Smoothing",
+      "author": "josephadamski91",
+      "observed_at": "2026-11-01T07:32:12.411250+00:00",
+      "post_date": "2026-10-30T13:18:47.387817100Z",
+      "notes_path": "discussions/754131-atlas-vs-uniform-smoothing/notes.md",
+      "snapshot_path": "discussions/754131-atlas-vs-uniform-smoothing/snapshots/20261101T073212Z.json",
+      "snapshot_sha256": "073b97fe0a6ae19010d26e13f8fceca75cb137399c834eb958c259279c4ed557",
+      "existing_src_candidate": null,
+      "status": "PENDING_IMPORT",
+      "source_record_proposal": {
+        "title": "ATLAS与均匀平滑对照：小幅优势及运行覆盖限制",
+        "tags": [
+          "atlas",
+          "calibration",
+          "ablation",
+          "smoothing",
+          "runtime"
+        ],
+        "related_sources": [
+          "SRC-001",
+          "SRC-026"
+        ],
+        "summary": "作者将ATLAS预测替换为均匀分布：V31/20%为0.663 vs0.662；归因尚受覆盖量和旧权重恢复限制。",
+        "author_claim": "V31/20%真实ATLAS0.663、均匀替换0.662；Teach10%为0.607/0.605；本地两种blend预测近同。",
+        "verified": "已读原帖与10月31日评论；原文承认不同运行ATLAS覆盖行数可变，旧对照用恢复checkpoint。",
+        "use_for_us": "分开测试去掉ATLAS、均匀平滑替代、真实ATLAS，评估信号与概率平滑的贡献。",
+        "test_plan": "冻结同一输入概率、ATLAS处理行集合、权重及后处理，只替换该分支概率，测成对差异。",
+        "limitations": "帖子表格分数未绑定提交ID；其他blend的移除效应不能与本表直接相减来量化平滑贡献。",
+        "kind": "discussion",
+        "category": "discussions",
+        "public_score": null,
+        "source_version": {
+          "topic_id": 754131,
+          "snapshot_sha256": "073b97fe0a6ae19010d26e13f8fceca75cb137399c834eb958c259279c4ed557"
+        }
+      },
+      "action": "IMPORT_NEW_SOURCE"
+    },
+    {
+      "topic_id": 754084,
+      "slug": "ten-lb-points-simulation",
+      "category": "discussions",
+      "url": "https://www.kaggle.com/competitions/name-that-llm/discussion/754084",
+      "title": "Ten LB points can't tell you which OOF to trust: a small simulation",
+      "author": "locdunhat",
+      "observed_at": "2026-11-01T07:32:12.412394+00:00",
+      "post_date": "2026-10-30T06:15:02.230226600Z",
+      "notes_path": "discussions/754084-ten-lb-points-simulation/notes.md",
+      "snapshot_path": "discussions/754084-ten-lb-points-simulation/snapshots/20261101T073212Z.json",
+      "snapshot_sha256": "4031f6acfe62b9a925ec827767b2f6d1ce2a5733c9933ec1d994eaa1d1aea2ab",
+      "existing_src_candidate": null,
+      "status": "PENDING_IMPORT",
+      "source_record_proposal": {
+        "title": "GoPain：用十个LB点挑OOF指标的选择偏差模拟",
+        "tags": [
+          "validation",
+          "selection-bias",
+          "simulation",
+          "oof"
+        ],
+        "related_sources": [
+          "SRC-026"
+        ],
+        "summary": "模拟解释最佳相关OOF的赢家偏差与top5范围收缩；统计数字受高斯模型与独立LB噪声假设限制。",
+        "author_claim": "十点中选最高相关proxy常不是真最优；平均观测相关0.65而真实0.47，后续top5相关下降并非必然失效。",
+        "verified": "已读原帖，确认该结果是模拟，非新的比赛LB成绩；源码与180000模拟样本本轮未执行。",
+        "use_for_us": "避免凭少量Public提交选验证器；预先固定验证协议并检查多个prompt组大小。",
+        "test_plan": "固定多个proxy与后续独立候选；做prompt级重采样和固定public子集误差的模拟，而非按已看LB重选指标。",
+        "limitations": "高斯无方向偏差、跨提交独立LB噪声与真实固定Public split不同；20点不是通用阈值。",
+        "kind": "discussion",
+        "category": "discussions",
+        "public_score": null,
+        "source_version": {
+          "topic_id": 754084,
+          "snapshot_sha256": "4031f6acfe62b9a925ec827767b2f6d1ce2a5733c9933ec1d994eaa1d1aea2ab"
+        }
+      },
+      "action": "IMPORT_NEW_SOURCE"
+    },
+    {
+      "topic_id": 754026,
+      "slug": "target-shrunk-sinkhorn",
+      "category": "discussions",
+      "url": "https://www.kaggle.com/competitions/name-that-llm/discussion/754026",
+      "title": "[ Ablation Note ] Why Prompt-Clustered Adaptive Centering + Target-Shrunk Sinkhorn-Knopp (ρ = 0.35) Outperform Uniform Marginal Forcing",
+      "author": "pablodiegoo",
+      "observed_at": "2026-11-01T07:32:15.226936+00:00",
+      "post_date": "2026-10-30T03:43:11.882121800Z",
+      "notes_path": "discussions/754026-target-shrunk-sinkhorn/notes.md",
+      "snapshot_path": "discussions/754026-target-shrunk-sinkhorn/snapshots/20261101T073215Z.json",
+      "snapshot_sha256": "66fde552e1471afe1492480ddea7814282947310aa2d5b9391428bd7301f0b4d",
+      "existing_src_candidate": null,
+      "status": "PENDING_IMPORT",
+      "source_record_proposal": {
+        "title": "Pablo：自适应中心化与收缩边际Sinkhorn的OOF声明",
+        "tags": [
+          "sinkhorn",
+          "centering",
+          "validation",
+          "stylometry",
+          "hungarian"
+        ],
+        "related_sources": [
+          "SRC-013"
+        ],
+        "summary": "作者给轻量管线OOF阶梯0.3145→0.4345；无逐行OOF/源码版本绑定，且全prompt Hungarian提升不代表稀疏测试收益。",
+        "author_claim": "5折prompt GroupKFold中topic masking0.3686，中心化0.3812，target-shrunk Sinkhorn0.3834，Hungarian0.4345。",
+        "verified": "已读原帖，保留其具体参数与表格；该讨论未给得分scriptVersionId、OOF文件和完整验证隔离证据。",
+        "use_for_us": "作为IDEA-002的候选校准设置与风格特征方向，必须先检验分折与组大小效应。",
+        "test_plan": "固定无泄漏分折缓存，在抽稀后重新聚类，逐项开关中心化/收缩边际/Hungarian并检查label与group泄漏。",
+        "limitations": "2699条并不等于文中18×180的完整格；公开测试类别先验不等的解释是作者假设，非官方证明。",
+        "kind": "discussion",
+        "category": "discussions",
+        "public_score": null,
+        "source_version": {
+          "topic_id": 754026,
+          "snapshot_sha256": "66fde552e1471afe1492480ddea7814282947310aa2d5b9391428bd7301f0b4d"
+        }
+      },
+      "action": "IMPORT_NEW_SOURCE"
+    },
+    {
+      "topic_id": 753974,
+      "slug": "openai-provenance-data-announcement",
+      "category": "discussions",
+      "url": "https://www.kaggle.com/competitions/name-that-llm/discussion/753974",
+      "title": "New external dataset: 9,719 OpenAI responses with exact prompts and provenance",
+      "author": "enaimaan",
+      "observed_at": "2026-11-01T07:32:15.438860+00:00",
+      "post_date": "2026-10-29T23:25:13.996281900Z",
+      "notes_path": "discussions/753974-openai-provenance-data-announcement/notes.md",
+      "snapshot_path": "discussions/753974-openai-provenance-data-announcement/snapshots/20261101T073215Z.json",
+      "snapshot_sha256": "ea4df16acf2e063f7680cbfcf701b1ba5e4f79af2fc6fef1f5935f0b1fcb6782",
+      "existing_src_candidate": null,
+      "status": "PENDING_IMPORT",
+      "source_record_proposal": {
+        "title": "Enai：9719条OpenAI生成文本的发布公告",
+        "tags": [
+          "data",
+          "provenance",
+          "license",
+          "openai"
+        ],
+        "related_sources": [
+          "SRC-027"
+        ],
+        "summary": "公告称9719条、四模型且含exact prompts/设置/溯源；数据本体与生成文本许可本轮未独立核验。",
+        "author_claim": "9719条=2341 Luna+2338 Sol+2336 Terra+2704 Astra；4311补现有prompt覆盖，5408为新prompt面板。",
+        "verified": "已读原公告与1条评论；未读取固定dataset版本文件，公告不能证明逐行溯源、许可或收益。",
+        "use_for_us": "可补GPT类数据，但先对接已有prompt键与来源清单，避免将共享prompt算作独立增量。",
+        "test_plan": "固定数据版本/哈希，核验exact messages、returned model、settings、去重、官方prompt关联和许可来源，再决定分层对照。",
+        "limitations": "SRC-027作者说明未建立生成文本许可所以未纳入v10；存在许可声明不等于生成文本授权已厘清。",
+        "kind": "discussion",
+        "category": "discussions",
+        "public_score": null,
+        "source_version": {
+          "topic_id": 753974,
+          "snapshot_sha256": "ea4df16acf2e063f7680cbfcf701b1ba5e4f79af2fc6fef1f5935f0b1fcb6782"
+        }
+      },
+      "action": "IMPORT_NEW_SOURCE"
+    },
+    {
+      "topic_id": 753177,
+      "slug": "member-oof-and-sparse-validation",
+      "category": "discussions",
+      "url": "https://www.kaggle.com/competitions/name-that-llm/discussion/753177",
+      "title": "Retrained the Qwen2.5-14B member of nlm-v27 on the 120k pool: OOF 0.569 → 0.605, public LB 0.651 → 0.647. Why?",
+      "author": "harshitakumari256",
+      "observed_at": "2026-11-01T07:32:15.618870+00:00",
+      "post_date": "2026-10-27T11:52:46.594316100Z",
+      "snapshot_path": "discussions/753177-member-oof-and-sparse-validation/snapshots/20261101T073215Z.json",
+      "snapshot_sha256": "99223d9c2b132e8e8308126e50559343a7440ed22bd3152453a7382e2d0096c5",
+      "existing_src_candidate": "SRC-026",
+      "status": "PENDING_IMPORT",
+      "source_record_proposal": {
+        "title": "成员OOF与集成收益：稀疏验证及互补性后续核查",
+        "tags": [
+          "ensemble",
+          "validation",
+          "oof",
+          "ablation",
+          "negative-result"
+        ],
+        "related_sources": [],
+        "summary": "复用SRC-026；原帖6条评论无新实质结果，保留OOF与集成脱节及稀疏验证失效边界。",
+        "author_claim": "重训q25 OOF0.569→0.605，替换LB0.651→0.647，旧+新权重0.4为0.650；m=2前十/后五相关差异明显。",
+        "verified": "11月1日重读原帖与6条评论，最新仍为10月31日12:09UTC；与旧快照实质一致，删除评论内容仍不可读。",
+        "use_for_us": "继续保留旧成员互补性与抽稀后重建组计算的验证约束，不把旧结果当最新增益。",
+        "test_plan": "单独比较替换/加入/置零、错误分歧，多个m值抽稀后重建聚类与中心化。",
+        "limitations": "社区自报未重训；全局指标相关不能证明接近配置排序能力；评论推测不同数据增益仍未证实。",
+        "kind": "discussion",
+        "category": "discussions",
+        "public_score": null,
+        "source_version": {
+          "topic_id": 753177,
+          "snapshot_sha256": "99223d9c2b132e8e8308126e50559343a7440ed22bd3152453a7382e2d0096c5"
+        }
+      },
+      "action": "REUSE_EXISTING_SRC_NO_NEW_NOTES",
+      "reuse_note": "未发现新的实质实验结论；可只补观察时间和快照引用，保留既有原始证据。",
+      "existing_evidence": "tracking/snapshots/20261031T141753Z/topic-753177.json"
+    },
+    {
+      "topic_id": 752766,
+      "slug": "open-pool-v10-updates",
+      "category": "discussions",
+      "url": "https://www.kaggle.com/competitions/name-that-llm/discussion/752766",
+      "title": "[UPDATED] Clean data beats more data (Open Pool v10 out now)",
+      "author": "crtproduction",
+      "observed_at": "2026-11-01T07:32:17.788996+00:00",
+      "post_date": "2026-10-26T07:59:30.670717200Z",
+      "snapshot_path": "discussions/752766-open-pool-v10-updates/snapshots/20261101T073217Z.json",
+      "snapshot_sha256": "0a6a5ba2f65b241d5a0fa5c1d1f69cefdf3ee9bc3a706e82c90b4dcb4f2b3fb7",
+      "existing_src_candidate": "SRC-027",
+      "status": "PENDING_IMPORT",
+      "source_record_proposal": {
+        "title": "Open Pool v10：清洗对照与成对分差的不确定性",
+        "tags": [
+          "data",
+          "cleaning",
+          "validation",
+          "paired-comparison"
+        ],
+        "related_sources": [],
+        "summary": "复用SRC-027；新增10月31日作者回复未给新实验，保留193k/198507口径及成对分差依赖错误分歧。",
+        "author_claim": "相同DeBERTa配方raw v7约254k得0.585、clean v9约193k得0.587；v10为198507条。",
+        "verified": "11月1日读原帖和14条评论；新增10月31日16:53UTC回复仅认同数据清洗，没有新得分或版本。",
+        "use_for_us": "记录原池/清洗池与新增来源的独立对照，并量化成对正确性分歧，不能套固定0.01噪声阈值。",
+        "test_plan": "固定模型与prompt分组，比较原池/清洗池等量及全量，并用prompt级bootstrap衡量成对指标变化。",
+        "limitations": "作者数据/分数未独立重训；sqrt(f/n)假设独立行仅为简化近似，prompt相关误差会放大不确定性。",
+        "kind": "discussion",
+        "category": "discussions",
+        "public_score": null,
+        "source_version": {
+          "topic_id": 752766,
+          "snapshot_sha256": "0a6a5ba2f65b241d5a0fa5c1d1f69cefdf3ee9bc3a706e82c90b4dcb4f2b3fb7"
+        }
+      },
+      "action": "REUSE_EXISTING_SRC_NO_NEW_NOTES",
+      "reuse_note": "未发现新的实质实验结论；可只补观察时间和快照引用，保留既有原始证据。",
+      "existing_evidence": "tracking/snapshots/20261031T141753Z/topic-752766.json"
+    },
+    {
+      "slug": "enaimaan-ntl-openai-generated-responses-v3",
+      "category": "datasets",
+      "url": "https://www.kaggle.com/datasets/enaimaan/ntl-openai-generated-responses/versions/3",
+      "title": "Enai V3：9719条OpenAI文本的数据卡与许可边界",
+      "author": "enaimaan",
+      "observed_at": "2026-11-01T07:34:34Z",
+      "notes_path": "datasets/enaimaan-ntl-openai-generated-responses-v3/notes.md",
+      "snapshot_path": "datasets/enaimaan-ntl-openai-generated-responses-v3/snapshots/20261101T073434Z.json",
+      "existing_src_candidate": null,
+      "status": "PENDING_IMPORT",
+      "action": "IMPORT_NEW_SOURCE",
+      "related_inbox_slugs": [
+        "753974-openai-provenance-data-announcement"
+      ],
+      "snapshot_sha256": "3a4e34109298c54a923a0b7a0665aeb1b4dfd63359a91698b3f5ebe3fa763dee",
+      "source_record_proposal": {
+        "kind": "dataset",
+        "category": "datasets",
+        "title": "Enai V3：9719条OpenAI文本的数据卡与许可边界",
+        "tags": [
+          "data",
+          "provenance",
+          "license",
+          "prompt-group",
+          "openai"
+        ],
+        "related_sources": [
+          "SRC-027"
+        ],
+        "public_score": null,
+        "source_version": {
+          "dataset_id": 12956120,
+          "dataset_version_number": 3,
+          "version_created_at": "2026-10-29T23:03:14.417Z",
+          "snapshot_sha256": "3a4e34109298c54a923a0b7a0665aeb1b4dfd63359a91698b3f5ebe3fa763dee"
+        },
+        "summary": "数据卡称9719条/四模型/2739组；V3文件清单已固定，行内容与生成文本授权仍待审计。",
+        "author_claim": "提供exact messages、prompt ancestry、设置与来源声明；新面板不代表新主题，尚无下游精度收益证明。",
+        "verified": "通过Kaggle MCP读取当前数据卡、metadata和固定V3的10文件清单；未下载或读取行内容、LICENSE.md及SHA256SUMS文件。",
+        "use_for_us": "候选GPT类补充；先统一cv_group别名并核对prompt重叠及生成文本权利状态。",
+        "test_plan": "固定V3文件和哈希，读取LICENSE/attribution及逐行provenance，审计官方prompt关联、模型标识、重复及分组后再比较单来源加入。",
+        "limitations": "数据卡为当前页面声明，不能替代固定文件审计；mixed licenses、response_license未核实；公共可下载不代表可直接合并训练。"
+      }
+    }
+  ],
+  "import_notes": [
+    "Replace __SRC_ID__ in notes during merge.",
+    "Existing SRC-026 and SRC-027 must be updated, not duplicated; historical evidence stays referenced.",
+    "Source_record_proposal is an import proposal, not canonical metadata.",
+    "For SRC-026/SRC-027 historical snapshot links are valid after placement under research/discussions/SRC-*; new notes need canonical links patched by importer."
+  ],
+  "imported_at": "2026-11-01T07:38:25.223483+00:00",
+  "canonical_records": [
+    {
+      "source_id": "SRC-054",
+      "record_path": "tracking/records/sources/SRC-054.json",
+      "artifact_dir": "research/discussions/SRC-054-754426-halx-fork-guards"
+    },
+    {
+      "source_id": "SRC-055",
+      "record_path": "tracking/records/sources/SRC-055.json",
+      "artifact_dir": "research/discussions/SRC-055-754427-halx-no-llama-ablations"
+    },
+    {
+      "source_id": "SRC-056",
+      "record_path": "tracking/records/sources/SRC-056.json",
+      "artifact_dir": "research/discussions/SRC-056-754657-gopain-tpu-qwen-lora"
+    },
+    {
+      "source_id": "SRC-057",
+      "record_path": "tracking/records/sources/SRC-057.json",
+      "artifact_dir": "research/discussions/SRC-057-754463-public-066-to-070-gap"
+    },
+    {
+      "source_id": "SRC-058",
+      "record_path": "tracking/records/sources/SRC-058.json",
+      "artifact_dir": "research/discussions/SRC-058-754131-atlas-vs-uniform-smoothing"
+    },
+    {
+      "source_id": "SRC-059",
+      "record_path": "tracking/records/sources/SRC-059.json",
+      "artifact_dir": "research/discussions/SRC-059-754084-ten-lb-points-simulation"
+    },
+    {
+      "source_id": "SRC-060",
+      "record_path": "tracking/records/sources/SRC-060.json",
+      "artifact_dir": "research/discussions/SRC-060-754026-target-shrunk-sinkhorn"
+    },
+    {
+      "source_id": "SRC-061",
+      "record_path": "tracking/records/sources/SRC-061.json",
+      "artifact_dir": "research/discussions/SRC-061-753974-openai-provenance-data-announcement"
+    },
+    {
+      "source_id": "SRC-026",
+      "record_path": "tracking/records/sources/SRC-026.json",
+      "artifact_dir": "research/discussions/SRC-026-753177-member-oof-and-sparse-validation"
+    },
+    {
+      "source_id": "SRC-027",
+      "record_path": "tracking/records/sources/SRC-027.json",
+      "artifact_dir": "research/discussions/SRC-027-752766-open-pool-v10-updates"
+    },
+    {
+      "source_id": "SRC-062",
+      "record_path": "tracking/records/sources/SRC-062.json",
+      "artifact_dir": "research/datasets/SRC-062-enaimaan-ntl-openai-generated-responses-v3"
+    }
+  ],
+  "path_migrations": {
+    "discussions/754426-halx-fork-guards": "research/discussions/SRC-054-754426-halx-fork-guards",
+    "discussions/754427-halx-no-llama-ablations": "research/discussions/SRC-055-754427-halx-no-llama-ablations",
+    "discussions/754657-gopain-tpu-qwen-lora": "research/discussions/SRC-056-754657-gopain-tpu-qwen-lora",
+    "discussions/754463-public-066-to-070-gap": "research/discussions/SRC-057-754463-public-066-to-070-gap",
+    "discussions/754131-atlas-vs-uniform-smoothing": "research/discussions/SRC-058-754131-atlas-vs-uniform-smoothing",
+    "discussions/754084-ten-lb-points-simulation": "research/discussions/SRC-059-754084-ten-lb-points-simulation",
+    "discussions/754026-target-shrunk-sinkhorn": "research/discussions/SRC-060-754026-target-shrunk-sinkhorn",
+    "discussions/753974-openai-provenance-data-announcement": "research/discussions/SRC-061-753974-openai-provenance-data-announcement",
+    "discussions/753177-member-oof-and-sparse-validation": "research/discussions/SRC-026-753177-member-oof-and-sparse-validation",
+    "discussions/752766-open-pool-v10-updates": "research/discussions/SRC-027-752766-open-pool-v10-updates",
+    "datasets/enaimaan-ntl-openai-generated-responses-v3": "research/datasets/SRC-062-enaimaan-ntl-openai-generated-responses-v3"
+  },
+  "time_correction": "Root-transcribed browser 07:36/39/43/49 estimates were replaced in canonical evidence by collection window07:30—07:35:57UTC. Raw download/API timestamps are unchanged."
+}

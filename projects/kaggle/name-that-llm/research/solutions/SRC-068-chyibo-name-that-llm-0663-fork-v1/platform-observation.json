@@ -1,0 +1,42 @@
+{
+  "role": "Key fields transcribed from parent collection window direct observation of Kaggle page and saved-run log, not a hidden rerun log.",
+  "observed_date_utc": "2026-11-02",
+  "ref": "chyibo/name-that-llm-0663-fork",
+  "page": "https://www.kaggle.com/code/chyibo/name-that-llm-0663-fork?scriptVersionId=364709540",
+  "notebook_version": 1,
+  "total_versions": 1,
+  "script_version_id": 364709540,
+  "public_score": 0.665,
+  "best_score": 0.665,
+  "best_score_version": 1,
+  "commit_runtime_display": "6m35s",
+  "commit_accelerator_display": "T4 x2",
+  "open_pool_input_overview": {
+    "listing": "Name That LLM Open Pool: 191k Clean Passages",
+    "version_display": "Last Updated (Version 13)",
+    "author_release_label": "v11"
+  },
+  "saved_run_log_fields": [
+    {
+      "elapsed_s": 19.9,
+      "field": "FAST_COMMIT",
+      "value": true
+    },
+    {
+      "elapsed_s": 385.0,
+      "field": "flag_gemini37_routing_risk dropped rows",
+      "value": 0
+    },
+    {
+      "elapsed_s": 386.3,
+      "field": "open safe pool",
+      "value": 190588
+    },
+    {
+      "elapsed_s": 386.4,
+      "field": "typography evidence patch coefficient",
+      "value": 1.2
+    }
+  ],
+  "limitations": "Open Pool count is the prepared pool, before downstream deduplication or SVC fitting. Remaining historic attachments not byte-audited. No claim about hidden runtime, branch success or actual hidden coverage."
+}

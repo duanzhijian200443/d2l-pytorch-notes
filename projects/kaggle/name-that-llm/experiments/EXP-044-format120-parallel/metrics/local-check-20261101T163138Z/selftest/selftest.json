@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "environment": {
+    "numpy": "2.4.4",
+    "pandas": "3.0.6",
+    "scipy": "1.17.1",
+    "sklearn": "1.8.0",
+    "python": "3.13.13"
+  },
+  "runner_sha256": "2bb7e8376b44b3450cc5fc2b71f315a8cd1acea29b26d05e207bc3d666fbce8d",
+  "legacy_runner_sha256": "de60b60bfd138b834d8723bbd832fd0522453f549c4050256197f6babe4ed45a",
+  "core_sha256": "caa46bd121164aba891c3d78e662540db9294d653db09f53d02833c1b4ab77ef",
+  "classes": 18,
+  "parallel_workers_observed": 2,
+  "max_abs_score_difference": 0.0,
+  "completed_resume_reused": true,
+  "corruption_rejected": true,
+  "scope": "small real StyleGrams numerical/concurrency test; not full model training or accuracy evidence"
+}

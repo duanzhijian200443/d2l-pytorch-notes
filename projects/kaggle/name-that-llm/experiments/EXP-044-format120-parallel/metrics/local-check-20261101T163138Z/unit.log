@@ -1,0 +1,14 @@
+test_claim_mutex_rejects_second_live_claimer (__main__.GuardTests.test_claim_mutex_rejects_second_live_claimer) ... ok
+test_complete_inventory_rejects_corruption_and_unlisted_file (__main__.GuardTests.test_complete_inventory_rejects_corruption_and_unlisted_file) ... ok
+test_remote_unknown_process_needs_terminal_tree_stop_proof (__main__.GuardTests.test_remote_unknown_process_needs_terminal_tree_stop_proof) ... ok
+test_same_run_budget_accumulates_and_lost_guard_never_resets (__main__.GuardTests.test_same_run_budget_accumulates_and_lost_guard_never_resets) ... ok
+test_still_live_synthetic_worker_blocks_resume_after_guard_loss (__main__.GuardTests.test_still_live_synthetic_worker_blocks_resume_after_guard_loss) ... ok
+test_changed_identity_and_corrupted_job_refuse_resume (__main__.NumericalAndResumeTests.test_changed_identity_and_corrupted_job_refuse_resume) ... ok
+test_failed_worker_stops_other_workers_without_refill_or_retry (__main__.NumericalAndResumeTests.test_failed_worker_stops_other_workers_without_refill_or_retry) ... ok
+test_true_stylegrams_parallel_matches_frozen_serial_path (__main__.NumericalAndResumeTests.test_true_stylegrams_parallel_matches_frozen_serial_path) ... ok
+test_unfinished_attempt_is_preserved_and_new_attempt_used (__main__.NumericalAndResumeTests.test_unfinished_attempt_is_preserved_and_new_attempt_used) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 12.605s
+
+OK

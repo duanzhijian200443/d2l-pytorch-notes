@@ -1,0 +1,61 @@
+{
+  "id": 141859942,
+  "ref": "zbigniewkirchner/0-664-one-swap-198k-clean-pool-fully-public",
+  "title": "0.664 | One Swap: 198k Clean Pool, Fully Public",
+  "author": "Zbigniew Kirchner",
+  "slug": "0-664-one-swap-198k-clean-pool-fully-public",
+  "lastRunTime": "2026-10-30T03:59:45.115Z",
+  "language": "python",
+  "kernelType": "notebook",
+  "isPrivate": false,
+  "enableGpu": true,
+  "enableInternet": false,
+  "categoryIds": [
+    "gpu"
+  ],
+  "datasetDataSources": [
+    "dhruvtibarewal/nlm-l24-adapters",
+    "crtproduction/name-that-llm-open-pool",
+    "seyitkaangunes/ntl-extra-api-passages",
+    "abdullah1afify/ntl-generations",
+    "dophuchung/ntl-proxy-generations",
+    "zbigniewkirchner/ntl-qwen3-8b-lora-claude-head",
+    "dhruvtibarewal/nlm-matched-clean",
+    "dhruvtibarewal/nlm-offline-wheels",
+    "josephadamski91/ntl-atlas-qwen3-8b-v1",
+    "lucasboesen/ntl-free-proxy-generations",
+    "nishantdahal/ntl-two-stage-lora",
+    "nishantdahal/ntl-handwriting-blend",
+    "dhruvtibarewal/nlm-l24-adapters-v5",
+    "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+    "pjmathematician/ultrabert-380m-ntl"
+  ],
+  "kernelDataSources": [
+    "lucasboesen/name-that-llm-glm4-9b-trunc25",
+    "lucasboesen/name-that-llm-extract-encoders2",
+    "lucasboesen/name-that-llm-electra-large-weights",
+    "lucasboesen/name-that-llm-desklib-weights",
+    "lucasboesen/name-that-llm-train-lora24-s7",
+    "lucasboesen/name-that-llm-train-tokattn",
+    "lucasboesen/name-that-llm-train-tokattn2",
+    "vnton37nguyn/ntl-train-lora-qwen25-instyle"
+  ],
+  "competitionDataSources": [
+    "name-that-llm"
+  ],
+  "totalVotes": 45,
+  "modelDataSources": [
+    "alexchilton/llama-3-1-8b-base/Transformers/default/1",
+    "qwen-lm/qwen-3/Transformers/8b-base/1",
+    "qwen-lm/qwen-3/Transformers/14b-base/1",
+    "qwen-lm/qwen-3/Transformers/8b/1",
+    "qwen-lm/qwen-3/Transformers/14b/1",
+    "qwen-lm/qwen-3/Transformers/4b-base/1",
+    "qwen-lm/qwen2.5/Transformers/14b/1",
+    "qwen-lm/qwen2.5/Transformers/7b/1"
+  ],
+  "enableTpu": false,
+  "currentVersionNumber": 3,
+  "dockerImage": "gcr.io/kaggle-images/python@sha256:81b1e7c4b4f0f2a7e0a33943c95754b1b7af6b30d65221633a284b6b601cd84a",
+  "machineShape": "NvidiaTeslaT4"
+}

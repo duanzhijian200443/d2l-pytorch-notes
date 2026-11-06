@@ -1,0 +1,80 @@
+{
+  "kind": "notebook",
+  "category": "solutions",
+  "title": "One Swap V3：说明修订与权重梯度，未绑定成绩",
+  "author": "zbigniewkirchner",
+  "url": "https://www.kaggle.com/code/zbigniewkirchner/0-664-one-swap-198k-clean-pool-fully-public?scriptVersionId=364294976",
+  "observed_at": "2026-11-02T03:59:47.195259+00:00",
+  "source_version": {
+    "notebook_version": 3,
+    "script_version_id": 364294976,
+    "source_sha256": "86a72c03d95a46a3378b6e736a23fa0cc8dbc55bc50542852a07c8fe492aa628",
+    "code_sha256": "d8c630d3b9fd1b3b0453de6fffb9e5d613f7a9c1c79cf47ab42f7dd9ad30321f",
+    "notebook_id": 141859942
+  },
+  "public_score": {
+    "value": null,
+    "evidence_type": "not_verified",
+    "bound_to_source": false,
+    "script_version_id": null
+  },
+  "summary": "V3仅删绘图/改注释与说明，主推理同V1；11秒Quick Version没有独立成绩。",
+  "tags": [
+    "data",
+    "svm",
+    "ensemble",
+    "runtime",
+    "version-binding",
+    "same-code"
+  ],
+  "related_sources": [
+    "SRC-002",
+    "SRC-027",
+    "SRC-036",
+    "SRC-038",
+    "SRC-041"
+  ],
+  "schema_version": 1,
+  "id": "SRC-037",
+  "artifact_dir": "research/solutions/SRC-037-one-swap-v3",
+  "notes_path": "research/solutions/SRC-037-one-swap-v3/notes.md",
+  "author_claim": "作者报告svc_w1.5/6/12/20分别0.664/0.659/0.664/0.664，并估计完整隐藏运行约8小时。",
+  "verified": "固定V3/364294976为11秒Quick Version、0输出；较V1仅删绘图改注释与说明，主推理未变。 2026-11-02再次读取当前V3，全部代码单元与历史固定版本相同。",
+  "use_for_us": "理解作者权重梯度和继承来源；与V1同一推理配方，不算独立方法。",
+  "test_plan": "复用V1配方做池/权重分离对照，固定ATLAS选行和执行预算。",
+  "limitations": "本版本没有独立绑定成绩，不能继承V1的0.664；权重梯度和8小时只是作者报告。",
+  "collection_observation_note": "源码/API时间见回执。浏览器仅记录2026-11-01 UTC采集日期及07:35:57 UTC汇总截至时刻，不将其伪作逐页精确读取时间。",
+  "supersedes": null,
+  "family_id": "code-d8c630d3b9fd",
+  "evidence": [
+    "research/solutions/SRC-037-one-swap-v3/notes.md",
+    "research/solutions/SRC-037-one-swap-v3/code.txt",
+    "research/solutions/SRC-037-one-swap-v3/description.md",
+    "research/solutions/SRC-037-one-swap-v3/metadata.json",
+    "research/solutions/SRC-037-one-swap-v3/receipt.json",
+    "research/solutions/SRC-037-one-swap-v3/source.ipynb",
+    "research/solutions/SRC-037-one-swap-v3/vs-swap-v1.diff",
+    "tracking/snapshots/20261101T073557Z-community-refresh/score-list-dom-observation.json",
+    "tracking/snapshots/20261101T073557Z-community-refresh/search-0664-dom-observation.json",
+    "tracking/snapshots/20261101T073557Z-community-refresh/one-swap-versions-dom-observation.json",
+    "research/solutions/SRC-037-one-swap-v3/snapshots/20261102-community-factcheck/receipt.json",
+    "research/solutions/SRC-037-one-swap-v3/snapshots/20261102-community-factcheck/metadata.json"
+  ],
+  "same_code_sources": [
+    "SRC-041"
+  ],
+  "evidence_sha256": {
+    "research/solutions/SRC-037-one-swap-v3/notes.md": "73db28b814b5e7d64e04ba305d6647244d67d3701f2b6299989b15501456997e",
+    "research/solutions/SRC-037-one-swap-v3/code.txt": "cb912c8f8d47a991c6a91a480e2f265b0c6a198319176c9622e5d1ea152fff5d",
+    "research/solutions/SRC-037-one-swap-v3/description.md": "28352ddebf9ae1e7637e0885922f88f253296ca6f28e37f8db8dfe35329c19d9",
+    "research/solutions/SRC-037-one-swap-v3/metadata.json": "d332c04b8c644d8ba19164042716a9cce5d52df25295dfa30139ac3e2c9caa55",
+    "research/solutions/SRC-037-one-swap-v3/receipt.json": "b0ce9f3a107ae766e4b31c2facd042ef4b70def89e066c27da15f1d87240fc43",
+    "research/solutions/SRC-037-one-swap-v3/source.ipynb": "86a72c03d95a46a3378b6e736a23fa0cc8dbc55bc50542852a07c8fe492aa628",
+    "research/solutions/SRC-037-one-swap-v3/vs-swap-v1.diff": "074bfbd505c9723a4564f7cee1b63df4f881309e28430d7599333f126fb16475",
+    "tracking/snapshots/20261101T073557Z-community-refresh/score-list-dom-observation.json": "dd3d6bcf84ff467a6b47f594d7ba9ef888b776c319b8b2dfae31c49ab4dd1fd2",
+    "tracking/snapshots/20261101T073557Z-community-refresh/search-0664-dom-observation.json": "830019135b8a239cee4684ed235682b78788848caef8f8b0f54c2ea68ceb05e7",
+    "tracking/snapshots/20261101T073557Z-community-refresh/one-swap-versions-dom-observation.json": "e181c9ac330d4e4e278b394c5b71f1914a4293c0008460cb7a4081050b2841a8",
+    "research/solutions/SRC-037-one-swap-v3/snapshots/20261102-community-factcheck/receipt.json": "c93b8f32cd8fde8b26f8d0124769adc6ec540ffaa989aacd86d7fa5c6698597c",
+    "research/solutions/SRC-037-one-swap-v3/snapshots/20261102-community-factcheck/metadata.json": "9c9bd5ef78f4c64f320bae784b070abd957c1d415997ab6066e82ce7f918ee28"
+  }
+}

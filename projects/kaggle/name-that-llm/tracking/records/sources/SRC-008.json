@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "id": "SRC-008",
+  "kind": "notebook",
+  "title": "NTL 0.663 V31 + ATLAS20 (repro)",
+  "url": "https://www.kaggle.com/code/negi69/ntl-0-663-v31-atlas20-repro",
+  "observed_at": "2026-10-30T15:16:41.600Z",
+  "source_version": {
+    "notebook_version": 9,
+    "script_version_id": null,
+    "source_sha256": "8da223799a8bd1738fd2da92011ab9be30680378864faae43ad12ec711ce4f5c",
+    "code_sha256": "6fe316270570b3dcd12a9d12b2da26b08c3d378e4b0dc251b8fb68ccf612170a"
+  },
+  "family_id": "code-6fe316270570",
+  "public_score": {
+    "value": 0.662,
+    "evidence_type": "platform_page",
+    "bound_to_source": false,
+    "script_version_id": null
+  },
+  "summary": "最新源码增加显存上限、分块 LoRA 合并及真实样例预检；移除两个 8B 的 dp 标志。",
+  "author_claim": "正文声明保存在下方 description.md；标题分数不作为独立证据。",
+  "verified": "2026-10-30 已观察页面分数并保存源码；增量说明见摘要。",
+  "use_for_us": "用于选择对照实验，不直接替换当前基线。",
+  "test_plan": "先核对具体得分版本，再把单项差异变成 IDEA。",
+  "limitations": "页面分数与下载源码版本未绑定；排名只代表当日快照。同代码的副本不是独立算法。",
+  "evidence": [
+    "reviews/public-top20-20261030/negi69--ntl-0-663-v31-atlas20-repro/source.ipynb",
+    "reviews/public-top20-20261030/negi69--ntl-0-663-v31-atlas20-repro/metadata.json",
+    "reviews/public-top20-20261030/negi69--ntl-0-663-v31-atlas20-repro/description.md",
+    "reviews/public-top20-20261030/ui-scores.json"
+  ]
+}

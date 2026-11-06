@@ -1,0 +1,8 @@
+{
+  "job": "verify-package",
+  "script": "src/workbench_local.py",
+  "sha256": "e4a9cde9e6826034a321adbd9c18c4c193a2ea7e3fad8165700901ff241d11d4",
+  "timeout_seconds": 120,
+  "scope": "audited fixed local operation; environment GPU hiding is not a security sandbox",
+  "attempted_at": "2026-11-02T04:54:43.400968+00:00"
+}

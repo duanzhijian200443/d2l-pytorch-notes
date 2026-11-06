@@ -1,0 +1,44 @@
+{
+  "prompt_id": "cp0010",
+  "prompt": "A neighbor has returned a borrowed tool late twice, but is otherwise friendly. Suggest a courteous boundary for future borrowing. A response of around 120 words is enough.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "everyday_advice",
+  "target_words": 120,
+  "prompt_group": "cp0010",
+  "split": "train",
+  "source": "codex_subscription",
+  "base_prompt": "A neighbor has returned a borrowed tool late twice, but is otherwise friendly. Suggest a courteous boundary for future borrowing. A response of around 120 words is enough.",
+  "base_prompt_sha256": "65475a292f69ff6b6278f0a43669bd7dbf0745c59b3374a928a1f5d92c2dda4e",
+  "base_prompt_id": "cp0010",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0010::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "0a0b3e82e92342595f446a25fcbff1692d4d1cb26513039b43086de8fec000b1",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:05:05.344380+00:00",
+  "ended_at": "2026-11-01T13:05:20.266050+00:00",
+  "prompt_sha256": "2849537e61307dd04499953be4baa36aed6d6db4aa4f11ca11585f73694f0287",
+  "text": "I’m always happy to help when I can, and I’m glad the tool has been useful. Since it has come back later than we originally agreed a couple of times, though, I need to keep future loans on a firmer schedule so I can count on having my own equipment when I need it. If you’d like to borrow something again, could we agree on a specific return date before you take it, and please return it by then? If your plans change, just send me a message before the due date so we can work something out. If that timing won’t work, I may need to say no to lending it out, but I appreciate your understanding.",
+  "text_sha256": "488f417f10e6adfb55244a6d168f3e2701516b67b72ce28a6f4bd661287314ed",
+  "raw_final_sha256": "488f417f10e6adfb55244a6d168f3e2701516b67b72ce28a6f4bd661287314ed",
+  "word_count": 118,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4212,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 140,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\0a0b3e82e92342595f446a25fcbff1692d4d1cb26513039b43086de8fec000b1",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

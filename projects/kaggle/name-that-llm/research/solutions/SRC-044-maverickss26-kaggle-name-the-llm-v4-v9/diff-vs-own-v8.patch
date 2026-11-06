@@ -1,0 +1,741 @@
+--- reviews\public-top20-20261029\13-maverickss26\source.ipynb
++++ maverick v9
+@@ -1,14 +1,23 @@
+ import glob, os, sys, json, shutil, subprocess, time
+ import numpy as np, pandas as pd
+-
++T_NOTEBOOK = time.time()
++
++# ---- blend (defaults = 0.664)
+ L24_LAYERS = [2, 4, 6, 8, 12, 16, 20, 24]
+-W = dict(q14v5=3.0, q8v5=2.0, ll8v5=1.0, n14b=2.5, q25_14=1.0, deb=1.0)   # log-prob weights of the LoRA / encoder members
+-TWIN, GAUSS = 0.35, dict(q14v5=0.70, q8v5=0.44)                         # centred twin multiplier; Gaussian group-head weights
+-SVC_W, COMP_W = 1.5, 0.15                                                # n-gram SVC weight; linear mix weight of the comp stack
+-ATLAS_W, ATLAS_MARGIN = 0.10, 0.3
+-INFER_FLAGS = ['--perpassage', '1', '--extra_w', '0.5', '--tfidf_w', '0', '--distort_w', '0', '--adapt_w', '1.0',
+-               '--adapt_thr', '0.15', '--sinkhorn', '1.0', '--post', '1', '--atlas_bs', '4', '--atlas_chunk', '3']
+-DROP_QWEN35_TOKATTN = True   # original: the comp stack's Qwen3.5-9B token-attention member is dropped (saves 1.7-2.7 h)
++W = dict(q14v5=3.0, q8v5=2.0, ll8v5=1.0, n14b=2.5, q25_14=1.0, deb=1.0)
++TWIN, GAUSS = 0.35, dict(q14v5=0.70, q8v5=0.44)
++SVC_W, TFIDF_W, DISTORT_W, EXTRA_W = 1.5, 0.25, 0.10, 0.5
++COMP_W = 0.15
++ATLAS_W, ATLAS_MARGIN = 0.20, 0.3
++SINKHORN, SINKHORN_TARGET_MIX = 0.60, 0.35
++V31_TYPO = 1                  # Bayesian typography step
++POST = 0                      # nlm-v27's hard typography guards + Hungarian in dense clusters (now actually honoured if set to 1)
++USE_QWEN35_TOKATTN = True     # comp stack's Qwen3.5-9B token-attention member (skipped automatically if not attached)
++
++# ---- run control
++FULL_COMMIT_TEST = False      # True: the 3-row commit run executes every model (takes ~1.5-2 h); use once to test a fork
++TIME_LIMIT_S = 9 * 3600       # Kaggle's limit for this competition
++SAFETY_S = 15 * 60            # the main stage is stopped this long before the limit; the fallback submission is kept
+ 
+ whl = glob.glob('/kaggle/input/**/bitsandbytes-*.whl', recursive=True)
+ if whl:
+@@ -16,62 +25,62 @@
+                                          capture_output=True, text=True).returncode)
+ cfgs = sorted(glob.glob('/kaggle/input/**/config.json', recursive=True))
+ MISSING = []
+-
+ def mdir(*parts):
+     c = [os.path.dirname(x) for x in cfgs if all(p in x.lower() for p in parts)]
+-    if not c: MISSING.append('model ' + ' '.join(parts)); return None
+-    return c[0]
+-
++    if not c: MISSING.append('model ' + ' '.join(parts))
++    return c[0] if c else None
+ def adir(name):
+     h = glob.glob(f'/kaggle/input/**/{name}/heads.pt', recursive=True)
+-    if not h: MISSING.append('adapter ' + name); return None
+-    return os.path.dirname(h[0])
+-
++    if not h: MISSING.append('adapter ' + name)
++    return os.path.dirname(h[0]) if h else None
+ def nmeta(name):
+     h = glob.glob(f'/kaggle/input/**/{name}/meta.json', recursive=True)
+     if not h: MISSING.append('checkpoint ' + name); return None, {}
+     return os.path.dirname(h[0]), json.load(open(h[0]))['cfg']
+-
+ def first(pattern, what):
+     h = glob.glob(f'/kaggle/input/**/{pattern}', recursive=True)
+-    if not h: MISSING.append(what); return None
+-    return h[0]
++    if not h: MISSING.append(what)
++    return h[0] if h else None
+ 
+ DATA = next(p for p in ['/kaggle/input/competitions/name-that-llm', '/kaggle/input/name-that-llm'] if os.path.exists(p + '/train.csv'))
++N_TEST = len(pd.read_csv(DATA + '/test.csv'))
++FAST_COMMIT = os.getenv('KAGGLE_IS_COMPETITION_RERUN') is None and N_TEST < 50 and not FULL_COMMIT_TEST
++print('test rows', N_TEST, '| FAST_COMMIT', FAST_COMMIT)
++
++EXTRA = first('nlm_matched_clean.parquet', 'dataset dhruvtibarewal/nlm-matched-clean (nlm_matched_clean.parquet)')
+ POOL = first('nlm_pool_v5.parquet', 'dataset dhruvtibarewal/nlm-matched-clean (nlm_pool_v5.parquet)')
+-B8, B14 = mdir('/qwen-3/', '/8b-base/'), mdir('/qwen-3/', '/14b-base/')
+-BL, B25_14 = mdir('/llama-3.1/', '/8b/'), mdir('/qwen2.5/', '/14b/')
++B8, B14, B25_14 = mdir('/qwen-3/', '/8b-base/'), mdir('/qwen-3/', '/14b-base/'), mdir('/qwen2.5/', '/14b/')
+ AQ14V5 = [adir(f'q14v5_f{k}') for k in range(5)] + [adir('q14v5')]
+ AQ8V5 = [adir(f'q8v5_f{k}') for k in range(5)] + [adir('q8v5')]
+-ALL8V5 = [adir(f'll8v5_f{k}') for k in range(5)] + [adir('ll8v5')]
+ N14B, N14BC = nmeta('lora_qwen3_14b'); Q25_14, Q25_14C = nmeta('lora_qwen25_14b')
+ _deb = first('deberta_v3_large/meta.json', 'dataset nishantdahal/ntl-handwriting-blend (deberta_v3_large)')
++_atlas = glob.glob('/kaggle/input/**/atlas_bundle.json', recursive=True)
++if not _atlas: MISSING.append('dataset josephadamski91/ntl-atlas-qwen3-8b-v1 (ATLAS bundle)')
+ if MISSING:
+     raise FileNotFoundError('Attach these inputs (+ Add Input):\n  ' + '\n  '.join(MISSING))
++ATLAS = os.path.dirname(_atlas[0])
++
++# Llama-3.1-8B: public re-upload first (as in 0.664), then Meta's gated model; shard sizes = Meta's release
++_SHARDS = {'model-00001-of-00004.safetensors': 4976698672, 'model-00002-of-00004.safetensors': 4999802720,
++           'model-00003-of-00004.safetensors': 4915916176, 'model-00004-of-00004.safetensors': 1168138808}
++_cands = [os.path.dirname(x) for x in cfgs if '/llama-3-1-8b-base/' in x.lower()] + \
++         [os.path.dirname(x) for x in cfgs if '/llama-3.1/' in x.lower() and '/8b/' in x.lower()]
++BL = next((d for d in _cands if all(os.path.exists(os.path.join(d, f)) and os.path.getsize(os.path.join(d, f)) == n
++                                    for f, n in _SHARDS.items())), None)
++ALL8V5 = [adir(f'll8v5_f{k}') for k in range(5)] + [adir('ll8v5')] if BL else []
++if MISSING:
++    raise FileNotFoundError('Attach these inputs (+ Add Input):\n  ' + '\n  '.join(MISSING))
++if BL is None:
++    print('WARNING: no Llama-3.1-8B with matching shards -> the ll8v5 member (weight 1.0) is dropped; expect a slightly lower score.\n'
++          '         Add Input -> Models -> "alexchilton/llama-3-1-8b-base", or accept Meta\'s licence and add Llama 3.1 / Transformers / 8b.')
++elif not FAST_COMMIT:
++    _c = time.time(); shutil.copytree(BL, '/tmp/llama-3.1/8b', dirs_exist_ok=True); BL = '/tmp/llama-3.1/8b'
++    print('llama copied to local disk in', round(time.time() - _c), 's')
++
+ DEB = '/kaggle/temp/deberta_v3_large'
+-shutil.copytree(os.path.dirname(_deb), DEB, dirs_exist_ok=True)   # one long copy beats many small reads from the mount
+-_atlas = glob.glob('/kaggle/input/**/atlas_bundle.json', recursive=True)
+-ATLAS = os.path.dirname(_atlas[0]) if _atlas else ''
+-print('ATLAS bundle:', ATLAS or 'not attached (ATLAS step skipped)')
+-print('part two', N14BC['keep'], N14BC['layers'], N14BC.get('eos_id'), '|', Q25_14C['keep'], Q25_14C['layers'])
+-
+-from sklearn.feature_extraction.text import TfidfVectorizer
+-_test = pd.read_csv(f'{DATA}/test.csv'); _train = pd.read_csv(f'{DATA}/train.csv')
+-_pool = pd.read_parquet(POOL)
+-print('nlm_pool_v5:', _pool.shape, 'columns', list(_pool.columns))
+-print(_pool['model'].value_counts().to_string() if 'model' in _pool else '')
+-if len(_test) < 50:
+-    norm = lambda s: ' '.join(str(s).split())
+-    pool_set = set(_pool.text.map(norm))
+-    print('exact test-in-pool :', sum(norm(t) in pool_set for t in _test.text), 'of', len(_test))
+-    print('exact train-in-pool:', sum(norm(t) in pool_set for t in _train.text), 'of', len(_train))
+-    v = TfidfVectorizer(analyzer='char', ngram_range=(5, 5), sublinear_tf=True, min_df=1, dtype=np.float32)
+-    Xp = v.fit_transform(_pool.text.astype(str)); Xt = v.transform(_test.text.astype(str))
+-    sim = (Xt @ Xp.T).toarray()
+-    for i, row in enumerate(sim):
+-        j = int(row.argmax())
+-        print(f'test {i}: nearest pool cosine {row[j]:.3f}  (pool label {_pool.model.iloc[j] if "model" in _pool else "?"})')
+-del _pool
++if not FAST_COMMIT:
++    shutil.copytree(os.path.dirname(_deb), DEB, dirs_exist_ok=True)   # one long copy beats many small reads from the mount
++print('Llama:', BL, '| ATLAS:', ATLAS, '| part two:', N14BC['keep'], Q25_14C['keep'])
+ 
+ %%writefile gauss.py
+ """Shared-prompt Gaussian group head (ported, Apache-2.0, from public Kaggle notebooks by prvsiyan / kirilltym / sangam21).
+@@ -230,7 +239,7 @@
+ 4. Test prompts recovered by size-capped average-linkage clustering on content-word TF-IDF.
+ 5. Sum log-probs, then Hungarian assignment inside each cluster (each model answers each prompt at most once).
+ """
+-import os, sys, time, gc, argparse, json
++import os, sys, time, gc, argparse, json, re
+ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+ import numpy as np, pandas as pd, scipy.sparse as sp, torch
+ from scipy.optimize import linear_sum_assignment
+@@ -260,7 +269,9 @@
+ p.add_argument('--atlas_margin', type=float, default=0.0, help='>0: score ATLAS only on rows whose top-2 margin is below this')
+ p.add_argument('--atlas_bs', type=int, default=4); p.add_argument('--atlas_chunk', type=int, default=3); p.add_argument('--atlas_budget', type=float, default=8.3 * 3600)
+ p.add_argument('--sk_div', type=int, default=1, help='1: divide blend by #members before Sinkhorn (ours); 0: raw blend (public notebook)')
+-p.add_argument('--sinkhorn', type=float, default=0.0, help='alpha of Sinkhorn class-marginal balancing (0=off)')
++p.add_argument('--sinkhorn', type=float, default=0.0, help='mix strength for damped marginal balancing (0=off)')
++p.add_argument('--v31_typo', type=int, default=1, help='[restructure] 1: V31 Bayesian typography step (default, as in 0.664); 0: skip')
++p.add_argument('--sinkhorn_target_mix', type=float, default=0.35, help='shrink predicted class marginal toward official-train prior; 0=prediction marginal, 1=train prior')
+ p.add_argument('--sim_k', default='', help="sim only: keep 'lo-hi' random passages per held-out prompt")
+ p.add_argument('--extra', default='', help='parquet/csv (text, model) of matched external passages, used by TF-IDF/distort members')
+ p.add_argument('--extra_w', type=float, default=0.5)
+@@ -355,15 +366,39 @@
+ 
+ LP = {}
+ EXT_T, EXT_Y = np.array([], dtype=object), np.array([], dtype=int)
+-if a.extra and (a.tfidf_w != 0 or a.distort_w > 0):   # [restructure] extra rows feed only the TF-IDF / distort members
++EXTRA_DF = pd.DataFrame(columns=['text', 'model'])
++def _norm_text_key(value):
++    import unicodedata
++    return re.sub(r'\s+', ' ', unicodedata.normalize('NFKC', str(value or ''))).strip()
++if a.extra:
+     _E = pd.read_parquet(a.extra) if a.extra.endswith('.parquet') else pd.read_csv(a.extra)
+-    _E = _E[_E.model.isin(LABELS)]; EXT_T = _E.text.astype(str).values; EXT_Y = _E.model.map(L2I).values
+-    log('extra rows', len(EXT_T))
+-FIT_T = np.concatenate([train.text.values, EXT_T]); FIT_Y = np.concatenate([y, EXT_Y])
+-FIT_W = np.concatenate([np.ones(len(train)), np.full(len(EXT_T), a.extra_w)])
++    if not {'text', 'model'}.issubset(_E.columns):
++        raise ValueError(f'External file must contain text/model columns: {a.extra}')
++    _E = _E[_E.model.isin(LABELS)].copy()
++    _E['text'] = _E.text.fillna('').astype(str)
++    # In --sim mode, remove any external exact-text matches to held-out official rows.
++    # For final submission, retain the public external pool as provided by the source.
++    if a.sim:
++        _held_keys = {_norm_text_key(t) for t in test.text.values}
++        _E = _E[~_E.text.map(_norm_text_key).isin(_held_keys)].copy()
++    _official_keys = {_norm_text_key(t) for t in train.text.values}
++    _seen = set(_official_keys)
++    _keep = []
++    for _t in _E.text.values:
++        _k = _norm_text_key(_t)
++        _ok = bool(_k) and _k not in _seen
++        _keep.append(_ok)
++        if _ok: _seen.add(_k)
++    EXTRA_DF = _E.loc[_keep, ['text', 'model']].reset_index(drop=True)
++    EXT_T = EXTRA_DF.text.astype(str).values
++    EXT_Y = EXTRA_DF.model.map(L2I).values.astype(int)
++    log('matched-clean extra rows after exact de-dup', len(EXT_T))
++FIT_T = np.concatenate([train.text.values, EXT_T])
++FIT_Y = np.concatenate([y, EXT_Y])
++FIT_W = np.concatenate([np.ones(len(train), dtype=np.float32), np.full(len(EXT_T), a.extra_w, dtype=np.float32)])
+ # ---------------- 2. TF-IDF centred LR
+-from sklearn.linear_model import LogisticRegression
+-if a.tfidf_w != 0:   # [restructure] the weight-0 TF-IDF member was fitted but contributed exactly 0: skipped
++if a.tfidf_w > 0:
++    from sklearn.linear_model import LogisticRegression
+     mats_tr, mats_te = [], []
+     for kw in [dict(analyzer='char_wb', ngram_range=(2, 5), min_df=3, max_features=60000),
+                dict(token_pattern=r"\w+|[^\w\s]", ngram_range=(1, 2), min_df=3, max_features=30000)]:
+@@ -378,16 +413,46 @@
+         del Xtr, Xte
+     gc.collect(); log('tfidf done')
+ else:
+-    log('tfidf skipped (weight 0)')
+-if a.svc_w > 0:  # public 4-view n-gram LinearSVC (char / word+punct / shape / function words) on train + pool
++    LP['tfidf'] = np.zeros((len(test), 18), dtype=np.float32)
++    log('tfidf skipped (zero ensemble weight)')
++if a.svc_w > 0:  # four-view SVC: official + matched-clean + pool, with source weights and exact de-duplication
+     import re as _re
+     from scipy.sparse import hstack as _hs
+     from sklearn.svm import LinearSVC
+     _FW = set("a an the and or but if while although because as so than that which who whom whose this these those it its they them their theirs he him his she her hers we us our ours you your yours i me my mine in on at to from with without for of by over under between through into about is are was were be been being have has had do does did can could will would shall should may might must not no nor all any some each every both either neither other another such only also just very too more most less least here there when where why how what whether then now still yet even much many few little".split())
+     _shape = lambda t: _re.sub(r"[^\W\d_]+", lambda m_: "X" if m_[0].isupper() else "x", t)
+     _func = lambda t: " ".join(w.lower() if w.lower() in _FW or not w.isalnum() else "CONTENT" for w in _re.findall(r"\w+|[^\w\s]", t))
+-    _P = pd.read_parquet(a.pool); _P = _P[_P.model.isin(LABELS)]
+-    _fit = list(train.text.values) + list(_P.text.astype(str).values); _fy = np.r_[y, _P.model.map(L2I).values]
++    _parts = []
++    _official = train[['text', 'model']].copy(); _official['text'] = _official.text.fillna('').astype(str)
++    _official['_srcw'] = 1.0
++    _parts.append(_official)
++    _seen = {_norm_text_key(t) for t in _official.text.values}
++    if len(EXTRA_DF):
++        _e = EXTRA_DF[['text', 'model']].copy(); _e['_srcw'] = float(a.extra_w)
++        _keep = []
++        for _t in _e.text.values:
++            _k = _norm_text_key(_t); _ok = bool(_k) and _k not in _seen
++            _keep.append(_ok)
++            if _ok: _seen.add(_k)
++        _e = _e.loc[_keep].copy(); _parts.append(_e)
++    if a.pool and os.path.exists(a.pool):
++        _P = pd.read_parquet(a.pool)
++        if not {'text', 'model'}.issubset(_P.columns):
++            raise ValueError(f'Pool must contain text/model columns: {a.pool}')
++        _P = _P[_P.model.isin(LABELS)][['text', 'model']].copy()
++        _P['text'] = _P.text.fillna('').astype(str); _P['_srcw'] = 0.35
++        if a.sim:
++            _held_keys = {_norm_text_key(t) for t in test.text.values}
++            _P = _P[~_P.text.map(_norm_text_key).isin(_held_keys)].copy()
++        _keep = []
++        for _t in _P.text.values:
++            _k = _norm_text_key(_t); _ok = bool(_k) and _k not in _seen
++            _keep.append(_ok)
++            if _ok: _seen.add(_k)
++        _P = _P.loc[_keep].copy(); _parts.append(_P)
++    _fitdf = pd.concat(_parts, ignore_index=True)
++    _fit = _fitdf.text.astype(str).tolist(); _fy = _fitdf.model.map(L2I).to_numpy(dtype=int); _sw = _fitdf['_srcw'].to_numpy(dtype=np.float32)
++    log(f'svc4 fit rows={len(_fit)} source_weighted; external clean={len(EXTRA_DF)}')
+     _A, _B = [], []
+     for view, lo, hi, mf, wv in [("char", 3, 5, 250000, 1.0), ("word", 1, 3, 180000, 0.7), ("shape", 2, 6, 60000, 0.5), ("function", 1, 3, 50000, 0.5)]:
+         prep = _shape if view == "shape" else _func if view == "function" else (lambda s_: s_)
+@@ -395,9 +460,11 @@
+         o = dict(analyzer=an, ngram_range=(lo, hi), lowercase=False, sublinear_tf=True, min_df=2, max_features=mf, dtype=np.float32)
+         if an == "word": o["token_pattern"] = r"(?u)\b\w+\b|[^\w\s]"
+         _v = TfidfVectorizer(**o); _A.append(_v.fit_transform([prep(t) for t in _fit]) * wv); _B.append(_v.transform([prep(t) for t in test.text.values]) * wv)
+-    _d = LinearSVC(C=0.5, random_state=42, max_iter=5000, class_weight='balanced').fit(_hs(_A, format='csr'), _fy).decision_function(_hs(_B, format='csr'))
++    _svc = LinearSVC(C=0.5, random_state=42, max_iter=5000, class_weight='balanced')
++    _svc.fit(_hs(_A, format='csr'), _fy, sample_weight=_sw)
++    _d = _svc.decision_function(_hs(_B, format='csr'))
+     LP['svc4'] = (_d - _d.max(1, keepdims=True) - np.log(np.exp(_d - _d.max(1, keepdims=True)).sum(1, keepdims=True))) * a.svc_w
+-    del _A, _B; gc.collect(); log('svc4 done')
++    del _A, _B, _parts, _fitdf, _svc; gc.collect(); log('svc4 done')
+ if a.distort_w > 0:  # Stamatatos-style text distortion: keep top-100 frequent words + punctuation, mask the rest
+     import re, collections
+     wre = re.compile(r"[A-Za-z’']+")
+@@ -494,34 +561,62 @@
+     Returns log-probs averaged over adapters (plain, centred-or-None)."""
+     from transformers import AutoConfig
+     from safetensors.torch import load_file
++    from concurrent.futures import ThreadPoolExecutor
+     adapters = spec.get('adapters') or [spec['adapter']]
+     tok = AutoTokenizer.from_pretrained(spec['path'])
+     if tok.pad_token is None: tok.pad_token = tok.eos_token
+     cfg = AutoConfig.from_pretrained(spec['path']); tc = cfg.text_config if hasattr(cfg, 'text_config') else cfg
+     tc.num_hidden_layers = spec['keep']; tc.use_cache = False
+     if getattr(tc, 'layer_types', None) is not None: tc.layer_types = tc.layer_types[:spec['keep']]
+-    m = AutoModel.from_pretrained(spec['path'], config=cfg, dtype=torch.float16, device_map='auto').eval()
+-    if spec.get('no_final_norm'): m.norm = torch.nn.Identity()
++    _ms = []   # fork (exp018): with spec['dp'], a full copy on each GPU if the largest batch fits with 1 GiB to spare
++    if spec.get('dp') and torch.cuda.device_count() >= 2:
++        try:
++            for _d in range(2):
++                _ms.append(AutoModel.from_pretrained(spec['path'], config=cfg, dtype=torch.float16, device_map={'': _d}).eval())
++                for _n in ('vision_tower', 'multi_modal_projector'):   # Ministral 3's image path; text passes never use it
++                    if getattr(_ms[-1], _n, None) is not None: setattr(_ms[-1], _n, None)
++                gc.collect(); torch.cuda.empty_cache(); torch.cuda.reset_peak_memory_stats(_d)
++                _ms[-1](input_ids=torch.full((spec.get('bs', 16), spec.get('max_len', 384)), tok.pad_token_id, device=f'cuda:{_d}'), output_hidden_states=True, use_cache=False)
++                assert torch.cuda.max_memory_allocated(_d) < torch.cuda.get_device_properties(_d).total_memory - (1 << 30), 'under 1 GiB to spare'
++        except Exception as _e:   # out of memory, or anything else: upstream's way
++            log(f'  l24 {spec["name"]}: one split copy instead of one per GPU ({_e!r:.80})'); _ms = []
++        gc.collect(); torch.cuda.empty_cache()
++    if not _ms: _ms = [AutoModel.from_pretrained(spec['path'], config=cfg, dtype=torch.float16, device_map='auto').eval()]
++    m = _ms[0]
++    if spec.get('no_final_norm'):
++        for _m in _ms: _m.norm = torch.nn.Identity()
+     mods = dict(m.named_modules()); first = next(m.parameters()).device; L = spec['layers']
++    _mods = [dict(_m.named_modules()) for _m in _ms]
+     _eos = spec.get('eos_id')   # checkpoints trained with an end token appended (Nishant's) need the same id at inference
+     _tk = lambda tx: [x + ([_eos] if _eos is not None else []) for x in tok(list(tx), truncation=True, max_length=spec.get('max_len', 384) - (1 if _eos is not None else 0))['input_ids']]
+     enc = _tk(texts)
+     order = np.argsort([len(x) for x in enc]); bs = spec.get('bs', 16)
+     def lsm(z): return z - z.max(1, keepdims=True) - np.log(np.exp(z - z.max(1, keepdims=True)).sum(1, keepdims=True))
+-    P_acc, C_acc = 0.0, 0.0; FEATS = None; OVF = [0]
++    P_acc, C_acc = 0.0, 0.0; FEATS = None; OVF = [0, 0]
+     if train_texts is not None:
+         enc_tr = _tk(train_texts)
+     def featurize(enc_, norms, hid):
+         order_ = np.argsort([len(x) for x in enc_]); Z_ = np.zeros((len(enc_), hid * len(L)), np.float32)
+-        for i in range(0, len(order_), bs):
+-            b = order_[i:i + bs]; Lm = max(len(enc_[j]) for j in b)
+-            ids = torch.full((len(b), Lm), tok.pad_token_id); att = torch.zeros((len(b), Lm), dtype=torch.long)
+-            for r, j in enumerate(b): ids[r, :len(enc_[j])] = torch.tensor(enc_[j]); att[r, :len(enc_[j])] = 1
+-            hs = m(input_ids=ids.to(first), attention_mask=att.to(first), output_hidden_states=True, use_cache=False).hidden_states
+-            if not all(torch.isfinite(hs[l]).all() for l in L):
+-                m.to(torch.bfloat16); hs = m(input_ids=ids.to(first), attention_mask=att.to(first), output_hidden_states=True, use_cache=False).hidden_states; m.to(torch.float16); OVF[0] += 1
+-            mask = att.unsqueeze(-1).float(); mask[:, 0] = 0
+-            Z_[b] = torch.cat([nm((hs[l].float().cpu() * mask).sum(1) / mask.sum(1)) for l, nm in zip(L, norms)], -1).numpy()
++        def _run(k, n):   # fork: upstream's batches in upstream's order, batch i on copy i % n, one thread per copy
++            mm = _ms[k]; dev = next(mm.parameters()).device
++            with torch.no_grad():   # grad mode is per thread
++                for i in range(k * bs, len(order_), bs * n):
++                    b = order_[i:i + bs]; Lm = max(len(enc_[j]) for j in b)
++                    ids = torch.full((len(b), Lm), tok.pad_token_id); att = torch.zeros((len(b), Lm), dtype=torch.long)
++                    for r, j in enumerate(b): ids[r, :len(enc_[j])] = torch.tensor(enc_[j]); att[r, :len(enc_[j])] = 1
++                    hs = mm(input_ids=ids.to(dev), attention_mask=att.to(dev), output_hidden_states=True, use_cache=False).hidden_states
++                    if not all(torch.isfinite(hs[l]).all() for l in L):   # fp16 overflow (un-normed deep states): redo this batch in bf16
++                        mm.to(torch.bfloat16); hs = mm(input_ids=ids.to(dev), attention_mask=att.to(dev), output_hidden_states=True, use_cache=False).hidden_states; mm.to(torch.float16); OVF[k] += 1
++                    mask = att.unsqueeze(-1).float(); mask[:, 0] = 0; _mg = {d_: mask.to(d_) for d_ in {hs[l].device for l in L}}
++                    Z_[b] = torch.cat([nm(((hs[l].float() * _mg[hs[l].device]).sum(1) / _mg[hs[l].device].sum(1)).cpu()) for l, nm in zip(L, norms)], -1).numpy()   # fork: masked means on the GPU
++        if len(_ms) == 1: _run(0, 1)
++        else:
++            try:
++                with ThreadPoolExecutor(len(_ms)) as _ex:
++                    for _f in [_ex.submit(_run, k, len(_ms)) for k in range(len(_ms))]: _f.result()
++            except Exception as _e:   # never worse than one GPU: drop the second copy, every batch again on the first
++                log(f'  l24 {spec["name"]}: two-copy pass failed ({_e!r:.80}), one copy from here on'); del _ms[1:], _mods[1:]
++                gc.collect(); torch.cuda.empty_cache(); _run(0, 1)
+         return Z_
+     for ai, ad in enumerate(adapters):
+         adp = os.path.join(ad, 'adapter') if os.path.exists(os.path.join(ad, 'adapter', 'adapter_config.json')) else ad
+@@ -531,9 +626,11 @@
+             if '.lora_A.' not in k: continue
+             name = k.replace('base_model.model.', '', 1).split('.lora_A.')[0]
+             if name not in mods and ('model.' + name) in mods: name = 'model.' + name
+-            W = mods[name].weight; B = sd[k.replace('.lora_A.', '.lora_B.')]
+-            W += ((B.to(W.device, torch.float32) @ v.to(W.device, torch.float32)) * scale).to(W.dtype)
+-            deltas.append((W, B, v))   # keep only the low-rank factors; the dense delta is recomputed to unmerge
++            B = sd[k.replace('.lora_A.', '.lora_B.')]
++            for _md in _mods:   # fork: every copy
++                W = _md[name].weight
++                W += ((B.to(W.device, torch.float32) @ v.to(W.device, torch.float32)) * scale).to(W.dtype)
++                deltas.append((W, B, v))   # keep only the low-rank factors; the dense delta is recomputed to unmerge
+         if os.path.exists(os.path.join(ad, 'heads.pt')): H = torch.load(os.path.join(ad, 'heads.pt'), map_location='cpu')
+         else: H = dict(load_file(os.path.join(ad, 'heads.safetensors')))
+         if os.path.exists(os.path.join(ad, 'meta.json')):   # remap head rows from the checkpoint's label order to ours
+@@ -542,16 +639,7 @@
+         hid = H['norms.0.weight'].shape[0]
+         norms = [torch.nn.LayerNorm(hid) for _ in L]
+         for i, nm in enumerate(norms): nm.load_state_dict({'weight': H[f'norms.{i}.weight'], 'bias': H[f'norms.{i}.bias']})
+-        Z = np.zeros((len(texts), hid * len(L)), np.float32)
+-        for i in range(0, len(order), bs):
+-            b = order[i:i + bs]; Lm = max(len(enc[j]) for j in b)
+-            ids = torch.full((len(b), Lm), tok.pad_token_id); att = torch.zeros((len(b), Lm), dtype=torch.long)
+-            for r, j in enumerate(b): ids[r, :len(enc[j])] = torch.tensor(enc[j]); att[r, :len(enc[j])] = 1
+-            hs = m(input_ids=ids.to(first), attention_mask=att.to(first), output_hidden_states=True, use_cache=False).hidden_states
+-            if not all(torch.isfinite(hs[l]).all() for l in L):   # fp16 overflow (un-normed deep states): redo this batch in bf16
+-                m.to(torch.bfloat16); hs = m(input_ids=ids.to(first), attention_mask=att.to(first), output_hidden_states=True, use_cache=False).hidden_states; m.to(torch.float16); OVF[0] += 1
+-            mask = att.unsqueeze(-1).float(); mask[:, 0] = 0
+-            Z[b] = torch.cat([nm((hs[l].float().cpu() * mask).sum(1) / mask.sum(1)) for l, nm in zip(L, norms)], -1).numpy()
++        Z = featurize(enc, norms, hid)   # fork: upstream's loop, now shared with the Gaussian head's train features
+         if train_texts is not None and ai == len(adapters) - 1:   # full-data adapter: features for the Gaussian head
+             FEATS = (Z.copy(), featurize(enc_tr, norms, hid))
+         for W, B, A_ in deltas:   # unmerge before the next adapter
+@@ -565,8 +653,8 @@
+             for g in np.unique(groups):
+                 ii = groups == g; Zc[ii] -= Zc[ii].mean(0)
+             C_acc = C_acc + hd('centered', Zc) / len(adapters)
+-        log(f'  l24 {spec["name"]}: adapter {os.path.basename(ad)} done (bf16 redo batches {OVF[0]})')
+-    del m, mods; gc.collect(); torch.cuda.empty_cache()
++        log(f'  l24 {spec["name"]}: adapter {os.path.basename(ad)} done (bf16 redo batches {sum(OVF)})')
++    del m, mods, _ms, _mods; gc.collect(); torch.cuda.empty_cache()
+     if train_texts is not None: return P_acc, (C_acc if groups is not None else None), FEATS
+     return P_acc, (C_acc if groups is not None else None)
+ 
+@@ -661,7 +749,7 @@
+ tot = sum(LP.values())
+ def atlas_scores(bundle, rows, budget):
+     """Source-conditioned likelihood probabilities (public ATLAS bundle format) for test rows `rows`, in our label order.
+-    Rows are scored shortest-first; raises if the token-proportional projection would overrun `budget` (s since start)."""
++    Rows are scored shortest-first; completed rows are returned even when budget prevents finishing all rows."""
+     sys.path.insert(0, bundle)
+     for _m in [m_ for m_ in list(sys.modules) if m_.startswith(('ntl_atlas', 'ntl_rlcd'))]: del sys.modules[_m]
+     from ntl_atlas.model import load_model as _atlas_load
+@@ -673,20 +761,34 @@
+     try:
+         _am.load_trainable(_lf(os.path.join(bundle, 'adapters.safetensors'))); _am.eval()
+         _enc = _atok(test.text.values[rows].tolist(), truncation=True, max_length=_cfg['max_length'])['input_ids']
+-        _ord = np.argsort([len(t) for t in _enc], kind='stable'); out = np.zeros((len(rows), 18), np.float32); _t1 = time.time()
++        _ord = np.argsort([len(t) for t in _enc], kind='stable')
++        out = np.zeros((len(rows), 18), np.float32)
++        scored = np.zeros(len(rows), dtype=bool)
++        _t1 = time.time()
+         _ctok = np.cumsum(np.array([len(_enc[int(i)]) for i in _ord], np.float64))
+         for _b in range(0, len(_ord), a.atlas_bs):
++            if _b and time.time() - T0 >= budget - 60:
++                log(f'atlas budget checkpoint: preserving {int(scored.sum())}/{len(rows)} completed predictions')
++                break
+             _idx = _ord[_b:_b + a.atlas_bs]
+             _pk = _atok.pad({'input_ids': [_enc[int(i)] for i in _idx]}, padding=True, return_tensors='pt').to(_am.device)
+             with torch.inference_mode(): _p, _ = _am.score(_pk['input_ids'], _pk['attention_mask'], source_chunk=a.atlas_chunk)
+-            out[_idx] = _p.float().cpu().numpy(); _done = _b + len(_idx)
+-            if _b % (25 * a.atlas_bs) == 0:
+-                _proj = (time.time() - T0) + (time.time() - _t1) / _ctok[_done - 1] * (_ctok[-1] - _ctok[_done - 1]) * 1.1   # token-proportional
++            _batch = _p.float().cpu().numpy()
++            if not np.isfinite(_batch).all() or not np.allclose(_batch.sum(1), 1, atol=1e-3):
++                log(f'atlas invalid scores in batch {_b}; keeping previously completed rows')
++                break
++            out[_idx] = _batch
++            scored[_idx] = True
++            _done = _b + len(_idx)
++            if _b % (25 * a.atlas_bs) == 0 and _done > 0:
++                _proj = (time.time() - T0) + (time.time() - _t1) / max(float(_ctok[_done - 1]), 1.0) * float(_ctok[-1] - _ctok[_done - 1]) * 1.1
+                 log(f'atlas {os.path.basename(bundle)} {_done}/{len(_ord)} projected finish {_proj:.0f}s')
+-                if _done > 50 and _proj > budget: raise RuntimeError('atlas would overrun the time budget')
+-                if a.atlas_probe and _done >= a.atlas_probe: raise RuntimeError(f'atlas probe stop; projected {_proj:.0f}s')
+-        assert np.isfinite(out).all() and np.allclose(out.sum(1), 1, atol=1e-4)
+-        return out[:, [_alab.index(l) for l in LABELS]]
++                if a.atlas_probe and _done >= a.atlas_probe:
++                    log(f'atlas probe stopped after {int(scored.sum())} scored rows')
++                    break
++        assert not scored.any() or np.isfinite(out[scored]).all()
++        log(f'atlas completed {int(scored.sum())}/{len(rows)} rows before budget')
++        return out[:, [_alab.index(l) for l in LABELS]], scored
+     finally:
+         del _am; gc.collect(); torch.cuda.empty_cache()
+ 
+@@ -714,17 +816,30 @@
+         mixed = P.copy(); _wleft = 1.0
+         for _bd, _w in zip(_bundles, _aw):
+             try:
+-                A_ = atlas_scores(_bd, rows, a.atlas_budget)
+-                mixed[rows] = mixed[rows] - _w * P[rows] + _w * A_; log(f'atlas {_bd} mixed at {_w}', gpu_mem())
++                A_, scored = atlas_scores(_bd, rows, a.atlas_budget)
++                completed_rows = rows[scored]
++                if len(completed_rows):
++                    mixed[completed_rows] += _w * (A_[scored] - P[completed_rows])
++                log(f'atlas {_bd} mixed {len(completed_rows)}/{len(rows)} rows at {_w}', gpu_mem())
+             except Exception as _e:
+                 log('ATLAS SKIPPED:', _bd, repr(_e))
+         P = mixed / mixed.sum(1, keepdims=True)
+     Q = P.copy()
+     if not (a.sinkhorn > 0 and len(test) >= 18): tot = np.log(P + 1e-12)
+     if a.sinkhorn > 0 and len(test) >= 18:
++        # The competition states test class counts are unequal and Public/Private mixes differ.
++        # Avoid forcing a uniform marginal: shrink model-implied test marginals toward train priors.
++        _rho = float(np.clip(a.sinkhorn_target_mix, 0.0, 1.0))
++        _pred_marg = np.clip(P.mean(0), 1e-6, None); _pred_marg /= _pred_marg.sum()
++        _train_prior = np.bincount(y, minlength=18).astype(np.float64) + 1.0
++        _train_prior /= _train_prior.sum()
++        _target = (1.0 - _rho) * _pred_marg + _rho * _train_prior
++        _target = np.clip(_target, 1e-6, None); _target /= _target.sum()
+         for _ in range(100):
+-            Q *= (len(Q) / 18) / Q.sum(0, keepdims=True); Q /= Q.sum(1, keepdims=True)
++            Q *= (len(Q) * _target[None, :]) / np.clip(Q.sum(0, keepdims=True), 1e-12, None)
++            Q /= np.clip(Q.sum(1, keepdims=True), 1e-12, None)
+         tot = (1 - a.sinkhorn) * np.log(P + 1e-12) + a.sinkhorn * np.log(Q + 1e-12)
++_v38_before_hard = tot.copy()
+ if a.post and a.perpassage:
+     _nfix = 0
+     for _mark, _allowed in GUARDS:
+@@ -737,6 +852,7 @@
+         _ii = np.where(Gte == _g)[0]; _r, _c = linear_sum_assignment(-tot[_ii]); _nh += int((tot[_ii].argmax(1)[_r] != _c).sum())
+         tot[_ii[_r]] = -1e9; tot[_ii[_r], _c] = 0.0
+     log(f'post: em-dash guard fixed {_nfix}, dense-cluster Hungarian changed {_nh}')
++if a.post: _v38_before_hard = tot.copy()   # [restructure] bug fix: the typography step used to discard --post's changes
+ pred = tot.argmax(1) if a.perpassage else hungarian(tot, Gte)
+ if a.sim:
+     from sklearn.metrics import balanced_accuracy_score as bas
+@@ -749,10 +865,66 @@
+     from scipy.special import log_softmax as _lsm
+     np.save(a.save_lp, _lsm(tot / max(wtot, 1e-6), axis=1).astype(np.float32)); log('saved', a.save_lp, 'norm', wtot)
+ np.savez_compressed(os.path.join(os.path.dirname(os.path.abspath(a.out)), 'members_logprob.npz'),   # [restructure] for offline reblending
+-                    ids=test.id.astype(str).values, labels=np.asarray(LABELS), final=tot, **LP)
++                    ids=test.id.astype(str).values, labels=np.asarray(LABELS), before_typography=_v38_before_hard, **LP)
+ sub = pd.DataFrame({'id': test.id.values, 'model': [LABELS[i] for i in pred]})
+ assert sub.model.isin(LABELS).all() and sub.id.is_unique and len(sub) == len(test)
+ sub.to_parquet(a.out, index=False); log('wrote', a.out, sub.model.value_counts().to_dict())
++
++if not a.sim and a.v31_typo:   # [restructure] switchable; on by default
++    import pathlib as _V38Path
++    import scipy.special as _v38sp
++    import json as _v38json
++    _out = _V38Path.Path(a.out)
++    _marks = [' — ', '—', '–', '’', '‘', '“', '”', '«', '»', '"', ';', ':', '(', ')', '[', ']', '**', '`', '…', '•', '\n', '\n\n', 'e.g.', 'i.e.', 'However,', 'Overall,', 'In conclusion', 'Therefore,', 'Moreover,', '\t', ' - ', ' = ', '\n- ', '\n1.', '###', '```', '> ']
++    _Xtr = np.array([[float(_m in _t) for _m in _marks] for _t in train.text.values], dtype=np.float32)
++    _Xte = np.array([[float(_m in _t) for _m in _marks] for _t in test.text.values], dtype=np.float32)
++    _freq = np.bincount(y, minlength=len(LABELS)).astype(np.float64)
++    _hits = np.stack([_Xtr[y == _k].sum(axis=0) for _k in range(len(LABELS))], axis=0).astype(np.float64)
++    # Hierarchical Beta-Bernoulli smoothing: class-specific marker rates shrink toward the global rate.
++    _global_rate = (_Xtr.sum(axis=0) + 2.0) / (len(_Xtr) + 4.0)
++    _kappa = 24.0
++    _rate = (_hits + _kappa * _global_rate[None, :]) / (_freq[:, None] + _kappa)
++    _rate = np.clip(_rate, 0.01, 0.99)
++    _global_rate = np.clip(_global_rate, 0.01, 0.99)
++    _log_rate = np.log(_rate); _log_not_rate = np.log1p(-_rate)
++    _base_log_rate = np.log(_global_rate); _base_log_not_rate = np.log1p(-_global_rate)
++    # Weight markers by how consistently they separate classes, capped to avoid one marker dominating.
++    _signal = np.sqrt(np.mean((_rate - _global_rate[None, :]) ** 2, axis=0))
++    _fw = _signal / max(float(np.median(_signal[_signal > 0])) if np.any(_signal > 0) else 1.0, 1e-6)
++    _fw = np.clip(_fw, 0.25, 2.0)
++    # Matrix form: weighted Bernoulli log likelihood ratio for each class.
++    _evidence = (_Xte * _fw[None, :]) @ _log_rate.T + ((1.0 - _Xte) * _fw[None, :]) @ _log_not_rate.T
++    _evidence -= (((_Xte * _fw[None, :]) @ _base_log_rate) + (((1.0 - _Xte) * _fw[None, :]) @ _base_log_not_rate))[:, None]
++    _evidence -= _evidence.mean(axis=1, keepdims=True)
++    _evidence = np.clip(1.2 * _evidence / max(float(_fw.sum()), 1e-6), -0.30, 0.30)
++    _raw = _v38_before_hard.copy()
++    _probs = _v38sp.softmax(_raw, axis=1)
++    _sorted = np.sort(_probs, axis=1)
++    _margin = _sorted[:, -1] - _sorted[:, -2]
++    _confidence_gate = np.clip((0.60 - _margin) / 0.60, 0.0, 1.0)
++    _word_count = np.array([len(re.findall(r'\b\w+\b', str(_t))) for _t in test.text.values], dtype=np.float32)
++    _length_gate = np.clip(np.sqrt(np.maximum(_word_count, 1.0) / 80.0), 0.40, 1.0)
++    _active_markers = _Xte.sum(axis=1)
++    _coverage_gate = np.clip(np.sqrt((_active_markers + 1.0) / 4.0), 0.45, 1.0)
++    _gate = _confidence_gate * _length_gate * _coverage_gate
++    _safe_logits = _raw + _gate[:, None] * _evidence
++    def _v31_sub(z):
++        return pd.DataFrame({'id': test.id.values, 'model': [LABELS[int(i)] for i in z.argmax(axis=1)]})
++    _raw_sub = _v31_sub(_raw)
++    _safe = _v31_sub(_safe_logits)
++    _safe.to_parquet(_out, index=False)
++    assert _safe.id.is_unique and len(_safe) == len(test) and _safe.model.isin(LABELS).all()
++    with open(_out.with_name('v31_diagnostics.json'), 'w') as _fo:
++        _v38json.dump({
++            'method': 'hierarchical_beta_bernoulli_typography_v2',
++            'fit_scope': 'full official train labels, used only for final submission inference; not an OOF validation claim',
++            'pre_bayes_changed': int((_raw_sub.model.values != _safe.model.values).sum()),
++            'trained_rows': int(len(train)), 'tested_rows': int(len(test)),
++            'marker_count': int(len(_marks)), 'mean_gate': float(_gate.mean()),
++            'length_gate_mean': float(_length_gate.mean()), 'coverage_gate_mean': float(_coverage_gate.mean()),
++            'sinkhorn': float(a.sinkhorn), 'sinkhorn_target_mix': float(a.sinkhorn_target_mix)
++        }, _fo, indent=2)
++    log('V31 Bayesian typography completed; changed from pre-Bayes:', int((_raw_sub.model.values != _safe.model.values).sum()))
+ 
+ %%writefile comp_stack.py
+ """Complementary frozen-feature stack (public Apache-2.0 notebooks by prvsiyan / lucasboesen / vnton37nguyn / kirilltym,
+@@ -793,8 +965,7 @@
+      'tokattn_q35': 0.153, 'tokattn_deb': 0.185}
+ TWIN_W = {'q3_8b': 1.5 * 0.219, 'q25_7b': 1.5 * 0.141, 'q3_4b': 1.5 * 0.083, 'glm9b': 1.5 * 0.110, 'debv3l': 0.25}
+ LORA_TWIN_W = {'lora24_public': 0.15, 'lora24_claude': 0.15}
+-GATE_LAM = {'claude_style': 1.5, 'claude_lora': 1.0, 'family': 0.25}
+-BALANCE_ALPHA = 0.5
++GATE_LAM = {'claude_style': 1.5, 'claude_lora': 1.0, 'family': 0.25}  # used by confidence-aware within-family gates below
+ EXTRA_MIN_LABELS, EXTRA_SHARE = 12, 0.5
+ 
+ # ---- the addition: shared-prompt Gaussian group heads on four measured views, weight = the centred twin of the same backbone,
+@@ -1066,8 +1237,32 @@
+ del X_tr_c, svc_plain, svc_centred, P_style
+ 
+ 
+-# [restructure] the family / Claude gate SVCs of the upstream stack were fitted here but never read: removed.
+-GATES = {}   # still written to by the LoRA section below; never read
++# ---- gates: style SVCs that only re-rank inside one family after the blend
++def family_gate(texts, labels, classes, C, sample_weight=None, balanced=False):
++    g = StyleGrams().fit(texts)
++    svc = LinearSVC(C=C, class_weight='balanced' if balanced else None, random_state=42, max_iter=4000).fit(
++        g.transform(texts), labels, sample_weight=sample_weight)
++    assert list(svc.classes_) == list(classes)
++    d = svc.decision_function(g.transform(TE))
++    return np.column_stack([-d, d]) if len(classes) == 2 else d
++
++
++GATES = {}
++api_claude = sorted(glob.glob('/kaggle/input/**/ntl_extra_passages_claude.csv', recursive=True))
++if api_claude:
++    api = pd.read_csv(api_claude[0])
++    m = np.isin(y, FAMILY_IDX['claude'])
++    GATES['claude'] = family_gate([t for t, k in zip(TR, m) if k] + api['text'].astype(str).tolist(),
++                                  np.concatenate([y[m], api['model'].map(LAB2I).to_numpy(dtype=int)]), FAMILY_IDX['claude'], 0.5)
++    print(f'claude gate: {int(m.sum())} official + {len(api)} API rows', flush=True)
++    del api
++else:
++    print('Claude API passages not attached: Claude gate off', flush=True)
++for fam, C in [('gpt', 1.0), ('gemini', 1.0), ('glm', 0.5)]:
++    m, me = np.isin(y, FAMILY_IDX[fam]), np.isin(EX_Y, FAMILY_IDX[fam])
++    GATES[fam] = family_gate([t for t, k in zip(TR, m) if k] + [t for t, k in zip(EX_T, me) if k], np.concatenate([y[m], EX_Y[me]]),
++                             FAMILY_IDX[fam], C, sample_weight=np.concatenate([np.ones(int(m.sum())), np.full(int(me.sum()), 0.25)]), balanced=True)
++    print(f'{fam} gate: {int(m.sum())} official + {int(me.sum())} extra rows', flush=True)
+ del grams, X_tr, X_ex, X_te
+ 
+ # ============================================================ 3. stylometric features + LightGBM
+@@ -1620,6 +1815,16 @@
+ 
+ 
+ if not SMOKE:
++    # Optional community heads are enabled when both the trained head and matching backbone are attached.
++    _available_tokattn = []
++    for _key, _head_file, _backbone in TOKATTN_HEADS:
++        _head_hits = glob.glob('/kaggle/input/**/' + _head_file, recursive=True)
++        _base_hit = find_checkpoint('qwen3_5') if _backbone == 'qwen3_5' else find_checkpoint(None, dir_name='deberta-v3-large')
++        if _head_hits and _base_hit:
++            _available_tokattn.append((_key, _head_file, _backbone))
++        else:
++            print(f'  OPTIONAL HEAD SKIPPED {_key}: head={bool(_head_hits)} backbone={bool(_base_hit)}', flush=True)
++    TOKATTN_HEADS = _available_tokattn
+     for key, head_file, backbone in TOKATTN_HEADS:
+         if TINY:   # in-sample check on training rows the head was fitted on: must be high, or the checkpoint is not being reproduced
+             acc = float(np.mean(token_attention_probs(TR[:40], head_file, backbone).argmax(1) == y[:40]))
+@@ -1629,47 +1834,107 @@
+     add_member('ultrabert', ultrabert_probs(TE))
+ 
+ 
+-
+-np.save('/kaggle/working/comp_logit.npy', LOGIT)
+-json.dump({'labels': LABELS, 'ids': test['id'].astype(str).tolist(), 'seconds': time.time() - T0}, open('/kaggle/working/comp_meta.json', 'w'))
++def _np_logsoftmax(z):
++    from scipy.special import logsumexp as _lse_np
++    z = np.asarray(z, dtype=np.float64)
++    return z - _lse_np(z, axis=1, keepdims=True)
++
++def _apply_conditional_family_gate(gate_key, family, lam, scores_are_logprob=False):
++    '''Use the already-trained family gate only to rerank siblings, preserving total family mass.
++    Confidence-aware interpolation avoids overriding high-confidence cross-family decisions.'''
++    score = GATES.get(gate_key)
++    if score is None:
++        print(f'  family gate skipped {gate_key}: no fitted scores', flush=True)
++        return
++    idx = FAMILY_IDX[family]
++    score = np.asarray(score, dtype=np.float64)
++    if score.shape != (len(TE), len(idx)):
++        print(f'  family gate skipped {gate_key}: shape {score.shape} expected {(len(TE), len(idx))}', flush=True)
++        return
++    if scores_are_logprob:
++        gate_lp = _np_logsoftmax(score)
++    else:
++        score = score - score.mean(axis=1, keepdims=True)
++        scale = np.sqrt(np.mean(score * score, axis=1, keepdims=True))
++        score = score / np.maximum(scale, 0.25)
++        gate_lp = _np_logsoftmax(score)
++    base = LOGIT[:, idx].copy()
++    base_lp = _np_logsoftmax(base)
++    base_p = np.exp(base_lp)
++    sp = np.sort(base_p, axis=1)
++    margin = sp[:, -1] - sp[:, -2]
++    confidence_gate = np.clip((0.45 - margin) / 0.45, 0.0, 1.0)
++    strength = min(0.45, float(lam) / (1.0 + float(lam))) * confidence_gate
++    mixed_lp = _np_logsoftmax((1.0 - strength[:, None]) * base_lp + strength[:, None] * gate_lp)
++    # Preserve the ensemble's probability mass assigned to this family; only adjust within-family identity.
++    from scipy.special import logsumexp as _lse_np
++    family_mass = _lse_np(base, axis=1)
++    LOGIT[:, idx] = family_mass[:, None] + mixed_lp
++    print(f'  family gate applied {gate_key}: mean strength={strength.mean():.4f}, active rows={int((strength > 0).sum())}', flush=True)
++
++# These gates were fitted above but were previously never added to LOGIT. Apply them conservatively.
++if not SMOKE:
++    _apply_conditional_family_gate('claude', 'claude', GATE_LAM['claude_style'])
++    _apply_conditional_family_gate('claude_lora', 'claude', GATE_LAM['claude_lora'], scores_are_logprob=True)
++    for _fam in ('gpt', 'gemini', 'glm'):
++        _apply_conditional_family_gate(_fam, _fam, GATE_LAM['family'])
++
++np.save('/kaggle/working/comp_logit.npy', LOGIT.astype(np.float32))
++json.dump({'labels': LABELS, 'ids': test['id'].astype(str).tolist(), 'seconds': time.time() - T0,
++           'family_gates_applied': bool(not SMOKE)}, open('/kaggle/working/comp_meta.json', 'w'))
+ print(f'COMP STACK DONE {time.time() - T0:.0f}s', flush=True)
+ 
+ _c0 = time.time()
+-if DROP_QWEN35_TOKATTN:
+-    os.environ['NTL_DROP_Q35'] = '1'
+-!python comp_stack.py 2>&1 | grep -vE 'Warning|warn'
++os.environ['NTL_DROP_Q35'] = '0' if USE_QWEN35_TOKATTN else '1'
++if not FAST_COMMIT:
++    !python comp_stack.py 2>&1 | grep -vE 'Warning|warn'
+ COMP_SEC = time.time() - _c0
+ print('comp stack wall time', round(COMP_SEC))
+ 
+-if os.path.exists('/kaggle/working/comp_logit.npy'):
++_test = pd.read_csv(os.path.join(DATA, 'test.csv'))
++try:
+     _cm = json.load(open('/kaggle/working/comp_meta.json')); _cl = np.load('/kaggle/working/comp_logit.npy')
++    assert _cm['ids'] == _test.id.astype(str).tolist()
+     _P = np.exp(_cl - _cl.max(1, keepdims=True)); _P /= _P.sum(1, keepdims=True)
+     if len(_P) >= 50:
+         for _ in range(100):
+             _P *= (len(_P) / 18) / _P.sum(0, keepdims=True); _P /= _P.sum(1, keepdims=True)
+-    pd.DataFrame({'id': _cm['ids'], 'model': np.array(_cm['labels'])[_P.argmax(1)]}).to_parquet('submission.parquet', index=False)
++    pd.DataFrame({'id': _test.id, 'model': np.array(_cm['labels'])[_P.argmax(1)]}).to_parquet('/kaggle/working/submission.parquet', index=False)
+     print('fallback submission (comp stack only) written')
+-else:
+-    print('WARNING: comp stack produced no output; stage B will run without it')
++except Exception as e:
++    pd.DataFrame({'id': _test.id, 'model': 'gpt-5.5'}).to_parquet('/kaggle/working/submission.parquet', index=False)
++    print('placeholder submission written (comp stack output unavailable:', type(e).__name__, ')')
+ 
+ MODELS = [
+-  {"name": "q14v5", "type": "l24", "path": B14, "adapters": AQ14V5, "keep": 27, "layers": L24_LAYERS, "w": W['q14v5'], "bs": 8,  "max_len": 384, "twin": TWIN, "gauss": GAUSS['q14v5']},
+-  {"name": "q8v5",  "type": "l24", "path": B8,  "adapters": AQ8V5,  "keep": 24, "layers": L24_LAYERS, "w": W['q8v5'],  "bs": 16, "max_len": 384, "twin": TWIN, "gauss": GAUSS['q8v5']},
+-  {"name": "ll8v5", "type": "l24", "path": BL,  "adapters": ALL8V5, "keep": 24, "layers": L24_LAYERS, "w": W['ll8v5'], "bs": 16, "max_len": 384, "twin": TWIN},
+-  {"name": "n14b",  "type": "l24", "path": B14, "adapters": [N14B], "keep": N14BC['keep'], "layers": N14BC['layers'], "w": W['n14b'], "bs": 8,
+-   "max_len": N14BC['max_len'], "twin": TWIN, "no_final_norm": True, "eos_id": N14BC['eos_id']},
+-  {"name": "q25_14", "type": "l24", "path": B25_14, "adapters": [Q25_14], "keep": Q25_14C['keep'], "layers": Q25_14C['layers'], "w": W['q25_14'], "bs": 8,
+-   "max_len": Q25_14C['max_len'], "twin": TWIN, "no_final_norm": True, "eos_id": Q25_14C['eos_id']},
++  {"name": "q14v5", "type": "l24", "path": B14, "adapters": AQ14V5, "keep": 27, "layers": L24_LAYERS, "w": W['q14v5'], "bs": 8, "max_len": 384, "twin": TWIN, "gauss": GAUSS['q14v5']},
++  {"name": "q8v5", "type": "l24", "path": B8, "adapters": AQ8V5, "keep": 24, "layers": L24_LAYERS, "w": W['q8v5'], "bs": 16, "max_len": 384, "twin": TWIN, "gauss": GAUSS['q8v5'], "dp": True},
++  *([{"name": "ll8v5", "type": "l24", "path": BL, "adapters": ALL8V5, "keep": 24, "layers": L24_LAYERS, "w": W['ll8v5'], "bs": 16, "max_len": 384, "twin": TWIN, "dp": True}] if BL else []),
++  {"name": "n14b", "type": "l24", "path": B14, "adapters": [N14B], "keep": N14BC['keep'], "layers": N14BC['layers'], "w": W['n14b'], "bs": 8, "max_len": N14BC['max_len'], "twin": TWIN, "no_final_norm": True, "eos_id": N14BC['eos_id']},
++  {"name": "q25_14", "type": "l24", "path": B25_14, "adapters": [Q25_14], "keep": Q25_14C['keep'], "layers": Q25_14C['layers'], "w": W['q25_14'], "bs": 8, "max_len": Q25_14C['max_len'], "twin": TWIN, "no_final_norm": True, "eos_id": Q25_14C['eos_id']},
+   {"name": "deb", "type": "enc", "ckpt": DEB, "w": W['deb']},
+ ]
+ ATLAS_BUDGET = int(8.3 * 3600 - COMP_SEC - 600)
+-cmd = [sys.executable, 'infer.py', '--data', DATA, '--models', json.dumps(MODELS), '--svc_w', str(SVC_W), '--pool', POOL,
++cmd = [sys.executable, 'infer.py', '--data', str(DATA), '--models', json.dumps(MODELS),
++       '--perpassage', '1', '--extra', str(EXTRA), '--extra_w', str(EXTRA_W), '--tfidf_w', str(TFIDF_W),
++       '--distort_w', str(DISTORT_W), '--svc_w', str(SVC_W), '--pool', str(POOL), '--adapt_w', '1.0',
++       '--adapt_thr', '0.15', '--sinkhorn', str(SINKHORN), '--sinkhorn_target_mix', str(SINKHORN_TARGET_MIX), '--post', str(POST),
++       '--v31_typo', str(V31_TYPO), '--atlas_dir', str(ATLAS),
++       '--atlas_base', str(B8), '--atlas_w', str(ATLAS_W), '--atlas_margin', str(ATLAS_MARGIN),
++       '--atlas_bs', '4', '--atlas_chunk', '3', '--atlas_budget', str(max(180, ATLAS_BUDGET)),
+        '--comp_path', '/kaggle/working/comp_logit.npy', '--comp_w', str(COMP_W),
+-       '--out', 'submission.parquet', '--cache', '/kaggle/temp/cache', *INFER_FLAGS]
+-if ATLAS:
+-    cmd += ['--atlas_dir', ATLAS, '--atlas_base', B8, '--atlas_w', str(ATLAS_W), '--atlas_margin', str(ATLAS_MARGIN),
+-            '--atlas_budget', str(ATLAS_BUDGET)]
+-rc = subprocess.run(cmd).returncode
+-print('=' * 80)
+-print('STAGE B OK: full blend submitted' if rc == 0 else f'STAGE B FAILED (exit {rc}): the comp-stack fallback submission is in place')
+-print(pd.read_parquet('submission.parquet').head())+       '--out', '/kaggle/working/submission_main.parquet', '--cache', '/kaggle/temp/cache']
++STATUS = 'skipped (commit placeholder)'
++if not FAST_COMMIT:
++    _left = TIME_LIMIT_S - (time.time() - T_NOTEBOOK) - SAFETY_S
++    print(f'RUNNING MAIN INFERENCE (watchdog {_left / 3600:.2f} h)', flush=True)
++    try:
++        rc = subprocess.run(cmd, timeout=max(60, _left)).returncode
++        STATUS = 'ok' if rc == 0 else f'FAILED exit {rc}'
++    except subprocess.TimeoutExpired:
++        STATUS = 'STOPPED by watchdog'
++    if STATUS == 'ok':
++        os.replace('/kaggle/working/submission_main.parquet', '/kaggle/working/submission.parquet')
++print('=' * 80); print('STAGE B:', STATUS, '| submission =', 'full blend' if STATUS == 'ok' else 'stage-A fallback'); print('=' * 80)
++submission = pd.read_parquet('/kaggle/working/submission.parquet')
++assert len(submission) == N_TEST and set(submission.columns) == {'id', 'model'} and submission.id.is_unique and submission.model.notna().all()
++print(submission.model.value_counts().to_string(), f'\ntotal {(time.time() - T_NOTEBOOK) / 3600:.2f} h')

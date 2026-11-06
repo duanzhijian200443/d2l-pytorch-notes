@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "id": "SRC-027",
+  "kind": "discussion",
+  "title": "Open Pool v10：清洗对照与成对分差的不确定性",
+  "url": "https://www.kaggle.com/competitions/name-that-llm/discussion/752766",
+  "observed_at": "2026-11-01T07:32:17.788996+00:00",
+  "source_version": {
+    "topic_id": 752766,
+    "snapshot_sha256": "0a6a5ba2f65b241d5a0fa5c1d1f69cefdf3ee9bc3a706e82c90b4dcb4f2b3fb7"
+  },
+  "public_score": null,
+  "summary": "复用SRC-027；新增10月31日作者回复未给新实验，保留193k/198507口径及成对分差依赖错误分歧。",
+  "author_claim": "相同DeBERTa配方raw v7约254k得0.585、clean v9约193k得0.587；v10为198507条。",
+  "verified": "11月1日读原帖和14条评论；新增10月31日16:53UTC回复仅认同数据清洗，没有新得分或版本。",
+  "use_for_us": "记录原池/清洗池与新增来源的独立对照，并量化成对正确性分歧，不能套固定0.01噪声阈值。",
+  "test_plan": "固定模型与prompt分组，比较原池/清洗池等量及全量，并用prompt级bootstrap衡量成对指标变化。",
+  "limitations": "作者数据/分数未独立重训；sqrt(f/n)假设独立行仅为简化近似，prompt相关误差会放大不确定性。",
+  "evidence": [
+    "tracking/snapshots/20261031T141753Z/topic-752766.json",
+    "research/discussions/SRC-027-752766-open-pool-v10-updates/notes.md",
+    "research/discussions/SRC-027-752766-open-pool-v10-updates/snapshots/20261101T073217Z.json"
+  ],
+  "author": "crtproduction",
+  "category": "discussions",
+  "tags": [
+    "data",
+    "cleaning",
+    "validation",
+    "paired-comparison"
+  ],
+  "artifact_dir": "research/discussions/SRC-027-752766-open-pool-v10-updates",
+  "notes_path": "research/discussions/SRC-027-752766-open-pool-v10-updates/notes.md",
+  "related_sources": [
+    "SRC-038"
+  ],
+  "evidence_sha256": {
+    "tracking/snapshots/20261031T141753Z/topic-752766.json": "7f79b08dc5a3fc7273d397ecb0533d24b56f41f1f238451f7b4153564bd4d19c",
+    "research/discussions/SRC-027-752766-open-pool-v10-updates/notes.md": "d1602e22a0b12003e2cf837f7f83eb14f1af773015d9b27f9f039ee55ce60f3f",
+    "research/discussions/SRC-027-752766-open-pool-v10-updates/snapshots/20261101T073217Z.json": "0a6a5ba2f65b241d5a0fa5c1d1f69cefdf3ee9bc3a706e82c90b4dcb4f2b3fb7"
+  },
+  "collection_observation_note": "源码/API时间见回执。浏览器仅记录2026-11-01 UTC采集日期及07:35:57 UTC汇总截至时刻，不将其伪作逐页精确读取时间。"
+}

@@ -1,0 +1,164 @@
+{
+  "status": "PASS_FIXED_DEVELOPMENT_OOF",
+  "experiment_id": "EXP-052",
+  "primary_comparison": "four240_minus_four120",
+  "metrics": {
+    "control": {
+      "rows": 2699,
+      "correct": 1264,
+      "accuracy": 0.46832160059281214,
+      "balanced_accuracy": 0.4682426050211286
+    },
+    "four120": {
+      "rows": 2699,
+      "correct": 1265,
+      "accuracy": 0.4686921081882179,
+      "balanced_accuracy": 0.468612975391499
+    },
+    "four240": {
+      "rows": 2699,
+      "correct": 1259,
+      "accuracy": 0.46646906261578364,
+      "balanced_accuracy": 0.466388267462093
+    }
+  },
+  "comparisons": [
+    {
+      "comparison": "four240_minus_four120",
+      "primary": true,
+      "delta_ba": -0.002224707929405989,
+      "fixed": 4,
+      "new_errors": 10,
+      "net_correct": -6,
+      "changed": 34,
+      "both_wrong_changed": 20,
+      "bootstrap": {
+        "unit": "official prompt_id",
+        "draws": 2000,
+        "seed": 42,
+        "valid_draws": 2000,
+        "null_draws": 0,
+        "redraws": 0,
+        "missing_class_policy": "store null; no redraw; percentile interval uses valid draws only",
+        "ci95": [
+          -0.005185185185185185,
+          0.0003703703703703704
+        ]
+      }
+    },
+    {
+      "comparison": "four240_minus_control",
+      "primary": false,
+      "delta_ba": -0.0018543375590355793,
+      "fixed": 7,
+      "new_errors": 12,
+      "net_correct": -5,
+      "changed": 44,
+      "both_wrong_changed": 25,
+      "bootstrap": {
+        "unit": "official prompt_id",
+        "draws": 2000,
+        "seed": 42,
+        "valid_draws": 2000,
+        "null_draws": 0,
+        "redraws": 0,
+        "missing_class_policy": "store null; no redraw; percentile interval uses valid draws only",
+        "ci95": [
+          -0.005185185185185185,
+          0.001111111111111111
+        ]
+      }
+    },
+    {
+      "comparison": "four120_minus_control",
+      "primary": false,
+      "delta_ba": 0.00037037037037040976,
+      "fixed": 8,
+      "new_errors": 7,
+      "net_correct": 1,
+      "changed": 32,
+      "both_wrong_changed": 17,
+      "bootstrap": {
+        "unit": "official prompt_id",
+        "draws": 2000,
+        "seed": 42,
+        "valid_draws": 2000,
+        "null_draws": 0,
+        "redraws": 0,
+        "missing_class_policy": "store null; no redraw; percentile interval uses valid draws only",
+        "ci95": [
+          -0.0022222222222222222,
+          0.002962962962962963
+        ]
+      }
+    }
+  ],
+  "sparse_mean_by_m": [
+    {
+      "m": 2,
+      "control_ba": 0.3598678817169529,
+      "four120_ba": 0.3597141235072989,
+      "four240_ba": 0.3598547947007699,
+      "four240_minus_four120": 0.00014067119347103141,
+      "four240_minus_control": -1.3087016182977696e-05,
+      "four120_minus_control": -0.0001537582096540091
+    },
+    {
+      "m": 3,
+      "control_ba": 0.3923272888876967,
+      "four120_ba": 0.3957474052557746,
+      "four240_ba": 0.39525911308766215,
+      "four240_minus_four120": -0.0004882921681124474,
+      "four240_minus_control": 0.0029318241999654383,
+      "four120_minus_control": 0.003420116368077886
+    },
+    {
+      "m": 6,
+      "control_ba": 0.4342693800740814,
+      "four120_ba": 0.43569290875580585,
+      "four240_ba": 0.4363486781870696,
+      "four240_minus_four120": 0.0006557694312637307,
+      "four240_minus_control": 0.002079298112988237,
+      "four120_minus_control": 0.0014235286817245063
+    }
+  ],
+  "official_rows": 2699,
+  "official_prompts": 150,
+  "classes": [
+    "claude-fable-5",
+    "claude-opus-4-6",
+    "claude-opus-4-8",
+    "claude-opus-5",
+    "claude-sonnet-5",
+    "gemini-3.1-pro-preview",
+    "gemini-3.6-flash",
+    "gemini-3.7-flash",
+    "gemini-3.8-flash",
+    "glm-5.3",
+    "glm-5.3-flash",
+    "gpt-5.5",
+    "gpt-5.6-luna",
+    "gpt-5.6-sol",
+    "gpt-5.6-terra",
+    "gpt-6-astra",
+    "kimi-k3",
+    "qwen3.8-max"
+  ],
+  "folds": 5,
+  "run_id": "exp052-stylegram-four-volume-v1",
+  "result_sha256": "63033ad87bbef1d470320fade729a5ef0b10453fa7b018933cd4a0e1f7bcb764",
+  "oof": {
+    "four120": {
+      "path": "oof/four120.npz",
+      "sha256": "f8b51f65fb2b18807ea3c73e015080081712714ad7bf82c3572712da846c62f2"
+    },
+    "four240": {
+      "path": "oof/four240.npz",
+      "sha256": "acedad0584bf3fb366358211fddcf6589b0df7fdbc3e14609c4e633b4227ecf9"
+    }
+  },
+  "control_reused": true,
+  "control_oof_equals_exp010_matrix": true,
+  "scope": "Previously inspected official prompt-group development OOF of one Stylegram recipe. Within-prompt paired intervals condition on the fitted models. Four120 is a fixed nested selection, not independent randomized learning-curve replicates. No test-set or leaderboard inference.",
+  "sparse_scope": "Each repeat pools all five folds before macro recall. The five repeats share fitted models."
+}

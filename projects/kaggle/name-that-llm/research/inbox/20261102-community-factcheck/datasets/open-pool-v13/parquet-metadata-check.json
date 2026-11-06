@@ -1,0 +1,549 @@
+[
+  {
+    "tail_file": "v12-ntl_open_pool.parquet-tail.bin",
+    "footer_bytes": 13023,
+    "num_rows": 190588,
+    "schema": [
+      {
+        "name": "schema",
+        "physical_type_enum": null,
+        "repetition_enum": 0,
+        "children": 23,
+        "converted_type_enum": null
+      },
+      {
+        "name": "id",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "text",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "model",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "lab",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "prompt_group",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "source_dataset",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "source_file",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "source_license",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "origin_hint",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "n_words",
+        "physical_type_enum": 2,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      },
+      {
+        "name": "also_in",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "n_sources",
+        "physical_type_enum": 2,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      },
+      {
+        "name": "max_cos_train",
+        "physical_type_enum": 5,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      },
+      {
+        "name": "max_sim_train_prompt",
+        "physical_type_enum": 5,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      },
+      {
+        "name": "style_score",
+        "physical_type_enum": 5,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      },
+      {
+        "name": "flag_kb_proxy",
+        "physical_type_enum": 0,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      },
+      {
+        "name": "flag_gemini37_routing_risk",
+        "physical_type_enum": 0,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      },
+      {
+        "name": "flag_near_train_prompt",
+        "physical_type_enum": 0,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      },
+      {
+        "name": "flag_train_prompt_regen",
+        "physical_type_enum": 0,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      },
+      {
+        "name": "prompt_canon",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "panel_labels",
+        "physical_type_enum": 2,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      },
+      {
+        "name": "prompt_evidence",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "match_weight",
+        "physical_type_enum": 5,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      }
+    ],
+    "row_groups": 1,
+    "created_by": "parquet-cpp-arrow version 26.0.0"
+  },
+  {
+    "tail_file": "v13-gemini37_unverified.parquet-tail.bin",
+    "footer_bytes": 11270,
+    "num_rows": 10593,
+    "schema": [
+      {
+        "name": "schema",
+        "physical_type_enum": null,
+        "repetition_enum": 0,
+        "children": 19,
+        "converted_type_enum": null
+      },
+      {
+        "name": "id",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "text",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "model",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "lab",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "prompt_group",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "source_dataset",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "source_file",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "source_license",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "origin_hint",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "n_words",
+        "physical_type_enum": 2,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      },
+      {
+        "name": "also_in",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "n_sources",
+        "physical_type_enum": 2,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      },
+      {
+        "name": "max_cos_train",
+        "physical_type_enum": 5,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      },
+      {
+        "name": "max_sim_train_prompt",
+        "physical_type_enum": 5,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      },
+      {
+        "name": "style_score",
+        "physical_type_enum": 5,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      },
+      {
+        "name": "flag_kb_proxy",
+        "physical_type_enum": 0,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      },
+      {
+        "name": "flag_gemini37_routing_risk",
+        "physical_type_enum": 0,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      },
+      {
+        "name": "flag_near_train_prompt",
+        "physical_type_enum": 0,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      },
+      {
+        "name": "flag_train_prompt_regen",
+        "physical_type_enum": 0,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      }
+    ],
+    "row_groups": 1,
+    "created_by": "parquet-cpp-arrow version 26.0.0"
+  },
+  {
+    "tail_file": "v13-ntl_open_pool.parquet-tail.bin",
+    "footer_bytes": 13023,
+    "num_rows": 190588,
+    "schema": [
+      {
+        "name": "schema",
+        "physical_type_enum": null,
+        "repetition_enum": 0,
+        "children": 23,
+        "converted_type_enum": null
+      },
+      {
+        "name": "id",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "text",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "model",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "lab",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "prompt_group",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "source_dataset",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "source_file",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "source_license",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "origin_hint",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "n_words",
+        "physical_type_enum": 2,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      },
+      {
+        "name": "also_in",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "n_sources",
+        "physical_type_enum": 2,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      },
+      {
+        "name": "max_cos_train",
+        "physical_type_enum": 5,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      },
+      {
+        "name": "max_sim_train_prompt",
+        "physical_type_enum": 5,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      },
+      {
+        "name": "style_score",
+        "physical_type_enum": 5,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      },
+      {
+        "name": "flag_kb_proxy",
+        "physical_type_enum": 0,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      },
+      {
+        "name": "flag_gemini37_routing_risk",
+        "physical_type_enum": 0,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      },
+      {
+        "name": "flag_near_train_prompt",
+        "physical_type_enum": 0,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      },
+      {
+        "name": "flag_train_prompt_regen",
+        "physical_type_enum": 0,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      },
+      {
+        "name": "prompt_canon",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "panel_labels",
+        "physical_type_enum": 2,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      },
+      {
+        "name": "prompt_evidence",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "match_weight",
+        "physical_type_enum": 5,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      }
+    ],
+    "row_groups": 1,
+    "created_by": "parquet-cpp-arrow version 26.0.0"
+  },
+  {
+    "tail_file": "v13-prompts.parquet-tail.bin",
+    "footer_bytes": 2897,
+    "num_rows": 13021,
+    "schema": [
+      {
+        "name": "schema",
+        "physical_type_enum": null,
+        "repetition_enum": 0,
+        "children": 4,
+        "converted_type_enum": null
+      },
+      {
+        "name": "prompt_canon",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "prompt_text",
+        "physical_type_enum": 6,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": 0
+      },
+      {
+        "name": "panel_labels",
+        "physical_type_enum": 2,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      },
+      {
+        "name": "passages",
+        "physical_type_enum": 2,
+        "repetition_enum": 1,
+        "children": null,
+        "converted_type_enum": null
+      }
+    ],
+    "row_groups": 1,
+    "created_by": "parquet-cpp-arrow version 26.0.0"
+  }
+]

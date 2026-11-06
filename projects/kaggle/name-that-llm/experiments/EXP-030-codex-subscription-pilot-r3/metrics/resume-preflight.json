@@ -1,0 +1,81 @@
+{
+  "observed_at": "2026-11-01T10:19:21.965869+00:00",
+  "authorization": "User: 继续采集; continue original total 1000, max concurrency 2; no automatic retries on new failures.",
+  "prior_run_id": "0df2733358d4478c816ae31ca2b8bfeb",
+  "initial_records": {
+    "count": 558,
+    "bytes": 1388706,
+    "sha256": "997ef3d4013a0b62a03c244de21e7f4e047b52937b68d1ac89085f9761a01bd9"
+  },
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  },
+  "archived_attempts": [
+    {
+      "job_key": "7abd3194eac9b23aedba9435f400a556bbf4590d85ab93bbc713eb0082edc84c",
+      "prompt_id": "cp0140",
+      "model": "gpt-5.6-sol",
+      "original_path": "experiments/EXP-023-codex-subscription-pilot-r1/collection/attempts/7abd3194eac9b23aedba9435f400a556bbf4590d85ab93bbc713eb0082edc84c",
+      "archive_path": "experiments/EXP-030-codex-subscription-pilot-r3/recovery/failed-attempts/7abd3194eac9b23aedba9435f400a556bbf4590d85ab93bbc713eb0082edc84c",
+      "files": {
+        "process.json": "7f33f2029d8b46e9f71cdd28731e88b2bb376a543886119ad783a7dda599b92b",
+        "raw_stdout.jsonl": "c7ffa156b6572c243c7678a2ad381fe9aa6b73bc5fd72a38490b372627ac0fde",
+        "request.json": "6460ec87af1a132a58ec563635860b90bd6578dae1f4302aefc40cb9b7d06695",
+        "result.json": "0bb1c40c2ea10ab0e56af27b961462fd59e742f144c83fb741831b7edc1740f5",
+        "stderr.txt": "a0b26a085d0045d1cf90df07468b244d4a8fb58351f36a788587f05ab0f0744f"
+      },
+      "result": {
+        "job_key": "7abd3194eac9b23aedba9435f400a556bbf4590d85ab93bbc713eb0082edc84c",
+        "status": "FAILED",
+        "started_at": "2026-11-01T10:00:05.232388+00:00",
+        "ended_at": "2026-11-01T10:14:33.101799+00:00",
+        "returncode": 1,
+        "reasons": [
+          "EMPTY_FINAL",
+          "INTERRUPTED_OR_TIMEOUT",
+          "MODEL_ERROR",
+          "NO_TURN_COMPLETED",
+          "PROCESS_FAILED"
+        ]
+      },
+      "inspection": "No final text, no agent message, no completed turn; no saved record. User explicitly requested continuation."
+    },
+    {
+      "job_key": "b3692834ec0eb47bc39ce1c59952039e2741a43d72dea48f8fefcf838b570dbf",
+      "prompt_id": "cp0140",
+      "model": "gpt-6-astra",
+      "original_path": "experiments/EXP-023-codex-subscription-pilot-r1/collection/attempts/b3692834ec0eb47bc39ce1c59952039e2741a43d72dea48f8fefcf838b570dbf",
+      "archive_path": "experiments/EXP-030-codex-subscription-pilot-r3/recovery/failed-attempts/b3692834ec0eb47bc39ce1c59952039e2741a43d72dea48f8fefcf838b570dbf",
+      "files": {
+        "process.json": "b2405b6b7e05ec0bc4c0a7427155ec604ff2b7dae97b66442f506251d7d60416",
+        "raw_stdout.jsonl": "5fa18c59041889a95366bcd7ef670bf5c7fe8de909bf8d4db906c143a417e4c6",
+        "request.json": "1aa8f39e8463d42ed4e69c8fab20c16f3df8fe3f480b20cfb140ddc92afb6cc6",
+        "result.json": "f963ed225aec06fe6cd41e17253cbbf6bb4dd3980bfa0123dca7971ebed37ab4",
+        "stderr.txt": "5157e496f00f57ac0d0bf4fde99e51bb5e9bb10a2c7a2fcc286da1f131380cdb"
+      },
+      "result": {
+        "job_key": "b3692834ec0eb47bc39ce1c59952039e2741a43d72dea48f8fefcf838b570dbf",
+        "status": "FAILED",
+        "started_at": "2026-11-01T10:00:13.906368+00:00",
+        "ended_at": "2026-11-01T10:14:33.064019+00:00",
+        "returncode": 1,
+        "reasons": [
+          "EMPTY_FINAL",
+          "INTERRUPTED_OR_TIMEOUT",
+          "NO_TURN_COMPLETED",
+          "PROCESS_FAILED"
+        ]
+      },
+      "inspection": "No final text, no agent message, no completed turn; no saved record. User explicitly requested continuation."
+    }
+  ],
+  "network_preflight": {
+    "dns_chatgpt_com": true,
+    "dns_auth_openai_com": true,
+    "https_chatgpt_com_status": 403,
+    "note": "HTTP response proves transport reachable, not authenticated model access."
+  }
+}

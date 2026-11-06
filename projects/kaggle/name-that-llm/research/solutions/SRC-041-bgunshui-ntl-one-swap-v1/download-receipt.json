@@ -1,0 +1,15 @@
+{
+  "role": "read-only-download-evidence",
+  "ref": "bgunshui/ntl-one-swap",
+  "observed_at": "2026-11-01T07:34:36.158465+00:00",
+  "notebook_version": 1,
+  "script_version_id": null,
+  "source_sha256": "86a72c03d95a46a3378b6e736a23fa0cc8dbc55bc50542852a07c8fe492aa628",
+  "code_sha256": "d8c630d3b9fd1b3b0453de6fffb9e5d613f7a9c1c79cf47ab42f7dd9ad30321f",
+  "metadata_sha256": "bb939e2c0918ef0e0e66d76f19e8306d222b57faaa52e4b03bee2b8c4489e4af",
+  "executed": false,
+  "url": "https://www.kaggle.com/code/bgunshui/ntl-one-swap",
+  "method": "MCP get_notebook_info determined current version; Kaggle API get_kernel fetched fixed version_label",
+  "status": "DOWNLOADED_NOT_EXECUTED",
+  "same_code_existing_src": []
+}

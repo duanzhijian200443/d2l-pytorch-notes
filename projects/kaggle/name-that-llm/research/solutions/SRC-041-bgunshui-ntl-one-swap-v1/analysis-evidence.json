@@ -1,0 +1,14 @@
+{
+  "role": "static-analysis-evidence-not-canonical-index",
+  "same_code_existing_src": [],
+  "code_sha256": "d8c630d3b9fd1b3b0453de6fffb9e5d613f7a9c1c79cf47ab42f7dd9ad30321f",
+  "executed": false,
+  "compared_to": [
+    "SRC-002"
+  ],
+  "source_notebook_version": 1,
+  "same_code_current_batch": {
+    "ref": "zbigniewkirchner/0-664-one-swap-198k-clean-pool-fully-public",
+    "notebook_version": 3
+  }
+}

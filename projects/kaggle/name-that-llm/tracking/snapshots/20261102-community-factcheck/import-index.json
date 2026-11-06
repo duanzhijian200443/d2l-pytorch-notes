@@ -1,0 +1,28 @@
+{
+  "status": "IMPORTED_VERIFIED_ITEMS",
+  "created": [
+    [
+      "SRC-064",
+      "research/solutions/SRC-064-mercurydust-v11-pairwise-index-audit"
+    ],
+    [
+      "SRC-065",
+      "research/datasets/SRC-065-open-pool-kaggle-v13"
+    ],
+    [
+      "SRC-066",
+      "research/datasets/SRC-066-lucas-free-proxy-v12"
+    ]
+  ],
+  "updated": [
+    "SRC-022",
+    "SRC-045",
+    "SRC-001",
+    "SRC-037"
+  ],
+  "supplementary_screening": "Three score-ranked candidates retain individual PENDING_REVIEW inbox entries; no score/version certification.",
+  "no_training": true,
+  "no_submission": true,
+  "no_remote_mutation": true,
+  "observed_at": "2026-11-02T04:04:08.185418+00:00"
+}

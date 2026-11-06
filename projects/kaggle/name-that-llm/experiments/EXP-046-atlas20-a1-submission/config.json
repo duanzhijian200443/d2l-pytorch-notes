@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-046",
+  "baseline_id": "EXP-004",
+  "candidate_from": "EXP-045 A1",
+  "scope": "single_private_code_competition_submission",
+  "recipe": {
+    "official_rows": 2699,
+    "official_groups": 150,
+    "extra_rows": 10073,
+    "extra_groups": 694,
+    "extra_sha256": "1e9125fd49b19084842332ede84ea65bc0174ee1bb28c8d48acc8ddbd5e36c0e",
+    "extra_share": 0.5,
+    "C": 0.5,
+    "dual": true,
+    "max_iter": 4000,
+    "seed": 42,
+    "dtype": "float64",
+    "post_margin_normalization": false,
+    "self_generated_data": false,
+    "format_cleaning": false
+  },
+  "ensemble": {
+    "atlas_w": 0.2,
+    "comp_w": 0.15,
+    "sinkhorn": 0.45,
+    "sinkhorn_target_mix": 0.35,
+    "typography_scale": 1.5
+  },
+  "preserve": [
+    "original other main/comp models",
+    "original family-gate training pool",
+    "original main svc4",
+    "original dynamic ATLAS routing"
+  ],
+  "validation": {
+    "scope": "Kaggle hidden rerun; no local panel uploaded",
+    "prior_local_A0_A1_macro_recall": 0.6010754296632905,
+    "prior_local_prediction_changes": 0,
+    "prior_local_rows": 729,
+    "prior_local_is_clean_oof": false
+  },
+  "environment": {
+    "platform": "Kaggle",
+    "accelerator": "T4 x2",
+    "internet": false,
+    "container": "gcr.io/kaggle-private-byod/python@sha256:2757e0c7d1e0a9cb43da657b97e223c321a98f5014bdf64f44f2f6b083ad2b2f"
+  },
+  "budget": {
+    "save_only": 1,
+    "quick_commit_runs": 1,
+    "formal_submissions": 1,
+    "max_hidden_runtime_seconds": 32400,
+    "api_usd": 0,
+    "colab_cu": 0
+  },
+  "authority": "User explicitly requested Kaggle submission of the annotated A1 comparison in this chat.",
+  "quick_commit": "Small public placeholder only when competition-rerun environment key is absent; actual hidden rerun always full pipeline."
+}

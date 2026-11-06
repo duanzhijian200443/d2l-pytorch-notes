@@ -1,0 +1,12 @@
+{
+  "old_codex_sha256": "cb903279b3727b31ce2125b89c5ce8f530d769a984f49c2cb86e4fbefb1e9722",
+  "old_codex_unchanged": true,
+  "old_kaggle_sha256": "227ed0103dee52a9a6bea6680a77e8e6409c7e289e99d404f311337db2cac269",
+  "old_kaggle_unchanged": true,
+  "same_audit_run_id": true,
+  "saved_rows": 1,
+  "attempts": 2,
+  "no_active": true,
+  "lock_removed": true,
+  "observed_at": "2026-11-01T12:23:00.654063+00:00"
+}

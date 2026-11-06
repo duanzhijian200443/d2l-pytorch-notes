@@ -1,0 +1,12 @@
+{
+  "job_id": "70b6ce572cadd5f96fe3ccc5b694ba913902e902dafe3c149a90275d6b016b36",
+  "route": "kaggle_model_proxy",
+  "status": "UNCERTAIN",
+  "started_at": "2026-11-01T12:21:54.649562+00:00",
+  "ended_at": "2026-11-01T12:21:59.667356+00:00",
+  "reasons": [
+    "EXCEPTION_KaggleTransportError"
+  ],
+  "stage": "generate",
+  "error_type": "APIConnectionError"
+}

@@ -1,0 +1,107 @@
+{
+  "observed_at": "2026-10-31T14:18:03.523431+00:00",
+  "topic": {
+    "id": 752766,
+    "title": "[UPDATED] Clean data beats more data (Open Pool v10 out now)",
+    "url": "/competitions/name-that-llm/discussion/752766",
+    "postDate": "2026-10-26T07:59:30.670Z",
+    "authorName": "Carrot Production",
+    "authorUrl": "https://www.kaggle.com/crtproduction",
+    "votes": 53,
+    "commentCount": 13,
+    "forumName": "Name That LLM",
+    "forumId": 13688374,
+    "content": "<h2>Update: full-size LB result on clean data, and Open Pool v10 is out</h2>\n<h3>1. The leaderboard check I promised</h3>\n<p>I trained the same DeBERTa-v3-large recipe twice and changed only the training pool. Same hyperparameters, same epochs, same inference notebook.</p>\n<table>\n<thead>\n<tr>\n<th>Training pool</th>\n<th>Passages</th>\n<th>Public LB</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Raw public pool (v7)</td>\n<td>254k</td>\n<td>0.585</td>\n</tr>\n<tr>\n<td><strong>Open Pool v9 (clean)</strong></td>\n<td><strong>193k</strong></td>\n<td><strong>0.587</strong></td>\n</tr>\n</tbody>\n</table>\n<ul>\n<li><strong>25% fewer passages, same or slightly better score.</strong> The 70k rows I removed were not helping the model.</li>\n<li><strong>+0.002 is within LB noise.</strong> Identical code can move by about 0.009 between submissions (thanks to alexchilton for measuring this). So the honest claim is: <strong>clean data matches the raw pool at three quarters of the size.</strong> At equal size, the controlled test in the post above showed <strong>+0.027</strong>.</li>\n</ul>\n<h3>2. Do not judge data changes with pool-based validation</h3>\n<p>My internal validation said v9 was clearly <strong>worse</strong> (0.629 → 0.591). The LB disagreed. I have seen this before: a model trained on a bigger, dirtier pool scored higher on validation but <strong>lower</strong> on the LB (0.611 vs 0.624).</p>\n<p>dhruvtibarewal reported the same pattern in [753177]: OOF went from 0.569 to 0.605 and the LB went from 0.651 to 0.647. If your validation rewards data that looks like the pool, it will keep rewarding junk. For data decisions, the LB (or a test-shaped OOF, see GoPain's comment in [753177]) is the referee.</p>\n<h3>3. Open Pool v10: 198,507 clean passages</h3>\n<p><strong><a href=\"https://www.kaggle.com/datasets/crtproduction/name-that-llm-open-pool\" target=\"_blank\">Open Pool v10</a></strong> is v9 plus <strong>5,581 new passages</strong> from 6 openly licensed datasets published since yesterday. They passed exactly the same filters, and every v9 row is unchanged.</p>\n<table>\n<thead>\n<tr>\n<th>Source</th>\n<th>New passages</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>abdullah1afify/ntl-generations (mostly the 5 Claude labels)</td>\n<td>2,574</td>\n</tr>\n<tr>\n<td>zitaoxu2002/ntl-proxy-passages-pre-ruling</td>\n<td>1,026</td>\n</tr>\n<tr>\n<td>carlosoponce/ntl-own-proxy-passages</td>\n<td>973</td>\n</tr>\n<tr>\n<td>aswathvanan/ntl-proxy-passages</td>\n<td>474</td>\n</tr>\n<tr>\n<td>elliotthankinson/ntl-exact-gens-v3</td>\n<td>367</td>\n</tr>\n<tr>\n<td>lucasboesen/ntl-free-proxy-generations</td>\n<td>167</td>\n</tr>\n</tbody>\n</table>\n<ul>\n<li><strong>Most of it goes where it is needed:</strong> each Claude label gets about 500 to 1,000 more passages.</li>\n<li><strong>The same filters removed 1,396 candidate rows</strong>, mainly:<ul>\n<li>885 em dashes on labels that never use them in train;</li>\n<li>239 passages too close to train content;</li>\n<li>181 passages cut off mid-sentence.</li></ul></li>\n<li><strong>Not added:</strong><ul>\n<li>a new OpenAI-response dataset whose licence for the generated text is not established yet;</li>\n<li>one source with no documentation of how it was generated;</li>\n<li>two re-merges of sources that were already in the pool or were removed in v9.</li></ul></li>\n<li><strong><code>style_score</code> for the new rows comes from the same style model</strong>, rebuilt exactly. New rows average 0.27, against 0.26 for v9.</li>\n<li><strong>Ids continue from <code>ntlop_263484</code></strong>, so your v9 splits still work. To drop the new rows, keep ids below that.</li>\n</ul>\n<pre><code>import pandas as pd\npool = pd.read_parquet(\"/kaggle/input/name-that-llm-open-pool/ntl_open_pool.parquet\")\nprint(len(pool))                      # 198,507: train on all of it\nv9_only = pool[pool.id &lt; \"ntlop_263484\"]\n</code></pre>\n<h3>4. Still missing</h3>\n<p>glm-5.3, glm-5.3-flash, kimi-k3, qwen3.8-max and claude-fable-5 received almost nothing new. If you have openly licensed generations for these labels, please publish them and comment here. I will add them in the next version and credit you.</p>\n<p><strong>If this pool helps you, an upvote on the dataset helps others find it. And if you see something wrong in my method or numbers, please tell me. I would rather be corrected than wrong in public.</strong></p>"
+  },
+  "comments": [
+    {
+      "id": 3547202,
+      "authorName": "ducnh279",
+      "postDate": "2026-10-30T13:46:09.993Z",
+      "content": "<p>First, I really appreciate the time and effort that went into curating this dataset and making it available to the community. It's indeed useful! I used it for pretraining (0.55), followed by fine-tuning on the competition dataset (0.609), both on my local validation set.</p>\n<p>That said, I think diversity matters more than volume. My suspicion is that many prompts in the curated dataset have responses from only a subset of the 18 LLMs.</p>\n<p>Ideally, the dataset would be structured as N prompts × 18 responses, with one response from each LLM per prompt. This could provide better supervision I think. But yeahh, I also recognize how challenging this would be to achieve, given that responses have to be collected from multiple sources and not everyone has access to all 18 LLMs. I really appreciate the effort behind making this dataset available to the community.</p>",
+      "votes": 3,
+      "replies": [
+        {
+          "id": 3547261,
+          "authorName": "Carrot Production",
+          "postDate": "2026-10-30T16:54:29.907Z",
+          "content": "<p>Would try it, thanks so much sir</p>"
+        }
+      ]
+    },
+    {
+      "id": 3547533,
+      "authorName": "GoPain",
+      "postDate": "2026-10-31T04:43:27.010Z",
+      "content": "<p>Thanks for the controlled comparison and for calling +0.002 noise. One thing that may help with reading such pairs:\nthe noise of a <em>difference</em> between two submissions is not the noise of one score. Both are scored on the same public\nrows, so only the rows where exactly one of the two is right move the gap. If f is that share, the sd of the public\ngap is about sqrt(f / n_public), which for ~1,200 public rows is:</p>\n<table>\n<thead>\n<tr>\n<th>f (rows where exactly one is right)</th>\n<th>1%</th>\n<th>2%</th>\n<th>5%</th>\n<th>10%</th>\n<th>20%</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>sd of the public gap</td>\n<td>0.003</td>\n<td>0.004</td>\n<td>0.006</td>\n<td>0.009</td>\n<td>0.013</td>\n</tr>\n</tbody>\n</table>\n<p>You can measure f on your OOF before submitting: compare the two models' correctness row by row.</p>\n<ul>\n<li>Two separately trained models (different pools, or even the same code with another seed) can easily disagree in\ncorrectness on 10-20% of rows. That gives an sd of 0.009-0.013, the size of the ~0.009 that alexchilton measured,\nand +0.002 says nothing either way, as you wrote.</li>\n<li>Two blends that differ in one small weight are a different story. My 0.621 and 0.623 blends disagree in\ncorrectness on only 1% of OOF rows, so their gap has an sd of about 0.003. There, 0.002 is still under one sd, but\na 0.01 gap would be over three sd, i.e. real.</li>\n</ul>\n<p>I checked the formula by simulation (balanced accuracy, 18 classes, random 30% public split; it matched within ±6%\neverywhere) and put it in a CPU notebook, with a helper that estimates f from your own OOF predictions:\n<a href=\"https://www.kaggle.com/code/locdunhat/is-a-0-002-lb-gain-real\" target=\"_blank\">https://www.kaggle.com/code/locdunhat/is-a-0-002-lb-gain-real</a></p>\n<p>Caveat: it assumes independent rows. Real errors cluster by prompt and topic, so treat these numbers as a floor.</p>"
+    },
+    {
+      "id": 3546711,
+      "authorName": "ZavodRobotov",
+      "postDate": "2026-10-29T15:56:12.953Z",
+      "content": "<p>I observe that in computer vision tasks, even 10% of incorrect labels don't hurt training quality.</p>",
+      "replies": [
+        {
+          "id": 3546803,
+          "authorName": "Carrot Production",
+          "postDate": "2026-10-29T18:51:13.280Z",
+          "content": "<p>Yes I just give my observation, seems from the beginning it is like some competitions like \"pay to win\" but in fact , it is not, we can learn many things about fine tuning, applying deep learning and data analysis, I just want to dive deeper into the datasets, thanks for your comment, I will check it out to find the best suitable data</p>",
+          "votes": 1
+        }
+      ]
+    },
+    {
+      "id": 3545863,
+      "authorName": "Marie Victoire IPOUK",
+      "postDate": "2026-10-27T22:29:45.523Z",
+      "content": "<p>Deep analysis 👌</p>"
+    },
+    {
+      "id": 3545308,
+      "authorName": "Carrot Production",
+      "postDate": "2026-10-27T03:25:35.360Z",
+      "content": "<p>gonna do this weekly to fetch more data, everyday I find about 20 legit datasets from user been given out, so I may do this weekly , or update this dataset for about 2 - 3 days. so the datasets can stay up-to-date</p>"
+    },
+    {
+      "id": 3544867,
+      "authorName": "Carrot Production",
+      "postDate": "2026-10-26T12:29:26.687Z",
+      "content": "<p>already fix and update the dataset, this dataset I will keep to gather any further public dataset in the future by using kaggle CLI update during the period, hopefully can gather the best quality pool for analyzing 18 different models. </p>"
+    },
+    {
+      "id": 3544847,
+      "authorName": "jaquero",
+      "postDate": "2026-10-26T11:45:45.970Z",
+      "content": "<p>Hi, first of all, Thanks for your effort !!</p>\n<p>I tried to download this dataser, but, got following message:</p>\n<p>Data not available. This dataset may need its archive recreated. Contact dataset author.</p>",
+      "replies": [
+        {
+          "id": 3544856,
+          "authorName": "Carrot Production",
+          "postDate": "2026-10-26T12:06:03.893Z",
+          "content": "<p>well, I already published it in publicity, what is the problem, maybe you try to dowload it with kaggle CLI ? , I think it would be good practice</p>",
+          "replies": [
+            {
+              "id": 3544860,
+              "authorName": "jaquero",
+              "postDate": "2026-10-26T12:16:35.540Z",
+              "content": "<p>thanks for your reply. I tried to download it as zip.</p>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3545355,
+      "authorName": "ducnh279",
+      "postDate": "2026-10-27T05:54:49.350Z",
+      "content": "<p>Great work!</p>"
+    },
+    {
+      "id": 3545128,
+      "authorName": "buysider",
+      "postDate": "2026-10-26T19:54:25.417Z",
+      "content": "<p>Thank you!</p>"
+    }
+  ],
+  "next_page_token_present": false
+}

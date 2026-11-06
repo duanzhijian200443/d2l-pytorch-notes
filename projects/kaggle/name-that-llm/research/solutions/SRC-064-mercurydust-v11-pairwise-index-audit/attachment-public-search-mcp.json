@@ -1,0 +1,16 @@
+{
+  "request": {
+    "group": "Public",
+    "search": "NTLLM-ChatGPT-A_B",
+    "user": "mercurydust"
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"datasets\": [\n    {\n      \"id\": 12958299,\n      \"ref\": \"mercurydust/ntllm-chatgpt-a-b\",\n      \"subtitle\": \"\",\n      \"creator_name\": \"Mercurydust12\",\n      \"creator_url\": \"mercurydust\",\n      \"total_bytes\": \"32053319\",\n      \"url\": \"https://www.kaggle.com/datasets/mercurydust/ntllm-chatgpt-a-b\",\n      \"last_updated\": \"2026-10-30T01:53:51.670Z\",\n      \"download_count\": 7,\n      \"license_name\": \"Unknown\",\n      \"owner_name\": \"Mercurydust12\",\n      \"owner_ref\": \"mercurydust\",\n      \"kernel_count\": 1,\n      \"title\": \"NTLLM-ChatGPT-A_B\",\n      \"view_count\": 7,\n      \"vote_count\": 1,\n      \"current_version_number\": 1,\n      \"usability_rating\": 0.4117647,\n      \"thumbnail_image_url\": \"https://storage.googleapis.com/kaggle-datasets-images/12958299/21421059/ac818f38d404be4d582643b38f6298c4/dataset-thumbnail.png?t=2026-10-30-02-13-43\"\n    }\n  ]\n}"
+      }
+    ],
+    "isError": false
+  }
+}

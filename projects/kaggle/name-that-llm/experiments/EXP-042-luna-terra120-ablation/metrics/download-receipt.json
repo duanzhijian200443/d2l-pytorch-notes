@@ -1,0 +1,12 @@
+{
+  "observed_at_utc": "2026-11-01T16:04:43.529040+00:00",
+  "source": "Official authenticated Kaggle CLI fixed version output download",
+  "ref": "zhjianduan/name-that-llm-luna-terra120-042",
+  "version": 2,
+  "remote_status_mcp": "COMPLETE",
+  "remote_status_cli": "COMPLETE",
+  "zip_sha256": "48dcc28e6fe80add96c1da94ce8641f737c673b44ec7ae76b6684c3b11f415d8",
+  "zip_bytes": 8187353,
+  "entries": 216,
+  "artifacts_sha256": "bd4d9c2913924659fa0b83af99e08e0aa65393ee8848af54b2889939086ec2bb"
+}

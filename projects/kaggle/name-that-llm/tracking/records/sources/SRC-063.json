@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "id": "SRC-063",
+  "kind": "dataset",
+  "category": "datasets",
+  "artifact_dir": "research/datasets/SRC-063-earthmaker-own-prompts-v1",
+  "notes_path": "research/datasets/SRC-063-earthmaker-own-prompts-v1/notes.md",
+  "author": "earthmaker",
+  "tags": [
+    "data",
+    "provenance",
+    "external-validation",
+    "routing-risk"
+  ],
+  "related_sources": [
+    "SRC-038"
+  ],
+  "supersedes": null,
+  "title": "Own-prompt V1：749条多家族原文与Gemini3.7路由风险",
+  "url": "https://www.kaggle.com/datasets/earthmaker/ntl-own-prompt-generations/versions/1",
+  "observed_at": "2026-11-01T09:03:41.889476+00:00",
+  "source_version": {
+    "dataset_id": 12783752,
+    "dataset_version_number": 1,
+    "version_created_at": "2026-10-22T15:10:08.193Z"
+  },
+  "public_score": null,
+  "summary": "固定V1五文件核验；749行中排除20条未认证Gemini3.7，729行/56题/17类通过两轻量成员known/exact隔离。",
+  "author_claim": "自己编写20+36题，用户消息无system；指定Model Proxy/OpenRouter路由；按官方8gram和少量质量规则筛掉43条。",
+  "verified": "原题/模板/每行请求标识内部一致；候选回答与训练/已知官方重建题/EXP026规范正文交集为0；门槛复跑字节一致。",
+  "use_for_us": "可尝试补足EXP026缺失的非GPT类；预排除gemini-3.7，不把18标签字面值当18个服务身份已认证。",
+  "test_plan": "固定10%外部诊断由EXP027执行；数据作者未提供我们的模型增益结果。",
+  "limitations": "作者已用官方文本8gram作后筛；服务身份为请求/发布者声明；语义重叠和现成完整集成checkpoint训练谱系未穷尽。",
+  "evidence": [
+    "research/datasets/SRC-063-earthmaker-own-prompts-v1/notes.md",
+    "research/datasets/SRC-063-earthmaker-own-prompts-v1/api-info.json",
+    "research/datasets/SRC-063-earthmaker-own-prompts-v1/files-v1.json",
+    "experiments/EXP-027-multiclass-external-validation/download-manifest.json",
+    "experiments/EXP-027-multiclass-external-validation/metrics/data-gate.json"
+  ],
+  "evidence_sha256": {
+    "research/datasets/SRC-063-earthmaker-own-prompts-v1/notes.md": "457284c5034e03d656dcdfdb5c806646ffca2f910a3b3f04468624ced72f87a9",
+    "research/datasets/SRC-063-earthmaker-own-prompts-v1/api-info.json": "de599be24373b1cfd29d98defcc8af7542fe4df5767be6934e342e27abc43fe3",
+    "research/datasets/SRC-063-earthmaker-own-prompts-v1/files-v1.json": "fead968648d7d97e9a2d28211db78e4c43bb88153cd8fc0ca4c2cefda2f2f895",
+    "experiments/EXP-027-multiclass-external-validation/download-manifest.json": "28b8328eeb30fe103d919c385b15f09fe26e56e1c8512469675f7746e82a1d47",
+    "experiments/EXP-027-multiclass-external-validation/metrics/data-gate.json": "cead2f4745a3e4af6a8adffe2361efd725e2710971a12123083b927589f573e5"
+  }
+}

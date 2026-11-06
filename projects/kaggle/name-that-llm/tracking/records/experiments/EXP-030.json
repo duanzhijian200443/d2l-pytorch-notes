@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "id": "EXP-030",
+  "title": "Codex断点续采：网络中断后复用558条，补齐1000条",
+  "baseline_id": "EXP-025",
+  "hypothesis": "Resume the identical collection after a network/DNS interruption, preserving all 558 saved responses and the two failed attempts.",
+  "changes": [
+    "Archive two inspected empty failed attempts with hashes and original path mapping",
+    "Reuse unchanged frozen collector, prompts, instructions, model list and sampling configuration",
+    "Verify the saved 558-response prefix and historical failures before execution and during finalization"
+  ],
+  "observed_at": "2026-11-01T11:33:42.587268+00:00",
+  "source": {
+    "notebook_ref": null,
+    "notebook_version": null,
+    "script_version_id": null,
+    "local_path": "experiments/EXP-030-codex-subscription-pilot-r3/code/codex_collect.py",
+    "sha256": "5c1d5ccd66fec5d4cea4b0e9ea526c9cbfc171f73d7e81e5b23d9188ccda1d24"
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-030-codex-subscription-pilot-r3/manifest.json",
+    "validation_split_id": "codex-pilot-prompt-v1",
+    "content_hashes_verified": true
+  },
+  "config": {
+    "note": "仅作台账索引；完整参数以 config_path 指向的 config.json 为准。"
+  },
+  "environment": {
+    "platform": "local_windows_codex_cli_chatgpt_auth",
+    "accelerator": "none",
+    "container": null,
+    "seed": null
+  },
+  "execution": {
+    "scope": "Resume shared collection: 558 saved, up to 442 new requests; max concurrency 2",
+    "status": "COLLECTED_UNVALIDATED",
+    "observed_at": "2026-11-01T11:33:42.587268+00:00",
+    "collection_path": "experiments/EXP-023-codex-subscription-pilot-r1/collection",
+    "responses": 1000,
+    "controller_pid": 27336,
+    "run_id": "248f72de6cad48dd806a066115a94d92",
+    "wrapper_pid": 1680,
+    "controller_status": "COMPLETE"
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": null,
+    "per_class_recall_path": null,
+    "oof_path": null,
+    "leakage_audit": "not_audited"
+  },
+  "cost": {
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0
+  },
+  "timing_note": null,
+  "conclusion": "Saved 1000 raw Codex-source responses; integrity complete=True. Training utility and API equivalence not evaluated.",
+  "limitations": "Codex pipeline source; exact backend snapshot and API equivalence unknown; no model training/OOF/LB acceptance. Subscription consumption unknown in USD.",
+  "next_action": "Compare against source-controlled API data on prompt-isolated validation.",
+  "related_sources": [],
+  "evidence": [
+    "experiments/EXP-030-codex-subscription-pilot-r3/config.json",
+    "experiments/EXP-030-codex-subscription-pilot-r3/manifest.json",
+    "experiments/EXP-030-codex-subscription-pilot-r3/report.md",
+    "experiments/EXP-030-codex-subscription-pilot-r3/run_and_finalize.py",
+    "experiments/EXP-030-codex-subscription-pilot-r3/code/codex_collect.py",
+    "experiments/EXP-030-codex-subscription-pilot-r3/metrics/resume-preflight.json",
+    "experiments/EXP-030-codex-subscription-pilot-r3/metrics/resume-dry-run.json",
+    "experiments/EXP-030-codex-subscription-pilot-r3/metrics/registration-validation.json",
+    "experiments/EXP-025-codex-subscription-pilot-r2/metrics/collection-audit.json",
+    "experiments/EXP-030-codex-subscription-pilot-r3/metrics/offline-preflight.json",
+    "experiments/EXP-030-codex-subscription-pilot-r3/metrics/ledger-preflight.json",
+    "experiments/EXP-030-codex-subscription-pilot-r3/code/test_resume_integrity.py",
+    "experiments/EXP-030-codex-subscription-pilot-r3/metrics/launch.json",
+    "experiments/EXP-030-codex-subscription-pilot-r3/metrics/startup-observation.json",
+    "experiments/EXP-023-codex-subscription-pilot-r1/collection/records.jsonl",
+    "experiments/EXP-023-codex-subscription-pilot-r1/collection/summary.json",
+    "experiments/EXP-030-codex-subscription-pilot-r3/metrics/collection-audit.json"
+  ],
+  "config_path": "experiments/EXP-030-codex-subscription-pilot-r3/config.json"
+}

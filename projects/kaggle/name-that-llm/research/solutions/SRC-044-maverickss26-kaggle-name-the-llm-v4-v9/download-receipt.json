@@ -1,0 +1,15 @@
+{
+  "role": "read-only-download-evidence",
+  "ref": "maverickss26/kaggle-name-the-llm-v4",
+  "observed_at": "2026-11-01T07:34:36.184262+00:00",
+  "notebook_version": 9,
+  "script_version_id": null,
+  "source_sha256": "84caf16d1fdfb42653615bea773b90636e4be9986add56feab3dba9eaf369235",
+  "code_sha256": "011698096a6d1f2b46f1b4199c941884c77e0ddf1fe947f8834797476d7bb12f",
+  "metadata_sha256": "b8d37e079e1772c7d1f7ef8dece0d37c1e463864e7679ece5100aeb0fe68e93d",
+  "executed": false,
+  "url": "https://www.kaggle.com/code/maverickss26/kaggle-name-the-llm-v4",
+  "method": "MCP get_notebook_info determined current version; Kaggle API get_kernel fetched fixed version_label",
+  "status": "DOWNLOADED_NOT_EXECUTED",
+  "same_code_existing_src": []
+}

@@ -1,0 +1,960 @@
+{
+  "observed_at": "2026-11-01T14:11:29.542657+00:00",
+  "scope": "Independent local provenance and qualitative output review; no new generation or model fitting",
+  "input_hashes": {
+    "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\combined-records.jsonl": "2c560d93f9cce57e42607886cb54449f84e88858a9370d3f175bcf441aea86e7",
+    "experiments\\EXP-038-paired-cloud-precheck-recovery\\config.json": "605cd3cfd66f8b06a0dbc74023d0ceb3650d6c9e4876cb109d99be69eeb1a673",
+    "experiments\\EXP-038-paired-cloud-precheck-recovery\\metrics\\collection-audit.json": "0df4fd43e4c646507f5c0a9eb5193943676c93a6b24df22b8f47b3c2eba9d610",
+    "experiments\\EXP-040-codex300-concurrency2\\collection\\combined-records.jsonl": "2d6c691016a6ae6f789d5c6a625a207a3ec89e5093bf804c5052b11c90a6125b",
+    "experiments\\EXP-040-codex300-concurrency2\\metrics\\collection-audit.json": "33ef5740a1ca7e2aaa899121ea92cc55be09619aebf2e73dfc99da843a2baed8",
+    "experiments\\EXP-034-explicit-format-alignment\\report.md": "df7a05c81b1c0fecc4631467f585e95e2394bec564d3dc90c85d13dac6808d76",
+    "experiments\\EXP-033-codex-source-contamination-audit\\metrics\\source-provenance-notes.md": "9b3af9e89e0d499035c09d46dcfbd7bb4aeb09c9323c0c47a432aea1560d992e"
+  },
+  "paired_rows": 78,
+  "unique_job_ids": 78,
+  "independent_prompt_groups": 10,
+  "cell_counts": {
+    "cp0001|gpt-5.6-luna": {
+      "codex_subscription": 2,
+      "kaggle_model_proxy": 2
+    },
+    "cp0001|gpt-5.6-terra": {
+      "codex_subscription": 2,
+      "kaggle_model_proxy": 2
+    },
+    "cp0022|gpt-5.6-luna": {
+      "kaggle_model_proxy": 2,
+      "codex_subscription": 2
+    },
+    "cp0022|gpt-5.6-terra": {
+      "codex_subscription": 2,
+      "kaggle_model_proxy": 2
+    },
+    "cp0043|gpt-5.6-luna": {
+      "kaggle_model_proxy": 2,
+      "codex_subscription": 2
+    },
+    "cp0043|gpt-5.6-terra": {
+      "codex_subscription": 2,
+      "kaggle_model_proxy": 2
+    },
+    "cp0064|gpt-5.6-luna": {
+      "kaggle_model_proxy": 2,
+      "codex_subscription": 2
+    },
+    "cp0064|gpt-5.6-terra": {
+      "kaggle_model_proxy": 2,
+      "codex_subscription": 2
+    },
+    "cp0081|gpt-5.6-luna": {
+      "codex_subscription": 2,
+      "kaggle_model_proxy": 2
+    },
+    "cp0081|gpt-5.6-terra": {
+      "codex_subscription": 2,
+      "kaggle_model_proxy": 2
+    },
+    "cp0102|gpt-5.6-luna": {
+      "kaggle_model_proxy": 2,
+      "codex_subscription": 2
+    },
+    "cp0102|gpt-5.6-terra": {
+      "codex_subscription": 2,
+      "kaggle_model_proxy": 2
+    },
+    "cp0123|gpt-5.6-luna": {
+      "kaggle_model_proxy": 2,
+      "codex_subscription": 2
+    },
+    "cp0123|gpt-5.6-terra": {
+      "codex_subscription": 2
+    },
+    "cp0144|gpt-5.6-luna": {
+      "codex_subscription": 2,
+      "kaggle_model_proxy": 2
+    },
+    "cp0144|gpt-5.6-terra": {
+      "kaggle_model_proxy": 2,
+      "codex_subscription": 2
+    },
+    "cp0161|gpt-5.6-luna": {
+      "kaggle_model_proxy": 2,
+      "codex_subscription": 2
+    },
+    "cp0161|gpt-5.6-terra": {
+      "kaggle_model_proxy": 2,
+      "codex_subscription": 2
+    },
+    "cp0182|gpt-5.6-luna": {
+      "codex_subscription": 2,
+      "kaggle_model_proxy": 2
+    },
+    "cp0182|gpt-5.6-terra": {
+      "kaggle_model_proxy": 2,
+      "codex_subscription": 2
+    }
+  },
+  "complete_cells": 19,
+  "missing_cells": {
+    "cp0123|gpt-5.6-terra": {
+      "kaggle_repeat_ids_missing": [
+        1,
+        2
+      ],
+      "reason": "2 historical unknown outcomes; not interpreted as empty model replies"
+    }
+  },
+  "verification_errors": [],
+  "input_tokens": {
+    "codex_subscription|gpt-5.6-terra": {
+      "n": 20,
+      "min": 4208,
+      "median": 4214.0,
+      "max": 4233
+    },
+    "kaggle_model_proxy|gpt-5.6-luna": {
+      "n": 20,
+      "min": 130,
+      "median": 136.0,
+      "max": 155
+    },
+    "codex_subscription|gpt-5.6-luna": {
+      "n": 20,
+      "min": 2673,
+      "median": 2679.0,
+      "max": 2698
+    },
+    "kaggle_model_proxy|gpt-5.6-terra": {
+      "n": 18,
+      "min": 130,
+      "median": 137.0,
+      "max": 155
+    }
+  },
+  "finish_reasons": {
+    "codex_subscription|turn.completed": 40,
+    "kaggle_model_proxy|stop": 38
+  },
+  "paired_format_flags": 0,
+  "paired_newline_rows": 0,
+  "paired_bold_or_fence_rows": 0,
+  "paired_exact_duplicates": 0,
+  "paired_label_scope": {
+    "codex_requested_only": 40,
+    "kaggle_returned_alias": 38,
+    "backend_snapshot_unknown": 78
+  },
+  "batch300": {
+    "rows": 300,
+    "model_observation_scopes": {
+      "requested_only": 300
+    },
+    "paired_prompt_overlap": [],
+    "flags": [
+      {
+        "prompt_id": "cp0150",
+        "model_requested": "gpt-5.6-terra",
+        "word_count": 90,
+        "target_words": 160,
+        "flags": [
+          "target_length_deviation_over_25_percent"
+        ]
+      }
+    ],
+    "audit_status": "COLLECTED_UNVALIDATED"
+  },
+  "manual_review": {
+    "reviewed_pair_rows": 78,
+    "direct_agent_self_reference_or_instruction_leak_found": 0,
+    "refusal_found": 0,
+    "extraneous_assistant_wrapper_found": 0,
+    "not_a_full_factual_accuracy_audit": true,
+    "notes": [
+      "Email greeting/signature is task content, not an assistant wrapper.",
+      "cp0102 creative-story oddities are answer-quality/style observations, not evidence of hidden prompt contamination.",
+      "cp0182 all eight answers retain the intermediate eight chairs and final eleven chairs."
+    ]
+  },
+  "request_receipts": [
+    {
+      "job_id": "f2d8453e369b57c96f038f61a29341cd7b5d02d7e5c651cd4df3ff372950b460",
+      "route": "codex_subscription",
+      "cell_id": "cp0123|gpt-5.6-terra",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\recovery\\history\\collection\\attempts\\f2d8453e369b57c96f038f61a29341cd7b5d02d7e5c651cd4df3ff372950b460\\request.json",
+      "request_sha256": "a10349cd95c754d90c146bdfcf63d6179a86574b0fdf3ae70ebe3823bd30d763",
+      "text_sha256": "82ca890c1f78cd0ec741839dfc8d2bd3d5580969ad0a94f6d4e1dd140000dc99",
+      "prompt_sha256": "ab7803c308801a23d5af02707b29ac41d4161aa758cb925047e566ae9376596a"
+    },
+    {
+      "job_id": "64a9894b152f8d95b91091125c1058dc4f7e7c03d365c7aaa40c14aca007be62",
+      "route": "codex_subscription",
+      "cell_id": "cp0123|gpt-5.6-terra",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\recovery\\history\\collection\\attempts\\64a9894b152f8d95b91091125c1058dc4f7e7c03d365c7aaa40c14aca007be62\\request.json",
+      "request_sha256": "95d96eeb706ec84d06bdfbc8e5dcca5cc23a4917fec7bfa1893d94eca9513891",
+      "text_sha256": "c87fc5a6d01ed85e645ee0f017fe13508b501542cf905e77d37283d39d3e0cc4",
+      "prompt_sha256": "ab7803c308801a23d5af02707b29ac41d4161aa758cb925047e566ae9376596a"
+    },
+    {
+      "job_id": "416e7a9df5a051bef840fc257762f5e0e1fd4e1d2cf6265f85e8c6a62ad4e78b",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0064|gpt-5.6-luna",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\416e7a9df5a051bef840fc257762f5e0e1fd4e1d2cf6265f85e8c6a62ad4e78b\\request.json",
+      "request_sha256": "4d0a690096b9b9023923fd6214f6198bb02cc7c3069905c161741a6fe3c746f2",
+      "text_sha256": "d9f40e9a1f714023ea04614cddf1a4fe3dc6742bacd5baaa7658073eb8051f20",
+      "prompt_sha256": "4676ea81c0f7b3d9a7869e869e5a7ba9a262c436188ba56429444582ecb25b10"
+    },
+    {
+      "job_id": "aad4b01f9c8250b128f038f37f1ca976e6b56dd32367aa681823f0d697064f00",
+      "route": "codex_subscription",
+      "cell_id": "cp0064|gpt-5.6-luna",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\aad4b01f9c8250b128f038f37f1ca976e6b56dd32367aa681823f0d697064f00\\request.json",
+      "request_sha256": "7eb89f87bea6938317fc985f4a1167df6be16225ec85e0faf025a0c96081cabb",
+      "text_sha256": "2750998879b23ec68f4e5f2f5b32be5d654e9d8fbb1ba7cce8a0a6f94a6c1f91",
+      "prompt_sha256": "4676ea81c0f7b3d9a7869e869e5a7ba9a262c436188ba56429444582ecb25b10"
+    },
+    {
+      "job_id": "0c20264cfb2ce1e87b4c1ccc778705770709dc1082f3375dc18f87e4b1388347",
+      "route": "codex_subscription",
+      "cell_id": "cp0064|gpt-5.6-luna",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\0c20264cfb2ce1e87b4c1ccc778705770709dc1082f3375dc18f87e4b1388347\\request.json",
+      "request_sha256": "28f322c0de7dfb6baae8ae65d50afbc5a1aac4123b11eefc530e78f5258dd878",
+      "text_sha256": "85402a31860bcbdcc3af844712ff877fb3dd5d9799060778d105397f9b9255a3",
+      "prompt_sha256": "4676ea81c0f7b3d9a7869e869e5a7ba9a262c436188ba56429444582ecb25b10"
+    },
+    {
+      "job_id": "3486473331ce594a3ba4cb5634d52e4d5307b4aca9696386a92254c626a2b78e",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0064|gpt-5.6-luna",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\3486473331ce594a3ba4cb5634d52e4d5307b4aca9696386a92254c626a2b78e\\request.json",
+      "request_sha256": "efddaa47930692ae13793a72d0f4db77c81e42614fa98effb6ff439c220e5235",
+      "text_sha256": "23a049eef8599f49c9b9e90850a6dcff28d746b75e47de6773eba9550ddebac8",
+      "prompt_sha256": "4676ea81c0f7b3d9a7869e869e5a7ba9a262c436188ba56429444582ecb25b10"
+    },
+    {
+      "job_id": "19e21df27902bc4739120fa06538cc6044f96e344b6142dded205cea0a5d1896",
+      "route": "codex_subscription",
+      "cell_id": "cp0081|gpt-5.6-luna",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\19e21df27902bc4739120fa06538cc6044f96e344b6142dded205cea0a5d1896\\request.json",
+      "request_sha256": "4d70f5082effed46e96007d2d8173cbfbea2699fc2c92a509318631bb7a38f39",
+      "text_sha256": "e70d6d3e3645c475f3e794a0ba2c1584d7e0b03d16225978fd9054b36022785f",
+      "prompt_sha256": "ba79948c0905afd898987b3cdd9dda0be3a4d2ff60af946aa3e8aaaa61a71938"
+    },
+    {
+      "job_id": "b0dce4333b70e99470db4ebe8e96b89a8eb29e05d4221db6838323cada78f6b9",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0081|gpt-5.6-luna",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\b0dce4333b70e99470db4ebe8e96b89a8eb29e05d4221db6838323cada78f6b9\\request.json",
+      "request_sha256": "2afde540e3757f7d24160636364a3cc3efdbd8dcc488a60a638beb1ed5103c07",
+      "text_sha256": "f001ac44b1deaf5eccefec52526a826f5c2ffc12beffd01387ea7009920e9b88",
+      "prompt_sha256": "ba79948c0905afd898987b3cdd9dda0be3a4d2ff60af946aa3e8aaaa61a71938"
+    },
+    {
+      "job_id": "01ac1fca2cfefbcd2b686eb1b06e0cd1ca7dbc66ac39fd9a2dd89c2096676e18",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0081|gpt-5.6-luna",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\01ac1fca2cfefbcd2b686eb1b06e0cd1ca7dbc66ac39fd9a2dd89c2096676e18\\request.json",
+      "request_sha256": "891ed22de3bd96478c0bec726ba3439d25399856cbb4c6f9b0017d6ef90abd6a",
+      "text_sha256": "d355f186fd9920e0f2e8429d2394a6e280983729a0ad01bb2fa096caf9c06beb",
+      "prompt_sha256": "ba79948c0905afd898987b3cdd9dda0be3a4d2ff60af946aa3e8aaaa61a71938"
+    },
+    {
+      "job_id": "5c160f2aba12c1f1959dbedd571d109c511389cc558497171cb3525d3a0d4186",
+      "route": "codex_subscription",
+      "cell_id": "cp0081|gpt-5.6-luna",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\5c160f2aba12c1f1959dbedd571d109c511389cc558497171cb3525d3a0d4186\\request.json",
+      "request_sha256": "7e096068688600215cbf13b6824c4cb2e856d0bd1f8f2a5b60a63bc600e94fb3",
+      "text_sha256": "89abf570cdc4006ad206c99204a9175dd46253382210127d5eb86baf23f2c363",
+      "prompt_sha256": "ba79948c0905afd898987b3cdd9dda0be3a4d2ff60af946aa3e8aaaa61a71938"
+    },
+    {
+      "job_id": "7ab69ee52691500cb0a80ee5d711f4aa01b75bcf7f90bd8d68922a63bb3c3bca",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0144|gpt-5.6-terra",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\7ab69ee52691500cb0a80ee5d711f4aa01b75bcf7f90bd8d68922a63bb3c3bca\\request.json",
+      "request_sha256": "8986869404e2e7de8e7ce250b9e23fe43468c400d18a094c5a2dd9e105b58174",
+      "text_sha256": "ab0b8607e043467c58b6e6a544aef0286f7dfd437fe6abc1b4638848fafa6b2f",
+      "prompt_sha256": "e582d8f96556e4c7e9f0607a05a06ddabffe0d317a839080db1b8fef3fd93fe2"
+    },
+    {
+      "job_id": "ba917c43a121ae16801bf21297312a2b1b532bb6314f2f156e8c56b0e6d84e89",
+      "route": "codex_subscription",
+      "cell_id": "cp0144|gpt-5.6-terra",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\ba917c43a121ae16801bf21297312a2b1b532bb6314f2f156e8c56b0e6d84e89\\request.json",
+      "request_sha256": "ad1d3ac23506a30e0f0902172054608449a2ae417dd0ba036c18951315084e23",
+      "text_sha256": "45c09ff5b1b1461497b830e74e176dbc7a8c15c0d598e11d9b384c02034ef4a5",
+      "prompt_sha256": "e582d8f96556e4c7e9f0607a05a06ddabffe0d317a839080db1b8fef3fd93fe2"
+    },
+    {
+      "job_id": "53ad04e9058ecccf3bf0e5953fa9aaeaa36dcad5ecc4cbe1c0d6aed27026387f",
+      "route": "codex_subscription",
+      "cell_id": "cp0144|gpt-5.6-terra",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\53ad04e9058ecccf3bf0e5953fa9aaeaa36dcad5ecc4cbe1c0d6aed27026387f\\request.json",
+      "request_sha256": "73c1f5256f95c4de9b1bce76e9114ac4e94a111247a5258ef58600ef67fed3a2",
+      "text_sha256": "d6c3adc6e7fa22ee1ddfee73487eb8fcf7d4247cc4e6ad1a7a7a1b56e1c7415f",
+      "prompt_sha256": "e582d8f96556e4c7e9f0607a05a06ddabffe0d317a839080db1b8fef3fd93fe2"
+    },
+    {
+      "job_id": "dc9e01c9cdb7bc2a8e0f1eeee03d8e31a5669c52d9ef60561f3b8a07dea3255f",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0144|gpt-5.6-terra",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\dc9e01c9cdb7bc2a8e0f1eeee03d8e31a5669c52d9ef60561f3b8a07dea3255f\\request.json",
+      "request_sha256": "875938c1c0107cf18a90685645a2d9f5c2efd9b0c24b6c6e6549702d90c2988b",
+      "text_sha256": "9dd1b5fa571381b4f06ea21f771b88655136e6822d4bd2cff7252f624da55201",
+      "prompt_sha256": "e582d8f96556e4c7e9f0607a05a06ddabffe0d317a839080db1b8fef3fd93fe2"
+    },
+    {
+      "job_id": "49928c155af14e77277d984da057f54c2b0ce182066bc39fd599ebb5a5015855",
+      "route": "codex_subscription",
+      "cell_id": "cp0144|gpt-5.6-luna",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\49928c155af14e77277d984da057f54c2b0ce182066bc39fd599ebb5a5015855\\request.json",
+      "request_sha256": "8daf8634c5a5566899098b8749af63c33ae85a942611d16b83ed2b134337fd0d",
+      "text_sha256": "fe1edea8b1329d2239d80fe713dea3425a24238a37ccb98a6778f18f9c6d8d45",
+      "prompt_sha256": "e582d8f96556e4c7e9f0607a05a06ddabffe0d317a839080db1b8fef3fd93fe2"
+    },
+    {
+      "job_id": "d9d0a0b704cb612c2ad24248d1e7b6661082d90740912b8721ba5eb0c92fdd82",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0144|gpt-5.6-luna",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\d9d0a0b704cb612c2ad24248d1e7b6661082d90740912b8721ba5eb0c92fdd82\\request.json",
+      "request_sha256": "43243378dcccd1ccf117c74103d29c35c16e31500a43e8d244e0164fd5662eb4",
+      "text_sha256": "3e21c7757b048605ccc3501851ff69f78725515e38012131bfdde64b593fe542",
+      "prompt_sha256": "e582d8f96556e4c7e9f0607a05a06ddabffe0d317a839080db1b8fef3fd93fe2"
+    },
+    {
+      "job_id": "c59047355f15197aa5d4f3f3a05dcd4cd87a81ee0229ab2d233306eb6e6cc9ea",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0144|gpt-5.6-luna",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\c59047355f15197aa5d4f3f3a05dcd4cd87a81ee0229ab2d233306eb6e6cc9ea\\request.json",
+      "request_sha256": "fe0e9d3957de75b4ff98d9d410566a0362a4d34303cec143acc94fdeadd1f6c9",
+      "text_sha256": "a0be0b870fa710fbcd076e80ca9b66d6205498290cb7cecd74153fcc08e989d3",
+      "prompt_sha256": "e582d8f96556e4c7e9f0607a05a06ddabffe0d317a839080db1b8fef3fd93fe2"
+    },
+    {
+      "job_id": "702e7597d8a074f8e23444272039b8e410326c5d8b147a94df86bff39016fb3d",
+      "route": "codex_subscription",
+      "cell_id": "cp0144|gpt-5.6-luna",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\702e7597d8a074f8e23444272039b8e410326c5d8b147a94df86bff39016fb3d\\request.json",
+      "request_sha256": "6290f2f4c7ef35885caedf5c8cdccf2c7b9097635d4c007e7d9647db3be44f1f",
+      "text_sha256": "4fa6f688e1652cb1b79f0669e11f95df12f4e3c656e6ce9cc9e5d84dab9c2d72",
+      "prompt_sha256": "e582d8f96556e4c7e9f0607a05a06ddabffe0d317a839080db1b8fef3fd93fe2"
+    },
+    {
+      "job_id": "c72eca433c614ac6c36b06dcc608f11a87236ba35c071b877349c21cc1516fc0",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0161|gpt-5.6-terra",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\c72eca433c614ac6c36b06dcc608f11a87236ba35c071b877349c21cc1516fc0\\request.json",
+      "request_sha256": "ea718f653bcc536e5a526760b4905a004af1fca31a041ce4a24b441c0bef5bd8",
+      "text_sha256": "cbf2cb5aafd5d4f24dc8d62b9e0bcba1bcfe6b62d74e88c7963a5f931027a664",
+      "prompt_sha256": "02ac0f65c18596d711d4b603a32866977f2c7e9c0c5e213b8b8cff6603c8575e"
+    },
+    {
+      "job_id": "3eb448af83d9dd89cd7c03411c026927be23c46702d52e507b24574ccca7ae2d",
+      "route": "codex_subscription",
+      "cell_id": "cp0161|gpt-5.6-terra",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\3eb448af83d9dd89cd7c03411c026927be23c46702d52e507b24574ccca7ae2d\\request.json",
+      "request_sha256": "2847d4c60a89d79d4cc1b29efc0647aa64e0c52268f08b105d530da043873145",
+      "text_sha256": "838c319c201916bc155544c8f8c0481fc7220747a616e5650af44cc0a40bbce7",
+      "prompt_sha256": "02ac0f65c18596d711d4b603a32866977f2c7e9c0c5e213b8b8cff6603c8575e"
+    },
+    {
+      "job_id": "f242648643cfc4b87a2b0fd84a143a39b15cec8afe7a91b28f4b52aa4eabd8bd",
+      "route": "codex_subscription",
+      "cell_id": "cp0161|gpt-5.6-terra",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\f242648643cfc4b87a2b0fd84a143a39b15cec8afe7a91b28f4b52aa4eabd8bd\\request.json",
+      "request_sha256": "e1d350b911f74ed783e6ac611b5aa262756e922d68fd3cdc71135fc32b773805",
+      "text_sha256": "9b05fbabeebff276ad69429eea357b2da6ce3f9e8cc7cb32a9d53439e39e43ae",
+      "prompt_sha256": "02ac0f65c18596d711d4b603a32866977f2c7e9c0c5e213b8b8cff6603c8575e"
+    },
+    {
+      "job_id": "fe923798aeee9a2bf8cf3b1de07f195703d3c36a3102608fa39172773843024b",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0161|gpt-5.6-terra",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\fe923798aeee9a2bf8cf3b1de07f195703d3c36a3102608fa39172773843024b\\request.json",
+      "request_sha256": "45151fe7f9607abf6158d4e703350542e463b6459062c168072cecdee0060baf",
+      "text_sha256": "91b17c833bb9f7a2e05a93520031a5de0a4c961834924a4c969b997716470799",
+      "prompt_sha256": "02ac0f65c18596d711d4b603a32866977f2c7e9c0c5e213b8b8cff6603c8575e"
+    },
+    {
+      "job_id": "a60f8be6299419c9fa7503f4efb4c51edd288c48b0ff3dbccd823a8d94c272a9",
+      "route": "codex_subscription",
+      "cell_id": "cp0102|gpt-5.6-terra",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\a60f8be6299419c9fa7503f4efb4c51edd288c48b0ff3dbccd823a8d94c272a9\\request.json",
+      "request_sha256": "9a817bc139f8718ce09bfd24b09e4a990b2c4cbe59c9392ae18c36930e476db3",
+      "text_sha256": "e189f46783238ff95716a59c2090bb9f3ea93082ac6be7f8d85580782de9f7bd",
+      "prompt_sha256": "371f13bd194d5e3af381f1df588551dbf70175870c8ef8c508160123f5727d57"
+    },
+    {
+      "job_id": "c7d58ad5bb3a02e62d502584ac37bc8d3dce2f255379ba2c01106e148186fb1f",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0102|gpt-5.6-terra",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\c7d58ad5bb3a02e62d502584ac37bc8d3dce2f255379ba2c01106e148186fb1f\\request.json",
+      "request_sha256": "2c1128b7a39f97007536bb5effcc1b65bc5172d3c3cecbd36684d5f7b81f44bf",
+      "text_sha256": "69ce5b3a88c5722f2083a6d8f4faa9d415c2cda33005893e9253c7ed63354fd9",
+      "prompt_sha256": "371f13bd194d5e3af381f1df588551dbf70175870c8ef8c508160123f5727d57"
+    },
+    {
+      "job_id": "a0db969abc4ee43c41c7871dcad9e476087754decbfe532c4807298fbd6b9056",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0102|gpt-5.6-terra",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\a0db969abc4ee43c41c7871dcad9e476087754decbfe532c4807298fbd6b9056\\request.json",
+      "request_sha256": "a9ce03044ad85eefaec06c2219f60f4c87c9de352c9c519a6c13c620e34c6824",
+      "text_sha256": "cb3b1c569212e23df577dcaf70af7d8de10a20814b10e35396c4ad0b92095936",
+      "prompt_sha256": "371f13bd194d5e3af381f1df588551dbf70175870c8ef8c508160123f5727d57"
+    },
+    {
+      "job_id": "2bdb655fb9a3ee9de80e4fe2b0676d56c490d0367381e1bb5d2e885948f6378f",
+      "route": "codex_subscription",
+      "cell_id": "cp0102|gpt-5.6-terra",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\2bdb655fb9a3ee9de80e4fe2b0676d56c490d0367381e1bb5d2e885948f6378f\\request.json",
+      "request_sha256": "46cf0d7cdf22f361fb5ac3b3a890032b6ba0b1f4c8bdc3b05109c92ea1e1468e",
+      "text_sha256": "f070a56aa04072937ba4a610a71b7742557853191410e729e37c9fc6822c4b83",
+      "prompt_sha256": "371f13bd194d5e3af381f1df588551dbf70175870c8ef8c508160123f5727d57"
+    },
+    {
+      "job_id": "3bb7050060e17e59d6680fdd1bee154c7f34e9724f716ef2f7a24bc22d8970d9",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0064|gpt-5.6-terra",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\3bb7050060e17e59d6680fdd1bee154c7f34e9724f716ef2f7a24bc22d8970d9\\request.json",
+      "request_sha256": "a28e18f2009bdcc94a70977ce71a19da6778375e4187b180f16a52b00bdf0ede",
+      "text_sha256": "d4664da38065aa8292ae5571c06d3434a4cb4f41938978d4531bf6b39afe2caa",
+      "prompt_sha256": "4676ea81c0f7b3d9a7869e869e5a7ba9a262c436188ba56429444582ecb25b10"
+    },
+    {
+      "job_id": "f0d94900caf1db146cb046106fde050e2f61c90c5f9d87efc193383999f7d5b7",
+      "route": "codex_subscription",
+      "cell_id": "cp0064|gpt-5.6-terra",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\f0d94900caf1db146cb046106fde050e2f61c90c5f9d87efc193383999f7d5b7\\request.json",
+      "request_sha256": "87e379ca652368f51705f891cd7943cf5a75b1d3520e9109fef8ebc5c94169bc",
+      "text_sha256": "14c5d59608798699cc39fd0efc575a3cf5629bc5771d19a835754690aada3f77",
+      "prompt_sha256": "4676ea81c0f7b3d9a7869e869e5a7ba9a262c436188ba56429444582ecb25b10"
+    },
+    {
+      "job_id": "f6ebca3f51a0803c09caa0135581b8e45bfa8acd48527f50ac556bf449cb3e05",
+      "route": "codex_subscription",
+      "cell_id": "cp0064|gpt-5.6-terra",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\f6ebca3f51a0803c09caa0135581b8e45bfa8acd48527f50ac556bf449cb3e05\\request.json",
+      "request_sha256": "25d4f0589aaccf7f5bc9c248e69a2876042474d9056070b3565f8d72f72cbfbd",
+      "text_sha256": "2260763f72ed446506cec80a90c8a6caec1e9e6c8809bf68a83f53e6b9704d8e",
+      "prompt_sha256": "4676ea81c0f7b3d9a7869e869e5a7ba9a262c436188ba56429444582ecb25b10"
+    },
+    {
+      "job_id": "892aa035dcf8742c7ab44db0d539b31acbf60f1cbf85224d959394027204e957",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0064|gpt-5.6-terra",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\892aa035dcf8742c7ab44db0d539b31acbf60f1cbf85224d959394027204e957\\request.json",
+      "request_sha256": "705b9ad03031745b79d99d85b715b7c7a64b4f878ca0eabb06304cc9ba6e5f30",
+      "text_sha256": "4bdd3de8cfd5800cbd332c6bd87a4081f75dcc485daa6905514788e33b114db9",
+      "prompt_sha256": "4676ea81c0f7b3d9a7869e869e5a7ba9a262c436188ba56429444582ecb25b10"
+    },
+    {
+      "job_id": "554f84840382d50b701a7454b7f6ab6c2a3d55df8928dd5952b846fde7774a1f",
+      "route": "codex_subscription",
+      "cell_id": "cp0081|gpt-5.6-terra",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\554f84840382d50b701a7454b7f6ab6c2a3d55df8928dd5952b846fde7774a1f\\request.json",
+      "request_sha256": "12dacca2318066d9d40744b4718fc988b420abfe3a7689aae4e0527a2e8184eb",
+      "text_sha256": "935b07a25d8ac44bdb31c23a0149abda16e93a1da2514604b534791613e0c38f",
+      "prompt_sha256": "ba79948c0905afd898987b3cdd9dda0be3a4d2ff60af946aa3e8aaaa61a71938"
+    },
+    {
+      "job_id": "fff777ad202274cf37bd5d282f07a2a90f5e94f1e7a9776c68034e38ddda7758",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0081|gpt-5.6-terra",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\fff777ad202274cf37bd5d282f07a2a90f5e94f1e7a9776c68034e38ddda7758\\request.json",
+      "request_sha256": "31ba2b4e07a69a7b3e7fca65ced0789c3066f515d1fc90398f97bdbe4de216a7",
+      "text_sha256": "ff24b5e95c2b2d5e6a26a67ad921ee73558a19b3d948c1547b9667e4133c5910",
+      "prompt_sha256": "ba79948c0905afd898987b3cdd9dda0be3a4d2ff60af946aa3e8aaaa61a71938"
+    },
+    {
+      "job_id": "bf79ec1a08b7899ada6b318d8829809ec8b34cf0321f8ae9d1775970ca840e4f",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0081|gpt-5.6-terra",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\bf79ec1a08b7899ada6b318d8829809ec8b34cf0321f8ae9d1775970ca840e4f\\request.json",
+      "request_sha256": "94a3eb22b37dc9553b16833136433cd63e073f4648fc0f239e4596e59398e08a",
+      "text_sha256": "5c4a17640a60b299d76331e0673b743c92e4f5acd36c3ce2d1ddf5dc0178aa86",
+      "prompt_sha256": "ba79948c0905afd898987b3cdd9dda0be3a4d2ff60af946aa3e8aaaa61a71938"
+    },
+    {
+      "job_id": "3ac9bb6b7510a61b35f7fd24e027d297322eb343379db76ad57d070c499e543b",
+      "route": "codex_subscription",
+      "cell_id": "cp0081|gpt-5.6-terra",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\3ac9bb6b7510a61b35f7fd24e027d297322eb343379db76ad57d070c499e543b\\request.json",
+      "request_sha256": "bb80dd0d9c80f1892b838226de5ede69726c75d055293f9e347db8a028a9222d",
+      "text_sha256": "9dd86956bc4f6e49d1286f2422476e00ea27dcbf8a610c743c4ec957ec02881a",
+      "prompt_sha256": "ba79948c0905afd898987b3cdd9dda0be3a4d2ff60af946aa3e8aaaa61a71938"
+    },
+    {
+      "job_id": "eaff526e5eb1f7b01b5c8f313dac2c8c3f9f063225bf743d7f31052817061d87",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0182|gpt-5.6-terra",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\eaff526e5eb1f7b01b5c8f313dac2c8c3f9f063225bf743d7f31052817061d87\\request.json",
+      "request_sha256": "42e85ba39a11ac81f97d7a3683b4ab8ad91d31ad6b780bbd0fccf507f4b3a3bf",
+      "text_sha256": "e90f06d52a4580d90439c31f6df51c85e49c82d7712b9e9875ac3895db81d105",
+      "prompt_sha256": "0aa9fc0873044688944a6235655f052abbfc64d20f6f69670b66558daa2c87bc"
+    },
+    {
+      "job_id": "332567eca5e360db692ab3098bfbb9b359ce2c7976131875ef1d65a0c2219277",
+      "route": "codex_subscription",
+      "cell_id": "cp0182|gpt-5.6-terra",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\332567eca5e360db692ab3098bfbb9b359ce2c7976131875ef1d65a0c2219277\\request.json",
+      "request_sha256": "9a559f9228303d5cf9005ba82ddab9cfb4486fee1781f7f85aa1da014275a22b",
+      "text_sha256": "dce90cdb3c25e2c92378ef310306d36035faef60b1fc839a1bce561ae4bd71d8",
+      "prompt_sha256": "0aa9fc0873044688944a6235655f052abbfc64d20f6f69670b66558daa2c87bc"
+    },
+    {
+      "job_id": "e0710601bbf3363d4bd003ddffed9a502c8a56ab2c4cdbacc5d526e7b43998cc",
+      "route": "codex_subscription",
+      "cell_id": "cp0182|gpt-5.6-terra",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\e0710601bbf3363d4bd003ddffed9a502c8a56ab2c4cdbacc5d526e7b43998cc\\request.json",
+      "request_sha256": "f9c315547025a58bce21a02d4a55ad555c3a65e8a5a879ea5ee39eab483f6018",
+      "text_sha256": "3b453088e26466d70ba687f965cc8b9877fb1bcff94489e663db3351571b3490",
+      "prompt_sha256": "0aa9fc0873044688944a6235655f052abbfc64d20f6f69670b66558daa2c87bc"
+    },
+    {
+      "job_id": "075c8c8677d1ff519fff83e348e032155a5e88323630d2e1fa20dfb07a0a7af8",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0182|gpt-5.6-terra",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\075c8c8677d1ff519fff83e348e032155a5e88323630d2e1fa20dfb07a0a7af8\\request.json",
+      "request_sha256": "284bad5390728451b416a6167f9efafff38e1dda9c7f32cabf75c4528549528d",
+      "text_sha256": "9420d788f05837923b7d40860b5814f554296713aa73a42b8abf2f2ae21576d2",
+      "prompt_sha256": "0aa9fc0873044688944a6235655f052abbfc64d20f6f69670b66558daa2c87bc"
+    },
+    {
+      "job_id": "bfae63a1b9923b642f3ae9dcb040edae52b2ad33c30eaf3705d697498425d880",
+      "route": "codex_subscription",
+      "cell_id": "cp0043|gpt-5.6-terra",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\bfae63a1b9923b642f3ae9dcb040edae52b2ad33c30eaf3705d697498425d880\\request.json",
+      "request_sha256": "068aab4feedcb4321dc7dd278ee973183a92da012d3a69b7b312dcf113f4ec91",
+      "text_sha256": "ed075f9c09dbba094b8b07f3a02156540570627df0326d76334cd381b50c436c",
+      "prompt_sha256": "6d9e1a278c891ef2b9b1324d08fc3fb20b8fa7db9e067001467a7e0616472dcc"
+    },
+    {
+      "job_id": "af7151c7bf10cc72fd3a2185b32c10d916914c90be71df8f2648eb529f351602",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0043|gpt-5.6-terra",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\af7151c7bf10cc72fd3a2185b32c10d916914c90be71df8f2648eb529f351602\\request.json",
+      "request_sha256": "3e5d2195a425215e48a37bf8f8ea7e4e938e717fe256b20c26158c18ce8c0a82",
+      "text_sha256": "857f43aa48393f3adc37f03954ac60fd70b77173f2fd34ef759f8229693b244c",
+      "prompt_sha256": "6d9e1a278c891ef2b9b1324d08fc3fb20b8fa7db9e067001467a7e0616472dcc"
+    },
+    {
+      "job_id": "fbb05224e1c1ef02b3ae7fa329f1b34ca874933492793782d8c106aa846ff133",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0043|gpt-5.6-terra",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\fbb05224e1c1ef02b3ae7fa329f1b34ca874933492793782d8c106aa846ff133\\request.json",
+      "request_sha256": "259133475e06eb63aa15bf6a8d71873a9034409e7b6e04be3ceafd00ec36003b",
+      "text_sha256": "f50e9710deca930cbc450201e8467edfc2ae40bd91c8b21a1089d069511dfdc8",
+      "prompt_sha256": "6d9e1a278c891ef2b9b1324d08fc3fb20b8fa7db9e067001467a7e0616472dcc"
+    },
+    {
+      "job_id": "cdca9723283c2765d9dc3ede2ac3b15335dc01877c0470ae85ff28141db68747",
+      "route": "codex_subscription",
+      "cell_id": "cp0043|gpt-5.6-terra",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\cdca9723283c2765d9dc3ede2ac3b15335dc01877c0470ae85ff28141db68747\\request.json",
+      "request_sha256": "2773a3a1917667495d34a9647bd3d70a4b980b48e0a6fcc431ce71a490fa2515",
+      "text_sha256": "c3c98d4839a2a7b46ba6eb26d00ff70db0032b12b58ff9a1941b94b591ca3fc8",
+      "prompt_sha256": "6d9e1a278c891ef2b9b1324d08fc3fb20b8fa7db9e067001467a7e0616472dcc"
+    },
+    {
+      "job_id": "d88779022195b19000fbf68c9da584f9c49839fdaeee4317a08542624119e2dc",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0043|gpt-5.6-luna",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\d88779022195b19000fbf68c9da584f9c49839fdaeee4317a08542624119e2dc\\request.json",
+      "request_sha256": "435aaa83245d2b7fe9d9075e36ccaf870cc36ddbe3157e104e31047a7118d47b",
+      "text_sha256": "9f18e4e8d78d1546d17a35a222e38e724d2d8bf0ff299b8a0b45e599ccb9a953",
+      "prompt_sha256": "6d9e1a278c891ef2b9b1324d08fc3fb20b8fa7db9e067001467a7e0616472dcc"
+    },
+    {
+      "job_id": "65281d6ae8663f4c5a602b2753514ce5d3d0713cc8664f7c0ed1ed30540d46c1",
+      "route": "codex_subscription",
+      "cell_id": "cp0043|gpt-5.6-luna",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\65281d6ae8663f4c5a602b2753514ce5d3d0713cc8664f7c0ed1ed30540d46c1\\request.json",
+      "request_sha256": "43e4494cb6fb2356c05089aa808fb9ae64bf8a104f6b710437ce92916ab763a2",
+      "text_sha256": "e6c72221b54c6dd95c690681cc2300dbf84764d2110626d2a8344c76db9e778a",
+      "prompt_sha256": "6d9e1a278c891ef2b9b1324d08fc3fb20b8fa7db9e067001467a7e0616472dcc"
+    },
+    {
+      "job_id": "c46c581694f9f533c4022f8a79930c9e8a68a7f44c01b74f729426dc39476ff2",
+      "route": "codex_subscription",
+      "cell_id": "cp0043|gpt-5.6-luna",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\c46c581694f9f533c4022f8a79930c9e8a68a7f44c01b74f729426dc39476ff2\\request.json",
+      "request_sha256": "121577da65c10e8e765ffa843fc219bdda2ee244da409f1ecae025d4ac59df5a",
+      "text_sha256": "674b96ee8d71a1ef1babb643ef34d13ea2a1844f2cd03748519d928757804939",
+      "prompt_sha256": "6d9e1a278c891ef2b9b1324d08fc3fb20b8fa7db9e067001467a7e0616472dcc"
+    },
+    {
+      "job_id": "d06c6931646d42d459e42cc6139d5fb2102e7aee1757a310fab5bc53befc78cc",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0043|gpt-5.6-luna",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\d06c6931646d42d459e42cc6139d5fb2102e7aee1757a310fab5bc53befc78cc\\request.json",
+      "request_sha256": "0827b1a896dd7c76d81a2431da929d1d15d8883991f86cba09d104c7e6ae355b",
+      "text_sha256": "472b1a8123c0512c6d616d2dbf8eaca5e229fd1f0bd89cc67dbadd2ee5dc6f0f",
+      "prompt_sha256": "6d9e1a278c891ef2b9b1324d08fc3fb20b8fa7db9e067001467a7e0616472dcc"
+    },
+    {
+      "job_id": "c9cce1cd2ccc8e62b7221203c08d46e5b04c4877108e3a6413335ee6a60c9011",
+      "route": "codex_subscription",
+      "cell_id": "cp0182|gpt-5.6-luna",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\c9cce1cd2ccc8e62b7221203c08d46e5b04c4877108e3a6413335ee6a60c9011\\request.json",
+      "request_sha256": "f3717d031a49c2063cbeffad8e7f44eba006b4d945442da7440199df0d8a5378",
+      "text_sha256": "c331970c108bc18f91ce3f10a0ba99067230c7aa94892226e7263761c3d8a993",
+      "prompt_sha256": "0aa9fc0873044688944a6235655f052abbfc64d20f6f69670b66558daa2c87bc"
+    },
+    {
+      "job_id": "556d51c7a1fbac496a5ef60d3ac529f04fd2091c83e36d1f50afd8979e12ab77",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0182|gpt-5.6-luna",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\556d51c7a1fbac496a5ef60d3ac529f04fd2091c83e36d1f50afd8979e12ab77\\request.json",
+      "request_sha256": "c4155bf23b1b8470e72fd67f79bc83d3bb4b8f97edbeae52d33ad23737d077f2",
+      "text_sha256": "f4af7507a25dd9733bbacd9dba947ec631ea9c7dd466ad82f3b1c0bf34d187ed",
+      "prompt_sha256": "0aa9fc0873044688944a6235655f052abbfc64d20f6f69670b66558daa2c87bc"
+    },
+    {
+      "job_id": "eeb515b0bde381beb20f4a77a5f27905b95429a1146f815d05e920250c761770",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0182|gpt-5.6-luna",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\eeb515b0bde381beb20f4a77a5f27905b95429a1146f815d05e920250c761770\\request.json",
+      "request_sha256": "ddeaa718a3683d1f4345123804f4a3712bfa62136a808011f09fd87ef211e6b4",
+      "text_sha256": "8e7310903880328cfe26fad2309e98a7a5aea3e4a338fc8ca80f4980d5205720",
+      "prompt_sha256": "0aa9fc0873044688944a6235655f052abbfc64d20f6f69670b66558daa2c87bc"
+    },
+    {
+      "job_id": "3ee32e79cbaff17a8b18b69f8926515f77ade3f6eb4499a43071eb665d4a8f8b",
+      "route": "codex_subscription",
+      "cell_id": "cp0182|gpt-5.6-luna",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\3ee32e79cbaff17a8b18b69f8926515f77ade3f6eb4499a43071eb665d4a8f8b\\request.json",
+      "request_sha256": "76697a6e21b249f4887a64824690ac580c07756ba2dfd6a3d5c12f7d04dc07f9",
+      "text_sha256": "b37061bb684e734923ec24f5bc797796939fa4d83b81af47d125f5b73c1775cc",
+      "prompt_sha256": "0aa9fc0873044688944a6235655f052abbfc64d20f6f69670b66558daa2c87bc"
+    },
+    {
+      "job_id": "81ae7f499b949f7d3bcf8c15858ce455195566cc38d8528fd48e8608c1097496",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0102|gpt-5.6-luna",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\81ae7f499b949f7d3bcf8c15858ce455195566cc38d8528fd48e8608c1097496\\request.json",
+      "request_sha256": "9f8a506de7fa9ab502d0e2303c8b34ac837ab942b80641623142adcb0fbc7235",
+      "text_sha256": "4c1fe7a9611604232d317d00495903e8901e1d7261318a99159e44b283744830",
+      "prompt_sha256": "371f13bd194d5e3af381f1df588551dbf70175870c8ef8c508160123f5727d57"
+    },
+    {
+      "job_id": "c84f0d33ffb193f3331a94892544c292ad274e50d8f0b77b138547e27b7a1202",
+      "route": "codex_subscription",
+      "cell_id": "cp0102|gpt-5.6-luna",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\c84f0d33ffb193f3331a94892544c292ad274e50d8f0b77b138547e27b7a1202\\request.json",
+      "request_sha256": "d597e05c848aff479d1700da5f621493a12761a12d9f3994347fa24ef3e1969e",
+      "text_sha256": "8384854d222b198076241d4955a3bbfbd0e6d29a47f1de00cf8db785a14536bf",
+      "prompt_sha256": "371f13bd194d5e3af381f1df588551dbf70175870c8ef8c508160123f5727d57"
+    },
+    {
+      "job_id": "fb93e2619e63c9678cbd40d02e7ae8f1926c045a54c67b8206774ec39205ba87",
+      "route": "codex_subscription",
+      "cell_id": "cp0102|gpt-5.6-luna",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\fb93e2619e63c9678cbd40d02e7ae8f1926c045a54c67b8206774ec39205ba87\\request.json",
+      "request_sha256": "e8878891a969b8c7c6cdbebed3eefc23c7630deeea570768c4d49c763b3c0b48",
+      "text_sha256": "3f2666f5cd3f1f6212cd8319d596662c3c39c76debe6617f6cf58f72f27db5e7",
+      "prompt_sha256": "371f13bd194d5e3af381f1df588551dbf70175870c8ef8c508160123f5727d57"
+    },
+    {
+      "job_id": "b3c30ca49ddb4ab0535492075b05035692b2fa522d486bd5ce5ad4767feaa0de",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0102|gpt-5.6-luna",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\b3c30ca49ddb4ab0535492075b05035692b2fa522d486bd5ce5ad4767feaa0de\\request.json",
+      "request_sha256": "2ed7b93998c9e55f83a8ecaa8a2e1de6378615dabed4c5a35ca528eb3a907c80",
+      "text_sha256": "c33abecc27df03808a3f444296e7fd07b7e780155e18b745414fcef67abf0641",
+      "prompt_sha256": "371f13bd194d5e3af381f1df588551dbf70175870c8ef8c508160123f5727d57"
+    },
+    {
+      "job_id": "06946d5e205bf8113e68a0da48730210b4459a64b1ac6a370cead120a2178b1e",
+      "route": "codex_subscription",
+      "cell_id": "cp0001|gpt-5.6-luna",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\06946d5e205bf8113e68a0da48730210b4459a64b1ac6a370cead120a2178b1e\\request.json",
+      "request_sha256": "017feb225b49e72f73368992cda78a8befafbd637ec436f7f5c4b7e1b7f2d9f7",
+      "text_sha256": "45a386e4d2ccd8d6e23b9f96c6aaedb0d3aa3ecb08f83c601d6fd4a7a70daa9e",
+      "prompt_sha256": "1c6e07bbb92e9a3ff9d5a4f8b0566eadde63070049ce52037be5c20c455135f2"
+    },
+    {
+      "job_id": "67224b27f5be71b456e0308506f002cf5ba0fd4e9a199d9e25f9f0b9961a5a46",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0001|gpt-5.6-luna",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\67224b27f5be71b456e0308506f002cf5ba0fd4e9a199d9e25f9f0b9961a5a46\\request.json",
+      "request_sha256": "c41fa147f20ebc38b0239b37b767402b792243289c84cd72863a47f3b2342386",
+      "text_sha256": "bc5034690d27bb0a70d6ae32f073ebc69cce86ad140651845bc1cdc3ae5b1b6a",
+      "prompt_sha256": "1c6e07bbb92e9a3ff9d5a4f8b0566eadde63070049ce52037be5c20c455135f2"
+    },
+    {
+      "job_id": "7bec1eab23b17c71ea85deeb5f5be5fc61863b1c6b22c83f0068dd4a580b1557",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0001|gpt-5.6-luna",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\7bec1eab23b17c71ea85deeb5f5be5fc61863b1c6b22c83f0068dd4a580b1557\\request.json",
+      "request_sha256": "40aeaad99fa7ead4dbecb53dba2f6b523cccb94ff9c529be61b3c64459cb0969",
+      "text_sha256": "ebf2cde601f30f5469732aaf5a3c456ce021e51c740726e1f17deff82c065046",
+      "prompt_sha256": "1c6e07bbb92e9a3ff9d5a4f8b0566eadde63070049ce52037be5c20c455135f2"
+    },
+    {
+      "job_id": "915f2733fd8dbe45629e36687a07ef0d0dac3b04220df0097c1eb9e2e69642fc",
+      "route": "codex_subscription",
+      "cell_id": "cp0001|gpt-5.6-luna",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\915f2733fd8dbe45629e36687a07ef0d0dac3b04220df0097c1eb9e2e69642fc\\request.json",
+      "request_sha256": "db6b18a4d0c3820f7e3f13ac39392119c7e8f9ea15f4b2d580f8371ad73390e5",
+      "text_sha256": "c1f023c73c5edae408f495db5db45ff097372ba0a27e1f1a05f433177d57040b",
+      "prompt_sha256": "1c6e07bbb92e9a3ff9d5a4f8b0566eadde63070049ce52037be5c20c455135f2"
+    },
+    {
+      "job_id": "54145608927c872a8b189f21fe5626ebeefff0a1e5fa63a3991dcf427ad46197",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0161|gpt-5.6-luna",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\54145608927c872a8b189f21fe5626ebeefff0a1e5fa63a3991dcf427ad46197\\request.json",
+      "request_sha256": "e5c427e9305926a4208fa1cda77405e2b4ed25406fb353f42d0fbb86cade3bde",
+      "text_sha256": "9cc2c3b868ca27666c16d855d260a9b56af76e5a8b729c8b5e48582ef65cf498",
+      "prompt_sha256": "02ac0f65c18596d711d4b603a32866977f2c7e9c0c5e213b8b8cff6603c8575e"
+    },
+    {
+      "job_id": "23184925a9ed31da94c816bc7d6302ffcd3716cab6238b45df364f706fe113e7",
+      "route": "codex_subscription",
+      "cell_id": "cp0161|gpt-5.6-luna",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\23184925a9ed31da94c816bc7d6302ffcd3716cab6238b45df364f706fe113e7\\request.json",
+      "request_sha256": "e0aee91fbe25c88d3a623b684ed0bb8e88f712c9d3f63c5ea52b2cec9623128c",
+      "text_sha256": "395bd8a598f54f63511683942b42cfb0e152d6213b7ae6ca82d893dc7d6ecddd",
+      "prompt_sha256": "02ac0f65c18596d711d4b603a32866977f2c7e9c0c5e213b8b8cff6603c8575e"
+    },
+    {
+      "job_id": "d201270503fe63e1efc841a5ba6e97d1d3fc8901370484279505f34322dbffd4",
+      "route": "codex_subscription",
+      "cell_id": "cp0161|gpt-5.6-luna",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\d201270503fe63e1efc841a5ba6e97d1d3fc8901370484279505f34322dbffd4\\request.json",
+      "request_sha256": "8dbad9c41fb993168197a49bb9ccab885d44a06ae4588fb1591097cb31a73ada",
+      "text_sha256": "d6834fb8bbe30227b32be86a4c1442bfb54db586d44ed20ad65c41690352a24d",
+      "prompt_sha256": "02ac0f65c18596d711d4b603a32866977f2c7e9c0c5e213b8b8cff6603c8575e"
+    },
+    {
+      "job_id": "f116e33b50451f413750245a8a6565c7268af4754ea9bb5e5769558b6cdf602f",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0161|gpt-5.6-luna",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\f116e33b50451f413750245a8a6565c7268af4754ea9bb5e5769558b6cdf602f\\request.json",
+      "request_sha256": "a6556c8cd0be696543b41f70595d891205247a0852e90e49d740be748ca765bd",
+      "text_sha256": "92ed934f33879cf897bac81775cd535bea4c350e98c67e07b694f6cf8472838d",
+      "prompt_sha256": "02ac0f65c18596d711d4b603a32866977f2c7e9c0c5e213b8b8cff6603c8575e"
+    },
+    {
+      "job_id": "d08868b6620d72579c3606f99c1a7512dd55ff631b893ee4326c99f52deb40a2",
+      "route": "codex_subscription",
+      "cell_id": "cp0001|gpt-5.6-terra",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\d08868b6620d72579c3606f99c1a7512dd55ff631b893ee4326c99f52deb40a2\\request.json",
+      "request_sha256": "60808622a0a9021b168cb8e096d1b725a1e66d26420d01cb5242e179098ba7d6",
+      "text_sha256": "0cbe1989b4ada48f39ede1579f1108d472939f033b7de3b07f4dec87f2da4f4b",
+      "prompt_sha256": "1c6e07bbb92e9a3ff9d5a4f8b0566eadde63070049ce52037be5c20c455135f2"
+    },
+    {
+      "job_id": "50bdcaa5927043d212d8dea3cbe0f90c5beafd0bb2c4b19a0257cf3b2ed954dc",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0001|gpt-5.6-terra",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\50bdcaa5927043d212d8dea3cbe0f90c5beafd0bb2c4b19a0257cf3b2ed954dc\\request.json",
+      "request_sha256": "85c10167421f32ddd9b46ab1412e3bba2641da8e093000c917aa32beae0cdd4a",
+      "text_sha256": "1b16a155a59a22db7c7f57dd8762f106d7182e8c4d41e9e1cf022dc7a8fd38fb",
+      "prompt_sha256": "1c6e07bbb92e9a3ff9d5a4f8b0566eadde63070049ce52037be5c20c455135f2"
+    },
+    {
+      "job_id": "b9e2b0a85b102531fe03707cc4d85f372e6d781eead924a855eccb7245227155",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0001|gpt-5.6-terra",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\b9e2b0a85b102531fe03707cc4d85f372e6d781eead924a855eccb7245227155\\request.json",
+      "request_sha256": "e6c8d86862eede7146a3b57f7818742608a64420a46963b21c0403cc4157d2ec",
+      "text_sha256": "7a42479cde91e723238839b281ac941fb1a8ac8e0abc3b3a3bb864e1b8697336",
+      "prompt_sha256": "1c6e07bbb92e9a3ff9d5a4f8b0566eadde63070049ce52037be5c20c455135f2"
+    },
+    {
+      "job_id": "6e46cc7174e07e137fe78cd806c2c0ae2be5397192b4c0fd788cc77e3d60d0f7",
+      "route": "codex_subscription",
+      "cell_id": "cp0001|gpt-5.6-terra",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\6e46cc7174e07e137fe78cd806c2c0ae2be5397192b4c0fd788cc77e3d60d0f7\\request.json",
+      "request_sha256": "85a1e9fe774c8823c657b1b2cb164896bc6166e8e3d0a01f21c25b5495b9cc9d",
+      "text_sha256": "5f050b7a99d06ca8e1e3eeb85f717055fb8e7fbf8b6f114e6750ef8d8cb006cc",
+      "prompt_sha256": "1c6e07bbb92e9a3ff9d5a4f8b0566eadde63070049ce52037be5c20c455135f2"
+    },
+    {
+      "job_id": "18ba8b432a36954d86a897c1e3c3c663cdc065da808d1220f416fdcf4ae4da92",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0123|gpt-5.6-luna",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\18ba8b432a36954d86a897c1e3c3c663cdc065da808d1220f416fdcf4ae4da92\\request.json",
+      "request_sha256": "521f5514d36c60a76fd422bbd323e1fc48f0f0ded473a503d277cafabb62289b",
+      "text_sha256": "56430791b1518a1a6a4d1ec42c290d50ddceaade22c37de76e35f50257de88ac",
+      "prompt_sha256": "ab7803c308801a23d5af02707b29ac41d4161aa758cb925047e566ae9376596a"
+    },
+    {
+      "job_id": "9fe39b91f250ad9aa1b0de97b1194d5ddf834531756e16c0d51034e5d454938d",
+      "route": "codex_subscription",
+      "cell_id": "cp0123|gpt-5.6-luna",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\9fe39b91f250ad9aa1b0de97b1194d5ddf834531756e16c0d51034e5d454938d\\request.json",
+      "request_sha256": "58024263c847212f0478cb80fd08a1bfe16a0ff3ee8f017b822d797332cba812",
+      "text_sha256": "42dcf319ba08499e0a1995d387edd91b40e59ae699688b4f3e9b5f09babfeb92",
+      "prompt_sha256": "ab7803c308801a23d5af02707b29ac41d4161aa758cb925047e566ae9376596a"
+    },
+    {
+      "job_id": "68ef0a6510d3db64d641f6105349b3558139b935fff5d70d009b5325f304f861",
+      "route": "codex_subscription",
+      "cell_id": "cp0123|gpt-5.6-luna",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\68ef0a6510d3db64d641f6105349b3558139b935fff5d70d009b5325f304f861\\request.json",
+      "request_sha256": "a37467189ddd02ed01fdad72a482ba187f85c1f8698a40d4f7d78c9c55e78e9c",
+      "text_sha256": "ee42af26dbc5f1ee91c0831da7d6ab7030d0417fecc138bbfd5342ce70059085",
+      "prompt_sha256": "ab7803c308801a23d5af02707b29ac41d4161aa758cb925047e566ae9376596a"
+    },
+    {
+      "job_id": "92a8c08d0e50a484ae7dc7a821814cf13d529d9dbdaef2f6fd84540efe5b2d95",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0123|gpt-5.6-luna",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\92a8c08d0e50a484ae7dc7a821814cf13d529d9dbdaef2f6fd84540efe5b2d95\\request.json",
+      "request_sha256": "012db93a7a4116386022abd8f79644c0043b500051b15cbfccd7a178c5bbd66b",
+      "text_sha256": "48984c08259c622b57d720be4649c9b03dd0b80b9fefbe92227373ab39593582",
+      "prompt_sha256": "ab7803c308801a23d5af02707b29ac41d4161aa758cb925047e566ae9376596a"
+    },
+    {
+      "job_id": "72b08213714ca6935fc1ee8f1cad998276eaa47edcd926398406803d58fa2cee",
+      "route": "codex_subscription",
+      "cell_id": "cp0022|gpt-5.6-terra",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\72b08213714ca6935fc1ee8f1cad998276eaa47edcd926398406803d58fa2cee\\request.json",
+      "request_sha256": "c608c32766a11f9266993cf47425f61a0728d56d84d22856acedf3d8e249194c",
+      "text_sha256": "5a26e8e4704321fb630ec17a87afc5d529d46ad3f4222c8e433c7b8c48c3ee42",
+      "prompt_sha256": "8a85b1b94777f8fe34f2727a545727139d91c766209af6910e4b0f7c209b5ca7"
+    },
+    {
+      "job_id": "f52cf25bbee17b42492703892f491c90e8bbc45efcff3573d0714c3a9d90a55c",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0022|gpt-5.6-terra",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\f52cf25bbee17b42492703892f491c90e8bbc45efcff3573d0714c3a9d90a55c\\request.json",
+      "request_sha256": "52d293c3dc3ca53f14b2367d9bd70c8512601618fc5e43b0bc7f3701fb82ab15",
+      "text_sha256": "27b15394e002d5ddd7f27aa2307e965fc169631a24813094e0f3ef5653df86fd",
+      "prompt_sha256": "8a85b1b94777f8fe34f2727a545727139d91c766209af6910e4b0f7c209b5ca7"
+    },
+    {
+      "job_id": "67ee0cdd242015947a07f0865feb116b7b141076a0c77c02e83d99276c9b1305",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0022|gpt-5.6-terra",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\67ee0cdd242015947a07f0865feb116b7b141076a0c77c02e83d99276c9b1305\\request.json",
+      "request_sha256": "10caa59d611d80073127bff94b3cd05e30c3100a2b57e9a490a3f1eb4f86a5b7",
+      "text_sha256": "541bd765868da1159ec262a8ad5df18d9d92dea03f2d7308f002fd19842abb36",
+      "prompt_sha256": "8a85b1b94777f8fe34f2727a545727139d91c766209af6910e4b0f7c209b5ca7"
+    },
+    {
+      "job_id": "0d48ef84adcc81ba4577700f6721d865c1f79424cc7c2eea43114ce1ea4b7c71",
+      "route": "codex_subscription",
+      "cell_id": "cp0022|gpt-5.6-terra",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\0d48ef84adcc81ba4577700f6721d865c1f79424cc7c2eea43114ce1ea4b7c71\\request.json",
+      "request_sha256": "e136ca205476329015eb0f7df04c376396d120334ebc65adc7fe209510c02406",
+      "text_sha256": "a02593c0154c44e8ea5f54c8d9b8edfb5a284387f18918fd6b4ed6f968f28b0b",
+      "prompt_sha256": "8a85b1b94777f8fe34f2727a545727139d91c766209af6910e4b0f7c209b5ca7"
+    },
+    {
+      "job_id": "c63dbce94bbf8a29c1aa316545876dcdbe64f556ca1416ea2bfcfb6828201a7d",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0022|gpt-5.6-luna",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\c63dbce94bbf8a29c1aa316545876dcdbe64f556ca1416ea2bfcfb6828201a7d\\request.json",
+      "request_sha256": "87dd1eef45a74351959818ef39a8b9c2c4969b2353bcf4b834d98a12b054266b",
+      "text_sha256": "8037c03ee548bf88ba414f27addaf24d6799e752503246ad16b4281e831088e1",
+      "prompt_sha256": "8a85b1b94777f8fe34f2727a545727139d91c766209af6910e4b0f7c209b5ca7"
+    },
+    {
+      "job_id": "df31720b02e2b7356655accbcb8337eab081a1aa185d6b5c2a804767bb5a7f5e",
+      "route": "codex_subscription",
+      "cell_id": "cp0022|gpt-5.6-luna",
+      "repeat_id": 1,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\df31720b02e2b7356655accbcb8337eab081a1aa185d6b5c2a804767bb5a7f5e\\request.json",
+      "request_sha256": "ed0549a1b71584824a893b7c22c35606bb431056013e85750a856becf6c79cee",
+      "text_sha256": "cfefcd05fa6460e39d44cf18f0a97c57883ec9c6ebf29513ab65fa1787c86528",
+      "prompt_sha256": "8a85b1b94777f8fe34f2727a545727139d91c766209af6910e4b0f7c209b5ca7"
+    },
+    {
+      "job_id": "4794ec6f61feb0e6ba2ee7f60abb9200c11e636ca250d389ddf2a74c41c0eb5e",
+      "route": "codex_subscription",
+      "cell_id": "cp0022|gpt-5.6-luna",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\4794ec6f61feb0e6ba2ee7f60abb9200c11e636ca250d389ddf2a74c41c0eb5e\\request.json",
+      "request_sha256": "f8bced06e3958bbcdb1b0a7a9d93f4e37a265833ae3281a4f28754e5efaeeb90",
+      "text_sha256": "118b57a939f0bb3b6fe3598004e900d1dfe7e100089180f49abfa477da951b1a",
+      "prompt_sha256": "8a85b1b94777f8fe34f2727a545727139d91c766209af6910e4b0f7c209b5ca7"
+    },
+    {
+      "job_id": "62ea99ac262207e8583a2225799a36cff130b26ed86d4f03659282be74ea9fb2",
+      "route": "kaggle_model_proxy",
+      "cell_id": "cp0022|gpt-5.6-luna",
+      "repeat_id": 2,
+      "request_path": "experiments\\EXP-038-paired-cloud-precheck-recovery\\collection\\attempts\\62ea99ac262207e8583a2225799a36cff130b26ed86d4f03659282be74ea9fb2\\request.json",
+      "request_sha256": "cd465490e4f24e8b3da5b3511a808256fa42df8128366fcce463f65e85cc1307",
+      "text_sha256": "480002ec6e02cb67a469123cf3325abb48c25d1aa7f3316f591995cf87a29118",
+      "prompt_sha256": "8a85b1b94777f8fe34f2727a545727139d91c766209af6910e4b0f7c209b5ca7"
+    }
+  ]
+}

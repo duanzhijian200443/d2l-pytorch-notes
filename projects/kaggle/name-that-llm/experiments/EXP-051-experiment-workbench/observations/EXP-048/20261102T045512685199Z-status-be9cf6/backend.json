@@ -1,0 +1,13 @@
+{
+  "query_ok": true,
+  "status": "PENDING",
+  "score": null,
+  "version_verified": true,
+  "submission_id": 57893384,
+  "script_version_id": 364733823,
+  "notebook_version": 2,
+  "submitted_at": "2026-11-02T03:18:07.177Z",
+  "commit_status": "COMPLETE",
+  "observed_at": "2026-11-02T04:55:18.325541+00:00",
+  "scope": "formal_submission_status_and_separate_commit_status"
+}

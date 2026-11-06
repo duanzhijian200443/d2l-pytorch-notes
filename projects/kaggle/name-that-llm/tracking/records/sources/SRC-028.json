@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "SRC-028",
+  "kind": "discussion",
+  "title": "Gemini 版本与生成数据标签风险",
+  "url": "https://www.kaggle.com/competitions/name-that-llm/discussion/751370",
+  "observed_at": "2026-10-31T14:18:03.700202+00:00",
+  "source_version": {
+    "topic_id": 751370,
+    "snapshot_sha256": "cd643a838ec12f9bb6dc190150fea628f9aed288ee9bcac7eadefb262dbbe8f8"
+  },
+  "public_score": null,
+  "summary": "Gemini 版本与生成数据标签风险",
+  "author_claim": "发帖者怀疑旧端点转发；评论者的检测未发现官方标签明确受污染，删除某来源的 3.7 行也未提升整体分数。",
+  "verified": "本轮重新读取了帖子及返回的全部评论页；这是来源核查，不是实验复现。",
+  "use_for_us": "保存请求模型与返回模型标识，不能凭风格检测器自行重标标签。",
+  "test_plan": "保存请求模型与返回模型标识，不能凭风格检测器自行重标标签。",
+  "limitations": "弱分类器混淆不能证明接口实际返回了哪个版本；讨论不是模型提供商的正式路由说明。",
+  "evidence": [
+    "tracking/snapshots/20261031T141753Z/topic-751370.json"
+  ]
+}

@@ -1,0 +1,194 @@
+{
+  "role": "browser_dom_observation",
+  "recorded_at": "2026-11-01T07:39:27.783667+00:00",
+  "url": "https://www.kaggle.com/competitions/name-that-llm/code?competitionId=170484&sortBy=scoreDescending&excludeNonAccessedDatasources=true",
+  "selected_sort": "Public Score",
+  "scope": "First 20 unpinned rendered rows; pinned starter excluded. API candidate list separately contains 60 rows; not a full leaderboard.",
+  "rows": [
+    {
+      "page_order": 1,
+      "ref": "leoprovorov/he-who-must-not-be-named",
+      "display_score": 1645.5,
+      "evidence_text": "Score: 1645.5",
+      "excluded": true,
+      "reason": "outside competition score range; cross-competition listing",
+      "score_version_binding": "NOT_ESTABLISHED_BY_LIST"
+    },
+    {
+      "page_order": 2,
+      "ref": "ozertuu/fresh-top-30",
+      "display_score": 1019.8,
+      "evidence_text": "Score: 1019.8",
+      "excluded": true,
+      "reason": "outside competition score range; cross-competition listing",
+      "score_version_binding": "NOT_ESTABLISHED_BY_LIST"
+    },
+    {
+      "page_order": 3,
+      "ref": "judith007/0-664-hyperparameter-tuned-who-are-u",
+      "display_score": 0.664,
+      "evidence_text": "Score: 0.664",
+      "excluded": false,
+      "reason": null,
+      "score_version_binding": "NOT_ESTABLISHED_BY_LIST"
+    },
+    {
+      "page_order": 4,
+      "ref": "zbigniewkirchner/0-664-one-swap-198k-clean-pool-fully-public",
+      "display_score": 0.664,
+      "evidence_text": "Score: 0.664",
+      "excluded": false,
+      "reason": null,
+      "score_version_binding": "NOT_ESTABLISHED_BY_LIST"
+    },
+    {
+      "page_order": 5,
+      "ref": "kilupy/ntl-full-0662-ours15",
+      "display_score": 0.664,
+      "evidence_text": "Score: 0.664",
+      "excluded": false,
+      "reason": null,
+      "score_version_binding": "NOT_ESTABLISHED_BY_LIST"
+    },
+    {
+      "page_order": 6,
+      "ref": "omerfarukmerey/0-663-0-660-v31-atlas-20",
+      "display_score": 0.663,
+      "evidence_text": "Score: 0.663",
+      "excluded": false,
+      "reason": null,
+      "score_version_binding": "NOT_ESTABLISHED_BY_LIST"
+    },
+    {
+      "page_order": 7,
+      "ref": "bgunshui/ntl-apex-e",
+      "display_score": 0.663,
+      "evidence_text": "Score: 0.663",
+      "excluded": false,
+      "reason": null,
+      "score_version_binding": "NOT_ESTABLISHED_BY_LIST"
+    },
+    {
+      "page_order": 8,
+      "ref": "alexchilton/name-that-llm-0-662-all-public-what-failed",
+      "display_score": 0.662,
+      "evidence_text": "Score: 0.662",
+      "excluded": false,
+      "reason": null,
+      "score_version_binding": "NOT_ESTABLISHED_BY_LIST"
+    },
+    {
+      "page_order": 9,
+      "ref": "lightningv08/0-662-qwen3-8-27b-lora-weighted-ensemble",
+      "display_score": 0.662,
+      "evidence_text": "Score: 0.662",
+      "excluded": false,
+      "reason": null,
+      "score_version_binding": "NOT_ESTABLISHED_BY_LIST"
+    },
+    {
+      "page_order": 10,
+      "ref": "sujanmajhisuzan/ntl-apex-sota-atlas-hungarian",
+      "display_score": 0.662,
+      "evidence_text": "Score: 0.662",
+      "excluded": false,
+      "reason": null,
+      "score_version_binding": "NOT_ESTABLISHED_BY_LIST"
+    },
+    {
+      "page_order": 11,
+      "ref": "roserrll/name-that-llm-0663-v31-atlas20-alex",
+      "display_score": 0.662,
+      "evidence_text": "Score: 0.662",
+      "excluded": false,
+      "reason": null,
+      "score_version_binding": "NOT_ESTABLISHED_BY_LIST"
+    },
+    {
+      "page_order": 12,
+      "ref": "huesosinapoganaya/0-663-0-660-v31-atlas-20",
+      "display_score": 0.662,
+      "evidence_text": "Score: 0.662",
+      "excluded": false,
+      "reason": null,
+      "score_version_binding": "NOT_ESTABLISHED_BY_LIST"
+    },
+    {
+      "page_order": 13,
+      "ref": "youdian1s/ntl-0-662-all-public-fork",
+      "display_score": 0.662,
+      "evidence_text": "Score: 0.662",
+      "excluded": false,
+      "reason": null,
+      "score_version_binding": "NOT_ESTABLISHED_BY_LIST"
+    },
+    {
+      "page_order": 14,
+      "ref": "ye070301/ntl-0663-v31-atlas20",
+      "display_score": 0.662,
+      "evidence_text": "Score: 0.662",
+      "excluded": false,
+      "reason": null,
+      "score_version_binding": "NOT_ESTABLISHED_BY_LIST"
+    },
+    {
+      "page_order": 15,
+      "ref": "junaid512/ntl-v1-baseline",
+      "display_score": 0.662,
+      "evidence_text": "Score: 0.662",
+      "excluded": false,
+      "reason": null,
+      "score_version_binding": "NOT_ESTABLISHED_BY_LIST"
+    },
+    {
+      "page_order": 16,
+      "ref": "dfenglei/ntl-repro-0662",
+      "display_score": 0.662,
+      "evidence_text": "Score: 0.662",
+      "excluded": false,
+      "reason": null,
+      "score_version_binding": "NOT_ESTABLISHED_BY_LIST"
+    },
+    {
+      "page_order": 17,
+      "ref": "otmaneelmahdaouy/ntl-v40-summit-pinnacle",
+      "display_score": 0.662,
+      "evidence_text": "Score: 0.662",
+      "excluded": false,
+      "reason": null,
+      "score_version_binding": "NOT_ESTABLISHED_BY_LIST"
+    },
+    {
+      "page_order": 18,
+      "ref": "dosssi4nzk/muse-guard-ntl-youdian1s-0-662-api-copy",
+      "display_score": 0.662,
+      "evidence_text": "Score: 0.662",
+      "excluded": false,
+      "reason": null,
+      "score_version_binding": "NOT_ESTABLISHED_BY_LIST"
+    },
+    {
+      "page_order": 19,
+      "ref": "dazhijiang/name-that-llm-ntl-0662",
+      "display_score": 0.662,
+      "evidence_text": "Score: 0.662",
+      "excluded": false,
+      "reason": null,
+      "score_version_binding": "NOT_ESTABLISHED_BY_LIST"
+    },
+    {
+      "page_order": 20,
+      "ref": "gloriachen0816/ntl-0-662-all-public-a-fork-of-alexchilton",
+      "display_score": 0.662,
+      "evidence_text": "Score: 0.662",
+      "excluded": false,
+      "reason": null,
+      "score_version_binding": "NOT_ESTABLISHED_BY_LIST"
+    }
+  ],
+  "observed_at": "2026-11-01T07:35:57Z",
+  "observation_time_precision": "collection-end only; per-page time unknown",
+  "browser_read_date_utc": "2026-11-01",
+  "collection_end_at_utc": "2026-11-01T07:35:57Z",
+  "exact_per_page_read_at": null
+}

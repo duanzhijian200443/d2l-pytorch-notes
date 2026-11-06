@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-042",
+  "run_id": "exp042-20261101T143057Z",
+  "status": "PASS",
+  "scope": "Pre-launch independent code review and bounded synthetic verification only. No model training, cloud launch or network.",
+  "code_sha256": {
+    "experiments/EXP-042-luna-terra120-ablation/runner.py": "de60b60bfd138b834d8723bbd832fd0522453f549c4050256197f6babe4ed45a",
+    "experiments/EXP-042-luna-terra120-ablation/test_runner.py": "5836c5cc7725cd65e12a69759cde3cc83e17cc6184977725c570458b6296435b",
+    "experiments/EXP-042-luna-terra120-ablation/prepare.py": "7f2b5e877d7e22af2fc69bb85567adbf0f18802f38fbf5d2943d8b0fded171e8",
+    "experiments/EXP-042-luna-terra120-ablation/launch.py": "32a1c0982c7adacafe7d3262d283e33d4cbba42a2136520260984c9761e50c1b"
+  },
+  "manifest_sha256": "7c6c12f743a262bbc1337fab7567f8f745c5b4b9cc24c0f56206b4cab8b593ad",
+  "notebook_sha256": "55e83c3d8ee7480d5700e4aa8b6edbc94ade75458d6530534a88060758820dda",
+  "metadata_sha256": "9485ed7cc41ccbb085adb5bcbc0fe30b37aa7651a2a2af41acc807c386ba7671",
+  "config_sha256": "0d24a23932524507dca84d04a40de6688c80e4c92eef7bbc89c3f706b799a4a9",
+  "protocol_sha256": "35e546b80c1e0ef0a3f489575260bbb5b64eca4e4b6ef553e359ead9f6135a1b",
+  "dependencies": {
+    "guard_sha256": "eaf2c31758045488eb53ba3f9c7f824c848bfe0a33698fab816d96485f9b6d3b",
+    "stylegram_core_sha256": "caa46bd121164aba891c3d78e662540db9294d653db09f53d02833c1b4ab77ef"
+  },
+  "blocking_findings": [],
+  "resolved_findings": [
+    {
+      "severity": "blocking",
+      "file": "prepare.py",
+      "problem": "Full data-review.json included protected holdout examples and would have been embedded in the Notebook.",
+      "resolution": "Full review stays local; payload contains only allowlisted data-gate.json receipt. Final decoded ZIP verified."
+    },
+    {
+      "severity": "hardening",
+      "file": "launch.py",
+      "problem": "Status-only review gate could reuse stale code review; launcher omitted from frozen manifest.",
+      "resolution": "Manifest includes launcher and launch checks all four code_sha256 values before any remote request."
+    }
+  ],
+  "checks": {
+    "training_data": "Only original official train + frozen 10073-row public pool, plus 120 raw Luna/Terra rows in add120. No holdout or paired diagnostic text in uploaded package.",
+    "vocabulary": "StyleGrams.fit receives only current fold official training rows + baseline extra (+ new120 for add120). Validation text only transformed in this vocabulary. Separate text-only validation clustering is the unchanged transductive inference policy.",
+    "weights": "Independent extraction of old weights function: all 5 fold control arrays exactly equal. All old-row weights bitwise equal in both arms. New rows use original per-class public weight without renormalization.",
+    "new_grouping": "New rows form separate codex namespace and matrix block; 60 groups, each one Luna and one Terra. Group means cannot absorb old public rows.",
+    "folds": "Official frozen folds SHA e8ba1e3712852168dc57f56960d4f3e00be612d639ade8a7dcb0f0d8335ce551, original 2699-row order/text hashes checked; prompt groups do not cross folds.",
+    "sparse_order": "Independent old/new function comparison on actual official folds: all 75 m=2/3/6 x repeat=0..4 x 5-fold selections exactly equal. Selected texts are regrouped before centering, paired selection shared across arms.",
+    "baseline_recipe": "Frozen core, float64, LinearSVC C=.5 dual=True max_iter=4000 random_state=42, two threads, unchanged original data/order/weights. Both arms executed in one process and environment; actual numerical parity with historical control remains a post-run gate.",
+    "environment": "Runner strict cloud preflight requires numpy2.1.3 pandas2.3.3 scipy1.16.3 sklearn1.6.1 and rejects /dev/nvidia0. Those package versions match old runtime receipt. Local preflight was non-strict and is not cloud environment proof.",
+    "guard": "Existing frozen guard uses exclusive output claim, one subprocess, 6600-second/20GiB sampled-RSS budget, no retry, requires child exit0 and COMPLETE stable artifact inventory, retains errors. Notebook archives outputs in finally.",
+    "launch": "One QuickSave then one full-run request, durable in-flight state before each request, no retry loop. Readback binds source/privacy/CPU/internet/input refs/image. Actual installed ApiSaveKernelResponse supports url and other used fields.",
+    "artifact_identity": "Runner JSON/NPZ carry run_id/config_sha256/runner_sha256, finite score checks, stage receipts and stable byte-hashed manifest."
+  },
+  "tests": [
+    {
+      "name": "final runner synthetic suite",
+      "command": "python -B -X utf8 experiments/EXP-042-luna-terra120-ablation/test_runner.py -v",
+      "passed": 10,
+      "failed": 0,
+      "exit_code": 0,
+      "output": "test_config_freezes_labels_hyperparameters_and_budget (__main__.RunnerTests.test_config_freezes_labels_hyperparameters_and_budget) ... ok\r\ntest_exact_overlap_rejected_in_both_sources (__main__.RunnerTests.test_exact_overlap_rejected_in_both_sources) ... ok\r\ntest_hash_gate_rejects_tampering_and_baseline_substitution (__main__.RunnerTests.test_hash_gate_rejects_tampering_and_baseline_substitution) ... ok\r\ntest_normalized_holdout_and_group_mapping_rejected (__main__.RunnerTests.test_normalized_holdout_and_group_mapping_rejected) ... ok\r\ntest_raw_text_preserved (__main__.RunnerTests.test_raw_text_preserved) ... ok\r\ntest_receipts_manifest_and_budget (__main__.RunnerTests.test_receipts_manifest_and_budget) ... ok\r\ntest_row_count_split_and_labels_rejected (__main__.RunnerTests.test_row_count_split_and_labels_rejected) ... ok\r\ntest_sparse_selection_does_not_use_labels_or_text (__main__.RunnerTests.test_sparse_selection_does_not_use_labels_or_text) ... ok\r\ntest_training_centre_keeps_public_and_codex_groups_separate (__main__.RunnerTests.test_training_centre_keeps_public_and_codex_groups_separate) ... ok\r\ntest_weights_keep_old_rows_and_add_exact_class_mass (__main__.RunnerTests.test_weights_keep_old_rows_and_add_exact_class_mass) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 10 tests in 0.123s\r\n\r\nOK\r\n"
+    },
+    {
+      "name": "independent actual-fold old/new parity",
+      "weight_folds": 5,
+      "sparse_scenarios": 75,
+      "exact_array_equal": true,
+      "training_started": false
+    },
+    {
+      "name": "guard acceptance synthetic checks",
+      "passed": [
+        "exclusive claim",
+        "duplicate claim rejected",
+        "complete stable manifest accepted",
+        "tampered bytes rejected",
+        "unlisted stable output rejected"
+      ],
+      "subprocesses_launched": 0
+    },
+    {
+      "name": "actual installed SDK class compatibility",
+      "python": "C:/Users/34331/AppData/Roaming/uv/tools/kaggle/Scripts/python.exe",
+      "response_type": "ApiSaveKernelResponse",
+      "ack_url_supported": true,
+      "synthetic_ack_pass": true,
+      "network_calls": 0
+    },
+    {
+      "name": "decoded final Notebook ZIP",
+      "allowed_files": [
+        "config.json",
+        "data-gate.json",
+        "guard.py",
+        "new120.csv",
+        "protocol.json",
+        "runner.py",
+        "stylegram_core.py"
+      ],
+      "zip_bytes": 71850,
+      "zip_sha256": "8df94080bf7af76eaa52a99285ad75287ff69ae1d0f6678f4b7f61d257222fb3",
+      "payload_byte_parity": true,
+      "protected_strings_checked": 658,
+      "protected_string_matches": 0,
+      "manifest_hashes_verified": true,
+      "preflight_identity_matches": true
+    }
+  ],
+  "residual_risks": [
+    "Training and cloud execution were not run by reviewer. PASS is not an OOF result, numerical baseline reproduction, leaderboard improvement or end-to-end Kaggle success.",
+    "Local preflight uses different package versions with strict_environment=false; strict runtime environment evidence is required from actual cloud run.",
+    "Known/exact data separation does not establish exhaustive semantic independence or authenticated backend snapshot; new labels remain requested_only.",
+    "Official folds have been inspected before and are development OOF, not a fresh holdout. The retained 60-row new holdout is not evaluated.",
+    "Adding rows changes candidate vocabulary/IDF and total Luna/Terra weight mass by design; observed effect is this full data-addition intervention, not isolated semantics.",
+    "RSS enforcement is sampled and budget abort may leave partial output; accept only complete 5-fold/two-arm/20-fit artifacts and guard COMPLETE with clean child exit.",
+    "Historical control score/prediction and sparse-output reproduction must be checked after completion before interpreting candidate gain; unexpected drift blocks interpretation, not auto-rerun."
+  ],
+  "post_run_acceptance": [
+    "Bind downloaded outputs to this run/config/runner and verify stable manifest bytes.",
+    "Require guard/result/state COMPLETE, child_exit=0, no termination/failure, actual strict environment accepted.",
+    "Require both arms 2699-row 18-column finite OOF with exact ID/label/fold mapping and all 150 arm-specific sparse files.",
+    "Compare control with frozen EXP010 share0.5 dense/sparse outputs and investigate unexplained score or prediction drift before comparative claims.",
+    "Compute 18-class pooled OOF and paired official-prompt bootstrap only after source acceptance; no automatic rerun or hyperparameter search."
+  ]
+}

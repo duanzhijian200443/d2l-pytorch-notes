@@ -1,0 +1,6 @@
+{
+  "project": "Name That LLM",
+  "baseline_experiment_id": "EXP-004",
+  "timezone": "Asia/Shanghai",
+  "automatic_remote_mutations": false
+}

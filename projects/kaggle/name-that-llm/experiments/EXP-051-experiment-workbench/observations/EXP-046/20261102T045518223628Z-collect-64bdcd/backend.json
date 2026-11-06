@@ -1,0 +1,56 @@
+{
+  "status": "COLLECTED_COMMIT_OUTPUTS",
+  "scope": "saved_notebook_outputs_not_hidden_rerun_artifacts",
+  "observed_at": "2026-11-02T04:55:45.917640+00:00",
+  "query_ok": true,
+  "ref": "zhjianduan/name-that-llm-a1-public-stylegram-046",
+  "version": 2,
+  "script_version_id": 364624288,
+  "code_identity": {
+    "code_sha256": "fd766ba93081c3b342b305c4dbce9c0666aaa2125ece6611891b4386df4de4d4",
+    "private": true,
+    "internet": false,
+    "version": 2
+  },
+  "files": [
+    {
+      "name": "a1_synthetic_parity.json",
+      "bytes": 550,
+      "sha256": "06ec26c52dd0302209908149f42e19616d5aa35e8ba64d097248d79614aa0757"
+    },
+    {
+      "name": "availability.json",
+      "bytes": 26615,
+      "sha256": "a3bdec419e8f4ae132c7fafacbeb9b4b83d7aed1d81fa156e01d951d0a481ea9"
+    },
+    {
+      "name": "input_preflight.json",
+      "bytes": 1872,
+      "sha256": "8d15ead4c08cc012150e9d86324e32d466f5c71ffa90bc005f43f9e46a32b318"
+    },
+    {
+      "name": "reproduction_environment.json",
+      "bytes": 1043,
+      "sha256": "786692187d676cd8ca7a367f7898bddfd9d931b7dc8d5b4aac71c6d608329ad7"
+    },
+    {
+      "name": "submission.parquet",
+      "bytes": 1682,
+      "sha256": "ef94c7669e36a465bbd3e2dd8cf4905b5e1c2e51e18053a588cb56623086170a"
+    },
+    {
+      "name": "submission_receipt.json",
+      "bytes": 433,
+      "sha256": "f389aaa7c708f8d94f384223901243ddce68d6ea6b7ba442b3f6b4ac35e69cfc"
+    }
+  ],
+  "files_path": "experiments/EXP-051-experiment-workbench/observations/EXP-046/20261102T045518223628Z-collect-64bdcd/files",
+  "bytes": 32195,
+  "safe_log_events": [
+    "FAST_COMMIT True",
+    "INPUT_PREFLIGHT PASS",
+    "EXP046 INPUT/ENVIRONMENT/SYNTHETIC PARITY PASS"
+  ],
+  "raw_logs_saved": false,
+  "signed_urls_saved": false
+}

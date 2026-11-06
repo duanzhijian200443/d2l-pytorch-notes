@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "id": "SRC-001",
+  "kind": "notebook",
+  "title": "0.663 | 0.660 V31 + ATLAS 20%",
+  "url": "https://www.kaggle.com/code/omerfarukmerey/0-663-0-660-v31-atlas-20",
+  "observed_at": "2026-11-02T03:59:47.268854+00:00",
+  "source_version": {
+    "notebook_version": 4,
+    "script_version_id": null,
+    "source_sha256": "dba1fbfbc4646cb03f92275a2a85acab0e3b90471e90501bf051f09275716c16",
+    "code_sha256": "d02becfe82c55dff37d0076ae752143304b29f88bd14ae7f90486f32408ae221"
+  },
+  "family_id": "code-d02becfe82c5",
+  "public_score": {
+    "value": 0.663,
+    "evidence_type": "platform_page",
+    "bound_to_source": false,
+    "script_version_id": null
+  },
+  "summary": "ATLAS 20%；Llama 本地暂存、双 T4 并行 8B、GPU 池化；2026-10-30 快照中最高项。",
+  "author_claim": "正文声明保存在下方 description.md；标题分数不作为独立证据。",
+  "verified": "2026-10-30 已观察页面分数并保存源码；增量说明见摘要。 2026-11-02再次读取当前V4，全部代码单元与历史固定版本相同。",
+  "use_for_us": "用于选择对照实验，不直接替换当前基线。",
+  "test_plan": "先核对具体得分版本，再把单项差异变成 IDEA。",
+  "limitations": "页面分数与下载源码版本未绑定；排名只代表当日快照。同代码的副本不是独立算法。",
+  "evidence": [
+    "reviews/public-top20-20261030/omerfarukmerey--0-663-0-660-v31-atlas-20/source.ipynb",
+    "reviews/public-top20-20261030/omerfarukmerey--0-663-0-660-v31-atlas-20/metadata.json",
+    "reviews/public-top20-20261030/omerfarukmerey--0-663-0-660-v31-atlas-20/description.md",
+    "reviews/public-top20-20261030/ui-scores.json",
+    "reviews/public-top20-20261030/omerfarukmerey--0-663-0-660-v31-atlas-20/notes.md",
+    "reviews/public-top20-20261030/omerfarukmerey--0-663-0-660-v31-atlas-20/snapshots/20261102-community-factcheck/receipt.json",
+    "reviews/public-top20-20261030/omerfarukmerey--0-663-0-660-v31-atlas-20/snapshots/20261102-community-factcheck/metadata.json"
+  ],
+  "category": "solutions",
+  "artifact_dir": "reviews/public-top20-20261030/omerfarukmerey--0-663-0-660-v31-atlas-20",
+  "notes_path": "reviews/public-top20-20261030/omerfarukmerey--0-663-0-660-v31-atlas-20/notes.md",
+  "evidence_sha256": {
+    "reviews/public-top20-20261030/omerfarukmerey--0-663-0-660-v31-atlas-20/notes.md": "0938b3508fe0eb0f45f0dadad8a3b155dbce401e785e6041abb1f5750c74457c",
+    "reviews/public-top20-20261030/omerfarukmerey--0-663-0-660-v31-atlas-20/snapshots/20261102-community-factcheck/receipt.json": "15698d169393a506251527b72560991939cde824946b61af3682e01722120e18",
+    "reviews/public-top20-20261030/omerfarukmerey--0-663-0-660-v31-atlas-20/snapshots/20261102-community-factcheck/metadata.json": "b03f9fa34a8bdd6a598a6a9ad41c7361af13dd0805455fe06485a5d5c0078779"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "check": {
+    "returncode": 0,
+    "stdout": "PASS: 33 experiments, 63 sources, 8 ideas\n",
+    "stderr": ""
+  },
+  "render": {
+    "returncode": 0,
+    "stdout": "PASS: 33 experiments, 63 sources, 8 ideas\nRendered 4 Markdown views\n",
+    "stderr": ""
+  }
+}

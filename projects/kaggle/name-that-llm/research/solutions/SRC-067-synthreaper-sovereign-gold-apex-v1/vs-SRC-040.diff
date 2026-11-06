@@ -1,0 +1,43 @@
+--- SRC-040
+
++++ Apex V1
+
+@@ -12,7 +12,7 @@
+
+     h = glob.glob(f'/kaggle/input/**/{name}/heads.pt', recursive=True); assert h, name; return os.path.dirname(h[0])
+ DATA = next(p for p in ['/kaggle/input/competitions/name-that-llm', '/kaggle/input/name-that-llm'] if os.path.exists(p + '/train.csv'))
+ import pandas as _pd
+-FAST_COMMIT = len(_pd.read_csv(DATA + '/test.csv')) < 50   # fork: the 3-row commit run skips the heavy cells; the hidden rerun runs everything
++FAST_COMMIT = os.getenv('KAGGLE_IS_COMPETITION_RERUN') is None and len(_pd.read_csv(DATA + '/test.csv')) < 50   # alexchilton: the scoring rerun never takes the fast path   # fork: the 3-row commit run skips the heavy cells; the hidden rerun runs everything
+ print('FAST_COMMIT', FAST_COMMIT)
+ HEADS = os.path.dirname(next(iter(glob.glob('/kaggle/input/**/heads/q3_8bx.npz', recursive=True))))
+ EXTRA = next(iter(glob.glob('/kaggle/input/**/nlm_matched_clean.parquet', recursive=True)))
+@@ -974,7 +974,7 @@
+
+     _evidence = (_Xte * _fw[None, :]) @ _log_rate.T + ((1.0 - _Xte) * _fw[None, :]) @ _log_not_rate.T
+     _evidence -= (((_Xte * _fw[None, :]) @ _base_log_rate) + (((1.0 - _Xte) * _fw[None, :]) @ _base_log_not_rate))[:, None]
+     _evidence -= _evidence.mean(axis=1, keepdims=True)
+-    _evidence = np.clip(1.5 * _evidence / max(float(_fw.sum()), 1e-6), -0.30, 0.30)
++    _evidence = np.clip(1.2 * _evidence / max(float(_fw.sum()), 1e-6), -0.30, 0.30)
+     _raw = _v38_before_hard.copy()
+     _probs = _v38sp.softmax(_raw, axis=1)
+     _sorted = np.sort(_probs, axis=1)
+@@ -1016,17 +1016,6 @@
+
+             'sinkhorn': float(a.sinkhorn), 'sinkhorn_target_mix': float(a.sinkhorn_target_mix)
+         }, _fo, indent=2)
+     log('V31 Bayesian typography completed; changed from pre-Bayes:', int((_raw_sub.model.values != _safe.model.values).sum()))
+-
+-
+-# variant E patch: typography evidence coefficient 1.5 -> 1.2
+-_p = '/kaggle/working/infer.py'
+-_src = open(_p, encoding='utf-8').read()
+-_e_old = "    _evidence = np.clip(1.5 * _evidence / max(float(_fw.sum()), 1e-6), -0.30, 0.30)"
+-_e_new = "    _evidence = np.clip(1.2 * _evidence / max(float(_fw.sum()), 1e-6), -0.30, 0.30)"
+-assert _src.count(_e_old) == 1, 'evidence anchor not found'
+-_src = _src.replace(_e_old, _e_new)
+-open(_p, 'w', encoding='utf-8').write(_src)
+-print('infer.py patched: evidence coeff 1.2; size', len(_src))
+ 
+ 
+ %%writefile comp_stack.py

@@ -1,0 +1,31 @@
+{
+  "observed_at": "2026-10-31T14:18:01.559378+00:00",
+  "topic": {
+    "id": 750038,
+    "title": "Can we use the Kaggle Benchmarks AI quota to generate training data?",
+    "url": "/competitions/name-that-llm/discussion/750038",
+    "postDate": "2026-10-16T19:14:45.805Z",
+    "authorName": "Zbigniew Kirchner",
+    "authorUrl": "https://www.kaggle.com/zbigniewkirchner",
+    "votes": 2,
+    "commentCount": 2,
+    "forumName": "Name That LLM",
+    "forumId": 13688374,
+    "content": "<p>Hi! Every Kaggle account gets free AI quota for Kaggle Benchmarks, and the Model Proxy includes some of the candidate models from this competition.</p>\n<p>Is it allowed to use this free quota to generate extra training data?</p>"
+  },
+  "comments": [
+    {
+      "id": 3540876,
+      "authorName": "PhenomSG",
+      "postDate": "2026-10-19T05:05:07.047Z",
+      "content": "<p>yes!! absolutely!!</p>"
+    },
+    {
+      "id": 3539988,
+      "authorName": "Rudraa",
+      "postDate": "2026-10-16T21:30:30.727Z",
+      "content": "<p>Yes, I don't think they've denied the use of Kaggle AI quota :) feel free to use it.</p>"
+    }
+  ],
+  "next_page_token_present": false
+}

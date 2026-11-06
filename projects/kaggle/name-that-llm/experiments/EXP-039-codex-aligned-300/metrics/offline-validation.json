@@ -1,0 +1,16 @@
+{
+  "observed_at": "2026-11-01T13:04:34.042574+00:00",
+  "status": "PASS",
+  "tests": 11,
+  "seconds": 56.23,
+  "actual_model_requests": 0,
+  "wrapper": {
+    "path": "experiments/EXP-039-codex-aligned-300/code/run_batch.py",
+    "sha256": "4dc834d49edde3b379f1794041b97be95a2993c4ed6a5d822915662a606329cb"
+  },
+  "tests_source": {
+    "path": "experiments/EXP-039-codex-aligned-300/code/test_run_batch.py",
+    "sha256": "5b12dd0361baf8d84d8dfa51eb999912348805381c82fe036112af90ff0b3504"
+  },
+  "independent_selection_review": "PASS:75canonicalrows,60/15split,paired10disjoint,300uniquejobs,4models75each;configandpromptsunchanged"
+}

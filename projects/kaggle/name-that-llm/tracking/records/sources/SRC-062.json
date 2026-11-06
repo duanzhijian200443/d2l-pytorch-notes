@@ -1,0 +1,54 @@
+{
+  "kind": "dataset",
+  "category": "datasets",
+  "title": "Enai V3：9719条OpenAI文本的数据卡与许可边界",
+  "author": "enaimaan",
+  "url": "https://www.kaggle.com/datasets/enaimaan/ntl-openai-generated-responses/versions/3",
+  "observed_at": "2026-11-01T09:08:27.973114+00:00",
+  "source_version": {
+    "dataset_id": 12956120,
+    "dataset_version_number": 3,
+    "version_created_at": "2026-10-29T23:03:14.417Z",
+    "snapshot_sha256": "3a4e34109298c54a923a0b7a0665aeb1b4dfd63359a91698b3f5ebe3fa763dee"
+  },
+  "public_score": null,
+  "summary": "V3原件已核；EXP026选集5200行/1300来源组，对应1299规范化正文组（一对题干仅大小写不同）。known/exact隔离限定，四类外部诊断。",
+  "author_claim": "提供exact messages、prompt ancestry、设置与来源声明；新面板不代表新主题，尚无下游精度收益证明。",
+  "verified": "固定V3文件SHA256SUMS通过，CSV/Parquet一致；9719条调用/标签内部一致，5408条new请求正文hash一致；按源ID/正文/别名组件隔离实际训练输入，保留5200行。 EXP027交叉核对确认1300发布方cv_group归并1299正文组，原数据保留，统计勘误另存。",
+  "use_for_us": "可作固定两成员配方的四类外部诊断，不能视为完整18类或官方分布验证；分数独立登记EXP026。",
+  "test_plan": "固定V3文件和哈希，读取LICENSE/attribution及逐行provenance，审计官方prompt关联、模型标识、重复及分组后再比较单来源加入。",
+  "limitations": "四GPT类别与Dolly/自定生成设置；true official prompts不可见、语义重叠未穷尽、服务权重未独立认证。response_license在固定文件中仍未独立建立；原归属/许可范围保持。",
+  "tags": [
+    "data",
+    "provenance",
+    "license",
+    "prompt-group",
+    "openai"
+  ],
+  "related_sources": [
+    "SRC-027",
+    "SRC-061"
+  ],
+  "schema_version": 1,
+  "id": "SRC-062",
+  "artifact_dir": "research/datasets/SRC-062-enaimaan-ntl-openai-generated-responses-v3",
+  "notes_path": "research/datasets/SRC-062-enaimaan-ntl-openai-generated-responses-v3/notes.md",
+  "collection_observation_note": "源码/API时间见回执。浏览器仅记录2026-11-01 UTC采集日期及07:35:57 UTC汇总截至时刻，不将其伪作逐页精确读取时间。",
+  "supersedes": null,
+  "evidence": [
+    "research/datasets/SRC-062-enaimaan-ntl-openai-generated-responses-v3/notes.md",
+    "research/datasets/SRC-062-enaimaan-ntl-openai-generated-responses-v3/snapshots/20261101T073434Z.json",
+    "experiments/EXP-026-independent-blend-validation/download-manifest.json",
+    "experiments/EXP-026-independent-blend-validation/metrics/data-gate.json",
+    "experiments/EXP-026-independent-blend-validation/metrics/excluded-groups.csv",
+    "experiments/EXP-026-independent-blend-validation/metrics/prompt-unit-correction.json"
+  ],
+  "evidence_sha256": {
+    "research/datasets/SRC-062-enaimaan-ntl-openai-generated-responses-v3/notes.md": "b73838862f07f1b05a1cc4a46ea7558e23163f5ac64f077cd76afddff20f2506",
+    "research/datasets/SRC-062-enaimaan-ntl-openai-generated-responses-v3/snapshots/20261101T073434Z.json": "3a4e34109298c54a923a0b7a0665aeb1b4dfd63359a91698b3f5ebe3fa763dee",
+    "experiments/EXP-026-independent-blend-validation/download-manifest.json": "6135e8ec91fbb8e144ed53402864ba4ee5445da1f2d37a9d864b39f130a03784",
+    "experiments/EXP-026-independent-blend-validation/metrics/data-gate.json": "8b5d203368ccbefc6c0165e3556187514eb117e7aca6e768c05154768091509a",
+    "experiments/EXP-026-independent-blend-validation/metrics/excluded-groups.csv": "4f2e5c83128b4b06bba3a3fd7d3457a562b0e55d9067e94d4d8914d79d2555a9",
+    "experiments/EXP-026-independent-blend-validation/metrics/prompt-unit-correction.json": "58308a0e87f9c03062ea0c380e16e23a60627e8e40edad0e6e84c262d27207ab"
+  }
+}

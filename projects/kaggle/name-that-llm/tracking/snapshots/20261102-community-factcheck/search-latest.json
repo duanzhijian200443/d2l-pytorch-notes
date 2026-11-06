@@ -1,0 +1,16 @@
+{
+  "source": "Kaggle MCP search_notebooks",
+  "observed_at_utc": "2026-11-02T04:01:00Z",
+  "sort_by": "DateRun",
+  "limit": 10,
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"kernels\": [\n    {\n      \"ref\": \"hardikgautam25/two-stage-lora-pool-champion\",\n      \"title\": \"Two-Stage LoRA Pool Champion\",\n      \"author\": \"Hardik Gautam25\",\n      \"last_run_time\": \"2026-11-02T03:47:57.290Z\",\n      \"total_votes\": 3\n    },\n    {\n      \"ref\": \"bgunshui/ntl-train-deberta-smoke\",\n      \"title\": \"NTL Train Deberta Smoke\",\n      \"author\": \"bgunshui\",\n      \"last_run_time\": \"2026-11-02T03:09:13.353Z\"\n    },\n    {\n      \"ref\": \"awahab111/name-that-llm-deberta-finetune\",\n      \"title\": \"name that llm deberta finetune\",\n      \"author\": \"Abdul Wahab\",\n      \"last_run_time\": \"2026-11-02T02:03:35.453Z\"\n    },\n    {\n      \"ref\": \"qasminumber/name-that-llm-v5\",\n      \"title\": \"Name That LLM v5\",\n      \"author\": \"Zaphyer Modal\",\n      \"last_run_time\": \"2026-11-02T01:22:35.837Z\",\n      \"total_votes\": 70\n    },\n    {\n      \"ref\": \"emmanuelmirekumensah/ntl-lx-0662-ensemble\",\n      \"title\": \"ntl-lx-0662-ensemble\",\n      \"author\": \"Emmanuel Mireku Mensah\",\n      \"last_run_time\": \"2026-11-02T01:21:30.157Z\"\n    },\n    {\n      \"ref\": \"chyibo/name-that-llm-0663-fork\",\n      \"title\": \"Name That LLM 0663 Fork\",\n      \"author\": \"chen yibo\",\n      \"last_run_time\": \"2026-11-02T00:53:00.847Z\"\n    },\n    {\n      \"ref\": \"kilupy/ntl-weighted-w15\",\n      \"title\": \"ntl weighted w15\",\n      \"author\": \"Kilupy\",\n      \"last_run_time\": \"2026-11-02T00:14:52.570Z\"\n    },\n    {\n      \"ref\": \"synthreaper/ntl-sovereign-gold-apex\",\n      \"title\": \"NTL Sovereign Gold Apex\",\n      \"author\": \"Aditya Goyal\",\n      \"last_run_time\": \"2026-11-01T22:26:41.507Z\"\n    },\n    {\n      \"ref\": \"awahab111/name-that-llm-tf-idf-baseline\",\n      \"title\": \"Name That LLM TF IDF baseline\",\n      \"author\": \"Abdul Wahab\",\n      \"last_run_time\": \"2026-11-01T20:25:45.617Z\"\n    },\n    {\n      \"ref\": \"kilupy/ntl-ours14-lean\",\n      \"title\": \"ntl ours14 lean\",\n      \"author\": \"Kilupy\",\n      \"last_run_time\": \"2026-11-01T20:16:34.027Z\"\n    }\n  ]\n}"
+      }
+    ],
+    "isError": false
+  },
+  "limitation": "Metadata results do not expose leaderboard scores or score-version bindings."
+}

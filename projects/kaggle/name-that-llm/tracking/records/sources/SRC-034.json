@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "SRC-034",
+  "kind": "dataset",
+  "title": "Lucas V7：公共 prompt 补缺类生成",
+  "url": "https://www.kaggle.com/datasets/lucasboesen/ntl-free-proxy-generations/versions/7",
+  "observed_at": "2026-10-31T17:00:43.016193+00:00",
+  "source_version": {
+    "dataset_version": 7,
+    "files_sha256": {
+      "README.md": "141deba51e17556fb943cc4e6d3e8a16b7aefad1e5055e1304d03dabd08ff8b2",
+      "gen_passages.csv": "d037d212e17a7e98465f9c606f4437225fb221939a5f51b0f8150d15c07c68a5"
+    },
+    "download_manifest_sha256": "5f2da21401efada94e636fd2fb843013c7eff6ae1ed2d07a5a2771c3ed071cfa"
+  },
+  "public_score": null,
+  "summary": "4255 条/8 类/952 prompt，单表每组中位 2 类；记录 model_slug 和 prompt_source；Gemini 3.6 含 em dash 比例约 20.8%。",
+  "author_claim": "作者说明 low reasoning、8 个可达标签；后续 prompt-bank-v2 批次为其他来源补齐缺类。",
+  "verified": "4255 条/8 类/952 prompt，单表每组中位 2 类；记录 model_slug 和 prompt_source；Gemini 3.6 含 em dash 比例约 20.8%。",
+  "use_for_us": "候选 4255 条；按来源统一 prompt 身份，再检查组覆盖；保留标点做对照而非直接删除。",
+  "test_plan": "固定 prompt-group-v1、同一轻量分类器与环境，按来源/设置分层做加数据对照；本轮只审计，尚未验证分数收益。",
+  "limitations": "不应沿用 README 旧句把每一组视为完整 8 类；model_slug 是调用路由，不能证明底层模型版本。",
+  "evidence": [
+    "experiments/EXP-008-public-pool-audit/report.md",
+    "experiments/EXP-008-public-pool-audit/download-manifest.json",
+    "experiments/EXP-008-public-pool-audit/outputs/profiles.json",
+    "experiments/EXP-008-public-pool-audit/outputs/row_flags.parquet"
+  ]
+}

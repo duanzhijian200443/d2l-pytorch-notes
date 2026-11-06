@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-029",
+  "freeze_status": "V3_FAILED_BEFORE_MODEL_INFERENCE_ARTIFACTS_VERIFIED",
+  "observed_at_utc": "2026-11-01T10:45:04.712048+00:00",
+  "config": {
+    "path": "experiments/EXP-029-full-stack-capture/config.json",
+    "sha256": "a68b3ae6cc58ca01221e89273551545bfe227b0297f76f0ff3aecf5f578e6592",
+    "bytes": 1254
+  },
+  "code": [
+    {
+      "path": "cloud/full-stack-capture/preflight.py",
+      "sha256": "364f36ec708ab3c7e800465d02429cb51be7b643279101a677e541f2df1c1887",
+      "bytes": 5398
+    },
+    {
+      "path": "cloud/full-stack-capture/launch_after_preflight.py",
+      "sha256": "efd07b68fe497b71d95d103af39096c2bcf7cb5cbf8fe62c0e346ba88bd2fe25",
+      "bytes": 8593
+    },
+    {
+      "path": "cloud/full-stack-capture/prepare_capture.py",
+      "sha256": "e1a02caa58163e7d14a8e5dfcde5fb341960fd4e2f27e44c84ee6996b7cf71c3",
+      "bytes": 7205
+    },
+    {
+      "path": "cloud/full-stack-capture/runner.py",
+      "sha256": "923c05137561bc0571b64975c809ee67b2fce192d7165299c00c63e1de6ceb76",
+      "bytes": 36110
+    },
+    {
+      "path": "cloud/full-stack-capture/build_runtime.py",
+      "sha256": "d022edd5cb18362467010dd9311c596e43b8e0fb66e7b723fdff4f7196e04394",
+      "bytes": 8022
+    },
+    {
+      "path": "cloud/full-stack-capture/test_prepare_capture.py",
+      "sha256": "2a80fd1cba98350866c165973f0f044d011898213b82bb03ca7c19af836876b3",
+      "bytes": 3487
+    },
+    {
+      "path": "cloud/full-stack-capture/test_continuation.py",
+      "sha256": "b2decaa492b55d7c35538eac50634223d1612b21d8c57466fd6f00c6f01c85ac",
+      "bytes": 15333
+    },
+    {
+      "path": "experiments/EXP-029-full-stack-capture/prepare_panel.py",
+      "sha256": "addb1bfe473be60cf54e6cdbc71f76f41ed4a4d3475c9072ff17f8402f62893c",
+      "bytes": 9306
+    }
+  ],
+  "inputs": [
+    {
+      "path": "cloud/full-stack-capture/preflight_config.json",
+      "sha256": "1218d5f2b66ad78484c2278f10cee0bec4e1a7bfef10912cd7d81aebbdd3fe80",
+      "bytes": 4942
+    },
+    {
+      "path": "cloud/full-stack-capture/attachment-bindings.json",
+      "sha256": "1dead573d145665070495bb7b3e49cc49ea198cadc49d7e35879887a1ae577f0",
+      "bytes": 4059
+    },
+    {
+      "path": "cloud/full-stack-capture/continuation-bindings.json",
+      "sha256": "e58c536fc913ee7fb56f69301b748af2d9df3ad7227a1d376210ee7165ce68c5",
+      "bytes": 2094
+    },
+    {
+      "path": "experiments/EXP-029-full-stack-capture/panel/test.csv",
+      "sha256": "8eeec7f64e924f0fd79dca57d324d42d269f400bdfbfff76d60b4c168d9ae6f2",
+      "bytes": 655284
+    },
+    {
+      "path": "experiments/EXP-029-full-stack-capture/labels-local-only.csv",
+      "sha256": "f5425fbae56355e72537074cf5eef514c0319cd67489fc63c36fe07b2ff2302b",
+      "bytes": 156374
+    },
+    {
+      "path": "experiments/EXP-029-full-stack-capture/panel-manifest.json",
+      "sha256": "e06ef79eb05b93f1b9f788272643ec3e0e580706057012f0af9d1a0ef5c00097",
+      "bytes": 5019
+    }
+  ],
+  "note": "labels-local-only.csv is bound for later local evaluation and prohibited from upload. Cloud checkpoint file hashes and actual GPU environment await the running CPU stage and future GPU preflight.",
+  "gpu_launch_files": [
+    {
+      "path": "cloud/full-stack-capture/launch-notebook-v2/kernel/capture.ipynb",
+      "sha256": "bc513c1061a1f5451bebd7c5513f9cd0519abee609c10c7af875a5bbcf06cbbf",
+      "bytes": 463778
+    },
+    {
+      "path": "cloud/full-stack-capture/launch-notebook-v2/kernel/kernel-metadata.json",
+      "sha256": "c7d815667f30422030087e7e2725ac82198920d0c03917c6f4701dc6c76a9f92",
+      "bytes": 2064
+    },
+    {
+      "path": "cloud/full-stack-capture/launch-notebook-v2/run-ack.json",
+      "sha256": "9ccad9fced21b19b4431e6b0624bae0604e46cea4bdaf13d214ac81135107ffe",
+      "bytes": 366
+    },
+    {
+      "path": "cloud/full-stack-capture/preflight-output-v1/preflight/preflight_manifest.json",
+      "sha256": "de7a305b5d26a5ad0cca0ed41cf31e2af1f85037dd354286aeef77ac67aaabf5",
+      "bytes": 123106
+    }
+  ],
+  "terminal_evidence": "experiments/EXP-029-full-stack-capture/metrics/failed-run-verification.json"
+}

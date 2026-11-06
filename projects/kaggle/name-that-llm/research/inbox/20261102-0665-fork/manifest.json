@@ -1,0 +1,76 @@
+{
+  "status": "IMPORTED",
+  "role": "Temporary handoff only. Merge owner allocates the formal SRC; historical source and evidence location remain canonical after import.",
+  "items": [
+    {
+      "category": "solutions",
+      "ref": "chyibo/name-that-llm-0663-fork",
+      "fixed_url": "https://www.kaggle.com/code/chyibo/name-that-llm-0663-fork?scriptVersionId=364709540",
+      "notebook_id": 142199340,
+      "notebook_version": 1,
+      "script_version_id": 364709540,
+      "observed_at": "2026-11-02T07:10:15.114090+00:00",
+      "author": "chyibo",
+      "title": "chyibo V1：0.665，与 Apex E 共用推理配方",
+      "artifact_dir": "solutions/chyibo--name-that-llm-0663-fork--v1",
+      "notes_path": "solutions/chyibo--name-that-llm-0663-fork--v1/notes.md",
+      "source_sha256": "07cb21ed6f9b2b2d0920756a8fea64ec5a5d37637d7ea4fad07ab6eb85ce5140",
+      "code_sha256": "e3b8fa97495e45873b1297b782488819b4a04ac53cd08baa74e3637505b54605",
+      "public_score": {
+        "value": 0.665,
+        "bound_to_source": true,
+        "evidence_type": "platform_page",
+        "script_version_id": 364709540
+      },
+      "existing_same_ref_version": null,
+      "related_sources": [
+        "SRC-002",
+        "SRC-021",
+        "SRC-036",
+        "SRC-040",
+        "SRC-065"
+      ],
+      "related_other_ref": "synthreaper/ntl-sovereign-gold-apex v1 (same effective inference code)",
+      "exact_bytes_same_ref": "alexchilton/name-that-llm-0-663-all-public-what-failed v9",
+      "related_experiments": [
+        "EXP-004",
+        "EXP-047",
+        "EXP-049",
+        "EXP-050"
+      ],
+      "tags": [
+        "public-score",
+        "ensemble",
+        "source-lineage",
+        "open-pool",
+        "runtime",
+        "sibling-residual"
+      ],
+      "source_record_proposal": {
+        "kind": "notebook",
+        "summary": "V1绑定0.665，整份源码与alexchilton V9相同，实际推理代码与另一条0.665相同；沿用已有Apex E配方。",
+        "author_claim": "继承的正文称Apex E流程曾得0.663；本条绑定得分来自V1页面。",
+        "verified": "固定V1代码、页面0.665和准备池190588行；逐单元核对，匿名元数据公开31项附件，未执行代码。",
+        "use_for_us": "不把相同配方算两次；将Open Pool/svc_w、后处理和家族残差分别拆解验证。",
+        "test_plan": "固定输入、预算和覆盖mask，逐项切换池/权重/后处理/残差，并核对逐行改判和ATLAS完成行。",
+        "limitations": "单次Public分数，数据/上游Notebook历史字节、隐藏有效分支、覆盖及耗时未逐项核实。"
+      },
+      "evidence_sha256_relative_to_item": {
+        "metadata.json": "1520cdb02ff79c6c999fc723c3e3794f5755d4e541bcabfb35ea47795194d9aa",
+        "notes.md": "68ad1139703cd770aca3e70cc8007ce5a20465620755af4cff92de549e45d2e7",
+        "platform-observation.json": "df1817154f10d467e90a9789c46998d6bfb45d92a9b7c2139313500adc7758e8",
+        "public-input-check.json": "35e1a16ae53ad2ee00d9cb4fa3e0901051412804d9d19751c4d5bae6d6baed9b",
+        "receipt.json": "055c502669450c634fc09e58c020704a4c2e5982b5668cda49d4c0a416df2caf",
+        "source.ipynb": "07cb21ed6f9b2b2d0920756a8fea64ec5a5d37637d7ea4fad07ab6eb85ce5140",
+        "upstream-alex-v9-metadata.json": "2b574d3dbc1a84d50cea378db6564f5a05e73bb4ddd215da1240fa48007ad26d"
+      }
+    }
+  ],
+  "imported": {
+    "record": "tracking/records/sources/SRC-068.json",
+    "id": "SRC-068",
+    "artifact_dir": "research/solutions/SRC-068-chyibo-name-that-llm-0663-fork-v1",
+    "imported_at": "2026-11-02T07:16:39.169214+00:00",
+    "intake_hashes": "captured before notes were linked to canonical records"
+  }
+}

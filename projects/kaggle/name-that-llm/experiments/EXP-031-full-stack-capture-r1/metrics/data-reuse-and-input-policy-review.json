@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-031",
+  "observed_at_utc": "2026-11-01T11:08:44.037229+00:00",
+  "status": "PASS_BOUNDED_DATA_REUSE_AND_INPUT_POLICY_REVIEW",
+  "blocking_findings": [],
+  "scope": "Independent local read-only evidence/code review, plus pure in-memory path-policy rejection checks; no new remote session, model execution, training, or large-weight read.",
+  "data_reuse": {
+    "old_cpu_manifest_unchanged": true,
+    "journal_matches_manifest": true,
+    "files": 531,
+    "bytes_total": 190823294363,
+    "attachment_bindings": 31,
+    "original_hashing_elapsed_seconds": 1118.6381434389998,
+    "panel_and_sidecar_reconstructed_byte_identical": true,
+    "panel_rows": 729,
+    "true_groups_local_only": 56,
+    "covered_classes": 17,
+    "output_classes": 18,
+    "panel_columns": [
+      "id",
+      "text"
+    ],
+    "labels_sidecar_cloud_allowed": false,
+    "full_190gb_cpu_rehash_required": false,
+    "reuse_conditions": [
+      "New saved/run attachment readback equals all31 fixed version bindings.",
+      "Use the unchanged hash-bound CPU manifest; verify all531 paths exist with identical sizes and exact full path-set equality.",
+      "Rehash all401 files at or below16MiB, including official train and small configuration files, and verify separately prepared blind panel hash.",
+      "Keep large-file receipts explicitly version-bound; do not claim newly computed GPU-side hashes for those130 files."
+    ],
+    "small_files_to_rehash": 401,
+    "small_bytes_to_rehash": 579017149,
+    "large_files_reused": 130,
+    "large_bytes_not_rehashed": 190244277214
+  },
+  "input_policy": {
+    "expected_main_members": 16,
+    "expected_comp_members": [
+      "stylegram",
+      "stylometry_lgb",
+      "glm9b_twin",
+      "gauss_glm9b_L8",
+      "q3_8b_twin",
+      "gauss_q3_8b_L22",
+      "q25_7b_twin",
+      "q3_4b_twin",
+      "gauss_q3_4b_L4",
+      "debv3l",
+      "debv3l_twin",
+      "gauss_debv3l_L24",
+      "electl",
+      "desk",
+      "lora24_seed7",
+      "lora24_claude",
+      "lora24_claude_twin",
+      "lora20_q25_instyle",
+      "tokattn_deb",
+      "ultrabert"
+    ],
+    "expected_comp_count": 20,
+    "allowed_omissions": [
+      "lora24_public",
+      "lora24_public_twin",
+      "tokattn_q35"
+    ],
+    "input_paths_sha256": "74049cb29dc8d6dfec06e20200fff55624528c5229125f0dd7fde0f9b370eb61",
+    "mandatory_glob_count": 66,
+    "conclusion": "Only the absent original public-LoRA branch and dependent twin, plus absent Q35 backbone branch, are omitted. Missing mandatory markers, backbones, required checkpoint siblings, five distinct UltraBERT folds, or any changed full input inventory still fail.",
+    "source_alignment": "Original comp skips public LoRA when its marker is absent; the frozen531-file manifest has no such marker. Existing seed7/Claude/InStyle, token-attention DeBERTa and UltraBERT remain mandatory. Expected20 is conditional on at least one eligible inferred comp group, not proof that20 models have executed.",
+    "q35_content_guard_preserved": true,
+    "q35_guard_note": "Runner additionally reads small config.json model_type and rejects qwen3_5 even when no filename contains Q35, before GPU child execution; legacy malformed-config skip behavior is unchanged.",
+    "both_cpu_and_actual_gpu_paths_resolved": true,
+    "frozen_availability_hash_required": true,
+    "actual_gpu_resolution_done_in_this_review": false
+  },
+  "independent_checks": {
+    "pure_policy_actual531": "PASS",
+    "mandatory_or_changed_inventory_rejections": [
+      "missing_lora24_seed7",
+      "missing_lora24_claude",
+      "missing_lora20_q25_instyle",
+      "missing_tokattn_deb",
+      "missing_ultrabert",
+      "missing_atlas_bundle",
+      "missing_official_train",
+      "missing_head_q8v5_f4",
+      "missing_backbone_glm",
+      "unexpected_/kaggle/input/test/lora24/final/COMPLETE.json",
+      "unexpected_/kaggle/input/test/qwen3_5/config.json",
+      "extra_inventory_path"
+    ],
+    "rejection_count": 12,
+    "runner_ast_equivalent_functions_except_experiment_id": {
+      "supervise": true,
+      "stop_group": true,
+      "cap_atlas_budget": true,
+      "verify_cpu_manifest": true,
+      "gpu_preflight": true,
+      "verify_payload": true
+    },
+    "worker_order": "verify_payload -> verify_cpu_manifest -> verify_input_policy -> stage exact official train+blind test -> GPU probe/setup/model children",
+    "capture_acceptance": "No eligible groups returns CONDITIONAL_COVERAGE_UNSATISFIED; observed16main/20comp/5gates must equal frozen inventory; missing or partial ATLAS is not accepted; final parquet must match replay argmax.",
+    "runtime_author_reported_tests": {
+      "count": 14,
+      "result": "PASS",
+      "elapsed_seconds": 18.552,
+      "independently_rerun_here": false
+    }
+  },
+  "resolved_review_notes": [
+    {
+      "issue": "Path-only Q35 detection was weaker than the original model_type-based consumer lookup.",
+      "resolution": "Reviewed runner restores config.model_type rejection and records checked values before GPU execution.",
+      "status": "CLOSED"
+    }
+  ],
+  "frozen_guard_controls": {
+    "work_budget_seconds": 28200,
+    "platform_wall_seconds": 28800,
+    "shutdown_grace_seconds": 10,
+    "new_retry_in_runner": false,
+    "process_group_and_cleanup_unchanged": true,
+    "ATLAS_budget_only_capped_not_reset": true,
+    "model_weight_or_math_changes_in_reviewed_runner": false
+  },
+  "remaining_runtime_checks": [
+    "New plan/package must bind these exact reviewed code hashes, the unchanged CPU manifest, panel hash and freshly frozen availability JSON.",
+    "Read back real attachment versions before the single new run.",
+    "Do not treat this review or path availability as execution completion or scientific full-stack independence."
+  ],
+  "limits": [
+    "Full-stack checkpoint training exposure remains incomplete. The729-row17-label panel is exploratory, not cleanOOF or complete18-class confirmation.",
+    "No large model bytes or real GPU mount were read in this review; reuse is conditional on version/path/size and small-hash checks at execution.",
+    "Old EXP028/029 files were read only; no remote actions or jobs were started."
+  ],
+  "evidence": [
+    {
+      "path": "cloud/full-stack-capture/preflight-output-v1/preflight/preflight_manifest.json",
+      "bytes": 123106,
+      "sha256": "de7a305b5d26a5ad0cca0ed41cf31e2af1f85037dd354286aeef77ac67aaabf5"
+    },
+    {
+      "path": "cloud/full-stack-capture/preflight-output-v1/preflight/files.jsonl",
+      "bytes": 103229,
+      "sha256": "9db40bb1ed1ba69133e941eee1bf6fa80435fffce6204fd61cad4b4111b17aa9"
+    },
+    {
+      "path": "experiments/EXP-029-full-stack-capture/panel/test.csv",
+      "bytes": 655284,
+      "sha256": "8eeec7f64e924f0fd79dca57d324d42d269f400bdfbfff76d60b4c168d9ae6f2"
+    },
+    {
+      "path": "experiments/EXP-029-full-stack-capture/panel-manifest.json",
+      "bytes": 5019,
+      "sha256": "e06ef79eb05b93f1b9f788272643ec3e0e580706057012f0af9d1a0ef5c00097"
+    },
+    {
+      "path": "experiments/EXP-029-full-stack-capture/labels-local-only.csv",
+      "bytes": 156374,
+      "sha256": "f5425fbae56355e72537074cf5eef514c0319cd67489fc63c36fe07b2ff2302b"
+    },
+    {
+      "path": "experiments/EXP-029-full-stack-capture/prepare_panel.py",
+      "bytes": 9306,
+      "sha256": "addb1bfe473be60cf54e6cdbc71f76f41ed4a4d3475c9072ff17f8402f62893c"
+    },
+    {
+      "path": "experiments/EXP-027-multiclass-external-validation/evaluation.csv",
+      "bytes": 721966,
+      "sha256": "8ec3217f1f469b66170f68f7abdb3ef1973a64e47d983c59b40a4d1ce2094670"
+    },
+    {
+      "path": "train.csv",
+      "bytes": 2139418,
+      "sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707"
+    },
+    {
+      "path": "cloud/full-stack-capture-r1/input_policy.py",
+      "bytes": 11431,
+      "sha256": "d4167dbcccef49da7d439e4f459b1e15d17c8960ae6b622235ecee776cd3caf2"
+    },
+    {
+      "path": "cloud/full-stack-capture-r1/runner.py",
+      "bytes": 37569,
+      "sha256": "62888bb733b6eaac285d34d3c18766df2c47f0ac8a7a77042bb6113c6f8de87b"
+    }
+  ]
+}

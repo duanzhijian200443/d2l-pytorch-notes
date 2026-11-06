@@ -1,0 +1,292 @@
+{
+  "7": {
+    "file": "data/public-pools/lucasboesen/ntl-free-proxy-generations/v7/gen_passages.csv",
+    "sha256": "d037d212e17a7e98465f9c606f4437225fb221939a5f51b0f8150d15c07c68a5",
+    "bytes": 3835894,
+    "rows": 4255,
+    "columns": [
+      "prompt_id",
+      "model",
+      "model_slug",
+      "target_words",
+      "n_words",
+      "setting",
+      "batch",
+      "text",
+      "prompt_source",
+      "prompt"
+    ],
+    "unique_prompt_id": 952,
+    "label_counts": {
+      "gemini-3.1-pro-preview": 687,
+      "gemini-3.6-flash": 813,
+      "gemini-3.8-flash": 438,
+      "gpt-5.5": 472,
+      "gpt-5.6-luna": 472,
+      "gpt-5.6-sol": 442,
+      "gpt-5.6-terra": 472,
+      "gpt-6-astra": 459
+    },
+    "batch_counts": {
+      "b1": 240,
+      "b2": 240,
+      "b5": 240,
+      "b6": 240,
+      "b7": 240,
+      "b8": 240,
+      "b9": 240,
+      "b10": 240,
+      "b11": 240,
+      "b12": 240,
+      "b13": 240,
+      "b14": 240,
+      "b15": 175,
+      "v2b01": 240,
+      "v2b02": 238,
+      "v2b03": 242,
+      "v2b04": 240,
+      "v2b05": 240
+    },
+    "prompt_source_counts": {
+      "seyitkaangunes/ntl-extra-api-passages": 3055,
+      "lxd synth v1 (lxdlxdlxd/ntl-synth-generations-v1)": 550,
+      "arxitekton/ntl-claude-gen-v1": 650
+    },
+    "labels_per_prompt_distribution": {
+      "8": 361,
+      "6": 42,
+      "5": 63,
+      "1": 198,
+      "2": 279,
+      "3": 4,
+      "4": 1,
+      "7": 4
+    },
+    "duplicate_prompt_model_excess": 0,
+    "exact_duplicate_full_rows_excess": 0,
+    "exact_duplicate_text_excess": 0,
+    "finish_reason_counts": {
+      "COLUMN_ABSENT": 4255
+    }
+  },
+  "11": {
+    "file": "data/community-factcheck-20261102/lucas-v11/gen_passages.csv",
+    "sha256": "a6da05c3ac20876bddc61b0eaa24cf84b4164ed9cd36fe62fc076f7238991912",
+    "bytes": 7476244,
+    "rows": 7714,
+    "columns": [
+      "prompt_id",
+      "model",
+      "model_slug",
+      "target_words",
+      "n_words",
+      "setting",
+      "batch",
+      "text",
+      "prompt_source",
+      "prompt"
+    ],
+    "unique_prompt_id": 1824,
+    "label_counts": {
+      "gemini-3.1-pro-preview": 1443,
+      "gemini-3.6-flash": 1685,
+      "gemini-3.8-flash": 1022,
+      "gpt-5.5": 1048,
+      "gpt-5.6-luna": 519,
+      "gpt-5.6-sol": 478,
+      "gpt-5.6-terra": 509,
+      "gpt-6-astra": 1010
+    },
+    "batch_counts": {
+      "b1": 240,
+      "b2": 240,
+      "b5": 240,
+      "b6": 240,
+      "b7": 240,
+      "b8": 240,
+      "b9": 240,
+      "b10": 240,
+      "b11": 240,
+      "b12": 240,
+      "b13": 240,
+      "b14": 240,
+      "b15": 175,
+      "v2b01": 240,
+      "v2b02": 238,
+      "v2b03": 242,
+      "v2b04": 240,
+      "v2b05": 240,
+      "v2b06": 240,
+      "v2b07": 239,
+      "v2b08": 241,
+      "v2b09": 237,
+      "v2b10": 240,
+      "v2b11": 240,
+      "v2b12": 240,
+      "v2b13": 240,
+      "v2b14": 195,
+      "v2b15": 284,
+      "v2b16": 199,
+      "v2b17": 240,
+      "v2b18": 144,
+      "v2b19": 240,
+      "v2b20": 240
+    },
+    "prompt_source_counts": {
+      "seyitkaangunes/ntl-extra-api-passages": 3055,
+      "lxd synth v1 (lxdlxdlxd/ntl-synth-generations-v1)": 550,
+      "arxitekton/ntl-claude-gen-v1": 3097,
+      "maniceet openrouter/openai generations": 1012
+    },
+    "labels_per_prompt_distribution": {
+      "8": 363,
+      "6": 52,
+      "5": 458,
+      "1": 199,
+      "2": 444,
+      "3": 174,
+      "4": 113,
+      "7": 21
+    },
+    "duplicate_prompt_model_excess": 0,
+    "exact_duplicate_full_rows_excess": 0,
+    "exact_duplicate_text_excess": 0,
+    "finish_reason_counts": {
+      "COLUMN_ABSENT": 7714
+    }
+  },
+  "12": {
+    "file": "data/community-factcheck-20261102/lucas-v12/gen_passages.csv",
+    "sha256": "b855fc128375984111d51ed4ae6bf23ca0fbec667b58d5ad2370bdb310495271",
+    "bytes": 7666492,
+    "rows": 7906,
+    "columns": [
+      "prompt_id",
+      "model",
+      "model_slug",
+      "target_words",
+      "n_words",
+      "setting",
+      "batch",
+      "text",
+      "prompt_source",
+      "prompt"
+    ],
+    "unique_prompt_id": 1872,
+    "label_counts": {
+      "gemini-3.1-pro-preview": 1443,
+      "gemini-3.6-flash": 1733,
+      "gemini-3.8-flash": 1070,
+      "gpt-5.5": 1096,
+      "gpt-5.6-luna": 519,
+      "gpt-5.6-sol": 478,
+      "gpt-5.6-terra": 509,
+      "gpt-6-astra": 1058
+    },
+    "batch_counts": {
+      "b1": 240,
+      "b2": 240,
+      "b5": 240,
+      "b6": 240,
+      "b7": 240,
+      "b8": 240,
+      "b9": 240,
+      "b10": 240,
+      "b11": 240,
+      "b12": 240,
+      "b13": 240,
+      "b14": 240,
+      "b15": 175,
+      "v2b01": 240,
+      "v2b02": 238,
+      "v2b03": 242,
+      "v2b04": 240,
+      "v2b05": 240,
+      "v2b06": 240,
+      "v2b07": 239,
+      "v2b08": 241,
+      "v2b09": 237,
+      "v2b10": 240,
+      "v2b11": 240,
+      "v2b12": 240,
+      "v2b13": 240,
+      "v2b14": 195,
+      "v2b15": 284,
+      "v2b16": 199,
+      "v2b17": 240,
+      "v2b18": 144,
+      "v2b19": 240,
+      "v2b20": 240,
+      "v2b21": 192
+    },
+    "prompt_source_counts": {
+      "seyitkaangunes/ntl-extra-api-passages": 3055,
+      "lxd synth v1 (lxdlxdlxd/ntl-synth-generations-v1)": 550,
+      "arxitekton/ntl-claude-gen-v1": 3097,
+      "maniceet openrouter/openai generations": 1204
+    },
+    "labels_per_prompt_distribution": {
+      "8": 363,
+      "6": 52,
+      "5": 458,
+      "1": 199,
+      "2": 444,
+      "3": 174,
+      "4": 161,
+      "7": 21
+    },
+    "duplicate_prompt_model_excess": 0,
+    "exact_duplicate_full_rows_excess": 0,
+    "exact_duplicate_text_excess": 0,
+    "finish_reason_counts": {
+      "COLUMN_ABSENT": 7906
+    }
+  },
+  "v7_to_v12": {
+    "added_full_rows": 3651,
+    "removed_full_rows": 0,
+    "added_prompt_ids": 920,
+    "added_label_counts": {
+      "gemini-3.1-pro-preview": 756,
+      "gemini-3.6-flash": 920,
+      "gemini-3.8-flash": 632,
+      "gpt-5.5": 624,
+      "gpt-5.6-sol": 36,
+      "gpt-5.6-terra": 37,
+      "gpt-6-astra": 599,
+      "gpt-5.6-luna": 47
+    },
+    "added_batch_counts": {
+      "v2b06": 240,
+      "v2b07": 239,
+      "v2b08": 241,
+      "v2b09": 237,
+      "v2b10": 240,
+      "v2b11": 240,
+      "v2b12": 240,
+      "v2b13": 240,
+      "v2b14": 195,
+      "v2b15": 284,
+      "v2b16": 199,
+      "v2b17": 240,
+      "v2b18": 144,
+      "v2b19": 240,
+      "v2b20": 240,
+      "v2b21": 192
+    }
+  },
+  "v11_to_v12": {
+    "added_full_rows": 192,
+    "removed_full_rows": 0,
+    "added_prompt_ids": 48,
+    "added_label_counts": {
+      "gemini-3.6-flash": 48,
+      "gemini-3.8-flash": 48,
+      "gpt-5.5": 48,
+      "gpt-6-astra": 48
+    },
+    "added_batch_counts": {
+      "v2b21": 192
+    }
+  }
+}

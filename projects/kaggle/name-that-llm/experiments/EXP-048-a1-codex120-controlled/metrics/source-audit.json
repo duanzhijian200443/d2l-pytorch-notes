@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-048",
+  "observed_at": "2026-11-02T03:56:56.666593+00:00",
+  "status": "PASS_STATIC_SOURCE_AUDIT",
+  "scope": "Read-only JSON/AST/base64/ZIP/CSV parsing and independent hash/group checks; notebook and embedded source were not executed.",
+  "source": {
+    "path": "tracking/snapshots/20261102T035507208171Z/codex120-latest.ipynb",
+    "sha256": "9ba9ab375efad299f8bc568674d30dba276ce72574ee237a784b0a6551a876d6",
+    "payload_zip_sha256": "91f50161c84661387cc361965525f43368fb86c1e31d38e5e9021cab4a3798fc",
+    "notebook_ref": "zhjianduan/name-that-llm-a1-codex120-1102",
+    "notebook_version": 2,
+    "script_version_id": 364733823,
+    "submission_id": 57893384,
+    "version_binding_evidence": "tracking/snapshots/20261102T035507208171Z/codex120-version-binding.json",
+    "binding_note": "Parent collected official SDK output-URL binding; this audit reads that evidence. Latest downloaded source was inspected; no independent historical-version source retrieval performed by this auditor."
+  },
+  "baseline": {
+    "experiment_id": "EXP-046",
+    "notebook_version": 2,
+    "script_version_id": 364624288,
+    "path": "cloud/a1-public-stylegram-046/readback-v2-20261101T174011837673Z-b9ca46/name-that-llm-a1-public-stylegram-046.ipynb",
+    "sha256": "31183a6e46337fab994b563fd804b359dae67fb410361aa2393c953e639f470a",
+    "payload_zip_sha256": "1a2a4fb46b561810fe04fc1fcc2fad8c8a7e387cff57ca304ce1a0553178fc35"
+  },
+  "checks": {
+    "payload_manifest_hashes_match": true,
+    "raw_csv_equals_exp042": true,
+    "raw_text_hashes_match": true,
+    "all_rows_train": true,
+    "row_ids_unique": true,
+    "job_keys_unique": true,
+    "each_prompt_has_two_rows_and_two_models": true,
+    "holdout_hashes_equal_exp042": true,
+    "no_holdout_group_overlap": true,
+    "only_expected_payload_changes": true,
+    "only_expected_notebook_cell_changes": true
+  },
+  "new_data": {
+    "source": "EXP040 aligned Codex subscription",
+    "csv_sha256": "cbb0f2227f7748d9172f04d23c1653403103a192dbb7503d897153d24bb00acd",
+    "rows": 120,
+    "model_counts": {
+      "gpt-5.6-luna": 60,
+      "gpt-5.6-terra": 60
+    },
+    "prompt_groups": 60,
+    "split": "train",
+    "protocol": "single-paragraph-plain-text-v1",
+    "holdout_hash_count": 50,
+    "holdout_group_overlap": 0,
+    "holdout_note": "Hash list equals EXP042 and covers original prompt-bank holdout groups; EXP040 aligned300 original60 holdout rows are not included in new120.",
+    "format_cleaning": false,
+    "model_observation": "requested_only",
+    "underlying_snapshot": "unknown"
+  },
+  "diff": {
+    "notebook_changed_cells_zero_based": [
+      0,
+      2,
+      12
+    ],
+    "notebook_code_changes": {
+      "2": "Replace payload and add original train.csv hash plus new120 validation/preflight receipt.",
+      "12": "Receipt metadata only; members, inference command and parameters unchanged."
+    },
+    "payload_unchanged": [
+      "extra-inputs.json",
+      "input_policy.py",
+      "input_preflight.py",
+      "preflight_manifest.json",
+      "run_receipts.py",
+      "runtime_preflight.py",
+      "stylegram_core.py"
+    ],
+    "payload_changed": [
+      "a1_stylegram.py",
+      "payload-hashes.json"
+    ],
+    "payload_added": [
+      "new120.csv"
+    ],
+    "payload_file_hashes": {
+      "a1_stylegram.py": "75aabfb9a51eeec687631a006eef10769f7e90e2a6eff7d269950213187eece2",
+      "extra-inputs.json": "b7bf1347c6185c14d2480975873989f58115c02de65dc8bbd12ab09697faa687",
+      "input_policy.py": "d4167dbcccef49da7d439e4f459b1e15d17c8960ae6b622235ecee776cd3caf2",
+      "input_preflight.py": "26ee6c2a149a5b0e48f8016cd4427ef1576f02b178de85fab2ba9e5f4dc10d57",
+      "new120.csv": "cbb0f2227f7748d9172f04d23c1653403103a192dbb7503d897153d24bb00acd",
+      "payload-hashes.json": "ec87b97696ef360fabd51556c0628067099e1533d0b2a084f20cc94fb543fe11",
+      "preflight_manifest.json": "de7a305b5d26a5ad0cca0ed41cf31e2af1f85037dd354286aeef77ac67aaabf5",
+      "run_receipts.py": "f5d30d463e857e911cf7db0d6580d64cc723ca339d10f2d5b0234afd23a02525",
+      "runtime_preflight.py": "be6f63cc6d0a49eb62b7190677392ba50edbe1c96df1d8f09fb62dd294b6e42b",
+      "stylegram_core.py": "caa46bd121164aba891c3d78e662540db9294d653db09f53d02833c1b4ab77ef"
+    }
+  },
+  "training": {
+    "official_rows": 2699,
+    "base_public_rows": 10073,
+    "added_rows": 120,
+    "total_rows": 12892,
+    "weight_policy": "Official rows retain .5; existing public rows retain .5*n_official_class/n_base_public_class; added rows inherit their class base-public per-row weight. No renormalization. Code asserts old row weights array-equal.",
+    "change_scope": "Stylegram TF-IDF and plain/centred SVC fit include 120 raw rows. Added groups are centered separately using canonical base-prompt hashes; no test text enters TF-IDF fit.",
+    "preserved": [
+      "stylegram_core.py bytes",
+      "Stylegram solver C=.5, dual=True, max_iter=4000, random_state=42, float64",
+      "raw margins and existing plain/centred probability logic",
+      "main/comp model members and weights",
+      "family-gate code and original shared training pool",
+      "main svc4",
+      "ATLAS routing and nominal budget formula",
+      "ATLAS weight .20; comp weight .15; Sinkhorn .45; target mix .35; typography scale1.5",
+      "input policy, manifest and runtime preflight bytes"
+    ]
+  },
+  "limitations": [
+    "Static source and data audit is not evidence of successful hidden inference or leaderboard improvement.",
+    "Actual hidden execution, convergence, member receipts, output and formal score must be verified separately.",
+    "Added training time can change remaining dynamic ATLAS budget despite unchanged budget formula and routing code.",
+    "Underlying generated-model snapshot is unknown; semantic overlap has not been exhaustively excluded.",
+    "No new local training, model calls, remote operation or source execution was performed by this audit."
+  ]
+}

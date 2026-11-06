@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-054",
+  "baseline_source": "SRC-067 V1 / 364684268",
+  "source_sha256": "ca4c9e18ed32dcd8168b8118b192d39d657803d30dcd89a564b1c2d1d9c846dd",
+  "scope": "unchanged Apex source private save, GPU commit with public placeholder, fixed output and version acceptance",
+  "notebook_ref": "zhjianduan/ntl-apex-zero-054",
+  "changes_to_algorithm": [],
+  "extra_codex_rows": 0,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_gpu": true,
+  "enable_internet": false,
+  "private": true,
+  "docker_image": "gcr.io/kaggle-private-byod/python@sha256:9a6bcfda6d03b2cd9aa347ee8c1bae62043328ed0f4afe9bda014e4f8bbf9435",
+  "execution_timeout_seconds": 32400,
+  "input_snapshot": "experiments/EXP-053-apex-stylegram-volume/inputs/source-snapshot/attachment-inventory.json",
+  "submission_owner": "root",
+  "this_controller_can_submit": false,
+  "limits": [
+    "Dataset and kernel version pins reflect reconstructed public snapshot; historic hidden input bytes are not independently attested.",
+    "Commit with public 3-row test uses fast placeholder; actual competition rerun is separate."
+  ]
+}

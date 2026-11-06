@@ -1,0 +1,37 @@
+  + stylegram            weight 1.516 on 3 rows  (0s)
+  + stylometry_lgb       weight 0.063 on 3 rows  (0s)
+  + glm9b_twin           weight 0.165 on 2 rows  (0s)
+  + gauss_glm9b_L8       weight 0.165 on 2 rows  (0s)
+  + q3_8b_twin           weight 0.329 on 2 rows  (0s)
+  + gauss_q3_8b_L22      weight 0.329 on 2 rows  (0s)
+  + q25_7b_twin          weight 0.211 on 2 rows  (0s)
+  + q3_4b_twin           weight 0.124 on 2 rows  (0s)
+  + gauss_q3_4b_L4       weight 0.124 on 2 rows  (0s)
+  + debv3l               weight 0.050 on 3 rows  (0s)
+  + debv3l_twin          weight 0.250 on 2 rows  (0s)
+  + gauss_debv3l_L24     weight 0.250 on 2 rows  (0s)
+  + electl               weight 0.032 on 3 rows  (0s)
+  + desk                 weight 0.132 on 3 rows  (0s)
+  + lora24_public        weight 0.177 on 3 rows  (0s)
+  + lora24_public_twin   weight 0.150 on 2 rows  (0s)
+  + lora24_seed7         weight 0.113 on 3 rows  (0s)
+  + lora24_claude        weight 0.177 on 3 rows  (0s)
+  + lora24_claude_twin   weight 0.150 on 2 rows  (0s)
+  + lora20_q25_instyle   weight 0.170 on 3 rows  (0s)
+  + tokattn_q35          weight 0.153 on 3 rows  (0s)
+  + tokattn_deb          weight 0.185 on 3 rows  (0s)
+  + ultrabert            weight 0.095 on 3 rows  (0s)
+  family gate applied claude: mean strength=0.2807, active rows=2
+  family gate applied claude_lora: mean strength=0.1726, active rows=2
+  family gate applied gpt: mean strength=0.1901, active rows=3
+  family gate applied gemini: mean strength=0.1842, active rows=3
+  family gate applied glm: mean strength=0.1809, active rows=3
+COMP STACK DONE 0s
+CACHE_COMPONENT_COMMITTED {"component": "comp", "full_model_coverage_verified": false, "manifest_sha256": "313a018b78d9d16f5502b7475d296a383dab284cb2aa681a2c3ab314398305d0", "run_id": "EXP-028-n3_full-r2", "scope": "synthetic_math"}
+comp stack loaded (0s)
+atlas on 3/3 rows (top-2 margin < 0.3)
+atlas synthetic-atlas-bundle mixed 3/3 rows at 0.2 CPU synthetic stub; no GPU inspected
+saved C:\计算机学习\深度学习\projects\kaggle\name-that-llm\experiments\EXP-028-full-stack-cache\fixtures\n3_full-r2\instrumented\main\normalized_lp.npy norm 12.35
+wrote C:\计算机学习\深度学习\projects\kaggle\name-that-llm\experiments\EXP-028-full-stack-cache\fixtures\n3_full-r2\instrumented\main\submission.parquet {'claude-fable-5': 1, 'claude-sonnet-5': 1, 'glm-5.3-flash': 1}
+V31 Bayesian typography completed; changed from pre-Bayes: 1
+CACHE_COMPONENT_COMMITTED {"component": "main", "full_model_coverage_verified": false, "manifest_sha256": "d0820407b7283a5652bd821a7747b6359b0e9ff5ab51e6f9cef19b2c465fc40d", "run_id": "EXP-028-n3_full-r2", "scope": "synthetic_math"}

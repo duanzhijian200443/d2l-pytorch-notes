@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "id": "SRC-035",
+  "kind": "dataset",
+  "title": "prvsiyan V6：完整调用溯源与 train_regen 隔离",
+  "url": "https://www.kaggle.com/datasets/prvsiyan/prvsiyans-extended-name-that-llm-dataset/versions/6",
+  "observed_at": "2026-10-31T17:00:43.016193+00:00",
+  "source_version": {
+    "dataset_version": 6,
+    "files_sha256": {
+      "CHANGELOG.md": "271980b8738f7966ceac6ed1f92edeaa66730264365c67387f119105f32afdf7",
+      "README.md": "4ccfb84c9ec871afec5e99dbc6d03d9b183e4ed12c2032a813bfd1017551ccbd",
+      "blocks.csv": "f2005971375d638229af331a0358ca4cf7b3bc31343ea735ce57c8aaf6167154",
+      "cover_1200x675.png": "3ff2643183a5b2542f26b210471d18e17053e2c099e262ab10bad9569e2aebcc",
+      "label_summary.csv": "db6d7ff97c66e3dad4a6aa624d59a53c4303fd23dd4863deaa355e88ace8365b",
+      "make_cover.py": "076e281f9b5df0378e13136ddda197ec28ffe73453eb4c62eef0c61a8bdaa946",
+      "passages.csv": "2490c3b12f1f063a53abcbc79e741e0a0f62bbe4dc34df0871677ffe8d75b67e",
+      "passages_clean.csv": "6ec42c0bb360d6eaf7ed657b943881bd988358eee49b06abca88b0e6c101d567",
+      "prompts.csv": "58dabf5d31bb3fd76ff49dda3c4603970aece7553a5afe78d2e2dc4463b98acd",
+      "provenance.jsonl": "55a8ac476f3bdea19b4a0625e8b6bc86e9cb0ec9ce38273dd26c8545ffaa5104",
+      "provenance_summary.json": "0b0a3640d3ca3616c0befa9a29889a243e12192cf842c7ad626febc30b4ae0b3",
+      "starter_notebook.ipynb": "006038067e3ce1fd0446ce75b4b7f8d486728fdc3f3fe36431c2ea689d1b4945",
+      "train_vs_dataset_stats.csv": "4e94fc70cd5675968dd6a40f2f6aa30d19e58652440be0e93b10441d2a3b67a8"
+    },
+    "download_manifest_sha256": "5f2da21401efada94e636fd2fb843013c7eff6ae1ed2d07a5a2771c3ed071cfa"
+  },
+  "public_score": null,
+  "summary": "raw 9290 行全部匹配原始日志；clean 4926 行，其中252行属于 train_regen。raw有2700条重建回答。new完整清洗组4158行=231组×18类。",
+  "author_claim": "作者发布 requested/served IDs、原始 API 日志和质量标记；split 表明确包含官方 prompt 重建回答。",
+  "verified": "raw 9290 行全部匹配原始日志；clean 4926 行，其中252行属于 train_regen。raw有2700条重建回答。new完整清洗组4158行=231组×18类。",
+  "use_for_us": "首先试验 clean/new 的 4158 条；混合候选可再加入 proxy_v1 516条；本地验证按 source_prompt_id 隔离重建回答。",
+  "test_plan": "固定 prompt-group-v1、同一轻量分类器与环境，按来源/设置分层做加数据对照；本轮只审计，尚未验证分数收益。",
+  "limitations": "匹配日志只证明提供的记录内部一致；proxy 回显无后端版本。官方 prompt 不逐字复制响应也会造成题目级验证泄漏。",
+  "evidence": [
+    "experiments/EXP-008-public-pool-audit/report.md",
+    "experiments/EXP-008-public-pool-audit/download-manifest.json",
+    "experiments/EXP-008-public-pool-audit/outputs/profiles.json",
+    "experiments/EXP-008-public-pool-audit/outputs/row_flags.parquet"
+  ]
+}

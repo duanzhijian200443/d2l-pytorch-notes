@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "verified_at": "2026-11-01T07:40:15.077766+00:00",
+  "new_source_count": 27,
+  "updated_source_count": 5,
+  "total_source_count": 62,
+  "checks": [
+    "ledger check PASS",
+    "ledger render completed",
+    "32 affected notes local links",
+    "evidence SHA256",
+    "notebook source/code hashes",
+    "source/version uniqueness",
+    "score bindings",
+    "same-code relationships",
+    "required classification and notes fields",
+    "generated index coverage"
+  ],
+  "errors": [],
+  "scope": "Read-only community research; no model training or competition submission"
+}

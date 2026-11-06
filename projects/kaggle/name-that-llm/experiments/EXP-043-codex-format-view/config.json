@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-043",
+  "view_id": "codex-original-newline-strong-v1",
+  "scope": "Derived formatting only, not classifier training or model-source equivalence",
+  "source": {
+    "path": "experiments/EXP-023-codex-subscription-pilot-r1/collection/records.jsonl",
+    "sha256": "cb903279b3727b31ce2125b89c5ce8f530d769a984f49c2cb86e4fbefb1e9722",
+    "bytes": 2428324
+  },
+  "transforms": [
+    "Replace each CR/LF run with one ASCII space; preserve all other whitespace",
+    "Remove paired ordinary ** delimiters outside inline code, preserving enclosed body"
+  ],
+  "keep": [
+    "raw source bytes",
+    "word order and boundaries",
+    "all non-format body characters",
+    "single-star emphasis",
+    "inline code",
+    "headings/list markers",
+    "labels",
+    "prompt groups",
+    "train/holdout assignment"
+  ],
+  "reject": [
+    "Ambiguous unprotected double-star runs",
+    "Changed word token sequence",
+    "New duplicate/cross-split collisions"
+  ],
+  "training_started": false,
+  "formal_pool_accepted": false,
+  "gpu_seconds": 0,
+  "api_usd": 0
+}

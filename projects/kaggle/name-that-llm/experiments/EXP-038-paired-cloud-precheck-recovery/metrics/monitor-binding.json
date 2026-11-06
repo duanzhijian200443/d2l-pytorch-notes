@@ -1,0 +1,7 @@
+{
+  "automation_id": "15",
+  "interval_minutes": 15,
+  "authorized_by": "prior explicit 每15分钟汇报 monitoring request; continued collection within samechat",
+  "run_id": "75230ec19d8d4d4daf6e771359fd475b",
+  "created_at": "2026-11-01T12:51:01.195090+00:00"
+}

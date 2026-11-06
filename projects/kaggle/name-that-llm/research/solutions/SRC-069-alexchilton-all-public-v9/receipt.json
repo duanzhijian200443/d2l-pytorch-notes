@@ -1,0 +1,91 @@
+{
+  "role": "fixed-version-source-and-output-receipt",
+  "ref": "alexchilton/name-that-llm-0-663-all-public-what-failed",
+  "observed_at": "2026-11-02T07:14:51.485069+00:00",
+  "version_label": "v9",
+  "notebook_id": 139599456,
+  "notebook_version": 9,
+  "script_version_id": 364580223,
+  "source_sha256": "07cb21ed6f9b2b2d0920756a8fea64ec5a5d37637d7ea4fad07ab6eb85ce5140",
+  "source_bytes": 141003,
+  "code_sha256": "e3b8fa97495e45873b1297b782488819b4a04ac53cd08baa74e3637505b54605",
+  "code_hash_algorithm": "UTF-8 code cell sources joined by two LF characters",
+  "same_source_bytes_path": "research/solutions/SRC-068-chyibo-name-that-llm-0663-fork-v1/source.ipynb",
+  "source_reuse_policy": "byte-by-byte compared with fixed chyibo V1 original, no redundant notebook file stored",
+  "same_code_sources_at_intake": [
+    "chyibo/name-that-llm-0663-fork@v1"
+  ],
+  "same_notebook_id_earlier_version": {
+    "src_id": "SRC-002",
+    "version": 8,
+    "notebook_id": 139599456,
+    "ref": "alexchilton/name-that-llm-0-662-all-public-what-failed",
+    "source_sha256": "c155b33f38ccdd04b32a46455755c56f1aa3e851770da0c29d05ef9a7a3fdc56",
+    "code_sha256": "d164e570c03550b08337e9934b5f18af1255aeacdf1e0a0d279547bfac693c6f",
+    "metadata_evidence": "reviews/public-top20-20261030/alexchilton--name-that-llm-0-662-all-public-what-failed/metadata.json"
+  },
+  "acquisition": "Read Kaggle get_notebook_info fixed v9 and SDK get_kernel(version_label=v9); asserted same raw file as shared chyibo V1. Fixed version_label=v9 session output file list provided independently below. No downloaded source executed.",
+  "official_output_observation": {
+    "output_count": 12,
+    "files": [
+      "comp_stack.py",
+      "deberta_v3_large/encoder/config.json",
+      "deberta_v3_large/encoder/model.safetensors",
+      "deberta_v3_large/encoder/tokenizer.json",
+      "deberta_v3_large/encoder/tokenizer_config.json",
+      "deberta_v3_large/head.safetensors",
+      "deberta_v3_large/meta.json",
+      "gauss.py",
+      "infer.py",
+      "pool_open_safe.parquet",
+      "sibling_style.py",
+      "submission.parquet"
+    ],
+    "numeric_ids_in_output_paths": [
+      "364580223"
+    ],
+    "contains_expected_global_id": true,
+    "signed_urls_saved": false,
+    "commit_log_string_sha256": "2dcbb1a59ab3e0c2e3c745972028dc7a2706622dea1c4cc825c7da9fb6ad055d",
+    "selected_saved_sample_messages": {
+      "fast_commit": "True",
+      "dropped_routing_risk": "8297",
+      "open_safe_pool_rows": "190210",
+      "comp_stack_wall_time": "0"
+    },
+    "scope": "Open safe pool rows printed before final SVC dedup/fitting. FAST_COMMIT save only; no hidden log."
+  },
+  "page_evidence": "research/solutions/SRC-069-alexchilton-all-public-v9/snapshots/kaggle-page-observation.json",
+  "downloaded_source_executed": false,
+  "saved_script_output_check": {
+    "method": "official kernels_output fixed /9 with filename filter; raw byte hash matches previously fixed three V1 outputs",
+    "observed_at": "2026-11-02T07:15:33.392251+00:00",
+    "reference_refs": [
+      "synthreaper/ntl-sovereign-gold-apex/1",
+      "chyibo/name-that-llm-0663-fork/1",
+      "bgunshui/ntl-apex-e/1"
+    ],
+    "artifacts": {
+      "infer.py": {
+        "bytes": 49002,
+        "sha256": "63112c88d43f9d69b3132243315e0db28c40b4bf0f42bac651f73ef07a67f9bb",
+        "matches_reference": true
+      },
+      "gauss.py": {
+        "bytes": 8219,
+        "sha256": "908b57113f1a7b8ebdbf204c6be87cbc385f765ba50ac07b4e270c64b7cf1000",
+        "matches_reference": true
+      },
+      "comp_stack.py": {
+        "bytes": 53256,
+        "sha256": "4a4b800a5380094d78da66d140d224f8a3974d1e3012086783d5bf81b1264514",
+        "matches_reference": true
+      },
+      "sibling_style.py": {
+        "bytes": 4970,
+        "sha256": "8a7f3b3dad7cbe1755b66e8455a157894cac92b8983fc805f5ed6286ea915e66",
+        "matches_reference": true
+      }
+    }
+  }
+}

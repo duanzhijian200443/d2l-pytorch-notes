@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "id": "SRC-017",
+  "kind": "notebook",
+  "title": "Name That LLM-Submission",
+  "url": "https://www.kaggle.com/code/mercurydust/name-that-llm-submission",
+  "observed_at": "2026-10-30T15:16:41.600Z",
+  "source_version": {
+    "notebook_version": 3,
+    "script_version_id": null,
+    "source_sha256": "6126b351bb2b09ee732fda044757ac5e7145d43b664008912dcfa240a7398f54",
+    "code_sha256": "acac31654c5f11bac9d5ec35435120a31036b6b1bf32b694733bae090cf323d5"
+  },
+  "family_id": "code-acac31654c5f",
+  "public_score": {
+    "value": 0.66,
+    "evidence_type": "platform_page",
+    "bound_to_source": false,
+    "script_version_id": null
+  },
+  "summary": "V31 共同基础：来源加权文本分类器、家族门控、Soft Sinkhorn 与 Bayesian typography。",
+  "author_claim": "正文声明保存在下方 description.md；标题分数不作为独立证据。",
+  "verified": "2026-10-30 已观察页面分数并保存源码；增量说明见摘要。",
+  "use_for_us": "用于选择对照实验，不直接替换当前基线。",
+  "test_plan": "先核对具体得分版本，再把单项差异变成 IDEA。",
+  "limitations": "页面分数与下载源码版本未绑定；排名只代表当日快照。同代码的副本不是独立算法。",
+  "evidence": [
+    "reviews/public-top20-20261030/mercurydust--name-that-llm-submission/source.ipynb",
+    "reviews/public-top20-20261030/mercurydust--name-that-llm-submission/metadata.json",
+    "reviews/public-top20-20261030/mercurydust--name-that-llm-submission/description.md",
+    "reviews/public-top20-20261030/ui-scores.json"
+  ]
+}

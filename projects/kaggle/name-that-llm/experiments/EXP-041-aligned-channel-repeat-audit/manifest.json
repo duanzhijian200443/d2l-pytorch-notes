@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-041",
+  "freeze_status": "FROZEN_OFFLINE_ANALYSIS",
+  "observed_at": "2026-11-01T14:14:30.868480+00:00",
+  "inputs": [
+    {
+      "path": "experiments/EXP-038-paired-cloud-precheck-recovery/collection/combined-records.jsonl",
+      "sha256": "2c560d93f9cce57e42607886cb54449f84e88858a9370d3f175bcf441aea86e7"
+    },
+    {
+      "path": "experiments/EXP-040-codex300-concurrency2/collection/combined-records.jsonl",
+      "sha256": "2d6c691016a6ae6f789d5c6a625a207a3ec89e5093bf804c5052b11c90a6125b"
+    },
+    {
+      "path": "experiments/EXP-023-codex-subscription-pilot-r1/collection/records.jsonl",
+      "sha256": "cb903279b3727b31ce2125b89c5ce8f530d769a984f49c2cb86e4fbefb1e9722"
+    },
+    {
+      "path": "pending-handoff-kaggle-proxy-pilot-20261101T084539Z/authorization-v2-results/responses.jsonl",
+      "sha256": "227ed0103dee52a9a6bea6680a77e8e6409c7e289e99d404f311337db2cac269"
+    },
+    {
+      "path": "experiments/EXP-035-aligned-paired-repeat-pilot/request-plan.jsonl",
+      "sha256": "f9f99650c639208729a2e9dc3401bece9e6dd05ca8f64975c5eb847b64838e8c"
+    }
+  ],
+  "code": [
+    {
+      "path": "experiments/EXP-041-aligned-channel-repeat-audit/code/analyze.py",
+      "sha256": "d059c0bb4f635738d8adba420ef4766c69ccd5efd7cdbc9426555838b8616503"
+    },
+    {
+      "path": "experiments/EXP-041-aligned-channel-repeat-audit/code/finish_analysis.py",
+      "sha256": "74c5d283512b8f3f2a00b0f740dd6f6b926861e3da2612779fd32798b8db7f28"
+    }
+  ],
+  "config": {
+    "path": "experiments/EXP-041-aligned-channel-repeat-audit/config.json",
+    "sha256": "fa75d32ca849ca3723248cbf1926b6372f13d11a1efe1de03c03380101ff70af"
+  },
+  "environment": {
+    "python": "3.13.13",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "cpu_only": true
+  },
+  "validation_status": "PASS_OFFLINE_DIAGNOSTIC",
+  "outputs": [
+    {
+      "path": "experiments/EXP-041-aligned-channel-repeat-audit/figures/aligned-comparison.png",
+      "sha256": "f0b85a00037fabd8e6ba37d004b01887eb7f664a0e73d30aa91bc5a93e92539a"
+    },
+    {
+      "path": "experiments/EXP-041-aligned-channel-repeat-audit/metrics/analysis.json",
+      "sha256": "bbba9bf29441d6a3f60255e8b6078bdc10bf98a38971599682da6daf47a6bd2d"
+    },
+    {
+      "path": "experiments/EXP-041-aligned-channel-repeat-audit/metrics/frozen-reference-overlap.json",
+      "sha256": "9b32dbb8e57b32a731654a79b5b7cbfd1ed02d0f139cd8a390a6e1b42e295157"
+    },
+    {
+      "path": "experiments/EXP-041-aligned-channel-repeat-audit/metrics/historical-review.json",
+      "sha256": "73ef8bc109bef891c0b943da9a77a7f0792e6fbfa6e5efba03d9caf92ddeea3c"
+    },
+    {
+      "path": "experiments/EXP-041-aligned-channel-repeat-audit/metrics/historical-review.md",
+      "sha256": "e664dc5244735e12b0594803c583180320b0f74b30cd9ac1729d747dd0e213d2"
+    },
+    {
+      "path": "experiments/EXP-041-aligned-channel-repeat-audit/metrics/independent-verification.json",
+      "sha256": "e1ca6fa508f7fbc6d33c2c221a960d88a7e3d1cfb43bd4051ffa4d37a5f7e2b2"
+    },
+    {
+      "path": "experiments/EXP-041-aligned-channel-repeat-audit/metrics/independent-verification.md",
+      "sha256": "8320bc7ae7efee97fff5f64655b1d82d883474691b3816853b8c3f017c046295"
+    },
+    {
+      "path": "experiments/EXP-041-aligned-channel-repeat-audit/metrics/input-hashes.json",
+      "sha256": "e8a035f43639f6a18102b0cec85c0cb9409b7c669fdbfe2b88e3cd8ec8590d95"
+    },
+    {
+      "path": "experiments/EXP-041-aligned-channel-repeat-audit/metrics/provenance-review.json",
+      "sha256": "df3471d5ae09dae6a3da9a0eba4b285db54380d2b9f9d1cb60c6f1a014978aba"
+    },
+    {
+      "path": "experiments/EXP-041-aligned-channel-repeat-audit/metrics/provenance-review.md",
+      "sha256": "d3cc3d9c79026ce5df6583e5d3284f3722a2d100c8f33a87c762d44b1497bbf0"
+    },
+    {
+      "path": "experiments/EXP-041-aligned-channel-repeat-audit/metrics/row-screen.json",
+      "sha256": "22cba38da71130bd049472ada06056726a865d734988e4180e5a3a13321ea47f"
+    },
+    {
+      "path": "experiments/EXP-041-aligned-channel-repeat-audit/metrics/training-eligibility-summary.json",
+      "sha256": "d0bcb61544f118f12e6c68a361ad4dc161690cb464ee7555fbef2838f66f553e"
+    },
+    {
+      "path": "experiments/EXP-041-aligned-channel-repeat-audit/metrics/training-eligibility.jsonl",
+      "sha256": "e84bb7ab68584911be74d49f4377a28df99fb6fe216f45a63b6eb0dc6336f645"
+    },
+    {
+      "path": "experiments/EXP-041-aligned-channel-repeat-audit/metrics/validation.json",
+      "sha256": "24e4e6b6b56f2c22ff6f4263179868f02635578f1e73d2458545ffdc498b216b"
+    },
+    {
+      "path": "experiments/EXP-041-aligned-channel-repeat-audit/report.md",
+      "sha256": "a0573a57f4bc18a307142211e505ed7d1ce5adbfd4f19ea9990e136b6a4495da"
+    }
+  ]
+}

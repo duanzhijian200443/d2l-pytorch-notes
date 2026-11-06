@@ -1,0 +1,18 @@
+{
+  "status": "HISTORICAL_SNAPSHOT",
+  "source_states": [
+    "experiments/EXP-035-aligned-paired-repeat-pilot/collection/state.json",
+    "experiments/EXP-036-aligned-paired-connection-recovery/collection/state.json"
+  ],
+  "observed_at": "2026-11-01T12:39:44.437473+00:00",
+  "requests_sent_total": 3,
+  "requests_by_route": {
+    "codex_subscription": 1,
+    "kaggle_model_proxy": 2
+  },
+  "saved_total": 1,
+  "active": [],
+  "confirmed_cost_usd": "0",
+  "cost_known": false,
+  "note": "Aggregated historical read-only snapshot; not a live controller state. Originalstates retained."
+}

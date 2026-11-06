@@ -1,0 +1,17 @@
+{
+  "role": "static-analysis-evidence-not-a-ledger",
+  "compared_to": [
+    "SRC-002"
+  ],
+  "same_code_existing_src": [],
+  "same_ref_version_existing_src": [],
+  "code_hash_algorithm": "UTF-8 SHA256 of code-cell sources joined with two newlines",
+  "notebook_output_count": 0,
+  "markdown_identical_to_SRC002": false,
+  "embedded_kaggle_inputs_equal_SRC002": true,
+  "blank_api_dataset_refs": 0,
+  "web_open_status": "web tool open returned Internal Error; source retrieval succeeded through Kaggle API",
+  "score_binding": "BOUND_VIA_PARENT_BROWSER_DOM",
+  "executed": false,
+  "score_script_version_id": 364347706
+}

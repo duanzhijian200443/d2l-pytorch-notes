@@ -1,0 +1,11 @@
+{
+  "observed_at": "2026-11-01T12:15:40.718483+00:00",
+  "ready": false,
+  "error": {
+    "stage": "make_client",
+    "error_type": "ModuleNotFoundError",
+    "http_status": null
+  },
+  "model_requests_sent": 0,
+  "transport_sha256": "1faa66fcf8c1612898bdac942d45e84dbcc1af9c81c8bf17c6f06e896c04d00d"
+}

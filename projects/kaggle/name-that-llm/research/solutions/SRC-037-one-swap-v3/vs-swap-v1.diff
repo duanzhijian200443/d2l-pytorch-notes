@@ -1,0 +1,43 @@
+--- swap-v1
+
++++ swap-v3
+
+@@ -1,17 +1,3 @@
+
+-import matplotlib.pyplot as plt
+-runs = {'nlm-v27': [0.651, 0.651, 0.643, 0.651], 'Who am I?': [0.645, 0.654], 'V31': [0.660, 0.660], '0.663 (this)': [0.662],
+-        'LoRA x AC': [0.549], 'lora-instyle': [0.561], 'Teach + ATLAS': [0.606]}
+-page = {'nlm-v27': 0.651, 'Who am I?': 0.654, 'V31': 0.660, '0.663 (this)': 0.663, 'LoRA x AC': 0.547, 'lora-instyle': 0.563, 'Teach + ATLAS': 0.607}
+-fig, ax = plt.subplots(figsize=(8, 3.2))
+-for i, (k, v) in enumerate(runs.items()):
+-    ax.scatter([i] * len(v), [x - page[k] for x in v], s=60, color='tab:blue', label='our submission, identical code' if i == 0 else None, zorder=3)
+-ax.axhspan(-0.01, 0.01, color='tab:orange', alpha=0.15, label='+-0.01: one submission cannot tell these apart')
+-ax.axhline(0, color='k', lw=0.8)
+-ax.set_xticks(range(len(runs))); ax.set_xticklabels(runs, rotation=20)
+-ax.set_ylabel('score - author page score'); ax.set_title('Same code, different public score')
+-ax.set_ylim(-0.013, 0.013); ax.legend(fontsize=8, loc='upper right'); plt.tight_layout(); plt.show()
+-
+-
+ # Name That LLM - full solution: fold-averaged two-stage LoRA24 (Qwen3-8B-Base, Qwen3-14B-Base, Qwen2.5-7B),
+ # Nishant two-stage checkpoints, 4-view n-gram SVM on train+pool, shared-prompt Gaussian, adaptive centred twins,
+ # 10% public ATLAS (source-conditioned likelihood, arXiv 2610.19583) before Sinkhorn balancing.
+@@ -26,7 +12,7 @@
+
+     h = glob.glob(f'/kaggle/input/**/{name}/heads.pt', recursive=True); assert h, name; return os.path.dirname(h[0])
+ DATA = next(p for p in ['/kaggle/input/competitions/name-that-llm', '/kaggle/input/name-that-llm'] if os.path.exists(p + '/train.csv'))
+ import pandas as _pd
+-FAST_COMMIT = os.getenv('KAGGLE_IS_COMPETITION_RERUN') is None and len(_pd.read_csv(DATA + '/test.csv')) < 50   # ours: the scoring rerun never takes the fast path   # fork: the 3-row commit run skips the heavy cells; the hidden rerun runs everything
++FAST_COMMIT = os.getenv('KAGGLE_IS_COMPETITION_RERUN') is None and len(_pd.read_csv(DATA + '/test.csv')) < 50   # alexchilton: the scoring rerun never takes the fast path   # fork: the 3-row commit run skips the heavy cells; the hidden rerun runs everything
+ print('FAST_COMMIT', FAST_COMMIT)
+ HEADS = os.path.dirname(next(iter(glob.glob('/kaggle/input/**/heads/q3_8bx.npz', recursive=True))))
+ EXTRA = next(iter(glob.glob('/kaggle/input/**/nlm_matched_clean.parquet', recursive=True)))
+@@ -44,7 +30,7 @@
+
+ print('nishant', N8, N8C['keep'], N8C['max_len'], N14, N14C['keep'], N14C['max_len'])
+ ATLAS = os.path.dirname(next(iter(glob.glob('/kaggle/input/**/atlas_bundle.json', recursive=True))))
+ print('atlas', ATLAS)
+-BL = next((os.path.dirname(x) for x in cfgs if '/llama-3-1-8b-base/' in x.lower()), None) or mdir('/llama-3.1/', '/8b/')   # ours: avazaku's cache is gone; same Meta weights from alexchilton/llama-3-1-8b-base
++BL = next((os.path.dirname(x) for x in cfgs if '/llama-3-1-8b-base/' in x.lower()), None) or mdir('/llama-3.1/', '/8b/')   # alexchilton: avazaku's cache is gone; same Meta weights from alexchilton/llama-3-1-8b-base
+ _SHARDS = {'model-00001-of-00004.safetensors': 4976698672, 'model-00002-of-00004.safetensors': 4999802720, 'model-00003-of-00004.safetensors': 4915916176, 'model-00004-of-00004.safetensors': 1168138808}
+ assert all(os.path.getsize(os.path.join(BL, f)) == n for f, n in _SHARDS.items()), BL   # fork: Llama-3.1-8B from avazaku's public cache (NousResearch copy)
+ AL = [adir(f'ts_llama8_f{k}') for k in (0, 2, 4)] + [adir('ts_llama8')]

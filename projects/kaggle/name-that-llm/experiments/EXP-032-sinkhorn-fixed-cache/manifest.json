@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-032",
+  "freeze_status": "FROZEN_PROTOCOL_COMPLETED_COMPARISON",
+  "observed_at_utc": "2026-11-01T11:28:26.993012+00:00",
+  "config": {
+    "path": "experiments/EXP-032-sinkhorn-fixed-cache/config.json",
+    "sha256": "e2d270cea5c421c6e4e2591f8020cc58abb97e92e36893005539ec9b3402bc30",
+    "bytes": 1919
+  },
+  "protocol": {
+    "path": "experiments/EXP-032-sinkhorn-fixed-cache/protocol.json",
+    "sha256": "445dc1f91457700aa7c95036f04dc76fa695522feadbe5f64b4f06088d16133a",
+    "bytes": 14689
+  },
+  "code": [
+    {
+      "path": "src/sinkhorn_compare.py",
+      "sha256": "42048f6ea4a17025179965da4452f0e8091d69146163a328872a903145e39956",
+      "bytes": 11939
+    },
+    {
+      "path": "src/test_sinkhorn_compare.py",
+      "sha256": "625da10f1d52aebe72aa3aa1d70ff2c0bb3e5d009741bf71f8fb06b7782922c9",
+      "bytes": 14726
+    },
+    {
+      "path": "experiments/EXP-032-sinkhorn-fixed-cache/metrics_utils.py",
+      "sha256": "e568d6f70d72ccdf5a6b393c44873c597eca5c6da2106966fa9a6fef73f3efba",
+      "bytes": 8313
+    },
+    {
+      "path": "experiments/EXP-032-sinkhorn-fixed-cache/test_metrics_utils.py",
+      "sha256": "5a0c09bd2350c03740481594fef6cb193a727e13576498c4a844a98e59606700",
+      "bytes": 5168
+    },
+    {
+      "path": "experiments/EXP-032-sinkhorn-fixed-cache/compare_cached.py",
+      "sha256": "560704753b82e70a035d2254608a45959a4fe14cd45465c4c4f2cacc3dc3aa4f",
+      "bytes": 39299
+    },
+    {
+      "path": "experiments/EXP-032-sinkhorn-fixed-cache/test_compare_cached.py",
+      "sha256": "abe6260d54e7f5880debb06897f2ec7fbf016ef56a6ac9805c82ff4fab9854b3",
+      "bytes": 7109
+    }
+  ],
+  "local_inputs": [
+    {
+      "path": "experiments/EXP-029-full-stack-capture/panel/test.csv",
+      "sha256": "8eeec7f64e924f0fd79dca57d324d42d269f400bdfbfff76d60b4c168d9ae6f2",
+      "bytes": 655284
+    },
+    {
+      "path": "train.csv",
+      "sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+      "bytes": 2139418
+    },
+    {
+      "path": "experiments/EXP-029-full-stack-capture/labels-local-only.csv",
+      "sha256": "f5425fbae56355e72537074cf5eef514c0319cd67489fc63c36fe07b2ff2302b",
+      "bytes": 156374
+    }
+  ],
+  "real_cache_artifacts_sha256": "1732849196220d023716a2dc912d660282c94022c2df370c69d9a6c2899bac63",
+  "real_cache_status": "EXP031 V2 COMPLETE_VERIFIED",
+  "note": "Do not substitute synthetic fixtures, EXP029 failure outputs, or EXP031 save-only V1.",
+  "comparison_result_path": "experiments/EXP-032-sinkhorn-fixed-cache/analysis-v1/result.json",
+  "completion_observed_at_utc": "2026-11-01T14:24:15.645257+00:00"
+}

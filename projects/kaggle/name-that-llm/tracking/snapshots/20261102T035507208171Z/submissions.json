@@ -1,0 +1,96 @@
+{
+  "observed_at": "2026-11-02T03:55:07.208171+00:00",
+  "source": "official Kaggle CLI SDK read only",
+  "submissions": [
+    {
+      "ref": 57893384,
+      "totalBytes": 0,
+      "date": "2026-11-02T03:18:07.177Z",
+      "description": "Controlled 046 V2 + EXP040 raw Codex120 train only in Stylegram. Fixed baseline members/weights. pending-handoff-stylegram-add120-20261102T014124Z; script364733823; raw hash cbb0f2227f7748d9172f04d23c1653403103a192dbb7503d897153d24bb00acd.",
+      "fileName": "submission.parquet",
+      "submittedBy": "zhjianduan",
+      "submittedByRef": "zhjianduan",
+      "teamName": "zhjian duan",
+      "url": "/code/zhjianduan/name-that-llm-a1-codex120-1102?scriptVersionId=364733823",
+      "status": "PENDING"
+    },
+    {
+      "ref": 57879463,
+      "totalBytes": 60075,
+      "date": "2026-11-01T17:48:25.780Z",
+      "description": "EXP046-A1-v2 public10073 Stylegram only; original ATLAS20 .20 comp .15 Sinkhorn .45",
+      "fileName": "submission.parquet",
+      "publicScore": "0.663",
+      "status": "COMPLETE",
+      "submittedBy": "zhjianduan",
+      "submittedByRef": "zhjianduan",
+      "teamName": "zhjian duan",
+      "url": "/code/zhjianduan/name-that-llm-a1-public-stylegram-046?scriptVersionId=364624288"
+    },
+    {
+      "ref": 57843313,
+      "totalBytes": 60075,
+      "date": "2026-10-31T15:42:28.377Z",
+      "description": "",
+      "fileName": "submission.parquet",
+      "publicScore": "0.664",
+      "status": "COMPLETE",
+      "submittedBy": "zhjianduan",
+      "submittedByRef": "zhjianduan",
+      "teamName": "zhjian duan",
+      "url": "/code/zhjianduan/who-are-you?scriptVersionId=364274017"
+    },
+    {
+      "ref": 57832487,
+      "totalBytes": 60075,
+      "date": "2026-10-31T08:18:18.780Z",
+      "description": "",
+      "fileName": "submission.parquet",
+      "publicScore": "0.659",
+      "status": "COMPLETE",
+      "submittedBy": "zhjianduan",
+      "submittedByRef": "zhjianduan",
+      "teamName": "zhjian duan",
+      "url": "/code/zhjianduan/0-664-hyperparameter-tuned-who-are-u?scriptVersionId=364159717"
+    },
+    {
+      "ref": 57778357,
+      "totalBytes": 60075,
+      "date": "2026-10-29T17:36:23.270Z",
+      "description": "",
+      "fileName": "submission.parquet",
+      "publicScore": "0.662",
+      "status": "COMPLETE",
+      "submittedBy": "zhjianduan",
+      "submittedByRef": "zhjianduan",
+      "teamName": "zhjian duan",
+      "url": "/code/zhjianduan/name-that-llm-atlas20-repro?scriptVersionId=363569852"
+    },
+    {
+      "ref": 57759707,
+      "totalBytes": 60084,
+      "date": "2026-10-29T05:14:08.043Z",
+      "description": "",
+      "fileName": "submission.parquet",
+      "publicScore": "0.654",
+      "status": "COMPLETE",
+      "submittedBy": "zhjianduan",
+      "submittedByRef": "zhjianduan",
+      "teamName": "zhjian duan",
+      "url": "/code/zhjianduan/name-that-llm-who-am-i-v30-repro?scriptVersionId=363200699"
+    },
+    {
+      "ref": 57736953,
+      "totalBytes": 60059,
+      "date": "2026-10-28T12:46:34.197Z",
+      "description": "No-Llama word+char TF-IDF / LinearSVC baseline; prompt-grouped 5-fold OOF BA 0.3122446; notebook v4",
+      "fileName": "submission.parquet",
+      "publicScore": "0.308",
+      "status": "COMPLETE",
+      "submittedBy": "zhjianduan",
+      "submittedByRef": "zhjianduan",
+      "teamName": "zhjian duan",
+      "url": "/code/zhjianduan/name-that-llm-no-llama-groupcv?scriptVersionId=363168447"
+    }
+  ]
+}

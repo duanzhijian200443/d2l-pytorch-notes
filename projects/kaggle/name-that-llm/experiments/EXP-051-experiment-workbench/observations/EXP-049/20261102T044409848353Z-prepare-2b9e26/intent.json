@@ -1,0 +1,8 @@
+{
+  "job": "verify-package",
+  "script": "cloud/a1-sinkhorn030-049/prepare_verify.py",
+  "sha256": "bee724dbd3e5991699b05765e367797999c56e73c8dc8452893b95f20c7c2528",
+  "timeout_seconds": 120,
+  "scope": "audited fixed local operation; environment GPU hiding is not a security sandbox",
+  "attempted_at": "2026-11-02T04:44:09.849054+00:00"
+}

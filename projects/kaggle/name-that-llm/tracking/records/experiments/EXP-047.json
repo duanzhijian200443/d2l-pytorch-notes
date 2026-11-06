@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "id": "EXP-047",
+  "title": "Who Are You 自有V3正式Public0.664历史成绩补登记",
+  "baseline_id": "EXP-004",
+  "hypothesis": "归档已完成的自有V3正式提交，不新增训练假设或执行。",
+  "changes": [
+    "补登记已完成的V3成功提交；源码与EXP006失败/取消V2相同，二者不混写",
+    "实际命令Sinkhorn0.30；本次未新增执行或改变正式基线"
+  ],
+  "observed_at": "2026-11-01T17:21:54Z",
+  "source": {
+    "notebook_ref": "zhjianduan/who-are-you",
+    "notebook_version": 3,
+    "script_version_id": 364274017,
+    "local_path": "experiments/EXP-047-who-are-you-v3-0664-history/source/who-are-you-v3.ipynb",
+    "sha256": "b4a716ba3c1cdc4a5c976a0cb9ff2c863e53ed7e63a8da1becfa2e70d422f5d6"
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-047-who-are-you-v3-0664-history/manifest.json",
+    "validation_split_id": null,
+    "content_hashes_verified": false
+  },
+  "config": {
+    "note": "Historical source parameters and unknown budget are in config_path; no current training."
+  },
+  "environment": {
+    "platform": "Kaggle",
+    "accelerator": "NvidiaTeslaT4",
+    "container": "gcr.io/kaggle-private-byod/python@sha256:2757e0c7d1e0a9cb43da657b97e223c321a98f5014bdf64f44f2f6b083ad2b2f",
+    "internet": false,
+    "seed": null,
+    "actual_devices_verified": false
+  },
+  "execution": {
+    "scope": "historical_competition_submission",
+    "status": "COMPLETE",
+    "observed_at": "2026-11-01T17:21:54Z",
+    "registered_at": "2026-11-01T17:34:25.102026+00:00",
+    "status_evidence": "submission57843313 COMPLETE; not a fresh commit-session query"
+  },
+  "submission": {
+    "id": 57843313,
+    "script_version_id": 364274017,
+    "status": "COMPLETE",
+    "public_score": 0.664,
+    "private_score": null,
+    "submitted_at": "2026-10-31T15:42:28.377Z",
+    "observed_at": "2026-11-01T17:21:54Z",
+    "url": "https://www.kaggle.com/code/zhjianduan/who-are-you?scriptVersionId=364274017"
+  },
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": "Formal Public LB only; no new OOF",
+    "per_class_recall_path": null,
+    "oof_path": null,
+    "leakage_audit": "not_audited"
+  },
+  "cost": {
+    "gpu_seconds": null,
+    "api_usd": null,
+    "colab_cu": null
+  },
+  "timing_note": "提交到查询的时间差不作执行耗时；实际隐藏运行/GPU/API/Colab费用未取得。",
+  "conclusion": "自有正式Public0.664已绑定submission57843313/global364274017与V3源码快照；成功记录独立于EXP006失败V2。",
+  "limitations": "单次历史Public观察；Private、实际成本/耗时、完整附件内容及干净端到端OOF未知。Notebook元数据给版本3，global ID来自提交URL。",
+  "next_action": "根代理统一check/render；不自动重跑、切换EXP004基线或修改EXP046。",
+  "related_sources": [
+    "SRC-021"
+  ],
+  "evidence": [
+    "experiments/EXP-047-who-are-you-v3-0664-history/config.json",
+    "experiments/EXP-047-who-are-you-v3-0664-history/manifest.json",
+    "experiments/EXP-047-who-are-you-v3-0664-history/report.md",
+    "experiments/EXP-047-who-are-you-v3-0664-history/source/who-are-you-v3.ipynb",
+    "experiments/EXP-047-who-are-you-v3-0664-history/source/notebook-v3-metadata.json",
+    "experiments/EXP-047-who-are-you-v3-0664-history/metrics/mcp-readback.json",
+    "experiments/EXP-047-who-are-you-v3-0664-history/metrics/submission-57843313.json",
+    "experiments/EXP-047-who-are-you-v3-0664-history/metrics/submission-source-binding.json",
+    "experiments/EXP-047-who-are-you-v3-0664-history/metrics/registration-check.json"
+  ],
+  "config_path": "experiments/EXP-047-who-are-you-v3-0664-history/config.json"
+}

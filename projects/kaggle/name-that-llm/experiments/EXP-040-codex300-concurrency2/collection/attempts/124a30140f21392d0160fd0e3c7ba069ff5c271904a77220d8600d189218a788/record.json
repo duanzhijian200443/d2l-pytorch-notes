@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0083",
+  "prompt": "Describe the role of public squares in the social life of a town before electronic communication became common. Keep your response near 160 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "humanities_history",
+  "target_words": 160,
+  "prompt_group": "cp0083",
+  "split": "train",
+  "source": "codex_subscription",
+  "base_prompt": "Describe the role of public squares in the social life of a town before electronic communication became common. Keep your response near 160 words.",
+  "base_prompt_sha256": "763fae98269fbecd3b48d3085e2bb8e6d6150f39511f955ba226e0e9ea69dde2",
+  "base_prompt_id": "cp0083",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0083::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "124a30140f21392d0160fd0e3c7ba069ff5c271904a77220d8600d189218a788",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:37:02.501486+00:00",
+  "ended_at": "2026-11-01T13:37:31.008918+00:00",
+  "prompt_sha256": "b5a6a0d29162867ef30fa154cadcba3d6b37be7f03ad2268ca18f0fb8b90a69b",
+  "text": "Before electronic communication became common, public squares served as the social and informational heart of a town. People gathered there to exchange news, discuss local affairs, and learn about events beyond their community from travelers, traders, and official announcements. Market days brought farmers, craftspeople, and customers together, making commerce an opportunity for conversation and the building of relationships. Squares also hosted festivals, religious celebrations, political speeches, and public ceremonies, helping residents develop a shared identity and sense of belonging. In everyday life, they offered places to meet friends, watch passersby, or enjoy street performances. Children played while adults talked, allowing different generations to share a common space. Public squares could also reveal social divisions: access, influence, and participation were not always equal, and disputes sometimes became public confrontations. Nevertheless, their central location and regular activity made them essential meeting grounds, where information circulated through personal contact and the rhythms of community life became visible to residents and visitors alike.",
+  "text_sha256": "543fa0b34a910510feb1089c40e0446cecc93d6a1ddf5b623ff48fe7eef08424",
+  "raw_final_sha256": "543fa0b34a910510feb1089c40e0446cecc93d6a1ddf5b623ff48fe7eef08424",
+  "word_count": 159,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4320,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 197,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\124a30140f21392d0160fd0e3c7ba069ff5c271904a77220d8600d189218a788",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "id": "SRC-004",
+  "kind": "notebook",
+  "title": "name-that-llm-0663-v31-atlas20-alex",
+  "url": "https://www.kaggle.com/code/roserrll/name-that-llm-0663-v31-atlas20-alex",
+  "observed_at": "2026-10-30T15:16:41.600Z",
+  "source_version": {
+    "notebook_version": 1,
+    "script_version_id": null,
+    "source_sha256": "d53efba013e79d77d3b0802ccfe03f5c50a860c4e3202ac326d0a1ebcfaad38e",
+    "code_sha256": "87d7a5a9e8168bf4d35e18fb0f0f5262e81ba32938ca02914d0f1ca920f9bcc1"
+  },
+  "family_id": "code-87d7a5a9e816",
+  "public_score": {
+    "value": 0.662,
+    "evidence_type": "platform_page",
+    "bound_to_source": false,
+    "script_version_id": null
+  },
+  "summary": "相对 ATLAS20 主要增加 Llama 两种来源的解析与检查；属于依赖修复复现。",
+  "author_claim": "正文声明保存在下方 description.md；标题分数不作为独立证据。",
+  "verified": "2026-10-30 已观察页面分数并保存源码；增量说明见摘要。",
+  "use_for_us": "用于选择对照实验，不直接替换当前基线。",
+  "test_plan": "先核对具体得分版本，再把单项差异变成 IDEA。",
+  "limitations": "页面分数与下载源码版本未绑定；排名只代表当日快照。同代码的副本不是独立算法。",
+  "evidence": [
+    "reviews/public-top20-20261030/roserrll--name-that-llm-0663-v31-atlas20-alex/source.ipynb",
+    "reviews/public-top20-20261030/roserrll--name-that-llm-0663-v31-atlas20-alex/metadata.json",
+    "reviews/public-top20-20261030/roserrll--name-that-llm-0663-v31-atlas20-alex/description.md",
+    "reviews/public-top20-20261030/ui-scores.json"
+  ]
+}

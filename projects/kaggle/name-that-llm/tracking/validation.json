@@ -1,0 +1,10 @@
+{
+  "observed_at": "2026-10-31T14:24:39.433216+00:00",
+  "record_check": "PASS",
+  "regression_tests": 7,
+  "local_links_checked": 216,
+  "broken_links": [],
+  "legacy_bodies_preserved": true,
+  "remote_writes": false,
+  "gpu_started": false
+}

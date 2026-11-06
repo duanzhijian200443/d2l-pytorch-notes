@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "id": "SRC-015",
+  "kind": "notebook",
+  "title": "name that llm v20 pool centred",
+  "url": "https://www.kaggle.com/code/pikaaa/name-that-llm-v20-pool-centred",
+  "observed_at": "2026-10-30T15:16:41.600Z",
+  "source_version": {
+    "notebook_version": 1,
+    "script_version_id": null,
+    "source_sha256": "cda325df2c57b40129932eb377ffb549c1b54b93f4666a25d86bc815260f751a",
+    "code_sha256": "d94f5aae1127dfb44b0df2e70778b838c5927fa495176a946f67ef185ec1538c"
+  },
+  "family_id": "code-d94f5aae1127",
+  "public_score": {
+    "value": 0.661,
+    "evidence_type": "platform_page",
+    "bound_to_source": false,
+    "script_version_id": null
+  },
+  "summary": "合并额外 open pool，增加 prompt 中心化 SVC 成员 svc4c，ATLAS 20%。",
+  "author_claim": "正文声明保存在下方 description.md；标题分数不作为独立证据。",
+  "verified": "2026-10-30 已观察页面分数并保存源码；增量说明见摘要。",
+  "use_for_us": "用于选择对照实验，不直接替换当前基线。",
+  "test_plan": "先核对具体得分版本，再把单项差异变成 IDEA。",
+  "limitations": "页面分数与下载源码版本未绑定；排名只代表当日快照。同代码的副本不是独立算法。",
+  "evidence": [
+    "reviews/public-top20-20261030/pikaaa--name-that-llm-v20-pool-centred/source.ipynb",
+    "reviews/public-top20-20261030/pikaaa--name-that-llm-v20-pool-centred/metadata.json",
+    "reviews/public-top20-20261030/pikaaa--name-that-llm-v20-pool-centred/description.md",
+    "reviews/public-top20-20261030/ui-scores.json"
+  ]
+}

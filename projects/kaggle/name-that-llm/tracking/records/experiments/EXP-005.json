@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "id": "EXP-005",
+  "title": "Who are U 最新 V6 配方的自有副本",
+  "baseline_id": "EXP-004",
+  "hypothesis": "观察更强类别平衡与更弱标点修正的组合。",
+  "changes": [
+    "Sinkhorn 0.45 → 0.60",
+    "标点修正 1.5 → 1.2"
+  ],
+  "observed_at": "2026-10-31T15:57:13.732725+00:00",
+  "source": {
+    "notebook_ref": "zhjianduan/0-664-hyperparameter-tuned-who-are-u",
+    "notebook_version": 1,
+    "script_version_id": 364159717,
+    "local_path": "reviews/judith007-0664-20261031/own-fork-v1/0-664-hyperparameter-tuned-who-are-u.ipynb",
+    "sha256": "cd5c96f4f045928b860fa6c4d008af3d6edcf4c52b101a1bafca9ed20c7d9c9d"
+  },
+  "inputs": {
+    "manifest_path": null,
+    "validation_split_id": null,
+    "content_hashes_verified": false
+  },
+  "config": {
+    "atlas_w": 0.2,
+    "comp_w": 0.15,
+    "sinkhorn": 0.6,
+    "sinkhorn_target_mix": 0.35,
+    "typography_scale": 1.2
+  },
+  "environment": {
+    "platform": "Kaggle",
+    "accelerator": "T4 x2",
+    "internet": false
+  },
+  "execution": {
+    "scope": "commit",
+    "status": "COMPLETE"
+  },
+  "submission": {
+    "id": 57832487,
+    "status": "COMPLETE",
+    "script_version_id": 364159717,
+    "public_score": 0.659,
+    "submitted_at": "2026-10-31T08:18:18.780Z",
+    "observed_at": "2026-10-31T15:57:13.732725+00:00",
+    "url": "https://www.kaggle.com/code/zhjianduan/0-664-hyperparameter-tuned-who-are-u?scriptVersionId=364159717"
+  },
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": null,
+    "per_class_recall_path": null,
+    "oof_path": null,
+    "leakage_audit": "not_audited"
+  },
+  "cost": {
+    "gpu_seconds": null,
+    "api_usd": null,
+    "colab_cu": null
+  },
+  "timing_note": null,
+  "conclusion": "正式提交 57832487 完成，Public LB=0.659，低于 EXP-004 基线 0.662。代码与作者 V6 一致（0.60/1.2）；两项同时改变且仅一次观测，不能单独归因。",
+  "limitations": "作者的 0.664 属于 V2，不适用于这个 V6 配方；两项同时变化不能单独归因。",
+  "next_action": "记录结果并比较固定验证；不自动重跑或更换基线。",
+  "related_sources": [
+    "SRC-022"
+  ],
+  "evidence": [
+    "reviews/judith007-0664-20261031/review-evidence.json",
+    "tracking/snapshots/20261031T141753Z/submissions.json",
+    "reviews/judith007-0664-20261031/own-fork-v1/0-664-hyperparameter-tuned-who-are-u.ipynb",
+    "tracking/snapshots/20261031T142240175966Z/submissions.json",
+    "tracking/snapshots/20261031T152451658633Z/submissions.json",
+    "tracking/snapshots/20261031T155715059384Z/submissions.json"
+  ]
+}

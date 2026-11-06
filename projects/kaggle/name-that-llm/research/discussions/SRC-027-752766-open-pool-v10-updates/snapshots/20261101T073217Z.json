@@ -1,0 +1,1241 @@
+{
+  "observed_at": "2026-11-01T07:32:17.788996+00:00",
+  "retrieval": {
+    "method": "read-only POST",
+    "topic_endpoint": "https://www.kaggle.com/api/i/discussions.DiscussionsService/GetForumTopicById",
+    "comments_endpoint": "https://www.kaggle.com/api/i/discussions.DiscussionsService/GetForumMessagesInTopic"
+  },
+  "topic_response": {
+    "forumTopic": {
+      "authorId": 20960131,
+      "authorThumbnailName": "20960131-kg.jpg?t=2026-10-21-05-22-40",
+      "authorUserDisplayName": "Carrot Production",
+      "authorUserName": "crtproduction",
+      "comments": [
+        {
+          "id": 3547202,
+          "postDate": "2026-10-30T13:46:09.993Z",
+          "rawMarkdown": "First, I really appreciate the time and effort that went into curating this dataset and making it available to the community. It's indeed useful! I used it for pretraining (0.55), followed by fine-tuning on the competition dataset (0.609), both on my local validation set.\n\nThat said, I think diversity matters more than volume. My suspicion is that many prompts in the curated dataset have responses from only a subset of the 18 LLMs.\n\nIdeally, the dataset would be structured as N prompts × 18 responses, with one response from each LLM per prompt. This could provide better supervision I think. But yeahh, I also recognize how challenging this would be to achieve, given that responses have to be collected from multiple sources and not everyone has access to all 18 LLMs. I really appreciate the effort behind making this dataset available to the community.",
+          "content": "<p>First, I really appreciate the time and effort that went into curating this dataset and making it available to the community. It's indeed useful! I used it for pretraining (0.55), followed by fine-tuning on the competition dataset (0.609), both on my local validation set.</p>\n<p>That said, I think diversity matters more than volume. My suspicion is that many prompts in the curated dataset have responses from only a subset of the 18 LLMs.</p>\n<p>Ideally, the dataset would be structured as N prompts × 18 responses, with one response from each LLM per prompt. This could provide better supervision I think. But yeahh, I also recognize how challenging this would be to achieve, given that responses have to be collected from multiple sources and not everyone has access to all 18 LLMs. I really appreciate the effort behind making this dataset available to the community.</p>",
+          "replies": [
+            {
+              "id": 3547261,
+              "postDate": "2026-10-30T16:54:29.907Z",
+              "rawMarkdown": "Would try it, thanks so much sir",
+              "content": "<p>Would try it, thanks so much sir</p>",
+              "parent": {},
+              "author": {
+                "displayName": "Carrot Production",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+                "url": "/crtproduction",
+                "tier": "CONTRIBUTOR",
+                "id": 20960131,
+                "progressionOptOut": false
+              },
+              "authorType": "TOPIC",
+              "votes": {
+                "canUpvote": true
+              },
+              "kernelVersion": 0,
+              "competitionRanking": 1204,
+              "feedbackTrackingData": {},
+              "isThankYou": false,
+              "teamUpInfo": {
+                "teamLeader": {
+                  "displayName": "Carrot Production",
+                  "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+                  "url": "/crtproduction",
+                  "userName": "crtproduction",
+                  "tier": "CONTRIBUTOR",
+                  "id": 20960131,
+                  "profileUrl": "/crtproduction",
+                  "performanceTier": "CONTRIBUTOR",
+                  "userId": 20960131,
+                  "progressionOptOut": false
+                },
+                "intro": ""
+              }
+            }
+          ],
+          "parent": {},
+          "author": {
+            "displayName": "ducnh279",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/10714081-kg.jpeg?t=2025-08-17-19-57-58",
+            "url": "/ducnh279",
+            "tier": "MASTER",
+            "id": 10714081,
+            "progressionOptOut": true
+          },
+          "authorType": "COMMENT",
+          "votes": {
+            "totalVotes": 3,
+            "canUpvote": true,
+            "totalUpvotes": 3
+          },
+          "kernelVersion": 0,
+          "competitionRanking": 2403,
+          "feedbackTrackingData": {},
+          "isThankYou": false,
+          "teamUpInfo": {
+            "teamLeader": {
+              "displayName": "ducnh279",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/10714081-kg.jpeg?t=2025-08-17-19-57-58",
+              "url": "/ducnh279",
+              "userName": "ducnh279",
+              "tier": "MASTER",
+              "id": 10714081,
+              "profileUrl": "/ducnh279",
+              "performanceTier": "MASTER",
+              "userId": 10714081,
+              "progressionOptOut": true
+            },
+            "intro": ""
+          }
+        },
+        {
+          "id": 3547533,
+          "postDate": "2026-10-31T04:43:27.010Z",
+          "rawMarkdown": "Thanks for the controlled comparison and for calling +0.002 noise. One thing that may help with reading such pairs:\nthe noise of a *difference* between two submissions is not the noise of one score. Both are scored on the same public\nrows, so only the rows where exactly one of the two is right move the gap. If f is that share, the sd of the public\ngap is about sqrt(f / n_public), which for ~1,200 public rows is:\n\n| f (rows where exactly one is right) | 1% | 2% | 5% | 10% | 20% |\n| --- | --- | --- | --- | --- | --- |\n| sd of the public gap | 0.003 | 0.004 | 0.006 | 0.009 | 0.013 |\n\nYou can measure f on your OOF before submitting: compare the two models' correctness row by row.\n\n- Two separately trained models (different pools, or even the same code with another seed) can easily disagree in\n  correctness on 10-20% of rows. That gives an sd of 0.009-0.013, the size of the ~0.009 that alexchilton measured,\n  and +0.002 says nothing either way, as you wrote.\n- Two blends that differ in one small weight are a different story. My 0.621 and 0.623 blends disagree in\n  correctness on only 1% of OOF rows, so their gap has an sd of about 0.003. There, 0.002 is still under one sd, but\n  a 0.01 gap would be over three sd, i.e. real.\n\nI checked the formula by simulation (balanced accuracy, 18 classes, random 30% public split; it matched within ±6%\neverywhere) and put it in a CPU notebook, with a helper that estimates f from your own OOF predictions:\nhttps://www.kaggle.com/code/locdunhat/is-a-0-002-lb-gain-real\n\nCaveat: it assumes independent rows. Real errors cluster by prompt and topic, so treat these numbers as a floor.",
+          "content": "<p>Thanks for the controlled comparison and for calling +0.002 noise. One thing that may help with reading such pairs:\nthe noise of a <em>difference</em> between two submissions is not the noise of one score. Both are scored on the same public\nrows, so only the rows where exactly one of the two is right move the gap. If f is that share, the sd of the public\ngap is about sqrt(f / n_public), which for ~1,200 public rows is:</p>\n<table>\n<thead>\n<tr>\n<th>f (rows where exactly one is right)</th>\n<th>1%</th>\n<th>2%</th>\n<th>5%</th>\n<th>10%</th>\n<th>20%</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>sd of the public gap</td>\n<td>0.003</td>\n<td>0.004</td>\n<td>0.006</td>\n<td>0.009</td>\n<td>0.013</td>\n</tr>\n</tbody>\n</table>\n<p>You can measure f on your OOF before submitting: compare the two models' correctness row by row.</p>\n<ul>\n<li>Two separately trained models (different pools, or even the same code with another seed) can easily disagree in\ncorrectness on 10-20% of rows. That gives an sd of 0.009-0.013, the size of the ~0.009 that alexchilton measured,\nand +0.002 says nothing either way, as you wrote.</li>\n<li>Two blends that differ in one small weight are a different story. My 0.621 and 0.623 blends disagree in\ncorrectness on only 1% of OOF rows, so their gap has an sd of about 0.003. There, 0.002 is still under one sd, but\na 0.01 gap would be over three sd, i.e. real.</li>\n</ul>\n<p>I checked the formula by simulation (balanced accuracy, 18 classes, random 30% public split; it matched within ±6%\neverywhere) and put it in a CPU notebook, with a helper that estimates f from your own OOF predictions:\n<a href=\"https://www.kaggle.com/code/locdunhat/is-a-0-002-lb-gain-real\" target=\"_blank\">https://www.kaggle.com/code/locdunhat/is-a-0-002-lb-gain-real</a></p>\n<p>Caveat: it assumes independent rows. Real errors cluster by prompt and topic, so treat these numbers as a floor.</p>",
+          "replies": [
+            {
+              "id": 3547848,
+              "postDate": "2026-10-31T16:53:24.723Z",
+              "rawMarkdown": "bro, that is really helpful, thanks for all the community and your support, I learnt alot, so this will contribute to this dataset, I fell it is silly to try to blend and make a \"HUGE\" ensemble, all the competition wins come from the clean data, the decent label , then the skillful pipeline, this means a lot, thank you.\n",
+              "content": "<p>bro, that is really helpful, thanks for all the community and your support, I learnt alot, so this will contribute to this dataset, I fell it is silly to try to blend and make a \"HUGE\" ensemble, all the competition wins come from the clean data, the decent label , then the skillful pipeline, this means a lot, thank you.</p>",
+              "parent": {},
+              "author": {
+                "displayName": "Carrot Production",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+                "url": "/crtproduction",
+                "tier": "CONTRIBUTOR",
+                "id": 20960131,
+                "progressionOptOut": false
+              },
+              "authorType": "TOPIC",
+              "votes": {
+                "canUpvote": true
+              },
+              "kernelVersion": 0,
+              "competitionRanking": 1204,
+              "feedbackTrackingData": {},
+              "isThankYou": false,
+              "teamUpInfo": {
+                "teamLeader": {
+                  "displayName": "Carrot Production",
+                  "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+                  "url": "/crtproduction",
+                  "userName": "crtproduction",
+                  "tier": "CONTRIBUTOR",
+                  "id": 20960131,
+                  "profileUrl": "/crtproduction",
+                  "performanceTier": "CONTRIBUTOR",
+                  "userId": 20960131,
+                  "progressionOptOut": false
+                },
+                "intro": ""
+              }
+            }
+          ],
+          "parent": {},
+          "author": {
+            "displayName": "GoPain",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/3897663-kg.jpg?t=2026-10-14-14-18-45",
+            "url": "/locdunhat",
+            "tier": "CONTRIBUTOR",
+            "id": 3897663,
+            "progressionOptOut": false
+          },
+          "authorType": "COMMENT",
+          "votes": {
+            "canUpvote": true
+          },
+          "kernelVersion": 0,
+          "competitionRanking": 1361,
+          "feedbackTrackingData": {},
+          "isThankYou": false,
+          "reactions": [
+            {
+              "emoji": "THANK_YOU",
+              "featuredUserNames": [
+                "crtproduction"
+              ],
+              "userCount": 1
+            }
+          ],
+          "teamUpInfo": {
+            "teamLeader": {
+              "displayName": "GoPain",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/3897663-kg.jpg?t=2026-10-14-14-18-45",
+              "url": "/locdunhat",
+              "userName": "locdunhat",
+              "tier": "CONTRIBUTOR",
+              "id": 3897663,
+              "profileUrl": "/locdunhat",
+              "performanceTier": "CONTRIBUTOR",
+              "userId": 3897663,
+              "progressionOptOut": false
+            },
+            "intro": ""
+          }
+        },
+        {
+          "id": 3546711,
+          "postDate": "2026-10-29T15:56:12.953Z",
+          "rawMarkdown": "I observe that in computer vision tasks, even 10% of incorrect labels don't hurt training quality.",
+          "content": "<p>I observe that in computer vision tasks, even 10% of incorrect labels don't hurt training quality.</p>",
+          "replies": [
+            {
+              "id": 3546803,
+              "postDate": "2026-10-29T18:51:13.280Z",
+              "rawMarkdown": "Yes I just give my observation, seems from the beginning it is like some competitions like \"pay to win\" but in fact , it is not, we can learn many things about fine tuning, applying deep learning and data analysis, I just want to dive deeper into the datasets, thanks for your comment, I will check it out to find the best suitable data",
+              "content": "<p>Yes I just give my observation, seems from the beginning it is like some competitions like \"pay to win\" but in fact , it is not, we can learn many things about fine tuning, applying deep learning and data analysis, I just want to dive deeper into the datasets, thanks for your comment, I will check it out to find the best suitable data</p>",
+              "parent": {},
+              "author": {
+                "displayName": "Carrot Production",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+                "url": "/crtproduction",
+                "tier": "CONTRIBUTOR",
+                "id": 20960131,
+                "progressionOptOut": false
+              },
+              "authorType": "TOPIC",
+              "votes": {
+                "totalVotes": 1,
+                "canUpvote": true,
+                "totalUpvotes": 1
+              },
+              "kernelVersion": 0,
+              "competitionRanking": 1204,
+              "feedbackTrackingData": {},
+              "isThankYou": false,
+              "teamUpInfo": {
+                "teamLeader": {
+                  "displayName": "Carrot Production",
+                  "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+                  "url": "/crtproduction",
+                  "userName": "crtproduction",
+                  "tier": "CONTRIBUTOR",
+                  "id": 20960131,
+                  "profileUrl": "/crtproduction",
+                  "performanceTier": "CONTRIBUTOR",
+                  "userId": 20960131,
+                  "progressionOptOut": false
+                },
+                "intro": ""
+              }
+            }
+          ],
+          "parent": {},
+          "author": {
+            "displayName": "ZavodRobotov",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/513081-kg.JPG",
+            "url": "/zavodrobotov",
+            "tier": "EXPERT",
+            "id": 513081,
+            "progressionOptOut": false
+          },
+          "authorType": "COMMENT",
+          "votes": {
+            "canUpvote": true
+          },
+          "kernelVersion": 0,
+          "feedbackTrackingData": {},
+          "isThankYou": false,
+          "reactions": [
+            {
+              "emoji": "THANK_YOU",
+              "featuredUserNames": [
+                "crtproduction"
+              ],
+              "userCount": 1
+            }
+          ]
+        },
+        {
+          "id": 3545863,
+          "postDate": "2026-10-27T22:29:45.523Z",
+          "rawMarkdown": "Deep analysis 👌",
+          "content": "<p>Deep analysis 👌</p>",
+          "parent": {},
+          "author": {
+            "displayName": "Marie Victoire IPOUK",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+            "url": "/marydata",
+            "tier": "CONTRIBUTOR",
+            "id": 14122706,
+            "progressionOptOut": false
+          },
+          "authorType": "COMMENT",
+          "votes": {
+            "canUpvote": true
+          },
+          "kernelVersion": 0,
+          "competitionRanking": 3677,
+          "feedbackTrackingData": {},
+          "isThankYou": false,
+          "teamUpInfo": {
+            "teamLeader": {
+              "displayName": "Marie Victoire IPOUK",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+              "url": "/marydata",
+              "userName": "marydata",
+              "tier": "CONTRIBUTOR",
+              "id": 14122706,
+              "profileUrl": "/marydata",
+              "performanceTier": "CONTRIBUTOR",
+              "userId": 14122706,
+              "progressionOptOut": false
+            },
+            "intro": ""
+          }
+        },
+        {
+          "id": 3545308,
+          "postDate": "2026-10-27T03:25:35.360Z",
+          "rawMarkdown": "gonna do this weekly to fetch more data, everyday I find about 20 legit datasets from user been given out, so I may do this weekly , or update this dataset for about 2 - 3 days. so the datasets can stay up-to-date",
+          "content": "<p>gonna do this weekly to fetch more data, everyday I find about 20 legit datasets from user been given out, so I may do this weekly , or update this dataset for about 2 - 3 days. so the datasets can stay up-to-date</p>",
+          "parent": {},
+          "author": {
+            "displayName": "Carrot Production",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+            "url": "/crtproduction",
+            "tier": "CONTRIBUTOR",
+            "id": 20960131,
+            "progressionOptOut": false
+          },
+          "authorType": "TOPIC",
+          "votes": {
+            "canUpvote": true
+          },
+          "kernelVersion": 0,
+          "competitionRanking": 1204,
+          "feedbackTrackingData": {},
+          "isThankYou": false,
+          "reactions": [
+            {
+              "emoji": "YAY",
+              "featuredUserNames": [
+                "pejophylo",
+                "luisgraciadevargas"
+              ],
+              "userCount": 2
+            }
+          ],
+          "teamUpInfo": {
+            "teamLeader": {
+              "displayName": "Carrot Production",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+              "url": "/crtproduction",
+              "userName": "crtproduction",
+              "tier": "CONTRIBUTOR",
+              "id": 20960131,
+              "profileUrl": "/crtproduction",
+              "performanceTier": "CONTRIBUTOR",
+              "userId": 20960131,
+              "progressionOptOut": false
+            },
+            "intro": ""
+          }
+        },
+        {
+          "id": 3544867,
+          "postDate": "2026-10-26T12:29:26.687Z",
+          "rawMarkdown": "already fix and update the dataset, this dataset I will keep to gather any further public dataset in the future by using kaggle CLI update during the period, hopefully can gather the best quality pool for analyzing 18 different models. ",
+          "content": "<p>already fix and update the dataset, this dataset I will keep to gather any further public dataset in the future by using kaggle CLI update during the period, hopefully can gather the best quality pool for analyzing 18 different models. </p>",
+          "parent": {},
+          "author": {
+            "displayName": "Carrot Production",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+            "url": "/crtproduction",
+            "tier": "CONTRIBUTOR",
+            "id": 20960131,
+            "progressionOptOut": false
+          },
+          "authorType": "TOPIC",
+          "votes": {
+            "canUpvote": true
+          },
+          "kernelVersion": 0,
+          "competitionRanking": 1204,
+          "feedbackTrackingData": {},
+          "isThankYou": false,
+          "teamUpInfo": {
+            "teamLeader": {
+              "displayName": "Carrot Production",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+              "url": "/crtproduction",
+              "userName": "crtproduction",
+              "tier": "CONTRIBUTOR",
+              "id": 20960131,
+              "profileUrl": "/crtproduction",
+              "performanceTier": "CONTRIBUTOR",
+              "userId": 20960131,
+              "progressionOptOut": false
+            },
+            "intro": ""
+          }
+        },
+        {
+          "id": 3544847,
+          "postDate": "2026-10-26T11:45:45.970Z",
+          "rawMarkdown": "Hi, first of all, Thanks for your effort !!\n\nI tried to download this dataser, but, got following message:\n\nData not available. This dataset may need its archive recreated. Contact dataset author.",
+          "content": "<p>Hi, first of all, Thanks for your effort !!</p>\n<p>I tried to download this dataser, but, got following message:</p>\n<p>Data not available. This dataset may need its archive recreated. Contact dataset author.</p>",
+          "replies": [
+            {
+              "id": 3544856,
+              "postDate": "2026-10-26T12:06:03.893Z",
+              "rawMarkdown": "well, I already published it in publicity, what is the problem, maybe you try to dowload it with kaggle CLI ? , I think it would be good practice\n",
+              "content": "<p>well, I already published it in publicity, what is the problem, maybe you try to dowload it with kaggle CLI ? , I think it would be good practice</p>",
+              "replies": [
+                {
+                  "id": 3544860,
+                  "postDate": "2026-10-26T12:16:35.540Z",
+                  "rawMarkdown": "thanks for your reply. I tried to download it as zip.",
+                  "content": "<p>thanks for your reply. I tried to download it as zip.</p>",
+                  "parent": {},
+                  "author": {
+                    "displayName": "jaquero",
+                    "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+                    "url": "/javi12",
+                    "tier": "CONTRIBUTOR",
+                    "id": 1019192,
+                    "progressionOptOut": false
+                  },
+                  "authorType": "COMMENT",
+                  "votes": {
+                    "canUpvote": true
+                  },
+                  "kernelVersion": 0,
+                  "competitionRanking": 145,
+                  "feedbackTrackingData": {},
+                  "isThankYou": false,
+                  "reactions": [
+                    {
+                      "emoji": "LOVE",
+                      "featuredUserNames": [
+                        "crtproduction"
+                      ],
+                      "userCount": 1
+                    }
+                  ],
+                  "teamUpInfo": {
+                    "teamLeader": {
+                      "displayName": "jaquero",
+                      "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+                      "url": "/javi12",
+                      "userName": "javi12",
+                      "tier": "CONTRIBUTOR",
+                      "id": 1019192,
+                      "profileUrl": "/javi12",
+                      "performanceTier": "CONTRIBUTOR",
+                      "userId": 1019192,
+                      "progressionOptOut": false
+                    },
+                    "intro": ""
+                  }
+                }
+              ],
+              "parent": {},
+              "author": {
+                "displayName": "Carrot Production",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+                "url": "/crtproduction",
+                "tier": "CONTRIBUTOR",
+                "id": 20960131,
+                "progressionOptOut": false
+              },
+              "authorType": "TOPIC",
+              "votes": {
+                "canUpvote": true
+              },
+              "kernelVersion": 0,
+              "competitionRanking": 1204,
+              "feedbackTrackingData": {},
+              "isThankYou": false,
+              "teamUpInfo": {
+                "teamLeader": {
+                  "displayName": "Carrot Production",
+                  "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+                  "url": "/crtproduction",
+                  "userName": "crtproduction",
+                  "tier": "CONTRIBUTOR",
+                  "id": 20960131,
+                  "profileUrl": "/crtproduction",
+                  "performanceTier": "CONTRIBUTOR",
+                  "userId": 20960131,
+                  "progressionOptOut": false
+                },
+                "intro": ""
+              }
+            }
+          ],
+          "parent": {},
+          "author": {
+            "displayName": "jaquero",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+            "url": "/javi12",
+            "tier": "CONTRIBUTOR",
+            "id": 1019192,
+            "progressionOptOut": false
+          },
+          "authorType": "COMMENT",
+          "votes": {
+            "canUpvote": true
+          },
+          "kernelVersion": 0,
+          "competitionRanking": 145,
+          "feedbackTrackingData": {},
+          "isThankYou": false,
+          "teamUpInfo": {
+            "teamLeader": {
+              "displayName": "jaquero",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+              "url": "/javi12",
+              "userName": "javi12",
+              "tier": "CONTRIBUTOR",
+              "id": 1019192,
+              "profileUrl": "/javi12",
+              "performanceTier": "CONTRIBUTOR",
+              "userId": 1019192,
+              "progressionOptOut": false
+            },
+            "intro": ""
+          }
+        },
+        {
+          "id": 3545355,
+          "postDate": "2026-10-27T05:54:49.350Z",
+          "rawMarkdown": "Great work!",
+          "content": "<p>Great work!</p>",
+          "parent": {},
+          "author": {
+            "displayName": "ducnh279",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/10714081-kg.jpeg?t=2025-08-17-19-57-58",
+            "url": "/ducnh279",
+            "tier": "MASTER",
+            "id": 10714081,
+            "progressionOptOut": true
+          },
+          "authorType": "COMMENT",
+          "votes": {
+            "canUpvote": true
+          },
+          "kernelVersion": 0,
+          "competitionRanking": 2403,
+          "feedbackTrackingData": {},
+          "isThankYou": true,
+          "teamUpInfo": {
+            "teamLeader": {
+              "displayName": "ducnh279",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/10714081-kg.jpeg?t=2025-08-17-19-57-58",
+              "url": "/ducnh279",
+              "userName": "ducnh279",
+              "tier": "MASTER",
+              "id": 10714081,
+              "profileUrl": "/ducnh279",
+              "performanceTier": "MASTER",
+              "userId": 10714081,
+              "progressionOptOut": true
+            },
+            "intro": ""
+          }
+        },
+        {
+          "id": 3545128,
+          "postDate": "2026-10-26T19:54:25.417Z",
+          "rawMarkdown": "Thank you!",
+          "content": "<p>Thank you!</p>",
+          "parent": {},
+          "author": {
+            "displayName": "buysider",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/24894402-kg.png?t=2026-10-08-21-44-21",
+            "url": "/petrovmarko",
+            "tier": "CONTRIBUTOR",
+            "id": 24894402,
+            "progressionOptOut": false
+          },
+          "authorType": "COMMENT",
+          "votes": {
+            "canUpvote": true
+          },
+          "kernelVersion": 0,
+          "competitionRanking": 1911,
+          "feedbackTrackingData": {},
+          "isThankYou": true,
+          "teamUpInfo": {
+            "teamLeader": {
+              "displayName": "buysider",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/24894402-kg.png?t=2026-10-08-21-44-21",
+              "url": "/petrovmarko",
+              "userName": "petrovmarko",
+              "tier": "CONTRIBUTOR",
+              "id": 24894402,
+              "profileUrl": "/petrovmarko",
+              "performanceTier": "CONTRIBUTOR",
+              "userId": 24894402,
+              "progressionOptOut": false
+            },
+            "intro": ""
+          }
+        }
+      ],
+      "commentSort": "COMMENT_LIST_SORT_BY_HOT",
+      "firstMessage": {
+        "id": 3544753,
+        "postDate": "2026-10-26T07:59:30.670Z",
+        "rawMarkdown": "## Update: full-size LB result on clean data, and Open Pool v10 is out\n\n### 1. The leaderboard check I promised\n\nI trained the same DeBERTa-v3-large recipe twice and changed only the training pool. Same hyperparameters, same epochs, same inference notebook.\n\n| Training pool | Passages | Public LB |\n|---|---|---|\n| Raw public pool (v7) | 254k | 0.585 |\n| **Open Pool v9 (clean)** | **193k** | **0.587** |\n\n- **25% fewer passages, same or slightly better score.** The 70k rows I removed were not helping the model.\n- **+0.002 is within LB noise.** Identical code can move by about 0.009 between submissions (thanks to alexchilton for measuring this). So the honest claim is: **clean data matches the raw pool at three quarters of the size.** At equal size, the controlled test in the post above showed **+0.027**.\n\n### 2. Do not judge data changes with pool-based validation\n\nMy internal validation said v9 was clearly **worse** (0.629 → 0.591). The LB disagreed. I have seen this before: a model trained on a bigger, dirtier pool scored higher on validation but **lower** on the LB (0.611 vs 0.624).\n\ndhruvtibarewal reported the same pattern in [753177]: OOF went from 0.569 to 0.605 and the LB went from 0.651 to 0.647. If your validation rewards data that looks like the pool, it will keep rewarding junk. For data decisions, the LB (or a test-shaped OOF, see GoPain's comment in [753177]) is the referee.\n\n### 3. Open Pool v10: 198,507 clean passages\n\n**[Open Pool v10](https://www.kaggle.com/datasets/crtproduction/name-that-llm-open-pool)** is v9 plus **5,581 new passages** from 6 openly licensed datasets published since yesterday. They passed exactly the same filters, and every v9 row is unchanged.\n\n| Source | New passages |\n|---|---|\n| abdullah1afify/ntl-generations (mostly the 5 Claude labels) | 2,574 |\n| zitaoxu2002/ntl-proxy-passages-pre-ruling | 1,026 |\n| carlosoponce/ntl-own-proxy-passages | 973 |\n| aswathvanan/ntl-proxy-passages | 474 |\n| elliotthankinson/ntl-exact-gens-v3 | 367 |\n| lucasboesen/ntl-free-proxy-generations | 167 |\n\n- **Most of it goes where it is needed:** each Claude label gets about 500 to 1,000 more passages.\n- **The same filters removed 1,396 candidate rows**, mainly:\n  - 885 em dashes on labels that never use them in train;\n  - 239 passages too close to train content;\n  - 181 passages cut off mid-sentence.\n- **Not added:**\n  - a new OpenAI-response dataset whose licence for the generated text is not established yet;\n  - one source with no documentation of how it was generated;\n  - two re-merges of sources that were already in the pool or were removed in v9.\n- **`style_score` for the new rows comes from the same style model**, rebuilt exactly. New rows average 0.27, against 0.26 for v9.\n- **Ids continue from `ntlop_263484`**, so your v9 splits still work. To drop the new rows, keep ids below that.\n\n```python\nimport pandas as pd\npool = pd.read_parquet(\"/kaggle/input/name-that-llm-open-pool/ntl_open_pool.parquet\")\nprint(len(pool))                      # 198,507: train on all of it\nv9_only = pool[pool.id < \"ntlop_263484\"]\n```\n\n### 4. Still missing\n\nglm-5.3, glm-5.3-flash, kimi-k3, qwen3.8-max and claude-fable-5 received almost nothing new. If you have openly licensed generations for these labels, please publish them and comment here. I will add them in the next version and credit you.\n\n**If this pool helps you, an upvote on the dataset helps others find it. And if you see something wrong in my method or numbers, please tell me. I would rather be corrected than wrong in public.**\n",
+        "content": "<h2>Update: full-size LB result on clean data, and Open Pool v10 is out</h2>\n<h3>1. The leaderboard check I promised</h3>\n<p>I trained the same DeBERTa-v3-large recipe twice and changed only the training pool. Same hyperparameters, same epochs, same inference notebook.</p>\n<table>\n<thead>\n<tr>\n<th>Training pool</th>\n<th>Passages</th>\n<th>Public LB</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Raw public pool (v7)</td>\n<td>254k</td>\n<td>0.585</td>\n</tr>\n<tr>\n<td><strong>Open Pool v9 (clean)</strong></td>\n<td><strong>193k</strong></td>\n<td><strong>0.587</strong></td>\n</tr>\n</tbody>\n</table>\n<ul>\n<li><strong>25% fewer passages, same or slightly better score.</strong> The 70k rows I removed were not helping the model.</li>\n<li><strong>+0.002 is within LB noise.</strong> Identical code can move by about 0.009 between submissions (thanks to alexchilton for measuring this). So the honest claim is: <strong>clean data matches the raw pool at three quarters of the size.</strong> At equal size, the controlled test in the post above showed <strong>+0.027</strong>.</li>\n</ul>\n<h3>2. Do not judge data changes with pool-based validation</h3>\n<p>My internal validation said v9 was clearly <strong>worse</strong> (0.629 → 0.591). The LB disagreed. I have seen this before: a model trained on a bigger, dirtier pool scored higher on validation but <strong>lower</strong> on the LB (0.611 vs 0.624).</p>\n<p>dhruvtibarewal reported the same pattern in [753177]: OOF went from 0.569 to 0.605 and the LB went from 0.651 to 0.647. If your validation rewards data that looks like the pool, it will keep rewarding junk. For data decisions, the LB (or a test-shaped OOF, see GoPain's comment in [753177]) is the referee.</p>\n<h3>3. Open Pool v10: 198,507 clean passages</h3>\n<p><strong><a href=\"https://www.kaggle.com/datasets/crtproduction/name-that-llm-open-pool\" target=\"_blank\">Open Pool v10</a></strong> is v9 plus <strong>5,581 new passages</strong> from 6 openly licensed datasets published since yesterday. They passed exactly the same filters, and every v9 row is unchanged.</p>\n<table>\n<thead>\n<tr>\n<th>Source</th>\n<th>New passages</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>abdullah1afify/ntl-generations (mostly the 5 Claude labels)</td>\n<td>2,574</td>\n</tr>\n<tr>\n<td>zitaoxu2002/ntl-proxy-passages-pre-ruling</td>\n<td>1,026</td>\n</tr>\n<tr>\n<td>carlosoponce/ntl-own-proxy-passages</td>\n<td>973</td>\n</tr>\n<tr>\n<td>aswathvanan/ntl-proxy-passages</td>\n<td>474</td>\n</tr>\n<tr>\n<td>elliotthankinson/ntl-exact-gens-v3</td>\n<td>367</td>\n</tr>\n<tr>\n<td>lucasboesen/ntl-free-proxy-generations</td>\n<td>167</td>\n</tr>\n</tbody>\n</table>\n<ul>\n<li><strong>Most of it goes where it is needed:</strong> each Claude label gets about 500 to 1,000 more passages.</li>\n<li><strong>The same filters removed 1,396 candidate rows</strong>, mainly:<ul>\n<li>885 em dashes on labels that never use them in train;</li>\n<li>239 passages too close to train content;</li>\n<li>181 passages cut off mid-sentence.</li></ul></li>\n<li><strong>Not added:</strong><ul>\n<li>a new OpenAI-response dataset whose licence for the generated text is not established yet;</li>\n<li>one source with no documentation of how it was generated;</li>\n<li>two re-merges of sources that were already in the pool or were removed in v9.</li></ul></li>\n<li><strong><code>style_score</code> for the new rows comes from the same style model</strong>, rebuilt exactly. New rows average 0.27, against 0.26 for v9.</li>\n<li><strong>Ids continue from <code>ntlop_263484</code></strong>, so your v9 splits still work. To drop the new rows, keep ids below that.</li>\n</ul>\n<pre><code>import pandas as pd\npool = pd.read_parquet(\"/kaggle/input/name-that-llm-open-pool/ntl_open_pool.parquet\")\nprint(len(pool))                      # 198,507: train on all of it\nv9_only = pool[pool.id &lt; \"ntlop_263484\"]\n</code></pre>\n<h3>4. Still missing</h3>\n<p>glm-5.3, glm-5.3-flash, kimi-k3, qwen3.8-max and claude-fable-5 received almost nothing new. If you have openly licensed generations for these labels, please publish them and comment here. I will add them in the next version and credit you.</p>\n<p><strong>If this pool helps you, an upvote on the dataset helps others find it. And if you see something wrong in my method or numbers, please tell me. I would rather be corrected than wrong in public.</strong></p>",
+        "parent": {},
+        "author": {
+          "displayName": "Carrot Production",
+          "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+          "url": "/crtproduction",
+          "tier": "CONTRIBUTOR",
+          "id": 20960131,
+          "progressionOptOut": false
+        },
+        "authorType": "TOPIC",
+        "votes": {
+          "totalVotes": 58,
+          "canUpvote": true,
+          "totalUpvotes": 58
+        },
+        "kernelVersion": 0,
+        "competitionRanking": 1204,
+        "feedbackTrackingData": {},
+        "isThankYou": false,
+        "reactions": [
+          {
+            "emoji": "THANK_YOU",
+            "featuredUserNames": [
+              "jlealtru",
+              "matiasmgonzalez",
+              "denden12",
+              "ptran1203",
+              "davidrouyre",
+              "neerajanandcoder",
+              "tanetisanjay",
+              "osakanateishoku",
+              "wqlun06",
+              "mattcremeens",
+              "crtproduction",
+              "tanchugh",
+              "kizerek",
+              "petrovmarko",
+              "nawfeelrahman1124444",
+              "mint120",
+              "tenalirama2131",
+              "kettxii",
+              "rayagerobotics",
+              "suryagaur1408",
+              "awseq12"
+            ],
+            "userCount": 21
+          }
+        ],
+        "teamUpInfo": {
+          "teamLeader": {
+            "displayName": "Carrot Production",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+            "url": "/crtproduction",
+            "userName": "crtproduction",
+            "tier": "CONTRIBUTOR",
+            "id": 20960131,
+            "profileUrl": "/crtproduction",
+            "performanceTier": "CONTRIBUTOR",
+            "userId": 20960131,
+            "progressionOptOut": false
+          },
+          "intro": ""
+        }
+      },
+      "firstMessageId": 3544753,
+      "forumId": 13688374,
+      "forumName": "Name That LLM",
+      "id": 752766,
+      "name": "[UPDATED] Clean data beats more data (Open Pool v10 out now)",
+      "parentName": "name-that-llm",
+      "parentUrl": "/competitions/name-that-llm",
+      "postDate": "2026-10-26T07:59:30.670717200Z",
+      "totalVotes": 58,
+      "url": "/competitions/name-that-llm/discussion/752766",
+      "totalMessages": 14,
+      "authorPerformanceTier": "CONTRIBUTOR",
+      "authorProgressionOptOut": false
+    }
+  },
+  "comments_response": {
+    "comments": [
+      {
+        "id": 3547533,
+        "postDate": "2026-10-31T04:43:27.010Z",
+        "rawMarkdown": "Thanks for the controlled comparison and for calling +0.002 noise. One thing that may help with reading such pairs:\nthe noise of a *difference* between two submissions is not the noise of one score. Both are scored on the same public\nrows, so only the rows where exactly one of the two is right move the gap. If f is that share, the sd of the public\ngap is about sqrt(f / n_public), which for ~1,200 public rows is:\n\n| f (rows where exactly one is right) | 1% | 2% | 5% | 10% | 20% |\n| --- | --- | --- | --- | --- | --- |\n| sd of the public gap | 0.003 | 0.004 | 0.006 | 0.009 | 0.013 |\n\nYou can measure f on your OOF before submitting: compare the two models' correctness row by row.\n\n- Two separately trained models (different pools, or even the same code with another seed) can easily disagree in\n  correctness on 10-20% of rows. That gives an sd of 0.009-0.013, the size of the ~0.009 that alexchilton measured,\n  and +0.002 says nothing either way, as you wrote.\n- Two blends that differ in one small weight are a different story. My 0.621 and 0.623 blends disagree in\n  correctness on only 1% of OOF rows, so their gap has an sd of about 0.003. There, 0.002 is still under one sd, but\n  a 0.01 gap would be over three sd, i.e. real.\n\nI checked the formula by simulation (balanced accuracy, 18 classes, random 30% public split; it matched within ±6%\neverywhere) and put it in a CPU notebook, with a helper that estimates f from your own OOF predictions:\nhttps://www.kaggle.com/code/locdunhat/is-a-0-002-lb-gain-real\n\nCaveat: it assumes independent rows. Real errors cluster by prompt and topic, so treat these numbers as a floor.",
+        "content": "<p>Thanks for the controlled comparison and for calling +0.002 noise. One thing that may help with reading such pairs:\nthe noise of a <em>difference</em> between two submissions is not the noise of one score. Both are scored on the same public\nrows, so only the rows where exactly one of the two is right move the gap. If f is that share, the sd of the public\ngap is about sqrt(f / n_public), which for ~1,200 public rows is:</p>\n<table>\n<thead>\n<tr>\n<th>f (rows where exactly one is right)</th>\n<th>1%</th>\n<th>2%</th>\n<th>5%</th>\n<th>10%</th>\n<th>20%</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>sd of the public gap</td>\n<td>0.003</td>\n<td>0.004</td>\n<td>0.006</td>\n<td>0.009</td>\n<td>0.013</td>\n</tr>\n</tbody>\n</table>\n<p>You can measure f on your OOF before submitting: compare the two models' correctness row by row.</p>\n<ul>\n<li>Two separately trained models (different pools, or even the same code with another seed) can easily disagree in\ncorrectness on 10-20% of rows. That gives an sd of 0.009-0.013, the size of the ~0.009 that alexchilton measured,\nand +0.002 says nothing either way, as you wrote.</li>\n<li>Two blends that differ in one small weight are a different story. My 0.621 and 0.623 blends disagree in\ncorrectness on only 1% of OOF rows, so their gap has an sd of about 0.003. There, 0.002 is still under one sd, but\na 0.01 gap would be over three sd, i.e. real.</li>\n</ul>\n<p>I checked the formula by simulation (balanced accuracy, 18 classes, random 30% public split; it matched within ±6%\neverywhere) and put it in a CPU notebook, with a helper that estimates f from your own OOF predictions:\n<a href=\"https://www.kaggle.com/code/locdunhat/is-a-0-002-lb-gain-real\" target=\"_blank\">https://www.kaggle.com/code/locdunhat/is-a-0-002-lb-gain-real</a></p>\n<p>Caveat: it assumes independent rows. Real errors cluster by prompt and topic, so treat these numbers as a floor.</p>",
+        "replies": [
+          {
+            "id": 3547848,
+            "postDate": "2026-10-31T16:53:24.723Z",
+            "rawMarkdown": "bro, that is really helpful, thanks for all the community and your support, I learnt alot, so this will contribute to this dataset, I fell it is silly to try to blend and make a \"HUGE\" ensemble, all the competition wins come from the clean data, the decent label , then the skillful pipeline, this means a lot, thank you.\n",
+            "content": "<p>bro, that is really helpful, thanks for all the community and your support, I learnt alot, so this will contribute to this dataset, I fell it is silly to try to blend and make a \"HUGE\" ensemble, all the competition wins come from the clean data, the decent label , then the skillful pipeline, this means a lot, thank you.</p>",
+            "parent": {},
+            "author": {
+              "displayName": "Carrot Production",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+              "url": "/crtproduction",
+              "tier": "CONTRIBUTOR",
+              "id": 20960131,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "votes": {
+              "canUpvote": true
+            },
+            "kernelVersion": 0,
+            "competitionRanking": 1215,
+            "feedbackTrackingData": {},
+            "isThankYou": false,
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "Carrot Production",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+                "url": "/crtproduction",
+                "userName": "crtproduction",
+                "tier": "CONTRIBUTOR",
+                "id": 20960131,
+                "profileUrl": "/crtproduction",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 20960131,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          }
+        ],
+        "parent": {},
+        "author": {
+          "displayName": "GoPain",
+          "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/3897663-kg.jpg?t=2026-10-14-14-18-45",
+          "url": "/locdunhat",
+          "tier": "CONTRIBUTOR",
+          "id": 3897663,
+          "progressionOptOut": false
+        },
+        "authorType": "COMMENT",
+        "votes": {
+          "canUpvote": true
+        },
+        "kernelVersion": 0,
+        "competitionRanking": 1369,
+        "feedbackTrackingData": {},
+        "isThankYou": false,
+        "reactions": [
+          {
+            "emoji": "THANK_YOU",
+            "featuredUserNames": [
+              "crtproduction"
+            ],
+            "userCount": 1
+          }
+        ],
+        "teamUpInfo": {
+          "teamLeader": {
+            "displayName": "GoPain",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/3897663-kg.jpg?t=2026-10-14-14-18-45",
+            "url": "/locdunhat",
+            "userName": "locdunhat",
+            "tier": "CONTRIBUTOR",
+            "id": 3897663,
+            "profileUrl": "/locdunhat",
+            "performanceTier": "CONTRIBUTOR",
+            "userId": 3897663,
+            "progressionOptOut": false
+          },
+          "intro": ""
+        }
+      },
+      {
+        "id": 3547202,
+        "postDate": "2026-10-30T13:46:09.993Z",
+        "rawMarkdown": "First, I really appreciate the time and effort that went into curating this dataset and making it available to the community. It's indeed useful! I used it for pretraining (0.55), followed by fine-tuning on the competition dataset (0.609), both on my local validation set.\n\nThat said, I think diversity matters more than volume. My suspicion is that many prompts in the curated dataset have responses from only a subset of the 18 LLMs.\n\nIdeally, the dataset would be structured as N prompts × 18 responses, with one response from each LLM per prompt. This could provide better supervision I think. But yeahh, I also recognize how challenging this would be to achieve, given that responses have to be collected from multiple sources and not everyone has access to all 18 LLMs. I really appreciate the effort behind making this dataset available to the community.",
+        "content": "<p>First, I really appreciate the time and effort that went into curating this dataset and making it available to the community. It's indeed useful! I used it for pretraining (0.55), followed by fine-tuning on the competition dataset (0.609), both on my local validation set.</p>\n<p>That said, I think diversity matters more than volume. My suspicion is that many prompts in the curated dataset have responses from only a subset of the 18 LLMs.</p>\n<p>Ideally, the dataset would be structured as N prompts × 18 responses, with one response from each LLM per prompt. This could provide better supervision I think. But yeahh, I also recognize how challenging this would be to achieve, given that responses have to be collected from multiple sources and not everyone has access to all 18 LLMs. I really appreciate the effort behind making this dataset available to the community.</p>",
+        "replies": [
+          {
+            "id": 3547261,
+            "postDate": "2026-10-30T16:54:29.907Z",
+            "rawMarkdown": "Would try it, thanks so much sir",
+            "content": "<p>Would try it, thanks so much sir</p>",
+            "parent": {},
+            "author": {
+              "displayName": "Carrot Production",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+              "url": "/crtproduction",
+              "tier": "CONTRIBUTOR",
+              "id": 20960131,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "votes": {
+              "canUpvote": true
+            },
+            "kernelVersion": 0,
+            "competitionRanking": 1215,
+            "feedbackTrackingData": {},
+            "isThankYou": false,
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "Carrot Production",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+                "url": "/crtproduction",
+                "userName": "crtproduction",
+                "tier": "CONTRIBUTOR",
+                "id": 20960131,
+                "profileUrl": "/crtproduction",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 20960131,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          }
+        ],
+        "parent": {},
+        "author": {
+          "displayName": "ducnh279",
+          "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/10714081-kg.jpeg?t=2025-08-17-19-57-58",
+          "url": "/ducnh279",
+          "tier": "MASTER",
+          "id": 10714081,
+          "progressionOptOut": true
+        },
+        "authorType": "COMMENT",
+        "votes": {
+          "totalVotes": 3,
+          "canUpvote": true,
+          "totalUpvotes": 3
+        },
+        "kernelVersion": 0,
+        "competitionRanking": 2410,
+        "feedbackTrackingData": {},
+        "isThankYou": false,
+        "teamUpInfo": {
+          "teamLeader": {
+            "displayName": "ducnh279",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/10714081-kg.jpeg?t=2025-08-17-19-57-58",
+            "url": "/ducnh279",
+            "userName": "ducnh279",
+            "tier": "MASTER",
+            "id": 10714081,
+            "profileUrl": "/ducnh279",
+            "performanceTier": "MASTER",
+            "userId": 10714081,
+            "progressionOptOut": true
+          },
+          "intro": ""
+        }
+      },
+      {
+        "id": 3546711,
+        "postDate": "2026-10-29T15:56:12.953Z",
+        "rawMarkdown": "I observe that in computer vision tasks, even 10% of incorrect labels don't hurt training quality.",
+        "content": "<p>I observe that in computer vision tasks, even 10% of incorrect labels don't hurt training quality.</p>",
+        "replies": [
+          {
+            "id": 3546803,
+            "postDate": "2026-10-29T18:51:13.280Z",
+            "rawMarkdown": "Yes I just give my observation, seems from the beginning it is like some competitions like \"pay to win\" but in fact , it is not, we can learn many things about fine tuning, applying deep learning and data analysis, I just want to dive deeper into the datasets, thanks for your comment, I will check it out to find the best suitable data",
+            "content": "<p>Yes I just give my observation, seems from the beginning it is like some competitions like \"pay to win\" but in fact , it is not, we can learn many things about fine tuning, applying deep learning and data analysis, I just want to dive deeper into the datasets, thanks for your comment, I will check it out to find the best suitable data</p>",
+            "parent": {},
+            "author": {
+              "displayName": "Carrot Production",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+              "url": "/crtproduction",
+              "tier": "CONTRIBUTOR",
+              "id": 20960131,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "votes": {
+              "totalVotes": 1,
+              "canUpvote": true,
+              "totalUpvotes": 1
+            },
+            "kernelVersion": 0,
+            "competitionRanking": 1215,
+            "feedbackTrackingData": {},
+            "isThankYou": false,
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "Carrot Production",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+                "url": "/crtproduction",
+                "userName": "crtproduction",
+                "tier": "CONTRIBUTOR",
+                "id": 20960131,
+                "profileUrl": "/crtproduction",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 20960131,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          }
+        ],
+        "parent": {},
+        "author": {
+          "displayName": "ZavodRobotov",
+          "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/513081-kg.JPG",
+          "url": "/zavodrobotov",
+          "tier": "EXPERT",
+          "id": 513081,
+          "progressionOptOut": false
+        },
+        "authorType": "COMMENT",
+        "votes": {
+          "canUpvote": true
+        },
+        "kernelVersion": 0,
+        "feedbackTrackingData": {},
+        "isThankYou": false,
+        "reactions": [
+          {
+            "emoji": "THANK_YOU",
+            "featuredUserNames": [
+              "crtproduction"
+            ],
+            "userCount": 1
+          }
+        ]
+      },
+      {
+        "id": 3545863,
+        "postDate": "2026-10-27T22:29:45.523Z",
+        "rawMarkdown": "Deep analysis 👌",
+        "content": "<p>Deep analysis 👌</p>",
+        "parent": {},
+        "author": {
+          "displayName": "Marie Victoire IPOUK",
+          "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+          "url": "/marydata",
+          "tier": "CONTRIBUTOR",
+          "id": 14122706,
+          "progressionOptOut": false
+        },
+        "authorType": "COMMENT",
+        "votes": {
+          "canUpvote": true
+        },
+        "kernelVersion": 0,
+        "competitionRanking": 3687,
+        "feedbackTrackingData": {},
+        "isThankYou": false,
+        "teamUpInfo": {
+          "teamLeader": {
+            "displayName": "Marie Victoire IPOUK",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+            "url": "/marydata",
+            "userName": "marydata",
+            "tier": "CONTRIBUTOR",
+            "id": 14122706,
+            "profileUrl": "/marydata",
+            "performanceTier": "CONTRIBUTOR",
+            "userId": 14122706,
+            "progressionOptOut": false
+          },
+          "intro": ""
+        }
+      },
+      {
+        "id": 3545308,
+        "postDate": "2026-10-27T03:25:35.360Z",
+        "rawMarkdown": "gonna do this weekly to fetch more data, everyday I find about 20 legit datasets from user been given out, so I may do this weekly , or update this dataset for about 2 - 3 days. so the datasets can stay up-to-date",
+        "content": "<p>gonna do this weekly to fetch more data, everyday I find about 20 legit datasets from user been given out, so I may do this weekly , or update this dataset for about 2 - 3 days. so the datasets can stay up-to-date</p>",
+        "parent": {},
+        "author": {
+          "displayName": "Carrot Production",
+          "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+          "url": "/crtproduction",
+          "tier": "CONTRIBUTOR",
+          "id": 20960131,
+          "progressionOptOut": false
+        },
+        "authorType": "TOPIC",
+        "votes": {
+          "canUpvote": true
+        },
+        "kernelVersion": 0,
+        "competitionRanking": 1215,
+        "feedbackTrackingData": {},
+        "isThankYou": false,
+        "reactions": [
+          {
+            "emoji": "YAY",
+            "featuredUserNames": [
+              "pejophylo",
+              "luisgraciadevargas"
+            ],
+            "userCount": 2
+          }
+        ],
+        "teamUpInfo": {
+          "teamLeader": {
+            "displayName": "Carrot Production",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+            "url": "/crtproduction",
+            "userName": "crtproduction",
+            "tier": "CONTRIBUTOR",
+            "id": 20960131,
+            "profileUrl": "/crtproduction",
+            "performanceTier": "CONTRIBUTOR",
+            "userId": 20960131,
+            "progressionOptOut": false
+          },
+          "intro": ""
+        }
+      },
+      {
+        "id": 3544867,
+        "postDate": "2026-10-26T12:29:26.687Z",
+        "rawMarkdown": "already fix and update the dataset, this dataset I will keep to gather any further public dataset in the future by using kaggle CLI update during the period, hopefully can gather the best quality pool for analyzing 18 different models. ",
+        "content": "<p>already fix and update the dataset, this dataset I will keep to gather any further public dataset in the future by using kaggle CLI update during the period, hopefully can gather the best quality pool for analyzing 18 different models. </p>",
+        "parent": {},
+        "author": {
+          "displayName": "Carrot Production",
+          "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+          "url": "/crtproduction",
+          "tier": "CONTRIBUTOR",
+          "id": 20960131,
+          "progressionOptOut": false
+        },
+        "authorType": "TOPIC",
+        "votes": {
+          "canUpvote": true
+        },
+        "kernelVersion": 0,
+        "competitionRanking": 1215,
+        "feedbackTrackingData": {},
+        "isThankYou": false,
+        "teamUpInfo": {
+          "teamLeader": {
+            "displayName": "Carrot Production",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+            "url": "/crtproduction",
+            "userName": "crtproduction",
+            "tier": "CONTRIBUTOR",
+            "id": 20960131,
+            "profileUrl": "/crtproduction",
+            "performanceTier": "CONTRIBUTOR",
+            "userId": 20960131,
+            "progressionOptOut": false
+          },
+          "intro": ""
+        }
+      },
+      {
+        "id": 3544847,
+        "postDate": "2026-10-26T11:45:45.970Z",
+        "rawMarkdown": "Hi, first of all, Thanks for your effort !!\n\nI tried to download this dataser, but, got following message:\n\nData not available. This dataset may need its archive recreated. Contact dataset author.",
+        "content": "<p>Hi, first of all, Thanks for your effort !!</p>\n<p>I tried to download this dataser, but, got following message:</p>\n<p>Data not available. This dataset may need its archive recreated. Contact dataset author.</p>",
+        "replies": [
+          {
+            "id": 3544856,
+            "postDate": "2026-10-26T12:06:03.893Z",
+            "rawMarkdown": "well, I already published it in publicity, what is the problem, maybe you try to dowload it with kaggle CLI ? , I think it would be good practice\n",
+            "content": "<p>well, I already published it in publicity, what is the problem, maybe you try to dowload it with kaggle CLI ? , I think it would be good practice</p>",
+            "replies": [
+              {
+                "id": 3544860,
+                "postDate": "2026-10-26T12:16:35.540Z",
+                "rawMarkdown": "thanks for your reply. I tried to download it as zip.",
+                "content": "<p>thanks for your reply. I tried to download it as zip.</p>",
+                "parent": {},
+                "author": {
+                  "displayName": "jaquero",
+                  "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+                  "url": "/javi12",
+                  "tier": "CONTRIBUTOR",
+                  "id": 1019192,
+                  "progressionOptOut": false
+                },
+                "authorType": "COMMENT",
+                "votes": {
+                  "canUpvote": true
+                },
+                "kernelVersion": 0,
+                "competitionRanking": 158,
+                "feedbackTrackingData": {},
+                "isThankYou": false,
+                "reactions": [
+                  {
+                    "emoji": "LOVE",
+                    "featuredUserNames": [
+                      "crtproduction"
+                    ],
+                    "userCount": 1
+                  }
+                ],
+                "teamUpInfo": {
+                  "teamLeader": {
+                    "displayName": "jaquero",
+                    "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+                    "url": "/javi12",
+                    "userName": "javi12",
+                    "tier": "CONTRIBUTOR",
+                    "id": 1019192,
+                    "profileUrl": "/javi12",
+                    "performanceTier": "CONTRIBUTOR",
+                    "userId": 1019192,
+                    "progressionOptOut": false
+                  },
+                  "intro": ""
+                }
+              }
+            ],
+            "parent": {},
+            "author": {
+              "displayName": "Carrot Production",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+              "url": "/crtproduction",
+              "tier": "CONTRIBUTOR",
+              "id": 20960131,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "votes": {
+              "canUpvote": true
+            },
+            "kernelVersion": 0,
+            "competitionRanking": 1215,
+            "feedbackTrackingData": {},
+            "isThankYou": false,
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "Carrot Production",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+                "url": "/crtproduction",
+                "userName": "crtproduction",
+                "tier": "CONTRIBUTOR",
+                "id": 20960131,
+                "profileUrl": "/crtproduction",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 20960131,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          }
+        ],
+        "parent": {},
+        "author": {
+          "displayName": "jaquero",
+          "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+          "url": "/javi12",
+          "tier": "CONTRIBUTOR",
+          "id": 1019192,
+          "progressionOptOut": false
+        },
+        "authorType": "COMMENT",
+        "votes": {
+          "canUpvote": true
+        },
+        "kernelVersion": 0,
+        "competitionRanking": 158,
+        "feedbackTrackingData": {},
+        "isThankYou": false,
+        "teamUpInfo": {
+          "teamLeader": {
+            "displayName": "jaquero",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+            "url": "/javi12",
+            "userName": "javi12",
+            "tier": "CONTRIBUTOR",
+            "id": 1019192,
+            "profileUrl": "/javi12",
+            "performanceTier": "CONTRIBUTOR",
+            "userId": 1019192,
+            "progressionOptOut": false
+          },
+          "intro": ""
+        }
+      },
+      {
+        "id": 3545355,
+        "postDate": "2026-10-27T05:54:49.350Z",
+        "rawMarkdown": "Great work!",
+        "content": "<p>Great work!</p>",
+        "parent": {},
+        "author": {
+          "displayName": "ducnh279",
+          "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/10714081-kg.jpeg?t=2025-08-17-19-57-58",
+          "url": "/ducnh279",
+          "tier": "MASTER",
+          "id": 10714081,
+          "progressionOptOut": true
+        },
+        "authorType": "COMMENT",
+        "votes": {
+          "canUpvote": true
+        },
+        "kernelVersion": 0,
+        "competitionRanking": 2410,
+        "feedbackTrackingData": {},
+        "isThankYou": true,
+        "teamUpInfo": {
+          "teamLeader": {
+            "displayName": "ducnh279",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/10714081-kg.jpeg?t=2025-08-17-19-57-58",
+            "url": "/ducnh279",
+            "userName": "ducnh279",
+            "tier": "MASTER",
+            "id": 10714081,
+            "profileUrl": "/ducnh279",
+            "performanceTier": "MASTER",
+            "userId": 10714081,
+            "progressionOptOut": true
+          },
+          "intro": ""
+        }
+      },
+      {
+        "id": 3545128,
+        "postDate": "2026-10-26T19:54:25.417Z",
+        "rawMarkdown": "Thank you!",
+        "content": "<p>Thank you!</p>",
+        "parent": {},
+        "author": {
+          "displayName": "buysider",
+          "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/24894402-kg.png?t=2026-10-08-21-44-21",
+          "url": "/petrovmarko",
+          "tier": "CONTRIBUTOR",
+          "id": 24894402,
+          "progressionOptOut": false
+        },
+        "authorType": "COMMENT",
+        "votes": {
+          "canUpvote": true
+        },
+        "kernelVersion": 0,
+        "competitionRanking": 1921,
+        "feedbackTrackingData": {},
+        "isThankYou": true,
+        "teamUpInfo": {
+          "teamLeader": {
+            "displayName": "buysider",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/24894402-kg.png?t=2026-10-08-21-44-21",
+            "url": "/petrovmarko",
+            "userName": "petrovmarko",
+            "tier": "CONTRIBUTOR",
+            "id": 24894402,
+            "profileUrl": "/petrovmarko",
+            "performanceTier": "CONTRIBUTOR",
+            "userId": 24894402,
+            "progressionOptOut": false
+          },
+          "intro": ""
+        }
+      }
+    ],
+    "commentSort": "COMMENT_LIST_SORT_BY_NEW"
+  },
+  "hydrated_message_responses": []
+}

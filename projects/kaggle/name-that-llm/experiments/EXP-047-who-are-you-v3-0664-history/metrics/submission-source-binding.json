@@ -1,0 +1,39 @@
+{
+  "status": "PASS_COMPLETE_PUBLIC_SUBMISSION_BOUND",
+  "observed_at": "2026-11-01T17:21:54Z",
+  "registered_at": "2026-11-01T17:34:25.102026+00:00",
+  "submission_id": 57843313,
+  "submission_status": "COMPLETE",
+  "public_score": 0.664,
+  "private_score": null,
+  "script_version_id": 364274017,
+  "notebook_ref": "zhjianduan/who-are-you",
+  "notebook_version": 3,
+  "source_sha256": "b4a716ba3c1cdc4a5c976a0cb9ff2c863e53ed7e63a8da1becfa2e70d422f5d6",
+  "source_bytes_equal_exp006_v2": true,
+  "original_v2_record_preserved": true,
+  "binding_sources": {
+    "script_version_id": "Parsed directly from official submission URL",
+    "notebook_version": "Official notebook metadata current_version_number=3 in root same-turn fixed-V3 readback",
+    "source": "Exact UTF8 bytes of notebook blob.source, not a reserialized notebook",
+    "metadata_scope": "Notebook info metadata does not independently repeat global scriptVersionId; submission URL is the global-ID evidence."
+  },
+  "notebook_url": "https://www.kaggle.com/code/zhjianduan/who-are-you?scriptVersionId=364274017",
+  "submitted_at": "2026-10-31T15:42:28.377Z",
+  "checks": {
+    "submitted_by": "zhjianduan",
+    "file_name": "submission.parquet",
+    "submission_bytes": 60075,
+    "score_is_not_author_page": true,
+    "source_command_sinkhorn": 0.3,
+    "source_command_atlas_w": 0.2,
+    "source_command_comp_w": 0.15
+  },
+  "limitations": [
+    "No private score was supplied.",
+    "No new training/output/log/runtime accounting inspection; elapsed/GPU/API/Colab usage unknown.",
+    "Attachment content hashes and complete clean OOF are not certified by this registration.",
+    "Same source bytes across versions do not imply same backend state or deterministic scores.",
+    "A .002 Public LB difference from EXP004 is one historical observation, not isolated causal/statistical evidence."
+  ]
+}

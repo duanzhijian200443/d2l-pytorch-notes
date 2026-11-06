@@ -1,0 +1,41 @@
+{
+  "observed_at": "2026-11-01T12:01:26.220237+00:00",
+  "status": "PASS",
+  "format_examples": {
+    "plain": [],
+    "mail": [],
+    "dialogue": [],
+    "arithmetic": [],
+    "bold_multiline": [
+      "line_break",
+      "bold"
+    ],
+    "inline_italic": [
+      "italic"
+    ],
+    "code": [
+      "code_markup"
+    ],
+    "numbered": [
+      "numbered_list"
+    ],
+    "multiline": [
+      "line_break"
+    ]
+  },
+  "double_wrap_blocked": true,
+  "generated_files_exactly_reproducible": true,
+  "dry_run": {
+    "status": "DRY_RUN",
+    "planned_total": 20,
+    "target_total": 20,
+    "already_saved": 0,
+    "remaining_in_this_run": 20,
+    "workers": 2,
+    "controller_automatic_retries": 0,
+    "cli_internal_retry_policy": "see frozen cli_overrides; not inferred",
+    "observed_at": "2026-11-01T12:01:26.211524+00:00"
+  },
+  "collection_directory_created": false,
+  "new_requests_sent": 0
+}

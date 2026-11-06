@@ -1,0 +1,36 @@
+{
+  "status": "PASS_EXP046_INPUT_PREFLIGHT",
+  "data_dir": "/kaggle/input/competitions/name-that-llm",
+  "extra_dir": "/kaggle/input/datasets/zhjianduan/ntl-stylegram-cv-inputs-v1",
+  "extra_path": "/kaggle/input/datasets/zhjianduan/ntl-stylegram-cv-inputs-v1/extra.csv",
+  "stylegram_core_path": "/kaggle/input/datasets/zhjianduan/ntl-stylegram-cv-inputs-v1/stylegram_core.py",
+  "test_rows": 3,
+  "counts": {
+    "baseline_noncompetition_files": 528,
+    "baseline_small_files_hashed": 398,
+    "baseline_large_files_size_only": 130,
+    "extra_files_hashed": 5
+  },
+  "bytes": {
+    "baseline_small_hashed": 576874614,
+    "baseline_large_size_only": 190244277214
+  },
+  "official_train_sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+  "small_hash_threshold_bytes": 16777216,
+  "dynamic_competition_policy": {
+    "test": "Only id,text schema and nonempty unique IDs/text checked; no old row count, size or hash imposed.",
+    "sample_submission": "Historical public sample size/hash deliberately ignored; no placeholder generated."
+  },
+  "limits": [
+    "Large weights were NOT rehashed in this run. Only exact sizes checked, with fixed attachment versions and historical full-hash provenance.",
+    "No additional filetree recursion or model loading; unrelated files outside fixed paths are not asserted absent.",
+    "Input compatibility is not a successful hidden inference, submission, or leaderboard result."
+  ],
+  "training_started": false,
+  "installation_performed": false,
+  "manifest_sha256": "de7a305b5d26a5ad0cca0ed41cf31e2af1f85037dd354286aeef77ac67aaabf5",
+  "extra_manifest_sha256": "b7bf1347c6185c14d2480975873989f58115c02de65dc8bbd12ab09697faa687",
+  "verifier_sha256": "26ee6c2a149a5b0e48f8016cd4427ef1576f02b178de85fab2ba9e5f4dc10d57",
+  "elapsed_seconds": 62.73664708299998,
+  "timestamp_unix": 1793588855.1630914
+}

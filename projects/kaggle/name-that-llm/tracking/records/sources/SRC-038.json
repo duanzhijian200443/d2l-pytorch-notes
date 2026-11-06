@@ -1,0 +1,52 @@
+{
+  "kind": "dataset",
+  "category": "datasets",
+  "title": "Open Pool：作者v10 / Kaggle V11 数据卡与清洗对照",
+  "author": "crtproduction",
+  "url": "https://www.kaggle.com/datasets/crtproduction/name-that-llm-open-pool/versions/11",
+  "observed_at": "2026-11-01T07:35:57Z",
+  "source_version": {
+    "dataset_id": 12862556,
+    "dataset_version_number": 11,
+    "author_release_label": "v10",
+    "version_created_at": "2026-10-30T07:53:21.983Z"
+  },
+  "public_score": null,
+  "summary": "198507条为作者声明；平台固定版本11而非10，卡片/文件清单已核查，未读全量行内容。",
+  "tags": [
+    "data",
+    "cleaning",
+    "provenance",
+    "license",
+    "version-binding"
+  ],
+  "related_sources": [
+    "SRC-027",
+    "SRC-033",
+    "SRC-036",
+    "SRC-037"
+  ],
+  "schema_version": 1,
+  "id": "SRC-038",
+  "artifact_dir": "research/datasets/SRC-038-open-pool-kaggle-v11",
+  "notes_path": "research/datasets/SRC-038-open-pool-kaggle-v11/notes.md",
+  "author_claim": "数据卡称198507条、18标签、54来源；作者v10新增5581条，沿用v9清洗规则。",
+  "verified": "Kaggle MCP确认平台版本11对应作者v10；已读卡片、版本历史及12文件清单，未读parquet。",
+  "use_for_us": "作为IDEA-003公共池候选，复用既有EXP-008/009来源和prompt审计方法。",
+  "test_plan": "未来固定平台V11和文件哈希，审计重叠/分组/标签/上游清洗，再做等量及全量对照。",
+  "limitations": "行数、标记和上游许可为作者声明；未做逐行审计，官方标签参与上游清洗仍影响严格OOF解释。",
+  "collection_observation_note": "源码/API时间见回执。浏览器仅记录2026-11-01 UTC采集日期及07:35:57 UTC汇总截至时刻，不将其伪作逐页精确读取时间。",
+  "supersedes": null,
+  "evidence": [
+    "research/datasets/SRC-038-open-pool-kaggle-v11/notes.md",
+    "research/datasets/SRC-038-open-pool-kaggle-v11/api-info.json",
+    "research/datasets/SRC-038-open-pool-kaggle-v11/dataset-metadata.json",
+    "research/datasets/SRC-038-open-pool-kaggle-v11/files-v11.json"
+  ],
+  "evidence_sha256": {
+    "research/datasets/SRC-038-open-pool-kaggle-v11/notes.md": "97411901150aa9729d04e44866c098163a8b504dab3854e9217e999e7d7d000b",
+    "research/datasets/SRC-038-open-pool-kaggle-v11/api-info.json": "a8318c1ed67bbfac85ef24d4ea74bd1bdacb28421fe8132350af62a69e6861fd",
+    "research/datasets/SRC-038-open-pool-kaggle-v11/dataset-metadata.json": "5175e63b494128ea2171aa2c01dd30e4846af02596aa010b4220ba78c94f9444",
+    "research/datasets/SRC-038-open-pool-kaggle-v11/files-v11.json": "be92c0eb04b27208f83e6d4e209c9ffce375cca62c4759f50911e5a4d1f1cc71"
+  }
+}

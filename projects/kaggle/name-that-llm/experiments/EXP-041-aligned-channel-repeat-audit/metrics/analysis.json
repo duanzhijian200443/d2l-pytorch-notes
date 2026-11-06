@@ -1,0 +1,2334 @@
+{
+  "experiment": "EXP-041",
+  "observed_at": "2026-11-01T14:11:10.886080+00:00",
+  "methods": {
+    "seed": 2026110141,
+    "bootstrap_resamples": 20000,
+    "unit": "whole base prompt, equal prompt weight and equal available model cells within prompt",
+    "metrics": "word trigram Jaccard / normalized whitespace character trigram count cosine / absolute whitespace word-count gap",
+    "excess": "mean of four cross-route pairs minus mean of two within-route pairs in each cell",
+    "interpretation": "surface text distances, not semantic loss, causal contamination probability or equivalence test",
+    "sensitivity": "nine prompts with both models complete; missing cell omitted, never imputed",
+    "fit_or_generation": "none"
+  },
+  "paired_responses": 78,
+  "complete_cells": [
+    {
+      "prompt_id": "cp0001",
+      "model": "gpt-5.6-luna",
+      "within_pairs": {
+        "word_trigram_jaccard": [
+          0.98125,
+          0.9937888198757764
+        ],
+        "char_trigram_cosine": [
+          0.36203837464826194,
+          0.3729858151660246
+        ],
+        "word_count_gap": [
+          0,
+          2
+        ]
+      },
+      "cross_pairs": {
+        "word_trigram_jaccard": [
+          0.9215686274509804,
+          0.9551282051282052,
+          0.9548387096774194,
+          0.9743589743589743
+        ],
+        "char_trigram_cosine": [
+          0.2775228998795767,
+          0.40513755231669446,
+          0.2863988741066227,
+          0.3758387318727392
+        ],
+        "word_count_gap": [
+          3,
+          1,
+          3,
+          1
+        ]
+      },
+      "word_trigram_jaccard_within_codex": 0.98125,
+      "word_trigram_jaccard_within_kaggle": 0.9937888198757764,
+      "word_trigram_jaccard_within": 0.9875194099378881,
+      "word_trigram_jaccard_cross": 0.9514736291538948,
+      "word_trigram_jaccard_excess": -0.03604578078399334,
+      "char_trigram_cosine_within_codex": 0.36203837464826194,
+      "char_trigram_cosine_within_kaggle": 0.3729858151660246,
+      "char_trigram_cosine_within": 0.36751209490714326,
+      "char_trigram_cosine_cross": 0.3362245145439082,
+      "char_trigram_cosine_excess": -0.031287580363235035,
+      "word_count_gap_within_codex": 0,
+      "word_count_gap_within_kaggle": 2,
+      "word_count_gap_within": 1.0,
+      "word_count_gap_cross": 2.0,
+      "word_count_gap_excess": 1.0,
+      "words_signed_codex_minus_kaggle": -2.0,
+      "sentence_endings_signed_codex_minus_kaggle": 0.0,
+      "em_dash_per100w_signed_codex_minus_kaggle": 0.0,
+      "semicolon_per100w_signed_codex_minus_kaggle": 0.022045855379188684,
+      "colon_per100w_signed_codex_minus_kaggle": 0.00752785305630832,
+      "comma_per100w_signed_codex_minus_kaggle": 1.3749085903557443,
+      "old_word_trigram_cross": 0.9938271604938271,
+      "new_minus_old_cross_word_trigram": -0.04235353133993236
+    },
+    {
+      "prompt_id": "cp0001",
+      "model": "gpt-5.6-terra",
+      "within_pairs": {
+        "word_trigram_jaccard": [
+          0.9806451612903225,
+          0.975
+        ],
+        "char_trigram_cosine": [
+          0.3548888788771398,
+          0.37518992457974076
+        ],
+        "word_count_gap": [
+          1,
+          1
+        ]
+      },
+      "cross_pairs": {
+        "word_trigram_jaccard": [
+          0.9875,
+          0.9875,
+          0.9743589743589743,
+          0.967741935483871
+        ],
+        "char_trigram_cosine": [
+          0.4080167378385352,
+          0.4069925701265754,
+          0.38211857267805327,
+          0.3526283572411715
+        ],
+        "word_count_gap": [
+          2,
+          3,
+          3,
+          4
+        ]
+      },
+      "word_trigram_jaccard_within_codex": 0.9806451612903225,
+      "word_trigram_jaccard_within_kaggle": 0.975,
+      "word_trigram_jaccard_within": 0.9778225806451613,
+      "word_trigram_jaccard_cross": 0.9792752274607114,
+      "word_trigram_jaccard_excess": 0.0014526468155501293,
+      "char_trigram_cosine_within_codex": 0.3548888788771398,
+      "char_trigram_cosine_within_kaggle": 0.37518992457974076,
+      "char_trigram_cosine_within": 0.3650394017284403,
+      "char_trigram_cosine_cross": 0.3874390594710838,
+      "char_trigram_cosine_excess": 0.02239965774264352,
+      "word_count_gap_within_codex": 1,
+      "word_count_gap_within_kaggle": 1,
+      "word_count_gap_within": 1.0,
+      "word_count_gap_cross": 3.0,
+      "word_count_gap_excess": 2.0,
+      "words_signed_codex_minus_kaggle": -3.0,
+      "sentence_endings_signed_codex_minus_kaggle": 0.5,
+      "em_dash_per100w_signed_codex_minus_kaggle": 0.0,
+      "semicolon_per100w_signed_codex_minus_kaggle": 0.023155294844087737,
+      "colon_per100w_signed_codex_minus_kaggle": -0.6172839506172839,
+      "comma_per100w_signed_codex_minus_kaggle": -0.4221681565511961,
+      "old_word_trigram_cross": 0.9865771812080537,
+      "new_minus_old_cross_word_trigram": -0.007301953747342327
+    },
+    {
+      "prompt_id": "cp0022",
+      "model": "gpt-5.6-luna",
+      "within_pairs": {
+        "word_trigram_jaccard": [
+          0.8755760368663594,
+          0.8963963963963963
+        ],
+        "char_trigram_cosine": [
+          0.1863837976265339,
+          0.17094745119325716
+        ],
+        "word_count_gap": [
+          2,
+          5
+        ]
+      },
+      "cross_pairs": {
+        "word_trigram_jaccard": [
+          0.7089947089947091,
+          0.880184331797235,
+          0.8818181818181818,
+          0.8443396226415094
+        ],
+        "char_trigram_cosine": [
+          0.12386341540410772,
+          0.18686082281062444,
+          0.15335237965103832,
+          0.15767908726152358
+        ],
+        "word_count_gap": [
+          4,
+          1,
+          2,
+          3
+        ]
+      },
+      "word_trigram_jaccard_within_codex": 0.8755760368663594,
+      "word_trigram_jaccard_within_kaggle": 0.8963963963963963,
+      "word_trigram_jaccard_within": 0.8859862166313779,
+      "word_trigram_jaccard_cross": 0.8288342113129088,
+      "word_trigram_jaccard_excess": -0.05715200531846909,
+      "char_trigram_cosine_within_codex": 0.1863837976265339,
+      "char_trigram_cosine_within_kaggle": 0.17094745119325716,
+      "char_trigram_cosine_within": 0.17866562440989553,
+      "char_trigram_cosine_cross": 0.15543892628182351,
+      "char_trigram_cosine_excess": -0.023226698128072015,
+      "word_count_gap_within_codex": 2,
+      "word_count_gap_within_kaggle": 5,
+      "word_count_gap_within": 3.5,
+      "word_count_gap_cross": 2.5,
+      "word_count_gap_excess": -1.0,
+      "words_signed_codex_minus_kaggle": -0.5,
+      "sentence_endings_signed_codex_minus_kaggle": -0.5,
+      "em_dash_per100w_signed_codex_minus_kaggle": 0.0,
+      "semicolon_per100w_signed_codex_minus_kaggle": 0.4065040650406504,
+      "colon_per100w_signed_codex_minus_kaggle": 0.0,
+      "comma_per100w_signed_codex_minus_kaggle": 1.2430450392021681,
+      "old_word_trigram_cross": 0.795,
+      "new_minus_old_cross_word_trigram": 0.03383421131290876
+    },
+    {
+      "prompt_id": "cp0022",
+      "model": "gpt-5.6-terra",
+      "within_pairs": {
+        "word_trigram_jaccard": [
+          0.92,
+          0.9078341013824884
+        ],
+        "char_trigram_cosine": [
+          0.17068158055874194,
+          0.19257541627889174
+        ],
+        "word_count_gap": [
+          6,
+          1
+        ]
+      },
+      "cross_pairs": {
+        "word_trigram_jaccard": [
+          0.9279279279279279,
+          0.8495145631067962,
+          0.9054054054054054,
+          0.863849765258216
+        ],
+        "char_trigram_cosine": [
+          0.1749282102531502,
+          0.17487662124345327,
+          0.17776149561269194,
+          0.183952781731493
+        ],
+        "word_count_gap": [
+          1,
+          0,
+          5,
+          6
+        ]
+      },
+      "word_trigram_jaccard_within_codex": 0.92,
+      "word_trigram_jaccard_within_kaggle": 0.9078341013824884,
+      "word_trigram_jaccard_within": 0.9139170506912442,
+      "word_trigram_jaccard_cross": 0.8866744154245864,
+      "word_trigram_jaccard_excess": -0.027242635266657822,
+      "char_trigram_cosine_within_codex": 0.17068158055874194,
+      "char_trigram_cosine_within_kaggle": 0.19257541627889174,
+      "char_trigram_cosine_within": 0.18162849841881684,
+      "char_trigram_cosine_cross": 0.1778797772101971,
+      "char_trigram_cosine_excess": -0.003748721208619743,
+      "word_count_gap_within_codex": 6,
+      "word_count_gap_within_kaggle": 1,
+      "word_count_gap_within": 3.5,
+      "word_count_gap_cross": 3.0,
+      "word_count_gap_excess": -0.5,
+      "words_signed_codex_minus_kaggle": 2.5,
+      "sentence_endings_signed_codex_minus_kaggle": -0.5,
+      "em_dash_per100w_signed_codex_minus_kaggle": 0.0,
+      "semicolon_per100w_signed_codex_minus_kaggle": -1.2431129476584022,
+      "colon_per100w_signed_codex_minus_kaggle": 0.4002689229961957,
+      "comma_per100w_signed_codex_minus_kaggle": -3.444674012855831,
+      "old_word_trigram_cross": 0.8762376237623762,
+      "new_minus_old_cross_word_trigram": 0.010436791662210121
+    },
+    {
+      "prompt_id": "cp0043",
+      "model": "gpt-5.6-luna",
+      "within_pairs": {
+        "word_trigram_jaccard": [
+          0.7859778597785978,
+          0.7198443579766537
+        ],
+        "char_trigram_cosine": [
+          0.11708003967096958,
+          0.07947321557477949
+        ],
+        "word_count_gap": [
+          7,
+          10
+        ]
+      },
+      "cross_pairs": {
+        "word_trigram_jaccard": [
+          0.8267148014440433,
+          0.7664233576642336,
+          0.7924528301886793,
+          0.7142857142857143
+        ],
+        "char_trigram_cosine": [
+          0.11522501361990667,
+          0.08552635373195117,
+          0.1229464349051762,
+          0.0947239773431039
+        ],
+        "word_count_gap": [
+          7,
+          3,
+          0,
+          10
+        ]
+      },
+      "word_trigram_jaccard_within_codex": 0.7859778597785978,
+      "word_trigram_jaccard_within_kaggle": 0.7198443579766537,
+      "word_trigram_jaccard_within": 0.7529111088776257,
+      "word_trigram_jaccard_cross": 0.7749691758956676,
+      "word_trigram_jaccard_excess": 0.022058067018041916,
+      "char_trigram_cosine_within_codex": 0.11708003967096958,
+      "char_trigram_cosine_within_kaggle": 0.07947321557477949,
+      "char_trigram_cosine_within": 0.09827662762287454,
+      "char_trigram_cosine_cross": 0.10460544490003448,
+      "char_trigram_cosine_excess": 0.006328817277159948,
+      "word_count_gap_within_codex": 7,
+      "word_count_gap_within_kaggle": 10,
+      "word_count_gap_within": 8.5,
+      "word_count_gap_cross": 5.0,
+      "word_count_gap_excess": -3.5,
+      "words_signed_codex_minus_kaggle": -1.5,
+      "sentence_endings_signed_codex_minus_kaggle": 0.5,
+      "em_dash_per100w_signed_codex_minus_kaggle": 0.0,
+      "semicolon_per100w_signed_codex_minus_kaggle": 0.0,
+      "colon_per100w_signed_codex_minus_kaggle": 0.0,
+      "comma_per100w_signed_codex_minus_kaggle": 0.3757260540206282,
+      "old_word_trigram_cross": 0.7262357414448669,
+      "new_minus_old_cross_word_trigram": 0.048733434450800694
+    },
+    {
+      "prompt_id": "cp0043",
+      "model": "gpt-5.6-terra",
+      "within_pairs": {
+        "word_trigram_jaccard": [
+          0.8648648648648649,
+          0.8904593639575972
+        ],
+        "char_trigram_cosine": [
+          0.1373487585526335,
+          0.14082193975620694
+        ],
+        "word_count_gap": [
+          1,
+          10
+        ]
+      },
+      "cross_pairs": {
+        "word_trigram_jaccard": [
+          0.8196078431372549,
+          0.8772563176895307,
+          0.7415254237288136,
+          0.9340277777777778
+        ],
+        "char_trigram_cosine": [
+          0.10563137062087202,
+          0.1348401244508376,
+          0.1274090982616205,
+          0.16732548622453292
+        ],
+        "word_count_gap": [
+          4,
+          14,
+          5,
+          15
+        ]
+      },
+      "word_trigram_jaccard_within_codex": 0.8648648648648649,
+      "word_trigram_jaccard_within_kaggle": 0.8904593639575972,
+      "word_trigram_jaccard_within": 0.8776621144112311,
+      "word_trigram_jaccard_cross": 0.8431043405833443,
+      "word_trigram_jaccard_excess": -0.03455777382788683,
+      "char_trigram_cosine_within_codex": 0.1373487585526335,
+      "char_trigram_cosine_within_kaggle": 0.14082193975620694,
+      "char_trigram_cosine_within": 0.13908534915442022,
+      "char_trigram_cosine_cross": 0.13380151988946576,
+      "char_trigram_cosine_excess": -0.005283829264954465,
+      "word_count_gap_within_codex": 1,
+      "word_count_gap_within_kaggle": 10,
+      "word_count_gap_within": 5.5,
+      "word_count_gap_cross": 9.5,
+      "word_count_gap_excess": 4.0,
+      "words_signed_codex_minus_kaggle": -9.5,
+      "sentence_endings_signed_codex_minus_kaggle": 0.0,
+      "em_dash_per100w_signed_codex_minus_kaggle": 0.0,
+      "semicolon_per100w_signed_codex_minus_kaggle": 0.0,
+      "colon_per100w_signed_codex_minus_kaggle": -0.32679738562091504,
+      "comma_per100w_signed_codex_minus_kaggle": 0.2029257573860228,
+      "old_word_trigram_cross": 0.8996282527881041,
+      "new_minus_old_cross_word_trigram": -0.05652391220475983
+    },
+    {
+      "prompt_id": "cp0064",
+      "model": "gpt-5.6-luna",
+      "within_pairs": {
+        "word_trigram_jaccard": [
+          0.9729064039408867,
+          0.9620853080568721
+        ],
+        "char_trigram_cosine": [
+          0.17945398993315131,
+          0.17967262247903049
+        ],
+        "word_count_gap": [
+          22,
+          7
+        ]
+      },
+      "cross_pairs": {
+        "word_trigram_jaccard": [
+          0.9715639810426541,
+          0.9815668202764977,
+          0.970074812967581,
+          0.9681372549019608
+        ],
+        "char_trigram_cosine": [
+          0.18343130093076188,
+          0.1866230268973943,
+          0.1788193006013301,
+          0.1946353258085053
+        ],
+        "word_count_gap": [
+          4,
+          3,
+          18,
+          25
+        ]
+      },
+      "word_trigram_jaccard_within_codex": 0.9729064039408867,
+      "word_trigram_jaccard_within_kaggle": 0.9620853080568721,
+      "word_trigram_jaccard_within": 0.9674958559988793,
+      "word_trigram_jaccard_cross": 0.9728357172971734,
+      "word_trigram_jaccard_excess": 0.005339861298294113,
+      "char_trigram_cosine_within_codex": 0.17945398993315131,
+      "char_trigram_cosine_within_kaggle": 0.17967262247903049,
+      "char_trigram_cosine_within": 0.1795633062060909,
+      "char_trigram_cosine_cross": 0.1858772385594979,
+      "char_trigram_cosine_excess": 0.0063139323534069924,
+      "word_count_gap_within_codex": 22,
+      "word_count_gap_within_kaggle": 7,
+      "word_count_gap_within": 14.5,
+      "word_count_gap_cross": 12.5,
+      "word_count_gap_excess": -2.0,
+      "words_signed_codex_minus_kaggle": -10.5,
+      "sentence_endings_signed_codex_minus_kaggle": 1.0,
+      "em_dash_per100w_signed_codex_minus_kaggle": 0.0,
+      "semicolon_per100w_signed_codex_minus_kaggle": -0.004287061647946483,
+      "colon_per100w_signed_codex_minus_kaggle": -0.22624434389140272,
+      "comma_per100w_signed_codex_minus_kaggle": 3.184458410620728,
+      "old_word_trigram_cross": 0.9765258215962441,
+      "new_minus_old_cross_word_trigram": -0.0036901042990706845
+    },
+    {
+      "prompt_id": "cp0064",
+      "model": "gpt-5.6-terra",
+      "within_pairs": {
+        "word_trigram_jaccard": [
+          0.9285714285714286,
+          0.9847328244274809
+        ],
+        "char_trigram_cosine": [
+          0.1906891607265313,
+          0.22699366523298392
+        ],
+        "word_count_gap": [
+          6,
+          13
+        ]
+      },
+      "cross_pairs": {
+        "word_trigram_jaccard": [
+          0.9593908629441624,
+          0.9577836411609498,
+          0.9512820512820512,
+          0.9739583333333334
+        ],
+        "char_trigram_cosine": [
+          0.1968040820725412,
+          0.21142809243457816,
+          0.1977974792863516,
+          0.2456002678316933
+        ],
+        "word_count_gap": [
+          8,
+          5,
+          14,
+          1
+        ]
+      },
+      "word_trigram_jaccard_within_codex": 0.9285714285714286,
+      "word_trigram_jaccard_within_kaggle": 0.9847328244274809,
+      "word_trigram_jaccard_within": 0.9566521264994547,
+      "word_trigram_jaccard_cross": 0.9606037221801242,
+      "word_trigram_jaccard_excess": 0.003951595680669495,
+      "char_trigram_cosine_within_codex": 0.1906891607265313,
+      "char_trigram_cosine_within_kaggle": 0.22699366523298392,
+      "char_trigram_cosine_within": 0.2088414129797576,
+      "char_trigram_cosine_cross": 0.21290748040629107,
+      "char_trigram_cosine_excess": 0.004066067426533454,
+      "word_count_gap_within_codex": 6,
+      "word_count_gap_within_kaggle": 13,
+      "word_count_gap_within": 9.5,
+      "word_count_gap_cross": 7.0,
+      "word_count_gap_excess": -2.5,
+      "words_signed_codex_minus_kaggle": -4.5,
+      "sentence_endings_signed_codex_minus_kaggle": -1.5,
+      "em_dash_per100w_signed_codex_minus_kaggle": 0.0,
+      "semicolon_per100w_signed_codex_minus_kaggle": -0.504319105691057,
+      "colon_per100w_signed_codex_minus_kaggle": 0.5254918788856211,
+      "comma_per100w_signed_codex_minus_kaggle": 0.7275612635235778,
+      "old_word_trigram_cross": 0.9583333333333334,
+      "new_minus_old_cross_word_trigram": 0.0022703888467908717
+    },
+    {
+      "prompt_id": "cp0081",
+      "model": "gpt-5.6-luna",
+      "within_pairs": {
+        "word_trigram_jaccard": [
+          0.93125,
+          0.9299363057324841
+        ],
+        "char_trigram_cosine": [
+          0.2151084687049365,
+          0.2685263469577134
+        ],
+        "word_count_gap": [
+          0,
+          1
+        ]
+      },
+      "cross_pairs": {
+        "word_trigram_jaccard": [
+          0.94375,
+          0.94375,
+          0.9032258064516129,
+          0.9032258064516129
+        ],
+        "char_trigram_cosine": [
+          0.25522276963179036,
+          0.25873367013615056,
+          0.2269703679137568,
+          0.21957788575883963
+        ],
+        "word_count_gap": [
+          1,
+          2,
+          1,
+          2
+        ]
+      },
+      "word_trigram_jaccard_within_codex": 0.93125,
+      "word_trigram_jaccard_within_kaggle": 0.9299363057324841,
+      "word_trigram_jaccard_within": 0.9305931528662421,
+      "word_trigram_jaccard_cross": 0.9234879032258064,
+      "word_trigram_jaccard_excess": -0.007105249640435685,
+      "char_trigram_cosine_within_codex": 0.2151084687049365,
+      "char_trigram_cosine_within_kaggle": 0.2685263469577134,
+      "char_trigram_cosine_within": 0.24181740783132494,
+      "char_trigram_cosine_cross": 0.24012617336013434,
+      "char_trigram_cosine_excess": -0.0016912344711906002,
+      "word_count_gap_within_codex": 0,
+      "word_count_gap_within_kaggle": 1,
+      "word_count_gap_within": 0.5,
+      "word_count_gap_cross": 1.5,
+      "word_count_gap_excess": 1.0,
+      "words_signed_codex_minus_kaggle": 1.5,
+      "sentence_endings_signed_codex_minus_kaggle": 0.0,
+      "em_dash_per100w_signed_codex_minus_kaggle": 0.0,
+      "semicolon_per100w_signed_codex_minus_kaggle": -0.013522650439486195,
+      "colon_per100w_signed_codex_minus_kaggle": 0.0,
+      "comma_per100w_signed_codex_minus_kaggle": 1.4950390741701653,
+      "old_word_trigram_cross": 0.9246575342465754,
+      "new_minus_old_cross_word_trigram": -0.0011696310207689464
+    },
+    {
+      "prompt_id": "cp0081",
+      "model": "gpt-5.6-terra",
+      "within_pairs": {
+        "word_trigram_jaccard": [
+          0.875,
+          0.680672268907563
+        ],
+        "char_trigram_cosine": [
+          0.21748480129480363,
+          0.15530117547358535
+        ],
+        "word_count_gap": [
+          2,
+          2
+        ]
+      },
+      "cross_pairs": {
+        "word_trigram_jaccard": [
+          0.8062015503875969,
+          0.823076923076923,
+          0.8705035971223022,
+          0.8776978417266187
+        ],
+        "char_trigram_cosine": [
+          0.16647677343658018,
+          0.1829117458388395,
+          0.19285663602142933,
+          0.1812425327360897
+        ],
+        "word_count_gap": [
+          5,
+          3,
+          3,
+          1
+        ]
+      },
+      "word_trigram_jaccard_within_codex": 0.875,
+      "word_trigram_jaccard_within_kaggle": 0.680672268907563,
+      "word_trigram_jaccard_within": 0.7778361344537815,
+      "word_trigram_jaccard_cross": 0.8443699780783601,
+      "word_trigram_jaccard_excess": 0.06653384362457859,
+      "char_trigram_cosine_within_codex": 0.21748480129480363,
+      "char_trigram_cosine_within_kaggle": 0.15530117547358535,
+      "char_trigram_cosine_within": 0.1863929883841945,
+      "char_trigram_cosine_cross": 0.18087192200823468,
+      "char_trigram_cosine_excess": -0.00552106637595981,
+      "word_count_gap_within_codex": 2,
+      "word_count_gap_within_kaggle": 2,
+      "word_count_gap_within": 2.0,
+      "word_count_gap_cross": 3.0,
+      "word_count_gap_excess": 1.0,
+      "words_signed_codex_minus_kaggle": -3.0,
+      "sentence_endings_signed_codex_minus_kaggle": 0.0,
+      "em_dash_per100w_signed_codex_minus_kaggle": 0.0,
+      "semicolon_per100w_signed_codex_minus_kaggle": -0.6091697019967061,
+      "colon_per100w_signed_codex_minus_kaggle": 0.0,
+      "comma_per100w_signed_codex_minus_kaggle": -3.9124755702592697,
+      "old_word_trigram_cross": 0.8205128205128205,
+      "new_minus_old_cross_word_trigram": 0.023857157565539633
+    },
+    {
+      "prompt_id": "cp0102",
+      "model": "gpt-5.6-luna",
+      "within_pairs": {
+        "word_trigram_jaccard": [
+          0.9838709677419355,
+          0.9510204081632653
+        ],
+        "char_trigram_cosine": [
+          0.2829235174583956,
+          0.2269453773450053
+        ],
+        "word_count_gap": [
+          4,
+          3
+        ]
+      },
+      "cross_pairs": {
+        "word_trigram_jaccard": [
+          0.9798387096774194,
+          0.992,
+          1.0,
+          1.0
+        ],
+        "char_trigram_cosine": [
+          0.25521479626012356,
+          0.24267065110791297,
+          0.2967639172326053,
+          0.27508836415425697
+        ],
+        "word_count_gap": [
+          6,
+          3,
+          2,
+          1
+        ]
+      },
+      "word_trigram_jaccard_within_codex": 0.9838709677419355,
+      "word_trigram_jaccard_within_kaggle": 0.9510204081632653,
+      "word_trigram_jaccard_within": 0.9674456879526003,
+      "word_trigram_jaccard_cross": 0.9929596774193549,
+      "word_trigram_jaccard_excess": 0.02551398946675454,
+      "char_trigram_cosine_within_codex": 0.2829235174583956,
+      "char_trigram_cosine_within_kaggle": 0.2269453773450053,
+      "char_trigram_cosine_within": 0.25493444740170046,
+      "char_trigram_cosine_cross": 0.2674344321887247,
+      "char_trigram_cosine_excess": 0.012499984787024243,
+      "word_count_gap_within_codex": 4,
+      "word_count_gap_within_kaggle": 3,
+      "word_count_gap_within": 3.5,
+      "word_count_gap_cross": 3.0,
+      "word_count_gap_excess": -0.5,
+      "words_signed_codex_minus_kaggle": -2.5,
+      "sentence_endings_signed_codex_minus_kaggle": -3.5,
+      "em_dash_per100w_signed_codex_minus_kaggle": 0.0,
+      "semicolon_per100w_signed_codex_minus_kaggle": 0.0,
+      "colon_per100w_signed_codex_minus_kaggle": 0.3937007874015748,
+      "comma_per100w_signed_codex_minus_kaggle": 0.13832289681883836,
+      "old_word_trigram_cross": 0.98828125,
+      "new_minus_old_cross_word_trigram": 0.004678427419354869
+    },
+    {
+      "prompt_id": "cp0102",
+      "model": "gpt-5.6-terra",
+      "within_pairs": {
+        "word_trigram_jaccard": [
+          0.978448275862069,
+          0.9958847736625515
+        ],
+        "char_trigram_cosine": [
+          0.24776414744431163,
+          0.21902443303789187
+        ],
+        "word_count_gap": [
+          5,
+          2
+        ]
+      },
+      "cross_pairs": {
+        "word_trigram_jaccard": [
+          0.9656652360515021,
+          0.987603305785124,
+          0.9649122807017544,
+          0.9140271493212669
+        ],
+        "char_trigram_cosine": [
+          0.22079023085370963,
+          0.24018134037206418,
+          0.2263694907586814,
+          0.19126664750389422
+        ],
+        "word_count_gap": [
+          0,
+          2,
+          5,
+          7
+        ]
+      },
+      "word_trigram_jaccard_within_codex": 0.978448275862069,
+      "word_trigram_jaccard_within_kaggle": 0.9958847736625515,
+      "word_trigram_jaccard_within": 0.9871665247623103,
+      "word_trigram_jaccard_cross": 0.9580519929649118,
+      "word_trigram_jaccard_excess": -0.029114531797398424,
+      "char_trigram_cosine_within_codex": 0.24776414744431163,
+      "char_trigram_cosine_within_kaggle": 0.21902443303789187,
+      "char_trigram_cosine_within": 0.23339429024110175,
+      "char_trigram_cosine_cross": 0.21965192737208736,
+      "char_trigram_cosine_excess": -0.013742362869014396,
+      "word_count_gap_within_codex": 5,
+      "word_count_gap_within_kaggle": 2,
+      "word_count_gap_within": 3.5,
+      "word_count_gap_cross": 3.5,
+      "word_count_gap_excess": 0.0,
+      "words_signed_codex_minus_kaggle": -3.5,
+      "sentence_endings_signed_codex_minus_kaggle": 0.5,
+      "em_dash_per100w_signed_codex_minus_kaggle": 0.0,
+      "semicolon_per100w_signed_codex_minus_kaggle": 0.4132231404958678,
+      "colon_per100w_signed_codex_minus_kaggle": 0.4132231404958678,
+      "comma_per100w_signed_codex_minus_kaggle": -0.5989534460747858,
+      "old_word_trigram_cross": 0.9798387096774194,
+      "new_minus_old_cross_word_trigram": -0.021786716712507537
+    },
+    {
+      "prompt_id": "cp0123",
+      "model": "gpt-5.6-luna",
+      "within_pairs": {
+        "word_trigram_jaccard": [
+          0.9329073482428115,
+          0.9451612903225807
+        ],
+        "char_trigram_cosine": [
+          0.19372706883369906,
+          0.16304651834407557
+        ],
+        "word_count_gap": [
+          1,
+          10
+        ]
+      },
+      "cross_pairs": {
+        "word_trigram_jaccard": [
+          0.9684542586750788,
+          0.9396825396825397,
+          0.9383116883116883,
+          0.9363057324840764
+        ],
+        "char_trigram_cosine": [
+          0.19302960348597564,
+          0.1628865889849619,
+          0.19398226911994287,
+          0.18431562165171678
+        ],
+        "word_count_gap": [
+          9,
+          1,
+          10,
+          0
+        ]
+      },
+      "word_trigram_jaccard_within_codex": 0.9329073482428115,
+      "word_trigram_jaccard_within_kaggle": 0.9451612903225807,
+      "word_trigram_jaccard_within": 0.9390343192826961,
+      "word_trigram_jaccard_cross": 0.9456885547883458,
+      "word_trigram_jaccard_excess": 0.006654235505649697,
+      "char_trigram_cosine_within_codex": 0.19372706883369906,
+      "char_trigram_cosine_within_kaggle": 0.16304651834407557,
+      "char_trigram_cosine_within": 0.17838679358888732,
+      "char_trigram_cosine_cross": 0.1835535208106493,
+      "char_trigram_cosine_excess": 0.00516672722176198,
+      "word_count_gap_within_codex": 1,
+      "word_count_gap_within_kaggle": 10,
+      "word_count_gap_within": 5.5,
+      "word_count_gap_cross": 5.0,
+      "word_count_gap_excess": -0.5,
+      "words_signed_codex_minus_kaggle": 4.5,
+      "sentence_endings_signed_codex_minus_kaggle": 0.5,
+      "em_dash_per100w_signed_codex_minus_kaggle": 0.0,
+      "semicolon_per100w_signed_codex_minus_kaggle": 0.0,
+      "colon_per100w_signed_codex_minus_kaggle": 0.28056454902130634,
+      "comma_per100w_signed_codex_minus_kaggle": -0.2540353289803772,
+      "old_word_trigram_cross": 0.9215686274509804,
+      "new_minus_old_cross_word_trigram": 0.024119927337365343
+    },
+    {
+      "prompt_id": "cp0144",
+      "model": "gpt-5.6-luna",
+      "within_pairs": {
+        "word_trigram_jaccard": [
+          0.5052631578947369,
+          0.24705882352941178
+        ],
+        "char_trigram_cosine": [
+          0.08031736410576573,
+          0.04696971418383222
+        ],
+        "word_count_gap": [
+          8,
+          9
+        ]
+      },
+      "cross_pairs": {
+        "word_trigram_jaccard": [
+          0.5607476635514019,
+          0.5643564356435644,
+          0.4130434782608695,
+          0.3493975903614458
+        ],
+        "char_trigram_cosine": [
+          0.08121668601033993,
+          0.08025565519952216,
+          0.07220349929313452,
+          0.05199487732610519
+        ],
+        "word_count_gap": [
+          5,
+          4,
+          13,
+          4
+        ]
+      },
+      "word_trigram_jaccard_within_codex": 0.5052631578947369,
+      "word_trigram_jaccard_within_kaggle": 0.24705882352941178,
+      "word_trigram_jaccard_within": 0.3761609907120743,
+      "word_trigram_jaccard_cross": 0.4718862919543204,
+      "word_trigram_jaccard_excess": 0.0957253012422461,
+      "char_trigram_cosine_within_codex": 0.08031736410576573,
+      "char_trigram_cosine_within_kaggle": 0.04696971418383222,
+      "char_trigram_cosine_within": 0.06364353914479898,
+      "char_trigram_cosine_cross": 0.07141767945727545,
+      "char_trigram_cosine_excess": 0.007774140312476474,
+      "word_count_gap_within_codex": 8,
+      "word_count_gap_within_kaggle": 9,
+      "word_count_gap_within": 8.5,
+      "word_count_gap_cross": 6.5,
+      "word_count_gap_excess": -2.0,
+      "words_signed_codex_minus_kaggle": -4.5,
+      "sentence_endings_signed_codex_minus_kaggle": -0.5,
+      "em_dash_per100w_signed_codex_minus_kaggle": 0.0,
+      "semicolon_per100w_signed_codex_minus_kaggle": 0.6493506493506493,
+      "colon_per100w_signed_codex_minus_kaggle": 0.0,
+      "comma_per100w_signed_codex_minus_kaggle": -0.4511546453614175,
+      "old_word_trigram_cross": 0.4693877551020408,
+      "new_minus_old_cross_word_trigram": 0.0024985368522796314
+    },
+    {
+      "prompt_id": "cp0144",
+      "model": "gpt-5.6-terra",
+      "within_pairs": {
+        "word_trigram_jaccard": [
+          0.6607142857142857,
+          0.2325581395348837
+        ],
+        "char_trigram_cosine": [
+          0.13670660505253784,
+          0.02467550956862552
+        ],
+        "word_count_gap": [
+          2,
+          2
+        ]
+      },
+      "cross_pairs": {
+        "word_trigram_jaccard": [
+          0.6666666666666667,
+          0.6666666666666667,
+          0.7580645161290323,
+          0.75
+        ],
+        "char_trigram_cosine": [
+          0.08359133126934981,
+          0.09978071097082764,
+          0.11723382170785823,
+          0.1095669786488852
+        ],
+        "word_count_gap": [
+          6,
+          4,
+          4,
+          2
+        ]
+      },
+      "word_trigram_jaccard_within_codex": 0.6607142857142857,
+      "word_trigram_jaccard_within_kaggle": 0.2325581395348837,
+      "word_trigram_jaccard_within": 0.4466362126245847,
+      "word_trigram_jaccard_cross": 0.7103494623655915,
+      "word_trigram_jaccard_excess": 0.2637132497410068,
+      "char_trigram_cosine_within_codex": 0.13670660505253784,
+      "char_trigram_cosine_within_kaggle": 0.02467550956862552,
+      "char_trigram_cosine_within": 0.08069105731058168,
+      "char_trigram_cosine_cross": 0.10254321064923022,
+      "char_trigram_cosine_excess": 0.02185215333864854,
+      "word_count_gap_within_codex": 2,
+      "word_count_gap_within_kaggle": 2,
+      "word_count_gap_within": 2.0,
+      "word_count_gap_cross": 4.0,
+      "word_count_gap_excess": 2.0,
+      "words_signed_codex_minus_kaggle": -4.0,
+      "sentence_endings_signed_codex_minus_kaggle": -0.5,
+      "em_dash_per100w_signed_codex_minus_kaggle": 0.0,
+      "semicolon_per100w_signed_codex_minus_kaggle": 1.2989203778677463,
+      "colon_per100w_signed_codex_minus_kaggle": 0.0,
+      "comma_per100w_signed_codex_minus_kaggle": -0.5126970804120998,
+      "old_word_trigram_cross": 0.7758620689655172,
+      "new_minus_old_cross_word_trigram": -0.06551260659992575
+    },
+    {
+      "prompt_id": "cp0161",
+      "model": "gpt-5.6-luna",
+      "within_pairs": {
+        "word_trigram_jaccard": [
+          0.7154471544715447,
+          0.6721311475409837
+        ],
+        "char_trigram_cosine": [
+          0.15055828654893932,
+          0.1313388588315304
+        ],
+        "word_count_gap": [
+          4,
+          6
+        ]
+      },
+      "cross_pairs": {
+        "word_trigram_jaccard": [
+          0.7154471544715447,
+          0.7761194029850746,
+          0.7906976744186046,
+          0.851063829787234
+        ],
+        "char_trigram_cosine": [
+          0.18778991891802987,
+          0.16072233554186277,
+          0.23538443083244198,
+          0.21841099433709354
+        ],
+        "word_count_gap": [
+          4,
+          2,
+          0,
+          6
+        ]
+      },
+      "word_trigram_jaccard_within_codex": 0.7154471544715447,
+      "word_trigram_jaccard_within_kaggle": 0.6721311475409837,
+      "word_trigram_jaccard_within": 0.6937891510062641,
+      "word_trigram_jaccard_cross": 0.7833320154156145,
+      "word_trigram_jaccard_excess": 0.08954286440935033,
+      "char_trigram_cosine_within_codex": 0.15055828654893932,
+      "char_trigram_cosine_within_kaggle": 0.1313388588315304,
+      "char_trigram_cosine_within": 0.14094857269023486,
+      "char_trigram_cosine_cross": 0.20057691990735704,
+      "char_trigram_cosine_excess": 0.05962834721712218,
+      "word_count_gap_within_codex": 4,
+      "word_count_gap_within_kaggle": 6,
+      "word_count_gap_within": 5.0,
+      "word_count_gap_cross": 3.0,
+      "word_count_gap_excess": -2.0,
+      "words_signed_codex_minus_kaggle": -1.0,
+      "sentence_endings_signed_codex_minus_kaggle": -0.5,
+      "em_dash_per100w_signed_codex_minus_kaggle": 0.0,
+      "semicolon_per100w_signed_codex_minus_kaggle": 0.0,
+      "colon_per100w_signed_codex_minus_kaggle": 0.0,
+      "comma_per100w_signed_codex_minus_kaggle": -0.5829536317341191,
+      "old_word_trigram_cross": 0.8409090909090909,
+      "new_minus_old_cross_word_trigram": -0.05757707549347646
+    },
+    {
+      "prompt_id": "cp0161",
+      "model": "gpt-5.6-terra",
+      "within_pairs": {
+        "word_trigram_jaccard": [
+          0.7661290322580645,
+          0.6782608695652175
+        ],
+        "char_trigram_cosine": [
+          0.20131304948768758,
+          0.21467466106905475
+        ],
+        "word_count_gap": [
+          3,
+          0
+        ]
+      },
+      "cross_pairs": {
+        "word_trigram_jaccard": [
+          0.6517857142857143,
+          0.663716814159292,
+          0.7377049180327868,
+          0.8507462686567164
+        ],
+        "char_trigram_cosine": [
+          0.19722144793697993,
+          0.15905625689276137,
+          0.17183181295024863,
+          0.2532994105426497
+        ],
+        "word_count_gap": [
+          1,
+          1,
+          2,
+          2
+        ]
+      },
+      "word_trigram_jaccard_within_codex": 0.7661290322580645,
+      "word_trigram_jaccard_within_kaggle": 0.6782608695652175,
+      "word_trigram_jaccard_within": 0.722194950911641,
+      "word_trigram_jaccard_cross": 0.7259884287836273,
+      "word_trigram_jaccard_excess": 0.0037934778719863615,
+      "char_trigram_cosine_within_codex": 0.20131304948768758,
+      "char_trigram_cosine_within_kaggle": 0.21467466106905475,
+      "char_trigram_cosine_within": 0.20799385527837116,
+      "char_trigram_cosine_cross": 0.1953522320806599,
+      "char_trigram_cosine_excess": -0.012641623197711255,
+      "word_count_gap_within_codex": 3,
+      "word_count_gap_within_kaggle": 0,
+      "word_count_gap_within": 1.5,
+      "word_count_gap_cross": 1.5,
+      "word_count_gap_excess": 0.0,
+      "words_signed_codex_minus_kaggle": 0.5,
+      "sentence_endings_signed_codex_minus_kaggle": 0.0,
+      "em_dash_per100w_signed_codex_minus_kaggle": 0.0,
+      "semicolon_per100w_signed_codex_minus_kaggle": 0.0,
+      "colon_per100w_signed_codex_minus_kaggle": 0.0,
+      "comma_per100w_signed_codex_minus_kaggle": -0.05054405054405109,
+      "old_word_trigram_cross": 0.7542372881355932,
+      "new_minus_old_cross_word_trigram": -0.02824885935196586
+    },
+    {
+      "prompt_id": "cp0182",
+      "model": "gpt-5.6-luna",
+      "within_pairs": {
+        "word_trigram_jaccard": [
+          0.7080745341614907,
+          0.8
+        ],
+        "char_trigram_cosine": [
+          0.06345942815433614,
+          0.07265358811898404
+        ],
+        "word_count_gap": [
+          2,
+          1
+        ]
+      },
+      "cross_pairs": {
+        "word_trigram_jaccard": [
+          0.7944444444444445,
+          0.607843137254902,
+          0.6265822784810127,
+          0.7012195121951219
+        ],
+        "char_trigram_cosine": [
+          0.0900064813948942,
+          0.060587579302736394,
+          0.05997062524702934,
+          0.061113275155229685
+        ],
+        "word_count_gap": [
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      "word_trigram_jaccard_within_codex": 0.7080745341614907,
+      "word_trigram_jaccard_within_kaggle": 0.8,
+      "word_trigram_jaccard_within": 0.7540372670807454,
+      "word_trigram_jaccard_cross": 0.6825223430938703,
+      "word_trigram_jaccard_excess": -0.07151492398687509,
+      "char_trigram_cosine_within_codex": 0.06345942815433614,
+      "char_trigram_cosine_within_kaggle": 0.07265358811898404,
+      "char_trigram_cosine_within": 0.06805650813666009,
+      "char_trigram_cosine_cross": 0.0679194902749724,
+      "char_trigram_cosine_excess": -0.0001370178616876827,
+      "word_count_gap_within_codex": 2,
+      "word_count_gap_within_kaggle": 1,
+      "word_count_gap_within": 1.5,
+      "word_count_gap_cross": 8.5,
+      "word_count_gap_excess": 7.0,
+      "words_signed_codex_minus_kaggle": -8.5,
+      "sentence_endings_signed_codex_minus_kaggle": -0.5,
+      "em_dash_per100w_signed_codex_minus_kaggle": 0.0,
+      "semicolon_per100w_signed_codex_minus_kaggle": 0.0,
+      "colon_per100w_signed_codex_minus_kaggle": 0.5288060523154945,
+      "comma_per100w_signed_codex_minus_kaggle": 0.4586954768895408,
+      "old_word_trigram_cross": 0.5785714285714285,
+      "new_minus_old_cross_word_trigram": 0.10395091452244176
+    },
+    {
+      "prompt_id": "cp0182",
+      "model": "gpt-5.6-terra",
+      "within_pairs": {
+        "word_trigram_jaccard": [
+          0.6625,
+          0.6301369863013699
+        ],
+        "char_trigram_cosine": [
+          0.05846266527779642,
+          0.05629377768380017
+        ],
+        "word_count_gap": [
+          2,
+          5
+        ]
+      },
+      "cross_pairs": {
+        "word_trigram_jaccard": [
+          0.6474358974358974,
+          0.7267080745341614,
+          0.7177914110429449,
+          0.7844311377245509
+        ],
+        "char_trigram_cosine": [
+          0.07603900330235236,
+          0.08571985118880465,
+          0.06508321681247364,
+          0.07978098989648907
+        ],
+        "word_count_gap": [
+          0,
+          5,
+          2,
+          7
+        ]
+      },
+      "word_trigram_jaccard_within_codex": 0.6625,
+      "word_trigram_jaccard_within_kaggle": 0.6301369863013699,
+      "word_trigram_jaccard_within": 0.6463184931506849,
+      "word_trigram_jaccard_cross": 0.7190916301843887,
+      "word_trigram_jaccard_excess": 0.0727731370337038,
+      "char_trigram_cosine_within_codex": 0.05846266527779642,
+      "char_trigram_cosine_within_kaggle": 0.05629377768380017,
+      "char_trigram_cosine_within": 0.0573782214807983,
+      "char_trigram_cosine_cross": 0.07665576530002993,
+      "char_trigram_cosine_excess": 0.019277543819231635,
+      "word_count_gap_within_codex": 2,
+      "word_count_gap_within_kaggle": 5,
+      "word_count_gap_within": 3.5,
+      "word_count_gap_cross": 3.5,
+      "word_count_gap_excess": 0.0,
+      "words_signed_codex_minus_kaggle": 3.5,
+      "sentence_endings_signed_codex_minus_kaggle": 0.5,
+      "em_dash_per100w_signed_codex_minus_kaggle": 0.0,
+      "semicolon_per100w_signed_codex_minus_kaggle": 0.0,
+      "colon_per100w_signed_codex_minus_kaggle": 0.7826445062583536,
+      "comma_per100w_signed_codex_minus_kaggle": -0.6047264490833317,
+      "old_word_trigram_cross": 0.47619047619047616,
+      "new_minus_old_cross_word_trigram": 0.24290115399391254
+    }
+  ],
+  "missing_cells": [
+    {
+      "prompt_id": "cp0123",
+      "model": "gpt-5.6-terra",
+      "missing": [
+        {
+          "route": "kaggle_model_proxy",
+          "repeat": 1
+        },
+        {
+          "route": "kaggle_model_proxy",
+          "repeat": 2
+        }
+      ]
+    }
+  ],
+  "summaries": {
+    "overall": {
+      "cells": 19,
+      "prompt_groups": 10,
+      "metrics": {
+        "word_trigram_jaccard_within_codex": {
+          "mean": 0.8481151929951105,
+          "ci95": [
+            0.7639764692110118,
+            0.9223954797121393
+          ],
+          "prompt_groups": 10
+        },
+        "word_trigram_jaccard_within_kaggle": {
+          "mean": 0.8019061737828078,
+          "ci95": [
+            0.6540189612517247,
+            0.9151076967591105
+          ],
+          "prompt_groups": 10
+        },
+        "word_trigram_jaccard_within": {
+          "mean": 0.8250106833889591,
+          "ci95": [
+            0.7108686148066475,
+            0.9177957083136395
+          ],
+          "prompt_groups": 10
+        },
+        "word_trigram_jaccard_cross": {
+          "mean": 0.8450593636185474,
+          "ci95": [
+            0.76527172284921,
+            0.9174401732345823
+          ],
+          "prompt_groups": 10
+        },
+        "word_trigram_jaccard_excess": {
+          "mean": 0.020048680229588264,
+          "ci95": [
+            -0.00853945316131972,
+            0.0607195007156912
+          ],
+          "prompt_groups": 10
+        },
+        "char_trigram_cosine_within_codex": {
+          "mean": 0.18700585258954358,
+          "ci95": [
+            0.14069141192100434,
+            0.2371297940293764
+          ],
+          "prompt_groups": 10
+        },
+        "char_trigram_cosine_within_kaggle": {
+          "mean": 0.17405782646095444,
+          "ci95": [
+            0.12065429699890715,
+            0.23116536104520805
+          ],
+          "prompt_groups": 10
+        },
+        "char_trigram_cosine_within": {
+          "mean": 0.180531839525249,
+          "ci95": [
+            0.13146274293675064,
+            0.23371891538438977
+          ],
+          "prompt_groups": 10
+        },
+        "char_trigram_cosine_cross": {
+          "mean": 0.18419153777411532,
+          "ci95": [
+            0.137731695806589,
+            0.2346273704881514
+          ],
+          "prompt_groups": 10
+        },
+        "char_trigram_cosine_excess": {
+          "mean": 0.0036596982488662972,
+          "ci95": [
+            -0.002325580781367847,
+            0.010123546616800507
+          ],
+          "prompt_groups": 10
+        },
+        "word_count_gap_within_codex": {
+          "mean": 3.95,
+          "ci95": [
+            2.1,
+            6.45
+          ],
+          "prompt_groups": 10
+        },
+        "word_count_gap_within_kaggle": {
+          "mean": 5.0,
+          "ci95": [
+            3.0,
+            7.2
+          ],
+          "prompt_groups": 10
+        },
+        "word_count_gap_within": {
+          "mean": 4.475,
+          "ci95": [
+            2.775,
+            6.5
+          ],
+          "prompt_groups": 10
+        },
+        "word_count_gap_cross": {
+          "mean": 4.625,
+          "ci95": [
+            3.25,
+            6.175
+          ],
+          "prompt_groups": 10
+        },
+        "word_count_gap_excess": {
+          "mean": 0.15,
+          "ci95": [
+            -0.7,
+            1.1
+          ],
+          "prompt_groups": 10
+        },
+        "words_signed_codex_minus_kaggle": {
+          "mean": -2.075,
+          "ci95": [
+            -4.025,
+            0.0
+          ],
+          "prompt_groups": 10
+        },
+        "sentence_endings_signed_codex_minus_kaggle": {
+          "mean": -0.2,
+          "ci95": [
+            -0.55,
+            0.1
+          ],
+          "prompt_groups": 10
+        },
+        "em_dash_per100w_signed_codex_minus_kaggle": {
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "prompt_groups": 10
+        },
+        "semicolon_per100w_signed_codex_minus_kaggle": {
+          "mean": 0.02193939577722962,
+          "ci95": [
+            -0.17386952570333752,
+            0.273331424487829
+          ],
+          "prompt_groups": 10
+        },
+        "colon_per100w_signed_codex_minus_kaggle": {
+          "mean": 0.12212332796612135,
+          "ci95": [
+            -0.036977265244652495,
+            0.29237629052831554
+          ],
+          "prompt_groups": 10
+        },
+        "comma_per100w_signed_codex_minus_kaggle": {
+          "mean": -0.09438675689247215,
+          "ci95": [
+            -0.5720114949323504,
+            0.4688880292549033
+          ],
+          "prompt_groups": 10
+        },
+        "old_word_trigram_cross": {
+          "mean": 0.8331975395919864,
+          "ci95": [
+            0.7376758578393087,
+            0.9166636259400561
+          ],
+          "prompt_groups": 10
+        },
+        "new_minus_old_cross_word_trigram": {
+          "mean": 0.011861824026560991,
+          "ci95": [
+            -0.016529480852556545,
+            0.05279427018031233
+          ],
+          "prompt_groups": 10
+        }
+      }
+    },
+    "balanced_9_prompts": {
+      "cells": 18,
+      "prompt_groups": 9,
+      "metrics": {
+        "word_trigram_jaccard_within_codex": {
+          "mean": 0.8386938424120327,
+          "ci95": [
+            0.7470821579259936,
+            0.9201641242670715
+          ],
+          "prompt_groups": 9
+        },
+        "word_trigram_jaccard_within_kaggle": {
+          "mean": 0.7859889386117219,
+          "ci95": [
+            0.622944814117979,
+            0.909311125710635
+          ],
+          "prompt_groups": 9
+        },
+        "word_trigram_jaccard_within": {
+          "mean": 0.8123413905118773,
+          "ci95": [
+            0.6864570491335873,
+            0.913100093126623
+          ],
+          "prompt_groups": 9
+        },
+        "word_trigram_jaccard_cross": {
+          "mean": 0.8338783423774587,
+          "ci95": [
+            0.7475043000685176,
+            0.910753189976714
+          ],
+          "prompt_groups": 9
+        },
+        "word_trigram_jaccard_excess": {
+          "mean": 0.021536951865581442,
+          "ci95": [
+            -0.010508344814648213,
+            0.067019960899199
+          ],
+          "prompt_groups": 9
+        },
+        "char_trigram_cosine_within_codex": {
+          "mean": 0.18625905078463742,
+          "ci95": [
+            0.13529327198677774,
+            0.24197885636174993
+          ],
+          "prompt_groups": 9
+        },
+        "char_trigram_cosine_within_kaggle": {
+          "mean": 0.1752813051406077,
+          "ci95": [
+            0.11642531423011203,
+            0.23862252148700916
+          ],
+          "prompt_groups": 9
+        },
+        "char_trigram_cosine_within": {
+          "mean": 0.18077017796262254,
+          "ci95": [
+            0.12676863838518765,
+            0.23980858681800354
+          ],
+          "prompt_groups": 9
+        },
+        "char_trigram_cosine_cross": {
+          "mean": 0.18426242854783376,
+          "ci95": [
+            0.13303691080323773,
+            0.24072124671784828
+          ],
+          "prompt_groups": 9
+        },
+        "char_trigram_cosine_excess": {
+          "mean": 0.003492250585211221,
+          "ci95": [
+            -0.0031156093304548263,
+            0.010642260575642087
+          ],
+          "prompt_groups": 9
+        },
+        "word_count_gap_within_codex": {
+          "mean": 4.277777777777778,
+          "ci95": [
+            2.2777777777777777,
+            7.055555555555555
+          ],
+          "prompt_groups": 9
+        },
+        "word_count_gap_within_kaggle": {
+          "mean": 4.444444444444445,
+          "ci95": [
+            2.5555555555555554,
+            6.666666666666667
+          ],
+          "prompt_groups": 9
+        },
+        "word_count_gap_within": {
+          "mean": 4.361111111111111,
+          "ci95": [
+            2.5277777777777777,
+            6.666666666666667
+          ],
+          "prompt_groups": 9
+        },
+        "word_count_gap_cross": {
+          "mean": 4.583333333333333,
+          "ci95": [
+            3.0555555555555554,
+            6.305555555555555
+          ],
+          "prompt_groups": 9
+        },
+        "word_count_gap_excess": {
+          "mean": 0.2222222222222222,
+          "ci95": [
+            -0.7222222222222222,
+            1.2777777777777777
+          ],
+          "prompt_groups": 9
+        },
+        "words_signed_codex_minus_kaggle": {
+          "mean": -2.8055555555555554,
+          "ci95": [
+            -4.472222222222222,
+            -1.2222222222222223
+          ],
+          "prompt_groups": 9
+        },
+        "sentence_endings_signed_codex_minus_kaggle": {
+          "mean": -0.2777777777777778,
+          "ci95": [
+            -0.6388888888888888,
+            0.0
+          ],
+          "prompt_groups": 9
+        },
+        "em_dash_per100w_signed_codex_minus_kaggle": {
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "prompt_groups": 9
+        },
+        "semicolon_per100w_signed_codex_minus_kaggle": {
+          "mean": 0.02437710641914402,
+          "ci95": [
+            -0.19040047985816064,
+            0.30119040775185013
+          ],
+          "prompt_groups": 9
+        },
+        "colon_per100w_signed_codex_minus_kaggle": {
+          "mean": 0.10451874784887856,
+          "ci95": [
+            -0.06437146191996562,
+            0.29511869052586653
+          ],
+          "prompt_groups": 9
+        },
+        "comma_per100w_signed_codex_minus_kaggle": {
+          "mean": -0.0766480266604827,
+          "ci95": [
+            -0.6002703489722068,
+            0.5425652247181557
+          ],
+          "prompt_groups": 9
+        },
+        "old_word_trigram_cross": {
+          "mean": 0.8233785298298759,
+          "ci95": [
+            0.7211875330218167,
+            0.914281494722666
+          ],
+          "prompt_groups": 9
+        },
+        "new_minus_old_cross_word_trigram": {
+          "mean": 0.01049981254758273,
+          "ci95": [
+            -0.020053476589417085,
+            0.055640162823563294
+          ],
+          "prompt_groups": 9
+        }
+      }
+    },
+    "gpt-5.6-luna": {
+      "cells": 10,
+      "prompt_groups": 10,
+      "metrics": {
+        "word_trigram_jaccard_within_codex": {
+          "mean": 0.8392523463098364,
+          "ci95": [
+            0.7405349588306641,
+            0.9240285897545393
+          ],
+          "prompt_groups": 10
+        },
+        "word_trigram_jaccard_within_kaggle": {
+          "mean": 0.8117422857594425,
+          "ci95": [
+            0.662626668177534,
+            0.9229556672795282
+          ],
+          "prompt_groups": 10
+        },
+        "word_trigram_jaccard_within": {
+          "mean": 0.8254973160346394,
+          "ci95": [
+            0.7027291806179946,
+            0.9229936992864376
+          ],
+          "prompt_groups": 10
+        },
+        "word_trigram_jaccard_cross": {
+          "mean": 0.8327989519556956,
+          "ci95": [
+            0.7293565921991069,
+            0.9194276064751201
+          ],
+          "prompt_groups": 10
+        },
+        "word_trigram_jaccard_excess": {
+          "mean": 0.007301635921056348,
+          "ci95": [
+            -0.024968514250638542,
+            0.04059539444558376
+          ],
+          "prompt_groups": 10
+        },
+        "char_trigram_cosine_within_codex": {
+          "mean": 0.18310503356849891,
+          "ci95": [
+            0.13293872562956108,
+            0.23741003503354188
+          ],
+          "prompt_groups": 10
+        },
+        "char_trigram_cosine_within_kaggle": {
+          "mean": 0.17125595081942327,
+          "ci95": [
+            0.11625806161376447,
+            0.23160611390304875
+          ],
+          "prompt_groups": 10
+        },
+        "char_trigram_cosine_within": {
+          "mean": 0.1771804921939611,
+          "ci95": [
+            0.1251268158751055,
+            0.23388531612381208
+          ],
+          "prompt_groups": 10
+        },
+        "char_trigram_cosine_cross": {
+          "mean": 0.18131743402843775,
+          "ci95": [
+            0.13184121687903147,
+            0.23207037090133284
+          ],
+          "prompt_groups": 10
+        },
+        "char_trigram_cosine_excess": {
+          "mean": 0.004136941834476648,
+          "ci95": [
+            -0.00886231148350552,
+            0.019351769924439665
+          ],
+          "prompt_groups": 10
+        },
+        "word_count_gap_within_codex": {
+          "mean": 5.0,
+          "ci95": [
+            1.9,
+            9.2
+          ],
+          "prompt_groups": 10
+        },
+        "word_count_gap_within_kaggle": {
+          "mean": 5.4,
+          "ci95": [
+            3.3,
+            7.5
+          ],
+          "prompt_groups": 10
+        },
+        "word_count_gap_within": {
+          "mean": 5.2,
+          "ci95": [
+            2.9,
+            7.85
+          ],
+          "prompt_groups": 10
+        },
+        "word_count_gap_cross": {
+          "mean": 4.95,
+          "ci95": [
+            3.15,
+            7.1
+          ],
+          "prompt_groups": 10
+        },
+        "word_count_gap_excess": {
+          "mean": -0.25,
+          "ci95": [
+            -1.7,
+            1.6
+          ],
+          "prompt_groups": 10
+        },
+        "words_signed_codex_minus_kaggle": {
+          "mean": -2.5,
+          "ci95": [
+            -5.2,
+            0.0
+          ],
+          "prompt_groups": 10
+        },
+        "sentence_endings_signed_codex_minus_kaggle": {
+          "mean": -0.35,
+          "ci95": [
+            -1.15,
+            0.25
+          ],
+          "prompt_groups": 10
+        },
+        "em_dash_per100w_signed_codex_minus_kaggle": {
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "prompt_groups": 10
+        },
+        "semicolon_per100w_signed_codex_minus_kaggle": {
+          "mean": 0.10600908576830559,
+          "ci95": [
+            -0.0017809712087432678,
+            0.25623052045816275
+          ],
+          "prompt_groups": 10
+        },
+        "colon_per100w_signed_codex_minus_kaggle": {
+          "mean": 0.09843548979032814,
+          "ci95": [
+            -0.02262443438914027,
+            0.23917016039994085
+          ],
+          "prompt_groups": 10
+        },
+        "comma_per100w_signed_codex_minus_kaggle": {
+          "mean": 0.69820519360019,
+          "ci95": [
+            0.06301326853566856,
+            1.4165495128009633
+          ],
+          "prompt_groups": 10
+        },
+        "old_word_trigram_cross": {
+          "mean": 0.8214964409815053,
+          "ci95": [
+            0.709097197298342,
+            0.9203175378763385
+          ],
+          "prompt_groups": 10
+        },
+        "new_minus_old_cross_word_trigram": {
+          "mean": 0.011302510974190261,
+          "ci95": [
+            -0.014579964901617871,
+            0.03923975531319996
+          ],
+          "prompt_groups": 10
+        }
+      }
+    },
+    "gpt-5.6-terra": {
+      "cells": 9,
+      "prompt_groups": 9,
+      "metrics": {
+        "word_trigram_jaccard_within_codex": {
+          "mean": 0.8485414498401149,
+          "ci95": [
+            0.7703886560762258,
+            0.9197973935718653
+          ],
+          "prompt_groups": 9
+        },
+        "word_trigram_jaccard_within_kaggle": {
+          "mean": 0.7750599253043502,
+          "ci95": [
+            0.6065693273668771,
+            0.9109884549676752
+          ],
+          "prompt_groups": 9
+        },
+        "word_trigram_jaccard_within": {
+          "mean": 0.8118006875722326,
+          "ci95": [
+            0.6918342508694595,
+            0.9138073513830802
+          ],
+          "prompt_groups": 9
+        },
+        "word_trigram_jaccard_cross": {
+          "mean": 0.8475010220028495,
+          "ci95": [
+            0.7801309626256526,
+            0.9128394719697811
+          ],
+          "prompt_groups": 9
+        },
+        "word_trigram_jaccard_excess": {
+          "mean": 0.035700334430616903,
+          "ci95": [
+            -0.011436506773310725,
+            0.1012808050230743
+          ],
+          "prompt_groups": 9
+        },
+        "char_trigram_cosine_within_codex": {
+          "mean": 0.19059329414135373,
+          "ci95": [
+            0.14226773625000727,
+            0.24222287841910417
+          ],
+          "prompt_groups": 9
+        },
+        "char_trigram_cosine_within_kaggle": {
+          "mean": 0.17839450029786455,
+          "ci95": [
+            0.11699188566323501,
+            0.2425020922900327
+          ],
+          "prompt_groups": 9
+        },
+        "char_trigram_cosine_within": {
+          "mean": 0.18449389721960915,
+          "ci95": [
+            0.1312996848608002,
+            0.24128833662997196
+          ],
+          "prompt_groups": 9
+        },
+        "char_trigram_cosine_cross": {
+          "mean": 0.18745587715414222,
+          "ci95": [
+            0.13803995283100856,
+            0.24643409098504598
+          ],
+          "prompt_groups": 9
+        },
+        "char_trigram_cosine_excess": {
+          "mean": 0.0029619799345330534,
+          "ci95": [
+            -0.005687515593630126,
+            0.011933990042430074
+          ],
+          "prompt_groups": 9
+        },
+        "word_count_gap_within_codex": {
+          "mean": 3.111111111111111,
+          "ci95": [
+            1.8888888888888888,
+            4.444444444444445
+          ],
+          "prompt_groups": 9
+        },
+        "word_count_gap_within_kaggle": {
+          "mean": 4.0,
+          "ci95": [
+            1.4444444444444444,
+            7.0
+          ],
+          "prompt_groups": 9
+        },
+        "word_count_gap_within": {
+          "mean": 3.5555555555555554,
+          "ci95": [
+            2.1666666666666665,
+            5.333333333333333
+          ],
+          "prompt_groups": 9
+        },
+        "word_count_gap_cross": {
+          "mean": 4.222222222222222,
+          "ci95": [
+            2.888888888888889,
+            5.888888888888889
+          ],
+          "prompt_groups": 9
+        },
+        "word_count_gap_excess": {
+          "mean": 0.6666666666666666,
+          "ci95": [
+            -0.4444444444444444,
+            1.8333333333333333
+          ],
+          "prompt_groups": 9
+        },
+        "words_signed_codex_minus_kaggle": {
+          "mean": -2.3333333333333335,
+          "ci95": [
+            -4.777777777777778,
+            0.1111111111111111
+          ],
+          "prompt_groups": 9
+        },
+        "sentence_endings_signed_codex_minus_kaggle": {
+          "mean": -0.1111111111111111,
+          "ci95": [
+            -0.5555555555555556,
+            0.2222222222222222
+          ],
+          "prompt_groups": 9
+        },
+        "em_dash_per100w_signed_codex_minus_kaggle": {
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "prompt_groups": 9
+        },
+        "semicolon_per100w_signed_codex_minus_kaggle": {
+          "mean": -0.06903366023760706,
+          "ci95": [
+            -0.48703265783099187,
+            0.37406606809783155
+          ],
+          "prompt_groups": 9
+        },
+        "colon_per100w_signed_codex_minus_kaggle": {
+          "mean": 0.13083856804420435,
+          "ci95": [
+            -0.14180500430175824,
+            0.3998655071558689
+          ],
+          "prompt_groups": 9
+        },
+        "comma_per100w_signed_codex_minus_kaggle": {
+          "mean": -0.9573057494301072,
+          "ci95": [
+            -2.0006506297213917,
+            -0.06658022922815923
+          ],
+          "prompt_groups": 9
+        },
+        "old_word_trigram_cross": {
+          "mean": 0.8363797505081882,
+          "ci95": [
+            0.7298875794258768,
+            0.9221077388456971
+          ],
+          "prompt_groups": 9
+        },
+        "new_minus_old_cross_word_trigram": {
+          "mean": 0.011121271494661319,
+          "ci95": [
+            -0.03237572470419799,
+            0.07519679543684228
+          ],
+          "prompt_groups": 9
+        }
+      }
+    }
+  },
+  "profiles": {
+    "old_paired": {
+      "codex_subscription": {
+        "all_models": {
+          "responses": 20,
+          "format_screen_pass": 6,
+          "format_screen_pass_rate": 0.3,
+          "format_flag_counts": {
+            "bold": 6,
+            "line_break": 13
+          },
+          "word_count_mean": 113.4,
+          "word_count_median": 111.0,
+          "word_count_min": 60,
+          "word_count_max": 208,
+          "target_word_deviation_over_25_percent": 1,
+          "response_flags": {},
+          "model_observation_scopes": {
+            "requested_only": 20
+          }
+        },
+        "by_model": {
+          "gpt-5.6-luna": {
+            "responses": 10,
+            "format_screen_pass": 3,
+            "format_screen_pass_rate": 0.3,
+            "format_flag_counts": {
+              "bold": 3,
+              "line_break": 6
+            },
+            "word_count_mean": 119.7,
+            "word_count_median": 111.5,
+            "word_count_min": 73,
+            "word_count_max": 208,
+            "target_word_deviation_over_25_percent": 0,
+            "response_flags": {},
+            "model_observation_scopes": {
+              "requested_only": 10
+            }
+          },
+          "gpt-5.6-terra": {
+            "responses": 10,
+            "format_screen_pass": 3,
+            "format_screen_pass_rate": 0.3,
+            "format_flag_counts": {
+              "bold": 3,
+              "line_break": 7
+            },
+            "word_count_mean": 107.1,
+            "word_count_median": 96.0,
+            "word_count_min": 60,
+            "word_count_max": 189,
+            "target_word_deviation_over_25_percent": 1,
+            "response_flags": {},
+            "model_observation_scopes": {
+              "requested_only": 10
+            }
+          }
+        }
+      },
+      "kaggle_model_proxy": {
+        "all_models": {
+          "responses": 20,
+          "format_screen_pass": 7,
+          "format_screen_pass_rate": 0.35,
+          "format_flag_counts": {
+            "bold": 1,
+            "bullet_list": 1,
+            "italic": 1,
+            "line_break": 13
+          },
+          "word_count_mean": 118.4,
+          "word_count_median": 114.5,
+          "word_count_min": 62,
+          "word_count_max": 224,
+          "target_word_deviation_over_25_percent": 1,
+          "response_flags": {},
+          "model_observation_scopes": {
+            "not_recorded": 20
+          }
+        },
+        "by_model": {
+          "gpt-5.6-luna": {
+            "responses": 10,
+            "format_screen_pass": 4,
+            "format_screen_pass_rate": 0.4,
+            "format_flag_counts": {
+              "bold": 1,
+              "bullet_list": 1,
+              "line_break": 6
+            },
+            "word_count_mean": 125.2,
+            "word_count_median": 123.5,
+            "word_count_min": 77,
+            "word_count_max": 224,
+            "target_word_deviation_over_25_percent": 0,
+            "response_flags": {},
+            "model_observation_scopes": {
+              "not_recorded": 10
+            }
+          },
+          "gpt-5.6-terra": {
+            "responses": 10,
+            "format_screen_pass": 3,
+            "format_screen_pass_rate": 0.3,
+            "format_flag_counts": {
+              "italic": 1,
+              "line_break": 7
+            },
+            "word_count_mean": 111.6,
+            "word_count_median": 94.0,
+            "word_count_min": 62,
+            "word_count_max": 195,
+            "target_word_deviation_over_25_percent": 1,
+            "response_flags": {},
+            "model_observation_scopes": {
+              "not_recorded": 10
+            }
+          }
+        }
+      }
+    },
+    "aligned_paired": {
+      "codex_subscription": {
+        "all_models": {
+          "responses": 40,
+          "format_screen_pass": 40,
+          "format_screen_pass_rate": 1.0,
+          "format_flag_counts": {},
+          "word_count_mean": 119.775,
+          "word_count_median": 120.0,
+          "word_count_min": 69,
+          "word_count_max": 218,
+          "target_word_deviation_over_25_percent": 0,
+          "response_flags": {},
+          "model_observation_scopes": {
+            "requested_only": 40
+          }
+        },
+        "by_model": {
+          "gpt-5.6-luna": {
+            "responses": 20,
+            "format_screen_pass": 20,
+            "format_screen_pass_rate": 1.0,
+            "format_flag_counts": {},
+            "word_count_mean": 122.9,
+            "word_count_median": 121.5,
+            "word_count_min": 69,
+            "word_count_max": 218,
+            "target_word_deviation_over_25_percent": 0,
+            "response_flags": {},
+            "model_observation_scopes": {
+              "requested_only": 20
+            }
+          },
+          "gpt-5.6-terra": {
+            "responses": 20,
+            "format_screen_pass": 20,
+            "format_screen_pass_rate": 1.0,
+            "format_flag_counts": {},
+            "word_count_mean": 116.65,
+            "word_count_median": 119.5,
+            "word_count_min": 74,
+            "word_count_max": 197,
+            "target_word_deviation_over_25_percent": 0,
+            "response_flags": {},
+            "model_observation_scopes": {
+              "requested_only": 20
+            }
+          }
+        }
+      },
+      "kaggle_model_proxy": {
+        "all_models": {
+          "responses": 38,
+          "format_screen_pass": 38,
+          "format_screen_pass_rate": 1.0,
+          "format_flag_counts": {},
+          "word_count_mean": 120.36842105263158,
+          "word_count_median": 120.5,
+          "word_count_min": 73,
+          "word_count_max": 221,
+          "target_word_deviation_over_25_percent": 0,
+          "response_flags": {},
+          "model_observation_scopes": {
+            "returned_alias": 38
+          }
+        },
+        "by_model": {
+          "gpt-5.6-luna": {
+            "responses": 20,
+            "format_screen_pass": 20,
+            "format_screen_pass_rate": 1.0,
+            "format_flag_counts": {},
+            "word_count_mean": 125.4,
+            "word_count_median": 126.5,
+            "word_count_min": 73,
+            "word_count_max": 221,
+            "target_word_deviation_over_25_percent": 0,
+            "response_flags": {},
+            "model_observation_scopes": {
+              "returned_alias": 20
+            }
+          },
+          "gpt-5.6-terra": {
+            "responses": 18,
+            "format_screen_pass": 18,
+            "format_screen_pass_rate": 1.0,
+            "format_flag_counts": {},
+            "word_count_mean": 114.77777777777777,
+            "word_count_median": 116.5,
+            "word_count_min": 75,
+            "word_count_max": 205,
+            "target_word_deviation_over_25_percent": 0,
+            "response_flags": {},
+            "model_observation_scopes": {
+              "returned_alias": 18
+            }
+          }
+        }
+      }
+    },
+    "aligned300": {
+      "all": {
+        "responses": 300,
+        "format_screen_pass": 300,
+        "format_screen_pass_rate": 1.0,
+        "format_flag_counts": {},
+        "word_count_mean": 134.56,
+        "word_count_median": 126.0,
+        "word_count_min": 64,
+        "word_count_max": 221,
+        "target_word_deviation_over_25_percent": 1,
+        "response_flags": {
+          "target_length_deviation_over_25_percent": 1
+        },
+        "model_observation_scopes": {
+          "requested_only": 300
+        }
+      },
+      "by_model": {
+        "gpt-5.6-luna": {
+          "responses": 75,
+          "format_screen_pass": 75,
+          "format_screen_pass_rate": 1.0,
+          "format_flag_counts": {},
+          "word_count_mean": 137.56,
+          "word_count_median": 126,
+          "word_count_min": 73,
+          "word_count_max": 221,
+          "target_word_deviation_over_25_percent": 0,
+          "response_flags": {},
+          "model_observation_scopes": {
+            "requested_only": 75
+          }
+        },
+        "gpt-5.6-sol": {
+          "responses": 75,
+          "format_screen_pass": 75,
+          "format_screen_pass_rate": 1.0,
+          "format_flag_counts": {},
+          "word_count_mean": 137.68,
+          "word_count_median": 129,
+          "word_count_min": 76,
+          "word_count_max": 219,
+          "target_word_deviation_over_25_percent": 0,
+          "response_flags": {},
+          "model_observation_scopes": {
+            "requested_only": 75
+          }
+        },
+        "gpt-5.6-terra": {
+          "responses": 75,
+          "format_screen_pass": 75,
+          "format_screen_pass_rate": 1.0,
+          "format_flag_counts": {},
+          "word_count_mean": 129.8,
+          "word_count_median": 123,
+          "word_count_min": 64,
+          "word_count_max": 217,
+          "target_word_deviation_over_25_percent": 1,
+          "response_flags": {
+            "target_length_deviation_over_25_percent": 1
+          },
+          "model_observation_scopes": {
+            "requested_only": 75
+          }
+        },
+        "gpt-6-astra": {
+          "responses": 75,
+          "format_screen_pass": 75,
+          "format_screen_pass_rate": 1.0,
+          "format_flag_counts": {},
+          "word_count_mean": 133.2,
+          "word_count_median": 121,
+          "word_count_min": 77,
+          "word_count_max": 212,
+          "target_word_deviation_over_25_percent": 0,
+          "response_flags": {},
+          "model_observation_scopes": {
+            "requested_only": 75
+          }
+        }
+      }
+    },
+    "matched_old300": {
+      "responses": 300,
+      "format_screen_pass": 72,
+      "format_screen_pass_rate": 0.24,
+      "format_flag_counts": {
+        "blockquote": 3,
+        "bold": 58,
+        "bullet_list": 11,
+        "code_markup": 3,
+        "heading": 3,
+        "italic": 9,
+        "line_break": 224,
+        "numbered_list": 8
+      },
+      "word_count_mean": 133.12333333333333,
+      "word_count_median": 125.0,
+      "word_count_min": 44,
+      "word_count_max": 229,
+      "target_word_deviation_over_25_percent": 8,
+      "response_flags": {},
+      "model_observation_scopes": {
+        "requested_only": 300
+      }
+    }
+  },
+  "direct_screen": {
+    "responses": 378,
+    "strong_candidates": [],
+    "weak_candidates": [
+      {
+        "dataset": "batch300",
+        "id": "b56f52f7859b594e7f5816d9ecf1a437fab348bd88c75a1560704c165e319ba0",
+        "prompt_id": "cp0172",
+        "model": "gpt-5.6-terra",
+        "route": "codex_subscription",
+        "strong_hits": [],
+        "weak_hits": [
+          "politeness_discourse"
+        ],
+        "format_flags": [],
+        "word_count": 120,
+        "target": 120,
+        "length_flag": false
+      }
+    ],
+    "format_candidates": [],
+    "length_candidates": [
+      {
+        "dataset": "batch300",
+        "id": "575db2cd9418ad6a074850025730b5851bf26c51052ef3d0f2432a6a9358f82f",
+        "prompt_id": "cp0150",
+        "model": "gpt-5.6-terra",
+        "route": "codex_subscription",
+        "strong_hits": [],
+        "weak_hits": [],
+        "format_flags": [],
+        "word_count": 90,
+        "target": 160,
+        "length_flag": true
+      }
+    ]
+  },
+  "integrity": {
+    "raw_and_hash_verified": 378,
+    "duplicate_normalized_text_groups": [],
+    "new_vs_old_exact_normalized_overlap": [],
+    "paired_vs_batch_prompt_overlap": [],
+    "batch_groups": 75,
+    "train_groups": 60,
+    "holdout_groups": 15,
+    "batch_splits": {
+      "train": 240,
+      "holdout": 60
+    }
+  }
+}

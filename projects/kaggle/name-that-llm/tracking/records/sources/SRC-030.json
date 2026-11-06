@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "id": "SRC-030",
+  "kind": "dataset",
+  "title": "Seyit V2：Claude 生成数据与公共 prompt 银行",
+  "url": "https://www.kaggle.com/datasets/seyitkaangunes/ntl-extra-api-passages/versions/2",
+  "observed_at": "2026-10-31T17:00:43.016193+00:00",
+  "source_version": {
+    "dataset_version": 2,
+    "files_sha256": {
+      "README.md": "b83824c09eb78ff807764cf876e2b52a90d67b0aefebc5e338f85557aa76eb45",
+      "ntl_extra_passages_claude.csv": "710dbe484fda23f0dee9b67c20e5bef9376bf754af05584ad142bc17845cd4b9",
+      "prompts.csv": "25df24d4e4ca0f8242bd365cc9ea8039f0056f3eae78fa3dd186bbae5a608395"
+    },
+    "download_manifest_sha256": "5f2da21401efada94e636fd2fb843013c7eff6ae1ed2d07a5a2771c3ed071cfa"
+  },
+  "public_score": null,
+  "summary": "固定文件 4998 条/5 类；原文与其他直接来源无规范化重复，与 pool-v5 重叠 4924 条；已核对 prompts.csv 和 README。",
+  "author_claim": "作者声明官方 Claude API、无 system prompt、5 类返回 ID 匹配；未附逐行响应日志。",
+  "verified": "固定文件 4998 条/5 类；原文与其他直接来源无规范化重复，与 pool-v5 重叠 4924 条；已核对 prompts.csv 和 README。",
+  "use_for_us": "候选 4998 条；与共用 g0000-g0999 的其他来源合并题目分组；控制类别总权重。",
+  "test_plan": "固定 prompt-group-v1、同一轻量分类器与环境，按来源/设置分层做加数据对照；本轮只审计，尚未验证分数收益。",
+  "limitations": "缺少逐行原始调用证据；声明与记录一致不能独立证明底层模型版本。",
+  "evidence": [
+    "experiments/EXP-008-public-pool-audit/report.md",
+    "experiments/EXP-008-public-pool-audit/download-manifest.json",
+    "experiments/EXP-008-public-pool-audit/outputs/profiles.json",
+    "experiments/EXP-008-public-pool-audit/outputs/row_flags.parquet"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "id": 12691507,
+  "ref": "drjcfmd/ntl-generated-v2",
+  "subtitle": "",
+  "creator_name": "John Ferguson, MD, FACS",
+  "total_bytes": "69099412",
+  "last_updated": "2026-10-24T06:10:58.943Z",
+  "download_count": 1281,
+  "license_name": "CC BY-SA 4.0",
+  "description": "",
+  "owner_name": "John Ferguson, MD, FACS",
+  "owner_ref": "drjcfmd",
+  "kernel_count": 1,
+  "title": "ntl-generated-v2",
+  "view_count": 104,
+  "current_version_number": 4,
+  "usability_rating": 0.29411766,
+  "versions": [
+    {
+      "version_number": 4,
+      "creation_date": "2026-10-24T06:10:58.943Z",
+      "creator_name": "John Ferguson, MD, FACS",
+      "creator_ref": "ntl-generated-v2",
+      "version_notes": "batch 3 (train_ext3, train_ext3f), external public rows (ext_only), README",
+      "status": "Ready"
+    },
+    {
+      "version_number": 3,
+      "creation_date": "2026-10-23T17:32:28.803Z",
+      "creator_name": "John Ferguson, MD, FACS",
+      "creator_ref": "ntl-generated-v2",
+      "version_notes": "batch 3: train_ext3.csv (24,890 rows, unfiltered), train_ext3f.csv (24,037 rows, Gemini em-dash rows removed), README",
+      "status": "Ready"
+    },
+    {
+      "version_number": 2,
+      "creation_date": "2026-10-20T13:55:57.600Z",
+      "creator_name": "John Ferguson, MD, FACS",
+      "creator_ref": "ntl-generated-v2",
+      "version_notes": "batch 2, ~16.9k rows",
+      "status": "Ready"
+    },
+    {
+      "version_number": 1,
+      "creation_date": "2026-10-18T22:50:13.443Z",
+      "creator_name": "John Ferguson, MD, FACS",
+      "creator_ref": "ntl-generated-v2",
+      "version_notes": "Initial release",
+      "status": "Ready"
+    }
+  ],
+  "thumbnail_image_url": "https://storage.googleapis.com/kaggle-datasets-images/new-version-temp-images/default-backgrounds-31.png-32439786/dataset-thumbnail.png"
+}

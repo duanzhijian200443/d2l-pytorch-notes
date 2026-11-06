@@ -1,0 +1,42 @@
+{
+  "observed_at": "2026-11-01T12:56:27.540863+00:00",
+  "run_id": "75230ec19d8d4d4daf6e771359fd475b",
+  "scope": "Live savedrecords, notfinalcomplete audit",
+  "saved_total": 12,
+  "requests_sent_total": 15,
+  "counts": {
+    "codex_subscription|gpt-5.6-terra": 3,
+    "kaggle_model_proxy|gpt-5.6-luna": 4,
+    "codex_subscription|gpt-5.6-luna": 4,
+    "kaggle_model_proxy|gpt-5.6-terra": 1
+  },
+  "duplicate_successful_job_ids": 0,
+  "historical_two_successful_texts_unchanged": true,
+  "new_text_hashes_and_final_files_match": true,
+  "first_cloud_success": {
+    "gpt-5.6-luna": {
+      "job_id": "416e7a9df5a051bef840fc257762f5e0e1fd4e1d2cf6265f85e8c6a62ad4e78b",
+      "request_index": 5,
+      "model_observed": [
+        "openai/gpt-5.6-luna"
+      ],
+      "finish_reason": "stop",
+      "cost_usd": "0.0003778",
+      "text_sha256": "d9f40e9a1f714023ea04614cddf1a4fe3dc6742bacd5baaa7658073eb8051f20"
+    },
+    "gpt-5.6-terra": {
+      "job_id": "7ab69ee52691500cb0a80ee5d711f4aa01b75bcf7f90bd8d68922a63bb3c3bca",
+      "request_index": 13,
+      "model_observed": [
+        "openai/gpt-5.6-terra"
+      ],
+      "finish_reason": "stop",
+      "cost_usd": "0.001414",
+      "text_sha256": "ab0b8607e043467c58b6e6a544aef0286f7dfd437fe6abc1b4638848fafa6b2f"
+    }
+  },
+  "confirmed_cost_usd": "0.0025668",
+  "historical_cost_known": false,
+  "new_cost_known": true,
+  "current_failures": []
+}

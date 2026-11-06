@@ -1,0 +1,214 @@
+{
+  "role": "Read-only source fetch and semantic comparison evidence. Source bodies were parsed as text and never executed.",
+  "observed_at": "2026-11-02T07:10:15.114090+00:00",
+  "comparison_completed_at": "2026-11-02T07:14:01.572626+00:00",
+  "ref": "chyibo/name-that-llm-0663-fork",
+  "notebook_id": 142199340,
+  "notebook_version": 1,
+  "script_version_id": 364709540,
+  "source_sha256": "07cb21ed6f9b2b2d0920756a8fea64ec5a5d37637d7ea4fad07ab6eb85ce5140",
+  "code_sha256": "e3b8fa97495e45873b1297b782488819b4a04ac53cd08baa74e3637505b54605",
+  "code_hash_algorithm": "SHA256(UTF8(code-cell source joined with two LF chars))",
+  "source_bytes": 141003,
+  "code_cell_count": 10,
+  "source_output_count": 0,
+  "fetch": "Kaggle MCP get_notebook_info(latest) and versionLabel=v1 return identical blob.source; Kaggle CLI API fixed version_label=v1 persisted UTF-8 bytes unchanged.",
+  "source_metadata_sha256": "1520cdb02ff79c6c999fc723c3e3794f5755d4e541bcabfb35ea47795194d9aa",
+  "fixed_upstream": {
+    "ref": "alexchilton/name-that-llm-0-663-all-public-what-failed",
+    "notebook_id": 139599456,
+    "version": 9,
+    "source_sha256": "07cb21ed6f9b2b2d0920756a8fea64ec5a5d37637d7ea4fad07ab6eb85ce5140",
+    "all_notebook_source_equals_candidate": true,
+    "old_registered_source": "SRC-002 v8 same notebook id",
+    "upstream_score": "Not bound by source-equality check."
+  },
+  "comparison_targets": {
+    "EXP-047": {
+      "source_path": "experiments/EXP-047-who-are-you-v3-0664-history/source/who-are-you-v3.ipynb",
+      "source_sha256": "b4a716ba3c1cdc4a5c976a0cb9ff2c863e53ed7e63a8da1becfa2e70d422f5d6",
+      "code_sha256": "f9fbf9845de6c62c9bca9a753d2fe5aac1d35e106541c1e07ca5755a6449bce9",
+      "comparison_code_cell_count": 7,
+      "matching_code_cell_indices": [
+        {
+          "candidate_0based_code_index": 0,
+          "comparison_0based_code_index": 0
+        },
+        {
+          "candidate_0based_code_index": 3,
+          "comparison_0based_code_index": 2
+        },
+        {
+          "candidate_0based_code_index": 7,
+          "comparison_0based_code_index": 4
+        },
+        {
+          "candidate_0based_code_index": 8,
+          "comparison_0based_code_index": 5
+        }
+      ],
+      "last_command_identical": false
+    },
+    "EXP-004": {
+      "source_path": "reviews/own-scheme-readiness-20261030/baseline-v2.ipynb",
+      "source_sha256": "6c9145f038ccffbe08dc6da6db3d1dcf3d2e0e7d2286927bfc8800ef5148cfb8",
+      "code_sha256": "ae949afd898b9ef963f2013d671afeef40c7a0451a24da79322da1dfa841dd73",
+      "comparison_code_cell_count": 6,
+      "matching_code_cell_indices": [
+        {
+          "candidate_0based_code_index": 3,
+          "comparison_0based_code_index": 1
+        },
+        {
+          "candidate_0based_code_index": 7,
+          "comparison_0based_code_index": 3
+        },
+        {
+          "candidate_0based_code_index": 8,
+          "comparison_0based_code_index": 4
+        }
+      ],
+      "last_command_identical": false
+    },
+    "SRC-036": {
+      "source_path": "research/solutions/SRC-036-one-swap-v1/source.ipynb",
+      "source_sha256": "7e2ebb63ec4bbc3ffa03b9265c1cb9985b68c1b820bd6586572227d7e567eb69",
+      "code_sha256": "7063ccbaff77035df4bd4ca579b80fc4567dd5a4ec684e5cafc53656744240b3",
+      "comparison_code_cell_count": 7,
+      "matching_code_cell_indices": [
+        {
+          "candidate_0based_code_index": 0,
+          "comparison_0based_code_index": 0
+        },
+        {
+          "candidate_0based_code_index": 3,
+          "comparison_0based_code_index": 2
+        },
+        {
+          "candidate_0based_code_index": 7,
+          "comparison_0based_code_index": 4
+        },
+        {
+          "candidate_0based_code_index": 8,
+          "comparison_0based_code_index": 5
+        }
+      ],
+      "last_command_identical": false
+    },
+    "SRC-040": {
+      "source_path": "research/solutions/SRC-040-bgunshui-ntl-apex-e-v1/source.ipynb",
+      "source_sha256": "ccb4549744df976c6dfa9da31f761a9bc4acfaeea34588e4c9bdae7aa4829f7a",
+      "code_sha256": "176028c830935d9ed88a36e659fd55294cc07ccf398d874161f20ff7207e93e6",
+      "comparison_code_cell_count": 9,
+      "matching_code_cell_indices": [
+        {
+          "candidate_0based_code_index": 2,
+          "comparison_0based_code_index": 1
+        },
+        {
+          "candidate_0based_code_index": 3,
+          "comparison_0based_code_index": 2
+        },
+        {
+          "candidate_0based_code_index": 4,
+          "comparison_0based_code_index": 3
+        },
+        {
+          "candidate_0based_code_index": 5,
+          "comparison_0based_code_index": 4
+        },
+        {
+          "candidate_0based_code_index": 6,
+          "comparison_0based_code_index": 5
+        },
+        {
+          "candidate_0based_code_index": 7,
+          "comparison_0based_code_index": 6
+        },
+        {
+          "candidate_0based_code_index": 8,
+          "comparison_0based_code_index": 7
+        },
+        {
+          "candidate_0based_code_index": 9,
+          "comparison_0based_code_index": 8
+        }
+      ],
+      "last_command_identical": true
+    },
+    "SRC-002": {
+      "source_path": "reviews/public-top20-20261030/alexchilton--name-that-llm-0-662-all-public-what-failed/source.ipynb",
+      "source_sha256": "c155b33f38ccdd04b32a46455755c56f1aa3e851770da0c29d05ef9a7a3fdc56",
+      "code_sha256": "d164e570c03550b08337e9934b5f18af1255aeacdf1e0a0d279547bfac693c6f",
+      "comparison_code_cell_count": 7,
+      "matching_code_cell_indices": [
+        {
+          "candidate_0based_code_index": 0,
+          "comparison_0based_code_index": 0
+        },
+        {
+          "candidate_0based_code_index": 3,
+          "comparison_0based_code_index": 2
+        },
+        {
+          "candidate_0based_code_index": 7,
+          "comparison_0based_code_index": 4
+        },
+        {
+          "candidate_0based_code_index": 8,
+          "comparison_0based_code_index": 5
+        }
+      ],
+      "last_command_identical": false
+    }
+  },
+  "apex_e": {
+    "extra_chart_code_cell": 0,
+    "only_inputs_change": [
+      "--- ",
+      "+++ ",
+      "@@ -15 +15 @@",
+      "-FAST_COMMIT = len(_pd.read_csv(DATA + '/test.csv')) < 50   # fork: the 3-row commit run skips the heavy cells; the hidden rerun runs everything",
+      "+FAST_COMMIT = os.getenv('KAGGLE_IS_COMPETITION_RERUN') is None and len(_pd.read_csv(DATA + '/test.csv')) < 50   # alexchilton: the scoring rerun never takes the fast path   # fork: the 3-row commit run skips the heavy cells; the hidden rerun runs everything"
+    ],
+    "all_remaining_eight_code_cells_exact": true
+  },
+  "other_0665": {
+    "ref": "synthreaper/ntl-sovereign-gold-apex",
+    "notebook_version": 1,
+    "source_sha256": "ca4c9e18ed32dcd8168b8118b192d39d657803d30dcd89a564b1c2d1d9c846dd",
+    "all_seven_noninfer_cells_equal": true,
+    "effective_infer_after_unique_anchor_patch_identical": true,
+    "effective_infer_sha256_including_notebook_magic": "1f20e81a2a23a568bb5c8db426e0dd2c6ad5174c887c4aa88d1ef8cc6ca0712c",
+    "comparison_scope": "Ordered code-cell source text excluding the historical plotting cell and applying the literal one-line source replacement. No downloaded code was executed."
+  },
+  "attached_refs": {
+    "datasetDataSources": {
+      "count": 15,
+      "same_ref_set_SRC040": true,
+      "same_ref_set_other_0665": true
+    },
+    "kernelDataSources": {
+      "count": 8,
+      "same_ref_set_SRC040": true,
+      "same_ref_set_other_0665": true
+    },
+    "modelDataSources": {
+      "count": 8,
+      "same_ref_set_SRC040": true,
+      "same_ref_set_other_0665": true
+    },
+    "competitionDataSources": {
+      "count": 1,
+      "same_ref_set_SRC040": true,
+      "same_ref_set_other_0665": true
+    }
+  },
+  "properties_not_compared": [
+    "hidden input bytes other than public metadata and exposed Open Pool saved-run label",
+    "fitted weights",
+    "hidden branch execution logs",
+    "hidden predictions",
+    "private score"
+  ]
+}

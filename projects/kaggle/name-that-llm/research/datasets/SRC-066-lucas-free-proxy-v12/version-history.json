@@ -1,0 +1,82 @@
+[
+  {
+    "versionNumber": 12,
+    "creationDate": "2026-11-01T14:39:54.000Z",
+    "creatorName": "Lucas Boesen",
+    "creatorRef": "ntl-free-proxy-generations",
+    "versionNotes": "Add prompt-bank-v2 batch v2b21 (192 passages; 1,872 prompts / 7,906 passages total)",
+    "status": "Ready"
+  },
+  {
+    "versionNumber": 11,
+    "creationDate": "2026-10-29T01:27:55.413Z",
+    "creatorName": "Lucas Boesen",
+    "creatorRef": "ntl-free-proxy-generations",
+    "versionNotes": "Bank-v2 batches v2b19-v2b20 (480 passages)",
+    "status": "Ready"
+  },
+  {
+    "versionNumber": 10,
+    "creationDate": "2026-10-28T14:47:00.990Z",
+    "creatorName": "Lucas Boesen",
+    "creatorRef": "ntl-free-proxy-generations",
+    "versionNotes": "Bank-v2 batches v2b15-v2b18 (867 passages): 7,234 passages over 1,728 prompts",
+    "status": "Ready"
+  },
+  {
+    "versionNumber": 9,
+    "creationDate": "2026-10-26T23:48:38.273Z",
+    "creatorName": "Lucas Boesen",
+    "creatorRef": "ntl-free-proxy-generations",
+    "versionNotes": "Prompt-bank v2 batches v2b11-v2b14 (+915 passages; 6,367 total)",
+    "status": "Ready"
+  },
+  {
+    "versionNumber": 8,
+    "creationDate": "2026-10-25T16:43:50.270Z",
+    "creatorName": "Lucas Boesen",
+    "creatorRef": "ntl-free-proxy-generations",
+    "versionNotes": "Add prompt-bank-v2 batches v2b06-v2b10 (1,197 passages; now 5,452 passages on 1,344 prompts)",
+    "status": "Ready"
+  },
+  {
+    "versionNumber": 7,
+    "creationDate": "2026-10-22T23:55:09.390Z",
+    "creatorName": "Lucas Boesen",
+    "creatorRef": "ntl-free-proxy-generations",
+    "versionNotes": "Add prompt-bank-v2 batches v2b04-v2b05 (arxitekton gap filling) + prompt_source for b15 rows",
+    "status": "Ready"
+  },
+  {
+    "versionNumber": 6,
+    "creationDate": "2026-10-22T15:43:22.733Z",
+    "creatorName": "Lucas Boesen",
+    "creatorRef": "ntl-free-proxy-generations",
+    "versionNotes": "Add b15 (partial) + prompt-bank-v2 batches v2b01-v2b03 (gap-filling on lxd / arxitekton groups): 3,775 passages",
+    "status": "Ready"
+  },
+  {
+    "versionNumber": 5,
+    "creationDate": "2026-10-20T20:49:48.650Z",
+    "creatorName": "Lucas Boesen",
+    "creatorRef": "ntl-free-proxy-generations",
+    "versionNotes": "Add batches b11-b14 (g0580-g0699): 360 prompts, 2,880 passages",
+    "status": "Ready"
+  },
+  {
+    "versionNumber": 4,
+    "creationDate": "2026-10-19T19:52:41.830Z",
+    "creatorName": "Lucas Boesen",
+    "creatorRef": "ntl-free-proxy-generations",
+    "versionNotes": "Add batches b9-b10 (g0520-g0579): 240 prompts, 1,920 passages",
+    "status": "Ready"
+  },
+  {
+    "versionNumber": 3,
+    "creationDate": "2026-10-18T17:26:06.577Z",
+    "creatorName": "Lucas Boesen",
+    "creatorRef": "ntl-free-proxy-generations",
+    "versionNotes": "v3: + b7/b8 (g0460-g0519); 1,440 passages on 180 prompts",
+    "status": "Ready"
+  }
+]

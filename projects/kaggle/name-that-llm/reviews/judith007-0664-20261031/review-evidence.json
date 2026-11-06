@@ -1,0 +1,45 @@
+{
+  "observed_at_utc": "2026-10-31T14:01:22.370879+00:00",
+  "public_notebook": "judith007/0-664-hyperparameter-tuned-who-are-u",
+  "score_evidence": {
+    "method": "Kaggle page rendered accessibility tree",
+    "public_score": 0.664,
+    "display": "Public Score 0.664 Best Score; 0.664 V2",
+    "version": 2,
+    "script_version_id": 363834272,
+    "url": "https://www.kaggle.com/code/judith007/0-664-hyperparameter-tuned-who-are-u?scriptVersionId=363834272",
+    "commit_runtime_seconds": 556.3,
+    "commit_fast_path": true,
+    "commit_runtime_is_hidden_scoring_runtime": false
+  },
+  "latest_public_version": 6,
+  "source_comparison": {
+    "author_v2_vs_alex_v8": "Only one code line changed: --sinkhorn 0.45 -> 0.30",
+    "author_v6_vs_alex_v8": [
+      "--sinkhorn 0.45 -> 0.60",
+      "typography evidence scale 1.5 -> 1.2"
+    ],
+    "own_fork_v1_equal_author_v2_code": false,
+    "hashes": {
+      "own_fork_v1": "e4d918a3c9a53bf5121c48224878b50cb0011780e0e24ec2ba11cce883945715",
+      "author_v2": "f9fbf9845de6c62c9bca9a753d2fe5aac1d35e106541c1e07ca5755a6449bce9",
+      "author_latest_v6": "e4d918a3c9a53bf5121c48224878b50cb0011780e0e24ec2ba11cce883945715",
+      "upstream_alex_v8": "d164e570c03550b08337e9934b5f18af1255aeacdf1e0a0d279547bfac693c6f"
+    },
+    "own_fork_v1_equal_author_v6_code": true
+  },
+  "scope": "Read-only remote research; source files downloaded and statically compared; no model execution, submission, or runtime changes. Input version content hashes not independently audited.",
+  "own_submission_check": {
+    "observed_at_utc": "2026-10-31T14:01:55.623404+00:00",
+    "submissions": [
+      {
+        "ref": 57832487,
+        "status": null,
+        "publicScore": null,
+        "date": "2026-10-31T08:18:18.780Z",
+        "url": "/code/zhjianduan/0-664-hyperparameter-tuned-who-are-u?scriptVersionId=364159717",
+        "fileName": "submission.parquet"
+      }
+    ]
+  }
+}

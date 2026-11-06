@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "SRC-032",
+  "kind": "dataset",
+  "title": "dophuchung V1：7 类 proxy 参数扫描",
+  "url": "https://www.kaggle.com/datasets/dophuchung/ntl-proxy-generations/versions/1",
+  "observed_at": "2026-10-31T17:00:43.016193+00:00",
+  "source_version": {
+    "dataset_version": 1,
+    "files_sha256": {
+      "README.md": "592c2d035f7a9fcfad1b127fed01550b9f9fe7f4ab14024d6663bd8fe398fcf7",
+      "ntl_proxy_generations.csv": "593708f7fd55636bd270824c0e129447b2a5808b1e224bb3dbf43bf2383fdf9c"
+    },
+    "download_manifest_sha256": "5f2da21401efada94e636fd2fb843013c7eff6ae1ed2d07a5a2771c3ed071cfa"
+  },
+  "public_score": null,
+  "summary": "1029 条/7 类，所有 model_seen 对应标签；包含 5 种 reasoning 设置，80 个 prompt。",
+  "author_claim": "作者声明 proxy 服务、共享 Seyit prompt bank、仅保留 stop 且返回 ID 匹配的回答。",
+  "verified": "1029 条/7 类，所有 model_seen 对应标签；包含 5 种 reasoning 设置，80 个 prompt。",
+  "use_for_us": "候选 1029 条；按设置分层检查，保留与 Seyit 共用的题目关联。",
+  "test_plan": "固定 prompt-group-v1、同一轻量分类器与环境，按来源/设置分层做加数据对照；本轮只审计，尚未验证分数收益。",
+  "limitations": "返回 proxy 标识不等于服务商版本认证；不同设置是实验条件，不能默认为重复坏行。",
+  "evidence": [
+    "experiments/EXP-008-public-pool-audit/report.md",
+    "experiments/EXP-008-public-pool-audit/download-manifest.json",
+    "experiments/EXP-008-public-pool-audit/outputs/profiles.json",
+    "experiments/EXP-008-public-pool-audit/outputs/row_flags.parquet"
+  ]
+}

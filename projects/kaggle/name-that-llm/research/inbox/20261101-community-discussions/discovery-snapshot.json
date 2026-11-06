@@ -1,0 +1,1555 @@
+{
+  "observed_at": "2026-11-01T07:32:09.645604+00:00",
+  "role": "Discovery evidence, not canonical source ledger",
+  "lists": [
+    {
+      "request": {
+        "forumId": 13688374,
+        "sortBy": "new",
+        "page": 1
+      },
+      "response": {
+        "topics": [
+          {
+            "authorUser": {
+              "displayName": "Ashley Oldacre",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/8939556-kg.png?t=2025-08-22-16-55-54",
+              "url": "/ashleyoldacre",
+              "tier": "STAFF",
+              "id": 8939556,
+              "progressionOptOut": false
+            },
+            "authorType": "ADMIN",
+            "commentCount": 4,
+            "firstForumMessageId": 3538792,
+            "id": 749382,
+            "isSticky": true,
+            "lastCommenterType": "COMMENT",
+            "lastCommenterName": "Stephane Njoki",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/749382#3541615",
+            "lastCommentPostDate": "2026-10-20T14:17:18.133333300Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-14T19:46:35.777367400Z",
+            "title": "How to get started + Competition's Official Discord",
+            "topicUrl": "/competitions/name-that-llm/discussion/749382",
+            "votes": 17,
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "Ashley Oldacre",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/8939556-kg.png?t=2025-08-22-16-55-54",
+                "url": "/ashleyoldacre",
+                "userName": "ashleyoldacre",
+                "tier": "STAFF",
+                "id": 8939556,
+                "profileUrl": "/ashleyoldacre",
+                "performanceTier": "STAFF",
+                "userId": 8939556,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "GoPain",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/3897663-kg.jpg?t=2026-10-14-14-18-45",
+              "url": "/locdunhat",
+              "tier": "CONTRIBUTOR",
+              "id": 3897663,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "firstForumMessageId": 3547978,
+            "id": 754657,
+            "lastCommenterType": "TOPIC",
+            "lastCommenterName": "GoPain",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/754657#3547978",
+            "lastCommentPostDate": "2026-11-01T03:34:51.323333300Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-11-01T03:34:51.322208300Z",
+            "title": "The free TPU v5e-8 trains a Qwen3-8B LoRA classifier ~14x faster than 2xT4 (and bf16 ends the fp16 overflows)",
+            "topicUrl": "/competitions/name-that-llm/discussion/754657",
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "GoPain",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/3897663-kg.jpg?t=2026-10-14-14-18-45",
+                "url": "/locdunhat",
+                "userName": "locdunhat",
+                "tier": "CONTRIBUTOR",
+                "id": 3897663,
+                "profileUrl": "/locdunhat",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 3897663,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "Kratagya Jain 5846",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+              "url": "/kratagyajain5846",
+              "tier": "CONTRIBUTOR",
+              "id": 21905510,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "commentCount": 2,
+            "firstForumMessageId": 3547653,
+            "id": 754463,
+            "lastCommenterType": "COMMENT",
+            "lastCommenterName": "Carrot Production",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/754463#3547852",
+            "lastCommentPostDate": "2026-10-31T17:01:11.973333300Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-31T07:14:04.390343100Z",
+            "title": "Title: Beginner question: where does the gap between ~0.66 and ~0.70+ come from?",
+            "topicUrl": "/competitions/name-that-llm/discussion/754463",
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "Kratagya Jain 5846",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+                "url": "/kratagyajain5846",
+                "userName": "kratagyajain5846",
+                "tier": "CONTRIBUTOR",
+                "id": 21905510,
+                "profileUrl": "/kratagyajain5846",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 21905510,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "HALX2158",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/16294566-kg.jpeg?t=2026-10-16-21-22-02",
+              "url": "/mizuno0522",
+              "tier": "CONTRIBUTOR",
+              "id": 16294566,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "firstForumMessageId": 3547599,
+            "id": 754427,
+            "lastCommenterType": "TOPIC",
+            "lastCommenterName": "HALX2158",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/754427#3547599",
+            "lastCommentPostDate": "2026-10-31T05:50:13.136666700Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-31T05:50:13.135235200Z",
+            "title": "I couldn't replace the Llama member: three add-on attempts that didn't recover the score",
+            "topicUrl": "/competitions/name-that-llm/discussion/754427",
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "HALX2158",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/16294566-kg.jpeg?t=2026-10-16-21-22-02",
+                "url": "/mizuno0522",
+                "userName": "mizuno0522",
+                "tier": "CONTRIBUTOR",
+                "id": 16294566,
+                "profileUrl": "/mizuno0522",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 16294566,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "HALX2158",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/16294566-kg.jpeg?t=2026-10-16-21-22-02",
+              "url": "/mizuno0522",
+              "tier": "CONTRIBUTOR",
+              "id": 16294566,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "firstForumMessageId": 3547598,
+            "id": 754426,
+            "lastCommenterType": "TOPIC",
+            "lastCommenterName": "HALX2158",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/754426#3547598",
+            "lastCommentPostDate": "2026-10-31T05:49:31.633333300Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-31T05:49:31.631723300Z",
+            "title": "Harden a fork, then measure every part on the hidden test: my cheap ablation workflow",
+            "topicUrl": "/competitions/name-that-llm/discussion/754426",
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "HALX2158",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/16294566-kg.jpeg?t=2026-10-16-21-22-02",
+                "url": "/mizuno0522",
+                "userName": "mizuno0522",
+                "tier": "CONTRIBUTOR",
+                "id": 16294566,
+                "profileUrl": "/mizuno0522",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 16294566,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "Joseph Adamski",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/33210778-kg.jpg?t=2026-09-02-13-53-56",
+              "url": "/josephadamski91",
+              "tier": "EXPERT",
+              "id": 33210778,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "commentCount": 1,
+            "firstForumMessageId": 3547190,
+            "id": 754131,
+            "lastCommenterType": "COMMENT",
+            "lastCommenterName": "HALX2158",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/754131#3547493",
+            "lastCommentPostDate": "2026-10-31T03:19:45.230Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-30T13:18:47.387817100Z",
+            "title": "My popular ATLAS adapter vs Uniform Smoothing",
+            "topicUrl": "/competitions/name-that-llm/discussion/754131",
+            "votes": 2,
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "Joseph Adamski",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/33210778-kg.jpg?t=2026-09-02-13-53-56",
+                "url": "/josephadamski91",
+                "userName": "josephadamski91",
+                "tier": "EXPERT",
+                "id": 33210778,
+                "profileUrl": "/josephadamski91",
+                "performanceTier": "EXPERT",
+                "userId": 33210778,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "GoPain",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/3897663-kg.jpg?t=2026-10-14-14-18-45",
+              "url": "/locdunhat",
+              "tier": "CONTRIBUTOR",
+              "id": 3897663,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "firstForumMessageId": 3547084,
+            "id": 754084,
+            "lastCommenterType": "TOPIC",
+            "lastCommenterName": "GoPain",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/754084#3547084",
+            "lastCommentPostDate": "2026-10-30T06:15:02.230Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-30T06:15:02.230226600Z",
+            "title": "Ten LB points can't tell you which OOF to trust: a small simulation",
+            "topicUrl": "/competitions/name-that-llm/discussion/754084",
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "GoPain",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/3897663-kg.jpg?t=2026-10-14-14-18-45",
+                "url": "/locdunhat",
+                "userName": "locdunhat",
+                "tier": "CONTRIBUTOR",
+                "id": 3897663,
+                "profileUrl": "/locdunhat",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 3897663,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "Pablo Diego Pereira",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/11792984-kg.jpg?t=2023-08-28-20-41-18",
+              "url": "/pablodiegoo",
+              "tier": "CONTRIBUTOR",
+              "id": 11792984,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "firstForumMessageId": 3547009,
+            "id": 754026,
+            "lastCommenterType": "TOPIC",
+            "lastCommenterName": "Pablo Diego Pereira",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/754026#3547009",
+            "lastCommentPostDate": "2026-10-30T03:43:11.883333300Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-30T03:43:11.882121800Z",
+            "title": "[ Ablation Note ] Why Prompt-Clustered Adaptive Centering + Target-Shrunk Sinkhorn-Knopp (ρ = 0.35) Outperform Uniform Marginal Forcing",
+            "topicUrl": "/competitions/name-that-llm/discussion/754026",
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "Pablo Diego Pereira",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/11792984-kg.jpg?t=2023-08-28-20-41-18",
+                "url": "/pablodiegoo",
+                "userName": "pablodiegoo",
+                "tier": "CONTRIBUTOR",
+                "id": 11792984,
+                "profileUrl": "/pablodiegoo",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 11792984,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "Enai",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/2630633-kg.png",
+              "url": "/enaimaan",
+              "tier": "CONTRIBUTOR",
+              "id": 2630633,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "commentCount": 1,
+            "firstForumMessageId": 3546911,
+            "id": 753974,
+            "lastCommenterType": "COMMENT",
+            "lastCommenterName": "Wilmer E. Henao",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/753974#3547475",
+            "lastCommentPostDate": "2026-10-31T01:34:24.253333300Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-29T23:25:13.996281900Z",
+            "title": "New external dataset: 9,719 OpenAI responses with exact prompts and provenance",
+            "topicUrl": "/competitions/name-that-llm/discussion/753974",
+            "votes": 2,
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "Enai",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/2630633-kg.png",
+                "url": "/enaimaan",
+                "userName": "enaimaan",
+                "tier": "CONTRIBUTOR",
+                "id": 2630633,
+                "profileUrl": "/enaimaan",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 2630633,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "Carrot Production",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+              "url": "/crtproduction",
+              "tier": "CONTRIBUTOR",
+              "id": 20960131,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "firstForumMessageId": 3546552,
+            "id": 753779,
+            "lastCommenterType": "TOPIC",
+            "lastCommenterName": "Carrot Production",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/753779#3546552",
+            "lastCommentPostDate": "2026-10-29T09:45:43.306666700Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-29T09:45:43.307168800Z",
+            "title": "[BIG UPDATE - please try it] Same data, +0.027 accuracy: 1 in 4 passages in the public NTL pool was junk or the wrong genre. I cleaned it (Open Pool v9)",
+            "topicUrl": "/competitions/name-that-llm/discussion/753779",
+            "votes": 6,
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "Carrot Production",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+                "url": "/crtproduction",
+                "userName": "crtproduction",
+                "tier": "CONTRIBUTOR",
+                "id": 20960131,
+                "profileUrl": "/crtproduction",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 20960131,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "Harshit Kumar",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/26025170-kg.jpeg?t=2026-07-19-17-05-41",
+              "url": "/harshitsama",
+              "tier": "EXPERT",
+              "id": 26025170,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "firstForumMessageId": 3546146,
+            "id": 753526,
+            "lastCommenterType": "TOPIC",
+            "lastCommenterName": "Harshit Kumar",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/753526#3546146",
+            "lastCommentPostDate": "2026-10-28T12:50:18.010Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-28T12:50:18.009177100Z",
+            "title": "Stratified CV gives 0.13, prompt-grouped CV gives 0.31 (LB 0.308) for the same baseline",
+            "topicUrl": "/competitions/name-that-llm/discussion/753526",
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "Harshit Kumar",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/26025170-kg.jpeg?t=2026-07-19-17-05-41",
+                "url": "/harshitsama",
+                "userName": "harshitsama",
+                "tier": "EXPERT",
+                "id": 26025170,
+                "profileUrl": "/harshitsama",
+                "performanceTier": "EXPERT",
+                "userId": 26025170,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "GoPain",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/3897663-kg.jpg?t=2026-10-14-14-18-45",
+              "url": "/locdunhat",
+              "tier": "CONTRIBUTOR",
+              "id": 3897663,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "firstForumMessageId": 3545913,
+            "id": 753382,
+            "lastCommenterType": "TOPIC",
+            "lastCommenterName": "GoPain",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/753382#3545913",
+            "lastCommentPostDate": "2026-10-28T01:00:00.796666700Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-28T01:00:00.796370100Z",
+            "title": "2×T4 torchrun LoRA: how skipping a non-finite batch lost me a 9-hour run, and a skip that is safe",
+            "topicUrl": "/competitions/name-that-llm/discussion/753382",
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "GoPain",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/3897663-kg.jpg?t=2026-10-14-14-18-45",
+                "url": "/locdunhat",
+                "userName": "locdunhat",
+                "tier": "CONTRIBUTOR",
+                "id": 3897663,
+                "profileUrl": "/locdunhat",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 3897663,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "Harshita Kumari",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+              "url": "/harshitakumari256",
+              "tier": "EXPERT",
+              "id": 16845331,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "commentCount": 6,
+            "firstForumMessageId": 3545507,
+            "id": 753177,
+            "lastCommenterType": "COMMENT",
+            "lastCommenterName": "HALX2158",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/753177#3547766",
+            "lastCommentPostDate": "2026-10-31T12:09:17.696666700Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-27T11:52:46.594316100Z",
+            "title": "Retrained the Qwen2.5-14B member of nlm-v27 on the 120k pool: OOF 0.569 → 0.605, public LB 0.651 → 0.647. Why?",
+            "topicUrl": "/competitions/name-that-llm/discussion/753177",
+            "votes": 6,
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "Harshita Kumari",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+                "url": "/harshitakumari256",
+                "userName": "harshitakumari256",
+                "tier": "EXPERT",
+                "id": 16845331,
+                "profileUrl": "/harshitakumari256",
+                "performanceTier": "EXPERT",
+                "userId": 16845331,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "GoPain",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/3897663-kg.jpg?t=2026-10-14-14-18-45",
+              "url": "/locdunhat",
+              "tier": "CONTRIBUTOR",
+              "id": 3897663,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "commentCount": 1,
+            "firstForumMessageId": 3545275,
+            "id": 753053,
+            "lastCommenterType": "COMMENT",
+            "lastCommenterName": "HALX2158",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/753053#3545622",
+            "lastCommentPostDate": "2026-10-27T16:40:19.676666700Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-27T01:15:30.411296800Z",
+            "title": "Why grouped CV over-picks test-time centring, and a way to validate it against the test batch",
+            "topicUrl": "/competitions/name-that-llm/discussion/753053",
+            "votes": 1,
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "GoPain",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/3897663-kg.jpg?t=2026-10-14-14-18-45",
+                "url": "/locdunhat",
+                "userName": "locdunhat",
+                "tier": "CONTRIBUTOR",
+                "id": 3897663,
+                "profileUrl": "/locdunhat",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 3897663,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "cool_capro",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+              "url": "/coolcapro",
+              "tier": "CONTRIBUTOR",
+              "id": 29815854,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "commentCount": 1,
+            "firstForumMessageId": 3545202,
+            "id": 752997,
+            "lastCommenterType": "COMMENT",
+            "lastCommenterName": "Ace",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/752997#3545211",
+            "lastCommentPostDate": "2026-10-26T22:28:46.540Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-26T22:11:33.375942800Z",
+            "title": "what exactly one have to do in kaggle comp(my first comp)",
+            "topicUrl": "/competitions/name-that-llm/discussion/752997",
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "cool_capro",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+                "url": "/coolcapro",
+                "userName": "coolcapro",
+                "tier": "CONTRIBUTOR",
+                "id": 29815854,
+                "profileUrl": "/coolcapro",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 29815854,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "Daniel Andres Miranda",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/5822289-gr.jpg",
+              "url": "/danielandresmiranda",
+              "tier": "CONTRIBUTOR",
+              "id": 5822289,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "firstForumMessageId": 3544878,
+            "id": 752810,
+            "lastCommenterType": "TOPIC",
+            "lastCommenterName": "Daniel Andres Miranda",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/752810#3544878",
+            "lastCommentPostDate": "2026-10-26T12:57:57.603333300Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-26T12:57:57.603569400Z",
+            "title": "Same recipe, bigger pool: 36k → 124k passages took our blend from 0.618 to 0.639 CV (LB 0.586 → 0.617)",
+            "topicUrl": "/competitions/name-that-llm/discussion/752810",
+            "votes": -1,
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "Daniel Andres Miranda",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/5822289-gr.jpg",
+                "url": "/danielandresmiranda",
+                "userName": "danielandresmiranda",
+                "tier": "CONTRIBUTOR",
+                "id": 5822289,
+                "profileUrl": "/danielandresmiranda",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 5822289,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "yuna5577",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20655757-kg.png?t=2026-10-30-04-05-04",
+              "url": "/yuna5577",
+              "tier": "CONTRIBUTOR",
+              "id": 20655757,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "commentCount": 2,
+            "firstForumMessageId": 3544793,
+            "id": 752780,
+            "lastCommenterType": "COMMENT",
+            "lastCommenterName": "Pavel Danilov",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/752780#3544872",
+            "lastCommentPostDate": "2026-10-26T12:33:51.970Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-26T09:37:01.094895300Z",
+            "title": "Curly apostrophes never appear in Claude or GLM passages (EDA)",
+            "topicUrl": "/competitions/name-that-llm/discussion/752780",
+            "votes": 1,
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "yuna5577",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20655757-kg.png?t=2026-10-30-04-05-04",
+                "url": "/yuna5577",
+                "userName": "yuna5577",
+                "tier": "CONTRIBUTOR",
+                "id": 20655757,
+                "profileUrl": "/yuna5577",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 20655757,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "QianYuu",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/15950992-kg.png?t=2023-11-20-06-16-48",
+              "url": "/qianyuu",
+              "tier": "EXPERT",
+              "id": 15950992,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "commentCount": 3,
+            "firstForumMessageId": 3544774,
+            "id": 752775,
+            "lastCommenterType": "TOPIC",
+            "lastCommenterName": "QianYuu",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/752775#3544854",
+            "lastCommentPostDate": "2026-10-26T12:02:42.740Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-26T09:00:47.290840200Z",
+            "title": "I need help; I’ve run into a problem.",
+            "topicUrl": "/competitions/name-that-llm/discussion/752775",
+            "votes": -1,
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "QianYuu",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/15950992-kg.png?t=2023-11-20-06-16-48",
+                "url": "/qianyuu",
+                "userName": "qianyuu",
+                "tier": "EXPERT",
+                "id": 15950992,
+                "profileUrl": "/qianyuu",
+                "performanceTier": "EXPERT",
+                "userId": 15950992,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "Carrot Production",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+              "url": "/crtproduction",
+              "tier": "CONTRIBUTOR",
+              "id": 20960131,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "commentCount": 14,
+            "firstForumMessageId": 3544753,
+            "id": 752766,
+            "lastCommenterType": "TOPIC",
+            "lastCommenterName": "Carrot Production",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/752766#3547848",
+            "lastCommentPostDate": "2026-10-31T16:53:24.723333300Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-26T07:59:30.670717200Z",
+            "title": "[UPDATED] Clean data beats more data (Open Pool v10 out now)",
+            "topicUrl": "/competitions/name-that-llm/discussion/752766",
+            "votes": 60,
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "Carrot Production",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+                "url": "/crtproduction",
+                "userName": "crtproduction",
+                "tier": "CONTRIBUTOR",
+                "id": 20960131,
+                "profileUrl": "/crtproduction",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 20960131,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "GoPain",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/3897663-kg.jpg?t=2026-10-14-14-18-45",
+              "url": "/locdunhat",
+              "tier": "CONTRIBUTOR",
+              "id": 3897663,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "firstForumMessageId": 3544653,
+            "id": 752708,
+            "lastCommenterType": "TOPIC",
+            "lastCommenterName": "GoPain",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/752708#3544653",
+            "lastCommentPostDate": "2026-10-26T01:18:08.366666700Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-26T01:18:08.366848900Z",
+            "title": "Centring members inside content clusters: an OOF check with fewer answers per prompt",
+            "topicUrl": "/competitions/name-that-llm/discussion/752708",
+            "votes": 1,
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "GoPain",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/3897663-kg.jpg?t=2026-10-14-14-18-45",
+                "url": "/locdunhat",
+                "userName": "locdunhat",
+                "tier": "CONTRIBUTOR",
+                "id": 3897663,
+                "profileUrl": "/locdunhat",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 3897663,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          }
+        ],
+        "count": 89
+      }
+    },
+    {
+      "request": {
+        "forumId": 13688374,
+        "sortBy": "new",
+        "page": 2
+      },
+      "response": {
+        "topics": [
+          {
+            "authorUser": {
+              "displayName": "cosmorin",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/37406919-kg.jpeg?t=2026-10-25-07-21-03",
+              "url": "/cosmorin",
+              "tier": "CONTRIBUTOR",
+              "id": 37406919,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "firstForumMessageId": 3544626,
+            "id": 752690,
+            "lastCommenterType": "TOPIC",
+            "lastCommenterName": "cosmorin",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/752690#3544626",
+            "lastCommentPostDate": "2026-10-25T23:14:50.366666700Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-25T23:14:50.367611200Z",
+            "title": "Looking for teammates: read the public Code guide, then apply",
+            "topicUrl": "/competitions/name-that-llm/discussion/752690",
+            "votes": -8,
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "cosmorin",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/37406919-kg.jpeg?t=2026-10-25-07-21-03",
+                "url": "/cosmorin",
+                "userName": "cosmorin",
+                "tier": "CONTRIBUTOR",
+                "id": 37406919,
+                "profileUrl": "/cosmorin",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 37406919,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "WOOSUNG YOON",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/4808143-kg.png?t=2026-06-16-13-03-45",
+              "url": "/woosungyoon",
+              "tier": "EXPERT",
+              "id": 4808143,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "firstForumMessageId": 3544342,
+            "id": 752539,
+            "lastCommenterType": "TOPIC",
+            "lastCommenterName": "WOOSUNG YOON",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/752539#3544342",
+            "lastCommentPostDate": "2026-10-25T09:11:50.023333300Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-25T09:11:50.024542300Z",
+            "title": "Dataset And Kaggle Benchmark",
+            "topicUrl": "/competitions/name-that-llm/discussion/752539",
+            "votes": 2,
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "WOOSUNG YOON",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/4808143-kg.png?t=2026-06-16-13-03-45",
+                "url": "/woosungyoon",
+                "userName": "woosungyoon",
+                "tier": "EXPERT",
+                "id": 4808143,
+                "profileUrl": "/woosungyoon",
+                "performanceTier": "EXPERT",
+                "userId": 4808143,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "Abhinav Kotnala",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+              "url": "/abhinavkotnala",
+              "tier": "CONTRIBUTOR",
+              "id": 21590884,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "firstForumMessageId": 3544240,
+            "id": 752478,
+            "lastCommenterType": "TOPIC",
+            "lastCommenterName": "Abhinav Kotnala",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/752478#3544240",
+            "lastCommentPostDate": "2026-10-25T03:19:38.353333300Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-25T03:19:38.353671400Z",
+            "title": "Rule 2.6: Is generating training data through the 18 candidate models’ APIs permitted?",
+            "topicUrl": "/competitions/name-that-llm/discussion/752478",
+            "votes": -1,
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "Dhruv Sharma",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/35506983-kg.jpg?t=2026-07-08-09-02-12",
+                "url": "/dhruvsharma2905",
+                "userName": "dhruvsharma2905",
+                "tier": "CONTRIBUTOR",
+                "id": 35506983,
+                "profileUrl": "/dhruvsharma2905",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 35506983,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "Melih Eymen",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+              "url": "/meliheymen",
+              "tier": "CONTRIBUTOR",
+              "id": 23632061,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "commentCount": 5,
+            "firstForumMessageId": 3544130,
+            "id": 752418,
+            "lastCommenterType": "COMMENT",
+            "lastCommenterName": "Mahmoud saad Elgharib",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/752418#3544883",
+            "lastCommentPostDate": "2026-10-26T13:11:23.343333300Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-24T21:11:35.787848400Z",
+            "title": "people makes 0.700 point are those real or just some kind of trick used?",
+            "topicUrl": "/competitions/name-that-llm/discussion/752418",
+            "votes": 3,
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "Melih Eymen",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+                "url": "/meliheymen",
+                "userName": "meliheymen",
+                "tier": "CONTRIBUTOR",
+                "id": 23632061,
+                "profileUrl": "/meliheymen",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 23632061,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "Boris Konstantinovskii",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/1695468-kg.png?t=2026-01-11-09-27-25",
+              "url": "/jusill",
+              "tier": "CONTRIBUTOR",
+              "id": 1695468,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "commentCount": 2,
+            "firstForumMessageId": 3544029,
+            "id": 752365,
+            "lastCommenterType": "COMMENT",
+            "lastCommenterName": "HALX2158",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/752365#3547495",
+            "lastCommentPostDate": "2026-10-31T03:24:10.303333300Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-24T15:41:06.711732300Z",
+            "title": "Sinkhorn balancing: what it costs when the test mix is uneven",
+            "topicUrl": "/competitions/name-that-llm/discussion/752365",
+            "votes": 1,
+            "teamUpInfo": {
+              "enabled": true,
+              "teamLeader": {
+                "displayName": "Ruben Safaryan",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+                "url": "/rubensafaryan",
+                "userName": "rubensafaryan",
+                "tier": "CONTRIBUTOR",
+                "id": 6939789,
+                "profileUrl": "/rubensafaryan",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 6939789,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "Aryan Awasthi",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/24442364-kg.png?t=2026-10-29-08-39-57",
+              "url": "/aryanawasthiteykik",
+              "tier": "CONTRIBUTOR",
+              "id": 24442364,
+              "progressionOptOut": true
+            },
+            "authorType": "TOPIC",
+            "firstForumMessageId": 3544019,
+            "id": 752357,
+            "lastCommenterType": "TOPIC",
+            "lastCommenterName": "Aryan Awasthi",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/752357#3544019",
+            "lastCommentPostDate": "2026-10-24T15:24:06.736666700Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-24T15:24:06.735506Z",
+            "title": "What 134 public versions show about which changes repeat, and what we think is left past 0.639",
+            "topicUrl": "/competitions/name-that-llm/discussion/752357",
+            "votes": 1,
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "Aryan Awasthi",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/24442364-kg.png?t=2026-10-29-08-39-57",
+                "url": "/aryanawasthiteykik",
+                "userName": "aryanawasthiteykik",
+                "tier": "CONTRIBUTOR",
+                "id": 24442364,
+                "profileUrl": "/aryanawasthiteykik",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 24442364,
+                "progressionOptOut": true
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "codex rybaka",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+              "url": "/yuriplot",
+              "tier": "CONTRIBUTOR",
+              "id": 16796017,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "firstForumMessageId": 3543870,
+            "id": 752280,
+            "lastCommenterType": "TOPIC",
+            "lastCommenterName": "codex rybaka",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/752280#3543870",
+            "lastCommentPostDate": "2026-10-24T07:54:41.946666700Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-24T07:54:41.945293900Z",
+            "title": "How were the passages generated (API vs. chat apps/agents), and when?",
+            "topicUrl": "/competitions/name-that-llm/discussion/752280",
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "codex rybaka",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+                "url": "/yuriplot",
+                "userName": "yuriplot",
+                "tier": "CONTRIBUTOR",
+                "id": 16796017,
+                "profileUrl": "/yuriplot",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 16796017,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "Seeing Times",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/6625861-kg.jpg?t=2023-10-19-06-40-07",
+              "url": "/seeingtimes",
+              "tier": "EXPERT",
+              "id": 6625861,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "commentCount": 1,
+            "firstForumMessageId": 3543859,
+            "id": 752270,
+            "lastCommenterType": "COMMENT",
+            "lastCommenterName": "Md Muqtadir Fuad",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/752270#3544299",
+            "lastCommentPostDate": "2026-10-25T07:11:04.416666700Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-24T06:36:40.551778700Z",
+            "title": "Clarification on External Data: Paid and Region-Restricted LLMs",
+            "topicUrl": "/competitions/name-that-llm/discussion/752270",
+            "votes": 3,
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "Seeing Times",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/6625861-kg.jpg?t=2023-10-19-06-40-07",
+                "url": "/seeingtimes",
+                "userName": "seeingtimes",
+                "tier": "EXPERT",
+                "id": 6625861,
+                "profileUrl": "/seeingtimes",
+                "performanceTier": "EXPERT",
+                "userId": 6625861,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "Jamey (Remmy) Thomas",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/36777022-kg.png?t=2026-10-21-11-35-47",
+              "url": "/morgankael",
+              "tier": "CONTRIBUTOR",
+              "id": 36777022,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "firstForumMessageId": 3543819,
+            "id": 752247,
+            "lastCommenterType": "TOPIC",
+            "lastCommenterName": "Jamey (Remmy) Thomas",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/752247#3543819",
+            "lastCommentPostDate": "2026-10-24T03:48:37.560Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-24T03:48:37.560228100Z",
+            "title": "First post: glyph tells mostly split families, not models",
+            "topicUrl": "/competitions/name-that-llm/discussion/752247",
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "Jamey (Remmy) Thomas",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/36777022-kg.png?t=2026-10-21-11-35-47",
+                "url": "/morgankael",
+                "userName": "morgankael",
+                "tier": "CONTRIBUTOR",
+                "id": 36777022,
+                "profileUrl": "/morgankael",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 36777022,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "Meni David Gottesman",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+              "url": "/menidavidgottesman",
+              "tier": "CONTRIBUTOR",
+              "id": 37057971,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "firstForumMessageId": 3543718,
+            "id": 752199,
+            "lastCommenterType": "TOPIC",
+            "lastCommenterName": "Meni David Gottesman",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/752199#3543718",
+            "lastCommentPostDate": "2026-10-23T22:44:33.743333300Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-23T22:44:33.744234500Z",
+            "title": "How well does your CV track the public LB once external data and test-time grouping are involved?",
+            "topicUrl": "/competitions/name-that-llm/discussion/752199",
+            "teamUpInfo": {
+              "enabled": true,
+              "teamLeader": {
+                "displayName": "Meni David Gottesman",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+                "url": "/menidavidgottesman",
+                "userName": "menidavidgottesman",
+                "tier": "CONTRIBUTOR",
+                "id": 37057971,
+                "profileUrl": "/menidavidgottesman",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 37057971,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "Meni David Gottesman",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+              "url": "/menidavidgottesman",
+              "tier": "CONTRIBUTOR",
+              "id": 37057971,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "firstForumMessageId": 3543717,
+            "id": 752198,
+            "lastCommenterType": "TOPIC",
+            "lastCommenterName": "Meni David Gottesman",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/752198#3543717",
+            "lastCommentPostDate": "2026-10-23T22:43:45.723333300Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-23T22:43:45.724546100Z",
+            "title": "Throughput of ~30B MoE models (e.g. Qwen3-30B-A3B) in 4-bit on 2xT4?",
+            "topicUrl": "/competitions/name-that-llm/discussion/752198",
+            "teamUpInfo": {
+              "enabled": true,
+              "teamLeader": {
+                "displayName": "Meni David Gottesman",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+                "url": "/menidavidgottesman",
+                "userName": "menidavidgottesman",
+                "tier": "CONTRIBUTOR",
+                "id": 37057971,
+                "profileUrl": "/menidavidgottesman",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 37057971,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "Meni David Gottesman",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+              "url": "/menidavidgottesman",
+              "tier": "CONTRIBUTOR",
+              "id": 37057971,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "firstForumMessageId": 3543716,
+            "id": 752197,
+            "lastCommenterType": "TOPIC",
+            "lastCommenterName": "Meni David Gottesman",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/752197#3543716",
+            "lastCommentPostDate": "2026-10-23T22:42:16.826666700Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-23T22:42:16.825807500Z",
+            "title": "The glm-5.3 / glm-5.3-flash / claude-fable-5 corner: noise floor, or is there a lever?",
+            "topicUrl": "/competitions/name-that-llm/discussion/752197",
+            "teamUpInfo": {
+              "enabled": true,
+              "teamLeader": {
+                "displayName": "Meni David Gottesman",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+                "url": "/menidavidgottesman",
+                "userName": "menidavidgottesman",
+                "tier": "CONTRIBUTOR",
+                "id": 37057971,
+                "profileUrl": "/menidavidgottesman",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 37057971,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "martin osmani",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+              "url": "/martinosmani",
+              "tier": "CONTRIBUTOR",
+              "id": 21297718,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "commentCount": 6,
+            "firstForumMessageId": 3543565,
+            "id": 752084,
+            "lastCommenterType": "COMMENT",
+            "lastCommenterName": "ABDUL SALAM",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/752084#3547515",
+            "lastCommentPostDate": "2026-10-31T04:26:40.556666700Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-23T16:41:55.833748600Z",
+            "title": "Open rules questions in one place: generated data (§2.6), Benchmarks quota, winner licence, test-time inference",
+            "topicUrl": "/competitions/name-that-llm/discussion/752084",
+            "votes": 4,
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "martin osmani",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+                "url": "/martinosmani",
+                "userName": "martinosmani",
+                "tier": "CONTRIBUTOR",
+                "id": 21297718,
+                "profileUrl": "/martinosmani",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 21297718,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "Clivin John",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/23919163-kg.jpg?t=2026-09-25-06-31-25",
+              "url": "/clivinjohn",
+              "tier": "CONTRIBUTOR",
+              "id": 23919163,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "firstForumMessageId": 3543313,
+            "id": 751954,
+            "lastCommenterType": "TOPIC",
+            "lastCommenterName": "Clivin John",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/751954#3543313",
+            "lastCommentPostDate": "2026-10-23T07:09:24.670Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-23T07:09:24.669980100Z",
+            "title": "Clarification on Rule 2.6: publicly shared generated passages and API-generated training data",
+            "topicUrl": "/competitions/name-that-llm/discussion/751954",
+            "votes": 4,
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "Clivin John",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/23919163-kg.jpg?t=2026-09-25-06-31-25",
+                "url": "/clivinjohn",
+                "userName": "clivinjohn",
+                "tier": "CONTRIBUTOR",
+                "id": 23919163,
+                "profileUrl": "/clivinjohn",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 23919163,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "SwapIY",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+              "url": "/swapiy",
+              "tier": "EXPERT",
+              "id": 27355874,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "commentCount": 2,
+            "firstForumMessageId": 3543282,
+            "id": 751941,
+            "lastCommenterType": "TOPIC",
+            "lastCommenterName": "SwapIY",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/751941#3543844",
+            "lastCommentPostDate": "2026-10-24T05:20:51.493333300Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-23T05:44:24.404152700Z",
+            "title": "Does the public pool leak train prompts into grouped CV? Quick check says no",
+            "topicUrl": "/competitions/name-that-llm/discussion/751941",
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "SwapIY",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+                "url": "/swapiy",
+                "userName": "swapiy",
+                "tier": "EXPERT",
+                "id": 27355874,
+                "profileUrl": "/swapiy",
+                "performanceTier": "EXPERT",
+                "userId": 27355874,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "SANNNNN",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/31467923-kg.jpg?t=2026-07-21-19-05-31",
+              "url": "/zuhairsan",
+              "tier": "EXPERT",
+              "id": 31467923,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "commentCount": 1,
+            "firstForumMessageId": 3543223,
+            "id": 751910,
+            "lastCommenterType": "COMMENT",
+            "lastCommenterName": "latentgenius",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/751910#3546890",
+            "lastCommentPostDate": "2026-10-29T22:27:54.773333300Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-23T03:46:39.975036300Z",
+            "title": "How to request access llama-3.1",
+            "topicUrl": "/competitions/name-that-llm/discussion/751910",
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "SANNNNN",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/31467923-kg.jpg?t=2026-07-21-19-05-31",
+                "url": "/zuhairsan",
+                "userName": "zuhairsan",
+                "tier": "EXPERT",
+                "id": 31467923,
+                "profileUrl": "/zuhairsan",
+                "performanceTier": "EXPERT",
+                "userId": 31467923,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "Daniel Andres Miranda",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/5822289-gr.jpg",
+              "url": "/danielandresmiranda",
+              "tier": "CONTRIBUTOR",
+              "id": 5822289,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "firstForumMessageId": 3543138,
+            "id": 751871,
+            "lastCommenterType": "TOPIC",
+            "lastCommenterName": "Daniel Andres Miranda",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/751871#3543138",
+            "lastCommentPostDate": "2026-10-22T23:57:40.473333300Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-22T23:57:40.474679700Z",
+            "title": "Notes from our runs: what transferred to the LB, what didn't, and a GLM/Kimi dataset",
+            "topicUrl": "/competitions/name-that-llm/discussion/751871",
+            "votes": 2,
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "Daniel Andres Miranda",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/5822289-gr.jpg",
+                "url": "/danielandresmiranda",
+                "userName": "danielandresmiranda",
+                "tier": "CONTRIBUTOR",
+                "id": 5822289,
+                "profileUrl": "/danielandresmiranda",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 5822289,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "Noussair Mighri",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/11963278-kg.jpeg",
+              "url": "/noussairmighri",
+              "tier": "CONTRIBUTOR",
+              "id": 11963278,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "firstForumMessageId": 3543033,
+            "id": 751802,
+            "lastCommenterType": "TOPIC",
+            "lastCommenterName": "Noussair Mighri",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/751802#3543033",
+            "lastCommentPostDate": "2026-10-22T20:00:30.893333300Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-22T20:00:30.894979700Z",
+            "title": "Does the test set keep the “one passage per model per prompt” structure?",
+            "topicUrl": "/competitions/name-that-llm/discussion/751802",
+            "votes": 2,
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "Noussair Mighri",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/11963278-kg.jpeg",
+                "url": "/noussairmighri",
+                "userName": "noussairmighri",
+                "tier": "CONTRIBUTOR",
+                "id": 11963278,
+                "profileUrl": "/noussairmighri",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 11963278,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "tammamalasha",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/918183-gp.jpg",
+              "url": "/tammamalasha",
+              "tier": "CONTRIBUTOR",
+              "id": 918183,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "firstForumMessageId": 3542950,
+            "id": 751754,
+            "lastCommenterType": "TOPIC",
+            "lastCommenterName": "tammamalasha",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/751754#3542950",
+            "lastCommentPostDate": "2026-10-22T17:41:13.413333300Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-22T17:41:13.412819700Z",
+            "title": "Heads-up: submissions failing with \"Notebook Threw Exception\" after several hours",
+            "topicUrl": "/competitions/name-that-llm/discussion/751754",
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "tammamalasha",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/918183-gp.jpg",
+                "url": "/tammamalasha",
+                "userName": "tammamalasha",
+                "tier": "CONTRIBUTOR",
+                "id": 918183,
+                "profileUrl": "/tammamalasha",
+                "performanceTier": "CONTRIBUTOR",
+                "userId": 918183,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          },
+          {
+            "authorUser": {
+              "displayName": "Ghaith Mechi",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/8706340-kg.jpg?t=2024-03-14-16-48-39",
+              "url": "/ghaithmechi",
+              "tier": "MASTER",
+              "id": 8706340,
+              "progressionOptOut": false
+            },
+            "authorType": "TOPIC",
+            "commentCount": 5,
+            "firstForumMessageId": 3542889,
+            "id": 751722,
+            "lastCommenterType": "TOPIC",
+            "lastCommenterName": "Ghaith Mechi",
+            "lastCommenterUrl": "/competitions/name-that-llm/discussion/751722#3543032",
+            "lastCommentPostDate": "2026-10-22T19:57:51.150Z",
+            "parentName": "Name That LLM",
+            "parentUrl": "/competitions/name-that-llm/discussion",
+            "postDate": "2026-10-22T16:08:23.153109200Z",
+            "title": "Anyone tried a Hierarchical Approach? (Predicting Provider first, then Specific Model)",
+            "topicUrl": "/competitions/name-that-llm/discussion/751722",
+            "votes": 3,
+            "teamUpInfo": {
+              "teamLeader": {
+                "displayName": "Ghaith Mechi",
+                "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/8706340-kg.jpg?t=2024-03-14-16-48-39",
+                "url": "/ghaithmechi",
+                "userName": "ghaithmechi",
+                "tier": "MASTER",
+                "id": 8706340,
+                "profileUrl": "/ghaithmechi",
+                "performanceTier": "MASTER",
+                "userId": 8706340,
+                "progressionOptOut": false
+              },
+              "intro": ""
+            }
+          }
+        ],
+        "count": 89
+      }
+    }
+  ]
+}

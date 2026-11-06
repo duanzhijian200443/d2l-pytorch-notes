@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "id": "EXP-008",
+  "title": "六个固定版本公共数据池的质量、去重与溯源检查",
+  "baseline_id": "EXP-007",
+  "hypothesis": "公开池并非互相独立；先核查标签与生成来源、跨池重复和官方数据重叠，形成可追溯的候选数据准入规则。",
+  "changes": [
+    "读取六个已登记公共数据集的固定版本与来源说明",
+    "检查字段/标签/空值、文本重复、prompt 家族与官方数据重叠",
+    "生成质量报告与逐行筛查标记；不训练模型"
+  ],
+  "observed_at": "2026-10-31T17:00:43.016193+00:00",
+  "source": {
+    "notebook_ref": null,
+    "notebook_version": null,
+    "script_version_id": null,
+    "local_path": "experiments/EXP-008-public-pool-audit/audit.py",
+    "sha256": "d4e88a90995b74ad0d518d8bdb476b6db62a7b6d963ac6664fd5ee4bc58c291e"
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-008-public-pool-audit/download-manifest.json",
+    "validation_split_id": "prompt-group-v1",
+    "content_hashes_verified": true,
+    "content_hashes_verified_scope": "27 fixed-version downloaded files and official train.csv; does not certify API identity or all upstream aggregate sources"
+  },
+  "config": {
+    "mode": "data_quality_audit_only",
+    "exact_normalization": "NFKC + casefold + collapse whitespace; audit only",
+    "near_duplicate_threshold": 0.9,
+    "near_duplicate_scope": "external versus official train; approximate char similarity candidate screen",
+    "refusal_flags": "screen only; no automatic assertion of mislabeled text",
+    "versions": {
+      "seyitkaangunes/ntl-extra-api-passages": 2,
+      "abdullah1afify/ntl-generations": 2,
+      "dophuchung/ntl-proxy-generations": 1,
+      "dhruvtibarewal/nlm-matched-clean": 3,
+      "lucasboesen/ntl-free-proxy-generations": 7,
+      "prvsiyan/prvsiyans-extended-name-that-llm-dataset": 6
+    },
+    "near_duplicate_candidate_rule": "At least 3 distinct shared 8-word shingles with official train/public test, then char5 TF cosine >=0.90; not exhaustive cosine or semantics",
+    "normalization": "NFKC + casefold + collapsed whitespace; audit hashes only; original text retained",
+    "tables": 9,
+    "datasets": 6,
+    "pilot_candidate_selection": "Five direct-source tables; exclude known official prompts, overlap candidates, provenance/label/format risk flags; deduplicate by normalized text"
+  },
+  "environment": {
+    "platform": "local Windows CPU",
+    "accelerator": null,
+    "container": null,
+    "seed": 42,
+    "versions": {
+      "python": "3.13.13",
+      "pandas": "3.0.6",
+      "pyarrow": "23.0.1"
+    }
+  },
+  "execution": {
+    "scope": "data_quality_audit",
+    "status": "COMPLETE",
+    "observed_at": "2026-10-31T17:00:43.016193+00:00"
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": "Public pool data audit; no classifier training, OOF or leaderboard score",
+    "per_class_recall_path": null,
+    "oof_path": null,
+    "leakage_audit": "Known prompt lineage exclusions saved; 252 prvs clean train_regen and at least 121 v5 rows require fold-aware isolation. Unknown semantic/prompt overlap remains."
+  },
+  "cost": {
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0
+  },
+  "timing_note": "Local audit 26.64 s excluding download/dependency setup. No GPU/API generation/Colab usage. Source cost_usd fields belong to their authors, not this run.",
+  "conclusion": "6个固定版本、9张回答表共207125条记录，规范化后125411段不同文本；无冲突标签或官方原文精确重复。发现题目级验证风险与上游重叠；保存15989条初试候选索引和逐行排除折。8项检查通过；没有新模型分数。",
+  "limitations": "只核查六个固定版本；汇总池其他上游尚未逐个溯源；8词片段筛查不是全量语义去重；proxy slug不能独立证明模型版本；候选类别数量不均衡、收益未验证。",
+  "next_action": "EXP-009 已查明大部分候选被基线使用。后续以现有stylegram/SVC数据配方为对照，比较权重和选择规则，不把4158条当作新增。",
+  "related_sources": [
+    "SRC-027",
+    "SRC-028",
+    "SRC-029",
+    "SRC-030",
+    "SRC-031",
+    "SRC-032",
+    "SRC-033",
+    "SRC-034",
+    "SRC-035"
+  ],
+  "evidence": [
+    "experiments/EXP-008-public-pool-audit/report.md",
+    "experiments/EXP-008-public-pool-audit/download-manifest.json",
+    "experiments/EXP-008-public-pool-audit/outputs/summary.json",
+    "experiments/EXP-008-public-pool-audit/outputs/validation-checks.json",
+    "experiments/EXP-008-public-pool-audit/outputs/provenance-audit.json",
+    "experiments/EXP-008-public-pool-audit/outputs/official_prompt_linked_rows.csv",
+    "experiments/EXP-008-public-pool-audit/outputs/initial_candidate_index.csv",
+    "data/public-pool-audits.json"
+  ],
+  "next_action_updated_at": "2026-10-31T17:16:04.516657+00:00",
+  "next_action_superseded_by": "EXP-009"
+}

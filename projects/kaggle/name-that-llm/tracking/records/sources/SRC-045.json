@@ -1,0 +1,75 @@
+{
+  "category": "solutions",
+  "title": "0.662 | Qwen3.8-27B LoRA + Weighted Ensemble",
+  "author": "Vladislav Lavrentev",
+  "observed_at": "2026-11-02T03:59:47.125703+00:00",
+  "source_version": {
+    "notebook_version": 43,
+    "script_version_id": null,
+    "source_sha256": "326660d13a4275cfcf305c76174282fffe1e4e09889c70113086bf4122d63e73",
+    "code_sha256": "a5946bdcdc4f8a7e2f971f37eaa90ba6e57083301c6d3cc5659d04f19f66f52e",
+    "notebook_id": 139628726
+  },
+  "public_score": {
+    "value": 0.662,
+    "bound_to_source": false,
+    "evidence_type": "parent_observed_platform_page",
+    "script_version_id": null
+  },
+  "summary": "V43 为未确认得分的新候选：GSQ 7%、ATLAS 10%、关闭边际频率平衡；页面0.662不可归给V43。",
+  "author_claim": "作者明确称本候选没有已确认榜单分；完整119899行公共池+两轮官方数据训练GSQ，保留37-marker分层标点。",
+  "verified": "静态比对SRC-003 V33：GSQ .075→.07、ATLAS .20→.10、balance strength .45→0，并加 strength>0 分支；三项同时改变。 2026-11-02再次读取当前V43，全部代码单元与历史固定版本相同。",
+  "use_for_us": "作为关闭类频率平衡的消融线索；参考缓存和顺序GPU进程工程。",
+  "test_plan": "固定相同分折预测与GSQ/ATLAS份额，仅比较balancing 0/.30/.45，再单独比较ATLAS与GSQ权重。",
+  "limitations": "未运行、未核查全部附件；作者的候选无已确认分数，不能继承页面0.662或Shiner V2的0.664。",
+  "tags": [
+    "ensemble",
+    "postprocessing",
+    "ablation",
+    "runtime",
+    "version-binding"
+  ],
+  "related_sources": [
+    "SRC-003",
+    "SRC-014",
+    "SRC-021"
+  ],
+  "schema_version": 1,
+  "id": "SRC-045",
+  "artifact_dir": "research/solutions/SRC-045-lightningv08-0-662-qwen3-8-27b-lora-weighted-ensemble-v43",
+  "notes_path": "research/solutions/SRC-045-lightningv08-0-662-qwen3-8-27b-lora-weighted-ensemble-v43/notes.md",
+  "kind": "notebook",
+  "url": "https://www.kaggle.com/code/lightningv08/0-662-qwen3-8-27b-lora-weighted-ensemble",
+  "collection_observation_note": "源码/API时间见回执。浏览器仅记录2026-11-01 UTC采集日期及07:35:57 UTC汇总截至时刻，不将其伪作逐页精确读取时间。",
+  "supersedes": null,
+  "family_id": "code-a5946bdcdc4f",
+  "evidence": [
+    "research/solutions/SRC-045-lightningv08-0-662-qwen3-8-27b-lora-weighted-ensemble-v43/notes.md",
+    "research/solutions/SRC-045-lightningv08-0-662-qwen3-8-27b-lora-weighted-ensemble-v43/code.txt",
+    "research/solutions/SRC-045-lightningv08-0-662-qwen3-8-27b-lora-weighted-ensemble-v43/description.md",
+    "research/solutions/SRC-045-lightningv08-0-662-qwen3-8-27b-lora-weighted-ensemble-v43/metadata.json",
+    "research/solutions/SRC-045-lightningv08-0-662-qwen3-8-27b-lora-weighted-ensemble-v43/receipt.json",
+    "research/solutions/SRC-045-lightningv08-0-662-qwen3-8-27b-lora-weighted-ensemble-v43/source.ipynb",
+    "research/solutions/SRC-045-lightningv08-0-662-qwen3-8-27b-lora-weighted-ensemble-v43/vs-SRC-003.diff",
+    "research/solutions/SRC-045-lightningv08-0-662-qwen3-8-27b-lora-weighted-ensemble-v43/vs-SRC-014.diff",
+    "tracking/snapshots/20261101T073557Z-community-refresh/score-list-dom-observation.json",
+    "tracking/snapshots/20261101T073557Z-community-refresh/search-0664-dom-observation.json",
+    "research/solutions/SRC-045-lightningv08-0-662-qwen3-8-27b-lora-weighted-ensemble-v43/snapshots/20261102-community-factcheck/receipt.json",
+    "research/solutions/SRC-045-lightningv08-0-662-qwen3-8-27b-lora-weighted-ensemble-v43/snapshots/20261102-community-factcheck/metadata.json"
+  ],
+  "same_code_sources": [],
+  "evidence_sha256": {
+    "research/solutions/SRC-045-lightningv08-0-662-qwen3-8-27b-lora-weighted-ensemble-v43/notes.md": "8bbdf1f7f3abb42e2409ab9fe11612c7a45a4887fbedd13df2b024f61f8f40ac",
+    "research/solutions/SRC-045-lightningv08-0-662-qwen3-8-27b-lora-weighted-ensemble-v43/code.txt": "0656ce25f771f2ca690a35fde27803690ad30e75ee06e6ffb579f204e11dbf0c",
+    "research/solutions/SRC-045-lightningv08-0-662-qwen3-8-27b-lora-weighted-ensemble-v43/description.md": "e1a1ae783a6376601142f15b867281e9994386170b4399d1ca2e71359b792296",
+    "research/solutions/SRC-045-lightningv08-0-662-qwen3-8-27b-lora-weighted-ensemble-v43/metadata.json": "b33b5abf0aaf500c6896951524ba29a5c35952a1c6d350cc5ef1878143239d64",
+    "research/solutions/SRC-045-lightningv08-0-662-qwen3-8-27b-lora-weighted-ensemble-v43/receipt.json": "cc518283b6c166bdb58e23e8c7e6c4fc6f7093440c240c458318922efe6ab1c0",
+    "research/solutions/SRC-045-lightningv08-0-662-qwen3-8-27b-lora-weighted-ensemble-v43/source.ipynb": "326660d13a4275cfcf305c76174282fffe1e4e09889c70113086bf4122d63e73",
+    "research/solutions/SRC-045-lightningv08-0-662-qwen3-8-27b-lora-weighted-ensemble-v43/vs-SRC-003.diff": "7fcb8e75f202268e31225593453e33b6a3116cf9babccbfcf0574fb17f7d067d",
+    "research/solutions/SRC-045-lightningv08-0-662-qwen3-8-27b-lora-weighted-ensemble-v43/vs-SRC-014.diff": "f544df6b95c6a91b0c47e49d690a075d408711e28d436fc83ff33bd7e12756cd",
+    "tracking/snapshots/20261101T073557Z-community-refresh/score-list-dom-observation.json": "dd3d6bcf84ff467a6b47f594d7ba9ef888b776c319b8b2dfae31c49ab4dd1fd2",
+    "tracking/snapshots/20261101T073557Z-community-refresh/search-0664-dom-observation.json": "830019135b8a239cee4684ed235682b78788848caef8f8b0f54c2ea68ceb05e7",
+    "research/solutions/SRC-045-lightningv08-0-662-qwen3-8-27b-lora-weighted-ensemble-v43/snapshots/20261102-community-factcheck/receipt.json": "a3e6211dc5d03e9451d10b2cfa5753e8f025845aa52cc98305b8155da7453703",
+    "research/solutions/SRC-045-lightningv08-0-662-qwen3-8-27b-lora-weighted-ensemble-v43/snapshots/20261102-community-factcheck/metadata.json": "7c62b14b02cd18b0cf883223da74ba2291020f07c55abc36964c2e9a54f7efa6"
+  }
+}

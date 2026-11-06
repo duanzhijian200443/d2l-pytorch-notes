@@ -1,0 +1,73 @@
+{
+  "category": "solutions",
+  "title": "Kilupy ours8 V1：加权1.5的LoRA成员，依赖私有数据",
+  "author": "Kilupy",
+  "url": "https://www.kaggle.com/code/kilupy/ntl-full-0662-ours15?scriptVersionId=364235852",
+  "observed_at": "2026-11-01T07:35:57Z",
+  "source_version": {
+    "notebook_version": 1,
+    "script_version_id": 364235852,
+    "source_sha256": "9bfda2872c6cb2bae77109d5b023b8dc28c140deb500289e8d42dad07d0abbc4",
+    "code_sha256": "f608191f7677839c48f8ebeee5482ee40a033af0d59763db2e108f11da6f809f",
+    "notebook_id": 141946180
+  },
+  "public_score": {
+    "value": 0.664,
+    "evidence_type": "platform_page",
+    "bound_to_source": true,
+    "script_version_id": 364235852
+  },
+  "summary": "V1已绑定0.664；相对All Public V8仅新增ours8 LoRA，log-prob权重1.5；网页含Private Dataset，不能称完整公开可复现。",
+  "author_claim": "正文继承alex的全公开说明和失败表，并没有给新增ours8训练与消融证据。",
+  "verified": "V1/364235852绑定0.664；仅加ours8 LoRA成员、log-prob权重1.5；网页含Private Dataset。",
+  "use_for_us": "IDEA-004的新成员互补性线索；ours15不是15%概率混合。",
+  "test_plan": "先取得adapter版本/训练范围与折隔离证据，再比较权重0、小权重与1.5及错误交集。",
+  "limitations": "依赖私有数据，不能直接完整公开复现；新增推理也可能改变ATLAS预算覆盖。",
+  "tags": [
+    "ensemble",
+    "lora",
+    "reproducibility",
+    "private-dependency",
+    "runtime"
+  ],
+  "schema_version": 1,
+  "id": "SRC-039",
+  "artifact_dir": "research/solutions/SRC-039-kilupy-ntl-full-0662-ours15-v1",
+  "notes_path": "research/solutions/SRC-039-kilupy-ntl-full-0662-ours15-v1/notes.md",
+  "kind": "notebook",
+  "related_sources": [
+    "SRC-002",
+    "SRC-001",
+    "SRC-026"
+  ],
+  "collection_observation_note": "源码/API时间见回执。浏览器仅记录2026-11-01 UTC采集日期及07:35:57 UTC汇总截至时刻，不将其伪作逐页精确读取时间。",
+  "supersedes": null,
+  "family_id": "code-f608191f7677",
+  "evidence": [
+    "research/solutions/SRC-039-kilupy-ntl-full-0662-ours15-v1/notes.md",
+    "research/solutions/SRC-039-kilupy-ntl-full-0662-ours15-v1/analysis-evidence.json",
+    "research/solutions/SRC-039-kilupy-ntl-full-0662-ours15-v1/code.txt",
+    "research/solutions/SRC-039-kilupy-ntl-full-0662-ours15-v1/description.md",
+    "research/solutions/SRC-039-kilupy-ntl-full-0662-ours15-v1/diff-vs-SRC-002.patch",
+    "research/solutions/SRC-039-kilupy-ntl-full-0662-ours15-v1/download-receipt.json",
+    "research/solutions/SRC-039-kilupy-ntl-full-0662-ours15-v1/metadata.json",
+    "research/solutions/SRC-039-kilupy-ntl-full-0662-ours15-v1/snapshots/browser-observation-20261101.json",
+    "research/solutions/SRC-039-kilupy-ntl-full-0662-ours15-v1/source.ipynb",
+    "tracking/snapshots/20261101T073557Z-community-refresh/score-list-dom-observation.json",
+    "tracking/snapshots/20261101T073557Z-community-refresh/search-0664-dom-observation.json"
+  ],
+  "same_code_sources": [],
+  "evidence_sha256": {
+    "research/solutions/SRC-039-kilupy-ntl-full-0662-ours15-v1/notes.md": "4dd1c27b1221cdbf92b05cc3195b606be2fd232fa8f56ad4004038d4f99eaad3",
+    "research/solutions/SRC-039-kilupy-ntl-full-0662-ours15-v1/analysis-evidence.json": "a2d72e6ac844d4db1ded851b84f798056f3dbd4366cf5ddf353adbd178eedcd0",
+    "research/solutions/SRC-039-kilupy-ntl-full-0662-ours15-v1/code.txt": "7acf07969a7a9df8549b36bb56a4d4a997def105a3c299b1f66cad4b664a2635",
+    "research/solutions/SRC-039-kilupy-ntl-full-0662-ours15-v1/description.md": "03a04dedd933b12466e6c6678fd6b82817d3fc786bef0d77ea92dd2dbf9fbb04",
+    "research/solutions/SRC-039-kilupy-ntl-full-0662-ours15-v1/diff-vs-SRC-002.patch": "3e2ff94362be8ec6395da637c6b3e745aa0b8539e519fb7d3b7ec43486ba3c54",
+    "research/solutions/SRC-039-kilupy-ntl-full-0662-ours15-v1/download-receipt.json": "f0cc211e4ff2a3adf3d7b24f07675238d3522f7b1c88c635c22b35247964b92e",
+    "research/solutions/SRC-039-kilupy-ntl-full-0662-ours15-v1/metadata.json": "14e8af9d5eac67041f87299f8177772517f86b85cd911af8334d25e352e9da7b",
+    "research/solutions/SRC-039-kilupy-ntl-full-0662-ours15-v1/snapshots/browser-observation-20261101.json": "0b373241956e1f1d956552724b6fe8f1a97e5779bb925040a4b502ca1c308bd4",
+    "research/solutions/SRC-039-kilupy-ntl-full-0662-ours15-v1/source.ipynb": "9bfda2872c6cb2bae77109d5b023b8dc28c140deb500289e8d42dad07d0abbc4",
+    "tracking/snapshots/20261101T073557Z-community-refresh/score-list-dom-observation.json": "dd3d6bcf84ff467a6b47f594d7ba9ef888b776c319b8b2dfae31c49ab4dd1fd2",
+    "tracking/snapshots/20261101T073557Z-community-refresh/search-0664-dom-observation.json": "830019135b8a239cee4684ed235682b78788848caef8f8b0f54c2ea68ceb05e7"
+  }
+}

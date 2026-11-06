@@ -1,0 +1,17 @@
+{
+  "run_id": "exp042-20261101T143057Z",
+  "config_sha256": "0d24a23932524507dca84d04a40de6688c80e4c92eef7bbc89c3f706b799a4a9",
+  "runner_sha256": "de60b60bfd138b834d8723bbd832fd0522453f549c4050256197f6babe4ed45a",
+  "files": [
+    {
+      "path": "preflight.json",
+      "bytes": 1574,
+      "sha256": "383a737344e9370fa59d7f5e4b6833d9a1bfd2c517a9967100fe7d5ba87b876a"
+    },
+    {
+      "path": "source.json",
+      "bytes": 7790,
+      "sha256": "259422770bb385422546ffe1acc6df4815c8e432a985900c6ea261abfe359748"
+    }
+  ]
+}

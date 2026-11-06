@@ -1,0 +1,17 @@
+{
+  "role": "read-only-download-evidence",
+  "ref": "vasily61/name-that-llm-0-664-reproduction-notes",
+  "observed_at": "2026-11-01T07:34:36.020571+00:00",
+  "notebook_version": 1,
+  "script_version_id": null,
+  "source_sha256": "50b5a89254096f8088f4bbde3e592e639adffb923364418ea95d7bef89f5a39a",
+  "code_sha256": "f9fbf9845de6c62c9bca9a753d2fe5aac1d35e106541c1e07ca5755a6449bce9",
+  "metadata_sha256": "ab82a0e301bf544653abea5c9b3d8ac29c7bd5527a85dad9c9127fc30fce635b",
+  "executed": false,
+  "url": "https://www.kaggle.com/code/vasily61/name-that-llm-0-664-reproduction-notes",
+  "method": "MCP get_notebook_info determined current version; Kaggle API get_kernel fetched fixed version_label",
+  "status": "DOWNLOADED_NOT_EXECUTED",
+  "same_code_existing_src": [
+    "SRC-021"
+  ]
+}

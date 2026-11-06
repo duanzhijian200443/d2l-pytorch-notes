@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-045",
+  "status": "PASS_WITH_ATLAS_COVERAGE_LIMITATION",
+  "scope": "Independent frozen code/output review, independent complementary-stack/pre-ATLAS arithmetic, and independent CSV/NPZ metric/bootstrap recalculation. No new model inference or remote calls.",
+  "manifest_sha256": "15f9b5366ee60b47dc06178fa9befa67ba32896d37407f5d1f3ea3e18ae3421e",
+  "code_sha256": {
+    "experiments/EXP-045-public-data-full-stack/run_local.py": "8eb6226ffab3387a915c4090813576a9a3844eafea6e30a70672132a584d604f",
+    "experiments/EXP-045-public-data-full-stack/math_replay.py": "f7230439faecb4643e91ae575f373dc57bcd3ddd76733b77c35844aaa3e51a39",
+    "experiments/EXP-045-public-data-full-stack/test_math_replay.py": "e491228793d81280dcc4a450359b4eafbcc71dd083d4ed7a285ac759642c0a29",
+    "experiments/EXP-032-sinkhorn-fixed-cache/compare_cached.py": "560704753b82e70a035d2254608a45959a4fe14cd45465c4c4f2cacc3dc3aa4f",
+    "src/full_stack_replay.py": "b1bab1993fb17850d8b3cfb26716f47c869dbca5107c3435b859864d2ca99586",
+    "src/margin_blend.py": "8c4288447de755d9bd160e5646794b2307f56ae00ae11104d062d9697ef5dc83",
+    "src/sinkhorn_compare.py": "42048f6ea4a17025179965da4452f0e8091d69146163a328872a903145e39956"
+  },
+  "input_sha256": {
+    "experiments/EXP-045-public-data-full-stack/metrics/input-review.json": "77cb1af04653c9c9fa4cc815110309272caea7c01a2dd7d3ae76dd75dd5c5dc8",
+    "experiments/EXP-045-public-data-full-stack/oof/aligned-candidate-margins.npz": "f505c62006fa16df923aba2ff2768f0921d97b4f95c03d3d0e10fc4a1f3d3b9e",
+    "experiments/EXP-032-sinkhorn-fixed-cache/protocol.json": "445dc1f91457700aa7c95036f04dc76fa695522feadbe5f64b4f06088d16133a",
+    "experiments/EXP-031-full-stack-capture-r1/metrics/download-receipt.json": "cc961e4f365620f8fd6928c2dc19aa9bf16832c8ddbc954efd101887dcc920c6",
+    "cloud/full-stack-capture-r1/outputs-v2/results/artifacts.json": "1732849196220d023716a2dc912d660282c94022c2df370c69d9a6c2899bac63",
+    "cloud/fixed-blend-multiclass/outputs-v2/results/artifacts.json": "242b099fd1d9199c1912e50d47ed3e3d4896d36f3d6d7175a9532a3a1cb203e9",
+    "experiments/EXP-029-full-stack-capture/panel/test.csv": "8eeec7f64e924f0fd79dca57d324d42d269f400bdfbfff76d60b4c168d9ae6f2",
+    "train.csv": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+    "experiments/EXP-029-full-stack-capture/labels-local-only.csv": "f5425fbae56355e72537074cf5eef514c0319cd67489fc63c36fe07b2ff2302b"
+  },
+  "output_sha256": {
+    "experiments/EXP-045-public-data-full-stack/outputs/artifacts.json": "55551c0a8d937fad4197956e7f07cc413cbb41f16b768d97b09776228808c3cf",
+    "experiments/EXP-045-public-data-full-stack/outputs/atlas-completion-plan.json": "f92162dab405254862360458989ae448b3483b15430f5c8ce47810aca0166bf0",
+    "experiments/EXP-045-public-data-full-stack/outputs/atlas-missing-panel.csv": "65135195cc33d52ed7aff7110f34763e7c71c55de21f9608b992aed0c50c0501",
+    "experiments/EXP-045-public-data-full-stack/outputs/baseline-parity.json": "92c011b1ea2cf698cb5b3564a338fab2f4d0dd55fa8811ca2f257e479fdd347d",
+    "experiments/EXP-045-public-data-full-stack/outputs/coverage.json": "b88cc937a76bc989203eff37b29b40e5dfe47e1b93cc232b37bfe24da1958035",
+    "experiments/EXP-045-public-data-full-stack/outputs/predictions.csv": "40728be16672967e2460f26c532f8d7491c12478e84d0cad5dca9b425c63bac8",
+    "experiments/EXP-045-public-data-full-stack/outputs/scores.npz": "149c5a4e9c0f37b5796d45352fb4c4a104a823a4a7e6741a6efecf0e74ca7e47",
+    "experiments/EXP-045-public-data-full-stack/outputs/summary.json": "9809467b73e8c2aa47a5c1817cc968b389a8593c65949241a7bfc43e958d43ee"
+  },
+  "coverage": {
+    "A0": {
+      "requested": 206,
+      "covered": 206,
+      "missing": 0,
+      "missing_ids": [],
+      "comp_max_abs_difference": 0,
+      "pre_atlas_max_abs_difference": 1.1102230246251565e-16
+    },
+    "A1": {
+      "requested": 206,
+      "covered": 206,
+      "missing": 0,
+      "missing_ids": [],
+      "comp_max_abs_difference": 0,
+      "pre_atlas_max_abs_difference": 2.220446049250313e-16
+    },
+    "A2": {
+      "requested": 201,
+      "covered": 197,
+      "missing": 4,
+      "missing_ids": [
+        "x27-23f54cda0429fd597e845c65",
+        "x27-d2a1ac387fc3329132a23dd1",
+        "x27-d43518672808209ab154fb77",
+        "x27-f5dcd27a1b695c29e9ad36d3"
+      ],
+      "comp_max_abs_difference": 0,
+      "pre_atlas_max_abs_difference": 2.220446049250313e-16
+    },
+    "A3": {
+      "requested": 202,
+      "covered": 198,
+      "missing": 4,
+      "missing_ids": [
+        "x27-23f54cda0429fd597e845c65",
+        "x27-d2a1ac387fc3329132a23dd1",
+        "x27-d43518672808209ab154fb77",
+        "x27-f5dcd27a1b695c29e9ad36d3"
+      ],
+      "comp_max_abs_difference": 0,
+      "pre_atlas_max_abs_difference": 1.1102230246251565e-16
+    }
+  },
+  "metrics": {
+    "A0": {
+      "macro_recall": 0.6010754296632904,
+      "correct": 488,
+      "accuracy": 0.6694101508916324,
+      "per_class_recall": {
+        "claude-fable-5": 0.5263157894736842,
+        "claude-opus-4-6": 0.9090909090909091,
+        "claude-opus-4-8": 0.8181818181818182,
+        "claude-opus-5": 0.8148148148148148,
+        "claude-sonnet-5": 0.6346153846153846,
+        "gemini-3.1-pro-preview": 0.8703703703703703,
+        "gemini-3.6-flash": 0.6862745098039216,
+        "gemini-3.8-flash": 0.5,
+        "glm-5.3": 0.125,
+        "glm-5.3-flash": 0.4117647058823529,
+        "gpt-5.5": 0.7962962962962963,
+        "gpt-5.6-luna": 0.6730769230769231,
+        "gpt-5.6-sol": 0.5,
+        "gpt-5.6-terra": 0.4339622641509434,
+        "gpt-6-astra": 0.9074074074074074,
+        "kimi-k3": 0,
+        "qwen3.8-max": 0.6111111111111112
+      }
+    },
+    "A1": {
+      "macro_recall": 0.6010754296632904,
+      "correct": 488,
+      "accuracy": 0.6694101508916324,
+      "per_class_recall": {
+        "claude-fable-5": 0.5263157894736842,
+        "claude-opus-4-6": 0.9090909090909091,
+        "claude-opus-4-8": 0.8181818181818182,
+        "claude-opus-5": 0.8148148148148148,
+        "claude-sonnet-5": 0.6346153846153846,
+        "gemini-3.1-pro-preview": 0.8703703703703703,
+        "gemini-3.6-flash": 0.6862745098039216,
+        "gemini-3.8-flash": 0.5,
+        "glm-5.3": 0.125,
+        "glm-5.3-flash": 0.4117647058823529,
+        "gpt-5.5": 0.7962962962962963,
+        "gpt-5.6-luna": 0.6730769230769231,
+        "gpt-5.6-sol": 0.5,
+        "gpt-5.6-terra": 0.4339622641509434,
+        "gpt-6-astra": 0.9074074074074074,
+        "kimi-k3": 0,
+        "qwen3.8-max": 0.6111111111111112
+      }
+    }
+  },
+  "bootstrap": {
+    "draws": 2000,
+    "seed": 42,
+    "groups": 56,
+    "valid": 2000,
+    "invalid": 0,
+    "ci95": [
+      0,
+      0
+    ]
+  },
+  "A1_non_noop": {
+    "old_new_style_probability_max_abs": 0.005178124498593457,
+    "style_probability_rows_changed": 729,
+    "comp_float32_max_abs": 0.2949504852294922,
+    "pre_atlas_max_abs": 0.0038385794456377575,
+    "final_logits_max_abs": 0.10548998385444719,
+    "final_logits_mean_abs": 0.0014548992726618071,
+    "final_logit_rows_changed": 729,
+    "argmax_changed": 0
+  },
+  "changed_predictions": 0,
+  "fixed_errors": 0,
+  "new_errors": 0,
+  "actual_baseline_public_rows": 10469,
+  "actual_baseline_public_groups": 716,
+  "config_sha256": "a94865f53b62dd1f8863ea3bc64baee68830c3f2ffa47520387f7bd4deb924c7",
+  "blocking_code_findings": [],
+  "coverage_limit": {
+    "four_arm_complete": false,
+    "scored_arms": [
+      "A0",
+      "A1"
+    ],
+    "not_scored_arms": [
+      "A2",
+      "A3"
+    ],
+    "missing_union_rows": 4,
+    "reason": "A2/A3 dynamic ATLAS routing requires four additional rows absent from captured probabilities. Strict mode returns None pre_sinkhorn and null metrics; no missing-row imputation or fixed-mask scoring occurred."
+  },
+  "checks": {
+    "frozen_code_input_output_hashes": "All manifest code/input bytes and sizes, nested input-review source hashes, and output artifact bytes/sizes verified.",
+    "scope": "No self-generated120, EXP044 changes, retraining, GPU, API, new cloud run, competition submission or parameter search in reviewed local replay.",
+    "source_pool": "Actual captured comp.log reports10469 public rows/716 prompts. Historical EXP009 six-source projection10325 is not this runtime pool. Candidate10073/694 is a recipe replacement, not a pure deletion of252.",
+    "style_slot": "Only the single Stylegram contribution changes at weight1.516; all other comp contributions remain byte-identical before gates.",
+    "main_svc4": "Original main svc4 contribution, main16-member inventory and divisor are preserved. Candidate raw8099-training svc4 appears only inside the .1 standardized Stylegram replacement, not as a new comp member or replacement for main svc4.",
+    "family_gates": "All five original raw gate scores reused, but each arm recomputes base family probabilities, confidence strengths and log-mass-preserving updates in original order.",
+    "boundaries": "Original float32 comp serialization and advanced column-indexing layout preserved before softmax/comp .15 mixture. ATLAS .2 uses each arm's recomputed .3 threshold route.",
+    "baseline": "Root baseline parity verifies fixed .45/.35 Sinkhorn and typography against captured intermediate arrays/final Parquet; maximum final logit error3.552713678800501e-15 and exact argmax.",
+    "truth_access": "run_local computes strict replay and final logits, writes scores.npz and coverage, then loads evaluation truth. Score computation never receives evaluation labels or prompt truth; predictions table is deterministic18-way argmax plus subsequent truth join.",
+    "candidate_non_noop": "Independent check confirms A1 raw Stylegram replacement affects all729 rows; changed probabilities/logits are quantified above, despite unchanged class predictions.",
+    "independent_math": "Independent contribution/gate implementation matches all four comp float32 arrays exactly and pre-ATLAS probabilities within2.220446049250313e-16. Coverage requests/missing IDs exactly match output.",
+    "independent_metrics": "No run_local.score_pair or original metrics helper used. Raw CSV/NPZ predictions aligned to local truth;17 class ratios and56-group paired bootstrap independently recomputed.",
+    "strict_missingness": "scores.npz contains onlyA0/A1; A2-A1,A3-A2,A3-A0 retain null scores/CI. Exported missing-panel file contains only blind IDs/text.",
+    "fixed_baseline": "Current formal baseline remains unchanged. No clean OOF or model training independence claim."
+  },
+  "interpretation": [
+    "A1 has no observed argmax accuracy/macro-recall change on this729-row panel; it is not an unexecuted replacement or no-op.",
+    "The[0,0]bootstrap interval is degenerate because all paired correctness outcomes are identical for these fixed predictions; it is not an equivalence/noninferiority guarantee, population effect bound, or retraining-uncertainty result.",
+    "A2/A3 cannot be judged for complete-stack benefit or harm while four dynamic ATLAS outputs are missing. Do not replace their metrics with zero, fixed original mask, partial rows or previous scores.",
+    "This inspected729-row/56-prompt/17-true-class external panel is exploratory;18 output classes remain active. Full-stack training exposure is not certified and official OOF/leaderboard improvement is not established.",
+    "Preserve baseline; do not infer that the entire public-data10%integration improves or fails from theA0/A1-only result."
+  ],
+  "method_notes": {
+    "bootstrap": "Lexicographic prompt_id ordering; numpy.default_rng(42).integers(0,56,(2000,56)); aggregate sampled-group per-class correct/support before averaging fixed17 class differences; linear .025/.975 percentiles. No invalid draws dropped.",
+    "normalization": "Independent z-score used mathematically equivalent per-row maximum scaling then population standard deviation; candidate nonconstant margins were finite.",
+    "independent_score_validation": "A0/A1 final scores checked against their saved deterministic predictions and truth ID mapping. Downstream postprocessing source reviewed and original baseline parity receipt verified; independent numerical implementation specifically covers comp gates and pre-ATLAS routing."
+  },
+  "no_side_effects": {
+    "model_inference_calls": 0,
+    "remote_calls": 0,
+    "original_cache_changes": false,
+    "outputs_changes": false
+  }
+}

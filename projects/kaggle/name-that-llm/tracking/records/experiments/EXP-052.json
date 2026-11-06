@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "id": "EXP-052",
+  "title": "Stylegram四模型扩量：四类120与240条的五折对照",
+  "baseline_id": "EXP-042",
+  "hypothesis": "在四个请求模型标签、统一原权重规则和固定五折下，同题组完整四答从30组扩到60组，是否提高轻量Stylegram的18类OOF平衡准确率；同时与不加样本的control比较。",
+  "changes": [
+    "只对Stylegram增加四模型30组×4或60组×4原文，沿用同类原公共逐行权重，旧行权重不变。",
+    "复用EXP042 control（已对齐EXP010）；五折、标签顺序、特征、分类器及路由固定。"
+  ],
+  "observed_at": "2026-11-02T07:11:35.231821+00:00",
+  "source": {
+    "notebook_ref": "zhjianduan/name-that-llm-stylegram-volume-052",
+    "notebook_version": 2,
+    "script_version_id": 364782106,
+    "local_path": "cloud/stylegram-volume-052/kernel/experiment.ipynb",
+    "sha256": "1f341997a7f78ffa21b857b7043a1ca3ed2f16e3f545e17150ca1fb5404e54f6"
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-052-stylegram-four-model-volume/manifest.json",
+    "validation_split_id": "prompt-group-v1 (official 2699 rows / 150 prompts / 5 folds)",
+    "content_hashes_verified": true
+  },
+  "config": {
+    "note": "仅作台账索引；完整参数以 config_path 指向的 config.json 为准。"
+  },
+  "environment": {
+    "platform": "Kaggle private CPU, internet off",
+    "accelerator": "CPU",
+    "container": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "seed": 42
+  },
+  "execution": {
+    "scope": "private_cpu_stylegram_oof",
+    "status": "COMPLETE",
+    "observed_at": "2026-11-02T07:11:35.231821+00:00",
+    "run_id": "exp052-stylegram-four-volume-v1",
+    "save_version": 2,
+    "trained_svms": 20,
+    "guard_wall_seconds": 1531.221894125
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": 0.466388267462093,
+    "scope": "Pooled official five-fold, previously viewed development OOF; balanced_accuracy field refers to four240.",
+    "per_class_recall_path": "experiments/EXP-052-stylegram-four-model-volume/analysis/per-class.csv",
+    "oof_path": "experiments/EXP-052-stylegram-four-model-volume/oof/index.json",
+    "leakage_audit": "All variants of a base prompt share one split; known/exact separation only; 60 generated holdout rows excluded.",
+    "control_ba": 0.4682426050211286,
+    "four120_ba": 0.468612975391499,
+    "primary_delta_ba": -0.002224707929405989,
+    "primary_delta_ci95": [
+      -0.005185185185185185,
+      0.0003703703703703704
+    ]
+  },
+  "cost": {
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0
+  },
+  "timing_note": "训练守护墙钟1531.22秒（约25分31秒），不含排队、文件下载和本地分析。",
+  "conclusion": "四模型扩量未见整体改善。A/B/C BA为0.468243/0.468613/0.466388。C−B净少对6条（修正4、新错10），BA差−0.22247个百分点，题组配对95%区间[−0.51852,+0.03704]个百分点。四个目标类合计误报319→329。",
+  "limitations": "权重总量、题目覆盖和词表随扩量改变；该官方开发验证已被查看，不代表完整ATLAS20或隐藏榜单。自采标签为requested_only。",
+  "next_action": "保持原轻量训练配方为默认。当前结果不支持按相同规则把四模型240条加入整栈；若需区分文本与权重效应，应另建单因素对照。",
+  "related_sources": [],
+  "evidence": [
+    "experiments/EXP-052-stylegram-four-model-volume/config.json",
+    "experiments/EXP-052-stylegram-four-model-volume/manifest.json",
+    "experiments/EXP-052-stylegram-four-model-volume/report.md",
+    "cloud/stylegram-volume-052/v2-ack.json",
+    "cloud/stylegram-volume-052/readback-v2/verified.json",
+    "cloud/stylegram-volume-052/execution-state.json",
+    "experiments/EXP-052-stylegram-four-model-volume/metrics/data-gate.json",
+    "experiments/EXP-052-stylegram-four-model-volume/analysis/summary.json",
+    "experiments/EXP-052-stylegram-four-model-volume/analysis/analysis-manifest.json",
+    "experiments/EXP-052-stylegram-four-model-volume/analysis/per-class.csv",
+    "experiments/EXP-052-stylegram-four-model-volume/analysis/fold-comparisons.csv",
+    "experiments/EXP-052-stylegram-four-model-volume/metrics/prompt-differences.csv",
+    "experiments/EXP-052-stylegram-four-model-volume/metrics/acceptance.json",
+    "experiments/EXP-052-stylegram-four-model-volume/oof/index.json",
+    "cloud/stylegram-volume-052/outputs-v2/download-receipt.json",
+    "cloud/stylegram-volume-052/outputs-v2/results/guard.json"
+  ],
+  "config_path": "experiments/EXP-052-stylegram-four-model-volume/config.json"
+}

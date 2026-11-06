@@ -1,0 +1,227 @@
+{
+  "observed_at": "2026-11-01T07:32:12.410601+00:00",
+  "retrieval": {
+    "method": "read-only POST",
+    "topic_endpoint": "https://www.kaggle.com/api/i/discussions.DiscussionsService/GetForumTopicById",
+    "comments_endpoint": "https://www.kaggle.com/api/i/discussions.DiscussionsService/GetForumMessagesInTopic"
+  },
+  "topic_response": {
+    "forumTopic": {
+      "authorId": 21905510,
+      "authorThumbnailName": "default-thumb.png",
+      "authorUserDisplayName": "Kratagya Jain 5846",
+      "authorUserName": "kratagyajain5846",
+      "comments": [
+        {
+          "id": 3547852,
+          "postDate": "2026-10-31T17:01:11.973Z",
+          "rawMarkdown": "Should be the data and the pipeline ",
+          "content": "<p>Should be the data and the pipeline </p>",
+          "parent": {},
+          "author": {
+            "displayName": "Carrot Production",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+            "url": "/crtproduction",
+            "tier": "CONTRIBUTOR",
+            "id": 20960131,
+            "progressionOptOut": false
+          },
+          "authorType": "COMMENT",
+          "votes": {
+            "canUpvote": true
+          },
+          "kernelVersion": 0,
+          "competitionRanking": 1198,
+          "feedbackTrackingData": {},
+          "isThankYou": false,
+          "teamUpInfo": {
+            "teamLeader": {
+              "displayName": "Carrot Production",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+              "url": "/crtproduction",
+              "userName": "crtproduction",
+              "tier": "CONTRIBUTOR",
+              "id": 20960131,
+              "profileUrl": "/crtproduction",
+              "performanceTier": "CONTRIBUTOR",
+              "userId": 20960131,
+              "progressionOptOut": false
+            },
+            "intro": ""
+          }
+        },
+        {
+          "id": 3547654,
+          "postDate": "2026-10-31T07:16:23.517Z",
+          "rawMarkdown": "both important",
+          "content": "<p>both important</p>",
+          "parent": {},
+          "author": {
+            "displayName": "Civitasmass",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/992596-kg.png?t=2026-07-03-03-04-34",
+            "url": "/godhand",
+            "tier": "MASTER",
+            "id": 992596,
+            "progressionOptOut": false
+          },
+          "authorType": "COMMENT",
+          "votes": {
+            "canUpvote": true
+          },
+          "kernelVersion": 0,
+          "competitionRanking": 6,
+          "feedbackTrackingData": {},
+          "isThankYou": false,
+          "teamUpInfo": {
+            "teamLeader": {
+              "displayName": "Civitasmass",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/992596-kg.png?t=2026-07-03-03-04-34",
+              "url": "/godhand",
+              "userName": "godhand",
+              "tier": "MASTER",
+              "id": 992596,
+              "profileUrl": "/godhand",
+              "performanceTier": "MASTER",
+              "userId": 992596,
+              "progressionOptOut": false
+            },
+            "intro": ""
+          }
+        }
+      ],
+      "commentSort": "COMMENT_LIST_SORT_BY_HOT",
+      "firstMessage": {
+        "id": 3547653,
+        "postDate": "2026-10-31T07:14:04.390Z",
+        "rawMarkdown": "I’m a student in my second competition. I’ve reproduced the public 0.66 recipe and tested a few changes (hard punctuation rules, softer balancing, pseudo-labelling the n-gram SVM, wider ATLAS coverage); all came out within the rerun noise. For those above 0.70, without revealing your solution: is the gap mainly data (more in-style passages per model) or modelling? Any general direction would really help someone learning. Thanks!",
+        "content": "<p>I’m a student in my second competition. I’ve reproduced the public 0.66 recipe and tested a few changes (hard punctuation rules, softer balancing, pseudo-labelling the n-gram SVM, wider ATLAS coverage); all came out within the rerun noise. For those above 0.70, without revealing your solution: is the gap mainly data (more in-style passages per model) or modelling? Any general direction would really help someone learning. Thanks!</p>",
+        "parent": {},
+        "author": {
+          "displayName": "Kratagya Jain 5846",
+          "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+          "url": "/kratagyajain5846",
+          "tier": "CONTRIBUTOR",
+          "id": 21905510,
+          "progressionOptOut": false
+        },
+        "authorType": "TOPIC",
+        "votes": {
+          "canUpvote": true
+        },
+        "kernelVersion": 0,
+        "competitionRanking": 118,
+        "feedbackTrackingData": {},
+        "isThankYou": false,
+        "teamUpInfo": {
+          "teamLeader": {
+            "displayName": "Kratagya Jain 5846",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png",
+            "url": "/kratagyajain5846",
+            "userName": "kratagyajain5846",
+            "tier": "CONTRIBUTOR",
+            "id": 21905510,
+            "profileUrl": "/kratagyajain5846",
+            "performanceTier": "CONTRIBUTOR",
+            "userId": 21905510,
+            "progressionOptOut": false
+          },
+          "intro": ""
+        }
+      },
+      "firstMessageId": 3547653,
+      "forumId": 13688374,
+      "forumName": "Name That LLM",
+      "id": 754463,
+      "name": "Title: Beginner question: where does the gap between ~0.66 and ~0.70+ come from?",
+      "parentName": "name-that-llm",
+      "parentUrl": "/competitions/name-that-llm",
+      "postDate": "2026-10-31T07:14:04.390343100Z",
+      "url": "/competitions/name-that-llm/discussion/754463",
+      "totalMessages": 2,
+      "authorPerformanceTier": "CONTRIBUTOR",
+      "authorProgressionOptOut": false
+    }
+  },
+  "comments_response": {
+    "comments": [
+      {
+        "id": 3547852,
+        "postDate": "2026-10-31T17:01:11.973Z",
+        "rawMarkdown": "Should be the data and the pipeline ",
+        "content": "<p>Should be the data and the pipeline </p>",
+        "parent": {},
+        "author": {
+          "displayName": "Carrot Production",
+          "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+          "url": "/crtproduction",
+          "tier": "CONTRIBUTOR",
+          "id": 20960131,
+          "progressionOptOut": false
+        },
+        "authorType": "COMMENT",
+        "votes": {
+          "canUpvote": true
+        },
+        "kernelVersion": 0,
+        "competitionRanking": 1215,
+        "feedbackTrackingData": {},
+        "isThankYou": false,
+        "teamUpInfo": {
+          "teamLeader": {
+            "displayName": "Carrot Production",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/20960131-kg.jpg?t=2026-10-21-05-22-40",
+            "url": "/crtproduction",
+            "userName": "crtproduction",
+            "tier": "CONTRIBUTOR",
+            "id": 20960131,
+            "profileUrl": "/crtproduction",
+            "performanceTier": "CONTRIBUTOR",
+            "userId": 20960131,
+            "progressionOptOut": false
+          },
+          "intro": ""
+        }
+      },
+      {
+        "id": 3547654,
+        "postDate": "2026-10-31T07:16:23.517Z",
+        "rawMarkdown": "both important",
+        "content": "<p>both important</p>",
+        "parent": {},
+        "author": {
+          "displayName": "Civitasmass",
+          "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/992596-kg.png?t=2026-07-03-03-04-34",
+          "url": "/godhand",
+          "tier": "MASTER",
+          "id": 992596,
+          "progressionOptOut": false
+        },
+        "authorType": "COMMENT",
+        "votes": {
+          "canUpvote": true
+        },
+        "kernelVersion": 0,
+        "competitionRanking": 7,
+        "feedbackTrackingData": {},
+        "isThankYou": false,
+        "teamUpInfo": {
+          "teamLeader": {
+            "displayName": "Civitasmass",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/992596-kg.png?t=2026-07-03-03-04-34",
+            "url": "/godhand",
+            "userName": "godhand",
+            "tier": "MASTER",
+            "id": 992596,
+            "profileUrl": "/godhand",
+            "performanceTier": "MASTER",
+            "userId": 992596,
+            "progressionOptOut": false
+          },
+          "intro": ""
+        }
+      }
+    ],
+    "commentSort": "COMMENT_LIST_SORT_BY_NEW"
+  },
+  "hydrated_message_responses": []
+}

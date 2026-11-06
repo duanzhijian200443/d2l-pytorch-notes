@@ -1,0 +1,20 @@
+{
+  "observed_at": "2026-11-01T12:21:59.686283+00:00",
+  "run_id": "aaa1304cf3e04ad0bfaff5d889e5a0d4",
+  "status": "INCOMPLETE",
+  "responses": 1,
+  "counts": {
+    "codex_subscription|gpt-5.6-terra": 1
+  },
+  "duplicate_job_ids": 0,
+  "identical_text_extra_rows": 0,
+  "attempts_by_status": {
+    "UNCERTAIN": 1,
+    "SUCCEEDED": 1
+  },
+  "integrity_errors": [],
+  "confirmed_cost_usd": "0",
+  "cost_known": false,
+  "raw_repeats_preserved": true,
+  "training_or_api_equivalence": "NOT_EVALUATED"
+}

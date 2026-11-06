@@ -1,0 +1,101 @@
+{
+  "status": "PASS_POST_SUBMIT_LOCAL_EVIDENCE",
+  "observed_at_utc": "2026-11-01T17:51:06.062015+00:00",
+  "scope": "Read-only saved receipt/artifact audit; no network or model run.",
+  "submission_id": 57879463,
+  "script_version_id": 364624288,
+  "notebook_version": 2,
+  "submission_state": "ACKNOWLEDGED_STATUS_AND_SCORE_NOT_YET_RETURNED",
+  "public_score": null,
+  "request_counts": {
+    "save_only": 1,
+    "quick_commit_run": 1,
+    "formal_submission": 1
+  },
+  "checks": {
+    "current_A1_hashes_match_final_review": true,
+    "V2_source_configuration_readback_match": true,
+    "intents_match_current_A1": true,
+    "six_artifact_hashes_match": true,
+    "input_preflight_pass": true,
+    "T4x2_cuda_pass": true,
+    "cloud_synthetic_parity_exact": true,
+    "parquet_official_three_ids_placeholder_only": true,
+    "submission_ack_ref_and_global_version_bound": true
+  },
+  "environment": {
+    "python": "3.13.15",
+    "versions": {
+      "numpy": "2.1.3",
+      "pandas": "2.3.3",
+      "scipy": "1.16.3",
+      "scikit-learn": "1.6.1",
+      "torch": "2.11.0+cu128",
+      "transformers": "5.16.1",
+      "peft": "0.20.0",
+      "accelerate": "1.14.0"
+    },
+    "gpus": [
+      "Tesla T4, 15360 MiB, 580.178.04",
+      "Tesla T4, 15360 MiB, 580.178.04"
+    ],
+    "preflight_seconds": 18.417154708000027
+  },
+  "synthetic": {
+    "status": "PASS",
+    "scope": "small synthetic real-StyleGrams parity only; no official/public-data fit",
+    "training_rows": 54,
+    "public_rows": 36,
+    "test_rows": 3,
+    "classes": 18,
+    "svm_fits": 4,
+    "maximum_raw_margin_difference": 0.0,
+    "maximum_probability_difference": 0.0,
+    "argmax_equal": true,
+    "both_inference_routes_exercised": true,
+    "core_sha256": "caa46bd121164aba891c3d78e662540db9294d653db09f53d02833c1b4ab77ef",
+    "versions": {
+      "numpy": "2.1.3",
+      "pandas": "2.3.3",
+      "scipy": "1.16.3",
+      "sklearn": "1.6.1"
+    }
+  },
+  "parquet": {
+    "rows": 3,
+    "row_groups": 1,
+    "schema": "id: string\nmodel: string\n-- schema metadata --\npandas: '{\"index_columns\": [], \"column_indexes\": [], \"columns\": [{\"name\":' + 307",
+    "sha256": "ef94c7669e36a465bbd3e2dd8cf4905b5e1c2e51e18053a588cb56623086170a",
+    "prediction_kind": "public_placeholder",
+    "all_models": "gpt-5.5"
+  },
+  "bindings": {
+    "metadata_sha256": "74007dcac3b5e34c7886fb3e946147ddb2335a3e1e64b530a29e646983943c37",
+    "source_bytes_sha256": "cea8f8cbfa382306dbdd7b7361b16d1d68febc09d7ef585dcb01ee1ef9e46625",
+    "source_canonical_json_sha256": "946eb734a262dbe2423260135cffbead0f694feb2fa3dfd661b88f579deca468",
+    "input_count": 32,
+    "ref": "zhjianduan/name-that-llm-a1-public-stylegram-046",
+    "controller_sha256": "786a59bfccc62c9913e8cdcc2cd59e0cb24e1fa5f53afa92c1eecfa235a44076"
+  },
+  "evidence_sha256": {
+    "cloud/a1-public-stylegram-046/execution-state.json": "e285ed22f9782bb35b4c0a3ab4b2b372dda230b4cf492c65bfa8e4fdf0d20cc3",
+    "cloud/a1-public-stylegram-046/run-intent.json": "cff9688b3c6a6724d4a33a14ed6fa58072a9b5c69dd2f37e1096a33df835d218",
+    "cloud/a1-public-stylegram-046/run-response.json": "ecc0dea3e44d81c10452e23f97120a3622399b6d7c1d81b057fadf323b4dcc61",
+    "cloud/a1-public-stylegram-046/submission-intent.json": "dc82e6673fa3cca786a089bc17357576e2c444cbe9294b934b66aaf2d6fd1e59",
+    "cloud/a1-public-stylegram-046/submission-response.json": "89e39d57dd5c8c070c4f887c637896cda8b35b5c23eaa9ed9aeb68823720011d",
+    "cloud/a1-public-stylegram-046/submission-ack.json": "333a34c53a620fa451e29ee28d92bd1e187b8408b3e5f413fdda53eaaea71d49",
+    "cloud/a1-public-stylegram-046/submission-binding.json": "aaf933769a753c12c0057df7cdbf2730d4c42bfe6e29bd8ee6ae2b3f755b335f",
+    "cloud/a1-public-stylegram-046/quick-commit-verification.json": "9cabe1b05baa2b5f7e81e039ad392684b4fcd6a8355c7b2ffeb28fd78c484ad0",
+    "cloud/a1-public-stylegram-046/outputs-v2-manifest.json": "3bceeb7cbffccb2405193ea175e6fe44b47b44a54fc9d160e67bba0c98640f7e",
+    "cloud/a1-public-stylegram-046/readback-v2-20261101T174011837673Z-b9ca46/verified.json": "7edbe1c346c4e259abbadeed43f1571561f9cd14112211263575711b40b9881c",
+    "experiments/EXP-046-atlas20-a1-submission/metrics/final-review.json": "feb84c2c5794dbcdd79526172c2294508285114cbc24d9c1da71ac2ca6c218b3"
+  },
+  "findings": [],
+  "limits": [
+    "One local recorded run and one acknowledged formal submission; receipts cannot prove absence of unrelated external manual actions.",
+    "Quick commit checked inputs/CUDA/tiny synthetic models, not full-data A1 fit or full main/comp/ATLAS inference.",
+    "Literal RUNNING MAIN INFERENCE is printed before FAST_COMMIT branching; actual receipt/output establish placeholder only.",
+    "Saved submission response has no status/score: cannot assign queued/running/complete/failure. Read-only status reconciliation remains; do not retry submission.",
+    "130 large model files were size-checked, not runtime rehashed."
+  ]
+}

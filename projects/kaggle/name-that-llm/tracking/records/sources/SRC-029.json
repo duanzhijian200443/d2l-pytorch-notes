@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "SRC-029",
+  "kind": "local_audit",
+  "title": "现有验证与 pool-centred SVC 的代码检查",
+  "url": "../reviews/own-scheme-readiness-20261030/readiness-audit.json",
+  "observed_at": "2026-10-30T15:40:20.795855+00:00",
+  "source_version": {},
+  "public_score": null,
+  "summary": "--sim 跳过最终标点步骤；全数据适配器不能后切成干净 OOF；svc4c 存在分组 ID/索引混用。",
+  "author_claim": "本项目的静态检查与最小反例。",
+  "verified": "原组 ID [0,0,2,2] 的筛选反例已核查；没有运行新训练。",
+  "use_for_us": "先修验证方法，再评价数据和参数。",
+  "test_plan": "隔离验证折；原始独立特征可缓存，组相关计算须在抽样之后重算。",
+  "limitations": "这是源码问题定位，不是修复后收益证明。",
+  "evidence": [
+    "reviews/own-scheme-readiness-20261030/readiness-audit.json"
+  ]
+}

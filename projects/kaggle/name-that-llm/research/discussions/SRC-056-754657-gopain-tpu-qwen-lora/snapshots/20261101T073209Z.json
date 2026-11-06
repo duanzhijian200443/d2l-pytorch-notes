@@ -1,0 +1,70 @@
+{
+  "observed_at": "2026-11-01T07:32:09.651508+00:00",
+  "retrieval": {
+    "method": "read-only POST",
+    "topic_endpoint": "https://www.kaggle.com/api/i/discussions.DiscussionsService/GetForumTopicById",
+    "comments_endpoint": "https://www.kaggle.com/api/i/discussions.DiscussionsService/GetForumMessagesInTopic"
+  },
+  "topic_response": {
+    "forumTopic": {
+      "authorId": 3897663,
+      "authorThumbnailName": "3897663-kg.jpg?t=2026-10-14-14-18-45",
+      "authorUserDisplayName": "GoPain",
+      "authorUserName": "locdunhat",
+      "commentSort": "COMMENT_LIST_SORT_BY_HOT",
+      "firstMessage": {
+        "id": 3547978,
+        "postDate": "2026-11-01T03:34:51.323Z",
+        "rawMarkdown": "If you are training LoRA classifiers on T4s and fighting fp16 NaNs, the weekly TPU quota (20 h of a TPU v5e-8) may\nbe the better machine. I measured it before moving any real training there; numbers below, in case they save\nsomeone a day.\n\n**Setup.** The same model I train on 2xT4: Qwen3-8B cut to 24 layers, LoRA r16 on every projection (30M trainable\nparameters), mean-pooled hidden states of 8 layers into a linear head, max 384 tokens, in **bfloat16** with\ntorch_xla 2.8 (preinstalled on the TPU image, with transformers 5.12). XLA-side gradient checkpointing\n(`torch_xla.utils.checkpoint`) on every decoder layer.\n\n| run | batch (rows x tokens) | step time | padded tokens/s | vs 2xT4 fp16 | chip memory |\n| --- | --- | --- | --- | --- | --- |\n| 1 chip | 8 x 384 | 1.90 s | 1.6k | 1.8x | 11.1 / 16.9 GB |\n| 8 chips, SPMD data parallel | 64 x 384 | 1.97 s | 12.5k | 14.2x | |\n\n- Every loss and gradient norm was finite, and all 336 LoRA tensors received a gradient.\n- Compiling the step took 50-80 s, once per input shape.\n- A stage that takes me about 7 h on 2xT4 comes out at about 0.5 h.\n\n**Why it matters beyond speed.** On T4s (no native bf16) my fp16 LoRA on a larger pool began to overflow in the\nforward pass as the adapter grew. Batches were skipped more and more often until more than half were lost, and the\nOOF dropped by 0.10. bf16 has fp32's exponent range, so that failure mode is gone.\n\n**Things that cost me time:**\n1. **Fixed shapes.** XLA recompiles for every new (rows, tokens) shape, so length-bucketed batches with a variable\n   number of rows are out. I pad to three fixed shapes (128 / 256 / 384 tokens with a constant token budget) and\n   give padding rows zero loss weight. How many buckets, and where to put them: I wrote a small benchmark,\n   [How Many Sequence Buckets for TPU Training?](https://www.kaggle.com/code/locdunhat/how-many-sequence-buckets-for-tpu-training).\n   In short, 3-4 buckets at optimised bounds roughly double the efficiency of one max-length shape and repay their\n   compile time many times over.\n2. **No data-dependent sizes.** `bincount` / `index_add` with a data-dependent number of groups forces a recompile;\n   a fixed-size one-hot group matrix does the same job.\n3. **Queue time.** My first TPU notebook waited about 23 h in the queue before it got a machine (it then ran in\n   10 minutes). Push early, and do not count on same-day results.\n4. `xm.get_memory_info` fails on the SPMD virtual device. It is harmless, but wrap it in try/except so it doesn't\n   kill a finished run.\n\nInference stays on the GPU notebook: the TPU run saves the same LoRA/head state dict as the GPU version, so the\nsubmission code does not change.\n\nHappy to share the probe script if it is useful to anyone.",
+        "content": "<p>If you are training LoRA classifiers on T4s and fighting fp16 NaNs, the weekly TPU quota (20 h of a TPU v5e-8) may\nbe the better machine. I measured it before moving any real training there; numbers below, in case they save\nsomeone a day.</p>\n<p><strong>Setup.</strong> The same model I train on 2xT4: Qwen3-8B cut to 24 layers, LoRA r16 on every projection (30M trainable\nparameters), mean-pooled hidden states of 8 layers into a linear head, max 384 tokens, in <strong>bfloat16</strong> with\ntorch_xla 2.8 (preinstalled on the TPU image, with transformers 5.12). XLA-side gradient checkpointing\n(<code>torch_xla.utils.checkpoint</code>) on every decoder layer.</p>\n<table>\n<thead>\n<tr>\n<th>run</th>\n<th>batch (rows x tokens)</th>\n<th>step time</th>\n<th>padded tokens/s</th>\n<th>vs 2xT4 fp16</th>\n<th>chip memory</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>1 chip</td>\n<td>8 x 384</td>\n<td>1.90 s</td>\n<td>1.6k</td>\n<td>1.8x</td>\n<td>11.1 / 16.9 GB</td>\n</tr>\n<tr>\n<td>8 chips, SPMD data parallel</td>\n<td>64 x 384</td>\n<td>1.97 s</td>\n<td>12.5k</td>\n<td>14.2x</td>\n<td></td>\n</tr>\n</tbody>\n</table>\n<ul>\n<li>Every loss and gradient norm was finite, and all 336 LoRA tensors received a gradient.</li>\n<li>Compiling the step took 50-80 s, once per input shape.</li>\n<li>A stage that takes me about 7 h on 2xT4 comes out at about 0.5 h.</li>\n</ul>\n<p><strong>Why it matters beyond speed.</strong> On T4s (no native bf16) my fp16 LoRA on a larger pool began to overflow in the\nforward pass as the adapter grew. Batches were skipped more and more often until more than half were lost, and the\nOOF dropped by 0.10. bf16 has fp32's exponent range, so that failure mode is gone.</p>\n<p><strong>Things that cost me time:</strong></p>\n<ol>\n<li><strong>Fixed shapes.</strong> XLA recompiles for every new (rows, tokens) shape, so length-bucketed batches with a variable\nnumber of rows are out. I pad to three fixed shapes (128 / 256 / 384 tokens with a constant token budget) and\ngive padding rows zero loss weight. How many buckets, and where to put them: I wrote a small benchmark,\n<a href=\"https://www.kaggle.com/code/locdunhat/how-many-sequence-buckets-for-tpu-training\" target=\"_blank\">How Many Sequence Buckets for TPU Training?</a>.\nIn short, 3-4 buckets at optimised bounds roughly double the efficiency of one max-length shape and repay their\ncompile time many times over.</li>\n<li><strong>No data-dependent sizes.</strong> <code>bincount</code> / <code>index_add</code> with a data-dependent number of groups forces a recompile;\na fixed-size one-hot group matrix does the same job.</li>\n<li><strong>Queue time.</strong> My first TPU notebook waited about 23 h in the queue before it got a machine (it then ran in\n10 minutes). Push early, and do not count on same-day results.</li>\n<li><code>xm.get_memory_info</code> fails on the SPMD virtual device. It is harmless, but wrap it in try/except so it doesn't\nkill a finished run.</li>\n</ol>\n<p>Inference stays on the GPU notebook: the TPU run saves the same LoRA/head state dict as the GPU version, so the\nsubmission code does not change.</p>\n<p>Happy to share the probe script if it is useful to anyone.</p>",
+        "parent": {},
+        "author": {
+          "displayName": "GoPain",
+          "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/3897663-kg.jpg?t=2026-10-14-14-18-45",
+          "url": "/locdunhat",
+          "tier": "CONTRIBUTOR",
+          "id": 3897663,
+          "progressionOptOut": false
+        },
+        "authorType": "TOPIC",
+        "votes": {
+          "canUpvote": true
+        },
+        "kernelVersion": 0,
+        "competitionRanking": 1361,
+        "feedbackTrackingData": {},
+        "isThankYou": false,
+        "teamUpInfo": {
+          "teamLeader": {
+            "displayName": "GoPain",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/3897663-kg.jpg?t=2026-10-14-14-18-45",
+            "url": "/locdunhat",
+            "userName": "locdunhat",
+            "tier": "CONTRIBUTOR",
+            "id": 3897663,
+            "profileUrl": "/locdunhat",
+            "performanceTier": "CONTRIBUTOR",
+            "userId": 3897663,
+            "progressionOptOut": false
+          },
+          "intro": ""
+        }
+      },
+      "firstMessageId": 3547978,
+      "forumId": 13688374,
+      "forumName": "Name That LLM",
+      "id": 754657,
+      "name": "The free TPU v5e-8 trains a Qwen3-8B LoRA classifier ~14x faster than 2xT4 (and bf16 ends the fp16 overflows)",
+      "parentName": "name-that-llm",
+      "parentUrl": "/competitions/name-that-llm",
+      "postDate": "2026-11-01T03:34:51.322208300Z",
+      "url": "/competitions/name-that-llm/discussion/754657",
+      "authorPerformanceTier": "CONTRIBUTOR",
+      "authorProgressionOptOut": false
+    }
+  },
+  "comments_response": {
+    "commentSort": "COMMENT_LIST_SORT_BY_NEW"
+  },
+  "hydrated_message_responses": []
+}

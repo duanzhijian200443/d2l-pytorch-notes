@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "id": "EXP-006",
+  "title": "Who Are You 作者得分 V2 配方复现",
+  "baseline_id": "EXP-004",
+  "hypothesis": "减轻全局类别平衡能否改善当前配方。",
+  "changes": [
+    "Sinkhorn 0.45 → 0.30；其余推理参数沿用作者得分 V2"
+  ],
+  "observed_at": "2026-10-31T15:57:13.732725+00:00",
+  "source": {
+    "notebook_ref": "zhjianduan/who-are-you",
+    "notebook_version": 2,
+    "script_version_id": null,
+    "local_path": "tracking/snapshots/20261031T141753Z/who-are-you.ipynb",
+    "sha256": "b4a716ba3c1cdc4a5c976a0cb9ff2c863e53ed7e63a8da1becfa2e70d422f5d6"
+  },
+  "inputs": {
+    "manifest_path": "tracking/snapshots/20261031T141753Z/who-are-you-metadata.json",
+    "content_hashes_verified": false,
+    "validation_split_id": null
+  },
+  "config": {
+    "atlas_w": 0.2,
+    "comp_w": 0.15,
+    "sinkhorn": 0.3,
+    "sinkhorn_target_mix": 0.35,
+    "typography_scale": 1.5
+  },
+  "environment": {
+    "platform": "Kaggle",
+    "accelerator": "T4 x2",
+    "container": "gcr.io/kaggle-private-byod/python@sha256:2757e0c7d1e0a9cb43da657b97e223c321a98f5014bdf64f44f2f6b083ad2b2f",
+    "internet": false
+  },
+  "execution": {
+    "scope": "commit",
+    "status": "CANCEL_ACKNOWLEDGED",
+    "observed_at": "2026-10-31T15:57:13.732725+00:00"
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": null,
+    "per_class_recall_path": null,
+    "oof_path": null,
+    "leakage_audit": "not_audited"
+  },
+  "cost": {
+    "gpu_seconds": null,
+    "api_usd": null,
+    "colab_cu": null
+  },
+  "timing_note": "2026-10-31 23:24 北京时间仍为 QUEUED；页面显示创建于 22:07:38。等待时长不是 GPU 执行时长。",
+  "conclusion": "保存版本的代码与作者得分 V2 一致；正式成绩见独立提交字段。",
+  "limitations": "自己的保存版本编号与作者版本编号不同；公开样例快速保存不能当作正式评分。",
+  "next_action": "先核对完整活动会话列表；当前保存仍排队且网页显示 GPU 余量 29h49m/30h。不要重复保存或启动；具体调度原因未确认。",
+  "related_sources": [
+    "SRC-021"
+  ],
+  "evidence": [
+    "tracking/snapshots/20261031T141753Z/who-are-you-metadata.json",
+    "reviews/judith007-0664-20261031/v2-score-0664/vs-alex-v8.diff",
+    "tracking/snapshots/20261031T141753Z/who-are-you.ipynb",
+    "tracking/snapshots/20261031T142240175966Z/EXP-006-commit-status.json",
+    "tracking/snapshots/20261031T152451658633Z/EXP-006-commit-status.json",
+    "tracking/snapshots/20261031T152451658633Z/queue-diagnosis.json",
+    "tracking/snapshots/20261031T155715059384Z/EXP-006-commit-status.json"
+  ]
+}

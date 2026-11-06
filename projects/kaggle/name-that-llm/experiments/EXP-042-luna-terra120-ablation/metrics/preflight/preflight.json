@@ -1,0 +1,49 @@
+{
+  "run_id": "exp042-20261101T143057Z",
+  "config_sha256": "0d24a23932524507dca84d04a40de6688c80e4c92eef7bbc89c3f706b799a4a9",
+  "runner_sha256": "de60b60bfd138b834d8723bbd832fd0522453f549c4050256197f6babe4ed45a",
+  "status": "PASS",
+  "strict_environment": false,
+  "environment": {
+    "numpy": "2.4.4",
+    "pandas": "3.0.6",
+    "scipy": "1.17.1",
+    "sklearn": "1.8.0"
+  },
+  "environment_mismatches": {
+    "numpy": {
+      "expected": "2.1.3",
+      "actual": "2.4.4"
+    },
+    "pandas": {
+      "expected": "2.3.3",
+      "actual": "3.0.6"
+    },
+    "scipy": {
+      "expected": "1.16.3",
+      "actual": "1.17.1"
+    },
+    "sklearn": {
+      "expected": "1.6.1",
+      "actual": "1.8.0"
+    }
+  },
+  "python": "3.13.13",
+  "rows": {
+    "official": 2699,
+    "base_extra": 10073,
+    "new": 120
+  },
+  "new_prompt_groups": 60,
+  "holdout_overlap": 0,
+  "input_hashes": {
+    "train.csv": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+    "folds.csv": "e8ba1e3712852168dc57f56960d4f3e00be612d639ade8a7dcb0f0d8335ce551",
+    "extra.csv": "1e9125fd49b19084842332ede84ea65bc0174ee1bb28c8d48acc8ddbd5e36c0e",
+    "new120.csv": "cbb0f2227f7748d9172f04d23c1653403103a192dbb7503d897153d24bb00acd",
+    "stylegram_core.py": "caa46bd121164aba891c3d78e662540db9294d653db09f53d02833c1b4ab77ef",
+    "runner.py": "de60b60bfd138b834d8723bbd832fd0522453f549c4050256197f6babe4ed45a",
+    "data-gate.json": "c493e8b14b9338824b054cfbc8ae923d2624a0c6e676dca4a82b99181f56d46e"
+  },
+  "gpu_requested": false
+}

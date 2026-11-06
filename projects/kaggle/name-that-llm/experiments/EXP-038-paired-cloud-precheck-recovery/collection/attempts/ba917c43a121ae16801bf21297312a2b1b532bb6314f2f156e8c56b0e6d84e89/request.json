@@ -1,0 +1,34 @@
+{
+  "job": {
+    "request_index": 14,
+    "block_index": 4,
+    "job_id": "ba917c43a121ae16801bf21297312a2b1b532bb6314f2f156e8c56b0e6d84e89",
+    "cell_id": "cp0144|gpt-5.6-terra",
+    "route": "codex_subscription",
+    "repeat_id": 1,
+    "prompt_id": "cp0144",
+    "prompt_group": "cp0144",
+    "split": "train",
+    "model_label": "gpt-5.6-terra",
+    "protocol_version": "single-paragraph-plain-text-v1",
+    "target_words": 80,
+    "user_message": "Make this paragraph easier for a general audience to understand: 'The room booking procedure comprises submission of an intended usage interval, subsequent availability verification, and issuance of an acknowledgement. An acknowledgement of receipt does not constitute approval of the requested interval.' Aim for about 80 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+    "user_message_sha256": "e582d8f96556e4c7e9f0607a05a06ddabffe0d317a839080db1b8fef3fd93fe2",
+    "base_instruction": "Answer the user's request.",
+    "reasoning_effort": "low",
+    "execution_authorized": true,
+    "state": "AUTHORIZED_NOT_SENT",
+    "codex_execution_contract": {
+      "fresh_ephemeral_exec": true,
+      "ignore_user_config": true,
+      "sandbox": "read-only",
+      "frozen_runtime_config": "experiments/EXP-034-explicit-format-alignment/pilot/config.json",
+      "remove_api_key_env_overrides": true,
+      "attempt_path": "collection/codex_subscription/cp0144/gpt-5.6-terra/repeat-01",
+      "note": "Use job_id/repeat_id for durable identity. Never put repeat identifiers into the model-visible prompt."
+    }
+  },
+  "started_at": "2026-11-01T12:55:59.988428+00:00",
+  "run_id": "75230ec19d8d4d4daf6e771359fd475b",
+  "controller_pid": 33640
+}

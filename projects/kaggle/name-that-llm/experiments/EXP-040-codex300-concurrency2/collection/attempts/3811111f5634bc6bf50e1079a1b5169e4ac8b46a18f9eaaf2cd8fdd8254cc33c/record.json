@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0178",
+  "prompt": "Draft an email requesting a quieter table for a small book-club gathering at a restaurant, while recognizing that the restaurant may not be able to guarantee it. Aim for about 120 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "short_email",
+  "target_words": 120,
+  "prompt_group": "cp0178",
+  "split": "train",
+  "source": "codex_subscription",
+  "base_prompt": "Draft an email requesting a quieter table for a small book-club gathering at a restaurant, while recognizing that the restaurant may not be able to guarantee it. Aim for about 120 words.",
+  "base_prompt_sha256": "571072dad4df415243a7a4194d2861db43208653d8a599cce81999f9f316d9ef",
+  "base_prompt_id": "cp0178",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0178::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "3811111f5634bc6bf50e1079a1b5169e4ac8b46a18f9eaaf2cd8fdd8254cc33c",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:59:56.562358+00:00",
+  "ended_at": "2026-11-01T14:00:14.064062+00:00",
+  "prompt_sha256": "6e0a538cf0ea79d4b1c851f5b7ff705a94ea6320232044fc0c9911446c6f3219",
+  "text": "Dear Restaurant Team, I’m writing to ask whether it might be possible to reserve a relatively quiet table for a small book-club gathering on [date] at [time] for [number] guests. We’ll be discussing our current selection and would greatly appreciate a spot where we can comfortably hear one another without disturbing other diners. We understand that the restaurant’s atmosphere, seating availability, and volume levels can vary, so we know a quiet table cannot be guaranteed. If possible, a table away from the bar, kitchen, speakers, or larger groups would be wonderful. We’re happy to be flexible with timing or seating if that helps. Please let me know whether you can note this preference on our reservation. Thank you very much for your consideration.",
+  "text_sha256": "4a8f1a01d680e3ac7255caeefb007b9403c9ac488d7ec762bf65889c4f1f7ec3",
+  "raw_final_sha256": "4a8f1a01d680e3ac7255caeefb007b9403c9ac488d7ec762bf65889c4f1f7ec3",
+  "word_count": 123,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4217,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 154,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\3811111f5634bc6bf50e1079a1b5169e4ac8b46a18f9eaaf2cd8fdd8254cc33c",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

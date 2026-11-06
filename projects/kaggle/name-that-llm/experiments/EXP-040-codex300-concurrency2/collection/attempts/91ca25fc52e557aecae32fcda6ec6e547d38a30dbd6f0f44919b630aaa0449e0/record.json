@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0059",
+  "prompt": "Describe why a search system may return a relevant document even when it does not contain the exact words typed. Aim for about 200 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "technology_explanation",
+  "target_words": 200,
+  "prompt_group": "cp0059",
+  "split": "train",
+  "source": "codex_subscription",
+  "base_prompt": "Describe why a search system may return a relevant document even when it does not contain the exact words typed. Aim for about 200 words.",
+  "base_prompt_sha256": "a14a848866bdfbafaa40f565ad71f5138e97b1201bed46914753bf3fc6cc2ab6",
+  "base_prompt_id": "cp0059",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0059::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "91ca25fc52e557aecae32fcda6ec6e547d38a30dbd6f0f44919b630aaa0449e0",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:39:54.568809+00:00",
+  "ended_at": "2026-11-01T13:40:26.042447+00:00",
+  "prompt_sha256": "918e475ec4cda45a7d80bf6d06399f854836bcb718e9c6e4e1109607a19c176f",
+  "text": "A search system may return a relevant document without the exact words typed because it can look for meaning rather than only matching text. Traditional search often normalizes words, treating forms such as “run,” “running,” and “runs” as related. It may also correct spelling mistakes, recognize abbreviations, or expand a query with synonyms. For example, a search for “car repair” could find a page about “automobile maintenance.” More advanced systems use machine learning to represent queries and documents as numerical patterns called embeddings. These representations help identify relationships between concepts, so a document about reducing household electricity consumption could match a query about lowering energy bills, even if the wording differs substantially. Search engines can also consider contextual clues, such as the surrounding words in a query, the user’s language, or links pointing to a page. Sometimes the matching terms appear in a page’s title, metadata, or incoming link text rather than its visible body. Ranking systems combine these signals to estimate which results are most likely to satisfy the user’s intent. This flexibility makes search useful when people describe the same idea in different ways, although it can also produce mistaken matches when the system interprets an ambiguous query incorrectly.",
+  "text_sha256": "ba7e2c7b6c604c7441db52b495a37e22d5f753a6289b7727abbb401c9b104d98",
+  "raw_final_sha256": "ba7e2c7b6c604c7441db52b495a37e22d5f753a6289b7727abbb401c9b104d98",
+  "word_count": 201,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4321,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 243,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\91ca25fc52e557aecae32fcda6ec6e547d38a30dbd6f0f44919b630aaa0449e0",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

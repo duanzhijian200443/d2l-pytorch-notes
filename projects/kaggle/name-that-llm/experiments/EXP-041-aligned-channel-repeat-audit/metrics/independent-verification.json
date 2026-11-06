@@ -1,0 +1,279 @@
+{
+  "status": "PASS",
+  "source_path": "experiments/EXP-038-paired-cloud-precheck-recovery/collection/combined-records.jsonl",
+  "source_sha256": "2c560d93f9cce57e42607886cb54449f84e88858a9370d3f175bcf441aea86e7",
+  "responses": 78,
+  "complete_cells": 19,
+  "independent_prompt_groups": 10,
+  "balanced_cells": 18,
+  "seed": 2026110141,
+  "bootstrap_replicates": 20000,
+  "summary": {
+    "overall": {
+      "word_trigram_jaccard_within": {
+        "mean": 0.8250106833889591,
+        "ci95": [
+          0.7108686148066475,
+          0.9177957083136395
+        ],
+        "prompt_groups": 10
+      },
+      "word_trigram_jaccard_cross": {
+        "mean": 0.8450593636185474,
+        "ci95": [
+          0.76527172284921,
+          0.9174401732345823
+        ],
+        "prompt_groups": 10
+      },
+      "word_trigram_jaccard_excess": {
+        "mean": 0.020048680229588257,
+        "ci95": [
+          -0.008539453161319727,
+          0.0607195007156912
+        ],
+        "prompt_groups": 10
+      },
+      "char_trigram_cosine_within": {
+        "mean": 0.18053183952524904,
+        "ci95": [
+          0.13146274293675064,
+          0.23371891538438977
+        ],
+        "prompt_groups": 10
+      },
+      "char_trigram_cosine_cross": {
+        "mean": 0.18419153777411534,
+        "ci95": [
+          0.13773169580658903,
+          0.23462737048815147
+        ],
+        "prompt_groups": 10
+      },
+      "char_trigram_cosine_excess": {
+        "mean": 0.0036596982488662985,
+        "ci95": [
+          -0.002325580781367867,
+          0.010123546616800537
+        ],
+        "prompt_groups": 10
+      },
+      "word_count_gap_within": {
+        "mean": 4.475,
+        "ci95": [
+          2.775,
+          6.5
+        ],
+        "prompt_groups": 10
+      },
+      "word_count_gap_cross": {
+        "mean": 4.625,
+        "ci95": [
+          3.25,
+          6.175
+        ],
+        "prompt_groups": 10
+      },
+      "word_count_gap_excess": {
+        "mean": 0.15,
+        "ci95": [
+          -0.7,
+          1.1
+        ],
+        "prompt_groups": 10
+      }
+    },
+    "balanced_9_prompts": {
+      "word_trigram_jaccard_within": {
+        "mean": 0.8123413905118773,
+        "ci95": [
+          0.6864570491335873,
+          0.913100093126623
+        ],
+        "prompt_groups": 9
+      },
+      "word_trigram_jaccard_cross": {
+        "mean": 0.8338783423774587,
+        "ci95": [
+          0.7475043000685176,
+          0.910753189976714
+        ],
+        "prompt_groups": 9
+      },
+      "word_trigram_jaccard_excess": {
+        "mean": 0.021536951865581428,
+        "ci95": [
+          -0.010508344814648223,
+          0.06701996089919898
+        ],
+        "prompt_groups": 9
+      },
+      "char_trigram_cosine_within": {
+        "mean": 0.18077017796262254,
+        "ci95": [
+          0.12676863838518762,
+          0.23980858681800354
+        ],
+        "prompt_groups": 9
+      },
+      "char_trigram_cosine_cross": {
+        "mean": 0.18426242854783378,
+        "ci95": [
+          0.13303691080323773,
+          0.2407212467178484
+        ],
+        "prompt_groups": 9
+      },
+      "char_trigram_cosine_excess": {
+        "mean": 0.00349225058521122,
+        "ci95": [
+          -0.0031156093304548463,
+          0.010642260575642097
+        ],
+        "prompt_groups": 9
+      },
+      "word_count_gap_within": {
+        "mean": 4.361111111111111,
+        "ci95": [
+          2.5277777777777777,
+          6.666666666666667
+        ],
+        "prompt_groups": 9
+      },
+      "word_count_gap_cross": {
+        "mean": 4.583333333333333,
+        "ci95": [
+          3.0555555555555554,
+          6.305555555555555
+        ],
+        "prompt_groups": 9
+      },
+      "word_count_gap_excess": {
+        "mean": 0.2222222222222222,
+        "ci95": [
+          -0.7222222222222222,
+          1.2777777777777777
+        ],
+        "prompt_groups": 9
+      }
+    }
+  },
+  "checks": [
+    {
+      "scope": "overall",
+      "metric": "word_trigram_jaccard_within",
+      "max_abs_difference": 0.0,
+      "pass": true
+    },
+    {
+      "scope": "overall",
+      "metric": "word_trigram_jaccard_cross",
+      "max_abs_difference": 0.0,
+      "pass": true
+    },
+    {
+      "scope": "overall",
+      "metric": "word_trigram_jaccard_excess",
+      "max_abs_difference": 6.938893903907228e-18,
+      "pass": true
+    },
+    {
+      "scope": "overall",
+      "metric": "char_trigram_cosine_within",
+      "max_abs_difference": 2.7755575615628914e-17,
+      "pass": true
+    },
+    {
+      "scope": "overall",
+      "metric": "char_trigram_cosine_cross",
+      "max_abs_difference": 5.551115123125783e-17,
+      "pass": true
+    },
+    {
+      "scope": "overall",
+      "metric": "char_trigram_cosine_excess",
+      "max_abs_difference": 2.949029909160572e-17,
+      "pass": true
+    },
+    {
+      "scope": "overall",
+      "metric": "word_count_gap_within",
+      "max_abs_difference": 0.0,
+      "pass": true
+    },
+    {
+      "scope": "overall",
+      "metric": "word_count_gap_cross",
+      "max_abs_difference": 0.0,
+      "pass": true
+    },
+    {
+      "scope": "overall",
+      "metric": "word_count_gap_excess",
+      "max_abs_difference": 0.0,
+      "pass": true
+    },
+    {
+      "scope": "balanced_9_prompts",
+      "metric": "word_trigram_jaccard_within",
+      "max_abs_difference": 0.0,
+      "pass": true
+    },
+    {
+      "scope": "balanced_9_prompts",
+      "metric": "word_trigram_jaccard_cross",
+      "max_abs_difference": 0.0,
+      "pass": true
+    },
+    {
+      "scope": "balanced_9_prompts",
+      "metric": "word_trigram_jaccard_excess",
+      "max_abs_difference": 1.3877787807814457e-17,
+      "pass": true
+    },
+    {
+      "scope": "balanced_9_prompts",
+      "metric": "char_trigram_cosine_within",
+      "max_abs_difference": 2.7755575615628914e-17,
+      "pass": true
+    },
+    {
+      "scope": "balanced_9_prompts",
+      "metric": "char_trigram_cosine_cross",
+      "max_abs_difference": 1.1102230246251565e-16,
+      "pass": true
+    },
+    {
+      "scope": "balanced_9_prompts",
+      "metric": "char_trigram_cosine_excess",
+      "max_abs_difference": 1.9949319973733282e-17,
+      "pass": true
+    },
+    {
+      "scope": "balanced_9_prompts",
+      "metric": "word_count_gap_within",
+      "max_abs_difference": 0.0,
+      "pass": true
+    },
+    {
+      "scope": "balanced_9_prompts",
+      "metric": "word_count_gap_cross",
+      "max_abs_difference": 0.0,
+      "pass": true
+    },
+    {
+      "scope": "balanced_9_prompts",
+      "metric": "word_count_gap_excess",
+      "max_abs_difference": 0.0,
+      "pass": true
+    }
+  ],
+  "method_assessment": [
+    "Distances independently recomputed from original paired JSONL, not copied from primary statistics.",
+    "Cell statistics use 2 within and 4 cross pairs; comparisons share answers, so pair counts are not independent sample counts.",
+    "Available model cells averaged within original prompt, then 10 original prompts weighted equally; incomplete cp0123 contributes only Luna.",
+    "Bootstrap resamples entire prompt clusters after within-prompt aggregation; 9 fully observed two-model prompts sensitivity avoids unequal model coverage.",
+    "Bootstrap intervals are exploratory with only 10 prompt clusters; no predeclared equivalence margin, therefore intervals containing zero do not establish equivalence.",
+    "Before-after historical single draws cannot isolate changes in stochastic variation or prove causal removal of built-in instructions."
+  ]
+}

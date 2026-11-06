@@ -1,0 +1,16 @@
+{
+  "role": "static-analysis-evidence-not-canonical-index",
+  "same_code_existing_src": [],
+  "code_sha256": "011698096a6d1f2b46f1b4199c941884c77e0ddf1fe947f8834797476d7bb12f",
+  "executed": false,
+  "compared_to": [
+    "SRC-002"
+  ],
+  "source_notebook_version": 9,
+  "old_notebook": {
+    "ref": "maverickss26/kaggle-name-the-llm-v3",
+    "kernel_id": 139393444,
+    "notebook_version": 8,
+    "evidence": "reviews/public-top20-20261029/13-maverickss26/metadata.json"
+  }
+}

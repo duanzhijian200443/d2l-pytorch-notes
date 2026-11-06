@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "SRC-021",
+  "kind": "notebook",
+  "title": "Who are U 作者 V2：Sinkhorn=0.30；标点修正=1.5",
+  "url": "https://www.kaggle.com/code/judith007/0-664-hyperparameter-tuned-who-are-u?scriptVersionId=363834272",
+  "observed_at": "2026-10-31T14:01:22.370879+00:00",
+  "source_version": {
+    "notebook_version": 2,
+    "script_version_id": 363834272,
+    "code_sha256": "f9fbf9845de6c62c9bca9a753d2fe5aac1d35e106541c1e07ca5755a6449bce9"
+  },
+  "public_score": {
+    "value": 0.664,
+    "evidence_type": "platform_page",
+    "bound_to_source": true,
+    "script_version_id": 363834272
+  },
+  "summary": "Sinkhorn=0.30；标点修正=1.5",
+  "author_claim": "Notebook 标题沿用 0.664。",
+  "verified": "V2 页面 0.664 已绑定 scriptVersionId；相对 alexchilton V8 仅改一行 Sinkhorn。",
+  "use_for_us": "作为后处理单参数实验候选。",
+  "test_plan": "固定预测与验证划分比较；完整评分只验证少量候选。",
+  "limitations": "单次 0.002 差异不能直接归为稳定提升；附件内容版本未独立逐一核查。",
+  "evidence": [
+    "reviews/judith007-0664-20261031/v2-score-0664/0-664-hyperparameter-tuned-who-are-u.ipynb",
+    "reviews/judith007-0664-20261031/review-evidence.json"
+  ]
+}

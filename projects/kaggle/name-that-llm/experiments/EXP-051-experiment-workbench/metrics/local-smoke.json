@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "runs": [
+    {
+      "args": [
+        "prepare",
+        "sinkhorn030"
+      ],
+      "exit_code": 0,
+      "output": "报告：C:\\计算机学习\\深度学习\\projects\\kaggle\\name-that-llm\\experiments\\EXP-051-experiment-workbench\\reports\\EXP-049.md\n本次操作：PASS_FIXED_LOCAL_JOB"
+    },
+    {
+      "args": [
+        "run-local",
+        "sinkhorn030"
+      ],
+      "exit_code": 0,
+      "output": "固定诊断结果已存在：已核验复用，没有重算或覆盖。\n报告：C:\\计算机学习\\深度学习\\projects\\kaggle\\name-that-llm\\experiments\\EXP-051-experiment-workbench\\reports\\EXP-049.md\n本次操作：PASS_FIXED_LOCAL_JOB"
+    },
+    {
+      "args": [
+        "verify",
+        "pool-v13"
+      ],
+      "exit_code": 0,
+      "output": "报告：C:\\计算机学习\\深度学习\\projects\\kaggle\\name-that-llm\\experiments\\EXP-051-experiment-workbench\\reports\\EXP-050.md\n本次操作：PASS_FIXED_LOCAL_JOB"
+    }
+  ],
+  "package_receipt_sha256_unchanged": true,
+  "package_receipt_mtime_unchanged": true
+}

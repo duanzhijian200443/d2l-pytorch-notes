@@ -1,0 +1,16 @@
+{
+  "role": "read-only-download-evidence",
+  "ref": "kilupy/ntl-full-0662-ours15",
+  "observed_at": "2026-11-01T07:32:08.147150+00:00",
+  "notebook_version": 1,
+  "script_version_id": null,
+  "source_sha256": "9bfda2872c6cb2bae77109d5b023b8dc28c140deb500289e8d42dad07d0abbc4",
+  "code_sha256": "f608191f7677839c48f8ebeee5482ee40a033af0d59763db2e108f11da6f809f",
+  "source_file_sha256": "9bfda2872c6cb2bae77109d5b023b8dc28c140deb500289e8d42dad07d0abbc4",
+  "metadata_sha256": "14e8af9d5eac67041f87299f8177772517f86b85cd911af8334d25e352e9da7b",
+  "latest_equals_fixed_source": true,
+  "executed": false,
+  "url": "https://www.kaggle.com/code/kilupy/ntl-full-0662-ours15",
+  "method": "Kaggle API get_kernel latest then fixed version_label",
+  "status": "DOWNLOADED_NOT_EXECUTED"
+}

@@ -1,0 +1,27 @@
+{
+  "recorded_at": "2026-10-31T15:26:04.369469+00:00",
+  "notebook_ref": "zhjianduan/who-are-you",
+  "viewer_url": "https://www.kaggle.com/code/zhjianduan/who-are-you?scriptVersionId=364252422",
+  "viewer_status": "Queued...",
+  "viewer_accelerator": "GPU T4 x2",
+  "viewer_output": "0 B",
+  "viewer_created_at_display": "2026-10-31 22:07:38 Asia/Shanghai",
+  "ui_quota_text": "GPU 29h 49m available of 30h",
+  "ui_active_events_text": "No Active Events",
+  "limitations": [
+    "Active Events is not an authoritative list of reserved or queued GPU sessions.",
+    "The editor did not finish loading, so the complete active-session manager could not be inspected.",
+    "The viewer scriptVersionId has not yet been bound to the local notebook version by explicit version-list evidence.",
+    "The quota SDK duration response was malformed; use the displayed UI quota for this observation.",
+    "No exact scheduling cause or reliable start-time estimate is available."
+  ],
+  "interpretation": "Code has not started. Weekly quota exhaustion is not supported by the UI. Concurrency allocation or Kaggle scheduling remains unconfirmed.",
+  "remote_mutations": [],
+  "prior_submission": {
+    "id": 57832487,
+    "script_version_id": 364159717,
+    "status": "COMPLETE",
+    "public_score": 0.659
+  },
+  "cli_snapshot_directory": "tracking/snapshots/20261031T152451658633Z"
+}

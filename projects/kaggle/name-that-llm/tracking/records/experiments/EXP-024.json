@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "id": "EXP-024",
+  "title": "Stylegram与svc4小比例融合：固定标准化分数对照",
+  "baseline_id": "EXP-010",
+  "hypothesis": "固定逐行分数标准化后，svc4以10%参与能在不降低完整组及每个稀疏m平均BA的条件下提供开发收益；5%/20%仅为预定敏感性对照。",
+  "changes": [
+    "按样本独立将18维SVM margin做population z-score，不拟合标签或校准",
+    "固定alpha=0.05/0.10/0.20，相对alpha0原Stylegram；0.10为主要候选",
+    "全部16场景使用相同权重，不按真实类别、prompt组大小或场景切换"
+  ],
+  "observed_at": "2026-11-01T08:27:28.654386+00:00",
+  "source": {
+    "notebook_ref": null,
+    "notebook_version": null,
+    "script_version_id": null,
+    "local_path": "experiments/EXP-024-oof-margin-blend/run_blend.py",
+    "sha256": "cdb81103923479bceea9c0693c667abbeb9d9480567dbd72ae878066ae4a1634"
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-024-oof-margin-blend/manifest.json",
+    "validation_split_id": "prompt-group-v1",
+    "content_hashes_verified": true
+  },
+  "config": {
+    "alphas": [
+      0,
+      0.05,
+      0.1,
+      0.2
+    ],
+    "primary_alpha": 0.1,
+    "members": [
+      "EXP-010",
+      "EXP-018"
+    ],
+    "normalization": "per-row population z-score; not probabilities",
+    "scenarios": 16,
+    "note": "Complete frozen configuration in config_path."
+  },
+  "environment": {
+    "platform": "local Windows CPU",
+    "accelerator": null,
+    "container": null,
+    "seed": 42,
+    "versions": {
+      "python": "3.13.13",
+      "numpy": "2.4.4",
+      "pandas": "3.0.6"
+    }
+  },
+  "execution": {
+    "scope": "cached_standardized_margin_blend_development",
+    "status": "COMPLETE",
+    "observed_at": "2026-11-01T08:27:28.654386+00:00",
+    "result_status": "PASS",
+    "completed_at": "2026-11-01T08:24:54.089589+00:00"
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": 0.46896843151876705,
+    "scope": "Primary alpha0.10 cached standardized-margin blend on previously inspected prompt-group-v1 development OOF; no independent validation or full ATLAS20/LB",
+    "per_class_recall_path": "experiments/EXP-024-oof-margin-blend/metrics/per_class.csv",
+    "oof_path": "experiments/EXP-024-oof-margin-blend/oof/predictions.csv",
+    "leakage_audit": "Inherited EXP022 input bindings and upstream limits; no new label-fitted stage, post-hoc development family selection acknowledged.",
+    "acceptance_path": "experiments/EXP-024-oof-margin-blend/metrics/acceptance.json",
+    "primary_alpha": 0.1,
+    "paired_comparison": {
+      "status": "OK",
+      "draws": 2000,
+      "seed": 42,
+      "sampling_unit": "prompt_id",
+      "prompt_groups": 150,
+      "paired": true,
+      "valid_draws": 2000,
+      "invalid_draws": 0,
+      "ci95_lower_delta_ba": -0.005555555555555556,
+      "ci95_upper_delta_ba": 0.006666666666666665,
+      "delta_definition": "blend_minus_reference_balanced_accuracy",
+      "class_coverage_policy": "CI is null if any draw lacks a declared class; no dropping or replacement draws",
+      "conditional_on_existing_models": true,
+      "includes_retraining_uncertainty": false,
+      "multiple_comparison_adjustment": "none"
+    },
+    "dense_delta_ba": 0.000725826497638471,
+    "point_estimate_screen_met": true
+  },
+  "cost": {
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0
+  },
+  "timing_note": "Cached calculations 3.598s; excludes implementation, tests, review and reporting. No training/GPU/API use.",
+  "conclusion": "固定5%/10%/20%融合筛选验收PASS。主要10%完整组BA=0.468968432，净多对2条；95%区间跨0，尚无稳定完整组提升证据。10%通过预设点估计门槛，m2/m3五次全升、m6三升二降；保留为进一步验证候选。",
+  "limitations": "候选与验证数据已受开发过程影响；小网格不等于独立泛化验证；权重是标准化margin系数而非概率或样本占比。",
+  "next_action": "冻结10%作为独立验证候选并保留20%敏感性结果；另行设计独立prompt或真正嵌套分组验证，不继续扫当前OOF权重、不自动替换正式EXP-004。",
+  "related_sources": [
+    "SRC-026",
+    "SRC-029"
+  ],
+  "evidence": [
+    "experiments/EXP-024-oof-margin-blend/config.json",
+    "experiments/EXP-024-oof-margin-blend/manifest.json",
+    "experiments/EXP-024-oof-margin-blend/report.md",
+    "experiments/EXP-024-oof-margin-blend/run_blend.py",
+    "experiments/EXP-024-oof-margin-blend/metrics/input-preflight.json",
+    "experiments/EXP-024-oof-margin-blend/write_report.py",
+    "experiments/EXP-024-oof-margin-blend/metrics/result.json",
+    "experiments/EXP-024-oof-margin-blend/metrics/summary.csv",
+    "experiments/EXP-024-oof-margin-blend/metrics/sparse_summary.csv",
+    "experiments/EXP-024-oof-margin-blend/metrics/findings.json",
+    "experiments/EXP-024-oof-margin-blend/metrics/acceptance.json",
+    "experiments/EXP-024-oof-margin-blend/metrics/output-manifest.json",
+    "experiments/EXP-024-oof-margin-blend/metrics/report-manifest.json",
+    "experiments/EXP-024-oof-margin-blend/oof/predictions.csv",
+    "experiments/EXP-024-oof-margin-blend/logs/run.log"
+  ],
+  "config_path": "experiments/EXP-024-oof-margin-blend/config.json"
+}

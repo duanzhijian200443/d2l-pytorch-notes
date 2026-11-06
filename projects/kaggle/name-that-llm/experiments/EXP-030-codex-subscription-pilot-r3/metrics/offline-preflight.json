@@ -1,0 +1,15 @@
+{
+  "observed_at": "2026-11-01T10:20:51.835255+00:00",
+  "collector_tests": {
+    "passed": 13,
+    "failed": 0
+  },
+  "resume_integrity_tests": {
+    "passed": 15,
+    "failed": 0
+  },
+  "live_saved_prefix_verified": 558,
+  "historical_failures_verified": 2,
+  "sampling_inputs_verified": true,
+  "global_ledger_check": "BLOCKED_BY_UNRELATED_EXP029_SOURCE_HASH_MISMATCH"
+}

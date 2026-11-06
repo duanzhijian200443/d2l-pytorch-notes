@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "scope": "synthetic_math",
+  "run_id": "EXP-028-n3_full-r2",
+  "required_events": {
+    "main": [
+      "main_members",
+      "postprocessing_base",
+      "typography",
+      "component_end"
+    ],
+    "comp": [
+      "member",
+      "comp_before_gates",
+      "component_end"
+    ]
+  },
+  "models_executed": false,
+  "checkpoint_identity_verified": false,
+  "fixture_policy": "Deterministic synthetic model outputs; actual extracted source math only"
+}

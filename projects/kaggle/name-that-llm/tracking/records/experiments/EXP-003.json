@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "id": "EXP-003",
+  "title": "Who am I V32 Colab A100 尝试",
+  "baseline_id": null,
+  "hypothesis": "",
+  "changes": [],
+  "observed_at": "2026-10-29T13:03:55.353090+00:00",
+  "source": {
+    "notebook_ref": "romantamrazov/name-that-llm-who-am-i",
+    "notebook_version": 32,
+    "script_version_id": 363222852,
+    "local_path": "cloud/who-am-i-v32-colab/upstream-v32.ipynb",
+    "sha256": "94c81faa0279be53ba6264db1fe5322c791fd9564b21bb9f557336181daac284"
+  },
+  "inputs": {
+    "manifest_path": "cloud/who-am-i-v32-colab/execution-state.json",
+    "content_hashes_verified": false,
+    "validation_split_id": null,
+    "verified_scope": "历史 CSV 哈希与已列出的预检项目通过；未声明所有模型资产均完成内容哈希审计。"
+  },
+  "config": {
+    "watchdog_seconds": 14400,
+    "test_scope": "public_sample"
+  },
+  "environment": {
+    "platform": "Colab",
+    "accelerator": "NVIDIA A100-SXM4-40GB",
+    "driver": "580.82.07"
+  },
+  "execution": {
+    "scope": "public_sample_full",
+    "status": "INTERRUPTED",
+    "observed_at": "2026-10-29T13:03:55.353090+00:00"
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": null,
+    "per_class_recall_path": null,
+    "oof_path": null,
+    "leakage_audit": "not_audited"
+  },
+  "cost": {
+    "gpu_seconds": null,
+    "api_usd": null,
+    "colab_cu": null
+  },
+  "timing_note": "仅有部分阶段耗时；没有正常结束记录，不能计算完整吞吐或总耗时。",
+  "conclusion": "互补集成及部分 q14v5 计算完成后后端消失；无 submission.parquet，未得到榜单分数。",
+  "limitations": "真实中断原因未知；不能归因为 OOM、四小时限时或用户手动断开。后续网页启动器的本地测试不代表 GPU 已跑通。",
+  "next_action": "这次尝试已结束；后续重跑另建 EXP，并复用已有缓存。",
+  "related_sources": [],
+  "evidence": [
+    "cloud/who-am-i-v32-colab/outputs/run-20261029T112726Z/interruption-report.json",
+    "cloud/who-am-i-v32-colab/web-validation.json",
+    "cloud/who-am-i-v32-colab/upstream-v32.ipynb"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "observed_at": "2026-11-01T12:47:10.999650+00:00",
+  "expires_at": "2026-11-01T13:02:16.956303+00:00",
+  "models_available": [
+    "openai/gpt-5.6-luna",
+    "openai/gpt-5.6-terra"
+  ],
+  "free_quota_remaining_usd": "9.97853059999999914",
+  "free_quota_only": true,
+  "requested_reasoning_effort": "low",
+  "model_access_scope": "Exact model_proxy_slug andallow_model_proxy catalog verified; cloud inference awaits nextplannedrequest",
+  "codex_executable_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+  "codex_executable_sha256": "3097c909fb6d5cd63510d44aceb1d42df9f6e85722a3e447e477def1ecf60e16",
+  "kaggle_preflight_path": "metrics/kaggle-preflight.json",
+  "transport_route": "official private Benchmark creation validation"
+}

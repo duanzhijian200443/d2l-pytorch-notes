@@ -1,0 +1,45 @@
+{
+  "observed_at": "2026-11-01T10:21:55.723266+00:00",
+  "state": {
+    "status": "RUNNING",
+    "planned_total": 1000,
+    "target_total": 1000,
+    "already_saved": 558,
+    "remaining_in_this_run": 442,
+    "workers": 2,
+    "controller_automatic_retries": 0,
+    "cli_internal_retry_policy": "see frozen cli_overrides; not inferred",
+    "observed_at": "2026-11-01T10:21:55.241950+00:00",
+    "run_id": "248f72de6cad48dd806a066115a94d92",
+    "controller_pid": 27336,
+    "started_at": "2026-11-01T10:20:52.432847+00:00",
+    "saved_total": 563,
+    "saved_in_target": 563,
+    "launched_this_run": 7,
+    "failed_this_run": 0,
+    "failures": [],
+    "local_errors": [],
+    "active": [
+      "090da6fa8075d8de691c44bb00962cbef367b279c4ea705d51ccfe0eeb283b93",
+      "0b62213b50d407e21ada9683cbe51025f89403cb91bde22f829b18c05204628d"
+    ],
+    "elapsed_seconds": 62.809
+  },
+  "records_count": 563,
+  "first_two_reissued_requests_verified": true,
+  "first_two": [
+    {
+      "prompt_id": "cp0140",
+      "model_requested": "gpt-5.6-sol",
+      "ended_at": "2026-11-01T10:21:11.550655+00:00",
+      "text_sha256": "f7de36d755f06cdf883ccb411acfabbd7d0ba5610306946224cbb01d5bdee9e2"
+    },
+    {
+      "prompt_id": "cp0140",
+      "model_requested": "gpt-6-astra",
+      "ended_at": "2026-11-01T10:21:20.175391+00:00",
+      "text_sha256": "b535da6de7b51a2d25b03d56f315969f75eb4b259e4bcb7296d663d665ca9235"
+    }
+  ],
+  "automation_id": "15-codex"
+}

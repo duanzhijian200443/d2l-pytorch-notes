@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0127",
+  "prompt": "A town can make its central square visually uniform or allow every shop a distinctive sign. Discuss what each approach contributes. Please answer in roughly 120 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "tradeoff_argument",
+  "target_words": 120,
+  "prompt_group": "cp0127",
+  "split": "train",
+  "source": "codex_subscription",
+  "base_prompt": "A town can make its central square visually uniform or allow every shop a distinctive sign. Discuss what each approach contributes. Please answer in roughly 120 words.",
+  "base_prompt_sha256": "e3eaba0667ec455cd60cd608302c5630fc486070f05e312fdaa24c6fef6d2505",
+  "base_prompt_id": "cp0127",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0127::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "72f20ad5ed5da274e76230baf23d4718736aebb042a4e491c0f5418ae4ac78e4",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:50:44.091617+00:00",
+  "ended_at": "2026-11-01T13:51:09.923088+00:00",
+  "prompt_sha256": "596a200898b7c53e7662364a93344c17ba4c957d3ceed9256b56b12caeda36ae",
+  "text": "Making a town’s central square visually uniform can create harmony, strengthen its historic character, and make public space feel orderly. Consistent signs may also prevent aggressive advertising from overwhelming architecture, helping visitors appreciate the square as a whole. However, allowing every shop a distinctive sign gives businesses a clear identity and lets owners express creativity, local traditions, and personality. This variety can make the square lively and memorable while helping customers distinguish shops easily. Too much uniformity risks producing a bland, overly controlled environment, whereas unrestricted signs can cause visual clutter. A balanced approach could therefore set limits on size, lighting, and placement while permitting different colours and designs, preserving the square’s shared character without sacrificing individual expression.",
+  "text_sha256": "8123eccc476aa14fed9ab332103d5ba8bd2044cf19cb57557fc82727f9f268d3",
+  "raw_final_sha256": "8123eccc476aa14fed9ab332103d5ba8bd2044cf19cb57557fc82727f9f268d3",
+  "word_count": 118,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4324,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 143,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\72f20ad5ed5da274e76230baf23d4718736aebb042a4e491c0f5418ae4ac78e4",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

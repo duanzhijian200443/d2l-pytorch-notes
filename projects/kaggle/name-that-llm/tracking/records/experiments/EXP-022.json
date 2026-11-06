@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "id": "EXP-022",
+  "title": "Stylegram与svc4的OOF互补性：完整与稀疏场景",
+  "baseline_id": "EXP-010",
+  "hypothesis": "svc4在Stylegram判断错误的样本上具有跨类别、跨prompt和稀疏场景的互补性，值得另行验证少量融合候选。",
+  "changes": [
+    "仅复用EXP010 share0.5与EXP018 raw权重0.35已验收预测",
+    "完整2699行与15个固定稀疏场景；逐类/折/prompt交叉检查",
+    "不训练、不拟合融合权重、不作真标签路由"
+  ],
+  "observed_at": "2026-11-01T08:19:48.830516+00:00",
+  "source": {
+    "notebook_ref": null,
+    "notebook_version": null,
+    "script_version_id": null,
+    "local_path": "experiments/EXP-022-oof-complementarity/analyze.py",
+    "sha256": "4fb7c6deb61e9a299793a49acd7f7713dc65ea3793434094f5eb4f6f6d4f9f96"
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-022-oof-complementarity/manifest.json",
+    "validation_split_id": "prompt-group-v1",
+    "content_hashes_verified": true
+  },
+  "config": {
+    "members": [
+      "EXP-010",
+      "EXP-018"
+    ],
+    "scenarios": 16,
+    "note": "配置详见config_path；公共份额0.5和每行权重0.35不是同一含义。"
+  },
+  "environment": {
+    "platform": "local Windows CPU",
+    "accelerator": null,
+    "container": null,
+    "seed": 42,
+    "versions": {
+      "python": "3.13.13",
+      "numpy": "2.4.4",
+      "pandas": "3.0.6"
+    }
+  },
+  "execution": {
+    "scope": "cached_oof_complementarity_analysis",
+    "status": "COMPLETE",
+    "observed_at": "2026-11-01T08:19:48.830516+00:00",
+    "result_status": "PASS",
+    "completed_at": "2026-11-01T08:16:34.974045+00:00"
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": "Descriptive two-member cached OOF comparison; no new model/ensemble accuracy",
+    "per_class_recall_path": "experiments/EXP-022-oof-complementarity/metrics/per_class.csv",
+    "oof_path": "experiments/EXP-022-oof-complementarity/oof/paired_predictions.csv",
+    "leakage_audit": "Inherited limits of EXP010 and EXP018; fixed sample/fold/label/hash alignment and scenario-specific routing cache verified. Post-hoc diagnosis only.",
+    "acceptance_path": "experiments/EXP-022-oof-complementarity/metrics/acceptance.json",
+    "metrics_path": "experiments/EXP-022-oof-complementarity/metrics/findings.json",
+    "member_balanced_accuracy": {
+      "EXP-010": 0.4682426050211286,
+      "EXP-018": 0.40228933631618197
+    }
+  },
+  "cost": {
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0
+  },
+  "timing_note": "Cached computation 1.245s only; excludes implementation, review and report preparation. No training or GPU/API use.",
+  "conclusion": "缓存互补性验收PASS：svc4独有187条正确覆盖108个prompt/18类/5折；完整组Stylegram更强，m=2的五次抽样svc4全领先，m=3方向不一致，m=6全由Stylegram领先。值得单独验证融合，尚无融合收益或榜单提升。",
+  "limitations": "仅开发OOF互补性；独有正确不是可部署融合收益；稀疏重复共享模型与prompt；上游数据限制沿用父实验。",
+  "next_action": "冻结少量融合/校准候选，并设计独立prompt或真正嵌套分组验证；兼顾完整与稀疏场景，不按真标签或真实prompt大小路由。",
+  "related_sources": [
+    "SRC-026",
+    "SRC-029"
+  ],
+  "evidence": [
+    "experiments/EXP-022-oof-complementarity/config.json",
+    "experiments/EXP-022-oof-complementarity/manifest.json",
+    "experiments/EXP-022-oof-complementarity/report.md",
+    "experiments/EXP-022-oof-complementarity/analyze.py",
+    "experiments/EXP-022-oof-complementarity/write_report.py",
+    "experiments/EXP-022-oof-complementarity/metrics/input-preflight.json",
+    "experiments/EXP-022-oof-complementarity/metrics/result.json",
+    "experiments/EXP-022-oof-complementarity/metrics/acceptance.json",
+    "experiments/EXP-022-oof-complementarity/metrics/findings.json",
+    "experiments/EXP-022-oof-complementarity/metrics/output-manifest.json",
+    "experiments/EXP-022-oof-complementarity/metrics/report-manifest.json",
+    "experiments/EXP-022-oof-complementarity/oof/paired_predictions.csv",
+    "experiments/EXP-022-oof-complementarity/logs/analysis.log"
+  ],
+  "config_path": "experiments/EXP-022-oof-complementarity/config.json"
+}

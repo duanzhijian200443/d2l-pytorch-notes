@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "id": "EXP-050",
+  "title": "Open Pool V13对实际训练池的增量与隔离审计",
+  "baseline_id": "EXP-046",
+  "hypothesis": "逐行审计平台V13相对A1实际运行用数的新增上界、来源/prompt质量和后续数据候选。",
+  "changes": [
+    "固定V13完整parquet及prompt/隔离文件；重建实际main/shared/gate用数。",
+    "逐行精确/规范化正文、标签、题组桥接与风险检查；形成C1/C2索引，不训练。"
+  ],
+  "observed_at": "2026-11-02T05:01:30.791970+00:00",
+  "source": {
+    "notebook_ref": null,
+    "notebook_version": null,
+    "script_version_id": null,
+    "local_path": "src/open_pool_audit.py",
+    "sha256": "f1bfe94ab448ba1a01a32e4fdc8a02b31de7a8eaef0bcb748dcabc3ab5f63e34"
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-050-open-pool-v13-increment-audit/manifest.json",
+    "validation_split_id": null,
+    "content_hashes_verified": true
+  },
+  "config": {
+    "note": "仅作台账索引；完整参数以 config_path 指向的 config.json 为准。"
+  },
+  "environment": {
+    "platform": "local Windows file audit",
+    "accelerator": "CPU only",
+    "container": null,
+    "seed": null
+  },
+  "execution": {
+    "scope": "offline_data_and_lineage_audit",
+    "status": "COMPLETE",
+    "observed_at": "2026-11-02T04:43:05.368277+00:00",
+    "result_status": "AUDIT_COMPLETE_NOT_TRAINING_APPROVED"
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": "190588 row file/inventory audit, no predictive metric",
+    "per_class_recall_path": null,
+    "oof_path": null,
+    "leakage_audit": "All rows carry upstream full-official-train selection exposure; not clean OOF approval."
+  },
+  "cost": {
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0
+  },
+  "timing_note": "文件审计与下载耗时未统一计时；不是训练或隐藏评分耗时。",
+  "conclusion": "V13 190588行，命中A1实际运行用数97870、未命中上界92718；C1=42143、C2=29478，均未准入训练。实际prvs运行字节对应平台V7而非请求V6。",
+  "limitations": "新增仅相对可观测用数，不证明所有checkpoint未见或语义独立；全train上游筛选/发布权重限制仍在；路线身份多为作者声明。未做V12/V13逐行差分。",
+  "next_action": "设计一个固定来源/类别配额、prompt祖先隔离的C2小规模数据对照；按验证独立性如实标注开发指标，不直接全量换池或加match_weight。",
+  "related_sources": [
+    "SRC-065",
+    "SRC-038",
+    "SRC-027",
+    "SRC-033"
+  ],
+  "evidence": [
+    "experiments/EXP-050-open-pool-v13-increment-audit/config.json",
+    "experiments/EXP-050-open-pool-v13-increment-audit/manifest.json",
+    "experiments/EXP-050-open-pool-v13-increment-audit/report.md",
+    "experiments/EXP-050-open-pool-v13-increment-audit/metrics/summary.json",
+    "experiments/EXP-050-open-pool-v13-increment-audit/metrics/audit-complete.json",
+    "experiments/EXP-050-open-pool-v13-increment-audit/verification.json",
+    "experiments/EXP-050-open-pool-v13-increment-audit/test-result.json",
+    "experiments/EXP-050-open-pool-v13-increment-audit/download-version-discrepancy.json"
+  ],
+  "config_path": "experiments/EXP-050-open-pool-v13-increment-audit/config.json"
+}

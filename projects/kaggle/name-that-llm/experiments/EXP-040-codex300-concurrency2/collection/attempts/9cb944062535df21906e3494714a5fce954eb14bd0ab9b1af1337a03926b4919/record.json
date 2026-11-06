@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0068",
+  "prompt": "A product team receives many enthusiastic comments about a new feature, but few people use it twice. How should the team interpret the evidence? Aim for about 160 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "business_decision",
+  "target_words": 160,
+  "prompt_group": "cp0068",
+  "split": "train",
+  "source": "codex_subscription",
+  "base_prompt": "A product team receives many enthusiastic comments about a new feature, but few people use it twice. How should the team interpret the evidence? Aim for about 160 words.",
+  "base_prompt_sha256": "483e498fbb527649a46410cd111c09cb718bf652ada497455c2d524e4527de65",
+  "base_prompt_id": "cp0068",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0068::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "9cb944062535df21906e3494714a5fce954eb14bd0ab9b1af1337a03926b4919",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:48:03.643050+00:00",
+  "ended_at": "2026-11-01T13:48:21.076265+00:00",
+  "prompt_sha256": "1c1bb4f21ad434bd9ec36f8669a49fa81f2bf9648d1ca7df0fc2f2898f7706c3",
+  "text": "The evidence suggests that the feature is attractive in principle but has not yet demonstrated durable value in practice. Enthusiastic comments are useful signals of interest, emotional appeal, or initial comprehension, but they may reflect novelty, politeness, excitement about the idea, or a desire to support the team rather than a behavior users consider important enough to repeat. Low repeat usage should therefore be treated as a stronger warning about product-market fit, usefulness, usability, or workflow integration. The team should examine activation and retention by user cohort, identify where people stop returning, and compare stated enthusiasm with observed behavior. Follow-up interviews should ask what users expected, what job they tried to accomplish, what prevented a second use, and whether the feature solved a recurring problem. The team should avoid concluding either that the feature is a success or that it should be abandoned. Instead, it should test specific hypotheses about friction, frequency of need, discoverability, and value, then measure whether targeted improvements increase meaningful repeat usage.",
+  "text_sha256": "a075867fdedd55a83c5915161a1499b6498ef3d96a40b733abd59beb80b58b59",
+  "raw_final_sha256": "a075867fdedd55a83c5915161a1499b6498ef3d96a40b733abd59beb80b58b59",
+  "word_count": 166,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2678,
+      "cached_input_tokens": 2432,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 258,
+      "reasoning_output_tokens": 54
+    }
+  ],
+  "attempt_path": "collection\\attempts\\9cb944062535df21906e3494714a5fce954eb14bd0ab9b1af1337a03926b4919",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

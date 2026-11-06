@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "id": "EXP-043",
+  "title": "旧Codex1000派生格式视图：去换行与加粗",
+  "baseline_id": "EXP-033",
+  "hypothesis": "Removing only observed line breaks and paired strong markers produces a traceable formatting view; classification benefit is not evaluated.",
+  "changes": [
+    "Create derived view without overwriting raw text",
+    "Preserve labels, source provenance and original train/holdout groups"
+  ],
+  "observed_at": "2026-11-01T16:18:06.218750+00:00",
+  "source": {
+    "notebook_ref": null,
+    "notebook_version": null,
+    "script_version_id": null,
+    "local_path": "experiments/EXP-043-codex-format-view/build_view.py",
+    "sha256": "ce452c52ece3c061ec7422781521d39a7a9635795073d7bc3c8b76f37cc959bb"
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-043-codex-format-view/manifest.json",
+    "validation_split_id": "codex-pilot-prompt-v1",
+    "content_hashes_verified": true
+  },
+  "config": {
+    "note": "仅作台账索引；完整参数以 config_path 指向的 config.json 为准。"
+  },
+  "environment": {
+    "platform": "local offline CPU",
+    "accelerator": null,
+    "container": null,
+    "seed": null
+  },
+  "execution": {
+    "scope": "dataset_derivation_only",
+    "status": "COMPLETE_DERIVED_DATA",
+    "observed_at": "2026-11-01T16:18:06.218750+00:00",
+    "training_started": false,
+    "rows": 1000
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": "Text preservation/hash/group/duplicate checks only; no classifier metric",
+    "per_class_recall_path": null,
+    "oof_path": null,
+    "leakage_audit": "SPLIT_PRESERVED; no new training or evaluation"
+  },
+  "cost": {
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0
+  },
+  "timing_note": null,
+  "conclusion": "独立验收通过：1000条派生视图保留727条格式改动，换行709→0、加粗215→0；正文/代码片段/分组/原件哈希保持，未训练。",
+  "limitations": "仅格式视图，不等于新协议重采、来源等价或提升准确率；其他Markdown和措辞保留。",
+  "next_action": "可固定同60题旧120原文与去格式120开展单因素训练对照；之后再研究400条扩量。本次仅准备数据。",
+  "related_sources": [],
+  "evidence": [
+    "experiments/EXP-043-codex-format-view/config.json",
+    "experiments/EXP-043-codex-format-view/manifest.json",
+    "experiments/EXP-043-codex-format-view/report.md",
+    "experiments/EXP-043-codex-format-view/metrics/derivation.json",
+    "experiments/EXP-043-codex-format-view/derived/train.jsonl",
+    "experiments/EXP-043-codex-format-view/derived/holdout.jsonl",
+    "experiments/EXP-043-codex-format-view/derived/row-changes.jsonl",
+    "experiments/EXP-043-codex-format-view/derived/selections.json",
+    "experiments/EXP-043-codex-format-view/transform.py",
+    "experiments/EXP-043-codex-format-view/test_transform.py",
+    "experiments/EXP-043-codex-format-view/metrics/independent-review.json",
+    "experiments/EXP-043-codex-format-view/metrics/independent-review.md"
+  ],
+  "config_path": "experiments/EXP-043-codex-format-view/config.json",
+  "related_experiments": [
+    "EXP-023",
+    "EXP-030",
+    "EXP-033",
+    "EXP-041",
+    "EXP-042"
+  ]
+}

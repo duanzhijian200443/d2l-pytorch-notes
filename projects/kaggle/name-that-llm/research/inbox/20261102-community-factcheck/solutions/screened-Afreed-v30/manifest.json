@@ -1,0 +1,8 @@
+{
+  "status": "PENDING_REVIEW",
+  "ref": "mohammedafreedpasha/name-that-llm-solution",
+  "version": 30,
+  "category": "solutions",
+  "score_binding": false,
+  "scope": "Read current notebook and metadata only; source not executed."
+}

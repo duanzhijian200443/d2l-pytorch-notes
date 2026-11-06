@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "EXP-049",
+  "title": "A1只改Sinkhorn为0.30：候选准备与固定缓存诊断",
+  "baseline_id": "EXP-046",
+  "hypothesis": "固定A1成员与真实缓存，只将Sinkhorn0.45改为0.30，检验同一外部面板的变化。",
+  "changes": [
+    "唯一数学改动Sinkhorn0.45→0.30；不加入自产120条。",
+    "身份与收据更新，原32项输入请求、嵌入payload、模型/ATLAS设置保留。"
+  ],
+  "observed_at": "2026-11-02T05:01:30.791970+00:00",
+  "source": {
+    "notebook_ref": null,
+    "notebook_version": null,
+    "script_version_id": null,
+    "local_path": "cloud/a1-sinkhorn030-049/kernel/a1.ipynb",
+    "sha256": "35ddcc24900d4bace4b3c4cc167475ad2c119af83a9eb687ef717f7bea1200b5"
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-049-a1-sinkhorn030-ready/manifest.json",
+    "validation_split_id": "EXP031/045 fixed external729/56prompts/17true_classes",
+    "content_hashes_verified": true
+  },
+  "config": {
+    "note": "仅作台账索引；完整参数以 config_path 指向的 config.json 为准。"
+  },
+  "environment": {
+    "platform": "local Windows CPU cache replay",
+    "accelerator": "CPU only",
+    "container": null,
+    "seed": 42,
+    "versions": {
+      "python": "3.13.13",
+      "numpy": "2.4.4",
+      "pandas": "3.0.6",
+      "scipy": "1.17.1"
+    }
+  },
+  "execution": {
+    "scope": "local_diagnostic_and_candidate_preparation",
+    "status": "COMPLETE_LOCAL_DIAGNOSTIC",
+    "remote_status": "READY_NOT_LAUNCHED",
+    "observed_at": "2026-11-02T04:36:48.151274+00:00",
+    "wall_seconds": 4.96563300001435
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": "already inspected external729/56prompts/17 covered true classes; not clean OOF or LB",
+    "per_class_recall_path": "experiments/EXP-049-a1-sinkhorn030-ready/outputs/per_class.csv",
+    "oof_path": null,
+    "leakage_audit": "Checkpoint training independence unknown; fixed exploratory panel already inspected.",
+    "macro_recall_17": 0.6032992310481546,
+    "control_macro_recall_17": 0.6010754296632905,
+    "paired_prompt_delta_ci95": [
+      -0.0038099454336787512,
+      0.008864916842531583
+    ]
+  },
+  "cost": {
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0
+  },
+  "timing_note": "CPU4.965633秒包含完整固定缓存检查与统计；无模型推理或重拟合。",
+  "conclusion": "候选准备与本地诊断完成；488→490条正确，macro +0.22238个百分点，但配对区间跨0，未确认稳定增益。",
+  "limitations": "不是干净OOF或正式LB；没有新远端版本/提交。32输入请求一致不证明平台实际版本完全一致，旧large-size-only边界保留。",
+  "next_action": "先收EXP048结果；若决定评测本单因素候选，另行核实际附件与授权，再启动一次私有Kaggle运行；不自动提交。",
+  "related_sources": [],
+  "evidence": [
+    "experiments/EXP-049-a1-sinkhorn030-ready/config.json",
+    "experiments/EXP-049-a1-sinkhorn030-ready/manifest.json",
+    "experiments/EXP-049-a1-sinkhorn030-ready/report.md",
+    "experiments/EXP-049-a1-sinkhorn030-ready/outputs/summary.json",
+    "experiments/EXP-049-a1-sinkhorn030-ready/outputs/artifacts.json",
+    "experiments/EXP-049-a1-sinkhorn030-ready/metrics/tests.json",
+    "experiments/EXP-049-a1-sinkhorn030-ready/metrics/package-verification.json",
+    "experiments/EXP-049-a1-sinkhorn030-ready/verify_results.py"
+  ],
+  "config_path": "experiments/EXP-049-a1-sinkhorn030-ready/config.json"
+}

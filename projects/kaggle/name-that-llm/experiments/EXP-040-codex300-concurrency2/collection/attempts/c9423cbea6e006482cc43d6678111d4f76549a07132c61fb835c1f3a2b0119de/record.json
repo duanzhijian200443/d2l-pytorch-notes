@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0213",
+  "prompt": "Explain the purpose of a software interface that hides complicated internal work behind a small set of actions. A response of around 160 words is enough.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "technology_explanation",
+  "target_words": 160,
+  "prompt_group": "cp0213",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "base_prompt": "Explain the purpose of a software interface that hides complicated internal work behind a small set of actions. A response of around 160 words is enough.",
+  "base_prompt_sha256": "794fd7c6da29543acbf0d456ac6caa964323c9b8ccf8bddb7ea507b9c26900ef",
+  "base_prompt_id": "cp0213",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0213::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "c9423cbea6e006482cc43d6678111d4f76549a07132c61fb835c1f3a2b0119de",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:35:46.441750+00:00",
+  "ended_at": "2026-11-01T13:36:10.699622+00:00",
+  "prompt_sha256": "cc3dba0dcadd7f4b5abb26dbda973018934ffa3a9ca81dbca92c39cf30adf36a",
+  "text": "A software interface that hides complicated internal work behind a small set of actions makes a system easier to understand and use. Instead of requiring users or other programs to know every internal detail, it exposes a few clear operations, such as saving a file, sending a message, or processing a payment. This approach is called abstraction: it focuses attention on what the system can do rather than how it does it. For example, a payment interface might offer a single “pay” action while internally checking account details, contacting a bank, handling security, and recording the transaction. A well-designed interface reduces mistakes, limits the knowledge needed to use a component, and helps developers build larger systems from manageable parts. It also allows internal implementations to change without forcing callers to change, provided the interface’s behavior remains consistent. The goal is not merely to conceal complexity, but to provide a predictable contract that makes complex functionality accessible, reliable, and easier to maintain.",
+  "text_sha256": "ef50ad566722887cdd4e5aae19982decf22437c3a5408deff62672034639d8cb",
+  "raw_final_sha256": "ef50ad566722887cdd4e5aae19982decf22437c3a5408deff62672034639d8cb",
+  "word_count": 161,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4322,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 191,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\c9423cbea6e006482cc43d6678111d4f76549a07132c61fb835c1f3a2b0119de",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

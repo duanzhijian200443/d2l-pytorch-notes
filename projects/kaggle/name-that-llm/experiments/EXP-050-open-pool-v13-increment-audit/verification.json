@@ -1,0 +1,35 @@
+{
+  "status": "PASS_SECOND_IMPLEMENTATION_CHECKS",
+  "verified_at": "2026-11-02T04:45:14.228305+00:00",
+  "method": "PyArrow read plus Python normalized-text set unions; not another training/OOF evaluation",
+  "main_unique_texts": 123828,
+  "runtime_pool_intersection": 97870,
+  "runtime_novel_text_upper_bound": 92718,
+  "available_raw_novel_upper_bound": 91481,
+  "all_row_ids_and_hashes_match": true,
+  "candidate_ids_validated": true,
+  "provider_label_disagreement_rows": 0,
+  "author_similarity_at_or_above_rounded_0_3": [
+    {
+      "id": "ntlop_250315",
+      "max_cos_train": 0.3
+    },
+    {
+      "id": "ntlop_251082",
+      "max_cos_train": 0.3
+    },
+    {
+      "id": "ntlop_259822",
+      "max_cos_train": 0.3
+    }
+  ],
+  "author_similarity_boundary_note": "3 stored rounded values equal0.300; no value exceeds0.3. Cannot infer original unrounded values or certify the card claim strictly below0.3.",
+  "source_file_missing_by_source": {
+    "lucasboesen/ntl-free-proxy-generations": 2281,
+    "yutoab/ntl-free-proxy-thin-labels": 2119,
+    "jadkutbi/ntl-own-proxy-generations": 874,
+    "hansamaqht/name-that-llm-glm-extra": 434
+  },
+  "no_training_or_remote_mutation": true,
+  "strict_oof_approved": false
+}

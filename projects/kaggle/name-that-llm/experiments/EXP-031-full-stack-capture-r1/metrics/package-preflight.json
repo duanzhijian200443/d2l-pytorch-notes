@@ -1,0 +1,63 @@
+{
+  "status": "PASS_LOCAL_CPU_PREFLIGHT_AND_PACKAGE",
+  "observed_at_utc": "2026-11-01T11:08:43.235907+00:00",
+  "experiment_id": "EXP-031",
+  "run_id": "exp031-20261101T110842Z",
+  "preflight_manifest_sha256": "de7a305b5d26a5ad0cca0ed41cf31e2af1f85037dd354286aeef77ac67aaabf5",
+  "panel_sha256": "8eeec7f64e924f0fd79dca57d324d42d269f400bdfbfff76d60b4c168d9ae6f2",
+  "availability_sha256": "137b459d46cc8a6bfb60779516d1a04545462d1be9751d88b1432ba52de7061f",
+  "expected_comp_members": [
+    "stylegram",
+    "stylometry_lgb",
+    "glm9b_twin",
+    "gauss_glm9b_L8",
+    "q3_8b_twin",
+    "gauss_q3_8b_L22",
+    "q25_7b_twin",
+    "q3_4b_twin",
+    "gauss_q3_4b_L4",
+    "debv3l",
+    "debv3l_twin",
+    "gauss_debv3l_L24",
+    "electl",
+    "desk",
+    "lora24_seed7",
+    "lora24_claude",
+    "lora24_claude_twin",
+    "lora20_q25_instyle",
+    "tokattn_deb",
+    "ultrabert"
+  ],
+  "allowed_omissions": [
+    "lora24_public",
+    "lora24_public_twin",
+    "tokattn_q35"
+  ],
+  "unchanged_algorithm_files": {
+    "setup.py": "16926b051a04adf252a8ec74add4c594e9f9508484b403c4b2cd6ab190ccef39",
+    "model_args.py": "ba74285aef26c1701121ab351054b712582724c770b050e352d685276770e624",
+    "infer.py": "8b97f40e4fedf79c842c886e62419144d2e6d0c2e743779c264f7d3074d5f4f7",
+    "comp_stack.py": "ec1c012c122d591957b5ccc6e00079f95cca8372f327dd4c3b5ac903666909d0",
+    "gauss.py": "908b57113f1a7b8ebdbf204c6be87cbc385f765ba50ac07b4e270c64b7cf1000",
+    "full_stack_cache.py": "ff6b28d7834bdd4bd26bfb1fa69b3b9dc4ccaf194d968cf9b2d8ac4652df85a9",
+    "full_stack_observer.py": "ada0dc10ba451308f453dd709540193b04912b95eb585abcbd36c87c0e8db5ca",
+    "full_stack_replay.py": "b1bab1993fb17850d8b3cfb26716f47c869dbca5107c3435b859864d2ca99586",
+    "runtime-build.json": "4058b1cfe516be69647d24030c8d8a8b70df28ce216a51d4af468fcfa24cf09d",
+    "preflight_manifest.json": "de7a305b5d26a5ad0cca0ed41cf31e2af1f85037dd354286aeef77ac67aaabf5"
+  },
+  "repaired_code": {
+    "runner.py": "62888bb733b6eaac285d34d3c18766df2c47f0ac8a7a77042bb6113c6f8de87b",
+    "input_policy.py": "d4167dbcccef49da7d439e4f459b1e15d17c8960ae6b622235ecee776cd3caf2"
+  },
+  "builder_sha256": "287663792773163ff6ad9465f20a75c4b528b58f55ff1ddc62216100632f6ae1",
+  "plan_sha256": "ef61b941d32c020b9d221fc40c23e6cfc30fd2f0db1ef0340a59a45c78fea401",
+  "notebook_sha256": "6c1b103f0bf9472d109f356119ddb71b389ad9eec9fa986699fa849324dfd00d",
+  "metadata_sha256": "5a2f118b51547c55f75b353cfe39d99c3d2c6cc7ed7e228c1e9f9b0bb01b797e",
+  "payload_zip_sha256": "5eaaba594ce249be563f39690c32830c82f33b5b2470606658472b973277b62c",
+  "payload_zip_bytes": 354925,
+  "file_count": 16,
+  "weights_rehashed": false,
+  "labels_uploaded": false,
+  "new_model_execution": false,
+  "gpu_started": false
+}

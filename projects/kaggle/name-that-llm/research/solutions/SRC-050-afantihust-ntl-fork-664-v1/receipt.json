@@ -1,0 +1,37 @@
+{
+  "ref": "afantihust/ntl-fork-664",
+  "title": "ntl-fork-664",
+  "author": "闪客阿凡提",
+  "category": "solutions",
+  "notebook_version": 1,
+  "script_version_id": null,
+  "observed_at": "2026-11-01T07:35:07.405244+00:00",
+  "source_sha256": "cf492c8f199ee4e9e3dbf1926f9a5b68bf2221f344f23365e7af2642b387c389",
+  "code_sha256": "e4d918a3c9a53bf5121c48224878b50cb0011780e0e24ec2ba11cce883945715",
+  "public_score": null,
+  "source_executed": false,
+  "fixed_version_refetch_hash_match": true,
+  "artifact_dir": "research/inbox/20261101-community-variants/solutions/afantihust--ntl-fork-664-v1",
+  "same_code_sources": [
+    "SRC-022"
+  ],
+  "related_sources": [
+    "SRC-022",
+    "SRC-021"
+  ],
+  "nearest_sources": [
+    {
+      "source": "SRC-022",
+      "line_similarity": 1.0
+    },
+    {
+      "source": "SRC-021",
+      "line_similarity": 0.9989528795811519
+    },
+    {
+      "source": "SRC-010",
+      "line_similarity": 0.9989528795811519
+    }
+  ],
+  "action": "NEW_FIXED_VERSION"
+}

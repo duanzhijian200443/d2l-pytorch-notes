@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "id": "SRC-020",
+  "kind": "notebook",
+  "title": "NTL tuned blend (calib refit)",
+  "url": "https://www.kaggle.com/code/youdian1s/ntl-tuned-blend-calib-refit",
+  "observed_at": "2026-10-30T15:16:41.600Z",
+  "source_version": {
+    "notebook_version": 1,
+    "script_version_id": null,
+    "source_sha256": "60c96701d3bca8b459b8e55fdddd2cbc0f9757d87b517b786f6bdf83b1d7c664",
+    "code_sha256": "a1cf39786c297f52a895d04b8daf5ea83738713fe48466c3354b91f4c967d146"
+  },
+  "family_id": "code-a1cf39786c29",
+  "public_score": {
+    "value": 0.66,
+    "evidence_type": "platform_page",
+    "bound_to_source": false,
+    "script_version_id": null
+  },
+  "summary": "在 all-public fork 上给 Llama 增加 Gaussian 权重 0.7，ATLAS 调至 0.30；平台 0.660。",
+  "author_claim": "正文声明保存在下方 description.md；标题分数不作为独立证据。",
+  "verified": "2026-10-30 已观察页面分数并保存源码；增量说明见摘要。",
+  "use_for_us": "用于选择对照实验，不直接替换当前基线。",
+  "test_plan": "先核对具体得分版本，再把单项差异变成 IDEA。",
+  "limitations": "页面分数与下载源码版本未绑定；排名只代表当日快照。同代码的副本不是独立算法。",
+  "evidence": [
+    "reviews/public-top20-20261030/youdian1s--ntl-tuned-blend-calib-refit/source.ipynb",
+    "reviews/public-top20-20261030/youdian1s--ntl-tuned-blend-calib-refit/metadata.json",
+    "reviews/public-top20-20261030/youdian1s--ntl-tuned-blend-calib-refit/description.md",
+    "reviews/public-top20-20261030/ui-scores.json"
+  ]
+}

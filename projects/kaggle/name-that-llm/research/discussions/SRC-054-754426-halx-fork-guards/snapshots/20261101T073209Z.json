@@ -1,0 +1,70 @@
+{
+  "observed_at": "2026-11-01T07:32:09.649536+00:00",
+  "retrieval": {
+    "method": "read-only POST",
+    "topic_endpoint": "https://www.kaggle.com/api/i/discussions.DiscussionsService/GetForumTopicById",
+    "comments_endpoint": "https://www.kaggle.com/api/i/discussions.DiscussionsService/GetForumMessagesInTopic"
+  },
+  "topic_response": {
+    "forumTopic": {
+      "authorId": 16294566,
+      "authorThumbnailName": "16294566-kg.jpeg?t=2026-10-16-21-22-02",
+      "authorUserDisplayName": "HALX2158",
+      "authorUserName": "mizuno0522",
+      "commentSort": "COMMENT_LIST_SORT_BY_HOT",
+      "firstMessage": {
+        "id": 3547598,
+        "postDate": "2026-10-31T05:49:31.633Z",
+        "rawMarkdown": "Once my ensemble came from public forks, CV stopped telling me which parts mattered. This is the workflow I use now. All numbers are from my own runs.\n\n**1. Make submissions cheap**\n\nThe scoring rerun did not use my weekly GPU quota; only the commit run did (175 s used, both before and after a roughly 2 h scoring run). The public test has only 3 rows, so on the commit run I write a placeholder and skip the model cells:\n\n```python\nLIGHT = os.environ.get('KAGGLE_IS_COMPETITION_RERUN') is None and len(test) < 50\n```\n\nThat cut my commit from about 1.8 h to 167 s. The rerun still runs everything: the full and light commits of the same pipeline both scored 0.617.\n\n**2. Guard against what a light commit can't catch**\n\nA light commit doesn't prove that the rerun will work. I lost submissions or GPU time to these:\n\n- **Input paths:** a Kaggle Model doesn't keep the dataset's top folder name, so an upstream glob can miss your mirror. I now run a free CPU script of about 1 minute that checks every lookup first.\n- **Docker image:** one upstream notebook pinned an image whose torch had no CUDA. The commit passed, then the reruns failed after 3 h. Add `assert torch.cuda.device_count() > 0` to the light path.\n- **Optional parts:** give them a deadline, and treat a failure like a timeout by dropping the part. Never `assert returncode == 0`.\n- **Slow loads:** `load_file` on LoRA adapters read from a Dataset mount took about 100 s each, against 24 s in the author's log. Copying the adapters to `/tmp` took 34 s and cut my main pipeline from 4,884 s to 2,866 s (author: 2,859 s), with identical predictions.\n\nI put these guards into a small CPU notebook you can copy from, with sample output for each: [ntl-fork-guard-utility](https://www.kaggle.com/code/mizuno0522/ntl-fork-guard-utility).\n\n**3. Measure parts by removing them**\n\nI set one part's blend weight to 0 and submit it with a light commit, about 3 minutes of GPU per variant. Two results on a 0.638 base:\n\n| Removed | Public LB | Delta |\n|---|---|---|\n| ATLAS (10% blend) | 0.629 | −0.009 |\n| Sinkhorn balancing | 0.636 | −0.002 |\n\nAcross the 10 variants I tried, every removal lowered the score, and weak but different models mattered more than their solo CV suggested.\n\n**Limits**\n\n- It uses up submission slots, so I run 2–3 a day and keep a reserve.\n- It measures only the public part of the test, and scores are rounded to 3 decimals, so I don't read much into a delta of 0.001–0.002.\n- Parts can substitute for each other: two similar parts can each look small alone and large when removed together, so test groups too.\n- Removing is not the mirror of adding. See my next post.",
+        "content": "<p>Once my ensemble came from public forks, CV stopped telling me which parts mattered. This is the workflow I use now. All numbers are from my own runs.</p>\n<p><strong>1. Make submissions cheap</strong></p>\n<p>The scoring rerun did not use my weekly GPU quota; only the commit run did (175 s used, both before and after a roughly 2 h scoring run). The public test has only 3 rows, so on the commit run I write a placeholder and skip the model cells:</p>\n<pre><code>LIGHT = os.environ.get('KAGGLE_IS_COMPETITION_RERUN') is None and len(test) &lt; 50\n</code></pre>\n<p>That cut my commit from about 1.8 h to 167 s. The rerun still runs everything: the full and light commits of the same pipeline both scored 0.617.</p>\n<p><strong>2. Guard against what a light commit can't catch</strong></p>\n<p>A light commit doesn't prove that the rerun will work. I lost submissions or GPU time to these:</p>\n<ul>\n<li><strong>Input paths:</strong> a Kaggle Model doesn't keep the dataset's top folder name, so an upstream glob can miss your mirror. I now run a free CPU script of about 1 minute that checks every lookup first.</li>\n<li><strong>Docker image:</strong> one upstream notebook pinned an image whose torch had no CUDA. The commit passed, then the reruns failed after 3 h. Add <code>assert torch.cuda.device_count() &gt; 0</code> to the light path.</li>\n<li><strong>Optional parts:</strong> give them a deadline, and treat a failure like a timeout by dropping the part. Never <code>assert returncode == 0</code>.</li>\n<li><strong>Slow loads:</strong> <code>load_file</code> on LoRA adapters read from a Dataset mount took about 100 s each, against 24 s in the author's log. Copying the adapters to <code>/tmp</code> took 34 s and cut my main pipeline from 4,884 s to 2,866 s (author: 2,859 s), with identical predictions.</li>\n</ul>\n<p>I put these guards into a small CPU notebook you can copy from, with sample output for each: <a href=\"https://www.kaggle.com/code/mizuno0522/ntl-fork-guard-utility\" target=\"_blank\">ntl-fork-guard-utility</a>.</p>\n<p><strong>3. Measure parts by removing them</strong></p>\n<p>I set one part's blend weight to 0 and submit it with a light commit, about 3 minutes of GPU per variant. Two results on a 0.638 base:</p>\n<table>\n<thead>\n<tr>\n<th>Removed</th>\n<th>Public LB</th>\n<th>Delta</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>ATLAS (10% blend)</td>\n<td>0.629</td>\n<td>−0.009</td>\n</tr>\n<tr>\n<td>Sinkhorn balancing</td>\n<td>0.636</td>\n<td>−0.002</td>\n</tr>\n</tbody>\n</table>\n<p>Across the 10 variants I tried, every removal lowered the score, and weak but different models mattered more than their solo CV suggested.</p>\n<p><strong>Limits</strong></p>\n<ul>\n<li>It uses up submission slots, so I run 2–3 a day and keep a reserve.</li>\n<li>It measures only the public part of the test, and scores are rounded to 3 decimals, so I don't read much into a delta of 0.001–0.002.</li>\n<li>Parts can substitute for each other: two similar parts can each look small alone and large when removed together, so test groups too.</li>\n<li>Removing is not the mirror of adding. See my next post.</li>\n</ul>",
+        "parent": {},
+        "author": {
+          "displayName": "HALX2158",
+          "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/16294566-kg.jpeg?t=2026-10-16-21-22-02",
+          "url": "/mizuno0522",
+          "tier": "CONTRIBUTOR",
+          "id": 16294566,
+          "progressionOptOut": false
+        },
+        "authorType": "TOPIC",
+        "votes": {
+          "canUpvote": true
+        },
+        "kernelVersion": 0,
+        "competitionRanking": 1014,
+        "feedbackTrackingData": {},
+        "isThankYou": false,
+        "teamUpInfo": {
+          "teamLeader": {
+            "displayName": "HALX2158",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/16294566-kg.jpeg?t=2026-10-16-21-22-02",
+            "url": "/mizuno0522",
+            "userName": "mizuno0522",
+            "tier": "CONTRIBUTOR",
+            "id": 16294566,
+            "profileUrl": "/mizuno0522",
+            "performanceTier": "CONTRIBUTOR",
+            "userId": 16294566,
+            "progressionOptOut": false
+          },
+          "intro": ""
+        }
+      },
+      "firstMessageId": 3547598,
+      "forumId": 13688374,
+      "forumName": "Name That LLM",
+      "id": 754426,
+      "name": "Harden a fork, then measure every part on the hidden test: my cheap ablation workflow",
+      "parentName": "name-that-llm",
+      "parentUrl": "/competitions/name-that-llm",
+      "postDate": "2026-10-31T05:49:31.631723300Z",
+      "url": "/competitions/name-that-llm/discussion/754426",
+      "authorPerformanceTier": "CONTRIBUTOR",
+      "authorProgressionOptOut": false
+    }
+  },
+  "comments_response": {
+    "commentSort": "COMMENT_LIST_SORT_BY_NEW"
+  },
+  "hydrated_message_responses": []
+}

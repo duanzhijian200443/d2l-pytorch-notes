@@ -1,0 +1,73 @@
+{
+  "category": "solutions",
+  "title": "maverick V9：输入诊断、失败保底与预测缓存",
+  "author": "maverick_ss_26",
+  "url": "https://www.kaggle.com/code/maverickss26/kaggle-name-the-llm-v4",
+  "observed_at": "2026-11-01T07:35:57Z",
+  "source_version": {
+    "notebook_version": 9,
+    "script_version_id": null,
+    "source_sha256": "84caf16d1fdfb42653615bea773b90636e4be9986add56feab3dba9eaf369235",
+    "code_sha256": "011698096a6d1f2b46f1b4199c941884c77e0ddf1fe947f8834797476d7bb12f",
+    "notebook_id": 139393444
+  },
+  "public_score": {
+    "value": 0.651,
+    "evidence_type": "platform_page",
+    "bound_to_source": false,
+    "script_version_id": null
+  },
+  "summary": "页面0.651未绑定V9；工程重构默认0.60/1.2，Llama缺失会删除成员，失败保底不等于完整集成。",
+  "author_claim": "新版主打输入诊断、失败保底和预测缓存；当前列表0.651未绑定V9。",
+  "verified": "固定V9；kernel id139393444从旧v3 slug改名v4，默认0.60/1.2对应SRC-022而非得分V2。",
+  "use_for_us": "参考可重复运行与诊断方式，保留运行降级/保底对模型组成的影响。",
+  "test_plan": "使用固定输入与输出哈希检查缓存命中、成员缺失和保底路径，再做完整预测对照。",
+  "limitations": "未执行所有恢复/保底路径；未绑定V9成绩，不可把0.664标题或旧页面分数继承过来。",
+  "tags": [
+    "ensemble",
+    "runtime",
+    "reproducibility",
+    "cache"
+  ],
+  "schema_version": 1,
+  "id": "SRC-044",
+  "artifact_dir": "research/solutions/SRC-044-maverickss26-kaggle-name-the-llm-v4-v9",
+  "notes_path": "research/solutions/SRC-044-maverickss26-kaggle-name-the-llm-v4-v9/notes.md",
+  "kind": "notebook",
+  "related_sources": [
+    "SRC-002",
+    "SRC-022"
+  ],
+  "collection_observation_note": "源码/API时间见回执。浏览器仅记录2026-11-01 UTC采集日期及07:35:57 UTC汇总截至时刻，不将其伪作逐页精确读取时间。",
+  "supersedes": null,
+  "family_id": "code-011698096a6d",
+  "evidence": [
+    "research/solutions/SRC-044-maverickss26-kaggle-name-the-llm-v4-v9/notes.md",
+    "research/solutions/SRC-044-maverickss26-kaggle-name-the-llm-v4-v9/analysis-evidence.json",
+    "research/solutions/SRC-044-maverickss26-kaggle-name-the-llm-v4-v9/code.txt",
+    "research/solutions/SRC-044-maverickss26-kaggle-name-the-llm-v4-v9/description.md",
+    "research/solutions/SRC-044-maverickss26-kaggle-name-the-llm-v4-v9/diff-vs-own-v8.patch",
+    "research/solutions/SRC-044-maverickss26-kaggle-name-the-llm-v4-v9/diff-vs-SRC-002.patch",
+    "research/solutions/SRC-044-maverickss26-kaggle-name-the-llm-v4-v9/download-receipt.json",
+    "research/solutions/SRC-044-maverickss26-kaggle-name-the-llm-v4-v9/metadata.json",
+    "research/solutions/SRC-044-maverickss26-kaggle-name-the-llm-v4-v9/snapshots/browser-observation-20261101.json",
+    "research/solutions/SRC-044-maverickss26-kaggle-name-the-llm-v4-v9/source.ipynb",
+    "tracking/snapshots/20261101T073557Z-community-refresh/score-list-dom-observation.json",
+    "tracking/snapshots/20261101T073557Z-community-refresh/search-0664-dom-observation.json"
+  ],
+  "same_code_sources": [],
+  "evidence_sha256": {
+    "research/solutions/SRC-044-maverickss26-kaggle-name-the-llm-v4-v9/notes.md": "62f2eb93a0aae7bc16d96eaaa7bb65e74d130b46cc5c9a53d793f814dd681bd4",
+    "research/solutions/SRC-044-maverickss26-kaggle-name-the-llm-v4-v9/analysis-evidence.json": "81109deff5ed8ea8901e480e55623f808a7ab5121f996d1e5000e820e43ff78f",
+    "research/solutions/SRC-044-maverickss26-kaggle-name-the-llm-v4-v9/code.txt": "b838d8eec8447f735f6058887ae8dc23a44c1fa0f05d9bda29adcd7334efe282",
+    "research/solutions/SRC-044-maverickss26-kaggle-name-the-llm-v4-v9/description.md": "3f8f66434abc85e4ced20ab8fbdfe14529357a25d2a06ef09b50681ee44083b2",
+    "research/solutions/SRC-044-maverickss26-kaggle-name-the-llm-v4-v9/diff-vs-own-v8.patch": "57c47fb0c50c20a686eefad5e8a603fc469047d353eb7076848661904fec6727",
+    "research/solutions/SRC-044-maverickss26-kaggle-name-the-llm-v4-v9/diff-vs-SRC-002.patch": "8d37b34a38bb38b01868ab93f96b9bc268d4bb5145ce71e03bf191a9762ba4ef",
+    "research/solutions/SRC-044-maverickss26-kaggle-name-the-llm-v4-v9/download-receipt.json": "baccb4469e0bee3e555291003d5b9436724e1d3caa366da6172021acb6d19d5c",
+    "research/solutions/SRC-044-maverickss26-kaggle-name-the-llm-v4-v9/metadata.json": "b8d37e079e1772c7d1f7ef8dece0d37c1e463864e7679ece5100aeb0fe68e93d",
+    "research/solutions/SRC-044-maverickss26-kaggle-name-the-llm-v4-v9/snapshots/browser-observation-20261101.json": "312335c57df8096da7fb87abde6a6f1c710ad96ad73c06dbb3da971e5ebdf13b",
+    "research/solutions/SRC-044-maverickss26-kaggle-name-the-llm-v4-v9/source.ipynb": "84caf16d1fdfb42653615bea773b90636e4be9986add56feab3dba9eaf369235",
+    "tracking/snapshots/20261101T073557Z-community-refresh/score-list-dom-observation.json": "dd3d6bcf84ff467a6b47f594d7ba9ef888b776c319b8b2dfae31c49ab4dd1fd2",
+    "tracking/snapshots/20261101T073557Z-community-refresh/search-0664-dom-observation.json": "830019135b8a239cee4684ed235682b78788848caef8f8b0f54c2ea68ceb05e7"
+  }
+}

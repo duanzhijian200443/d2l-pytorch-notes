@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0213",
+  "prompt": "Explain the purpose of a software interface that hides complicated internal work behind a small set of actions. A response of around 160 words is enough.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "technology_explanation",
+  "target_words": 160,
+  "prompt_group": "cp0213",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "base_prompt": "Explain the purpose of a software interface that hides complicated internal work behind a small set of actions. A response of around 160 words is enough.",
+  "base_prompt_sha256": "794fd7c6da29543acbf0d456ac6caa964323c9b8ccf8bddb7ea507b9c26900ef",
+  "base_prompt_id": "cp0213",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0213::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "164a5c5569b0b0b4fa5693437696d7d8ca6a509b1fe7ded833a0939421e6d244",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:35:28.123594+00:00",
+  "ended_at": "2026-11-01T13:35:46.414045+00:00",
+  "prompt_sha256": "cc3dba0dcadd7f4b5abb26dbda973018934ffa3a9ca81dbca92c39cf30adf36a",
+  "text": "A software interface that hides complicated internal work behind a small set of actions makes a system easier, safer, and more consistent to use. Instead of requiring users or other programs to understand every component, dependency, configuration rule, and processing step, the interface exposes only the operations needed to accomplish common goals. For example, a single “send message” action might internally validate data, authenticate the sender, choose a network connection, retry failures, record logs, and format a response. This separation reduces cognitive load and prevents callers from depending on fragile implementation details. It also allows developers to change, optimize, or replace internal components without forcing every caller to change, provided the public interface remains stable. A well-designed interface can enforce correct usage, provide clear error handling, improve security by limiting access, and make automated testing simpler. Its purpose is not merely to conceal complexity, but to organize it behind a dependable boundary that helps people and software achieve useful results with fewer decisions and fewer opportunities for mistakes.",
+  "text_sha256": "56270abf302589b563c23fecfa14232cfd6ac8679a3655f76d2cefa572a40b6d",
+  "raw_final_sha256": "56270abf302589b563c23fecfa14232cfd6ac8679a3655f76d2cefa572a40b6d",
+  "word_count": 168,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4208,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 221,
+      "reasoning_output_tokens": 18
+    }
+  ],
+  "attempt_path": "collection\\attempts\\164a5c5569b0b0b4fa5693437696d7d8ca6a509b1fe7ded833a0939421e6d244",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

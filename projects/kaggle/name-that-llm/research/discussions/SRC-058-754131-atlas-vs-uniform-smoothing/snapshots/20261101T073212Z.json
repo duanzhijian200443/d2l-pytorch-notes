@@ -1,0 +1,158 @@
+{
+  "observed_at": "2026-11-01T07:32:12.411250+00:00",
+  "retrieval": {
+    "method": "read-only POST",
+    "topic_endpoint": "https://www.kaggle.com/api/i/discussions.DiscussionsService/GetForumTopicById",
+    "comments_endpoint": "https://www.kaggle.com/api/i/discussions.DiscussionsService/GetForumMessagesInTopic"
+  },
+  "topic_response": {
+    "forumTopic": {
+      "authorId": 33210778,
+      "authorThumbnailName": "33210778-kg.jpg?t=2026-09-02-13-53-56",
+      "authorUserDisplayName": "Joseph Adamski",
+      "authorUserName": "josephadamski91",
+      "comments": [
+        {
+          "id": 3547493,
+          "postDate": "2026-10-31T03:19:45.230Z",
+          "rawMarkdown": "A related data point: on a 0.638 fork, setting the 10% ATLAS mix to zero cost -0.009 on the public LB. Next to your +0.001 and +0.002, that suggests most of its value could be the smoothing, not the attribution. It’s a different blend and I haven’t run the equal-guess replacement myself, so this is only suggestive.",
+          "content": "<p>A related data point: on a 0.638 fork, setting the 10% ATLAS mix to zero cost -0.009 on the public LB. Next to your +0.001 and +0.002, that suggests most of its value could be the smoothing, not the attribution. It’s a different blend and I haven’t run the equal-guess replacement myself, so this is only suggestive.</p>",
+          "parent": {},
+          "author": {
+            "displayName": "HALX2158",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/16294566-kg.jpeg?t=2026-10-16-21-22-02",
+            "url": "/mizuno0522",
+            "tier": "CONTRIBUTOR",
+            "id": 16294566,
+            "progressionOptOut": false
+          },
+          "authorType": "COMMENT",
+          "votes": {
+            "totalVotes": 1,
+            "canUpvote": true,
+            "totalUpvotes": 1
+          },
+          "kernelVersion": 0,
+          "competitionRanking": 631,
+          "feedbackTrackingData": {},
+          "isThankYou": false,
+          "teamUpInfo": {
+            "teamLeader": {
+              "displayName": "HALX2158",
+              "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/16294566-kg.jpeg?t=2026-10-16-21-22-02",
+              "url": "/mizuno0522",
+              "userName": "mizuno0522",
+              "tier": "CONTRIBUTOR",
+              "id": 16294566,
+              "profileUrl": "/mizuno0522",
+              "performanceTier": "CONTRIBUTOR",
+              "userId": 16294566,
+              "progressionOptOut": false
+            },
+            "intro": ""
+          }
+        }
+      ],
+      "commentSort": "COMMENT_LIST_SORT_BY_HOT",
+      "firstMessage": {
+        "id": 3547190,
+        "postDate": "2026-10-30T13:18:47.387Z",
+        "rawMarkdown": "My ATLAS adapter dataset has been downloaded 4,636 times (ATLAS is the method developed by Ko et al.; these are my independently trained weights). You can find my public notebook here: https://www.kaggle.com/code/josephadamski91/teach-the-model-10-atlas\n\n### Does ATLAS help because it recognizes which model wrote a passage, or because it makes the combined predictions less overconfident?\n\nI tested this by replacing ATLAS’s predictions with an equal guess across all 18 models. I kept the same blend weight and the steps that turn those probabilities into final answers.\n\n### Public leaderboard results\n\n| Notebook | Blend weight | Real ATLAS | Equal-guess replacement | ATLAS advantage |\n|---|---:|---:|---:|---:|\n| V31 / Omer’s scored v1 | 20% | **0.663** | **0.662** | +0.001 |\n| Teach the Model | 10% | **0.607** | **0.605** | +0.002 |\n\n### Local tests\n\nThese scores come from passages with known answers, tested locally. They are **not Kaggle leaderboard scores**. Accuracy is averaged equally across the 18 models. All blends below use 10%.\n\n| Notebook / test set | Without either blend | Real ATLAS | Equal-guess replacement | How often both blends picked the same model |\n|---|---:|---:|---:|---:|\n| Full Hungarian — 640 passages | 35.21% | 33.54% | 33.53% | 638 / 640 |\n| Prompt v1 — 640 passages | 28.50% | 27.30% | 27.42% | 639 / 640 |\n| Lucas v3 — 640 passages | 45.64% | 45.49% | 45.33% | 639 / 640 |\n| Larger test — 2,210 passages / 539 prompts | 33.57% | 32.34% | 32.25% | 2,202 / 2,210 |\n\nThe equal-guess replacement produced almost exactly the same final answers as ATLAS locally. However, neither blend improved accuracy over using neither blend on these test sets. On Kaggle, real ATLAS scored slightly higher than the equal-guess replacement.\n\nSeparate runs may process different numbers of passages with ATLAS, and the older comparison required a restored checkpoint.\n\nThese results help explain what ATLAS might be doing, but they do not establish exactly how much of the benefit comes from recognizing the author versus reducing overconfidence.\n\n**TL;DR:** Replacing ATLAS with an equal guess came surprisingly close to its score. That makes me think reducing overconfidence is part of the story, though these tests don’t settle it.\n\nI entered this competition mainly to test on a specific use case and am now focused on another competition, but I wanted to share the results in case someone sticking around wants to investigate further.",
+        "content": "<p>My ATLAS adapter dataset has been downloaded 4,636 times (ATLAS is the method developed by Ko et al.; these are my independently trained weights). You can find my public notebook here: <a href=\"https://www.kaggle.com/code/josephadamski91/teach-the-model-10-atlas\" target=\"_blank\">https://www.kaggle.com/code/josephadamski91/teach-the-model-10-atlas</a></p>\n<h3>Does ATLAS help because it recognizes which model wrote a passage, or because it makes the combined predictions less overconfident?</h3>\n<p>I tested this by replacing ATLAS’s predictions with an equal guess across all 18 models. I kept the same blend weight and the steps that turn those probabilities into final answers.</p>\n<h3>Public leaderboard results</h3>\n<table>\n<thead>\n<tr>\n<th>Notebook</th>\n<th>Blend weight</th>\n<th>Real ATLAS</th>\n<th>Equal-guess replacement</th>\n<th>ATLAS advantage</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>V31 / Omer’s scored v1</td>\n<td>20%</td>\n<td><strong>0.663</strong></td>\n<td><strong>0.662</strong></td>\n<td>+0.001</td>\n</tr>\n<tr>\n<td>Teach the Model</td>\n<td>10%</td>\n<td><strong>0.607</strong></td>\n<td><strong>0.605</strong></td>\n<td>+0.002</td>\n</tr>\n</tbody>\n</table>\n<h3>Local tests</h3>\n<p>These scores come from passages with known answers, tested locally. They are <strong>not Kaggle leaderboard scores</strong>. Accuracy is averaged equally across the 18 models. All blends below use 10%.</p>\n<table>\n<thead>\n<tr>\n<th>Notebook / test set</th>\n<th>Without either blend</th>\n<th>Real ATLAS</th>\n<th>Equal-guess replacement</th>\n<th>How often both blends picked the same model</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Full Hungarian — 640 passages</td>\n<td>35.21%</td>\n<td>33.54%</td>\n<td>33.53%</td>\n<td>638 / 640</td>\n</tr>\n<tr>\n<td>Prompt v1 — 640 passages</td>\n<td>28.50%</td>\n<td>27.30%</td>\n<td>27.42%</td>\n<td>639 / 640</td>\n</tr>\n<tr>\n<td>Lucas v3 — 640 passages</td>\n<td>45.64%</td>\n<td>45.49%</td>\n<td>45.33%</td>\n<td>639 / 640</td>\n</tr>\n<tr>\n<td>Larger test — 2,210 passages / 539 prompts</td>\n<td>33.57%</td>\n<td>32.34%</td>\n<td>32.25%</td>\n<td>2,202 / 2,210</td>\n</tr>\n</tbody>\n</table>\n<p>The equal-guess replacement produced almost exactly the same final answers as ATLAS locally. However, neither blend improved accuracy over using neither blend on these test sets. On Kaggle, real ATLAS scored slightly higher than the equal-guess replacement.</p>\n<p>Separate runs may process different numbers of passages with ATLAS, and the older comparison required a restored checkpoint.</p>\n<p>These results help explain what ATLAS might be doing, but they do not establish exactly how much of the benefit comes from recognizing the author versus reducing overconfidence.</p>\n<p><strong>TL;DR:</strong> Replacing ATLAS with an equal guess came surprisingly close to its score. That makes me think reducing overconfidence is part of the story, though these tests don’t settle it.</p>\n<p>I entered this competition mainly to test on a specific use case and am now focused on another competition, but I wanted to share the results in case someone sticking around wants to investigate further.</p>",
+        "parent": {},
+        "author": {
+          "displayName": "Joseph Adamski",
+          "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/33210778-kg.jpg?t=2026-09-02-13-53-56",
+          "url": "/josephadamski91",
+          "tier": "EXPERT",
+          "id": 33210778,
+          "progressionOptOut": false
+        },
+        "authorType": "TOPIC",
+        "votes": {
+          "totalVotes": 2,
+          "canUpvote": true,
+          "totalUpvotes": 3
+        },
+        "kernelVersion": 0,
+        "competitionRanking": 351,
+        "feedbackTrackingData": {},
+        "isThankYou": false,
+        "teamUpInfo": {
+          "teamLeader": {
+            "displayName": "Joseph Adamski",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/33210778-kg.jpg?t=2026-09-02-13-53-56",
+            "url": "/josephadamski91",
+            "userName": "josephadamski91",
+            "tier": "EXPERT",
+            "id": 33210778,
+            "profileUrl": "/josephadamski91",
+            "performanceTier": "EXPERT",
+            "userId": 33210778,
+            "progressionOptOut": false
+          },
+          "intro": ""
+        }
+      },
+      "firstMessageId": 3547190,
+      "forumId": 13688374,
+      "forumName": "Name That LLM",
+      "id": 754131,
+      "name": "My popular ATLAS adapter vs Uniform Smoothing",
+      "parentName": "name-that-llm",
+      "parentUrl": "/competitions/name-that-llm",
+      "postDate": "2026-10-30T13:18:47.387817100Z",
+      "totalVotes": 2,
+      "url": "/competitions/name-that-llm/discussion/754131",
+      "totalMessages": 1,
+      "authorPerformanceTier": "EXPERT",
+      "authorProgressionOptOut": false
+    }
+  },
+  "comments_response": {
+    "comments": [
+      {
+        "id": 3547493,
+        "postDate": "2026-10-31T03:19:45.230Z",
+        "rawMarkdown": "A related data point: on a 0.638 fork, setting the 10% ATLAS mix to zero cost -0.009 on the public LB. Next to your +0.001 and +0.002, that suggests most of its value could be the smoothing, not the attribution. It’s a different blend and I haven’t run the equal-guess replacement myself, so this is only suggestive.",
+        "content": "<p>A related data point: on a 0.638 fork, setting the 10% ATLAS mix to zero cost -0.009 on the public LB. Next to your +0.001 and +0.002, that suggests most of its value could be the smoothing, not the attribution. It’s a different blend and I haven’t run the equal-guess replacement myself, so this is only suggestive.</p>",
+        "parent": {},
+        "author": {
+          "displayName": "HALX2158",
+          "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/16294566-kg.jpeg?t=2026-10-16-21-22-02",
+          "url": "/mizuno0522",
+          "tier": "CONTRIBUTOR",
+          "id": 16294566,
+          "progressionOptOut": false
+        },
+        "authorType": "COMMENT",
+        "votes": {
+          "totalVotes": 1,
+          "canUpvote": true,
+          "totalUpvotes": 1
+        },
+        "kernelVersion": 0,
+        "competitionRanking": 642,
+        "feedbackTrackingData": {},
+        "isThankYou": false,
+        "teamUpInfo": {
+          "teamLeader": {
+            "displayName": "HALX2158",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/16294566-kg.jpeg?t=2026-10-16-21-22-02",
+            "url": "/mizuno0522",
+            "userName": "mizuno0522",
+            "tier": "CONTRIBUTOR",
+            "id": 16294566,
+            "profileUrl": "/mizuno0522",
+            "performanceTier": "CONTRIBUTOR",
+            "userId": 16294566,
+            "progressionOptOut": false
+          },
+          "intro": ""
+        }
+      }
+    ],
+    "commentSort": "COMMENT_LIST_SORT_BY_NEW"
+  },
+  "hydrated_message_responses": []
+}

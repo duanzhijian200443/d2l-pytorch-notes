@@ -1,0 +1,12 @@
+{
+  "job_id": "7ab69ee52691500cb0a80ee5d711f4aa01b75bcf7f90bd8d68922a63bb3c3bca",
+  "payload_sha256": "ffbcc8b46bf22003b64412f07ff76e0d60b5b20528d2364ace12b83efc914fbd",
+  "generation_requests": 1,
+  "started_at": "2026-11-01T12:55:38.521197+00:00",
+  "status": "RECEIVED",
+  "model_requested": "openai/gpt-5.6-terra",
+  "sdk_max_retries": 0,
+  "response_cache": false,
+  "raw_response_sha256": "a775ea716cb9aac6d31881397560413aba525f7e47642cedb6fc1faf335af03d",
+  "ended_at": "2026-11-01T12:55:40.097136+00:00"
+}

@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "EXP-036",
+  "title": "双渠道对照续采：排查Kaggle连接，保留成功原文与累计上限",
+  "baseline_id": "EXP-035",
+  "hypothesis": "Explicit authorized continuation after local connection repair, without changing generation protocol or duplicating prior successful data.",
+  "changes": [
+    "Direct TLS verified model HTTP client, preserve sanitized underlying transport causes",
+    "Reuse original plan and successful raw text; count and skip previous uncertain attempt",
+    "Original80 dispatches cumulative, at most78 additional; original soft confirmed-cost threshold"
+  ],
+  "observed_at": "2026-11-01T12:35:29.262341+00:00",
+  "source": {
+    "notebook_ref": null,
+    "notebook_version": null,
+    "script_version_id": null,
+    "local_path": "experiments/EXP-036-aligned-paired-connection-recovery/code/run_recovery.py",
+    "sha256": "07d74b52146cc94d5d7d13d26c42918e16f8d6e0200b7ef0126d51dbdd11c133"
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-036-aligned-paired-connection-recovery/manifest.json",
+    "validation_split_id": "codex-pilot-prompt-v1",
+    "content_hashes_verified": true
+  },
+  "config": {
+    "note": "仅作台账索引；完整参数以 config_path 指向的 config.json 为准。"
+  },
+  "environment": {
+    "platform": "local_codex_subscription_and_official_kaggle_model_proxy",
+    "accelerator": "none",
+    "container": null,
+    "seed": 20261101
+  },
+  "execution": {
+    "scope": "Local continuation stopped after1newKaggle request returned404;3cumulative dispatches,1inheritedsuccess. Separate privateCPU metadata diagnosis has no generation.",
+    "status": "STOPPED_FAILURE",
+    "observed_at": "2026-11-01T12:30:52.986510+00:00",
+    "run_id": "8245dd6757084f19b9a07b3e70044f51",
+    "controller_pid": 38012,
+    "new_model_requests": 1,
+    "cumulative_requests": 3,
+    "saved_new_responses": 0
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": "11 offline checks PASS; no new generation or model-quality conclusions",
+    "per_class_recall_path": null,
+    "oof_path": null,
+    "leakage_audit": "not_audited"
+  },
+  "cost": {
+    "gpu_seconds": 0,
+    "api_usd": null,
+    "colab_cu": 0
+  },
+  "timing_note": null,
+  "conclusion": "Direct transport returned concrete404, actual target model generation not restored;1oldsuccess preserved. Continuing cloud-route metadata diagnosis without model calls.",
+  "limitations": "Historical1Kaggle outcome and cost remain unknown; budget threshold is confirmed-spend soft stop, not total-cost hard cap.",
+  "next_action": "Inspect official privateCPU model proxy environment; do not resend existing successful or failed job IDs.",
+  "related_sources": [],
+  "evidence": [
+    "experiments/EXP-036-aligned-paired-connection-recovery/config.json",
+    "experiments/EXP-036-aligned-paired-connection-recovery/manifest.json",
+    "experiments/EXP-036-aligned-paired-connection-recovery/report.md",
+    "experiments/EXP-036-aligned-paired-connection-recovery/recovery-receipt.json",
+    "experiments/EXP-036-aligned-paired-connection-recovery/metrics/kaggle-preflight.json",
+    "experiments/EXP-036-aligned-paired-connection-recovery/metrics/proxy-versus-direct-diagnostic.json",
+    "experiments/EXP-036-aligned-paired-connection-recovery/metrics/offline-validation.json",
+    "experiments/EXP-036-aligned-paired-connection-recovery/metrics/execution-preflight.json",
+    "experiments/EXP-036-aligned-paired-connection-recovery/code/run_recovery.py",
+    "experiments/EXP-036-aligned-paired-connection-recovery/code/kaggle_transport.py",
+    "experiments/EXP-036-aligned-paired-connection-recovery/collection/state.json",
+    "experiments/EXP-036-aligned-paired-connection-recovery/metrics/collection-audit.json",
+    "experiments/EXP-036-aligned-paired-connection-recovery/metrics/empty-request-error-detail.json",
+    "experiments/EXP-036-aligned-paired-connection-recovery/metrics/v1-route-diagnostic.json",
+    "experiments/EXP-036-aligned-paired-connection-recovery/metrics/cloud-preflight-launch.json",
+    "experiments/EXP-036-aligned-paired-connection-recovery/code/cloud_preflight.py",
+    "experiments/EXP-036-aligned-paired-connection-recovery/code/cloud_preflight_v2.py"
+  ],
+  "config_path": "experiments/EXP-036-aligned-paired-connection-recovery/config.json"
+}

@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "id": "EXP-004",
+  "title": "ATLAS20 正式 0.662 基线",
+  "baseline_id": "EXP-002",
+  "hypothesis": "复现 ATLAS20 完整配方作为后续优化对照。",
+  "changes": [
+    "采用 ATLAS20 配方；不是只改一个参数的控制实验"
+  ],
+  "observed_at": "2026-10-31T15:57:13.732725+00:00",
+  "source": {
+    "notebook_ref": "zhjianduan/name-that-llm-atlas20-repro",
+    "notebook_version": 2,
+    "script_version_id": 363569852,
+    "local_path": "reviews/own-scheme-readiness-20261030/baseline-v2.ipynb",
+    "sha256": "6c9145f038ccffbe08dc6da6db3d1dcf3d2e0e7d2286927bfc8800ef5148cfb8"
+  },
+  "inputs": {
+    "manifest_path": "reviews/own-scheme-readiness-20261030/baseline-v2-metadata.json",
+    "content_hashes_verified": false,
+    "validation_split_id": null
+  },
+  "config": {
+    "atlas_w": 0.2,
+    "comp_w": 0.15,
+    "sinkhorn": 0.45,
+    "sinkhorn_target_mix": 0.35,
+    "typography_scale": 1.5
+  },
+  "environment": {
+    "platform": "Kaggle",
+    "accelerator": "T4 x2",
+    "internet": false
+  },
+  "execution": {
+    "scope": "commit",
+    "status": "COMPLETE"
+  },
+  "submission": {
+    "id": 57778357,
+    "status": "COMPLETE",
+    "script_version_id": 363569852,
+    "public_score": 0.662,
+    "submitted_at": "2026-10-29T17:36:23.270Z",
+    "observed_at": "2026-10-31T15:57:13.732725+00:00",
+    "url": "https://www.kaggle.com/code/zhjianduan/name-that-llm-atlas20-repro?scriptVersionId=363569852"
+  },
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": null,
+    "per_class_recall_path": null,
+    "oof_path": null,
+    "leakage_audit": "not_audited"
+  },
+  "cost": {
+    "gpu_seconds": null,
+    "api_usd": null,
+    "colab_cu": null
+  },
+  "timing_note": null,
+  "conclusion": "自己的正式 Public LB 0.662；已绑定提交与历史源码。",
+  "limitations": "尚无该完整集成的干净端到端 OOF；附件内容版本与隐藏数值一致性未全部审计。",
+  "next_action": "保持此版本为固定对照，新增实验从它分支。",
+  "related_sources": [
+    "SRC-001",
+    "SRC-002"
+  ],
+  "evidence": [
+    "reviews/own-scheme-readiness-20261030/baseline-submission-binding.json",
+    "reviews/own-scheme-readiness-20261030/readiness-audit.json",
+    "tracking/snapshots/20261031T141753Z/submissions.json",
+    "reviews/own-scheme-readiness-20261030/baseline-v2.ipynb",
+    "tracking/snapshots/20261031T142240175966Z/submissions.json",
+    "tracking/snapshots/20261031T152451658633Z/submissions.json",
+    "tracking/snapshots/20261031T155715059384Z/submissions.json"
+  ]
+}

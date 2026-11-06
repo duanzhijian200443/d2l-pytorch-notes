@@ -1,0 +1,419 @@
+{
+  "status": "PASS_KNOWN_EXACT_FOR_FIXED_OFFICIAL_OOF_ABLATION",
+  "scope": "Official prompt-group-v1 2699-row five-fold and unchanged m=2/3/6 x 5 sparse scenarios only. New60 holdout remains reserved and is not scored. EXP026/027 are overlap references only, not evaluation arms. No classifier training, API or GPU used by this review.",
+  "inputs": {
+    "experiments/EXP-040-codex300-concurrency2/collection/combined-records.jsonl": "2d6c691016a6ae6f789d5c6a625a207a3ec89e5093bf804c5052b11c90a6125b",
+    "experiments/EXP-041-aligned-channel-repeat-audit/metrics/training-eligibility.jsonl": "e84bb7ab68584911be74d49f4377a28df99fb6fe216f45a63b6eb0dc6336f645",
+    "experiments/EXP-023-codex-subscription-pilot-r1/collection/records.jsonl": "cb903279b3727b31ce2125b89c5ce8f530d769a984f49c2cb86e4fbefb1e9722",
+    "experiments/EXP-038-paired-cloud-precheck-recovery/collection/combined-records.jsonl": "2c560d93f9cce57e42607886cb54449f84e88858a9370d3f175bcf441aea86e7",
+    "train.csv": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+    "experiments/EXP-010-012-stylegram-share/payload/extra.csv": "1e9125fd49b19084842332ede84ea65bc0174ee1bb28c8d48acc8ddbd5e36c0e",
+    "cloud/svc4-raw-public-r1/payload/public.csv": "0a1e31a0f8b0ece7ca44a961075252fe275107f3710804971838d714a4e77aaa",
+    "experiments/EXP-026-independent-blend-validation/evaluation.csv": "72228be3ddaad8feaa1ba232e689537e0cf49ebc72068df4a7e556836f1bdd17",
+    "experiments/EXP-027-multiclass-external-validation/evaluation.csv": "8ec3217f1f469b66170f68f7abdb3ef1973a64e47d983c59b40a4d1ce2094670",
+    "data/public-pools/seyitkaangunes/ntl-extra-api-passages/v2/prompts.csv": "25df24d4e4ca0f8242bd365cc9ea8039f0056f3eae78fa3dd186bbae5a608395",
+    "data/public-pools/prvsiyan/prvsiyans-extended-name-that-llm-dataset/v6/prompts.csv": "58dabf5d31bb3fd76ff49dda3c4603970aece7553a5afe78d2e2dc4463b98acd",
+    "data/public-pools/enaimaan/ntl-openai-generated-responses/v3/prompts.jsonl": "7a474ee6af8cdeae8e74f62a5f9e3b3ce65bb0eedc4056660925d02542be735b",
+    "data/public-pools/earthmaker/ntl-own-prompt-generations/v1/prompts_pilot.json": "8d39f3367507cb6517836fb5e8e0b2e3e3376a63ce7f65b84f229b769b72a760",
+    "data/public-pools/earthmaker/ntl-own-prompt-generations/v1/prompts_v22.json": "fdc5730dbe6bcc93030ac943fa02a8e7058b52fbaafa14c441055860b62a779b",
+    "validation/prompt-group-v1/folds.csv": "e8ba1e3712852168dc57f56960d4f3e00be612d639ade8a7dcb0f0d8335ce551",
+    "validation/protocol.py": "388d5f47f287b3738701f2f7adaa8516e65cea03f36e1a43d9a148b1ea963c26",
+    "experiments/EXP-010-012-stylegram-share/payload/stylegram_core.py": "caa46bd121164aba891c3d78e662540db9294d653db09f53d02833c1b4ab77ef",
+    "experiments/EXP-010-012-stylegram-share/payload/protocol.json": "3983ceb881750b9b138ee59a3c03ba1acb2dd0f04c2b56bbe96ec682446ce50c",
+    "experiments/EXP-026-independent-blend-validation/audit_external.py": "94ddaee44ea5cdaf52bb356e3951930e538235c600b8aed4e206d610c9eaa22c",
+    "experiments/EXP-027-multiclass-external-validation/audit_external.py": "3cb7192de9a4bb12f0ef59dd71714bc7ae86e2ac8833edd302b22ab8f7651af1"
+  },
+  "counts": {
+    "candidate_rows": 120,
+    "candidate_groups": 60,
+    "new_holdout_rows": 60,
+    "new_holdout_groups": 15,
+    "old_holdout_rows": 200
+  },
+  "exact": {
+    "candidate": {
+      "answer:official": 0,
+      "answer:stylegram_public": 0,
+      "answer:svc4_public": 0,
+      "answer:exp026": 0,
+      "answer:exp027": 0,
+      "answer:old_holdout": 0,
+      "answer:new_holdout": 0,
+      "body:stylegram_public": 0,
+      "body:svc4_public": 0,
+      "body:official_reconstructed": 0,
+      "body:exp026": 0,
+      "body:exp027": 0,
+      "body:old_holdout": 0,
+      "body:new_holdout": 0
+    },
+    "new_holdout": {
+      "answer:official": 0,
+      "answer:stylegram_public": 0,
+      "answer:svc4_public": 0,
+      "answer:exp026": 0,
+      "answer:exp027": 0,
+      "body:stylegram_public": 0,
+      "body:svc4_public": 0,
+      "body:official_reconstructed": 0,
+      "body:exp026": 0,
+      "body:exp027": 0
+    }
+  },
+  "near": {
+    "candidate": {
+      "answer": [
+        {
+          "query": "cp0029:gpt-5.6-luna",
+          "source": "exp027",
+          "reference": "v22_v22_11_gemini-3.8-flash",
+          "cosine": 0.20348623306044242,
+          "query_text": "Ocean tides occur because the Moon’s gravity pulls unevenly on Earth: it is strongest on the side facing the Moon, weaker at Earth’s center, and weakest on the far side. This difference, called the tidal force, stretches the oceans into two broad bulges, one facing the Moon and one on the opposite side. The far-side bulge is not caused by the Moon directly pulling water outward; rather, the Earth and Moon orbit their common center of mass, creating inertia that makes water tend to move away from Earth’s center on that side. Earth’s rotation carries coastlines through these bulges, producing regularly changing high and low tides instead of allowing water to remain permanently piled up. In reality, the ocean does not form two perfect global humps. Continents, underwater ridges, varying depths, friction, and the shape of ocean basins redirect and slow the water, causing tides to behave like enormous waves that rotate around ocean basins. Local tides may therefore occur once or twice daily and can differ greatly in height and timing. The Sun also contributes tidal forces, strengthening or weakening the Moon’s effect depending on their alignment. Thus, tides result from a continuously changing balance among differential gravity, inertia, Earth’s rotation, and the constrained movement of water around the planet.",
+          "reference_text": "The moon’s gravity pulls Earth’s oceans into two opposing bulges: one facing the moon and another on the opposite side, where inertia dominates. As the planet rotates daily through both water mounds, coastlines experience two high and two low tides."
+        },
+        {
+          "query": "cp0029:gpt-5.6-terra",
+          "source": "exp027",
+          "reference": "v22_v22_11_gpt-6-astra",
+          "cosine": 0.18821343169252422,
+          "query_text": "Tides arise because the Moon’s gravity pulls on different parts of Earth with slightly different strength and direction, rather than pulling the whole planet and ocean uniformly toward it. The Moon attracts the near side of Earth more strongly than it attracts Earth’s center, producing a bulge of ocean water toward the Moon. It attracts the far side less strongly than it attracts Earth’s center, so there is also a relative bulge on the far side. Earth and Moon orbit their common center of mass, and the motion of that orbit helps create this far-side effect; it is not simply water being flung away in a separate force. The solid Earth is affected too, although less visibly, while the mobile ocean adjusts around it. As Earth rotates beneath these two broad tidal bulges, most coastal locations pass through two high tides and two low tides during a lunar day. Water does not remain collected on the Moon-facing side because Earth’s gravity holds the oceans to the planet, the Moon’s pull is only a small difference across Earth’s diameter, and the rotating Earth continually carries shorelines into and out of the bulges. Continents, seafloor shape, coastline geometry, and resonance in ocean basins modify the timing and height of local tides, while the Sun also strengthens or weakens them.",
+          "reference_text": "The Moon’s gravity raises a tidal bulge on the side of Earth facing it, while differences in gravitational pull produce another on the far side. As Earth rotates through both bulges, most coasts experience two high tides each lunar day."
+        },
+        {
+          "query": "cp0193:gpt-5.6-luna",
+          "source": "exp026",
+          "reference": "generated_c8cc805d3fd87f2accec67d8",
+          "cosine": 0.14280311499544096,
+          "query_text": "The attendance increased from 20 to 30 people, a gain of 10. Because the original number was 20, the percentage increase was 10 ÷ 20 = 50%. When attendance later fell from 30 back to 20, the loss was still 10 people, but this time the starting number was 30. Therefore, the percentage decrease was 10 ÷ 30, or about 33.3%. The percentages differ because they are calculated using different starting amounts, even though the numerical change is the same.",
+          "reference_text": "You have 30 cents if you have 3 dimes. Each dime is worth 10 cents, so you can find the total by adding 10 + 10 + 10 = 30. You can also multiply the number of dimes by the value of each one: 3 × 10 = 30 cents. In dollars, that amount is written as $0.30. Counting your dimes by tens gives you the same answer: 10, 20, 30 cents."
+        }
+      ],
+      "body": [
+        {
+          "query": "cp0194:gpt-5.6-terra",
+          "source": "old_holdout",
+          "reference": "cp0249",
+          "cosine": 0.23229249558948734,
+          "query_text": "Every blue folder is labeled, but some labeled folders are green. Explain which conclusions about an unlabeled folder are justified and which are not. Please answer in roughly 120 words.",
+          "reference_text": "A box is labeled 'at least six pieces,' and another is labeled 'exactly six pieces.' Explain what can and cannot be inferred when comparing their contents. Please answer in roughly 120 words."
+        },
+        {
+          "query": "cp0172:gpt-5.6-terra",
+          "source": "old_holdout",
+          "reference": "cp0244",
+          "cosine": 0.21549393248323684,
+          "query_text": "Compose an email asking a former teammate whether they would be comfortable sharing a few practical tips with a newcomer to the group. A response of around 120 words is enough.",
+          "reference_text": "Compose an email asking whether a cancelled class will be rescheduled or whether participants should choose another session. Keep your response near 80 words."
+        },
+        {
+          "query": "cp0028:gpt-5.6-terra",
+          "source": "old_holdout",
+          "reference": "cp0208",
+          "cosine": 0.21293171827251967,
+          "query_text": "Explain why a sealed bag of chips can puff up during a trip into the mountains even though nobody has added air. Use approximately 160 words for the response.",
+          "reference_text": "A damp cloth dries faster when spread out than when rolled tightly. Explain the relevant role of exposed surface area and surrounding air. Use approximately 160 words for the response."
+        },
+        {
+          "query": "cp0029:gpt-5.6-terra",
+          "source": "exp026",
+          "reference": "generated_943df97c9cc6b8a577c6e07e",
+          "cosine": 0.1963881576250501,
+          "query_text": "What makes ocean water move in tides rather than simply collecting permanently on the side closest to the Moon? A response of around 200 words is enough.",
+          "reference_text": "Why can we only see one side of the Moon?"
+        },
+        {
+          "query": "cp0076:gpt-5.6-terra",
+          "source": "old_holdout",
+          "reference": "cp0216",
+          "cosine": 0.19395543300169937,
+          "query_text": "Explain why a pilot project that succeeds with an enthusiastic volunteer team may struggle when rolled out to everyone. Use approximately 80 words for the response.",
+          "reference_text": "A tutoring group has more requests than available volunteer hours. Propose a transparent way to set priorities without promising service to everyone. Use approximately 80 words for the response."
+        },
+        {
+          "query": "cp0114:gpt-5.6-terra",
+          "source": "exp026",
+          "reference": "generated_0244ca43795606c3ca9c0746",
+          "cosine": 0.19379883928638109,
+          "query_text": "Tell a story about an amateur photographer who keeps the only badly blurred picture from an otherwise successful outing. Use approximately 200 words for the response.",
+          "reference_text": "How do you tell a story with data?"
+        },
+        {
+          "query": "cp0099:gpt-5.6-terra",
+          "source": "old_holdout",
+          "reference": "cp0224",
+          "cosine": 0.19230518088573884,
+          "query_text": "Explain how a city's street names can function as an unofficial record of its changing priorities. Please answer in roughly 200 words.",
+          "reference_text": "What is the difference between collecting objects as souvenirs and collecting them as historical evidence? Please answer in roughly 200 words."
+        },
+        {
+          "query": "cp0109:gpt-5.6-terra",
+          "source": "old_holdout",
+          "reference": "cp0204",
+          "cosine": 0.18989293899034668,
+          "query_text": "Write about a musician practicing in an empty hall who realizes that a cleaner has been listening every evening. Use approximately 200 words for the response.",
+          "reference_text": "A person has moved to a new neighborhood and wants to become familiar with it without spending much money. Offer a few approachable first steps. Use approximately 200 words for the response."
+        },
+        {
+          "query": "cp0173:gpt-5.6-terra",
+          "source": "old_holdout",
+          "reference": "cp0243",
+          "cosine": 0.1844451186764516,
+          "query_text": "Write to the organizer of a neighborhood cleanup explaining that you can help with sorting supplies but cannot stay for the whole event. Aim for about 120 words.",
+          "reference_text": "Write a courteous reminder that volunteers need to return borrowed name badges and room keys after an event. Aim for about 120 words."
+        },
+        {
+          "query": "cp0083:gpt-5.6-terra",
+          "source": "old_holdout",
+          "reference": "cp0223",
+          "cosine": 0.17970952174441965,
+          "query_text": "Describe the role of public squares in the social life of a town before electronic communication became common. Keep your response near 160 words.",
+          "reference_text": "Describe how silence and empty space can carry meaning in a poem, even though they contain no additional words. Keep your response near 160 words."
+        },
+        {
+          "query": "cp0049:gpt-5.6-terra",
+          "source": "exp027",
+          "reference": "prompts_v22.json:v22_28",
+          "cosine": 0.17870954863550667,
+          "query_text": "How can version control help two writers edit the same technical document? Use a non-programming example and avoid commands. Aim for about 200 words.",
+          "reference_text": "explaining how a version control system lets many people edit the same files without losing work"
+        },
+        {
+          "query": "cp0106:gpt-5.6-terra",
+          "source": "exp026",
+          "reference": "generated_0244ca43795606c3ca9c0746",
+          "cosine": 0.17449564547251248,
+          "query_text": "Tell a story about a clock repairer who chooses to leave one clock running slightly slow. Give the choice a believable human reason. Aim for about 80 words.",
+          "reference_text": "How do you tell a story with data?"
+        }
+      ]
+    },
+    "new_holdout": {
+      "answer": [
+        {
+          "query": "cp0227:gpt-5.6-sol",
+          "source": "exp026",
+          "reference": "generated_3d5bc49cddd360a4635403a0",
+          "cosine": 0.09662153302093354,
+          "query_text": "Mara returned the borrowed ladder just before dusk, carrying it across the wet alley to Mr. Vale’s narrow blue house. He thanked her, then noticed the silver paint on her sleeve. She admitted she had used the ladder to finish a mural her sister had begun before leaving town. Curious, he followed Mara to the courtyard, where painted swallows swept across a brick wall toward a golden horizon. Mr. Vale stood silently for a moment, blinking behind his thick glasses. “Your sister painted one of those birds on my shop years ago,” he said. From his pocket, he produced a faded photograph proving it. Then he smiled and mentioned a neighborhood supper beneath the mural that evening. Mara hesitated, looked at the gathering lights, and accepted his invitation.",
+          "reference_text": "Mara found the bowling ball behind a thrift store, gleaming beneath a torn blue tarp. At league night, she tried it. Strike. Then another. By the tenth frame, the crowd chanted her name. For weeks, Mara became unbeatable, winning trophies and money, until she noticed the ball whispering whenever it hit the pins: “One more.” During the championship, her opponent, elderly Mr. Vale, stared at it in horror. “That’s mine,” he said. “It never misses—but each strike steals a year from the bowler.” Mara suddenly understood her new gray hairs and aching knees. In the final frame, she rolled the ball gently into the gutter. It cracked, releasing a flash of stolen time. Mara became young again, and Mr. Vale smiled. She lost the match, but saved them both."
+        },
+        {
+          "query": "cp0227:gpt-5.6-terra",
+          "source": "exp026",
+          "reference": "generated_3d5bc49cddd360a4635403a0",
+          "cosine": 0.09036353236393548,
+          "query_text": "Mara returned the borrowed ladder just before dusk, carrying it across Mr. Vale’s garden while rain tapped softly on the rhubarb leaves. She had used it to rescue a kite from the old oak, but the kite was gone now, swept toward the river with its red tail snapping behind it. Mr. Vale met her at the gate, surprisingly cheerful. He said the ladder had once belonged to his wife, who climbed it every spring to hang lanterns for the neighborhood picnic. From his pocket, he produced a small brass lantern, polished but unlit. “We’re hanging them again Saturday,” he said. Mara looked toward the darkening oak and imagined warm lights beneath its branches, the lost kite perhaps resting somewhere nearby. Smiling, she accepted his invitation.",
+          "reference_text": "Mara found the bowling ball behind a thrift store, gleaming beneath a torn blue tarp. At league night, she tried it. Strike. Then another. By the tenth frame, the crowd chanted her name. For weeks, Mara became unbeatable, winning trophies and money, until she noticed the ball whispering whenever it hit the pins: “One more.” During the championship, her opponent, elderly Mr. Vale, stared at it in horror. “That’s mine,” he said. “It never misses—but each strike steals a year from the bowler.” Mara suddenly understood her new gray hairs and aching knees. In the final frame, she rolled the ball gently into the gutter. It cracked, releasing a flash of stolen time. Mara became young again, and Mr. Vale smiled. She lost the match, but saved them both."
+        },
+        {
+          "query": "cp0207:gpt-6-astra",
+          "source": "exp026",
+          "reference": "generated_e09ecefea9ecc2ab79be337b",
+          "cosine": 0.07452370479390523,
+          "query_text": "A battery stores usable energy in the chemical arrangement of its materials, not as a supply of electricity. Its electrodes and electrolyte contain substances that can react to form a lower-energy arrangement. When a flashlight’s switch closes the circuit, these reactions drive electrons through the external wires while ions move within the battery, completing the circuit. The battery maintains a voltage, allowing energy to be transferred electrically to the light source. In an LED flashlight, some of that energy becomes visible light and the rest becomes heat. As the battery operates, its chemical composition changes and its ability to maintain voltage declines. A rechargeable battery can largely reverse these chemical changes when an external power source supplies energy.",
+          "reference_text": "An electric car uses electricity stored in a rechargeable battery pack to power one or more electric motors. When you press the accelerator, the battery sends energy through an inverter, which controls the motor’s speed and torque. The motor turns the wheels directly or through gears. Regenerative braking recovers some energy, while charging replenishes the battery."
+        }
+      ],
+      "body": [
+        {
+          "query": "cp0213:gpt-6-astra",
+          "source": "exp026",
+          "reference": "generated_082b4bb5ee95e01843ce132f",
+          "cosine": 0.12437153684645032,
+          "query_text": "Explain the purpose of a software interface that hides complicated internal work behind a small set of actions. A response of around 160 words is enough.",
+          "reference_text": "Why we have to work?"
+        },
+        {
+          "query": "cp0250:gpt-6-astra",
+          "source": "exp026",
+          "reference": "generated_03f0cc4811b391320b3e6158",
+          "cosine": 0.0962771366559883,
+          "query_text": "Two teams each complete half of a project, but one half contains much harder tasks. Explain why dividing by task count may not represent an equal division of work. Use approximately 160 words for the response.",
+          "reference_text": "How do you train for a half marathon?"
+        },
+        {
+          "query": "cp0233:gpt-6-astra",
+          "source": "exp026",
+          "reference": "generated_305f0d4d13d43b96a189cfe2",
+          "cosine": 0.09294519439570904,
+          "query_text": "Is it better to keep a private journal regularly or write only when something feels important? Present both perspectives. Use approximately 160 words for the response.",
+          "reference_text": "How can I become a private pilot?"
+        },
+        {
+          "query": "cp0222:gpt-6-astra",
+          "source": "exp026",
+          "reference": "generated_014c93a2fc46537570c83591",
+          "cosine": 0.08735222911535992,
+          "query_text": "Explain why a historian may use several incomplete sources rather than searching for one supposedly perfect account. Aim for about 120 words.",
+          "reference_text": "How do I open a bank account?"
+        },
+        {
+          "query": "cp0227:gpt-6-astra",
+          "source": "stylegram_public",
+          "reference": "seyit:g0058",
+          "cosine": 0.07959930288030831,
+          "query_text": "Write a story that begins with someone returning a borrowed ladder and ends with them accepting an invitation. Keep your response near 120 words.",
+          "reference_text": "Explain simulated annealing, the optimization technique borrowed from metallurgy, by showing how deliberately accepting occasional bad moves while slowly 'cooling' helps a search escape false peaks and settle into a near-optimal solution."
+        },
+        {
+          "query": "cp0203:gpt-6-astra",
+          "source": "exp026",
+          "reference": "generated_7aa9c0b49120f7ec05e9fede",
+          "cosine": 0.07747712891975883,
+          "query_text": "I have several unfinished hobbies and feel guilty whenever I see the supplies. Suggest a way to decide what to keep, pause, or give away. Please answer in roughly 160 words.",
+          "reference_text": "how do you decide which job to take?"
+        },
+        {
+          "query": "cp0236:gpt-6-astra",
+          "source": "stylegram_public",
+          "reference": "seyit:g0537",
+          "cosine": 0.07677219501324023,
+          "query_text": "Turn these original notes into a short reflective passage: 'Kept an old coat for years. Too small now. Found a cinema ticket in the pocket. Remembered the friend, not the film. Put the ticket in a drawer and donated the coat.' Please answer in roughly 80 words.",
+          "reference_text": "Write a short reflective passage about the dodo, which lived without predators on Mauritius and vanished within a century of human arrival."
+        },
+        {
+          "query": "cp0218:gpt-6-astra",
+          "source": "exp026",
+          "reference": "generated_1b8e9874e521502eccaf3456",
+          "cosine": 0.07676981662986797,
+          "query_text": "Describe how a small library could test whether a new display actually helps readers discover books, rather than merely attracting glances. Aim for about 160 words.",
+          "reference_text": "Why should I read books?"
+        },
+        {
+          "query": "cp0226:gpt-6-astra",
+          "source": "exp026",
+          "reference": "generated_0ea7d66e1ead3be1965ceb4f",
+          "cosine": 0.07195573875769337,
+          "query_text": "A gardener deliberately leaves a small square of soil unplanted. Reveal the reason through a visitor's questions. Aim for about 80 words.",
+          "reference_text": "Why kids ask more questions?"
+        },
+        {
+          "query": "cp0207:gpt-6-astra",
+          "source": "exp026",
+          "reference": "generated_1b894a5cbe4a1bedab525648",
+          "cosine": 0.07063583052771708,
+          "query_text": "Describe how a battery stores usable energy and what changes when it powers a small flashlight, without treating electricity as a substance inside the battery. Please answer in roughly 120 words.",
+          "reference_text": "How do plants get their energy"
+        },
+        {
+          "query": "cp0224:gpt-6-astra",
+          "source": "stylegram_public",
+          "reference": "seyit:g0617",
+          "cosine": 0.0699693978118734,
+          "query_text": "What is the difference between collecting objects as souvenirs and collecting them as historical evidence? Please answer in roughly 200 words.",
+          "reference_text": "Explain how a Bornean pitcher plant has evolved to serve as a toilet for tree shrews, collecting their droppings as fertilizer rather than relying on trapped insects."
+        },
+        {
+          "query": "cp0237:gpt-6-astra",
+          "source": "exp026",
+          "reference": "generated_48279a986a6cb2d29379cf25",
+          "cosine": 0.06408477307997199,
+          "query_text": "Rewrite this explanation for a child without adding a moral lecture: 'A queue is a shared agreement about turn-taking. It can seem slow to each individual, but it prevents a contest over who can reach the counter most forcefully.' Use approximately 120 words for the response.",
+          "reference_text": "Write a short story with a moral - slow and steady wins the race"
+        }
+      ]
+    }
+  },
+  "integrity": {
+    "all_new_text_hashes": true,
+    "candidate_and_new_holdout_raw_final_bytes": true,
+    "old_new_300_base_and_split_identity": true,
+    "all_old_new_base_group_split_consistent": true,
+    "candidate_panel_group_overlap": []
+  },
+  "weights": {
+    "rule": "Freeze old per-row weights from old 10073 extra only. official=.5; public=.5*n_official_fit_class/n_old_public_class; new120 use corresponding frozen public class-row weight; no post-append normalization.",
+    "per_class": {
+      "gpt-5.6-luna": {
+        "public_count": 694
+      },
+      "gpt-5.6-terra": {
+        "public_count": 694
+      }
+    }
+  },
+  "loader": {
+    "source": "EXP040 combined-records.jsonl",
+    "selection": "Join EXP041 eligibility by unique job_key; require assessment=CONTROLLED_TRAINING_CANDIDATE, split=train and model in Luna/Terra. Exact expected population 120 rows, 60 original prompt groups, 60 rows per admitted model.",
+    "text": "record.text unchanged; require its SHA256 == text_sha256 == raw_final_sha256 and attempt_path_project/final.txt bytes equal UTF8(text).",
+    "label": "model_requested, explicitly requested_only provenance; no serving-snapshot verification.",
+    "group": "base_prompt/prompt_group from original shared bank; normalized base body identity across old/new versions. Do not use variant_id, protocol_version, job_key, model or route as independent split units.",
+    "excluded": "All old1000, new60 holdout, Sol/Astra train120, paired78 remain outside fit/feature vocabulary."
+  },
+  "validation": {
+    "official_rows": 2699,
+    "official_groups": 150,
+    "folds": 5,
+    "split": "prompt-group-v1",
+    "labels": 18,
+    "sparse": {
+      "m": [
+        2,
+        3,
+        6
+      ],
+      "repeats": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "seed": 42,
+      "selection": "Use existing label-blind stable ID hash selection, then re-cluster/recenter selected validation texts; do not subset dense final predictions."
+    },
+    "feature_policy": "Fit each arm independently on its permitted training rows only. Do not fit one shared feature vocabulary on treatment rows and reuse it for baseline. Known true training groups may center training; validation groups must be inferred from unlabelled validation text with unchanged algorithm.",
+    "holdout": "Retained, not scored",
+    "exp027": "Not evaluated. Cannot be called semantically independent of appended120."
+  },
+  "semantic_review": {
+    "method": "NFKC/casefold/whitespace exact hashes; TF-IDF word unigram+bigrams with English stopwords/sublinear_tf for nearest lexical candidate inspection. Additional body rankings removed five documented target-word sentence templates and deduplicated reference bodies. Lexical cosine is a review aid, not semantic equivalence proof.",
+    "findings": [
+      {
+        "candidate": "cp0049",
+        "reference": "EXP027 prompts_v22.json:v22_28",
+        "assessment": "Closely related task: version-control collaboration without lost edits; do not claim independent semantic holdout.",
+        "candidate_task": "How can version control help two writers edit the same technical document? Use a non-programming example and avoid commands.",
+        "reference_task": "explaining how a version control system lets many people edit the same files without losing work"
+      },
+      {
+        "candidate": "cp0029",
+        "reference": "EXP027 prompts_v22.json:v22_11",
+        "assessment": "Same tidal-mechanism topic with related requested explanation; candidate-answer maximum lexical similarity also came from this group.",
+        "candidate_task": "What makes ocean water move in tides rather than simply collecting permanently on the side closest to the Moon?",
+        "reference_task": "describing why the sea rises and falls roughly twice a day rather than once"
+      }
+    ],
+    "other_review": "Reviewed top three normalized body pairs per source/population (candidate and new holdout); official reconstructed/public/old-new holdout top candidates were generic wording or distinct tasks, not established same-base-prompt duplicates. No rows removed or splits changed.",
+    "body_maxima_after_target_stripping": {
+      "candidate": {
+        "stylegram_public": 0.12400266632513986,
+        "svc4_public": 0.08637097064081274,
+        "official_reconstructed": 0.07180574741762497,
+        "old_holdout": 0.24529851317267104,
+        "new_holdout": 0.10489121956786665
+      },
+      "new_holdout": {
+        "stylegram_public": 0.08332795377849747,
+        "svc4_public": 0.06577407139183278,
+        "official_reconstructed": 0.06968092328150148
+      }
+    },
+    "policy": "Keep all120 as authorized. No changes to original folds or raw answers. Future EXP027 independent validation needs a separately declared group-exclusion protocol; this review does not silently modify the accepted729 panel."
+  },
+  "limitations": [
+    "Known/exact gate only; organizer true prompts unknown; 150 reconstructed prompts are approximations; lexical shortlist is not exhaustive semantic deduplication.",
+    "Only Luna/Terra receive Codex data, so source/protocol and labels become correlated; report full18-class results and per-class regressions, not only Luna/Terra gains.",
+    "New row weights increase Luna/Terra total mass by design; frozen original row weights avoid a hidden reweighting of baseline. Do not rescale total mass or recompute counts after append.",
+    "Original five-fold split is development validation, not untouched final holdout. No official leaderboard or ATLAS20 benefit claim follows from this gate.",
+    "New60 holdout contains all four model labels but is only retained data integrity evidence, not a scored validation result in this experiment."
+  ],
+  "execution": {
+    "read_only_sources": true,
+    "only_review_files_written": true,
+    "training": false,
+    "api_calls": 0,
+    "gpu_seconds": 0,
+    "score_predictions_read": false
+  }
+}

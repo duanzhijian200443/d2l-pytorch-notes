@@ -1,0 +1,51 @@
+{
+  "observed_at": "2026-11-01T13:01:38.733116+00:00",
+  "status": "PASS",
+  "generation_requests": 0,
+  "seed": 20261101039,
+  "prompt_groups": 75,
+  "requests": 300,
+  "model_counts": {
+    "gpt-5.6-luna": 75,
+    "gpt-5.6-terra": 75,
+    "gpt-5.6-sol": 75,
+    "gpt-6-astra": 75
+  },
+  "group_splits": {
+    "train": 60,
+    "holdout": 15
+  },
+  "group_categories": {
+    "everyday_advice": 7,
+    "humanities_history": 8,
+    "rewrite_original_material": 8,
+    "business_decision": 7,
+    "technology_explanation": 8,
+    "tradeoff_argument": 8,
+    "science_explanation": 7,
+    "reasoning_explanation": 7,
+    "creative_short_fiction": 8,
+    "short_email": 7
+  },
+  "group_word_targets": {
+    "120": 23,
+    "80": 20,
+    "160": 21,
+    "200": 11
+  },
+  "excluded_paired_ids": [
+    "cp0001",
+    "cp0022",
+    "cp0043",
+    "cp0064",
+    "cp0081",
+    "cp0102",
+    "cp0123",
+    "cp0144",
+    "cp0161",
+    "cp0182"
+  ],
+  "paired_panel_overlap": 0,
+  "exact_user_model_overlap_old1000": 0,
+  "identity_limit": "All75 base prompts existed in old1000; these are new format variants, not75 novel independent base prompts."
+}

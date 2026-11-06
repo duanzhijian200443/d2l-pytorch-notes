@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0166",
+  "prompt": "Draft a note to a museum volunteer coordinator asking for a quieter assignment during a particularly busy exhibition weekend. Use approximately 80 words for the response.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "short_email",
+  "target_words": 80,
+  "prompt_group": "cp0166",
+  "split": "train",
+  "source": "codex_subscription",
+  "base_prompt": "Draft a note to a museum volunteer coordinator asking for a quieter assignment during a particularly busy exhibition weekend. Use approximately 80 words for the response.",
+  "base_prompt_sha256": "410356d9e800af9f7e571c28ca90077b4f2be91df0c0fd44ca6723a7f58c825c",
+  "base_prompt_id": "cp0166",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0166::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "67b0fef5d1dba4695939f367b2f09d58f6287b347d45722977db3efbcc1d40ee",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:22:45.133110+00:00",
+  "ended_at": "2026-11-01T13:23:00.957127+00:00",
+  "prompt_sha256": "a54a12df2346c71001502975fab782f77586c2ae3939ced085fc41a26f0e1a7d",
+  "text": "Dear Volunteer Coordinator, I’m looking forward to helping during the busy exhibition weekend. I wanted to ask whether I could be assigned to a quieter role, such as assisting in the archives, information desk, or another less crowded area. I’m happy to contribute wherever needed, but I work most effectively in calmer settings and would appreciate an assignment that allows me to remain focused and helpful. Thank you for considering my request, and I’m glad to support the museum.",
+  "text_sha256": "7dcc7c2265e73c6d328f4e577c1c570ab0d1f51fd326da2aa19c630df783aa1e",
+  "raw_final_sha256": "7dcc7c2265e73c6d328f4e577c1c570ab0d1f51fd326da2aa19c630df783aa1e",
+  "word_count": 79,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2673,
+      "cached_input_tokens": 2432,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 96,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\67b0fef5d1dba4695939f367b2f09d58f6287b347d45722977db3efbcc1d40ee",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

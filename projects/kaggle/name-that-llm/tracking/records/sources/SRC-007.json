@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "id": "SRC-007",
+  "kind": "notebook",
+  "title": "NTL 0663 V31 ATLAS20",
+  "url": "https://www.kaggle.com/code/ye070301/ntl-0663-v31-atlas20",
+  "observed_at": "2026-10-30T15:16:41.600Z",
+  "source_version": {
+    "notebook_version": 3,
+    "script_version_id": null,
+    "source_sha256": "835694ba7ecf59dfec5fef2d56a210ee18d0b2d6a14ef38b935be0d46ea355c3",
+    "code_sha256": "ae1bc363e4c26405f52f081d8b00c4eda2db551394fd02068483d8662036823b"
+  },
+  "family_id": "code-ae1bc363e4c2",
+  "public_score": {
+    "value": 0.662,
+    "evidence_type": "platform_page",
+    "bound_to_source": false,
+    "script_version_id": null
+  },
+  "summary": "ATLAS20 加公开 Llama 路径、提交格式检查、隐藏重跑的集成输出核验。",
+  "author_claim": "正文声明保存在下方 description.md；标题分数不作为独立证据。",
+  "verified": "2026-10-30 已观察页面分数并保存源码；增量说明见摘要。",
+  "use_for_us": "用于选择对照实验，不直接替换当前基线。",
+  "test_plan": "先核对具体得分版本，再把单项差异变成 IDEA。",
+  "limitations": "页面分数与下载源码版本未绑定；排名只代表当日快照。同代码的副本不是独立算法。",
+  "evidence": [
+    "reviews/public-top20-20261030/ye070301--ntl-0663-v31-atlas20/source.ipynb",
+    "reviews/public-top20-20261030/ye070301--ntl-0663-v31-atlas20/metadata.json",
+    "reviews/public-top20-20261030/ye070301--ntl-0663-v31-atlas20/description.md",
+    "reviews/public-top20-20261030/ui-scores.json"
+  ]
+}

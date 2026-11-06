@@ -1,0 +1,12 @@
+{
+  "observed_at_utc": "2026-11-01T14:19:42.904833+00:00",
+  "source": "authenticated official Kaggle CLI kernels output",
+  "notebook": "zhjianduan/name-that-llm-cache-capture-031",
+  "version": 2,
+  "run_id": "exp031-20261101T110842Z",
+  "remote_status": "COMPLETE",
+  "artifacts_sha256": "1732849196220d023716a2dc912d660282c94022c2df370c69d9a6c2899bac63",
+  "archive_sha256": "3c438226b805ca3dba8659d15eb6ab92a30d6564021bb0d32fbd851bb3e5c618",
+  "archive_entries_verified_and_extracted": 565,
+  "note": "Archive and inventory downloaded directly; terminal metadata downloaded separately. No weights transferred."
+}

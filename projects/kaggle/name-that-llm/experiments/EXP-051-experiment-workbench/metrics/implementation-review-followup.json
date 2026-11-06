@@ -1,0 +1,79 @@
+{
+  "status": "PASS_SCOPED_CODE_REVIEW",
+  "handoff_ready_for_reviewed_scope": true,
+  "observed_at": "2026-11-02T05:00:24.299788+00:00",
+  "unresolved_findings": [],
+  "previous_review": "experiments/EXP-051-experiment-workbench/metrics/implementation-review.json",
+  "resolved_findings": {
+    "WB-R1": "confirmed-score pointer survives failure and missing score; confirmed_score shared by list/report and checks registered submission/script identity",
+    "WB-R2": "report requires successful fixed-local verification and unchanged summary SHA256; missing/changed binding suppresses numbers",
+    "WB-R3": "workbench_local verifies frozen candidate without invoking old writer; independently executed read-only adapter and confirmed old receipt SHA256 and mtime_ns unchanged"
+  },
+  "additional_checks": [
+    "Registry dependency hashes all match for EXP049 and EXP050",
+    "All declared local dependencies checked before child launch",
+    "Per-EXP local lock rejects overlapping operation and releases after scope",
+    "EXP048 new120 preflight enforces PASS,120 rows,60 groups,zero holdout overlap,registered SHA256",
+    "Local subprocess timeout and nonzero exits both persist ERROR without verified_summary or PASS"
+  ],
+  "tests": {
+    "command": "python -B -X utf8 -m unittest discover -s src -p 'test*workbench*.py' -v",
+    "passed": 21,
+    "failed": 0,
+    "independent_tests_added": 9,
+    "test_file": "src/test_workbench_review.py",
+    "temporary_only": true
+  },
+  "package_readonly_probe": {
+    "status": "PASS_READY_NOT_LAUNCHED",
+    "receipt_sha256_unchanged": true,
+    "receipt_mtime_ns_unchanged": true
+  },
+  "files_sha256": {
+    "experiment.py": "2e26aa1298159c00a00e1b5efd9730c46111df377777bc9c142d930f169041c7",
+    "src/workbench_core.py": "3b2f1339a3fa8963ba3ba554f93bd1f39b300e6647ff53f0278ddd996810057f",
+    "src/workbench_remote.py": "8d89953b33a7e8ddabb55067736470611c2a53e3b11fa3b4fbf51807861d278c",
+    "src/workbench_parquet.py": "c4a33b39094f2e734743807b1c8043ed47476b703ba89186d6560b5d360d9393",
+    "src/workbench_local.py": "e4a9cde9e6826034a321adbd9c18c4c193a2ea7e3fad8165700901ff241d11d4",
+    "src/experiment_workbench.py": "f51f24c35f8a968bffefbfde5f1828bb1bbcdd099008ae7fff250814e5dd053e",
+    "configs/experiment-workbench.json": "70da3c2c1c7377f40aaf0524211a27cafbfa535d617770d553e3af6529bf1629",
+    "src/test_experiment_workbench.py": "1b2aab325ea8d9d8f0e7ed0f0e513cc5402ffa7494cc5d56c6c2eb3c95ccd12b",
+    "src/test_workbench_review.py": "14ed6ad37358b51a5b63a8742f3c49e55ad8d8772c62a8795aab74d6370979ea"
+  },
+  "limitations": [
+    "This reviewer made no network calls; real remote status/collect/check completion is owned by parent and must be linked separately.",
+    "No hidden-run outputs, OOF/model fitting or leaderboard gain validated by this review.",
+    "No end-to-end injected HTTP redirect/pagination timeout tests; malformed/oversized/truncated streams and unsafe hosts covered at unit level.",
+    "Local execution remains a fixed-script allowlist with bounded subprocess, not an OS network/filesystem security sandbox.",
+    "Provider SDK materializes list response/log before the application log-size guard; guard prevents persistence and continued processing, not upstream response allocation."
+  ],
+  "display_followup": {
+    "status": "PASS",
+    "remote_delta": "Only shown when experiment and canonical baseline both have confirmed scores; numeric difference disclaimer retained; pending EXP048 does not emit comparison",
+    "exp049_macro": "0.60107543 -> 0.60329923, +0.22238 percentage points, cache/non-OOF/cross-zero limitations retained",
+    "exp050_overlap": "190588 rows = 97870 audited-runtime matches + 92718 misses; not training approval or total unseen-data proof",
+    "hash_binding": "Both local numeric sections remain behind successful verification and current summary SHA256 matching; changed summary suppresses values"
+  },
+  "parent_live_receipts_read_locally": {
+    "EXP-046": {
+      "formal_status": "COMPLETE",
+      "formal_score": 0.663,
+      "status_observed_at": "2026-11-02T04:55:18.121555+00:00",
+      "commit_status": "COMPLETE",
+      "verification_status": "PASS_COMMIT_SAMPLE_ONLY",
+      "verification_observed_at": "2026-11-02T04:55:47.103881+00:00",
+      "collection_hashes_rechecked": true,
+      "scope": "Saved parent observations read locally; reviewer did not issue network calls"
+    },
+    "EXP-048": {
+      "formal_status": "PENDING",
+      "formal_score": null,
+      "status_observed_at": "2026-11-02T04:55:18.325541+00:00",
+      "commit_status": "COMPLETE",
+      "verification_status": "PASS_COMMIT_SAMPLE_ONLY",
+      "verification_observed_at": "2026-11-02T04:55:48.460189+00:00",
+      "collection_hashes_rechecked": true,
+      "scope": "Saved parent observations read locally; reviewer did not issue network calls"
+    }
+  }
+}

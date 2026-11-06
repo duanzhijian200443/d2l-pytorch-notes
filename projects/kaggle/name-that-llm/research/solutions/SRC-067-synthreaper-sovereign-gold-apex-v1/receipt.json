@@ -1,0 +1,36 @@
+{
+  "role": "fixed_source_fetch_receipt",
+  "observed_at": "2026-11-02T07:09:54.872149+00:00",
+  "source_ref": "synthreaper/ntl-sovereign-gold-apex",
+  "method": "Kaggle public GetKernel v1 and latest; same full source bytes. Static read only.",
+  "version": 1,
+  "notebook_id": 142184076,
+  "source_sha256": "ca4c9e18ed32dcd8168b8118b192d39d657803d30dcd89a564b1c2d1d9c846dd",
+  "code_sha256": "5e2bbb0482edbc63ff2b9afc59c8855a8d90e1385b91036b11549a9fd6c72b28",
+  "comparison_targets": {
+    "EXP-047": {
+      "source_path": "experiments/EXP-047-who-are-you-v3-0664-history/source/who-are-you-v3.ipynb",
+      "source_sha256": "b4a716ba3c1cdc4a5c976a0cb9ff2c863e53ed7e63a8da1becfa2e70d422f5d6",
+      "code_sha256": "f9fbf9845de6c62c9bca9a753d2fe5aac1d35e106541c1e07ca5755a6449bce9",
+      "diff_lines": 216
+    },
+    "EXP-004": {
+      "source_path": "reviews/own-scheme-readiness-20261030/baseline-v2.ipynb",
+      "source_sha256": "6c9145f038ccffbe08dc6da6db3d1dcf3d2e0e7d2286927bfc8800ef5148cfb8",
+      "code_sha256": "ae949afd898b9ef963f2013d671afeef40c7a0451a24da79322da1dfa841dd73",
+      "diff_lines": 200
+    },
+    "SRC-036": {
+      "source_path": "research/solutions/SRC-036-one-swap-v1/source.ipynb",
+      "source_sha256": "7e2ebb63ec4bbc3ffa03b9265c1cb9985b68c1b820bd6586572227d7e567eb69",
+      "code_sha256": "7063ccbaff77035df4bd4ca579b80fc4567dd5a4ec684e5cafc53656744240b3",
+      "diff_lines": 218
+    },
+    "SRC-040": {
+      "source_path": "research/solutions/SRC-040-bgunshui-ntl-apex-e-v1/source.ipynb",
+      "source_sha256": "ccb4549744df976c6dfa9da31f761a9bc4acfaeea34588e4c9bdae7aa4829f7a",
+      "code_sha256": "176028c830935d9ed88a36e659fd55294cc07ccf398d874161f20ff7207e93e6",
+      "diff_lines": 43
+    }
+  }
+}

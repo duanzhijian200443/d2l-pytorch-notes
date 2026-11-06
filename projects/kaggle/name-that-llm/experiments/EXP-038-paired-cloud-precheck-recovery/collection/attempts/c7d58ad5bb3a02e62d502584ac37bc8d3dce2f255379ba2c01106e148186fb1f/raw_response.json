@@ -1,0 +1,44 @@
+{
+  "id": "chatcmpl-EfPWh51WfEMC6BeaULdok7sN8oX7i",
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "message": {
+        "content": "Dust swam in the attic light as Mara lifted an ordinary blue cup from a box marked KITCHEN. “Donate it,” Theo said, stacking chipped plates. Mara closed her fingers around the handle. “It’s nothing.” “Exactly.” He reached for it, and she jerked back so quickly the cup clicked against her teeth. From the bottom she shook out a folded hospital wristband, yellowed at the edges. Theo stopped. Mara rubbed the band with her thumb, then set the cup on the floor between them. He knelt, not touching it. After a moment, he found the old thermos, unscrewed its lid, and poured the last dusty beads of rice from inside. Mara placed the wristband in the cup. Theo carried it downstairs himself.",
+        "refusal": "",
+        "role": "assistant",
+        "annotations": null,
+        "audio": null,
+        "function_call": null,
+        "tool_calls": null
+      }
+    }
+  ],
+  "created": 1793538279,
+  "model": "openai/gpt-5.6-terra",
+  "object": "chat.completion",
+  "metadata": null,
+  "moderation": null,
+  "service_tier": null,
+  "system_fingerprint": null,
+  "usage": {
+    "completion_tokens": 679,
+    "prompt_tokens": 141,
+    "total_tokens": 820,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 512,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": null,
+    "cost": {
+      "input_tokens_cost_nanodollars": 282000,
+      "output_tokens_cost_nanodollars": 8148000
+    },
+    "total_backend_latency_ms": 6594
+  }
+}

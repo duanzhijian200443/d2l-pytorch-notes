@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-044",
+  "run_id": "exp044-20261101T163138Z",
+  "status": "PASS",
+  "scope": "Independent prelaunch review of frozen source, package and bound local verification. Not cloud execution, speedup, OOF quality or cross-session recovery acceptance.",
+  "manifest_sha256": "8394945649ea7e3c14e8becd9aa483d7f9e499182996f5be328327a28026a853",
+  "code_sha256": {
+    "experiments/EXP-044-format120-parallel/prepare.py": "69e279b1f2cc418e20e70895c00e97b573a2f21a5c8d9c5034dd3cd0eb9b6270",
+    "experiments/EXP-044-format120-parallel/prepare_inputs.py": "4ea9857f6fbee41ccf2fe95001cfd2f5bb07f325aa69d0b46ddab5ab45bc0e87",
+    "experiments/EXP-044-format120-parallel/launch.py": "cd50959f1d03e4cf78f6d8117ed5703352198a9d409751a21ba6dd1fc04241de",
+    "experiments/EXP-044-format120-parallel/validate_local.py": "978d28e5e0ff6c000811ccb19077e1241dfb32aa047026baefb8b57f72934082",
+    "experiments/EXP-044-format120-parallel/runner.py": "2bb7e8376b44b3450cc5fc2b71f315a8cd1acea29b26d05e207bc3d666fbce8d",
+    "experiments/EXP-044-format120-parallel/test_runner.py": "44331060f8b8267d5f4a2897dd1b87cdfe9335e33507d1397d9486ac2ebf1a75",
+    "experiments/EXP-044-format120-parallel/guard.py": "037977b7320a76fef57f1909289c0bbde789511a50ad88ff993932dfea8f6673",
+    "cloud/format120-044/payload/legacy_runner.py": "de60b60bfd138b834d8723bbd832fd0522453f549c4050256197f6babe4ed45a",
+    "cloud/format120-044/payload/stylegram_core.py": "caa46bd121164aba891c3d78e662540db9294d653db09f53d02833c1b4ab77ef",
+    "cloud/format120-044/kernel/experiment.ipynb": "0fb2167ceb48752e98d7cc98c2e250e50e38db22ad7bbe884b60f540b12c37cc",
+    "cloud/format120-044/kernel/kernel-metadata.json": "eb82b1c05ce97e9a2b1f1c9ab71a250b206a1cd1d4a42dabbf79f04d7b92f476"
+  },
+  "config_sha256": "2b53034c7489370a387827b9bf21a5dbd5ccc0c5a008f27a1da37ad7aff443d7",
+  "blocking_findings": [],
+  "resolved_findings": [
+    "prepare now verifies every data-review input hash and both reviewed CSV hashes/sizes before freezing.",
+    "prepare uses exact payload and embedded ZIP allowlists; full audit/holdout data are not uploaded.",
+    "launch inventories authenticated own notebooks across pages and fails closed on unavailable/repeated/capped pagination before any write.",
+    "guard claim uses a kernel-held nonblocking mutex covering the entire claim and lock retirement.",
+    "guard checks the correct selftests/*/jobs process-receipt paths and refuses a still-live previous worker.",
+    "scheduler checks already-failed active workers before refill and preserves unsuccessful attempts rather than overwriting.",
+    "job acceptance checks sparse file m/repeat, dense-subset IDs/true/plain scores, array shapes/dtypes, eligibility and routes.",
+    "guard records 30-second progress and measures its full process tree RSS."
+  ],
+  "reviewed_components": {
+    "prepare_inputs": "Frozen old EXP023 and accepted EXP043 derived mappings verified. Both arms have same 60 prompts, same 120 old job IDs and all metadata; only text/text_sha256 differ. Raw is old original120, not EXP042 aligned new120. Holdout groups and known/exact overlaps remain gated.",
+    "prepare": "Reviewed input identities frozen, precise allowed files, immutable baseline input/core hash checks, private CPU/offline metadata and two input sources.",
+    "launch": "Frozen manifest, code-review and current local-validation gates precede network writes. Exact own-ref absence inventory, durable in-flight status, one QuickSave and one run request, source/config readback, no automatic retries. Current installed Kaggle SDK signatures support all used parameters and response fields.",
+    "validate_local": "Records RUNNING before tests, runs bounded synthetic tests, real-payload no-training preflight and tiny real-StyleGrams parallel parity. PASS only after package/holdout/manifest checks. Logs and summary currently bound to final hashes.",
+    "algorithm": "compute_job follows frozen EXP042 add120 path: original official folds and ordered rows, per-fold train-only vocabulary/IDF, unchanged float64 core/LinearSVC C=.5 dual=True max_iter4000 seed42, old per-row weight denominator unchanged, new data in separate codex grouping block. Dense text-only grouping and select-then-regroup sparse inference preserved.",
+    "scheduler": "At most two worker processes, each task gets a unique arm/fold/attempt directory. Coordinator owns global state and seals successful jobs only after clean worker exit and output checks. Failures stop remaining workers and are never retried automatically.",
+    "checkpoints": "Completion receipt is written last with closed per-file hash/size inventory and whole algorithm/data/config/environment identity. Resume requires explicit flag and matching identity; completed jobs are verified/reused unchanged, unfinished attempts remain and use a new attempt directory.",
+    "guard": "Cumulative6600-second work budget across attempts,20GiB sampled process-tree RSS cap, PID/create-time/host/boot checks, explicit tree termination/wait. Unknown prior host/boot needs matching terminal tree-stop proof; lost guards consume conservative wall time, never reset budget.",
+    "aggregation": "Requires ten sealed jobs, official dense fold IDs/true-label alignment and complete2699-row OOF; guard revalidates all job receipts before COMPLETE. Full results still require external artifact and metric acceptance."
+  },
+  "verification": {
+    "local_validation_path": "experiments/EXP-044-format120-parallel/metrics/local-validation.json",
+    "local_validation_sha256": "b1d6a8460001b5bb9a68e9fc6419ecf80f9d7e4caa97df0a7aa92bb88af5ec21",
+    "local_steps": [
+      {
+        "name": "unit",
+        "exit_code": 0,
+        "log": "experiments/EXP-044-format120-parallel/metrics/local-check-20261101T163138Z/unit.log",
+        "sha256": "e49bd6550a962b9d33b7d3ecdfc9b7640be37ece2ac5f80fd0b1d0999c0df978"
+      },
+      {
+        "name": "preflight",
+        "exit_code": 0,
+        "log": "experiments/EXP-044-format120-parallel/metrics/local-check-20261101T163138Z/preflight.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "parity",
+        "exit_code": 0,
+        "log": "experiments/EXP-044-format120-parallel/metrics/local-check-20261101T163138Z/parity.log",
+        "sha256": "4a09af6a953312767c3d0152825e558b4033e9b79e8c608a49c9b380e7a0a945"
+      }
+    ],
+    "unit_tests_passed": 9,
+    "unit_tests_failed": 0,
+    "numerical_test": {
+      "status": "PASS",
+      "environment": {
+        "numpy": "2.4.4",
+        "pandas": "3.0.6",
+        "scipy": "1.17.1",
+        "sklearn": "1.8.0",
+        "python": "3.13.13"
+      },
+      "runner_sha256": "2bb7e8376b44b3450cc5fc2b71f315a8cd1acea29b26d05e207bc3d666fbce8d",
+      "legacy_runner_sha256": "de60b60bfd138b834d8723bbd832fd0522453f549c4050256197f6babe4ed45a",
+      "core_sha256": "caa46bd121164aba891c3d78e662540db9294d653db09f53d02833c1b4ab77ef",
+      "classes": 18,
+      "parallel_workers_observed": 2,
+      "max_abs_score_difference": 0,
+      "completed_resume_reused": true,
+      "corruption_rejected": true,
+      "scope": "small real StyleGrams numerical/concurrency test; not full model training or accuracy evidence"
+    },
+    "independent_checks": {
+      "all_manifest_hashes_and_sizes": true,
+      "all_local_log_hashes": true,
+      "selftest_stable_files_verified": 58,
+      "bundle_sha256": "806e6c76d140bbcb5bc626d646cf126d51ea2d32258e6e745b2288b224a3693d",
+      "bundle_bytes": 147862,
+      "embedded_allowlist": [
+        "clean120.csv",
+        "config.json",
+        "data-gate.json",
+        "guard.py",
+        "legacy_runner.py",
+        "protocol.json",
+        "raw120.csv",
+        "runner.py",
+        "stylegram_core.py",
+        "test_runner.py"
+      ],
+      "embedded_bytes_equal_payload": true,
+      "protected_answers_checked": 460,
+      "protected_csv_exact_matches": 0,
+      "raw_clean_metadata_equal_except_text_hash": true,
+      "private_cpu_internet_off": true,
+      "input_sources": [
+        "zhjianduan/ntl-stylegram-cv-inputs-v1/1",
+        "competition:name-that-llm"
+      ],
+      "image": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+      "syntax_checked": [
+        "guard.py",
+        "launch.py",
+        "prepare.py",
+        "prepare_inputs.py",
+        "runner.py",
+        "test_runner.py",
+        "validate_local.py",
+        "verify_outputs.py"
+      ]
+    },
+    "reviewer_full_training_runs": 0,
+    "reviewer_remote_calls": 0,
+    "reviewer_implementation_edits": 0
+  },
+  "limitations": [
+    "Local tests ran on numpy2.4.4/pandas3.0.6/scipy1.17.1/sklearn1.8.0/Python3.13.13. They are behavioral evidence only; cloud strict versions and its own numerical self-test must pass before full training.",
+    "Small synthetic parity covers one fold per arm and all16 dense/sparse outputs per arm; it does not prove full-data score equality or speedup. Both current arms require new fitting.",
+    "Checkpoint resume has been tested at scheduler level with completed-job reuse, identity/hash rejection and preserved incomplete attempts. Full cloud interruption/recovery and guard end-to-end recovery are not executed evidence.",
+    "New Kaggle runs do not inherit prior working files. Cross-session recovery needs actually published outputs downloaded and hash-verified, then reintroduced explicitly into the same frozen payload/output identity with retained budget. Current first-run launcher does not automate that transport.",
+    "Hard platform termination can prevent output publication. Missing checkpoint bytes or uncertain process inactivity fail closed; recovery is not guaranteed.",
+    "Lost-guard wall charging includes downtime and can exhaust remaining budget before a later recovery. RSS is sampled rather than an instantaneous OS hard limit.",
+    "Requested model labels do not authenticate provider snapshots. Known/exact separation does not certify complete semantic independence.",
+    "Official folds are previously inspected development validation. Only frozen raw120-vs-clean120 Stylegram effects may be inferred after acceptance, not full ensemble or leaderboard gains."
+  ],
+  "post_run_acceptance": [
+    "Bind fixed notebook version/readback, run_id, config and code hashes before interpreting results.",
+    "Require guard/result/state COMPLETE, clean coordinator exit, tree_stopped true, no termination reason, cumulative budget and RSS receipts.",
+    "Verify cloud strict environment and cloud numerical selftest PASS with two workers observed.",
+    "Verify global inventory, ten sealed job receipts, full two-arm2699x18 OOF,150 sparse outputs and their exact ID/fold/label/scenario mapping.",
+    "Report actual wall time and peak RSS, not estimated parallel speedup. Compare frozen primary18-class OOF BA and paired official-prompt uncertainty without retuning.",
+    "Any later retry/resume is explicit and separately bound; no automatic cloud relaunch."
+  ]
+}

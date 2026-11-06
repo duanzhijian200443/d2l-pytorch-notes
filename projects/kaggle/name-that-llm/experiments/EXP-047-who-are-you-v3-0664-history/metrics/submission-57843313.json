@@ -1,0 +1,17 @@
+{
+  "observed_at": "2026-11-01T17:21:54Z",
+  "source": "official Kaggle MCP search_competition_submissions result captured by root this turn",
+  "submission": {
+    "ref": 57843313,
+    "total_bytes": "60075",
+    "date": "2026-10-31T15:42:28.377Z",
+    "description": "",
+    "file_name": "submission.parquet",
+    "public_score": "0.664",
+    "status": "COMPLETE",
+    "submitted_by": "zhjianduan",
+    "submitted_by_ref": "zhjianduan",
+    "team_name": "zhjian duan",
+    "url": "/code/zhjianduan/who-are-you?scriptVersionId=364274017"
+  }
+}

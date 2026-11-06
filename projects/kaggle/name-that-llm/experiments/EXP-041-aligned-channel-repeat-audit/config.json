@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-041",
+  "hypothesis": "Explicit-format alignment reduces observed formatting mismatch; quantify remaining cross-route distance relative to same-route stochastic variation, without claiming causal prompt removal or training improvement.",
+  "sources": [
+    "EXP-038 complete78",
+    "EXP-040 complete300",
+    "EXP-023 old1000",
+    "original Kaggle20",
+    "EXP-033 official/public diagnostics"
+  ],
+  "design": {
+    "complete_cells": 19,
+    "independent_prompts": 10,
+    "repeats_per_route": 2,
+    "models": [
+      "gpt-5.6-luna",
+      "gpt-5.6-terra"
+    ],
+    "unit": "original prompt clustered, preserve all repeats in one group",
+    "primary": "word-trigram Jaccard cross minus within",
+    "secondary": [
+      "character-trigram cosine",
+      "absolute word-count gap",
+      "signed style features"
+    ],
+    "bootstrap_resamples": 20000,
+    "seed": 2026110141,
+    "sensitivity": "9 complete two-model prompt blocks; per-model analyses",
+    "equivalence_margin": null,
+    "causal_or_training_benefit_estimate": false
+  },
+  "scope": {
+    "offline_only": true,
+    "generate": false,
+    "fit_classifier": false,
+    "modify_raw": false
+  },
+  "budget": {
+    "api_usd": 0,
+    "gpu_seconds": 0
+  },
+  "training_split_preserved": {
+    "prompt_groups_train": 60,
+    "prompt_groups_holdout": 15,
+    "rows_train": 240,
+    "rows_holdout": 60
+  },
+  "quality_gate": "Raw text integrity and provenance checks before descriptives. Missing cell excluded, never imputed. No automatic accept/reject using p values."
+}

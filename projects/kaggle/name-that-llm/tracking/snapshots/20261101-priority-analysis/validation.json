@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "observed_at": "2026-11-01T08:57:09.022167+00:00",
+  "ideas": 8,
+  "ledger_check": "PASS",
+  "render": "PASS",
+  "targeted_ledger_tests": "25 passed",
+  "decision_review": "independent method review passed; external result recomputed from fixed V2 artifacts",
+  "local_link_errors": [],
+  "new_training_started": false,
+  "new_submission": false,
+  "new_experiment_record_created_by_this_task": false,
+  "existing_exp027": "reference reused, record not edited",
+  "files_sha256": {
+    "tracking/ideas.json": "9c2b98519d970e57960d2af7ec4109cf0bf7c094d4b05634804f187a5a2706c9",
+    "tracking/ledger.py": "a0596200d9f4111a6c801d03ecffdfcd41342947992a468da6d280ff4ba555f2",
+    "tracking/test_ledger.py": "38650cf1815ff583fb4d2cef9385e394225308358f222ffb9be7ebaa358b04fd",
+    "tracking/待验证想法.md": "cfaa36b4633a755d9402df97745e7d86e10860f70b6b88a92c8995bfd0275fe9",
+    "tracking/方法与决策.md": "21b4d10cd1fb72335fec75252823cdb3209aee5d2b28309d9b596c1b664fc404"
+  }
+}

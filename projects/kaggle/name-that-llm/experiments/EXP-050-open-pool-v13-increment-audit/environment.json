@@ -1,0 +1,8 @@
+{
+  "python": "3.13.13 (tags/v3.13.13:01104ce, Apr  7 2026, 19:25:48) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "C:\\Users\\34331\\AppData\\Local\\uv\\cache\\environments-v2\\audit-e5542b9a7a231d97\\Scripts\\python.exe",
+  "pandas": "3.0.6",
+  "pyarrow": "23.0.1",
+  "numpy": "2.5.4",
+  "scope": "CPU file audit only"
+}

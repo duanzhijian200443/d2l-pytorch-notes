@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0045",
+  "prompt": "A digital photograph looks sharp on a phone but blurry when enlarged as a poster. Explain the limitation in plain language. Keep your response near 120 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "technology_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0045",
+  "split": "train",
+  "source": "codex_subscription",
+  "base_prompt": "A digital photograph looks sharp on a phone but blurry when enlarged as a poster. Explain the limitation in plain language. Keep your response near 120 words.",
+  "base_prompt_sha256": "8878c2d36e16b88201369d6b9f0af4c8cff561df5422bef3141edc51a7eeb789",
+  "base_prompt_id": "cp0045",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0045::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "39e18400d68dc670329cc14f1980b679cfc1dd3a0bffc3fe5979e1c14ddc16b5",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:23:42.097973+00:00",
+  "ended_at": "2026-11-01T13:24:02.527944+00:00",
+  "prompt_sha256": "73ce6001e0386d91abd53ea8097ccbcc0766dfde62c4d6a4fcc02d7bcf3c6de2",
+  "text": "A digital photograph is made from tiny colored squares called pixels. On a phone, the image is displayed at a relatively small size, so those pixels are packed closely together and the picture appears sharp. When you enlarge the same image into a poster, the pixels must be spread over a much larger area. The computer can create extra pixels by guessing what colors should go between the originals, but it cannot invent the fine details that were never captured. As a result, edges may look soft, textures disappear, and the image can appear blurry or blocky. A camera with higher resolution, or an original image designed for large printing, contains more information and will usually remain clearer when enlarged.",
+  "text_sha256": "94dcee952eb77cb82ba8c45552049ad969b32590d8f879a5eefea897dff1d6f4",
+  "raw_final_sha256": "94dcee952eb77cb82ba8c45552049ad969b32590d8f879a5eefea897dff1d6f4",
+  "word_count": 120,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2675,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 168,
+      "reasoning_output_tokens": 26
+    }
+  ],
+  "attempt_path": "collection\\attempts\\39e18400d68dc670329cc14f1980b679cfc1dd3a0bffc3fe5979e1c14ddc16b5",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

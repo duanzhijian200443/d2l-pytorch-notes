@@ -1,0 +1,17 @@
+step,rows
+"rows in accepted source files (after dropping edited text, second-turn rewrites, gemini-3.7 via AI Studio)",27618
+unknown label,0
+already in pool (incl. rows removed in v9) / train,15649
+same text with two labels,0
+duplicate within new rows,0
+length outside 36-275 words,80
+newline / markdown,116
+raw API response,0
+refusal,1
+chat preamble / CJK,24
+cut off mid-sentence,166
+typography the label never uses in train (em dash),1024
+content too similar to a train passage (cos >= 0.3),264
+near a train prompt (prompt-centroid cosine >= 0.4),0
+added in v11,10294
+gemini-3.7 rows moved to gemini37_unverified.parquet (no documented Vertex AI route),10593

@@ -1,0 +1,26 @@
+{
+  "status": "PASS_COMMIT_SAMPLE_ONLY",
+  "observed_at": "2026-11-02T04:55:47.103881+00:00",
+  "scope": "public_placeholder_and_input_environment_synthetic_checks",
+  "rows": 3,
+  "ref": "zhjianduan/name-that-llm-a1-public-stylegram-046",
+  "version": 2,
+  "script_version_id": 364624288,
+  "verified": [
+    "output hashes and public IDs",
+    "registered recipe identity",
+    "mounted-input policy",
+    "T4 x2 CUDA",
+    "synthetic numerical parity"
+  ],
+  "not_verified": [
+    "complete hidden model execution",
+    "real-data fitting success",
+    "hidden model/ATLAS coverage",
+    "leaderboard gain"
+  ],
+  "large_weights_rehashed": false,
+  "read_only_verification": true,
+  "experiment_id": "EXP-046",
+  "operation": "verify"
+}

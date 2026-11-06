@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "observed_at": "2026-11-01T13:02:17.501218+00:00",
+  "expires_at": "2026-11-01T13:22:17.501218+00:00",
+  "login_chatgpt": true,
+  "login_evidence": "codex login status returned Logged in using ChatGPT in this turn; no credential contents read",
+  "codex_executable_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+  "codex_executable_sha256": "3097c909fb6d5cd63510d44aceb1d42df9f6e85722a3e447e477def1ecf60e16",
+  "source": "Codex subscription only",
+  "workers": 1,
+  "companion_experiment": "EXP-038-paired-cloud-precheck-recovery",
+  "companion_concurrency": 1,
+  "combined_collection_concurrency_cap": 2,
+  "no_generation_smoke_sent": true
+}

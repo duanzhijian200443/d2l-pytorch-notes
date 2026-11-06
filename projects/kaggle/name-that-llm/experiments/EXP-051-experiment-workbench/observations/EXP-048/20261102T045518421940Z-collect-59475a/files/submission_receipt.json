@@ -1,0 +1,31 @@
+{
+  "experiment_id": null,
+  "run_id": "pending-handoff-stylegram-add120-20261102T014124Z",
+  "registration": "pending_local_ledger_handoff",
+  "baseline_experiment_id": "EXP-046",
+  "baseline_script_version_id": 364624288,
+  "added_source": "EXP040 aligned Codex subscription",
+  "added_data_sha256": "cbb0f2227f7748d9172f04d23c1653403103a192dbb7503d897153d24bb00acd",
+  "model_observation": "requested_only",
+  "snapshot": "unknown",
+  "stylegram_training_rows": {
+    "official": 2699,
+    "public": 10073,
+    "added": 120,
+    "total": 12892
+  },
+  "status": "PASS",
+  "fast_commit": true,
+  "competition_rerun_flag_present": false,
+  "rows": 3,
+  "columns": [
+    "id",
+    "model"
+  ],
+  "prediction_kind": "public_placeholder",
+  "submission_sha256": "ef94c7669e36a465bbd3e2dd8cf4905b5e1c2e51e18053a588cb56623086170a",
+  "atlas_w": 0.2,
+  "comp_w": 0.15,
+  "sinkhorn": 0.45,
+  "stylegram_recipe": "official2699+public10073+raw_codex120_fixed_old_share0.5_weights_no_renormalization_raw_margin"
+}

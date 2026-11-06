@@ -1,0 +1,311 @@
+[
+  {
+    "type": "dataset",
+    "ref": "dhruvtibarewal/nlm-l24-adapters",
+    "version": 7,
+    "listed_files": 88,
+    "file_listing_sha256": "f3110bef5f3842185d26ce80ed0363d413daba80503c00518a2301ff578dfb09",
+    "loader_files": [],
+    "binding": "public snapshot selected; unbound to historical hidden run"
+  },
+  {
+    "type": "dataset",
+    "ref": "crtproduction/name-that-llm-open-pool",
+    "version": 13,
+    "listed_files": 19,
+    "file_listing_sha256": "6a410d81850f34f0c3c6ba04c9782d35ffd0e56ac096e4c0dd80961d626a959f",
+    "loader_files": [],
+    "binding": "historical card V13"
+  },
+  {
+    "type": "dataset",
+    "ref": "seyitkaangunes/ntl-extra-api-passages",
+    "version": 2,
+    "listed_files": 3,
+    "file_listing_sha256": "610235add475779d97b0b689cf65d6b6be697fc457420932f51dec2c2020fedc",
+    "loader_files": [
+      {
+        "name": "ntl_extra_passages_claude.csv",
+        "size": 4387162,
+        "created_at": "2026-10-16T15:52:18.170Z"
+      }
+    ],
+    "binding": "public snapshot selected; unbound to historical hidden run"
+  },
+  {
+    "type": "dataset",
+    "ref": "abdullah1afify/ntl-generations",
+    "version": 9,
+    "listed_files": 6,
+    "file_listing_sha256": "e01dc208df83955b0ce9469658b9e5a1e271ea401ce00a7c61365a0d52b4d188",
+    "loader_files": [
+      {
+        "name": "ntl_generations.csv",
+        "size": 3672129,
+        "created_at": "2026-11-01T01:24:09.632Z"
+      }
+    ],
+    "binding": "public snapshot selected; unbound to historical hidden run"
+  },
+  {
+    "type": "dataset",
+    "ref": "dophuchung/ntl-proxy-generations",
+    "version": 1,
+    "listed_files": 2,
+    "file_listing_sha256": "6b54b9298c2d5e61c9f0fb60dc98ac00b35446d44089f33eaff559a0650e3992",
+    "loader_files": [
+      {
+        "name": "ntl_proxy_generations.csv",
+        "size": 889391,
+        "created_at": "2026-10-17T07:22:36.171Z"
+      }
+    ],
+    "binding": "public snapshot selected; unbound to historical hidden run"
+  },
+  {
+    "type": "dataset",
+    "ref": "zbigniewkirchner/ntl-qwen3-8b-lora-claude-head",
+    "version": 1,
+    "listed_files": 17,
+    "file_listing_sha256": "908b704bdbe9f4a795ee4acb910cd15fda95b93ef0e172e92803802d07bd7671",
+    "loader_files": [],
+    "binding": "public snapshot selected; unbound to historical hidden run"
+  },
+  {
+    "type": "dataset",
+    "ref": "dhruvtibarewal/nlm-matched-clean",
+    "version": 3,
+    "listed_files": 3,
+    "file_listing_sha256": "69d33f7d345b9611002771748e9b5dd0954cd8674cd96abcaca3a413274ff57e",
+    "loader_files": [],
+    "binding": "public snapshot selected; unbound to historical hidden run"
+  },
+  {
+    "type": "dataset",
+    "ref": "dhruvtibarewal/nlm-offline-wheels",
+    "version": 2,
+    "listed_files": 4,
+    "file_listing_sha256": "4fd270538c01a71f9a96a13d375bcd05a4bb31c9b9429eb56027a59a36791125",
+    "loader_files": [],
+    "binding": "public snapshot selected; unbound to historical hidden run"
+  },
+  {
+    "type": "dataset",
+    "ref": "josephadamski91/ntl-atlas-qwen3-8b-v1",
+    "version": 3,
+    "listed_files": 15,
+    "file_listing_sha256": "8833b5f77a3a608f1e353e28a936937c449f7f5fb4184bd85762bf76ef9d7536",
+    "loader_files": [],
+    "binding": "public snapshot selected; unbound to historical hidden run"
+  },
+  {
+    "type": "dataset",
+    "ref": "lucasboesen/ntl-free-proxy-generations",
+    "version": 12,
+    "listed_files": 2,
+    "file_listing_sha256": "9e8dde6634aa809b2a553585e411ec0aed0570324d0079b66522535b6ba02203",
+    "loader_files": [
+      {
+        "name": "gen_passages.csv",
+        "size": 7666492,
+        "created_at": "2026-11-01T14:39:55.686Z"
+      }
+    ],
+    "binding": "public snapshot selected; unbound to historical hidden run"
+  },
+  {
+    "type": "dataset",
+    "ref": "nishantdahal/ntl-two-stage-lora",
+    "version": 1,
+    "listed_files": 11,
+    "file_listing_sha256": "daddde341c749ee2f96b30b1bffb3101893f6925a915b3872a532e02ca4e21c9",
+    "loader_files": [],
+    "binding": "public snapshot selected; unbound to historical hidden run"
+  },
+  {
+    "type": "dataset",
+    "ref": "nishantdahal/ntl-handwriting-blend",
+    "version": 1,
+    "listed_files": 15,
+    "file_listing_sha256": "57dcf9f220f7c09c077f8022462534c7b1f249dd61ff44c37bd8d4930a14bec2",
+    "loader_files": [],
+    "binding": "public snapshot selected; unbound to historical hidden run"
+  },
+  {
+    "type": "dataset",
+    "ref": "dhruvtibarewal/nlm-l24-adapters-v5",
+    "version": 1,
+    "listed_files": 54,
+    "file_listing_sha256": "aef240c342e2f1a66186da6571b160d471e2ebf5580c38ab59c8647254e93379",
+    "loader_files": [],
+    "binding": "public snapshot selected; unbound to historical hidden run"
+  },
+  {
+    "type": "dataset",
+    "ref": "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+    "version": 7,
+    "listed_files": 13,
+    "file_listing_sha256": "37bed1914c88d7cf30a577443cb8fb654c2ef064b2dc83d71117dc1d94e37524",
+    "loader_files": [
+      {
+        "name": "passages_clean.csv",
+        "size": 7519791,
+        "created_at": "2026-10-28T19:20:30.118Z"
+      }
+    ],
+    "binding": "public snapshot selected; unbound to historical hidden run"
+  },
+  {
+    "type": "dataset",
+    "ref": "pjmathematician/ultrabert-380m-ntl",
+    "version": 1,
+    "listed_files": 56,
+    "file_listing_sha256": "69389362c72a3835eb89399dce23a20071757e2081603e6e6743ed19f98b23b8",
+    "loader_files": [],
+    "binding": "public snapshot selected; unbound to historical hidden run"
+  },
+  {
+    "type": "kernel",
+    "ref": "lucasboesen/name-that-llm-glm4-9b-trunc25",
+    "version": 1,
+    "listed_files": 7,
+    "file_listing_sha256": "9374b4ae56e97a57ae2ddc71070c9aee854a3aafd3c4de6f5958576436973ee5",
+    "loader_files": [],
+    "binding": "public snapshot selected; unbound to historical hidden run"
+  },
+  {
+    "type": "kernel",
+    "ref": "lucasboesen/name-that-llm-extract-encoders2",
+    "version": 1,
+    "listed_files": 10,
+    "file_listing_sha256": "110ff27ed670b101ee83a38e17039e62fb1eb0db3bc0e1478388274da9659247",
+    "loader_files": [],
+    "binding": "public snapshot selected; unbound to historical hidden run"
+  },
+  {
+    "type": "kernel",
+    "ref": "lucasboesen/name-that-llm-electra-large-weights",
+    "version": 1,
+    "listed_files": 5,
+    "file_listing_sha256": "77cfe86ac29bdf320240bb883b9c363bf588fff9c797a88b9706f8bb9dfbd899",
+    "loader_files": [],
+    "binding": "public snapshot selected; unbound to historical hidden run"
+  },
+  {
+    "type": "kernel",
+    "ref": "lucasboesen/name-that-llm-desklib-weights",
+    "version": 1,
+    "listed_files": 5,
+    "file_listing_sha256": "075543a4b3d818cae10d85c4ff7f007b2641ec48043c312390c0bca97cc17e73",
+    "loader_files": [],
+    "binding": "public snapshot selected; unbound to historical hidden run"
+  },
+  {
+    "type": "kernel",
+    "ref": "lucasboesen/name-that-llm-train-lora24-s7",
+    "version": 1,
+    "listed_files": 29,
+    "file_listing_sha256": "49e1f38f0ebeb7369e059dad6e14157a29e409b4a18c79e157dfa879d3a55932",
+    "loader_files": [],
+    "binding": "public snapshot selected; unbound to historical hidden run"
+  },
+  {
+    "type": "kernel",
+    "ref": "lucasboesen/name-that-llm-train-tokattn",
+    "version": 1,
+    "listed_files": 3,
+    "file_listing_sha256": "31b857972a70eb2a09d78d00c0cf789c15ed45c40b4cd610141f92e4c349a029",
+    "loader_files": [],
+    "binding": "public snapshot selected; unbound to historical hidden run"
+  },
+  {
+    "type": "kernel",
+    "ref": "lucasboesen/name-that-llm-train-tokattn2",
+    "version": 1,
+    "listed_files": 5,
+    "file_listing_sha256": "f77cd3042f7e07ee9572e0ed8d8a922018571ea2d469e3b679fd88834cb8a9cc",
+    "loader_files": [],
+    "binding": "public snapshot selected; unbound to historical hidden run"
+  },
+  {
+    "type": "kernel",
+    "ref": "vnton37nguyn/ntl-train-lora-qwen25-instyle",
+    "version": 2,
+    "listed_files": 23,
+    "file_listing_sha256": "6f1c08f3c6fc1d46e9b4c5e726fbe6799be9228abc33c1aed55e3ee5e409bc58",
+    "loader_files": [],
+    "binding": "public snapshot selected; unbound to historical hidden run"
+  },
+  {
+    "type": "model",
+    "ref": "alexchilton/llama-3-1-8b-base/Transformers/default/1",
+    "version": 1,
+    "listed_files": 13,
+    "file_listing_sha256": "00dbc50513994fb1c336ec499516833fb8b3d87e934df4624e3587bd23e7d1a5",
+    "loader_files": [],
+    "binding": "version explicitly in model ref"
+  },
+  {
+    "type": "model",
+    "ref": "qwen-lm/qwen-3/Transformers/8b/1",
+    "version": 1,
+    "listed_files": 13,
+    "file_listing_sha256": "375daad9c576b034182b81d5cdb34c1a7a4b7f4b46609175e9579290499a1e4e",
+    "loader_files": [],
+    "binding": "version explicitly in model ref"
+  },
+  {
+    "type": "model",
+    "ref": "qwen-lm/qwen-3/Transformers/4b-base/1",
+    "version": 1,
+    "listed_files": 11,
+    "file_listing_sha256": "268809ffac223467b0198be5d4a6190fd834ad0cc4a68244fc6f5fd5d84bbf8f",
+    "loader_files": [],
+    "binding": "version explicitly in model ref"
+  },
+  {
+    "type": "model",
+    "ref": "qwen-lm/qwen-3/Transformers/8b-base/1",
+    "version": 1,
+    "listed_files": 13,
+    "file_listing_sha256": "ad02f99a6f5424eb7e9b3b7c3c3acbdb734bedba1ac7d56000bf4063b70b6b57",
+    "loader_files": [],
+    "binding": "version explicitly in model ref"
+  },
+  {
+    "type": "model",
+    "ref": "qwen-lm/qwen-3/Transformers/14b-base/1",
+    "version": 1,
+    "listed_files": 16,
+    "file_listing_sha256": "b37a3f337a88fa38fe346720ff13aefc7060c99b8552b7ec50064531b9a7203a",
+    "loader_files": [],
+    "binding": "version explicitly in model ref"
+  },
+  {
+    "type": "model",
+    "ref": "qwen-lm/qwen-3/Transformers/14b/1",
+    "version": 1,
+    "listed_files": 16,
+    "file_listing_sha256": "91a0c32f964f2181c1863b2939ed68475e3dcded4aa7230a8ab5fd9de7c083e1",
+    "loader_files": [],
+    "binding": "version explicitly in model ref"
+  },
+  {
+    "type": "model",
+    "ref": "qwen-lm/qwen2.5/Transformers/14b/1",
+    "version": 1,
+    "listed_files": 18,
+    "file_listing_sha256": "fefacec589480584550276a3b4dfe5ba2b72eb252a53fba4de5ac8b3efe384f9",
+    "loader_files": [],
+    "binding": "version explicitly in model ref"
+  },
+  {
+    "type": "model",
+    "ref": "qwen-lm/qwen2.5/Transformers/7b/1",
+    "version": 1,
+    "listed_files": 14,
+    "file_listing_sha256": "2c3abcc70f6ed20c728903444d4536a0adc925244826476d2dfa63ad0c1465c6",
+    "loader_files": [],
+    "binding": "version explicitly in model ref"
+  }
+]

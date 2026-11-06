@@ -1,0 +1,103 @@
+[
+  {
+    "id": "IDEA-001",
+    "priority": 0,
+    "title": "建立固定 prompt 分组验证与泄漏检查",
+    "status": "completed",
+    "sources": [
+      "SRC-026",
+      "SRC-029"
+    ],
+    "next_action": "EXP-007 已复核历史 OOF 并固定 prompt-group-v1；后续模型继续独立检查训练范围，不能自动继承无泄漏结论。",
+    "acceptance": "同一 prompt 不跨折；所有拟合隔离验证；重复结果可追溯；不同验证范围分别报告。",
+    "budget": "先 CPU；不启动完整多大模型训练。",
+    "experiment_id": "EXP-007"
+  },
+  {
+    "id": "IDEA-002",
+    "priority": 1,
+    "title": "缓存预测后比较 Sinkhorn 与标点修正",
+    "status": "planned",
+    "sources": [
+      "SRC-021",
+      "SRC-022"
+    ],
+    "next_action": "先取得训练范围可核实的强模型分折缓存；EXP-007 的 SVM 分数不是 ATLAS 概率。之后固定 1.5 比较 Sinkhorn 0.30/0.45，再单独比较标点系数。",
+    "acceptance": "同一批预测、同一验证划分；记录逐行改判及分差；少量候选进入完整评测。",
+    "budget": "缓存后的参数比较使用 CPU；GPU 完整运行单独登记。"
+  },
+  {
+    "id": "IDEA-003",
+    "priority": 0,
+    "title": "基于现有成员配方比较公共数据权重与来源选择",
+    "status": "planned",
+    "sources": [
+      "SRC-027",
+      "SRC-030",
+      "SRC-031",
+      "SRC-032",
+      "SRC-033",
+      "SRC-034",
+      "SRC-035"
+    ],
+    "next_action": "EXP-017～020与后续EXP-022诊断完成；raw公共权重0.35保留作开发对照，完整/稀疏场景强弱不同。后续融合验证见IDEA-004；原matched/pool隔离门槛仍未满足。",
+    "acceptance": "同一成员、同一数据与特征/折/seed；区别样本权重与融合权重，逐折配对指标与类召回；不能将全量checkpoint事后切成OOF。",
+    "budget": "先 CPU 与小规模数据，筛选后再训练 GPU 模型。",
+    "audit_experiment_id": "EXP-008",
+    "baseline_lineage_experiment_id": "EXP-009",
+    "observed_at": "2026-11-01T08:19:48.830516+00:00",
+    "completed_experiments": [
+      "EXP-010",
+      "EXP-011",
+      "EXP-012",
+      "EXP-017",
+      "EXP-018",
+      "EXP-019",
+      "EXP-020"
+    ],
+    "phase": "svc4_raw_public_cv_verified",
+    "active_experiments": [],
+    "failed_experiments": [
+      "EXP-013",
+      "EXP-014",
+      "EXP-015",
+      "EXP-016"
+    ],
+    "selected_development_reference": "EXP-018"
+  },
+  {
+    "id": "IDEA-004",
+    "priority": 2,
+    "title": "评估新成员的互补性",
+    "status": "in_progress",
+    "sources": [
+      "SRC-026"
+    ],
+    "next_action": "保留固定10%候选；覆盖其余14类/其他来源，并在可核实训练隔离的完整集成预测上检验增量。该外部集不再作为后续调参后的新独立证明；不改EXP-004正式0.662、不提交。",
+    "acceptance": "同时报告单模型 OOF 和完整集成增量，不能仅凭单模型 OOF 决定替换。",
+    "budget": "优先复用缓存；新训练另定上限。",
+    "phase": "fixed_blend_external_four_class_verified",
+    "observed_at": "2026-11-01T08:51:45.399562+00:00",
+    "active_experiments": [],
+    "completed_experiments": [
+      "EXP-022",
+      "EXP-024",
+      "EXP-026"
+    ]
+  },
+  {
+    "id": "IDEA-005",
+    "priority": 2,
+    "title": "Benchmarks 生成数据的小试准备",
+    "status": "planned",
+    "sources": [
+      "SRC-023",
+      "SRC-024",
+      "SRC-025",
+      "SRC-028"
+    ],
+    "next_action": "先核实规则、实际可用候选版本和每条成本，再拟定共同提示词的小批量方案。",
+    "acceptance": "模型版本可追溯、原文不润色、生成与验证 prompt 隔离，少量加入有效才扩大。",
+    "budget": "尚未授权支出；此前 $5 小试/$100 月额度只是规划，不是已消费金额。"
+  }
+]

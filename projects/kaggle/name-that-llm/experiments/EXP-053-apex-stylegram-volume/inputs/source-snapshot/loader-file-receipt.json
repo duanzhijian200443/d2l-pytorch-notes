@@ -1,0 +1,47 @@
+[
+  {
+    "path": "data/public-pools/seyitkaangunes/ntl-extra-api-passages/v2/ntl_extra_passages_claude.csv",
+    "bytes": 4387162,
+    "sha256": "710dbe484fda23f0dee9b67c20e5bef9376bf754af05584ad142bc17845cd4b9",
+    "ref": "seyitkaangunes/ntl-extra-api-passages",
+    "version": 2,
+    "name": "ntl_extra_passages_claude.csv",
+    "binding": "public snapshot selected; unbound to historical hidden run"
+  },
+  {
+    "path": "experiments/EXP-053-apex-stylegram-volume/inputs/source-snapshot/abdullah1afify--ntl-generations-v9/ntl_generations.csv",
+    "bytes": 3672129,
+    "sha256": "33a47a1dda5ecc9c3d155d581afe0cb3851433d60deb87f209993162d5d197a5",
+    "ref": "abdullah1afify/ntl-generations",
+    "version": 9,
+    "name": "ntl_generations.csv",
+    "binding": "public snapshot selected; unbound to historical hidden run"
+  },
+  {
+    "path": "data/public-pools/dophuchung/ntl-proxy-generations/v1/ntl_proxy_generations.csv",
+    "bytes": 889391,
+    "sha256": "593708f7fd55636bd270824c0e129447b2a5808b1e224bb3dbf43bf2383fdf9c",
+    "ref": "dophuchung/ntl-proxy-generations",
+    "version": 1,
+    "name": "ntl_proxy_generations.csv",
+    "binding": "public snapshot selected; unbound to historical hidden run"
+  },
+  {
+    "path": "data/community-factcheck-20261102/lucas-v12/gen_passages.csv",
+    "bytes": 7666492,
+    "sha256": "b855fc128375984111d51ed4ae6bf23ca0fbec667b58d5ad2370bdb310495271",
+    "ref": "lucasboesen/ntl-free-proxy-generations",
+    "version": 12,
+    "name": "gen_passages.csv",
+    "binding": "public snapshot selected; unbound to historical hidden run"
+  },
+  {
+    "path": "data/open-pool-v13-audit/baseline-prvs-v7/passages_clean.csv",
+    "bytes": 7519791,
+    "sha256": "502653b8cc053bc1ef08920d0ddda892e8b656f14229e38e0755d8a2f079eaf9",
+    "ref": "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+    "version": 7,
+    "name": "passages_clean.csv",
+    "binding": "public snapshot selected; unbound to historical hidden run"
+  }
+]

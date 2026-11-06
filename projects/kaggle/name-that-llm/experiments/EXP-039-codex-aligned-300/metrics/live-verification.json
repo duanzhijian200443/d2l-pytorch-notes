@@ -1,0 +1,26 @@
+{
+  "observed_at": "2026-11-01T13:06:38.869101+00:00",
+  "run_id": "2f5308a40ed74d748cf6354c77612627",
+  "status": "RUNNING",
+  "saved_responses": 6,
+  "by_model": {
+    "gpt-5.6-luna": 2,
+    "gpt-5.6-terra": 2,
+    "gpt-5.6-sol": 1,
+    "gpt-6-astra": 1
+  },
+  "first_response_each_model_saved": true,
+  "duplicate_job_keys": 0,
+  "final_files_match_saved_text": true,
+  "format_flags": {},
+  "model_observation_scopes": {
+    "requested_only": 6
+  },
+  "current_failures": [],
+  "workers": 1,
+  "companion_status": "RUNNING",
+  "companion_run_id": "75230ec19d8d4d4daf6e771359fd475b",
+  "companion_saved": 25,
+  "combined_inflight_at_snapshot": 2,
+  "scope": "Initial live records only; not300complete or trainingacceptance"
+}

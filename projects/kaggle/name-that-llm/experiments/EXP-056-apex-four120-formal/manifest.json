@@ -1,0 +1,42 @@
+{
+  "experiment_id": "EXP-056",
+  "freeze_status": "FROZEN_BEFORE_CLOUD_EXECUTION",
+  "config": {
+    "path": "experiments/EXP-056-apex-four120-formal/config.json",
+    "sha256": "c9ab61eaf4c08d031c6e76d0e89ba123f512b3da95a1cfd37c4ba72245f319cd",
+    "bytes": 1518
+  },
+  "mother_submission": 57903109,
+  "sources_and_data": [
+    {
+      "path": "cloud/apex-codex120-056/kernel/apex.ipynb",
+      "sha256": "c6c9dee6bf8194f656aca10b15e599294bee1465603e78bccd4ddcaac9decc56",
+      "bytes": 212010
+    },
+    {
+      "path": "cloud/apex-codex120-056/kernel/kernel-metadata.json",
+      "sha256": "d87f61378abc03e0c932577ce5f0647690cd1b7905a07c97d096b3636f57030e",
+      "bytes": 2057
+    },
+    {
+      "path": "cloud/apex-zero-054/kernel/apex-zero.ipynb",
+      "sha256": "ca4c9e18ed32dcd8168b8118b192d39d657803d30dcd89a564b1c2d1d9c846dd",
+      "bytes": 134149
+    },
+    {
+      "path": "experiments/EXP-052-stylegram-four-model-volume/data/four120.csv",
+      "sha256": "a4e86314a77f7ed699dbfb107b32a8263a1ff09fc7c3ec92b98d4028d487005d",
+      "bytes": 159249
+    },
+    {
+      "path": "cloud/apex-volume-formal/frozen-independent-audit.json",
+      "sha256": "f99ef8fa019ce6d3339d8ea008dd78be6903031d6f618020d9c689a46f080e95",
+      "bytes": 5031
+    },
+    {
+      "path": "experiments/EXP-056-apex-four120-formal/metrics/release.json",
+      "sha256": "95010eb88a0b88c3dd676f5dbd4b9815670bbffc98b2d78ee6abc4eff8b6059e",
+      "bytes": 535
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "job_id": "c63dbce94bbf8a29c1aa316545876dcdbe64f556ca1416ea2bfcfb6828201a7d",
+  "payload_sha256": "a452fd77c4bb506bdc6965e5d1fc1678bdb91d291cfe668b3a292054df38079a",
+  "generation_requests": 1,
+  "started_at": "2026-11-01T13:45:28.910873+00:00",
+  "status": "RECEIVED",
+  "model_requested": "openai/gpt-5.6-luna",
+  "sdk_max_retries": 0,
+  "response_cache": false,
+  "raw_response_sha256": "481c4c75d901095c7e7db81c79ff5ed8af4541fe0d58591c114d7043a136175e",
+  "ended_at": "2026-11-01T13:45:31.968606+00:00"
+}

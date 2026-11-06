@@ -1,0 +1,16 @@
+{
+  "role": "read-only-download-evidence",
+  "ref": "bgunshui/ntl-apex-e",
+  "observed_at": "2026-11-01T07:32:08.449528+00:00",
+  "notebook_version": 1,
+  "script_version_id": null,
+  "source_sha256": "ccb4549744df976c6dfa9da31f761a9bc4acfaeea34588e4c9bdae7aa4829f7a",
+  "code_sha256": "176028c830935d9ed88a36e659fd55294cc07ccf398d874161f20ff7207e93e6",
+  "source_file_sha256": "ccb4549744df976c6dfa9da31f761a9bc4acfaeea34588e4c9bdae7aa4829f7a",
+  "metadata_sha256": "4ad27dbeff19473dfdfff923d2ce9cec58ec58558e4fc9f5431c8a0108835bb0",
+  "latest_equals_fixed_source": true,
+  "executed": false,
+  "url": "https://www.kaggle.com/code/bgunshui/ntl-apex-e",
+  "method": "Kaggle API get_kernel latest then fixed version_label",
+  "status": "DOWNLOADED_NOT_EXECUTED"
+}

@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "EXP-048",
+  "title": "A1加EXP040原文Luna/Terra120：正式对照（外部窗口启动）",
+  "baseline_id": "EXP-046",
+  "hypothesis": "在A1/0.663上仅向Stylegram添加Luna/Terra原文120，检验是否在正式隐藏集有增益。",
+  "changes": [
+    "EXP040 Luna60/Terra60原文加入Stylegram；原有样本权重固定，新增行沿用同类公共每行权重，不重归一化。",
+    "其他模型、family gates数据及融合参数保持A1。"
+  ],
+  "observed_at": "2026-11-02T16:27:10.518052+00:00",
+  "source": {
+    "notebook_ref": "zhjianduan/name-that-llm-a1-codex120-1102",
+    "notebook_version": 2,
+    "script_version_id": 364733823,
+    "local_path": "tracking/snapshots/20261102T035507208171Z/codex120-latest.ipynb",
+    "sha256": "9ba9ab375efad299f8bc568674d30dba276ce72574ee237a784b0a6551a876d6"
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-048-a1-codex120-controlled/manifest.json",
+    "validation_split_id": "EXP040 original train/holdout grouping; holdout excluded",
+    "content_hashes_verified": false
+  },
+  "config": {
+    "note": "仅作台账索引；完整参数以 config_path 指向的 config.json 为准。"
+  },
+  "environment": {
+    "platform": "Kaggle",
+    "requested_accelerator": "T4 x2",
+    "internet": false,
+    "private": true,
+    "container": "gcr.io/kaggle-private-byod/python@sha256:2757e0c7d1e0a9cb43da657b97e223c321a98f5014bdf64f44f2f6b083ad2b2f",
+    "seed": 42
+  },
+  "execution": {
+    "scope": "competition_rerun",
+    "status": "COMPLETE",
+    "observed_at": "2026-11-02T16:27:10.518052+00:00",
+    "note": "正式评分完成；不从显示同分推断逐行预测相同。"
+  },
+  "submission": {
+    "id": 57893384,
+    "status": "COMPLETE",
+    "script_version_id": 364733823,
+    "public_score": 0.663,
+    "submitted_at": "2026-11-02T03:18:07.177Z",
+    "observed_at": "2026-11-02T16:27:10.518052+00:00",
+    "url": "https://www.kaggle.com/code/zhjianduan/name-that-llm-a1-codex120-1102?scriptVersionId=364733823"
+  },
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": null,
+    "per_class_recall_path": null,
+    "oof_path": null,
+    "leakage_audit": "not_audited"
+  },
+  "cost": {
+    "gpu_seconds": null,
+    "api_usd": null,
+    "colab_cu": null
+  },
+  "timing_note": null,
+  "conclusion": "正式 Public LB 0.663，与不加 Luna/Terra 数据的 A1（EXP046，0.663）显示同分。",
+  "limitations": "此次验收是源码/数据与提交绑定检查，不代表隐藏集执行完整或提分；ATLAS动态预算覆盖仍需运行结果证明。",
+  "next_action": "这组使用两类数据，不代替 Apex 四模型实验的 0 条对照。",
+  "related_sources": [],
+  "evidence": [
+    "experiments/EXP-048-a1-codex120-controlled/config.json",
+    "experiments/EXP-048-a1-codex120-controlled/manifest.json",
+    "experiments/EXP-048-a1-codex120-controlled/report.md",
+    "tracking/snapshots/20261102T035507208171Z/submissions.json",
+    "tracking/snapshots/20261102T035507208171Z/codex120-latest-metadata.json",
+    "tracking/snapshots/20261102T035507208171Z/codex120-version-binding.json",
+    "tracking/snapshots/20261102T035507208171Z/codex120-latest.ipynb",
+    "experiments/EXP-048-a1-codex120-controlled/metrics/source-audit.json",
+    "experiments/EXP-048-a1-codex120-controlled/metrics/source-audit.md",
+    "experiments/EXP-051-experiment-workbench/observations/EXP-048/20261102T045512685199Z-status-be9cf6/receipt.json",
+    "experiments/EXP-051-experiment-workbench/observations/EXP-048/20261102T045547548584Z-verify-6dbac9/receipt.json",
+    "experiments/EXP-048-a1-codex120-controlled/metrics/formal-latest.json"
+  ],
+  "config_path": "experiments/EXP-048-a1-codex120-controlled/config.json"
+}

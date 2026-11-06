@@ -1,0 +1,38 @@
+{
+  "observed_at": "2026-11-01T12:00:40.775124+00:00",
+  "status": "OFFLINE_ALIGNMENT_PASS",
+  "full_prompt_count": 250,
+  "pilot_prompt_count": 10,
+  "pilot_request_previews": 20,
+  "split_counts": {
+    "train": 200,
+    "holdout": 50
+  },
+  "categories": {
+    "everyday_advice": 25,
+    "science_explanation": 25,
+    "technology_explanation": 25,
+    "business_decision": 25,
+    "humanities_history": 25,
+    "creative_short_fiction": 25,
+    "tradeoff_argument": 25,
+    "rewrite_original_material": 25,
+    "short_email": 25,
+    "reasoning_explanation": 25
+  },
+  "original_prompt_fields_preserved": true,
+  "same_user_message_for_both_routes": true,
+  "original_records_unchanged": true,
+  "model_requests_sent": 0,
+  "original_prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+  "original_records_sha256": "cb903279b3727b31ce2125b89c5ce8f530d769a984f49c2cb86e4fbefb1e9722",
+  "protocol": "single-paragraph-plain-text-v1",
+  "protocol_text_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "limitations": [
+    "Only visible formatting requirements aligned; backend context/snapshot equivalence not established.",
+    "API minimal system retained from previous paired pilot; this is not a no-system replica of Lucas.",
+    "API 1024 cap retained; existing Codex collector has no equivalent explicit cap.",
+    "Temperature/top_p/seed remain omitted; effective defaults unknown.",
+    "Full source and raw output preserved; format screening is not automatic deletion/retry."
+  ]
+}

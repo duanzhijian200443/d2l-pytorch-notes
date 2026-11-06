@@ -1,0 +1,390 @@
+{
+  "status": "COMPLETE_CONDITIONAL_EXPOSED_PANEL_REPLAY",
+  "source": "SRC-067",
+  "fixed_source_sha256": "ca4c9e18ed32dcd8168b8118b192d39d657803d30dcd89a564b1c2d1d9c846dd",
+  "version": 1,
+  "script_version_id": 364684268,
+  "cache_artifacts_sha256": "1732849196220d023716a2dc912d660282c94022c2df370c69d9a6c2899bac63",
+  "cache_parity_stages": 67,
+  "old_comp_bitwise_source_parity": true,
+  "main_inventory": [
+    "tfidf",
+    "svc4",
+    "distort",
+    "q14v5_gauss",
+    "q14v5",
+    "q14v5_twin",
+    "q8v5_gauss",
+    "q8v5",
+    "q8v5_twin",
+    "ll8v5",
+    "ll8v5_twin",
+    "n14b",
+    "n14b_twin",
+    "q25_14",
+    "q25_14_twin",
+    "deb"
+  ],
+  "member_count_divisor": 16,
+  "comp_inventory": [
+    "stylegram",
+    "stylometry_lgb",
+    "glm9b_twin",
+    "gauss_glm9b_L8",
+    "q3_8b_twin",
+    "gauss_q3_8b_L22",
+    "q25_7b_twin",
+    "q3_4b_twin",
+    "gauss_q3_4b_L4",
+    "debv3l",
+    "debv3l_twin",
+    "gauss_debv3l_L24",
+    "electl",
+    "desk",
+    "lora24_seed7",
+    "lora24_claude",
+    "lora24_claude_twin",
+    "lora20_q25_instyle",
+    "tokattn_deb",
+    "ultrabert"
+  ],
+  "style_result_sha256": "e8476b28d24e042a518f6b05a6e812056ef641ea41c77428a7c149b586cb4a81",
+  "style_shared_sha256": "b98c246578afbc38b9bf3c0be1e666a41cc15d051c64d03e875ab0c85da1bd3b",
+  "main_result_sha256": "d83ec4034db359da84b6209151f6ad8595adc62ee6334c0ec5f2122edd6e3227",
+  "main_refit_used": true,
+  "parameters": {
+    "svc4": 12,
+    "stylegram": 1.516,
+    "comp": 0.15,
+    "atlas": 0.2,
+    "atlas_margin": 0.3,
+    "sinkhorn": 0.6,
+    "target_mix": 0.35,
+    "typography": 1.2,
+    "v40a_max_alpha": 0.08
+  },
+  "lineage": {
+    "stylegram": "recomputed full official training + snapshot shared data + arm additions",
+    "family_gates_refit_current_shared": [
+      "gpt",
+      "gemini",
+      "glm"
+    ],
+    "family_gate_scores_from_exp031": [
+      "claude",
+      "claude_lora"
+    ],
+    "all_other_comp_and_main_members_except_main_svc4": "fixed EXP031 captures; not certified historical Apex attachment bytes",
+    "nonzero_comp_candidates_absent_from_capture": [
+      "lora24_public",
+      "lora24_public_twin",
+      "tokattn_q35"
+    ],
+    "omission_policy": "No inference, renormalization, or substitute cache for absent optional members. Their execution on the author hidden rerun is unknown.",
+    "atlas_scores": "only completed original EXP031 rows",
+    "shared_comparison": {
+      "rows": 10469,
+      "groups": 716,
+      "delta_rows": 274,
+      "delta_groups": 22,
+      "reason": "Apex current public Lucas V12, Abdullah V9 compared with EXP031 verified Lucas V7, Abdullah V2 mirrors; actual prvs bytes match V7 for both."
+    },
+    "attachment_version_policy": "Use the individually fixed public source versions observed in SRC068 public-input-check. Historical fixed V1 API supplies dataset/kernel refs without version numbers; Open Pool has V13 card/log evidence. Remaining current data versions are a reproducible comparison snapshot, not a byte-identical reconstruction of the hidden author run."
+  },
+  "contamination": {
+    "panel_overlaps": {
+      "official": {
+        "raw_text_rows": 0,
+        "normalized_text_rows": 0,
+        "affected_groups": 0
+      },
+      "shared_extra": {
+        "raw_text_rows": 0,
+        "normalized_text_rows": 0,
+        "affected_groups": 0
+      },
+      "matched_raw": {
+        "raw_text_rows": 0,
+        "normalized_text_rows": 0,
+        "affected_groups": 0
+      },
+      "open_pool_v13": {
+        "raw_text_rows": 698,
+        "normalized_text_rows": 698,
+        "affected_groups": 54
+      },
+      "four120": {
+        "raw_text_rows": 0,
+        "normalized_text_rows": 0,
+        "affected_groups": 0
+      },
+      "four240": {
+        "raw_text_rows": 0,
+        "normalized_text_rows": 0,
+        "affected_groups": 0
+      }
+    },
+    "apex_main_svc": {
+      "source_weights": {
+        "official": 1,
+        "matched": 0.5,
+        "pool": 0.35
+      },
+      "log_score_coefficient": 12,
+      "pre_dedup_safe_pool": 190588,
+      "fit_text_projection": {
+        "official": 2699,
+        "matched": 24443,
+        "open_pool_v13": 173336
+      },
+      "total_fit_projection": 200478,
+      "panel_exact_fit_key_hits": 698,
+      "groups_with_any_hit": 54,
+      "rows_in_groups_with_any_hit": 714,
+      "hidden_actual_fit_execution_verified": false
+    },
+    "known_near_prompt_scope": {
+      "four120": {
+        "training_groups": [
+          "cp0029"
+        ],
+        "panel_rows": 12,
+        "panel_groups": 1
+      },
+      "four240": {
+        "training_groups": [
+          "cp0049",
+          "cp0029"
+        ],
+        "panel_rows": 24,
+        "panel_groups": 2
+      }
+    },
+    "boundaries": "Main branch trained on 698 of 729 panel answers. All main-related metrics descriptive. Remaining 31 rows are not an independent evaluation. Upstream heavy-model training membership unknown."
+  },
+  "gates": {
+    "zero": {
+      "claude": {
+        "active_rows": 168,
+        "mean_strength": 0.053633144396793536
+      },
+      "claude_lora": {
+        "active_rows": 167,
+        "mean_strength": 0.049541223419624296
+      },
+      "gpt": {
+        "active_rows": 239,
+        "mean_strength": 0.03543169931982053
+      },
+      "gemini": {
+        "active_rows": 183,
+        "mean_strength": 0.026377738824941224
+      },
+      "glm": {
+        "active_rows": 193,
+        "mean_strength": 0.025566732896287164
+      }
+    },
+    "four120": {
+      "claude": {
+        "active_rows": 168,
+        "mean_strength": 0.05363351094262619
+      },
+      "claude_lora": {
+        "active_rows": 167,
+        "mean_strength": 0.049556892225125354
+      },
+      "gpt": {
+        "active_rows": 238,
+        "mean_strength": 0.035404479557408094
+      },
+      "gemini": {
+        "active_rows": 183,
+        "mean_strength": 0.02637241050063106
+      },
+      "glm": {
+        "active_rows": 192,
+        "mean_strength": 0.025593750621591502
+      }
+    },
+    "four240": {
+      "claude": {
+        "active_rows": 168,
+        "mean_strength": 0.053651647699943295
+      },
+      "claude_lora": {
+        "active_rows": 167,
+        "mean_strength": 0.049550943704380415
+      },
+      "gpt": {
+        "active_rows": 237,
+        "mean_strength": 0.03542408319842872
+      },
+      "gemini": {
+        "active_rows": 183,
+        "mean_strength": 0.02636863540669401
+      },
+      "glm": {
+        "active_rows": 192,
+        "mean_strength": 0.02558229941489372
+      }
+    }
+  },
+  "residual_status": {
+    "zero": "NOT_RUN_INCOMPLETE_ATLAS",
+    "four120": "NOT_RUN_INCOMPLETE_ATLAS",
+    "four240": "NOT_RUN_INCOMPLETE_ATLAS"
+  },
+  "metrics": {
+    "main_v13_w12": {
+      "correct": 507,
+      "rows": 729,
+      "accuracy": 0.6954732510288066,
+      "covered_17_class_macro_recall": 0.627614344342962,
+      "scope": "descriptive exposed panel only"
+    },
+    "style_zero": {
+      "correct": 326,
+      "rows": 729,
+      "accuracy": 0.44718792866941015,
+      "covered_17_class_macro_recall": 0.3892786833642453,
+      "scope": "inspected external panel; feature/model exposure not exhaustively known"
+    },
+    "comp_zero": {
+      "correct": 426,
+      "rows": 729,
+      "accuracy": 0.5843621399176955,
+      "covered_17_class_macro_recall": 0.504753383478175,
+      "scope": "inspected external panel; feature/model exposure not exhaustively known"
+    },
+    "pre_atlas_zero": {
+      "correct": 513,
+      "rows": 729,
+      "accuracy": 0.7037037037037037,
+      "covered_17_class_macro_recall": 0.6362627849500451,
+      "scope": "descriptive exposed panel only"
+    },
+    "style_four120": {
+      "correct": 330,
+      "rows": 729,
+      "accuracy": 0.45267489711934156,
+      "covered_17_class_macro_recall": 0.3938898289788511,
+      "scope": "inspected external panel; feature/model exposure not exhaustively known"
+    },
+    "comp_four120": {
+      "correct": 426,
+      "rows": 729,
+      "accuracy": 0.5843621399176955,
+      "covered_17_class_macro_recall": 0.504753383478175,
+      "scope": "inspected external panel; feature/model exposure not exhaustively known"
+    },
+    "pre_atlas_four120": {
+      "correct": 513,
+      "rows": 729,
+      "accuracy": 0.7037037037037037,
+      "covered_17_class_macro_recall": 0.6362627849500451,
+      "scope": "descriptive exposed panel only"
+    },
+    "style_four240": {
+      "correct": 329,
+      "rows": 729,
+      "accuracy": 0.4513031550068587,
+      "covered_17_class_macro_recall": 0.3905182550190419,
+      "scope": "inspected external panel; feature/model exposure not exhaustively known"
+    },
+    "comp_four240": {
+      "correct": 426,
+      "rows": 729,
+      "accuracy": 0.5843621399176955,
+      "covered_17_class_macro_recall": 0.504753383478175,
+      "scope": "inspected external panel; feature/model exposure not exhaustively known"
+    },
+    "pre_atlas_four240": {
+      "correct": 513,
+      "rows": 729,
+      "accuracy": 0.7037037037037037,
+      "covered_17_class_macro_recall": 0.6362627849500451,
+      "scope": "descriptive exposed panel only"
+    }
+  },
+  "changes": {
+    "style_four120_minus_style_zero": {
+      "changed": 24,
+      "fixed": 10,
+      "new_errors": 6,
+      "both_wrong_changed": 8,
+      "net_correct": 4,
+      "delta_covered_macro_recall": 0.004611145614605794
+    },
+    "style_four240_minus_style_zero": {
+      "changed": 28,
+      "fixed": 10,
+      "new_errors": 7,
+      "both_wrong_changed": 11,
+      "net_correct": 3,
+      "delta_covered_macro_recall": 0.0012395716547966007
+    },
+    "style_four240_minus_style_four120": {
+      "changed": 17,
+      "fixed": 3,
+      "new_errors": 4,
+      "both_wrong_changed": 10,
+      "net_correct": -1,
+      "delta_covered_macro_recall": -0.003371573959809193
+    },
+    "comp_four120_minus_comp_zero": {
+      "changed": 1,
+      "fixed": 0,
+      "new_errors": 0,
+      "both_wrong_changed": 1,
+      "net_correct": 0,
+      "delta_covered_macro_recall": 0.0
+    },
+    "comp_four240_minus_comp_zero": {
+      "changed": 1,
+      "fixed": 0,
+      "new_errors": 0,
+      "both_wrong_changed": 1,
+      "net_correct": 0,
+      "delta_covered_macro_recall": 0.0
+    },
+    "comp_four240_minus_comp_four120": {
+      "changed": 0,
+      "fixed": 0,
+      "new_errors": 0,
+      "both_wrong_changed": 0,
+      "net_correct": 0,
+      "delta_covered_macro_recall": 0.0
+    },
+    "pre_atlas_four120_minus_pre_atlas_zero": {
+      "changed": 0,
+      "fixed": 0,
+      "new_errors": 0,
+      "both_wrong_changed": 0,
+      "net_correct": 0,
+      "delta_covered_macro_recall": 0.0
+    },
+    "pre_atlas_four240_minus_pre_atlas_zero": {
+      "changed": 0,
+      "fixed": 0,
+      "new_errors": 0,
+      "both_wrong_changed": 0,
+      "net_correct": 0,
+      "delta_covered_macro_recall": 0.0
+    },
+    "pre_atlas_four240_minus_pre_atlas_four120": {
+      "changed": 0,
+      "fixed": 0,
+      "new_errors": 0,
+      "both_wrong_changed": 0,
+      "net_correct": 0,
+      "delta_covered_macro_recall": 0.0
+    }
+  },
+  "final_metrics": {
+    "zero": null,
+    "four120": null,
+    "four240": null
+  },
+  "limits": "Conditional on reused older heavy members and Claude gates. This panel cannot establish validation or leaderboard gain."
+}

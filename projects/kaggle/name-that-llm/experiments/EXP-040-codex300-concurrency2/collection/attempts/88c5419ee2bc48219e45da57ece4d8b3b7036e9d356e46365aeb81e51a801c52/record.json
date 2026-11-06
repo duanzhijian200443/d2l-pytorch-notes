@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0021",
+  "prompt": "Why can a metal spoon feel colder than a wooden spoon even when both have been sitting in the same room all night? Explain for a curious teenager. Keep your response near 80 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "science_explanation",
+  "target_words": 80,
+  "prompt_group": "cp0021",
+  "split": "train",
+  "source": "codex_subscription",
+  "base_prompt": "Why can a metal spoon feel colder than a wooden spoon even when both have been sitting in the same room all night? Explain for a curious teenager. Keep your response near 80 words.",
+  "base_prompt_sha256": "4843f1e01ac65abe489ebb396e8ea86d18b0d3b1ae452152dc7b1867cbc6ae90",
+  "base_prompt_id": "cp0021",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0021::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "88c5419ee2bc48219e45da57ece4d8b3b7036e9d356e46365aeb81e51a801c52",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:21:53.449109+00:00",
+  "ended_at": "2026-11-01T13:22:12.752483+00:00",
+  "prompt_sha256": "19cd6be59347e73359d76daa30fe2eb5520bf29ce1263b75b235dca28d6137ff",
+  "text": "Both spoons are at roughly the same room temperature, but your skin senses how quickly heat leaves it, not just an object’s temperature. Metal conducts heat well, so it quickly carries warmth away from your hand into the rest of the spoon. Wood is a poor heat conductor, so heat moves away much more slowly, and the surface touching you warms up. That faster heat loss makes metal feel colder, even though a thermometer would show nearly identical temperatures.",
+  "text_sha256": "3d72bfaf72b3a7ab76d432564f1cc907d14b535518a9e851e413646a201ed5ea",
+  "raw_final_sha256": "3d72bfaf72b3a7ab76d432564f1cc907d14b535518a9e851e413646a201ed5ea",
+  "word_count": 79,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4331,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 95,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\88c5419ee2bc48219e45da57ece4d8b3b7036e9d356e46365aeb81e51a801c52",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "source": "official Kaggle SDK list_kernel_session_output v2",
+  "observed_at": "2026-11-02T03:56:06.060388+00:00",
+  "notebook_ref": "zhjianduan/name-that-llm-a1-codex120-1102",
+  "notebook_version": 2,
+  "script_version_ids": [
+    364733823
+  ],
+  "filenames_first_page": [
+    "a1_synthetic_parity.json",
+    "add120_preflight.json",
+    "availability.json",
+    "comp_stack.py",
+    "deberta_v3_large/encoder/config.json",
+    "deberta_v3_large/encoder/model.safetensors",
+    "deberta_v3_large/encoder/tokenizer.json",
+    "deberta_v3_large/encoder/tokenizer_config.json",
+    "deberta_v3_large/head.safetensors",
+    "deberta_v3_large/meta.json",
+    "gauss.py",
+    "infer.py",
+    "input_preflight.json",
+    "ntl_a1_payload/__pycache__/a1_stylegram.cpython-313.pyc",
+    "ntl_a1_payload/__pycache__/input_policy.cpython-313.pyc",
+    "ntl_a1_payload/__pycache__/input_preflight.cpython-313.pyc",
+    "ntl_a1_payload/__pycache__/runtime_preflight.cpython-313.pyc",
+    "ntl_a1_payload/__pycache__/stylegram_core.cpython-313.pyc",
+    "ntl_a1_payload/a1_stylegram.py",
+    "ntl_a1_payload/extra-inputs.json"
+  ],
+  "signed_urls_omitted": true,
+  "submission_id": 57893384
+}

@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "observed_at_utc": "2026-11-01T11:09:49.998605+00:00",
+  "policy_tests": 13,
+  "runner_tests": 14,
+  "independent_missing_input_checks": 12,
+  "new_model_execution": false,
+  "runner_sha256": "62888bb733b6eaac285d34d3c18766df2c47f0ac8a7a77042bb6113c6f8de87b",
+  "policy_sha256": "d4167dbcccef49da7d439e4f459b1e15d17c8960ae6b622235ecee776cd3caf2",
+  "actual_cpu_inventory_files": 531,
+  "expected_comp_members": 20,
+  "independent_review_sha256": "b2af014f99c023b57f767b8c9836fbee95b2aad3067af7917b7eb31d6829f15d"
+}

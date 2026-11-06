@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-035",
+  "freeze_status": "PREPARED_AWAITING_APPROVAL",
+  "frozen_at": "2026-11-01T12:09:01.091647+00:00",
+  "config": {
+    "path": "experiments/EXP-035-aligned-paired-repeat-pilot/config.json",
+    "sha256": "55b6d10b275664a93164edb5f173748638abd24d25d5adbcacd4728989122a29"
+  },
+  "inputs": [
+    {
+      "path": "experiments/EXP-034-explicit-format-alignment/manifest.json",
+      "sha256": "03a753b61dea7f02deaa7336c1360b3b833b6391a3948bff72946913a77f8653"
+    },
+    {
+      "path": "experiments/EXP-034-explicit-format-alignment/pilot/prompts.jsonl",
+      "sha256": "63533cddb357ff89c521d98d303f578b67d6f727a987a0a7818f6ec49ba46abb"
+    },
+    {
+      "path": "experiments/EXP-034-explicit-format-alignment/kaggle-request-preview.jsonl",
+      "sha256": "92ad48cc9c0bff77e019f5277b8ce6e73c392c4649c89c0a2be87c7471c5646c"
+    },
+    {
+      "path": "experiments/EXP-034-explicit-format-alignment/format-instructions.txt",
+      "sha256": "f992f4ec440aa9bb3fb5ea3cfbab16b20b6504fdb180b324a1ff02221072d65c"
+    },
+    {
+      "path": "pending-handoff-kaggle-proxy-pilot-20261101T084539Z/authorization-v2-results/manifest.json",
+      "sha256": "5e682b8557fa628a0400107054cdbafc6d32fa66fdc821dbe52135ea1d8dcbbd"
+    }
+  ],
+  "code": [
+    {
+      "path": "experiments/EXP-035-aligned-paired-repeat-pilot/code/prepare_trial.py",
+      "sha256": "a5aa00377ca8a306349347ce9cde0d160aab21f5988a29bfdfc1a16b792fabbc"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "experiments/EXP-035-aligned-paired-repeat-pilot/request-plan.jsonl",
+      "sha256": "3bb10302cc87ad0f3d8f02b0e78b59bdb187d840327ee98406d00b07837dcfa7"
+    },
+    {
+      "path": "experiments/EXP-035-aligned-paired-repeat-pilot/metrics/preparation-checks.json",
+      "sha256": "8aa1d058e43bb9a530c0c24b7463da46f68c0e061d56dea0b7f9900e0b94ae6e"
+    },
+    {
+      "path": "experiments/EXP-035-aligned-paired-repeat-pilot/report.md",
+      "sha256": "cf1959827ca319ee1bad6d18cebf21cea0826ae50e164a7a41405e24e30e7ebb"
+    }
+  ],
+  "generation_authorized": false,
+  "requests_sent": 0
+}

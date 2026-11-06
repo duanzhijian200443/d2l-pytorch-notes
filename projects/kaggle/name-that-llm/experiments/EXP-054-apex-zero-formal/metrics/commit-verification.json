@@ -1,0 +1,73 @@
+{
+  "experiment_id": "EXP-054",
+  "status": "PASS_PUBLIC_FAST_COMMIT",
+  "verified_at": "2026-11-02T09:12:38.117014+00:00",
+  "ref": "zhjianduan/ntl-apex-zero-054",
+  "version": 2,
+  "script_version_id": 364820326,
+  "submission_artifact": {
+    "path": "cloud/apex-zero-054/outputs-v2/submission.parquet",
+    "bytes": 1682,
+    "sha256": "ef94c7669e36a465bbd3e2dd8cf4905b5e1c2e51e18053a588cb56623086170a"
+  },
+  "module_hashes": [
+    {
+      "path": "cloud/apex-zero-054/outputs-v2/comp_stack.py",
+      "bytes": 53256,
+      "sha256": "4a4b800a5380094d78da66d140d224f8a3974d1e3012086783d5bf81b1264514"
+    },
+    {
+      "path": "cloud/apex-zero-054/outputs-v2/gauss.py",
+      "bytes": 8219,
+      "sha256": "908b57113f1a7b8ebdbf204c6be87cbc385f765ba50ac07b4e270c64b7cf1000"
+    },
+    {
+      "path": "cloud/apex-zero-054/outputs-v2/infer.py",
+      "bytes": 49002,
+      "sha256": "63112c88d43f9d69b3132243315e0db28c40b4bf0f42bac651f73ef07a67f9bb"
+    },
+    {
+      "path": "cloud/apex-zero-054/outputs-v2/sibling_style.py",
+      "bytes": 4970,
+      "sha256": "8a7f3b3dad7cbe1755b66e8455a157894cac92b8983fc805f5ed6286ea915e66"
+    }
+  ],
+  "public_ids_exact_order": [
+    "00353fb1c541",
+    "005f5a9a6139",
+    "0062a53d5487"
+  ],
+  "public_output_models": [
+    "gpt-5.5",
+    "gpt-5.5",
+    "gpt-5.5"
+  ],
+  "public_log": {
+    "path": "cloud/apex-zero-054/outputs-v2/ntl-apex-zero-054.log",
+    "bytes": 8885,
+    "sha256": "227116397d8222bf5c5e0a553b7866de541b54f1d046c3a5b69114cad1a4fd34"
+  },
+  "verified_log_signals": [
+    "FAST_COMMIT True",
+    "llama source alexchilton/llama-3-1-8b-base",
+    "variant E dropped flag_gemini37_routing_risk 0",
+    "open safe pool 190588"
+  ],
+  "source": {
+    "path": "cloud/apex-zero-054/kernel/apex-zero.ipynb",
+    "bytes": 134149,
+    "sha256": "ca4c9e18ed32dcd8168b8118b192d39d657803d30dcd89a564b1c2d1d9c846dd"
+  },
+  "source_exact_readback": {
+    "path": "cloud/apex-zero-054/readback-v2.json",
+    "bytes": 3979,
+    "sha256": "a5417698bfbca033298fb044099b14cad88186b1ce4fafd899eddb9c12fd2265"
+  },
+  "global_id_evidence": {
+    "path": "cloud/apex-zero-054/script-identity.json",
+    "bytes": 724,
+    "sha256": "8e70e399a62854bbff1fc926f78c486a8cda1123a273701b71846a1745e5efcf"
+  },
+  "competition_submission_made_by_this_controller": false,
+  "hidden_result_observed": false
+}

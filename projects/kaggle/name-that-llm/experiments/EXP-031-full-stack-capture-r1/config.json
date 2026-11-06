@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-031",
+  "baseline_id": "EXP-004",
+  "scope": "exploratory_external",
+  "panel_rows": 729,
+  "panel_sha256": "8eeec7f64e924f0fd79dca57d324d42d269f400bdfbfff76d60b4c168d9ae6f2",
+  "primary_action": "capture full baseline member scores, then verify replay before any parameter comparison",
+  "model": {
+    "name": "fixed EXP004/009 ATLAS20",
+    "parameters": {
+      "sinkhorn": 0.45,
+      "sinkhorn_target_mix": 0.35,
+      "comp_w": 0.15,
+      "atlas_w": 0.2,
+      "atlas_margin": 0.3,
+      "typography_weight": 1.5
+    }
+  },
+  "validation": {
+    "split_id": null,
+    "clean_oof": false,
+    "fully_independent_panel_certified": false,
+    "labels_on_remote": false,
+    "seed": 42
+  },
+  "environment": {
+    "platform": "Kaggle",
+    "accelerator": "NvidiaTeslaT4 x2 after CPU preflight",
+    "internet": false
+  },
+  "budget": {
+    "cpu_preflight_wall_seconds": 3600,
+    "gpu_platform_wall_seconds": 28800,
+    "gpu_work_seconds": 28200,
+    "new_gpu_runs": 1,
+    "api_usd": 0,
+    "colab_cu": 0
+  },
+  "no_automatic_retry": true,
+  "formal_submission": false,
+  "public_resources": false,
+  "created_at_utc": "2026-11-01T11:09:49.998605+00:00",
+  "retry_of": "EXP-029",
+  "change": "Shared CPU/GPU optional input policy; absent public LoRA and twin skipped exactly as original source",
+  "expected_comp_members": [
+    "stylegram",
+    "stylometry_lgb",
+    "glm9b_twin",
+    "gauss_glm9b_L8",
+    "q3_8b_twin",
+    "gauss_q3_8b_L22",
+    "q25_7b_twin",
+    "q3_4b_twin",
+    "gauss_q3_4b_L4",
+    "debv3l",
+    "debv3l_twin",
+    "gauss_debv3l_L24",
+    "electl",
+    "desk",
+    "lora24_seed7",
+    "lora24_claude",
+    "lora24_claude_twin",
+    "lora20_q25_instyle",
+    "tokattn_deb",
+    "ultrabert"
+  ],
+  "allowed_omissions": [
+    "lora24_public",
+    "lora24_public_twin",
+    "tokattn_q35"
+  ]
+}

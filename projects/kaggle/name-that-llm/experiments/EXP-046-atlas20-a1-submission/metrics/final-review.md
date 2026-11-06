@@ -1,0 +1,11 @@
+# EXP046 final local review
+
+PASS — bound to the manifest and code hashes in final-review.json. No remaining blocking code finding in this frozen candidate.
+
+- A1 replaces only the Stylegram member. Original family-gate data, other comp members, main svc4, dynamic ATLAS20, Sinkhorn and typography math remain unchanged. The strict comp patch preserves original gate bytes.
+- Official2699/150 and public10073/694 inputs, float64, C=.5, share=.5, seed42, plain/centred routing match frozen EXP027; small real-StyleGrams AST-reference parity passes. Official actual prompt IDs are strings and match predict() requirements.
+- Notebook ZIP has exactly nine allowlisted code/manifest files, byte-equal to reviewed payload, with no cached validation panel. Hidden official test is schema-validated, never constrained to old public hashes or row counts. A rerun environment key forces full inference even when empty or zero.
+- Original silent-degradation paths are covered by new non-mathematical log receipts. Real EXP031 logs pass (20 comp members, 5 gates, 728 eligible rows; ATLAS206/206). Missing/duplicate members, wrong weights/rows, skipped gates, missing adapters and partial/skipped ATLAS fail. Full log suite and package suite:24 tests PASS,0.732s.
+- Controller uses official installed SDK parameters, an exclusive local lock and durable one-shot intents. Unknown acknowledgements cannot be automatically retried. Private, internet-off, pinned image, T4 shape,32 inputs and32400-second request are verified locally; actual remote readback/runtime remain separate evidence.
+
+Limitations: this reviewer implemented the isolated log-verification helper by delegation, so its tests do not constitute independent second-author review. Large model files are size-checked at runtime; main twins have no direct log receipt; zero-ATLAS control flow is inspected but real empty tokenizer execution was not run. The current download filter excludes new hidden execution logs/receipts; fetch those explicitly if available. Local A1 replay is exploratory, not clean OOF or a leaderboard score. This PASS is neither cloud success nor permission for any additional run/submission beyond existing user authorization.

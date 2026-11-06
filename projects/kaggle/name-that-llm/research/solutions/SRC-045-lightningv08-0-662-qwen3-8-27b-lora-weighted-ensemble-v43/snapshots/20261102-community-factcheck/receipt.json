@@ -1,0 +1,14 @@
+{
+  "observed_at": "2026-11-02T03:59:47.125703+00:00",
+  "existing_source": "SRC-045",
+  "ref": "lightningv08/0-662-qwen3-8-27b-lora-weighted-ensemble",
+  "current_version": 43,
+  "old_version": 43,
+  "source_sha256": "326660d13a4275cfcf305c76174282fffe1e4e09889c70113086bf4122d63e73",
+  "code_sha256": "a5946bdcdc4f8a7e2f971f37eaa90ba6e57083301c6d3cc5659d04f19f66f52e",
+  "old_code_same_method_sha256": "a5946bdcdc4f8a7e2f971f37eaa90ba6e57083301c6d3cc5659d04f19f66f52e",
+  "code_equal": true,
+  "old_source_path": "research/solutions/SRC-045-lightningv08-0-662-qwen3-8-27b-lora-weighted-ensemble-v43/source.ipynb",
+  "directory": "research/inbox/20261102-community-factcheck/solutions/lightningv08--v43",
+  "score_binding": "not_established_by_latest_metadata"
+}

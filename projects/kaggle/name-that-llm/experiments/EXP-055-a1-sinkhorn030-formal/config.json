@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-055",
+  "baseline_id": "EXP-046",
+  "candidate_preparation": "EXP-049",
+  "notebook_receipt_experiment_id": "EXP-049",
+  "hypothesis": "A1 with the main Sinkhorn weight changed from 0.45 to 0.30 is compared to original EXP046 A1 on the competition leaderboard.",
+  "model": {
+    "name": "A1 full ATLAS20",
+    "parameters": {
+      "sinkhorn_control": 0.45,
+      "sinkhorn_candidate": 0.3,
+      "sinkhorn_target_mix": 0.35,
+      "atlas_weight": 0.2,
+      "comp_weight": 0.15,
+      "typography_scale": 1.5,
+      "self_generated_rows_added": 0
+    }
+  },
+  "candidate_notebook_ref": "zhjianduan/name-that-llm-a1-sinkhorn030-049",
+  "candidate_sha256": "35ddcc24900d4bace4b3c4cc167475ad2c119af83a9eb687ef717f7bea1200b5",
+  "metadata_sha256": "8c0a1ad41ecda521e57a0072bb68d93bbfa2ce65014a4ee42ffb0d09d679ba6f",
+  "environment": {
+    "private": true,
+    "internet": false,
+    "requested_t4_shape": "NvidiaTeslaT4",
+    "docker_image": "gcr.io/kaggle-private-byod/python@sha256:2757e0c7d1e0a9cb43da657b97e223c321a98f5014bdf64f44f2f6b083ad2b2f"
+  },
+  "input_policy": {
+    "requested_assets": 32,
+    "noncompetition_files_expected": 528,
+    "baseline_small_sha256": 398,
+    "extra_small_sha256": 5,
+    "baseline_large_exact_size_only": 130
+  },
+  "execution_scope": "V1 save-only and V2 public quick-commit; separate submission handoff to parent",
+  "submission_owner": "parent controller only",
+  "recorded_at": "2026-11-02T09:05:36.840847+00:00"
+}

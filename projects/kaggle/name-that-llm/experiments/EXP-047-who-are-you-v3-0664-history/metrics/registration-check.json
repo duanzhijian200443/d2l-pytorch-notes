@@ -1,0 +1,20 @@
+{
+  "status": "PASS_REGISTRATION_ONLY",
+  "observed_at": "2026-11-01T17:34:25.102026+00:00",
+  "checks": {
+    "submission_complete": true,
+    "exact_public_score": 0.664,
+    "global_script_version_id": 364274017,
+    "notebook_version": 3,
+    "source_matches_record_sha256": true,
+    "source_byte_identical_to_exp006": true,
+    "unknown_costs_remain_null": true,
+    "new_remote_mutations": false
+  },
+  "protected_hashes": {
+    "tracking\\records\\experiments\\EXP-004.json": "f0cef27c942819d1f3ca828e579e19419752f68024041792613bac508a79b50f",
+    "tracking\\records\\experiments\\EXP-006.json": "8ba9a335c9aa958a85fb3bc185404f04b14557f146cb618316377e3efae1f303",
+    "tracking\\settings.json": "515e843d0978123eb7d203942522d6274346075e72de075d0cdf9254c7802672"
+  },
+  "allocator": "tracking.ledger.create_experiment used directly to allocate EXP047; main CLI would render shared views, so root retains check/render responsibility."
+}

@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0099",
+  "prompt": "Explain how a city's street names can function as an unofficial record of its changing priorities. Please answer in roughly 200 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "humanities_history",
+  "target_words": 200,
+  "prompt_group": "cp0099",
+  "split": "train",
+  "source": "codex_subscription",
+  "base_prompt": "Explain how a city's street names can function as an unofficial record of its changing priorities. Please answer in roughly 200 words.",
+  "base_prompt_sha256": "e8db15f978097e99b0755db4ed47264f5a931d9b502ed331fa1dd2658a90d79c",
+  "base_prompt_id": "cp0099",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0099::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "a12c3c647ad35fca10619646c56c5202a4f1334826267fc3ad82f555e6bb37ca",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:55:53.839247+00:00",
+  "ended_at": "2026-11-01T13:56:16.452066+00:00",
+  "prompt_sha256": "d4af51a2e8fe16676f3d09eae126b485cb63c21d0b1d512c2b6818077224962c",
+  "text": "Street names can serve as an unofficial civic archive because they reveal whom a city chooses to honor, what events it remembers, and which values it wishes to project. Older names may preserve geography, local trades, Indigenous languages, colonial figures, or former industries, even after the landscapes and economies that produced them have disappeared. Newer names often signal changing priorities: a boulevard renamed for a civil-rights leader may reflect demands for inclusion, while streets commemorating scientists, artists, women, or community organizers can broaden a previously narrow public memory. Renaming can also expose conflict. Removing the name of a conqueror, slaveholder, dictator, or segregationist does not erase history; it shows that residents are reconsidering how history should be displayed in everyday life. Developers and officials may name roads after businesses, donors, landmarks, or aspirational ideas such as Unity, Innovation, or Sustainability, revealing economic and political goals. Because people encounter street signs constantly—in addresses, maps, transit announcements, and conversation—these choices quietly shape collective memory. Taken together, a city’s street names chart shifts in power, identity, migration, development, and public conscience more vividly than a formal timeline might.",
+  "text_sha256": "41bc45eb22fcf46231d2fb814228626067f9f4ffc7d54f7a656dd750a1a94749",
+  "raw_final_sha256": "41bc45eb22fcf46231d2fb814228626067f9f4ffc7d54f7a656dd750a1a94749",
+  "word_count": 185,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4204,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 259,
+      "reasoning_output_tokens": 16
+    }
+  ],
+  "attempt_path": "collection\\attempts\\a12c3c647ad35fca10619646c56c5202a4f1334826267fc3ad82f555e6bb37ca",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

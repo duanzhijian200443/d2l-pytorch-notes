@@ -1,0 +1,133 @@
+{
+  "status": "IMPORTED",
+  "role": "historical_import_receipt_not_authoritative_registry",
+  "entries": [
+    {
+      "category": "solutions",
+      "kind": "notebook",
+      "artifact_dir": "research/inbox/20261101-community-root/solutions/zbigniewkirchner--0-664-one-swap-198k-clean-pool-fully-public--v1",
+      "slug": "one-swap-v1",
+      "author": "zbigniewkirchner",
+      "title": "One Swap V1：Open Pool + SVC12，绑定0.664",
+      "url": "https://www.kaggle.com/code/zbigniewkirchner/0-664-one-swap-198k-clean-pool-fully-public?scriptVersionId=364073396",
+      "observed_at": "2026-11-01T07:32:06.637871+00:00",
+      "source_version": {
+        "notebook_version": 1,
+        "script_version_id": 364073396,
+        "source_sha256": "7e2ebb63ec4bbc3ffa03b9265c1cb9985b68c1b820bd6586572227d7e567eb69",
+        "code_sha256": "7063ccbaff77035df4bd4ca579b80fc4567dd5a4ec684e5cafc53656744240b3"
+      },
+      "public_score": {
+        "value": 0.664,
+        "evidence_type": "platform_page",
+        "bound_to_source": true,
+        "script_version_id": 364073396
+      },
+      "summary": "Open Pool与svc_w12同时改变；平台0.664绑定V1，ATLAS选行和预算存在耦合。",
+      "tags": [
+        "data",
+        "svm",
+        "ensemble",
+        "runtime",
+        "version-binding"
+      ],
+      "related_sources": [
+        "SRC-002",
+        "SRC-027"
+      ],
+      "shared_evidence": [
+        "one-swap-versions-dom-observation.json"
+      ]
+    },
+    {
+      "category": "solutions",
+      "kind": "notebook",
+      "artifact_dir": "research/inbox/20261101-community-root/solutions/zbigniewkirchner--0-664-one-swap-198k-clean-pool-fully-public--v3",
+      "slug": "one-swap-v3",
+      "author": "zbigniewkirchner",
+      "title": "One Swap V3：说明修订与权重梯度，未绑定成绩",
+      "url": "https://www.kaggle.com/code/zbigniewkirchner/0-664-one-swap-198k-clean-pool-fully-public?scriptVersionId=364294976",
+      "observed_at": "2026-11-01T07:32:09.367821+00:00",
+      "source_version": {
+        "notebook_version": 3,
+        "script_version_id": 364294976,
+        "source_sha256": "86a72c03d95a46a3378b6e736a23fa0cc8dbc55bc50542852a07c8fe492aa628",
+        "code_sha256": "d8c630d3b9fd1b3b0453de6fffb9e5d613f7a9c1c79cf47ab42f7dd9ad30321f"
+      },
+      "public_score": {
+        "value": null,
+        "evidence_type": "not_verified",
+        "bound_to_source": false,
+        "script_version_id": null
+      },
+      "summary": "V3仅删绘图/改注释与说明，主推理同V1；11秒Quick Version没有独立成绩。",
+      "tags": [
+        "data",
+        "svm",
+        "ensemble",
+        "runtime",
+        "version-binding"
+      ],
+      "related_sources": [
+        "SRC-002",
+        "SRC-027"
+      ],
+      "shared_evidence": [
+        "one-swap-versions-dom-observation.json"
+      ]
+    },
+    {
+      "category": "datasets",
+      "kind": "dataset",
+      "artifact_dir": "research/inbox/20261101-community-root/datasets/open-pool",
+      "slug": "open-pool-kaggle-v11",
+      "author": "crtproduction",
+      "title": "Open Pool：作者v10 / Kaggle V11 数据卡与清洗对照",
+      "url": "https://www.kaggle.com/datasets/crtproduction/name-that-llm-open-pool/versions/11",
+      "observed_at": "2026-11-01T07:35:57Z",
+      "source_version": {
+        "dataset_id": 12862556,
+        "dataset_version_number": 11,
+        "author_release_label": "v10",
+        "version_created_at": "2026-10-30T07:53:21.983Z"
+      },
+      "public_score": null,
+      "summary": "198507条为作者声明；平台固定版本11而非10，卡片/文件清单已核查，未读全量行内容。",
+      "tags": [
+        "data",
+        "cleaning",
+        "provenance",
+        "license",
+        "version-binding"
+      ],
+      "related_sources": [
+        "SRC-027",
+        "SRC-033"
+      ]
+    }
+  ],
+  "imported_at": "2026-11-01T07:38:25.223483+00:00",
+  "canonical_records": [
+    {
+      "source_id": "SRC-036",
+      "record_path": "tracking/records/sources/SRC-036.json",
+      "artifact_dir": "research/solutions/SRC-036-one-swap-v1"
+    },
+    {
+      "source_id": "SRC-037",
+      "record_path": "tracking/records/sources/SRC-037.json",
+      "artifact_dir": "research/solutions/SRC-037-one-swap-v3"
+    },
+    {
+      "source_id": "SRC-038",
+      "record_path": "tracking/records/sources/SRC-038.json",
+      "artifact_dir": "research/datasets/SRC-038-open-pool-kaggle-v11"
+    }
+  ],
+  "path_migrations": {
+    "research/inbox/20261101-community-root/solutions/zbigniewkirchner--0-664-one-swap-198k-clean-pool-fully-public--v1": "research/solutions/SRC-036-one-swap-v1",
+    "research/inbox/20261101-community-root/solutions/zbigniewkirchner--0-664-one-swap-198k-clean-pool-fully-public--v3": "research/solutions/SRC-037-one-swap-v3",
+    "research/inbox/20261101-community-root/datasets/open-pool": "research/datasets/SRC-038-open-pool-kaggle-v11"
+  },
+  "time_correction": "Root-transcribed browser 07:36/39/43/49 estimates were replaced in canonical evidence by collection window07:30—07:35:57UTC. Raw download/API timestamps are unchanged."
+}

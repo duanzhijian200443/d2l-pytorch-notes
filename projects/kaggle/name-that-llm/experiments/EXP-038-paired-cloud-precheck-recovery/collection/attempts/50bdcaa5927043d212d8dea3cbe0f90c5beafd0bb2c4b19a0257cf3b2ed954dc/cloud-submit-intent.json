@@ -1,0 +1,10 @@
+{
+  "job_id": "50bdcaa5927043d212d8dea3cbe0f90c5beafd0bb2c4b19a0257cf3b2ed954dc",
+  "task_slug": "ntl-exp038-50bdcaa5927043d212d8dea3cbe0f90c",
+  "payload_sha256": "4d7460bb35bcd95ca94c481c9ac82eb993293e3cc10522422e0c40073b77c263",
+  "source_sha256": "88ffc577e16afafb3be665a48b5599d4120e66f21457e5abef68b2f63ae0b30c",
+  "observed_at": "2026-11-01T13:35:10.640755+00:00",
+  "private_only": true,
+  "mutation_retries": 0,
+  "separate_task_run": false
+}

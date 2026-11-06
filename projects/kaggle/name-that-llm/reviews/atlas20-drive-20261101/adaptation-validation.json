@@ -1,0 +1,39 @@
+{
+  "validation_date": "2026-11-01",
+  "target": "name-that-llm-atlas20-repro.ipynb",
+  "backup_sha256": "038cc769d9ca01a9f03cae911382eda01e6d0598630aafabaf4b72e46f955a59",
+  "adapted_sha256": "ccdab5617f392658fcff8c49cb73a2e51d1af01c88996508ae5e3a1f1a4593b2",
+  "notebook_format": "PASS",
+  "python_syntax": "PASS",
+  "algorithm_scripts": {
+    "gauss.py": {
+      "before": "b53e305fd7a755d138f931c55ac5f3762ed3978d73a65594b5ce2523fdf165ff",
+      "after": "b53e305fd7a755d138f931c55ac5f3762ed3978d73a65594b5ce2523fdf165ff",
+      "path_only_change": true
+    },
+    "infer.py": {
+      "before": "435fefe8770bcd9b424029d16f70f64bc7dc55f1d6ee10f1948e288d8d665404",
+      "after": "2efa2cd1244a4b146640a080f5cb4a9029d3b01cf13d1f7f4a5acad606a5ddc3",
+      "path_only_change": true
+    },
+    "comp_stack.py": {
+      "before": "e3aa49d5a11e4ce2b504b826a7f8dddb13077e4b512e92d55a0a2807ca82cc18",
+      "after": "780296902a522cf6edb5d5b8b8ba9f48916456a403b121478b2a1669ea9422da",
+      "path_only_change": true
+    }
+  },
+  "input_groups": 31,
+  "required_file_rules": 160,
+  "gpu_started": false,
+  "full_inference_executed": false,
+  "remote_input_preflight_executed": false,
+  "note": "Runtime checks must still be executed in the mounted Colab kernel. Cached Drive inputs are not proven byte-identical to all EXP-004 inputs.",
+  "local_path_tests": {
+    "passed": 7,
+    "failed": 0,
+    "environment": "WSL Ubuntu Python 3"
+  },
+  "embedded_manifest_and_helper": "PASS",
+  "vscode_refreshed_to_adapted_notebook": true,
+  "remote_check_note": "Existing CPU runtime detected. Official CLI cannot attach using its external session ID; Notebook CPU preflight not executed by this adaptation task."
+}

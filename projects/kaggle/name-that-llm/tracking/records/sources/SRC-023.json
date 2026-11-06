@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "SRC-023",
+  "kind": "discussion",
+  "title": "Benchmarks 额度用途",
+  "url": "https://www.kaggle.com/discussions/product-feedback/671648",
+  "observed_at": "2026-10-31T14:18:01.351412+00:00",
+  "source_version": {
+    "topic_id": 671648,
+    "snapshot_sha256": "b04205f3e40026155fa25a5ff20fd0dfbfb7b260553ced73d63afef7c6a1c195"
+  },
+  "public_score": null,
+  "summary": "Benchmarks 额度用途",
+  "author_claim": "工作人员解释额度用于 Benchmarks 模型推理。",
+  "verified": "本轮重新读取了帖子及返回的全部评论页；这是来源核查，不是实验复现。",
+  "use_for_us": "先列出候选模型可用性，保留来源与计费信息。",
+  "test_plan": "先列出候选模型可用性，保留来源与计费信息。",
+  "limitations": "可用模型和确切版本要在调用前查询；平台额度不等于特定比赛用途已获确认。",
+  "evidence": [
+    "tracking/snapshots/20261031T141753Z/topic-671648.json"
+  ]
+}

@@ -1,0 +1,276 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-032",
+  "created_at_utc": "2026-11-01T11:26:09.410354+00:00",
+  "status": "FROZEN_WAITING_FOR_ACCEPTED_EXP031_CACHE",
+  "scope": "exploratory_external_fixed_cache",
+  "question": "On the single fixed729-row source panel, how does changing only Sinkhorn mixing weight from0.45 to0.30 change final18-way predictions after recomputing the unchanged typography rule?",
+  "source": {
+    "experiment_id": "EXP-031",
+    "run_id": "exp031-20261101T110842Z",
+    "plan_path": "cloud/full-stack-capture-r1/payload/plan.json",
+    "plan_sha256": "ef61b941d32c020b9d221fc40c23e6cfc30fd2f0db1ef0340a59a45c78fea401",
+    "preflight_manifest_sha256": "de7a305b5d26a5ad0cca0ed41cf31e2af1f85037dd354286aeef77ac67aaabf5",
+    "availability_sha256": "137b459d46cc8a6bfb60779516d1a04545462d1be9751d88b1432ba52de7061f",
+    "runner_sha256": "62888bb733b6eaac285d34d3c18766df2c47f0ac8a7a77042bb6113c6f8de87b",
+    "notebook_ref": "zhjianduan/name-that-llm-cache-capture-031",
+    "version_label": "v2",
+    "script_version_id": null,
+    "script_version_id_note": "Not available in local authoritative records at protocol freeze; do not invent it. Require exact run_id, plan/source bytes and V2 readback binding.",
+    "readback_evidence": {
+      "path": "cloud/full-stack-capture-r1/run-v2-readback/verified.json",
+      "sha256": "0a6896c292e7fb655987b88f3c89ac4f5176b4a3d1b3fd452984e99829a48366",
+      "bytes": 204
+    },
+    "notebook_sha256": "41e634138f9f3e35b73f40be8f5a83b3183dde1ec3c219f0f6d134452e57f748",
+    "input_hashes": {
+      "ATTRIBUTION.md": "45625a15987e43dbe2ac91ba7a9d9c76d0ac4c3dbece5d5382f758d3aa6a771b",
+      "availability.json": "137b459d46cc8a6bfb60779516d1a04545462d1be9751d88b1432ba52de7061f",
+      "comp_stack.py": "ec1c012c122d591957b5ccc6e00079f95cca8372f327dd4c3b5ac903666909d0",
+      "full_stack_cache.py": "ff6b28d7834bdd4bd26bfb1fa69b3b9dc4ccaf194d968cf9b2d8ac4652df85a9",
+      "full_stack_observer.py": "ada0dc10ba451308f453dd709540193b04912b95eb585abcbd36c87c0e8db5ca",
+      "full_stack_replay.py": "b1bab1993fb17850d8b3cfb26716f47c869dbca5107c3435b859864d2ca99586",
+      "gauss.py": "908b57113f1a7b8ebdbf204c6be87cbc385f765ba50ac07b4e270c64b7cf1000",
+      "infer.py": "8b97f40e4fedf79c842c886e62419144d2e6d0c2e743779c264f7d3074d5f4f7",
+      "input_policy.py": "d4167dbcccef49da7d439e4f459b1e15d17c8960ae6b622235ecee776cd3caf2",
+      "model_args.py": "ba74285aef26c1701121ab351054b712582724c770b050e352d685276770e624",
+      "panel/test.csv": "8eeec7f64e924f0fd79dca57d324d42d269f400bdfbfff76d60b4c168d9ae6f2",
+      "preflight_manifest.json": "de7a305b5d26a5ad0cca0ed41cf31e2af1f85037dd354286aeef77ac67aaabf5",
+      "runner.py": "62888bb733b6eaac285d34d3c18766df2c47f0ac8a7a77042bb6113c6f8de87b",
+      "runtime-build.json": "4058b1cfe516be69647d24030c8d8a8b70df28ce216a51d4af468fcfa24cf09d",
+      "setup.py": "16926b051a04adf252a8ec74add4c594e9f9508484b403c4b2cd6ab190ccef39"
+    }
+  },
+  "inputs": {
+    "blind_panel": {
+      "path": "experiments/EXP-029-full-stack-capture/panel/test.csv",
+      "sha256": "8eeec7f64e924f0fd79dca57d324d42d269f400bdfbfff76d60b4c168d9ae6f2",
+      "bytes": 655284,
+      "columns": [
+        "id",
+        "text"
+      ]
+    },
+    "official_train": {
+      "path": "train.csv",
+      "sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+      "bytes": 2139418,
+      "purpose": "Verify unchanged training identity and reproduce training-based Sinkhorn prior/typography statistics"
+    },
+    "truth_sidecar": {
+      "path": "experiments/EXP-029-full-stack-capture/labels-local-only.csv",
+      "sha256": "f5425fbae56355e72537074cf5eef514c0319cd67489fc63c36fe07b2ff2302b",
+      "bytes": 156374,
+      "columns": [
+        "id",
+        "source_id",
+        "prompt_id",
+        "model",
+        "text_sha256"
+      ],
+      "local_only": true
+    }
+  },
+  "evaluation": {
+    "rows": 729,
+    "groups": 56,
+    "labels": [
+      "claude-fable-5",
+      "claude-opus-4-6",
+      "claude-opus-4-8",
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "gemini-3.1-pro-preview",
+      "gemini-3.6-flash",
+      "gemini-3.8-flash",
+      "glm-5.3",
+      "glm-5.3-flash",
+      "gpt-5.5",
+      "gpt-5.6-luna",
+      "gpt-5.6-sol",
+      "gpt-5.6-terra",
+      "gpt-6-astra",
+      "kimi-k3",
+      "qwen3.8-max"
+    ],
+    "class_counts": {
+      "claude-fable-5": 19,
+      "claude-opus-4-6": 55,
+      "claude-opus-4-8": 55,
+      "claude-opus-5": 54,
+      "claude-sonnet-5": 52,
+      "gemini-3.1-pro-preview": 54,
+      "gemini-3.6-flash": 51,
+      "gemini-3.8-flash": 54,
+      "glm-5.3": 16,
+      "glm-5.3-flash": 17,
+      "gpt-5.5": 54,
+      "gpt-5.6-luna": 52,
+      "gpt-5.6-sol": 54,
+      "gpt-5.6-terra": 53,
+      "gpt-6-astra": 54,
+      "kimi-k3": 17,
+      "qwen3.8-max": 18
+    },
+    "output_labels": [
+      "claude-fable-5",
+      "claude-opus-4-6",
+      "claude-opus-4-8",
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "gemini-3.1-pro-preview",
+      "gemini-3.6-flash",
+      "gemini-3.7-flash",
+      "gemini-3.8-flash",
+      "glm-5.3",
+      "glm-5.3-flash",
+      "gpt-5.5",
+      "gpt-5.6-luna",
+      "gpt-5.6-sol",
+      "gpt-5.6-terra",
+      "gpt-6-astra",
+      "kimi-k3",
+      "qwen3.8-max"
+    ],
+    "output_columns": 18,
+    "join": "One-to-one exact opaque id join, retaining blind_panel order; verify source text_sha256 per row and no missing/duplicate/extra IDs.",
+    "group_unit": "Original accepted EXP027 canonical source task-body prompt_id from local truth sidecar; use all56 groups without re-clustering.",
+    "selection": "Use all729 fixed rows unchanged. No source/class/length/style/confidence/error-based subsets or exclusions."
+  },
+  "arms": [
+    {
+      "id": "sinkhorn_045",
+      "sinkhorn": 0.45,
+      "role": "baseline",
+      "prediction_column": "prediction_045"
+    },
+    {
+      "id": "sinkhorn_030",
+      "sinkhorn": 0.3,
+      "role": "candidate",
+      "prediction_column": "prediction_030"
+    }
+  ],
+  "comparison": {
+    "id": "030_minus_045",
+    "primary_metric": "covered_17_class_macro_recall",
+    "secondary_metrics": [
+      "accuracy",
+      "per_class_recall",
+      "fixed_old_errors",
+      "new_errors",
+      "prediction_disagreements"
+    ],
+    "delta_direction": "0.30 minus0.45",
+    "number_of_planned_comparisons": 1,
+    "multiple_comparison_adjustment": "none",
+    "automatic_model_promotion": false
+  },
+  "frozen_math": {
+    "only_changed_parameter": "sinkhorn",
+    "sinkhorn_target_mix": 0.35,
+    "sinkhorn_iterations": 100,
+    "probability_floor": 1e-12,
+    "marginal_floor": 1e-06,
+    "comp_w": 0.15,
+    "atlas_w": 0.2,
+    "atlas_margin": 0.3,
+    "sk_div": 1,
+    "perpassage": 1,
+    "post": 0,
+    "typography_scale": 1.5,
+    "typography_clip": [
+      -0.3,
+      0.3
+    ],
+    "typography_kappa": 24.0,
+    "operation_sequence": [
+      "Independently replay accepted original main/comp members and family gates in source order, including serialized-comp float32 advanced column indexing, to verify the captured baseline.",
+      "Use the same independently validated post-ATLAS/pre-Sinkhorn probability P for both arms. ATLAS routing occurs before Sinkhorn, so this parameter change does not authorize new routing, missing-row imputation or a different ATLAS subset.",
+      "Recompute the model-implied marginal from P and the smoothed official-training prior; fixed target_mix0.35; derive Q using exactly100 original in-place Sinkhorn iterations, preserving source dtype/order.",
+      "For each a in[0.45,0.30], compute logits=(1-a)*log(P+1e-12)+a*log(Q+1e-12). Do not retune target_mix, temperature, convergence iterations, member weights or any probability transformation.",
+      "Reproduce unchanged typography evidence from accepted captured inputs/official train and blind text; recompute confidence gate from each arm's logits and then its final logits. Reusing the0.45 final gate for0.30 is forbidden.",
+      "Compute numpy argmax over all18 columns in the fixed output-label order; exact first-index tie behavior. Never mask the absent true Gemini3.7 label.",
+      "Before comparing labels, require0.45 final score/argmax agreement with accepted captured typography and exact ID/prediction agreement with saved final Parquet. Then freeze both score arrays and attach the local truth sidecar for metrics only."
+    ],
+    "baseline_consistency_reference": {
+      "path": "src/full_stack_replay.py",
+      "sha256": "b1bab1993fb17850d8b3cfb26716f47c869dbca5107c3435b859864d2ca99586",
+      "bytes": 39577
+    },
+    "tolerances": "Use the reviewed source-replay dtype-specific tolerances and exact argmax agreement; do not relax tolerances to accommodate new discrepancies."
+  },
+  "metrics": {
+    "macro_recall": "Arithmetic mean of17 class recalls, each correct_rows_in_class / support_in_class; global source must contain every declared covered class.",
+    "accuracy": "Total correct rows /729; do not substitute it for macro recall because class supports differ.",
+    "per_class": "Report support, correct045/030, recall045/030 and delta. Include absent output label with support0 and recallnull; exclude it only from metric averaging, never prediction.",
+    "four_cells": [
+      "both_correct",
+      "only_045_correct",
+      "only_030_correct",
+      "both_wrong"
+    ],
+    "fixed_old_errors": "Count baseline045 wrong and candidate030 correct; list opaque/source IDs after local join.",
+    "new_errors": "Count baseline045 correct and candidate030 wrong; list IDs.",
+    "per_prompt": "Report support, observed class count, accuracy and four cells; do not call incomplete-prompt accuracy18-class BA.",
+    "bootstrap": {
+      "draws": 2000,
+      "seed": 42,
+      "paired": true,
+      "groups_per_draw": 56,
+      "group_order": "lexicographically sorted canonical prompt_id",
+      "generator": "numpy.random.default_rng(42).integers(0,56,size=(2000,56))",
+      "sampling": "Sample56 source groups with replacement per draw; retain every row and both predictions in each selected group, with identical multiplicities for both arms.",
+      "per_draw_statistic": "For each of the17 fixed true classes, aggregate weighted correct counts and weighted supports across sampled groups, then mean the17 recall differences; do not average per-prompt BA.",
+      "interval": "Two-sided95% percentile interval at[.025,.975], numpy.quantile(method=linear), for candidate030 minus baseline045 macro recall.",
+      "missing_class_rule": "If any of2000 draws has zero support for any declared17 true class, set ci95=null and report valid_draws/invalid_draws. Never drop invalid draws, replace draws or resample until coverage.",
+      "uncertainty_scope": "Conditional on the existing fitted models, selected input panel and fixed comparison; excludes retraining/selection uncertainty and has no multiple-comparison correction."
+    }
+  },
+  "execution_gate": {
+    "actual_comparison_allowed_at_freeze": false,
+    "requires_complete_real_source_cache": true,
+    "required_before_score_computation": [
+      "Verify downloaded source artifact inventory from an externally anchored --artifacts-sha256, every declared size/hash and exact safe path set. Bind it to this EXP031 run_id/plan, original source/helper hashes and actual saved V2 readback.",
+      "Require real EXP031 worker/result/guard COMPLETE, clean child exit, no failure/termination reason, valid budget bounds and completed archival/inventory acceptance; RUNNING/readback-source-PASS is insufficient.",
+      "Require actual runtime hardware/environment acceptance (two T4 GPUs and frozen versions), not merely requested metadata. Confirm original16 main members,20 comp members,5 family gates, allowed omission set and eligible grouping policy.",
+      "Require both byte-committed caches with matching729 ordered opaque IDs, text hashes and18 output labels, accepted complete independent baseline math replay, and final Parquet ID/argmax agreement.",
+      "Require every original requested ATLAS row completed for every requested bundle. Any partial or budget-limited ATLAS cache is forbidden for the primary comparison, even if partial arithmetic can be replayed.",
+      "Verify all three local input SHA values and fixed729/56/17 membership. Source/panel mismatch, missing rows, unknown labels or a changed upstream attempt blocks execution; do not silently swap in a newer run."
+    ],
+    "label_access": "No truth labels, source_id or true prompt_id may enter score computation, grouping, routing or Sinkhorn target. Parse/join local truth only after both fixed arm scores and baseline Parquet parity are established.",
+    "on_gate_failure": "Write only a failure/blocking diagnostic, no comparison metrics, no partial-success claim, no new model run or parameter search."
+  },
+  "outputs_when_allowed": [
+    "analysis-manifest.json with protocol/code/input/cache hashes and acceptance receipt",
+    "scores/predictions for both fixed arms",
+    "summary.json",
+    "per_class.csv",
+    "per_prompt.csv",
+    "errors.csv"
+  ],
+  "implementation": {
+    "metrics_module": {
+      "path": "experiments/EXP-032-sinkhorn-fixed-cache/metrics_utils.py",
+      "sha256": "e568d6f70d72ccdf5a6b393c44873c597eca5c6da2106966fa9a6fef73f3efba",
+      "bytes": 8313
+    },
+    "synthetic_tests": {
+      "path": "experiments/EXP-032-sinkhorn-fixed-cache/test_metrics_utils.py",
+      "sha256": "5a0c09bd2350c03740481594fef6cb193a727e13576498c4a844a98e59606700",
+      "bytes": 5168
+    },
+    "api": {
+      "prediction_labels": "prediction_labels(scores:Nx18 floating)->array of18-way argmax labels",
+      "compare_predictions": "compare_predictions(frame[id,prompt_id,model,prediction_045,prediction_030])->summary/per_class/per_prompt/errors"
+    },
+    "caller_obligation": "Pure metrics functions do not perform source-cache acceptance; CLI must enforce the above gate and exact729/56 membership first."
+  },
+  "limitations": [
+    "The panel has already been examined in prior lightweight experiments and was upstream-filtered using official8grams. This is an exploratory comparison, not a fresh independent confirmation.",
+    "Complete training exposure of all full-stack members is not certified. This protocol cannot establish clean OOF,17-class population representativeness, full18-class accuracy or a leaderboard improvement.",
+    "No alpha/member-weight/temperature/target prior search, per-class tuning, row subset selection or use of actual test-label frequencies is authorized by this protocol."
+  ],
+  "prepared_without_real_score_computation": true,
+  "training_or_model_calls_in_protocol_preparation": false
+}

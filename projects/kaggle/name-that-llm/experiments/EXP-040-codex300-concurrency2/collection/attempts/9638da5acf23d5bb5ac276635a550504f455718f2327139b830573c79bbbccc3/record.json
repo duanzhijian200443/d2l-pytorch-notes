@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0068",
+  "prompt": "A product team receives many enthusiastic comments about a new feature, but few people use it twice. How should the team interpret the evidence? Aim for about 160 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "business_decision",
+  "target_words": 160,
+  "prompt_group": "cp0068",
+  "split": "train",
+  "source": "codex_subscription",
+  "base_prompt": "A product team receives many enthusiastic comments about a new feature, but few people use it twice. How should the team interpret the evidence? Aim for about 160 words.",
+  "base_prompt_sha256": "483e498fbb527649a46410cd111c09cb718bf652ada497455c2d524e4527de65",
+  "base_prompt_id": "cp0068",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0068::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "9638da5acf23d5bb5ac276635a550504f455718f2327139b830573c79bbbccc3",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:48:40.421049+00:00",
+  "ended_at": "2026-11-01T13:49:09.637908+00:00",
+  "prompt_sha256": "1c1bb4f21ad434bd9ec36f8669a49fa81f2bf9648d1ca7df0fc2f2898f7706c3",
+  "text": "The team should treat enthusiastic comments as evidence of initial appeal, not proof of lasting value. People may praise a feature because it sounds useful, feels novel, or because they want to be supportive; using it again requires it to solve a real problem well enough to justify the effort. Low repeat usage therefore challenges the claim that the feature meets an ongoing need, but it does not establish why. The team should check whether repeat use is actually expected: an occasional or one-time task may deliver substantial value without frequent returns. If recurring use is central to the feature’s purpose, examine retention by user segment, activation, and opportunities to reuse it. Interview both returning and nonreturning users about specific experiences rather than asking whether they like the idea. Investigate friction, discoverability, reliability, and competing workflows, then test targeted improvements. Overall, weigh observed behavior more heavily than general praise while using qualitative feedback to explain that behavior and identify what to test next.",
+  "text_sha256": "eab6fa133988084291caffbc36d4e8a5c36d8dd3359fc39918a785c8f9b39f88",
+  "raw_final_sha256": "eab6fa133988084291caffbc36d4e8a5c36d8dd3359fc39918a785c8f9b39f88",
+  "word_count": 163,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4327,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 195,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\9638da5acf23d5bb5ac276635a550504f455718f2327139b830573c79bbbccc3",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

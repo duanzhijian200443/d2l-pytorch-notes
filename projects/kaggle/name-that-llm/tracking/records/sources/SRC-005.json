@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "id": "SRC-005",
+  "kind": "notebook",
+  "title": "0.663 | 0.660 V31 + ATLAS 20%",
+  "url": "https://www.kaggle.com/code/huesosinapoganaya/0-663-0-660-v31-atlas-20",
+  "observed_at": "2026-10-30T15:16:41.600Z",
+  "source_version": {
+    "notebook_version": 1,
+    "script_version_id": null,
+    "source_sha256": "9c110563284b87d6284c47379cdb2144f0cc14872e11ec8702c081741d1d8526",
+    "code_sha256": "0555615debccc6676d5c59abb3e32b350308fe2ae824fed465e2ac0f80838991"
+  },
+  "family_id": "code-0555615debcc",
+  "public_score": {
+    "value": 0.662,
+    "evidence_type": "platform_page",
+    "bound_to_source": false,
+    "script_version_id": null
+  },
+  "summary": "ATLAS20 副本；更换 Llama 路径并保留分片大小检查；标题 0.663，平台实际 0.662。",
+  "author_claim": "正文声明保存在下方 description.md；标题分数不作为独立证据。",
+  "verified": "2026-10-30 已观察页面分数并保存源码；增量说明见摘要。",
+  "use_for_us": "用于选择对照实验，不直接替换当前基线。",
+  "test_plan": "先核对具体得分版本，再把单项差异变成 IDEA。",
+  "limitations": "页面分数与下载源码版本未绑定；排名只代表当日快照。同代码的副本不是独立算法。",
+  "evidence": [
+    "reviews/public-top20-20261030/huesosinapoganaya--0-663-0-660-v31-atlas-20/source.ipynb",
+    "reviews/public-top20-20261030/huesosinapoganaya--0-663-0-660-v31-atlas-20/metadata.json",
+    "reviews/public-top20-20261030/huesosinapoganaya--0-663-0-660-v31-atlas-20/description.md",
+    "reviews/public-top20-20261030/ui-scores.json"
+  ]
+}

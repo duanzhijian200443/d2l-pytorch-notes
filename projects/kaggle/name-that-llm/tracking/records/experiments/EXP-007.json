@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "id": "EXP-007",
+  "title": "官方数据与固定分组验证；历史轻量 OOF 诊断",
+  "baseline_id": "EXP-001",
+  "hypothesis": "核验历史 OOF 后固定验证协议，建立后续优化可比较的错误分析；不评价新模型收益。",
+  "changes": [
+    "复用 EXP-001 v4 的已保存 OOF，不重新训练",
+    "补数据质量检查、固定划分与来源清单",
+    "补逐类、混淆、长度和 prompt 错误诊断"
+  ],
+  "observed_at": "2026-10-31T16:47:08.050889+00:00",
+  "source": {
+    "notebook_ref": null,
+    "notebook_version": null,
+    "script_version_id": null,
+    "local_path": "experiments/EXP-007-validation-foundation/analyze.py",
+    "sha256": "78a5b4b0d76bdfdf475731356f31a9ba52c541c8030ac189cb624cf4fe9f657c"
+  },
+  "inputs": {
+    "manifest_path": "data/source-inventory.json",
+    "validation_split_id": "prompt-group-v1",
+    "content_hashes_verified": true,
+    "content_hashes_verified_scope": "official train/test CSV and downloaded EXP-001 artifacts; external pools not read"
+  },
+  "config": {
+    "mode": "reuse_historical_oof",
+    "n_splits": 5,
+    "split": "reuse EXP-001 v4 GroupKFold(prompt_id)",
+    "near_duplicate_candidate_threshold": 0.9,
+    "near_duplicate_method": "casefolded NFKC char 5-gram TF-IDF cosine; audit only",
+    "model_search": false,
+    "near_duplicate_min_df": 2,
+    "near_duplicate_max_features": 100000,
+    "source_experiment": "EXP-001",
+    "source_notebook_version": 4,
+    "source_script_version_id": 363168447
+  },
+  "environment": {
+    "platform": "local Windows CPU",
+    "accelerator": null,
+    "seed": 42,
+    "versions": {
+      "python": "3.13.13",
+      "pandas": "3.0.6",
+      "numpy": "2.4.4",
+      "scikit_learn": "1.8.0",
+      "matplotlib": "3.10.9"
+    }
+  },
+  "execution": {
+    "scope": "validation_audit",
+    "status": "COMPLETE",
+    "observed_at": "2026-10-31T16:47:08.050889+00:00"
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": 0.3122445935868755,
+    "scope": "Independent recomputation of saved EXP-001 five-fold OOF; no new classifier training; not ATLAS20",
+    "per_class_recall_path": "experiments/EXP-007-validation-foundation/outputs/per_class.csv",
+    "oof_path": "experiments/EXP-007-validation-foundation/outputs/oof_diagnostics.csv",
+    "leakage_audit": "PASS within audited historical pipeline: per-fold fitting; 0 prompt overlap; ID/label/fold/score alignment; does not certify external pretrained checkpoints"
+  },
+  "cost": {
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0
+  },
+  "timing_note": "Local audit main() took 2.704 seconds; excludes imports/download and historical classifier training. No GPU/API/Colab consumption.",
+  "conclusion": "固定 prompt-group-v1 并通过 5 项保护测试；独立复算历史 OOF BA 0.3122445936。官方 2699 行 / 150 prompt / 18 类未发现空值或完全重复；6 个外部文本来源仅登记，未逐行审计。不是新的榜单成绩。",
+  "limitations": "诊断结果只属于历史 TF-IDF/LinearSVC，不代表 ATLAS20；外部数据本阶段登记来源，原文逐行审计单独开展。",
+  "next_action": "按固定折审计公共生成池，再比较原池/清洗池/等量池；强模型收益后续单独确认。",
+  "related_sources": [
+    "SRC-026",
+    "SRC-027",
+    "SRC-029"
+  ],
+  "evidence": [
+    "experiments/EXP-007-validation-foundation/report.md",
+    "experiments/EXP-007-validation-foundation/outputs/metrics.json",
+    "experiments/EXP-007-validation-foundation/outputs/data-quality.json",
+    "experiments/EXP-007-validation-foundation/outputs/reference-integrity.json",
+    "experiments/EXP-007-validation-foundation/outputs/validation-checks.json",
+    "validation/prompt-group-v1/manifest.json",
+    "data/source-inventory.json"
+  ]
+}

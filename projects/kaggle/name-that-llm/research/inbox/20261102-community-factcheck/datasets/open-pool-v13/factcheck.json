@@ -1,0 +1,76 @@
+{
+  "status": "PENDING_IMPORT",
+  "source_url": "https://www.kaggle.com/datasets/crtproduction/name-that-llm-open-pool/versions/13",
+  "dataset_id": 12862556,
+  "dataset_version_number": 13,
+  "author_release_label": "v11 fix",
+  "related_source": "SRC-038",
+  "verified_at_utc": "2026-11-02T04:02:18.216662+00:00",
+  "checks": {
+    "v12_created_utc": "2026-11-01T20:37:38.553Z",
+    "v13_created_utc": "2026-11-01T21:34:18.227Z",
+    "v12_v13_main_footer_rows_equal": true,
+    "main_rows": 190588,
+    "main_schema_columns": 23,
+    "quarantine_footer_rows": 10593,
+    "prompts_footer_rows": 13021,
+    "per_model_rows": 18,
+    "per_model_passage_sum": 190588,
+    "per_model_proxy_sum": 69745,
+    "sources_rows": 55,
+    "sources_passage_sum": 190588,
+    "panel_gaps_rows": 4472,
+    "panel_gaps_min_labels": 10,
+    "panel_gaps_max_labels": 17,
+    "run_csv_rows": 10,
+    "paired_csv_rows": 20,
+    "migration_arithmetic": {
+      "expression": "198507 + 10294 - 10593 - 7620",
+      "result": 190588
+    }
+  },
+  "author_claim_only": [
+    "V13 changes only 5501 flag_kb_proxy values and preserves every text and row identity",
+    "Gemini 3.7 retained rows have documented Vertex route; actual served model not independently authenticated",
+    "10294 newly admitted and 7620 newly removed identities not joined to historical full pool",
+    "All upstream license and provenance checks passed",
+    "592 full 18-label prompt panels"
+  ],
+  "risks": [
+    {
+      "risk": "full-train-derived match_weight",
+      "evidence": "dataset-metadata.json description states file column fitted on all train prompts",
+      "mitigation": "fit per training fold or use independent external holdout"
+    },
+    {
+      "risk": "upstream selection already touches official train statistics and content",
+      "evidence": [
+        "files/v11_append_log.csv: 1024 removed by label-specific train typography; 264 by similarity to train",
+        "files/removal_summary.csv: 1278 cumulative typography_mismatch"
+      ],
+      "mitigation": "per-fold weight refit alone is insufficient; rebuild applicable filtering from raw candidates per fold or label development metrics as non-independent"
+    },
+    {
+      "risk": "paired overall delta differs from simple mean of seed deltas",
+      "evidence": "T overall .0263 versus seed .0134/.0219",
+      "mitigation": "do not relabel overall delta as two-seed arithmetic mean; estimator detail not confirmed"
+    },
+    {
+      "risk": "small model individual ablations cannot establish full-stack benefit",
+      "evidence": "author explicitly says whole combination and 10294 new passages not tested",
+      "mitigation": "independent scoped controlled experiment if authorized"
+    }
+  ],
+  "limitations": [
+    "Only footer metadata and eight small CSVs read; no complete main parquet download or row-level V12/V13 diff",
+    "Current V13 data card obtained; historical V12 card not independently retrieved",
+    "No training or score reproduction",
+    "No evidence of separate label-classifier/suspicion filtering beyond documented typography/content cleaning; style_score filtering explicitly not adopted"
+  ],
+  "methods": [
+    "official authenticated Kaggle Python SDK",
+    "HTTP Range bytes=-65536 for 4 fixed-version parquet files; signed URL not logged",
+    "Thrift compact FileMetaData parser",
+    "mcp__kaggle__get_dataset_files_summary after tools became available"
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-046",
+  "status": "FROZEN_LOCAL_PACKAGE",
+  "files": [
+    {
+      "path": "cloud/a1-public-stylegram-046/kernel/a1.ipynb",
+      "sha256": "cea8f8cbfa382306dbdd7b7361b16d1d68febc09d7ef585dcb01ee1ef9e46625",
+      "bytes": 192688
+    },
+    {
+      "path": "cloud/a1-public-stylegram-046/kernel/kernel-metadata.json",
+      "sha256": "74007dcac3b5e34c7886fb3e946147ddb2335a3e1e64b530a29e646983943c37",
+      "bytes": 2119
+    },
+    {
+      "path": "cloud/a1-public-stylegram-046/build_package.py",
+      "sha256": "92923088c57f476d7b3a68792c2370cfd502d7dac0fee21bd8fc3b51a02f78c9",
+      "bytes": 10656
+    },
+    {
+      "path": "cloud/a1-public-stylegram-046/runtime_preflight.py",
+      "sha256": "be6f63cc6d0a49eb62b7190677392ba50edbe1c96df1d8f09fb62dd294b6e42b",
+      "bytes": 2137
+    },
+    {
+      "path": "cloud/a1-public-stylegram-046/run_receipts.py",
+      "sha256": "f5d30d463e857e911cf7db0d6580d64cc723ca339d10f2d5b0234afd23a02525",
+      "bytes": 8394
+    },
+    {
+      "path": "cloud/a1-public-stylegram-046/control.py",
+      "sha256": "786a59bfccc62c9913e8cdcc2cd59e0cb24e1fa5f53afa92c1eecfa235a44076",
+      "bytes": 20567
+    },
+    {
+      "path": "experiments/EXP-046-atlas20-a1-submission/a1_stylegram.py",
+      "sha256": "7af3a26ab544b1fcb67a34ea615a865e35e94af8471cfd4fdcda5c02e98f1f86",
+      "bytes": 13927
+    },
+    {
+      "path": "experiments/EXP-046-atlas20-a1-submission/patch_comp.py",
+      "sha256": "604919ca3bddafc12c582455962a55b92b47e619a6b324916e9d60fec120f833",
+      "bytes": 3729
+    },
+    {
+      "path": "experiments/EXP-046-atlas20-a1-submission/input_preflight.py",
+      "sha256": "26ee6c2a149a5b0e48f8016cd4427ef1576f02b178de85fab2ba9e5f4dc10d57",
+      "bytes": 11111
+    },
+    {
+      "path": "experiments/EXP-046-atlas20-a1-submission/extra-inputs.json",
+      "sha256": "b7bf1347c6185c14d2480975873989f58115c02de65dc8bbd12ab09697faa687",
+      "bytes": 1476
+    },
+    {
+      "path": "experiments/EXP-046-atlas20-a1-submission/config.json",
+      "sha256": "bf0ba31b6b01894192c9e16ed3f4bf5df79bb38c0ae31d5baff0ff833889583d",
+      "bytes": 1875
+    }
+  ],
+  "attachment_count": 32,
+  "attachments": {
+    "dataset_sources": [
+      "dhruvtibarewal/nlm-l24-adapters/7",
+      "seyitkaangunes/ntl-extra-api-passages/2",
+      "zhjianduan/ntl-generations/1",
+      "dophuchung/ntl-proxy-generations/1",
+      "zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/1",
+      "dhruvtibarewal/nlm-matched-clean/3",
+      "dhruvtibarewal/nlm-offline-wheels/2",
+      "josephadamski91/ntl-atlas-qwen3-8b-v1/3",
+      "zhjianduan/ntl-free-proxy-generations/1",
+      "nishantdahal/ntl-two-stage-lora/1",
+      "nishantdahal/ntl-handwriting-blend/1",
+      "dhruvtibarewal/nlm-l24-adapters-v5/1",
+      "prvsiyan/prvsiyans-extended-name-that-llm-dataset/6",
+      "pjmathematician/ultrabert-380m-ntl/1",
+      "zhjianduan/llama31-8b-base-verified/1",
+      "zhjianduan/ntl-stylegram-cv-inputs-v1/1"
+    ],
+    "kernel_sources": [
+      "lucasboesen/name-that-llm-glm4-9b-trunc25/1",
+      "lucasboesen/name-that-llm-extract-encoders2/1",
+      "lucasboesen/name-that-llm-electra-large-weights/1",
+      "lucasboesen/name-that-llm-desklib-weights/1",
+      "lucasboesen/name-that-llm-train-lora24-s7/1",
+      "lucasboesen/name-that-llm-train-tokattn/1",
+      "lucasboesen/name-that-llm-train-tokattn2/1",
+      "vnton37nguyn/ntl-train-lora-qwen25-instyle/2"
+    ],
+    "model_sources": [
+      "qwen-lm/qwen-3/Transformers/8b/1",
+      "qwen-lm/qwen-3/Transformers/4b-base/1",
+      "qwen-lm/qwen-3/Transformers/8b-base/1",
+      "qwen-lm/qwen-3/Transformers/14b-base/1",
+      "qwen-lm/qwen-3/Transformers/14b/1",
+      "qwen-lm/qwen2.5/Transformers/7b/1",
+      "qwen-lm/qwen2.5/Transformers/14b/1"
+    ],
+    "competition_sources": [
+      "name-that-llm"
+    ]
+  },
+  "baseline_source": {
+    "path": "reviews/own-scheme-readiness-20261030/baseline-v2.ipynb",
+    "sha256": "6c9145f038ccffbe08dc6da6db3d1dcf3d2e0e7d2286927bfc8800ef5148cfb8"
+  },
+  "runtime_content_check": "398 small original files+5 extra files+official train hashed;130 large weights size checked and pinned; hidden test is schema checked, not locked to public rows.",
+  "historical_limitation": "The EXP031 pinned mirrors match their source CSV hashes, but every historical EXP004 weight byte is not certified."
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "split_id": "prompt-group-v1",
+  "rows": 2699,
+  "prompts": 150,
+  "n_splits": 5,
+  "labels": [
+    "claude-fable-5",
+    "claude-opus-4-6",
+    "claude-opus-4-8",
+    "claude-opus-5",
+    "claude-sonnet-5",
+    "gemini-3.1-pro-preview",
+    "gemini-3.6-flash",
+    "gemini-3.7-flash",
+    "gemini-3.8-flash",
+    "glm-5.3",
+    "glm-5.3-flash",
+    "gpt-5.5",
+    "gpt-5.6-luna",
+    "gpt-5.6-sol",
+    "gpt-5.6-terra",
+    "gpt-6-astra",
+    "kimi-k3",
+    "qwen3.8-max"
+  ],
+  "train_sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+  "folds_sha256": "e8ba1e3712852168dc57f56960d4f3e00be612d639ade8a7dcb0f0d8335ce551",
+  "origin": {
+    "experiment": "EXP-001",
+    "notebook_version": 4,
+    "script_version_id": 363168447,
+    "folds_sha256": "b8fecd089e9e06669f52ee7f0006ed3e1ed5a223396fa18cfe2ac8f6a1b0be63",
+    "splitter": "GroupKFold(n_splits=5), shuffle=False"
+  },
+  "scope": "Frozen development OOF split, not an untouched holdout; seed 42 belongs to historical classifier, not GroupKFold"
+}

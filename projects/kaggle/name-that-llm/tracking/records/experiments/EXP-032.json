@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "id": "EXP-032",
+  "title": "固定缓存比较Sinkhorn 0.45与0.30",
+  "baseline_id": "EXP-004",
+  "hypothesis": "With all upstream cached scores fixed, changing only Sinkhorn strength from0.45 to0.30 may improve covered-class macro recall; typography confidence gate must be recomputed for both arms.",
+  "changes": [
+    "Only Sinkhorn0.45 versus0.30; same probabilities, target mix and typography formula"
+  ],
+  "observed_at": "2026-11-01T14:24:15.645257+00:00",
+  "source": {
+    "notebook_ref": null,
+    "notebook_version": null,
+    "script_version_id": null,
+    "local_path": "experiments/EXP-032-sinkhorn-fixed-cache/compare_cached.py",
+    "sha256": "560704753b82e70a035d2254608a45959a4fe14cd45465c4c4f2cacc3dc3aa4f"
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-032-sinkhorn-fixed-cache/manifest.json",
+    "validation_split_id": null,
+    "content_hashes_verified": true
+  },
+  "config": {
+    "note": "仅作台账索引；完整参数以 config_path 指向的 config.json 为准。"
+  },
+  "environment": {
+    "platform": "local CPU",
+    "accelerator": null,
+    "seed": 42
+  },
+  "execution": {
+    "scope": "real_cached_postprocessing_comparison",
+    "status": "COMPLETE",
+    "observed_at": "2026-11-01T14:24:15.645257+00:00",
+    "real_comparison_run": true
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": "Exploratory external 729 rows/56 prompts/17 covered classes; not official BA or clean OOF",
+    "per_class_recall_path": "experiments/EXP-032-sinkhorn-fixed-cache/analysis-v1/per_class.csv",
+    "oof_path": null,
+    "leakage_audit": "EXPLORATORY_ONLY_FULL_STACK_INDEPENDENCE_UNKNOWN",
+    "covered_17_macro_recall": 0.6055403306810412,
+    "control_covered_17_macro_recall": 0.6010754296632905,
+    "delta_macro_recall": 0.004464901017750655,
+    "delta_ci95": [
+      -0.0001512762479988439,
+      0.010075679928918386
+    ]
+  },
+  "cost": {
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0
+  },
+  "timing_note": null,
+  "conclusion": "0.30相对0.45宏召回+0.4465个百分点，修正5错/新增1错，净多对4条；95%区间[-0.0151,+1.0076]个百分点跨0，暂不升级正式基线。",
+  "limitations": "已查看17类外部面板、完整训练隔离未知；缺少Gemini3.7真值可能影响平衡参数收益，不代表榜单。",
+  "next_action": "保留0.30候选，不继续扫参；下一项拟固定轻量基线检验新增Luna/Terra120条，尚未启动。",
+  "related_sources": [],
+  "evidence": [
+    "experiments/EXP-032-sinkhorn-fixed-cache/config.json",
+    "experiments/EXP-032-sinkhorn-fixed-cache/manifest.json",
+    "experiments/EXP-032-sinkhorn-fixed-cache/report.md",
+    "experiments/EXP-032-sinkhorn-fixed-cache/protocol.json",
+    "experiments/EXP-032-sinkhorn-fixed-cache/metrics/preparation-verification.json",
+    "experiments/EXP-032-sinkhorn-fixed-cache/logs/version-reconciliation.json",
+    "experiments/EXP-032-sinkhorn-fixed-cache/analysis-v1/summary.json",
+    "experiments/EXP-032-sinkhorn-fixed-cache/analysis-v1/analysis-manifest.json",
+    "experiments/EXP-032-sinkhorn-fixed-cache/analysis-v1/predictions.csv",
+    "experiments/EXP-032-sinkhorn-fixed-cache/metrics/independent-verification.json"
+  ],
+  "config_path": "experiments/EXP-032-sinkhorn-fixed-cache/config.json",
+  "related_experiments": [
+    "EXP-031",
+    "EXP-029"
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-033",
+  "freeze_status": "FROZEN_ANALYSIS",
+  "frozen_at": "2026-11-01T11:54:40.422629+00:00",
+  "config": {
+    "path": "experiments/EXP-033-codex-source-contamination-audit/config.json",
+    "sha256": "f7a99a54f375675cba8f0303b35ae5bdd3dbdda6c41eb65ead9f876a1030eefb"
+  },
+  "code": [
+    {
+      "path": "experiments/EXP-033-codex-source-contamination-audit/code/compare_sources.py",
+      "sha256": "82f26509ead14faec08c548c8c971f44d3b873772c23f7c99d03729e6a747ede"
+    },
+    {
+      "path": "experiments/EXP-033-codex-source-contamination-audit/code/direct_trace_audit.py",
+      "sha256": "14bc4989f171919a791aaaa352c929f5977ff9004c68970151c7645369233e88"
+    }
+  ],
+  "inputs": [
+    {
+      "source": "official-train",
+      "path": "train.csv",
+      "sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+      "bytes": 2139418
+    },
+    {
+      "source": "codex",
+      "path": "experiments/EXP-023-codex-subscription-pilot-r1/collection/records.jsonl",
+      "sha256": "cb903279b3727b31ce2125b89c5ce8f530d769a984f49c2cb86e4fbefb1e9722",
+      "bytes": 2428324
+    },
+    {
+      "source": "abdullah-v2",
+      "path": "data/public-pools/abdullah1afify/ntl-generations/v2/ntl_generations.csv",
+      "sha256": "83003454e3cc0368cae8b05bca243daf036b64a42a792c3f7bfd5fd91b3db378",
+      "bytes": 870886
+    },
+    {
+      "source": "dophuchung-v1",
+      "path": "data/public-pools/dophuchung/ntl-proxy-generations/v1/ntl_proxy_generations.csv",
+      "sha256": "593708f7fd55636bd270824c0e129447b2a5808b1e224bb3dbf43bf2383fdf9c",
+      "bytes": 889391
+    },
+    {
+      "source": "lucas-v7",
+      "path": "data/public-pools/lucasboesen/ntl-free-proxy-generations/v7/gen_passages.csv",
+      "sha256": "d037d212e17a7e98465f9c606f4437225fb221939a5f51b0f8150d15c07c68a5",
+      "bytes": 3835894
+    },
+    {
+      "source": "prvs-raw-v6",
+      "path": "data/public-pools/prvsiyan/prvsiyans-extended-name-that-llm-dataset/v6/passages.csv",
+      "sha256": "2490c3b12f1f063a53abcbc79e741e0a0f62bbe4dc34df0871677ffe8d75b67e",
+      "bytes": 14171601
+    },
+    {
+      "source": "prvs-clean-v6",
+      "path": "data/public-pools/prvsiyan/prvsiyans-extended-name-that-llm-dataset/v6/passages_clean.csv",
+      "sha256": "6ec42c0bb360d6eaf7ed657b943881bd988358eee49b06abca88b0e6c101d567",
+      "bytes": 7314552
+    },
+    {
+      "source": "matched-v3",
+      "path": "data/public-pools/dhruvtibarewal/nlm-matched-clean/v3/nlm_matched_clean.parquet",
+      "sha256": "000f8d541f7c4c5942a18c4fcf557aa01756882931307414cf2530ac21980482",
+      "bytes": 11146946
+    },
+    {
+      "source": "pool-v5",
+      "path": "data/public-pools/dhruvtibarewal/nlm-matched-clean/v3/nlm_pool_v5.parquet",
+      "sha256": "040afb3609d7f6586d57c89ddb42d9bf4b58cc26426104b57390bdf6312b4650",
+      "bytes": 54745036
+    },
+    {
+      "source": "enai-v3",
+      "path": "data/public-pools/enaimaan/ntl-openai-generated-responses/v3/train.csv",
+      "sha256": "655081a30c30376edba803e48f2031bfc1935d9f0a5e0e4c44fd55dee83acfa3",
+      "bytes": 12286187
+    },
+    {
+      "source": "earthmaker-v1",
+      "path": "data/public-pools/earthmaker/ntl-own-prompt-generations/v1/passages.csv",
+      "sha256": "4df18d70dfe9e7ca2cd43fa2a8ce45ddf814c97d42c0ec89bdf7692fa49f2a25",
+      "bytes": 741816
+    },
+    {
+      "source": "kaggle-paired20",
+      "path": "experiments/EXP-033-codex-source-contamination-audit/inputs/kaggle-proxy-pilot-20.jsonl",
+      "sha256": "227ed0103dee52a9a6bea6680a77e8e6409c7e289e99d404f311337db2cac269",
+      "bytes": 83401
+    },
+    {
+      "path": "experiments/EXP-021-codex-subscription-pilot/model-instructions.txt",
+      "sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb"
+    },
+    {
+      "path": "experiments/EXP-021-codex-subscription-pilot/prompts.jsonl",
+      "sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0"
+    },
+    {
+      "path": "experiments/EXP-021-codex-subscription-pilot/runtime-preflight.json",
+      "sha256": "64443ec556eaf5b3fbe6a5d246221a7e55fca9205990a4ff0fe10f493de9a053"
+    },
+    {
+      "path": "experiments/EXP-023-codex-subscription-pilot-r1/config.json",
+      "sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "experiments/EXP-033-codex-source-contamination-audit/metrics/by-source-model.csv",
+      "sha256": "7d469f66a544a38af9d3afd37d976d9695d321aa101935248fa445ff04480f8a"
+    },
+    {
+      "path": "experiments/EXP-033-codex-source-contamination-audit/metrics/chart-verification.json",
+      "sha256": "1172d364ab2847613c1284f658836cba9e36d6f466bde4a5ebc679928bbf20d0"
+    },
+    {
+      "path": "experiments/EXP-033-codex-source-contamination-audit/metrics/closing-offers-review.json",
+      "sha256": "7d88c4c5c5899468876b6c5fc8d778c39cadea610ddd1b7a384734a185f79350"
+    },
+    {
+      "path": "experiments/EXP-033-codex-source-contamination-audit/metrics/codex-by-category.csv",
+      "sha256": "da1ad276426a5efab93ce0a20d412cde939054799c8c16b41e431901c430c238"
+    },
+    {
+      "path": "experiments/EXP-033-codex-source-contamination-audit/metrics/direct-traces-review.md",
+      "sha256": "39866faa1d617a3f29a3cb54c7a63617b433ecef98fc0de16fd333ae274d5be4"
+    },
+    {
+      "path": "experiments/EXP-033-codex-source-contamination-audit/metrics/direct-traces.json",
+      "sha256": "8a9cc63cac6d7e9f0af2437eba17cbe345723a926ec52b36203b9a143e30da29"
+    },
+    {
+      "path": "experiments/EXP-033-codex-source-contamination-audit/metrics/exact-overlap.json",
+      "sha256": "fcdad015fe8ff139443f0dde9b0c053c20b80044bb7c9afdd8475e619ac1d0c3"
+    },
+    {
+      "path": "experiments/EXP-033-codex-source-contamination-audit/metrics/independent-verification.json",
+      "sha256": "a058075e3e0b8ac9a921562aec63ea26bb016ce492f22bcae0de8dfc4a11baa4"
+    },
+    {
+      "path": "experiments/EXP-033-codex-source-contamination-audit/metrics/input-integrity.json",
+      "sha256": "5ffa4f82802fd835b5ebe0db5b1c0092e187905f1ee3b7610c7d1de7fb786136"
+    },
+    {
+      "path": "experiments/EXP-033-codex-source-contamination-audit/metrics/length-standardized.csv",
+      "sha256": "ad36cdbb8bf8daf85ff9bf0b86976fb660cba50f8631dbee98453cd121fae0e8"
+    },
+    {
+      "path": "experiments/EXP-033-codex-source-contamination-audit/metrics/paired-control.json",
+      "sha256": "f96308ed537b7198dd07435bafa9150120853efbc2c04a4ee1523d066bafbf94"
+    },
+    {
+      "path": "experiments/EXP-033-codex-source-contamination-audit/metrics/row-features.csv",
+      "sha256": "3e1eb5e731ab705105946f02d8260b043cfb5d94d372ce06d4f020084bcf78db"
+    },
+    {
+      "path": "experiments/EXP-033-codex-source-contamination-audit/metrics/source-profiles.json",
+      "sha256": "f8c42ff005276d103684f2dac023ca70cf048b5977ea44eef6692d6b26f70623"
+    },
+    {
+      "path": "experiments/EXP-033-codex-source-contamination-audit/metrics/source-provenance-notes.md",
+      "sha256": "9b3af9e89e0d499035c09d46dcfbd7bb4aeb09c9323c0c47a432aea1560d992e"
+    },
+    {
+      "path": "experiments/EXP-033-codex-source-contamination-audit/metrics/summary.json",
+      "sha256": "4fe05daa91ef3250f746a5d11ccdf541f7633c62437e3ba1d8e52e0ecc13ad62"
+    }
+  ],
+  "analysis_scope": "No training, new generation, scoring, submission, publication or raw-data modification; descriptive rates do not identify causal system-prompt effects."
+}

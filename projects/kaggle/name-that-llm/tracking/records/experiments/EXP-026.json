@@ -1,0 +1,285 @@
+{
+  "schema_version": 1,
+  "id": "EXP-026",
+  "title": "固定10%融合的独立验证：外部数据门槛与测试",
+  "baseline_id": "EXP-024",
+  "hypothesis": "固定alpha.10在未参与两成员拟合/候选选择的已核Dolly四类外部面板上优于同配方全量重训的Stylegram；只检查此候选。",
+  "changes": [
+    "原配方全量拟合三个SVM；原两训练公开输入字节不变",
+    "新SRC062V3 Dolly-only完整四类外部面板5200行/1300题，剔除社区祖先与known/exact重叠",
+    "固定alpha=.10，不调整权重或限制为四类预测"
+  ],
+  "observed_at": "2026-11-01T09:02:32.969411+00:00",
+  "source": {
+    "notebook_ref": "zhjianduan/name-that-llm-fixed-blend-external-026",
+    "notebook_version": 2,
+    "script_version_id": null,
+    "local_path": "cloud/fixed-blend-external/runner.py",
+    "sha256": "888b0aa30c0dc982f3efc0f2396e1385b66a66adc82f3f057e6f3675ad85a4ba"
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-026-independent-blend-validation/manifest.json",
+    "validation_split_id": null,
+    "content_hashes_verified": true
+  },
+  "config": {
+    "candidate_experiment": "EXP-024",
+    "alpha": 0.1,
+    "refit_models": 3,
+    "evaluation_source": "SRC-062 V3 Dolly-only",
+    "evaluation_rows": 5200,
+    "evaluation_groups": 1300,
+    "evaluation_classes": 4,
+    "prediction_classes": 18
+  },
+  "environment": {
+    "platform": "Kaggle private CPU",
+    "accelerator": null,
+    "container": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "seed": 42,
+    "internet": false,
+    "versions": {
+      "numpy": "2.1.3",
+      "pandas": "2.3.3",
+      "scipy": "1.16.3",
+      "sklearn": "1.6.1"
+    },
+    "threads": 2
+  },
+  "execution": {
+    "scope": "external_four_class_validation_of_fixed_recipe",
+    "status": "COMPLETE",
+    "observed_at": "2026-11-01T08:51:45.399562+00:00",
+    "result_status": "PASS",
+    "notebook_version": 2,
+    "completed_at": "2026-11-01T08:47:14.957230+00:00",
+    "accepted_at": "2026-11-01T08:50:01.065400+00:00"
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": "External four-covered-label macro recall with unrestricted 18-way predictions; not 18-class BA",
+    "per_class_recall_path": "experiments/EXP-026-independent-blend-validation/metrics/per_class.csv",
+    "oof_path": null,
+    "leakage_audit": "PASS_FOR_EXTERNAL_FOUR_CLASS_CHECK; see data gate for known ancestry/exact isolation and remaining limits",
+    "covered_label_macro_recall": 0.1992307692307692,
+    "component_metrics": {
+      "stylegram": {
+        "metric": "covered_label_macro_recall",
+        "score_columns": 18,
+        "covered_labels": [
+          "gpt-5.6-luna",
+          "gpt-5.6-sol",
+          "gpt-5.6-terra",
+          "gpt-6-astra"
+        ],
+        "covered_label_count": 4,
+        "macro_recall": 0.18884615384615383,
+        "accuracy": 0.18884615384615386,
+        "correct": 982,
+        "rows": 5200,
+        "per_class": [
+          {
+            "model": "gpt-5.6-luna",
+            "support": 1300,
+            "correct": 239,
+            "recall": 0.18384615384615385
+          },
+          {
+            "model": "gpt-5.6-sol",
+            "support": 1300,
+            "correct": 115,
+            "recall": 0.08846153846153847
+          },
+          {
+            "model": "gpt-5.6-terra",
+            "support": 1300,
+            "correct": 129,
+            "recall": 0.09923076923076923
+          },
+          {
+            "model": "gpt-6-astra",
+            "support": 1300,
+            "correct": 499,
+            "recall": 0.38384615384615384
+          }
+        ]
+      },
+      "svc4": {
+        "metric": "covered_label_macro_recall",
+        "score_columns": 18,
+        "covered_labels": [
+          "gpt-5.6-luna",
+          "gpt-5.6-sol",
+          "gpt-5.6-terra",
+          "gpt-6-astra"
+        ],
+        "covered_label_count": 4,
+        "macro_recall": 0.2469230769230769,
+        "accuracy": 0.2469230769230769,
+        "correct": 1284,
+        "rows": 5200,
+        "per_class": [
+          {
+            "model": "gpt-5.6-luna",
+            "support": 1300,
+            "correct": 368,
+            "recall": 0.28307692307692306
+          },
+          {
+            "model": "gpt-5.6-sol",
+            "support": 1300,
+            "correct": 190,
+            "recall": 0.14615384615384616
+          },
+          {
+            "model": "gpt-5.6-terra",
+            "support": 1300,
+            "correct": 306,
+            "recall": 0.2353846153846154
+          },
+          {
+            "model": "gpt-6-astra",
+            "support": 1300,
+            "correct": 420,
+            "recall": 0.3230769230769231
+          }
+        ]
+      },
+      "blend": {
+        "metric": "covered_label_macro_recall",
+        "score_columns": 18,
+        "covered_labels": [
+          "gpt-5.6-luna",
+          "gpt-5.6-sol",
+          "gpt-5.6-terra",
+          "gpt-6-astra"
+        ],
+        "covered_label_count": 4,
+        "macro_recall": 0.1992307692307692,
+        "accuracy": 0.19923076923076924,
+        "correct": 1036,
+        "rows": 5200,
+        "per_class": [
+          {
+            "model": "gpt-5.6-luna",
+            "support": 1300,
+            "correct": 258,
+            "recall": 0.19846153846153847
+          },
+          {
+            "model": "gpt-5.6-sol",
+            "support": 1300,
+            "correct": 116,
+            "recall": 0.08923076923076922
+          },
+          {
+            "model": "gpt-5.6-terra",
+            "support": 1300,
+            "correct": 143,
+            "recall": 0.11
+          },
+          {
+            "model": "gpt-6-astra",
+            "support": 1300,
+            "correct": 519,
+            "recall": 0.3992307692307692
+          }
+        ]
+      }
+    },
+    "comparison": {
+      "alpha": 0.1,
+      "delta_macro_recall": 0.010384615384615381,
+      "fixed_errors": 73,
+      "new_errors": 19,
+      "prediction_disagreements": 373,
+      "paired_prompt_bootstrap": {
+        "delta_definition": "blend_minus_stylegram_covered_label_macro_recall",
+        "unit": "normalized_source_body_component",
+        "draws": 2000,
+        "seed": 42,
+        "valid_draws": 2000,
+        "invalid_draws": 0,
+        "ci95": [
+          0.006735950731331794,
+          0.013856812933025403
+        ],
+        "missing_class_policy": "null interval if any resample lacks a covered true class",
+        "conditional_on_fitted_models": true,
+        "includes_retraining_uncertainty": false,
+        "prompt_groups": 1299
+      }
+    },
+    "external_predictions_path": "experiments/EXP-026-independent-blend-validation/predictions/predictions.csv",
+    "acceptance_path": "experiments/EXP-026-independent-blend-validation/metrics/verified.json",
+    "independent_review_path": "experiments/EXP-026-independent-blend-validation/metrics/independent-review.json",
+    "original_comparison_before_prompt_correction": {
+      "alpha": 0.1,
+      "delta_macro_recall": 0.010384615384615381,
+      "fixed_errors": 73,
+      "new_errors": 19,
+      "prediction_disagreements": 373,
+      "paired_prompt_bootstrap": {
+        "delta_definition": "blend_minus_stylegram_covered_label_macro_recall",
+        "unit": "external_prompt_id",
+        "draws": 2000,
+        "seed": 42,
+        "valid_draws": 2000,
+        "invalid_draws": 0,
+        "ci95": [
+          0.006923076923076923,
+          0.014038461538461538
+        ],
+        "missing_class_policy": "null interval if any resample lacks a covered true class",
+        "conditional_on_fitted_models": true,
+        "includes_retraining_uncertainty": false
+      }
+    },
+    "statistical_correction_path": "experiments/EXP-026-independent-blend-validation/metrics/prompt-unit-correction.json"
+  },
+  "cost": {
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0
+  },
+  "timing_note": "Runner 386.083s; guard 389.756s (6m29.8s), sampled peak RSS 5.549 GiB; 3 SVM fits 213.845s total. Excludes queue/setup/download/verification. CPU only.",
+  "conclusion": "外部四类检查验收PASS：固定10%融合宏召回0.199230769，相对Stylegram0.188846154提高1.0385个百分点，修正73错、新增19错；配对prompt 95%区间[+0.6736,+1.3857]个百分点。仅支持该四类来源上的增益，保留候选。 EXP027交叉核查发现一对大小写等价题干；按1299题组归并重算区间，点估计不变。",
+  "limitations": "仅四GPT标签/Dolly来源/固定生成设置及已核known-ancestry与exact隔离；语义重叠与服务标签未独立认证。全量重训轻量成员，不是完整ATLAS20、18类验证或榜单结果；区间不含重新训练不确定性，外部数据已被查看。",
+  "next_action": "保留固定10%候选；覆盖其余14类/其他来源，并在可核实训练隔离的完整集成预测上检验增量。该外部集不再作为后续调参后的新独立证明；不改EXP-004正式0.662、不提交。",
+  "related_sources": [
+    "SRC-062",
+    "SRC-029"
+  ],
+  "evidence": [
+    "experiments/EXP-026-independent-blend-validation/config.json",
+    "experiments/EXP-026-independent-blend-validation/manifest.json",
+    "experiments/EXP-026-independent-blend-validation/report.md",
+    "experiments/EXP-026-independent-blend-validation/download-manifest.json",
+    "experiments/EXP-026-independent-blend-validation/audit_external.py",
+    "experiments/EXP-026-independent-blend-validation/metrics/data-gate.json",
+    "experiments/EXP-026-independent-blend-validation/metrics/excluded-groups.csv",
+    "experiments/EXP-026-independent-blend-validation/evaluation.csv",
+    "cloud/fixed-blend-external/execution-state.json",
+    "cloud/fixed-blend-external/preflight.json",
+    "cloud/fixed-blend-external/dataset-v1-readback.json",
+    "cloud/fixed-blend-external/saved-v1-readback.json",
+    "cloud/fixed-blend-external/run-v2-readback.json",
+    "cloud/fixed-blend-external/live-v2.log",
+    "experiments/EXP-026-independent-blend-validation/record_results.py",
+    "experiments/EXP-026-independent-blend-validation/metrics/archive-manifest.json",
+    "experiments/EXP-026-independent-blend-validation/metrics/data-use.json",
+    "experiments/EXP-026-independent-blend-validation/metrics/verification-tests.json",
+    "experiments/EXP-026-independent-blend-validation/metrics/verified.json",
+    "experiments/EXP-026-independent-blend-validation/metrics/independent-review.json",
+    "experiments/EXP-026-independent-blend-validation/metrics/per_class.csv",
+    "experiments/EXP-026-independent-blend-validation/metrics/comparison.csv",
+    "experiments/EXP-026-independent-blend-validation/predictions/predictions.csv",
+    "cloud/fixed-blend-external/verify_outputs.py",
+    "cloud/fixed-blend-external/test_verify_outputs.py",
+    "cloud/fixed-blend-external/complete-v2-readback.json",
+    "experiments/EXP-026-independent-blend-validation/metrics/prompt-unit-correction.json",
+    "experiments/EXP-026-independent-blend-validation/correct_prompt_units.py"
+  ],
+  "config_path": "experiments/EXP-026-independent-blend-validation/config.json"
+}

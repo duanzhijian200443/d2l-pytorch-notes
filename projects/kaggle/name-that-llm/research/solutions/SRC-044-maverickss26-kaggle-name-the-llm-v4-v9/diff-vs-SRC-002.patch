@@ -1,0 +1,295 @@
+--- SRC-002
++++ source.ipynb
+@@ -1,70 +1,86 @@
+-import matplotlib.pyplot as plt
+-runs = {'nlm-v27': [0.651, 0.651, 0.643, 0.651], 'Who am I?': [0.645, 0.654], 'V31': [0.660, 0.660], '0.663 (this)': [0.662],
+-        'LoRA x AC': [0.549], 'lora-instyle': [0.561], 'Teach + ATLAS': [0.606]}
+-page = {'nlm-v27': 0.651, 'Who am I?': 0.654, 'V31': 0.660, '0.663 (this)': 0.663, 'LoRA x AC': 0.547, 'lora-instyle': 0.563, 'Teach + ATLAS': 0.607}
+-fig, ax = plt.subplots(figsize=(8, 3.2))
+-for i, (k, v) in enumerate(runs.items()):
+-    ax.scatter([i] * len(v), [x - page[k] for x in v], s=60, color='tab:blue', label='our submission, identical code' if i == 0 else None, zorder=3)
+-ax.axhspan(-0.01, 0.01, color='tab:orange', alpha=0.15, label='+-0.01: one submission cannot tell these apart')
+-ax.axhline(0, color='k', lw=0.8)
+-ax.set_xticks(range(len(runs))); ax.set_xticklabels(runs, rotation=20)
+-ax.set_ylabel('score - author page score'); ax.set_title('Same code, different public score')
+-ax.set_ylim(-0.013, 0.013); ax.legend(fontsize=8, loc='upper right'); plt.tight_layout(); plt.show()
+-
+-
+-# Name That LLM - full solution: fold-averaged two-stage LoRA24 (Qwen3-8B-Base, Qwen3-14B-Base, Qwen2.5-7B),
+-# Nishant two-stage checkpoints, 4-view n-gram SVM on train+pool, shared-prompt Gaussian, adaptive centred twins,
+-# 10% public ATLAS (source-conditioned likelihood, arXiv 2610.19583) before Sinkhorn balancing.
+-import glob, os, subprocess, json, sys
++import glob, os, sys, json, shutil, subprocess, time
++import numpy as np, pandas as pd
++T_NOTEBOOK = time.time()
++
++# ---- blend (defaults = 0.664)
++L24_LAYERS = [2, 4, 6, 8, 12, 16, 20, 24]
++W = dict(q14v5=3.0, q8v5=2.0, ll8v5=1.0, n14b=2.5, q25_14=1.0, deb=1.0)
++TWIN, GAUSS = 0.35, dict(q14v5=0.70, q8v5=0.44)
++SVC_W, TFIDF_W, DISTORT_W, EXTRA_W = 1.5, 0.25, 0.10, 0.5
++COMP_W = 0.15
++ATLAS_W, ATLAS_MARGIN = 0.20, 0.3
++SINKHORN, SINKHORN_TARGET_MIX = 0.60, 0.35
++V31_TYPO = 1                  # Bayesian typography step
++POST = 0                      # nlm-v27's hard typography guards + Hungarian in dense clusters (now actually honoured if set to 1)
++USE_QWEN35_TOKATTN = True     # comp stack's Qwen3.5-9B token-attention member (skipped automatically if not attached)
++
++# ---- run control
++FULL_COMMIT_TEST = False      # True: the 3-row commit run executes every model (takes ~1.5-2 h); use once to test a fork
++TIME_LIMIT_S = 9 * 3600       # Kaggle's limit for this competition
++SAFETY_S = 15 * 60            # the main stage is stopped this long before the limit; the fallback submission is kept
++
+ whl = glob.glob('/kaggle/input/**/bitsandbytes-*.whl', recursive=True)
+-if whl: print(subprocess.run([sys.executable, '-m', 'pip', 'install', '--no-index', '--no-deps', '-q'] + whl, capture_output=True, text=True).returncode)
++if whl:
++    print('bitsandbytes', subprocess.run([sys.executable, '-m', 'pip', 'install', '--no-index', '--no-deps', '-q'] + whl,
++                                         capture_output=True, text=True).returncode)
+ cfgs = sorted(glob.glob('/kaggle/input/**/config.json', recursive=True))
++MISSING = []
+ def mdir(*parts):
+     c = [os.path.dirname(x) for x in cfgs if all(p in x.lower() for p in parts)]
+-    assert c, parts; return c[0]
++    if not c: MISSING.append('model ' + ' '.join(parts))
++    return c[0] if c else None
+ def adir(name):
+-    h = glob.glob(f'/kaggle/input/**/{name}/heads.pt', recursive=True); assert h, name; return os.path.dirname(h[0])
++    h = glob.glob(f'/kaggle/input/**/{name}/heads.pt', recursive=True)
++    if not h: MISSING.append('adapter ' + name)
++    return os.path.dirname(h[0]) if h else None
++def nmeta(name):
++    h = glob.glob(f'/kaggle/input/**/{name}/meta.json', recursive=True)
++    if not h: MISSING.append('checkpoint ' + name); return None, {}
++    return os.path.dirname(h[0]), json.load(open(h[0]))['cfg']
++def first(pattern, what):
++    h = glob.glob(f'/kaggle/input/**/{pattern}', recursive=True)
++    if not h: MISSING.append(what)
++    return h[0] if h else None
++
+ DATA = next(p for p in ['/kaggle/input/competitions/name-that-llm', '/kaggle/input/name-that-llm'] if os.path.exists(p + '/train.csv'))
+-import pandas as _pd
+-FAST_COMMIT = os.getenv('KAGGLE_IS_COMPETITION_RERUN') is None and len(_pd.read_csv(DATA + '/test.csv')) < 50   # ours: the scoring rerun never takes the fast path   # fork: the 3-row commit run skips the heavy cells; the hidden rerun runs everything
+-print('FAST_COMMIT', FAST_COMMIT)
+-HEADS = os.path.dirname(next(iter(glob.glob('/kaggle/input/**/heads/q3_8bx.npz', recursive=True))))
+-EXTRA = next(iter(glob.glob('/kaggle/input/**/nlm_matched_clean.parquet', recursive=True)))
+-POOL = next(iter(glob.glob('/kaggle/input/**/nlm_pool_v5.parquet', recursive=True)))
+-B8, B14, B25 = mdir('/qwen-3/', '/8b-base/'), mdir('/qwen-3/', '/14b-base/'), mdir('/qwen2.5/', '/7b/')
+-I8, I14 = mdir('/qwen-3/', '/8b/'), mdir('/qwen-3/', '/14b/')
+-A8 = [adir(f'ts_q3b8_f{k}') for k in range(5)] + [adir('ts_q3b8')]
+-A14 = [adir(f'ts_q3b14_f{k}') for k in (0, 2, 4)] + [adir('ts_q3b14')]
+-A25 = [adir('ts_q25_7b')]
+-print(B8, B14, B25, I8, I14, A8, A14, A25, HEADS, EXTRA, POOL, sep='\n')
+-def nmeta(name):
+-    h = glob.glob(f'/kaggle/input/**/{name}/meta.json', recursive=True); assert h, name
+-    d = os.path.dirname(h[0]); c = json.load(open(h[0]))['cfg']; return d, c
+-N8, N8C = nmeta('lora8b_v1'); N14, N14C = nmeta('lora14b_v1')
+-print('nishant', N8, N8C['keep'], N8C['max_len'], N14, N14C['keep'], N14C['max_len'])
+-ATLAS = os.path.dirname(next(iter(glob.glob('/kaggle/input/**/atlas_bundle.json', recursive=True))))
+-print('atlas', ATLAS)
+-BL = next((os.path.dirname(x) for x in cfgs if '/llama-3-1-8b-base/' in x.lower()), None) or mdir('/llama-3.1/', '/8b/')   # ours: avazaku's cache is gone; same Meta weights from alexchilton/llama-3-1-8b-base
+-_SHARDS = {'model-00001-of-00004.safetensors': 4976698672, 'model-00002-of-00004.safetensors': 4999802720, 'model-00003-of-00004.safetensors': 4915916176, 'model-00004-of-00004.safetensors': 1168138808}
+-assert all(os.path.getsize(os.path.join(BL, f)) == n for f, n in _SHARDS.items()), BL   # fork: Llama-3.1-8B from avazaku's public cache (NousResearch copy)
+-AL = [adir(f'ts_llama8_f{k}') for k in (0, 2, 4)] + [adir('ts_llama8')]
+-import shutil, time as _tc; _c = _tc.time()
+-shutil.copytree(BL, '/tmp/llama-3.1/8b', dirs_exist_ok=True); BL = '/tmp/llama-3.1/8b'   # fork: see the intro
+-print('llama copied to local disk in', round(_tc.time() - _c), 's')
+-print('llama', BL, AL)
+-A8S7 = [adir(f'ts8_s7_f{k}') for k in (0, 2, 4)] + [adir('ts8_s7')]
+-print('seed7', A8S7)
+-B25_14 = mdir('/qwen2.5/', '/14b/')
++N_TEST = len(pd.read_csv(DATA + '/test.csv'))
++FAST_COMMIT = os.getenv('KAGGLE_IS_COMPETITION_RERUN') is None and N_TEST < 50 and not FULL_COMMIT_TEST
++print('test rows', N_TEST, '| FAST_COMMIT', FAST_COMMIT)
++
++EXTRA = first('nlm_matched_clean.parquet', 'dataset dhruvtibarewal/nlm-matched-clean (nlm_matched_clean.parquet)')
++POOL = first('nlm_pool_v5.parquet', 'dataset dhruvtibarewal/nlm-matched-clean (nlm_pool_v5.parquet)')
++B8, B14, B25_14 = mdir('/qwen-3/', '/8b-base/'), mdir('/qwen-3/', '/14b-base/'), mdir('/qwen2.5/', '/14b/')
++AQ14V5 = [adir(f'q14v5_f{k}') for k in range(5)] + [adir('q14v5')]
++AQ8V5 = [adir(f'q8v5_f{k}') for k in range(5)] + [adir('q8v5')]
+ N14B, N14BC = nmeta('lora_qwen3_14b'); Q25_14, Q25_14C = nmeta('lora_qwen25_14b')
+-DEB = os.path.dirname(glob.glob('/kaggle/input/**/deberta_v3_large/meta.json', recursive=True)[0])
+-import shutil; shutil.copytree(DEB, '/kaggle/working/deberta_v3_large', dirs_exist_ok=True); DEB = '/kaggle/working/deberta_v3_large'
+-print('part two', N14B, N14BC['keep'], N14BC['layers'], N14BC.get('eos_id'), Q25_14, Q25_14C['keep'], Q25_14C['layers'], DEB)
+-AQ8V5 = [adir(f'q8v5_f{k}') for k in range(5)] + [adir('q8v5')]
+-print('q8v5', AQ8V5)
+-AQ14V5 = [adir(f'q14v5_f{k}') for k in range(5)] + [adir('q14v5')]
+-ALL8V5 = [adir(f'll8v5_f{k}') for k in range(5)] + [adir('ll8v5')]
+-print('v5', AQ14V5, ALL8V5)
+-
++_deb = first('deberta_v3_large/meta.json', 'dataset nishantdahal/ntl-handwriting-blend (deberta_v3_large)')
++_atlas = glob.glob('/kaggle/input/**/atlas_bundle.json', recursive=True)
++if not _atlas: MISSING.append('dataset josephadamski91/ntl-atlas-qwen3-8b-v1 (ATLAS bundle)')
++if MISSING:
++    raise FileNotFoundError('Attach these inputs (+ Add Input):\n  ' + '\n  '.join(MISSING))
++ATLAS = os.path.dirname(_atlas[0])
++
++# Llama-3.1-8B: public re-upload first (as in 0.664), then Meta's gated model; shard sizes = Meta's release
++_SHARDS = {'model-00001-of-00004.safetensors': 4976698672, 'model-00002-of-00004.safetensors': 4999802720,
++           'model-00003-of-00004.safetensors': 4915916176, 'model-00004-of-00004.safetensors': 1168138808}
++_cands = [os.path.dirname(x) for x in cfgs if '/llama-3-1-8b-base/' in x.lower()] + \
++         [os.path.dirname(x) for x in cfgs if '/llama-3.1/' in x.lower() and '/8b/' in x.lower()]
++BL = next((d for d in _cands if all(os.path.exists(os.path.join(d, f)) and os.path.getsize(os.path.join(d, f)) == n
++                                    for f, n in _SHARDS.items())), None)
++ALL8V5 = [adir(f'll8v5_f{k}') for k in range(5)] + [adir('ll8v5')] if BL else []
++if MISSING:
++    raise FileNotFoundError('Attach these inputs (+ Add Input):\n  ' + '\n  '.join(MISSING))
++if BL is None:
++    print('WARNING: no Llama-3.1-8B with matching shards -> the ll8v5 member (weight 1.0) is dropped; expect a slightly lower score.\n'
++          '         Add Input -> Models -> "alexchilton/llama-3-1-8b-base", or accept Meta\'s licence and add Llama 3.1 / Transformers / 8b.')
++elif not FAST_COMMIT:
++    _c = time.time(); shutil.copytree(BL, '/tmp/llama-3.1/8b', dirs_exist_ok=True); BL = '/tmp/llama-3.1/8b'
++    print('llama copied to local disk in', round(time.time() - _c), 's')
++
++DEB = '/kaggle/temp/deberta_v3_large'
++if not FAST_COMMIT:
++    shutil.copytree(os.path.dirname(_deb), DEB, dirs_exist_ok=True)   # one long copy beats many small reads from the mount
++print('Llama:', BL, '| ATLAS:', ATLAS, '| part two:', N14BC['keep'], Q25_14C['keep'])
+ 
+ %%writefile gauss.py
+ """Shared-prompt Gaussian group head (ported, Apache-2.0, from public Kaggle notebooks by prvsiyan / kirilltym / sangam21).
+@@ -215,7 +231,6 @@
+         ii = np.where(lab == g)[0]; out[ii] = group_logpost(U[ii], prm, T1, Tg, cfg)
+     return out
+ 
+-
+ %%writefile infer.py
+ """End-to-end attribution pipeline (self-contained; runs on Kaggle T4x2 or locally in --sim mode).
+ 1. Mean-pooled hidden states from frozen LMs for train+test (computed here so precision/quantisation match).
+@@ -255,6 +270,7 @@
+ p.add_argument('--atlas_bs', type=int, default=4); p.add_argument('--atlas_chunk', type=int, default=3); p.add_argument('--atlas_budget', type=float, default=8.3 * 3600)
+ p.add_argument('--sk_div', type=int, default=1, help='1: divide blend by #members before Sinkhorn (ours); 0: raw blend (public notebook)')
+ p.add_argument('--sinkhorn', type=float, default=0.0, help='mix strength for damped marginal balancing (0=off)')
++p.add_argument('--v31_typo', type=int, default=1, help='[restructure] 1: V31 Bayesian typography step (default, as in 0.664); 0: skip')
+ p.add_argument('--sinkhorn_target_mix', type=float, default=0.35, help='shrink predicted class marginal toward official-train prior; 0=prediction marginal, 1=train prior')
+ p.add_argument('--sim_k', default='', help="sim only: keep 'lo-hi' random passages per held-out prompt")
+ p.add_argument('--extra', default='', help='parquet/csv (text, model) of matched external passages, used by TF-IDF/distort members')
+@@ -836,6 +852,7 @@
+         _ii = np.where(Gte == _g)[0]; _r, _c = linear_sum_assignment(-tot[_ii]); _nh += int((tot[_ii].argmax(1)[_r] != _c).sum())
+         tot[_ii[_r]] = -1e9; tot[_ii[_r], _c] = 0.0
+     log(f'post: em-dash guard fixed {_nfix}, dense-cluster Hungarian changed {_nh}')
++if a.post: _v38_before_hard = tot.copy()   # [restructure] bug fix: the typography step used to discard --post's changes
+ pred = tot.argmax(1) if a.perpassage else hungarian(tot, Gte)
+ if a.sim:
+     from sklearn.metrics import balanced_accuracy_score as bas
+@@ -847,11 +864,13 @@
+     wtot = sum(abs(float(s_.get('w', 1.0))) for s_ in specs) + (a.tfidf_w if a.tfidf_w > 0 else 0) + (a.distort_w if a.distort_w > 0 else 0) + (a.svc_w if a.svc_w > 0 else 0)
+     from scipy.special import log_softmax as _lsm
+     np.save(a.save_lp, _lsm(tot / max(wtot, 1e-6), axis=1).astype(np.float32)); log('saved', a.save_lp, 'norm', wtot)
++np.savez_compressed(os.path.join(os.path.dirname(os.path.abspath(a.out)), 'members_logprob.npz'),   # [restructure] for offline reblending
++                    ids=test.id.astype(str).values, labels=np.asarray(LABELS), before_typography=_v38_before_hard, **LP)
+ sub = pd.DataFrame({'id': test.id.values, 'model': [LABELS[i] for i in pred]})
+ assert sub.model.isin(LABELS).all() and sub.id.is_unique and len(sub) == len(test)
+ sub.to_parquet(a.out, index=False); log('wrote', a.out, sub.model.value_counts().to_dict())
+ 
+-if not a.sim:
++if not a.sim and a.v31_typo:   # [restructure] switchable; on by default
+     import pathlib as _V38Path
+     import scipy.special as _v38sp
+     import json as _v38json
+@@ -877,7 +896,7 @@
+     _evidence = (_Xte * _fw[None, :]) @ _log_rate.T + ((1.0 - _Xte) * _fw[None, :]) @ _log_not_rate.T
+     _evidence -= (((_Xte * _fw[None, :]) @ _base_log_rate) + (((1.0 - _Xte) * _fw[None, :]) @ _base_log_not_rate))[:, None]
+     _evidence -= _evidence.mean(axis=1, keepdims=True)
+-    _evidence = np.clip(1.5 * _evidence / max(float(_fw.sum()), 1e-6), -0.30, 0.30)
++    _evidence = np.clip(1.2 * _evidence / max(float(_fw.sum()), 1e-6), -0.30, 0.30)
+     _raw = _v38_before_hard.copy()
+     _probs = _v38sp.softmax(_raw, axis=1)
+     _sorted = np.sort(_probs, axis=1)
+@@ -906,7 +925,6 @@
+             'sinkhorn': float(a.sinkhorn), 'sinkhorn_target_mix': float(a.sinkhorn_target_mix)
+         }, _fo, indent=2)
+     log('V31 Bayesian typography completed; changed from pre-Bayes:', int((_raw_sub.model.values != _safe.model.values).sum()))
+-
+ 
+ %%writefile comp_stack.py
+ """Complementary frozen-feature stack (public Apache-2.0 notebooks by prvsiyan / lucasboesen / vnton37nguyn / kirilltym,
+@@ -1866,45 +1884,57 @@
+            'family_gates_applied': bool(not SMOKE)}, open('/kaggle/working/comp_meta.json', 'w'))
+ print(f'COMP STACK DONE {time.time() - T0:.0f}s', flush=True)
+ 
+-
+-# complementary public stack in its own process (frees all GPU memory when done); its wall time is charged to the ATLAS budget
+-import time as _t
+-_c0 = _t.time()
+-import os; os.environ['NTL_DROP_Q35'] = '0'
++_c0 = time.time()
++os.environ['NTL_DROP_Q35'] = '0' if USE_QWEN35_TOKATTN else '1'
+ if not FAST_COMMIT:
+     !python comp_stack.py 2>&1 | grep -vE 'Warning|warn'
+-COMP_SEC = _t.time() - _c0
++COMP_SEC = time.time() - _c0
+ print('comp stack wall time', round(COMP_SEC))
+ 
+-
+-W_N14, W_N8 = 1.0, 0.5
+-L = [2, 4, 6, 8, 12, 16, 20, 24]
++_test = pd.read_csv(os.path.join(DATA, 'test.csv'))
++try:
++    _cm = json.load(open('/kaggle/working/comp_meta.json')); _cl = np.load('/kaggle/working/comp_logit.npy')
++    assert _cm['ids'] == _test.id.astype(str).tolist()
++    _P = np.exp(_cl - _cl.max(1, keepdims=True)); _P /= _P.sum(1, keepdims=True)
++    if len(_P) >= 50:
++        for _ in range(100):
++            _P *= (len(_P) / 18) / _P.sum(0, keepdims=True); _P /= _P.sum(1, keepdims=True)
++    pd.DataFrame({'id': _test.id, 'model': np.array(_cm['labels'])[_P.argmax(1)]}).to_parquet('/kaggle/working/submission.parquet', index=False)
++    print('fallback submission (comp stack only) written')
++except Exception as e:
++    pd.DataFrame({'id': _test.id, 'model': 'gpt-5.5'}).to_parquet('/kaggle/working/submission.parquet', index=False)
++    print('placeholder submission written (comp stack output unavailable:', type(e).__name__, ')')
++
+ MODELS = [
+-  {"name": "q14v5", "type": "l24", "path": B14, "adapters": AQ14V5, "keep": 27, "layers": L, "w": 3.0, "bs": 8, "max_len": 384, "twin": 0.35, "gauss": 0.70},
+-  {"name": "q8v5", "type": "l24", "path": B8, "adapters": AQ8V5, "keep": 24, "layers": L, "w": 2.0, "bs": 16, "max_len": 384, "twin": 0.35, "gauss": 0.44, "dp": True},
+-  {"name": "ll8v5", "type": "l24", "path": BL, "adapters": ALL8V5, "keep": 24, "layers": L, "w": 1.0, "bs": 16, "max_len": 384, "twin": 0.35, "dp": True},
+-  {"name": "n14b", "type": "l24", "path": B14, "adapters": [N14B], "keep": N14BC['keep'], "layers": N14BC['layers'], "w": 2.5, "bs": 8, "max_len": N14BC['max_len'], "twin": 0.35, "no_final_norm": True, "eos_id": N14BC['eos_id']},
+-  {"name": "q25_14", "type": "l24", "path": B25_14, "adapters": [Q25_14], "keep": Q25_14C['keep'], "layers": Q25_14C['layers'], "w": 1.0, "bs": 8, "max_len": Q25_14C['max_len'], "twin": 0.35, "no_final_norm": True, "eos_id": Q25_14C['eos_id']},
+-  {"name": "deb", "type": "enc", "ckpt": DEB, "w": 1.0},
++  {"name": "q14v5", "type": "l24", "path": B14, "adapters": AQ14V5, "keep": 27, "layers": L24_LAYERS, "w": W['q14v5'], "bs": 8, "max_len": 384, "twin": TWIN, "gauss": GAUSS['q14v5']},
++  {"name": "q8v5", "type": "l24", "path": B8, "adapters": AQ8V5, "keep": 24, "layers": L24_LAYERS, "w": W['q8v5'], "bs": 16, "max_len": 384, "twin": TWIN, "gauss": GAUSS['q8v5'], "dp": True},
++  *([{"name": "ll8v5", "type": "l24", "path": BL, "adapters": ALL8V5, "keep": 24, "layers": L24_LAYERS, "w": W['ll8v5'], "bs": 16, "max_len": 384, "twin": TWIN, "dp": True}] if BL else []),
++  {"name": "n14b", "type": "l24", "path": B14, "adapters": [N14B], "keep": N14BC['keep'], "layers": N14BC['layers'], "w": W['n14b'], "bs": 8, "max_len": N14BC['max_len'], "twin": TWIN, "no_final_norm": True, "eos_id": N14BC['eos_id']},
++  {"name": "q25_14", "type": "l24", "path": B25_14, "adapters": [Q25_14], "keep": Q25_14C['keep'], "layers": Q25_14C['layers'], "w": W['q25_14'], "bs": 8, "max_len": Q25_14C['max_len'], "twin": TWIN, "no_final_norm": True, "eos_id": Q25_14C['eos_id']},
++  {"name": "deb", "type": "enc", "ckpt": DEB, "w": W['deb']},
+ ]
+-import pandas as pd
+ ATLAS_BUDGET = int(8.3 * 3600 - COMP_SEC - 600)
+-import subprocess, sys
+ cmd = [sys.executable, 'infer.py', '--data', str(DATA), '--models', json.dumps(MODELS),
+-       '--perpassage', '1', '--extra', str(EXTRA), '--extra_w', '0.5', '--tfidf_w', '0.25',
+-       '--distort_w', '0.10', '--svc_w', '1.5', '--pool', str(POOL), '--adapt_w', '1.0',
+-       '--adapt_thr', '0.15', '--sinkhorn', '0.45', '--sinkhorn_target_mix', '0.35', '--post', '0', '--atlas_dir', str(ATLAS),
+-       '--atlas_base', str(B8), '--atlas_w', '0.20', '--atlas_margin', '0.3',
++       '--perpassage', '1', '--extra', str(EXTRA), '--extra_w', str(EXTRA_W), '--tfidf_w', str(TFIDF_W),
++       '--distort_w', str(DISTORT_W), '--svc_w', str(SVC_W), '--pool', str(POOL), '--adapt_w', '1.0',
++       '--adapt_thr', '0.15', '--sinkhorn', str(SINKHORN), '--sinkhorn_target_mix', str(SINKHORN_TARGET_MIX), '--post', str(POST),
++       '--v31_typo', str(V31_TYPO), '--atlas_dir', str(ATLAS),
++       '--atlas_base', str(B8), '--atlas_w', str(ATLAS_W), '--atlas_margin', str(ATLAS_MARGIN),
+        '--atlas_bs', '4', '--atlas_chunk', '3', '--atlas_budget', str(max(180, ATLAS_BUDGET)),
+-       '--comp_path', '/kaggle/working/comp_logit.npy', '--comp_w', '0.15',
+-       '--out', '/kaggle/working/submission.parquet', '--cache', '/kaggle/working/cache']
+-print('RUNNING MAIN INFERENCE', flush=True)
+-if FAST_COMMIT:   # fork: placeholder from the commit run; Kaggle reruns the notebook on the hidden test
+-    _test_ph = pd.read_csv(os.path.join(DATA, 'test.csv'))
+-    pd.DataFrame({'id': _test_ph.id, 'model': 'gpt-5.5'}).to_parquet('/kaggle/working/submission.parquet', index=False)
+-else:
+-    subprocess.run(cmd, check=True)
++       '--comp_path', '/kaggle/working/comp_logit.npy', '--comp_w', str(COMP_W),
++       '--out', '/kaggle/working/submission_main.parquet', '--cache', '/kaggle/temp/cache']
++STATUS = 'skipped (commit placeholder)'
++if not FAST_COMMIT:
++    _left = TIME_LIMIT_S - (time.time() - T_NOTEBOOK) - SAFETY_S
++    print(f'RUNNING MAIN INFERENCE (watchdog {_left / 3600:.2f} h)', flush=True)
++    try:
++        rc = subprocess.run(cmd, timeout=max(60, _left)).returncode
++        STATUS = 'ok' if rc == 0 else f'FAILED exit {rc}'
++    except subprocess.TimeoutExpired:
++        STATUS = 'STOPPED by watchdog'
++    if STATUS == 'ok':
++        os.replace('/kaggle/working/submission_main.parquet', '/kaggle/working/submission.parquet')
++print('=' * 80); print('STAGE B:', STATUS, '| submission =', 'full blend' if STATUS == 'ok' else 'stage-A fallback'); print('=' * 80)
+ submission = pd.read_parquet('/kaggle/working/submission.parquet')
+-assert len(submission) == len(pd.read_csv(os.path.join(DATA, 'test.csv')))
+-assert set(submission.columns) == {'id', 'model'} and submission.id.is_unique and submission.model.notna().all()
+-print(submission.head())
++assert len(submission) == N_TEST and set(submission.columns) == {'id', 'model'} and submission.id.is_unique and submission.model.notna().all()
++print(submission.model.value_counts().to_string(), f'\ntotal {(time.time() - T_NOTEBOOK) / 3600:.2f} h')

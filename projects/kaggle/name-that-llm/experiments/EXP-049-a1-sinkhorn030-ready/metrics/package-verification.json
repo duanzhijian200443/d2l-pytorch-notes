@@ -1,0 +1,23 @@
+{
+  "status": "PASS_READY_NOT_LAUNCHED",
+  "experiment_id": "EXP-049",
+  "notebook_sha256": "35ddcc24900d4bace4b3c4cc167475ad2c119af83a9eb687ef717f7bea1200b5",
+  "metadata_sha256": "8c0a1ad41ecda521e57a0072bb68d93bbfa2ce65014a4ee42ffb0d09d679ba6f",
+  "audit": {
+    "changed_cells": [
+      0,
+      2,
+      12
+    ],
+    "attachment_count": 32,
+    "payload_and_model_source_cells_unchanged": true,
+    "mathematical_change": "cell12 command --sinkhorn 0.45 -> 0.30",
+    "other_changes": [
+      "cell0 description",
+      "cell2 bootstrap comment identity",
+      "cell12 experiment and Sinkhorn receipt",
+      "metadata id/title"
+    ]
+  },
+  "remote_actions": 0
+}

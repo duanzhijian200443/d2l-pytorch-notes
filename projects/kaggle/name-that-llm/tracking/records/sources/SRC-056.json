@@ -1,0 +1,41 @@
+{
+  "kind": "discussion",
+  "category": "discussions",
+  "title": "GoPain：TPU v5e-8 的 Qwen3-8B LoRA 吞吐探针",
+  "author": "locdunhat",
+  "url": "https://www.kaggle.com/competitions/name-that-llm/discussion/754657",
+  "observed_at": "2026-11-01T07:32:09.651508+00:00",
+  "source_version": {
+    "topic_id": 754657,
+    "snapshot_sha256": "26947c583fff875a37630abae324df9bea90f601d0512b98d9d3ed44d84a7922"
+  },
+  "public_score": null,
+  "summary": "11月1日新帖报告8芯TPU探针12.5k padded tokens/s；约14.2倍为特定配置吞吐，完整训练收益尚未验证。",
+  "author_claim": "Qwen3-8B截断24层、LoRA r16、bf16；8芯SPMD 64×384每步1.97秒，约为2×T4 fp16的14.2倍。",
+  "verified": "已读取原帖，作者说在迁移真实训练前测量；未取得其完整probe源码、日志或完成训练结果。",
+  "use_for_us": "作为后续LoRA训练的候选硬件路线，先测固定形状、编译、吞吐、收敛与GPU导入兼容。",
+  "test_plan": "相同样本顺序与有效token预算比较T4和TPU，统计有效token吞吐、编译/排队时间及相同训练步数OOF。",
+  "limitations": "14.2倍为padded-token probe，不是端到端训练或LB提升；0.5小时是按约7小时阶段推算；额度/镜像须另核官方实时信息。",
+  "tags": [
+    "tpu",
+    "runtime",
+    "lora",
+    "bf16",
+    "training"
+  ],
+  "related_sources": [],
+  "schema_version": 1,
+  "id": "SRC-056",
+  "artifact_dir": "research/discussions/SRC-056-754657-gopain-tpu-qwen-lora",
+  "notes_path": "research/discussions/SRC-056-754657-gopain-tpu-qwen-lora/notes.md",
+  "collection_observation_note": "源码/API时间见回执。浏览器仅记录2026-11-01 UTC采集日期及07:35:57 UTC汇总截至时刻，不将其伪作逐页精确读取时间。",
+  "supersedes": null,
+  "evidence": [
+    "research/discussions/SRC-056-754657-gopain-tpu-qwen-lora/notes.md",
+    "research/discussions/SRC-056-754657-gopain-tpu-qwen-lora/snapshots/20261101T073209Z.json"
+  ],
+  "evidence_sha256": {
+    "research/discussions/SRC-056-754657-gopain-tpu-qwen-lora/notes.md": "e4b9ac862d15ae576081104f985879e759f5b762a5084690d8b3be61b3b751be",
+    "research/discussions/SRC-056-754657-gopain-tpu-qwen-lora/snapshots/20261101T073209Z.json": "26947c583fff875a37630abae324df9bea90f601d0512b98d9d3ed44d84a7922"
+  }
+}

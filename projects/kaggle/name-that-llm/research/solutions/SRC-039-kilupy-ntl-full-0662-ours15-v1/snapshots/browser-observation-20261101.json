@@ -1,0 +1,32 @@
+{
+  "role": "browser_dom_observation_from_parent",
+  "observer": "/root",
+  "observed_at": "2026-11-01T07:35:57Z",
+  "url": "https://www.kaggle.com/code/kilupy/ntl-full-0662-ours15",
+  "fixed_version_url": "https://www.kaggle.com/code/kilupy/ntl-full-0662-ours15?scriptVersionId=364235852",
+  "notebook_version": 1,
+  "version_count": 1,
+  "script_version_id": 364235852,
+  "fork_link": "/kernels/fork-version/364235852",
+  "score_display": "Public Score 0.664; Best Score 0.664 V1",
+  "public_score": 0.664,
+  "score_bound_to_source": true,
+  "runtime_seconds": 557,
+  "runtime_display": "9m17s",
+  "runtime_scope": "saved notebook/commit run; NOT hidden scoring runtime",
+  "accelerator": "T4 x2",
+  "output_file_count": 10,
+  "private_dataset_visible": true,
+  "evidence_origin": "Parent agent read live Kaggle rendered page and sent exact observation; this collector did not directly operate that browser.",
+  "input_literal": "[Private Dataset]",
+  "precision": "collection-end; exact per-page timestamp not recorded",
+  "observation_window": {
+    "from": "2026-11-01T07:30:00Z",
+    "to": "2026-11-01T07:35:57Z"
+  },
+  "observation_time_precision": "collection-end only; per-page time unknown",
+  "browser_read_date_utc": "2026-11-01",
+  "collection_end_at_utc": "2026-11-01T07:35:57Z",
+  "exact_per_page_read_at": null,
+  "recorded_at": "2026-11-01T07:39:27.783667+00:00"
+}

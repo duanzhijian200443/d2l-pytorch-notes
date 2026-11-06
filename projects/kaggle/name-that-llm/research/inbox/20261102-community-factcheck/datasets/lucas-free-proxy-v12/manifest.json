@@ -1,0 +1,95 @@
+{
+  "status": "PENDING_IMPORT",
+  "role": "per-item import manifest; not canonical source registry",
+  "category": "datasets",
+  "source_ref": "lucasboesen/ntl-free-proxy-generations",
+  "source_url": "https://www.kaggle.com/datasets/lucasboesen/ntl-free-proxy-generations/versions/12",
+  "dataset_version": 12,
+  "observed_at": "2026-11-02T04:01:26.482255+00:00",
+  "existing_source_candidates": [
+    "SRC-034"
+  ],
+  "related_sources": [
+    "SRC-027",
+    "SRC-038"
+  ],
+  "source_access": "Official Kaggle Python SDK, authenticated existing credentials; public anonymous API failed 404",
+  "files": [
+    {
+      "path": "research/inbox/20261102-community-factcheck/datasets/lucas-free-proxy-v12/actual-counts.json",
+      "bytes": 6885,
+      "sha256": "18a9cf78dc625cd23243837789a32b5570d114f1dc1e169f573e42351e809c64"
+    },
+    {
+      "path": "research/inbox/20261102-community-factcheck/datasets/lucas-free-proxy-v12/api-dataset-get.json",
+      "bytes": 7348,
+      "sha256": "a6ee58f3ec66649364685d21f6c75bff86e33748dae448aeae9ef88b6e3e2c5c"
+    },
+    {
+      "path": "research/inbox/20261102-community-factcheck/datasets/lucas-free-proxy-v12/dataset-card-current-v12.md",
+      "bytes": 3493,
+      "sha256": "cb644614f0ee34aa2efcae6575725071d4f18737ee94db2b038fc56ee1040be3"
+    },
+    {
+      "path": "research/inbox/20261102-community-factcheck/datasets/lucas-free-proxy-v12/factcheck.json",
+      "bytes": 1833,
+      "sha256": "b75606b97827e6c9a17c758fcd227c88f7fb3aeee494b0b5e8d57ecafb13994d"
+    },
+    {
+      "path": "research/inbox/20261102-community-factcheck/datasets/lucas-free-proxy-v12/notes.md",
+      "bytes": 4123,
+      "sha256": "71c0457baef5f34777afb885ed815613f2890fe3696464a2b816fefa1a2bce22"
+    },
+    {
+      "path": "research/inbox/20261102-community-factcheck/datasets/lucas-free-proxy-v12/open-pool-v11/sources.csv",
+      "bytes": 4262,
+      "sha256": "ea9f83935bbb7409dc9fd5043659fdc32e8bbc6eeb614b3502d928d8f759ddd2"
+    },
+    {
+      "path": "research/inbox/20261102-community-factcheck/datasets/lucas-free-proxy-v12/v11/README.md",
+      "bytes": 4720,
+      "sha256": "216c7cf5f92168f346a047da526f0a34788a7fdffba9e8a943c60906c9711220"
+    },
+    {
+      "path": "research/inbox/20261102-community-factcheck/datasets/lucas-free-proxy-v12/v11-files.json",
+      "bytes": 202,
+      "sha256": "251559cf2692fe5b738f22225e3f249b4ba4fa5ea8bb9317b56b68d929af6cb1"
+    },
+    {
+      "path": "research/inbox/20261102-community-factcheck/datasets/lucas-free-proxy-v12/v12/README.md",
+      "bytes": 4720,
+      "sha256": "f4c337ea0ac33b234cce838d0cd8daeaee722ec74c84155feea0fe716e640ece"
+    },
+    {
+      "path": "research/inbox/20261102-community-factcheck/datasets/lucas-free-proxy-v12/v12-files.json",
+      "bytes": 202,
+      "sha256": "7fbcc5747520d4c150dff5e2e6469b03910855ab3c9c6a839a4929a79f3d3c1a"
+    },
+    {
+      "path": "research/inbox/20261102-community-factcheck/datasets/lucas-free-proxy-v12/version-history.json",
+      "bytes": 2925,
+      "sha256": "5dc369f28041b4c1c28b05ffced4bf587d5450ae0e93018e75b03bedf7a50301"
+    },
+    {
+      "file": "data/public-pools/lucasboesen/ntl-free-proxy-generations/v7/gen_passages.csv",
+      "bytes": 3835894,
+      "sha256": "d037d212e17a7e98465f9c606f4437225fb221939a5f51b0f8150d15c07c68a5"
+    },
+    {
+      "file": "data/community-factcheck-20261102/lucas-v11/gen_passages.csv",
+      "bytes": 7476244,
+      "sha256": "a6da05c3ac20876bddc61b0eaa24cf84b4164ed9cd36fe62fc076f7238991912"
+    },
+    {
+      "file": "data/community-factcheck-20261102/lucas-v12/gen_passages.csv",
+      "bytes": 7666492,
+      "sha256": "b855fc128375984111d51ed4ae6bf23ca0fbec667b58d5ad2370bdb310495271"
+    }
+  ],
+  "limits": [
+    "No global ledger edits or official SRC allocation",
+    "No full OpenPool parquet join",
+    "No finish_reason column",
+    "No training eligibility or score gain established"
+  ]
+}

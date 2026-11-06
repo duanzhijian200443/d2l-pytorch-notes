@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-049",
+  "status": "READY_NOT_LAUNCHED",
+  "created_at": "2026-11-02T04:36:41.980587+00:00",
+  "baseline_experiment": "EXP-046",
+  "only_math_change": {
+    "parameter": "sinkhorn",
+    "control": 0.45,
+    "candidate": 0.3
+  },
+  "arms": [
+    "A1_sinkhorn045",
+    "A1_sinkhorn030"
+  ],
+  "self_generated_rows_added": 0,
+  "remote_action_authorized": false,
+  "fixed": {
+    "target_mix": 0.35,
+    "typography_scale": 1.5,
+    "comp_weight": 0.15,
+    "atlas_weight": 0.2,
+    "atlas_margin": 0.3,
+    "stylegram": "official2699+public10073_share0.5_raw_margin",
+    "original_sharedgate_data": true
+  },
+  "local_diagnostic": {
+    "scope": "EXP045 A1 real cache; already inspected external panel; not clean OOF or LB",
+    "rows": 729,
+    "output_classes": 18,
+    "true_classes": 17,
+    "prompt_groups": 56,
+    "bootstrap_draws": 2000,
+    "bootstrap_seed": 42,
+    "atlas_policy": "strict complete coverage or no scores",
+    "refit": false
+  },
+  "remote_save_started": false,
+  "remote_run_started": false,
+  "submission_started": false
+}

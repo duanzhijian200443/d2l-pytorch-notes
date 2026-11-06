@@ -1,0 +1,233 @@
+{
+  "status": "PASS_KNOWN_EXACT_FIXED_RAW_CLEAN_120",
+  "inputs": {
+    "experiments/EXP-023-codex-subscription-pilot-r1/collection/records.jsonl": {
+      "sha256": "cb903279b3727b31ce2125b89c5ce8f530d769a984f49c2cb86e4fbefb1e9722",
+      "bytes": 2428324
+    },
+    "experiments/EXP-040-codex300-concurrency2/collection/combined-records.jsonl": {
+      "sha256": "2d6c691016a6ae6f789d5c6a625a207a3ec89e5093bf804c5052b11c90a6125b",
+      "bytes": 1165478
+    },
+    "experiments/EXP-043-codex-format-view/manifest.json": {
+      "sha256": "98dbb285863a5e9d806b1399b96a76e09554249b549455c1fa75777fd0565deb",
+      "bytes": 2384
+    },
+    "experiments/EXP-043-codex-format-view/metrics/independent-review.json": {
+      "sha256": "c2a93d6b27d7a5e7e0217049c8f2387e90ed0ee84f9a2a95f6fb1fc1b740c793",
+      "bytes": 5330
+    },
+    "cloud/luna-terra120-042/payload/new120.csv": {
+      "sha256": "cbb0f2227f7748d9172f04d23c1653403103a192dbb7503d897153d24bb00acd",
+      "bytes": 159306
+    },
+    "cloud/luna-terra120-042/payload/protocol.json": {
+      "sha256": "35e546b80c1e0ef0a3f489575260bbb5b64eca4e4b6ef553e359ead9f6135a1b",
+      "bytes": 958
+    },
+    "train.csv": {
+      "sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+      "bytes": 2139418
+    },
+    "experiments/EXP-010-012-stylegram-share/payload/extra.csv": {
+      "sha256": "1e9125fd49b19084842332ede84ea65bc0174ee1bb28c8d48acc8ddbd5e36c0e",
+      "bytes": 8672205
+    },
+    "validation/prompt-group-v1/folds.csv": {
+      "sha256": "e8ba1e3712852168dc57f56960d4f3e00be612d639ade8a7dcb0f0d8335ce551",
+      "bytes": 267236
+    },
+    "data/public-pools/seyitkaangunes/ntl-extra-api-passages/v2/prompts.csv": {
+      "sha256": "25df24d4e4ca0f8242bd365cc9ea8039f0056f3eae78fa3dd186bbae5a608395",
+      "bytes": 266160
+    },
+    "data/public-pools/prvsiyan/prvsiyans-extended-name-that-llm-dataset/v6/prompts.csv": {
+      "sha256": "58dabf5d31bb3fd76ff49dda3c4603970aece7553a5afe78d2e2dc4463b98acd",
+      "bytes": 377389
+    },
+    "experiments/EXP-043-codex-format-view/config.json": {
+      "sha256": "a3a989d6e9734ef0eaf065f63684ce376a5ef291b640522dc33bb94e2c3e40f2",
+      "bytes": 1130
+    },
+    "experiments/EXP-043-codex-format-view/metrics/derivation.json": {
+      "sha256": "188b4f75747957bc638875cd952a64eabf4df957942cd309251ef8b73dabcce5",
+      "bytes": 1242
+    },
+    "experiments/EXP-043-codex-format-view/transform.py": {
+      "sha256": "dadcce47a6a16e01f692e9b40b1e688b9dafdf3a06125f35ed53b4bb213aa422",
+      "bytes": 3147
+    },
+    "experiments/EXP-043-codex-format-view/test_transform.py": {
+      "sha256": "4f1e77afeaceb9606e6006690dcbe98406ca4a537dbb98ebbe377f56b4cc79b7",
+      "bytes": 1787
+    },
+    "experiments/EXP-043-codex-format-view/build_view.py": {
+      "sha256": "ce452c52ece3c061ec7422781521d39a7a9635795073d7bc3c8b76f37cc959bb",
+      "bytes": 7834
+    },
+    "experiments/EXP-043-codex-format-view/derived/holdout.jsonl": {
+      "sha256": "a11dfa645ab153e6e5d1898bf2557d0acd6bffaea443a96ad85163c05bfd4063",
+      "bytes": 396280
+    },
+    "experiments/EXP-043-codex-format-view/derived/row-changes.jsonl": {
+      "sha256": "98c35df6b2e6a0c7899ee29e204b0a11fea9ed41d0788927a2a13aff2669c45a",
+      "bytes": 778008
+    },
+    "experiments/EXP-043-codex-format-view/derived/selections.json": {
+      "sha256": "b2fe0393c93856cb9aa092e45b87a3573cea60935819932959eba5aed69f58e7",
+      "bytes": 61685
+    },
+    "experiments/EXP-043-codex-format-view/derived/train.jsonl": {
+      "sha256": "157c7f45c635160718f47f6e018f5553b52b8b38fc23eaf9ad495aa554bb9ffb",
+      "bytes": 1574130
+    },
+    "experiments/EXP-044-format120-parallel/prepare_inputs.py": {
+      "sha256": "4ea9857f6fbee41ccf2fe95001cfd2f5bb07f325aa69d0b46ddab5ab45bc0e87",
+      "bytes": 16208
+    }
+  },
+  "counts": {
+    "rows_per_arm": 120,
+    "models": {
+      "gpt-5.6-luna": 60,
+      "gpt-5.6-terra": 60
+    },
+    "original_prompt_groups": 60,
+    "text_changed_rows": 86,
+    "reserved_old_rows": 200,
+    "reserved_prompt_groups": 50
+  },
+  "selection": "EXP043 selections.matched_with_aligned120 in original list order; old job keys only",
+  "schema": [
+    "row_id",
+    "origin",
+    "prompt_id",
+    "model",
+    "text",
+    "base_prompt",
+    "text_sha256",
+    "job_key",
+    "split",
+    "source_protocol",
+    "raw_text_sha256"
+  ],
+  "metadata_identical_except": [
+    "text",
+    "text_sha256"
+  ],
+  "origin_and_source_protocol": "codex_subscription_original_format_pair_v1",
+  "views": {
+    "raw120": "Actual unchanged EXP023 old text; not EXP042 aligned generation",
+    "clean120": "Exact EXP043 derived text; only accepted paired strong markers and line separators transformed"
+  },
+  "holdout_prompt_group_hashes": [
+    "04247f7bde4b2b4bd9de49a74d640d75f7d57c71bbc4d3cc84bdc1740b36596f",
+    "142c9537a2a9544c6fd623131255488239291a7696ac4e2d6ebb911861010e69",
+    "1751d2129cad1ede5bc5e93a0e20789f87080e9d518f20e8cef7edb272d2bd12",
+    "19ed04a5f83e1eb57460c15f1d0736e03031f8f535cbe01f4aff641d907d4477",
+    "1b7ecab0d4a8856ddeb54a827fd751f4e12a9306abb8ec16ef9ba67eac7f765c",
+    "295ee93520cf13381e61c25a012b322d730030b83b471e10ca495fb2130bc582",
+    "2a0d302ff0e376778f1784bfee3ab8529c371ce99e9003c22ecd532d2ff62614",
+    "2a0ece4dab5cb1bfb2dc0c24a53a8e5ec122949ad5aa50d5d71aa75e849f955d",
+    "2db3f4c9789ec30e13bc8b3b5713203db519eb08beb5375e5bf518c75430501e",
+    "3ae5a582ba62c8070944525487ddca615b8abca6c27f8f6d24ead6f372d4ffb1",
+    "439986b8116c0488b389ed6e7e06e8e82f11ff3d0312aaeb953cea5fc8ca2715",
+    "47ed9bb8c6b6f738602eb59644232a6830383ee0ab5af6d10edab1cd535d0d61",
+    "4a2cb248557548ffe3a63fec70f645fd56764c50dae5be71a678b1bad6a74b5d",
+    "4a44887b9372f6aef0d6b2236b83f57d4e96e0714132aa309d9f42ee81305c20",
+    "596f90a8fb382abedcbdba7249b3d331677c0c19776aa5a292ef4a8f95b84d4c",
+    "5db19ec2e0feffb20f959c10e73d41c64a6ba06eea7f60360c0450bdbf4d5444",
+    "63043aa29d8e4b88d343bff15c38ce77ddcfcce7b8b3345cc1f7ef1e3eae8ff5",
+    "64fcaabb160a3d8d18c80ef8937db4596ac85f556a8d904dc0d9df790f3ef047",
+    "71fbf56a6e11892017e71bcee810fc5b619e3e7b4a8191e25045b495eaf13687",
+    "787229aeb881cf46651f5c48d8f1908289644e4cbf73da556efce2ea5a684f25",
+    "7942fb1a791f4e753d7153bc4d6f66d8512e4ff0b6e18b47347566b7f6593526",
+    "874276c5d48941d3d50c15b8eb68dfde987c9b22f22b9cba287133e8c11c1c5b",
+    "8cbadd5a95a18a4e54424fb246837adf069102f0123b3a8d15735fd70b2abaf4",
+    "91fcc22e02755779480fdc2bb3e79293a0581459067b5ccf1235017e2200cc44",
+    "942a726938891b8667bce20335cd45b1f2c78a3554ca6b3b2dcb41f128480da7",
+    "959b0a6c4ff2a735a6bdab0d1ec93697119f0297d3354c13336185a62132a9be",
+    "9b795c373026e5b165a5c00ecf89de9ebf532f767711e0fd9cf6baff1538fbcb",
+    "9e71a1e4b954463efde7f66bed3410bc7a31503740c9d182faea41e0a9612bae",
+    "a59558977f78d0efa66aba665dc270a764b842d1749855bdd77ebe855f84c271",
+    "ac9327fa6e41222428c17483a670f27bf3c25db538809ae20b426c6646d1eadd",
+    "b5c3e3bbabad871c387098515136e8e2834a577e7e6588238713c5132acb0ac0",
+    "bb9514eec90d8072380b11210469b43d68fccc146c397d082c1b50f86f67bfd1",
+    "bc102bd96f7fd1d3cf19bd6f7a911bde3203d2255f2edf0858898c5679f89ee9",
+    "be69fdc6e9333fdae5c918957592ad4e0833fabbba098a07cc6ad45e941d5177",
+    "c08f7bbe80631e7359b5174d4559116acbc2259710d0dd6c8512e166bd39e473",
+    "c38ddcb0120d168202f590fe4ceceeafbe318b6b7e860cde67dacae46ab55bf9",
+    "c8b2d6bedf55d4b8427e7aed7b41c1d372ddc3e18c405e2b0933efb64b69f5aa",
+    "d063ea9b3b9e5a7b3d0576dad841edede5375622e630fe79f46d73ef663783e3",
+    "d3fffbdd579ae1827f8e0aea975b77191c3913c63e4750d044673b309b2d0035",
+    "d5f9983b43ef615139c2270f69e4bae5b331e13cc051a644ed56890fec5ef18e",
+    "d71afbb43e0312a4123fb2e74e52b7bed0c873d9f5ea6bfd9f074b125cc7c352",
+    "d739a5573efdb1e5fca640da56126d280db15f3a7272a1d4366927dd369b3ae4",
+    "d909ee00c4b4f14dbcaab15e7f1874d07d867fe79939646c7457a6e8c9e5e0a5",
+    "dd656b44b4e6ac5a65606e89a10efc6bff0dcfae7ad7ca7c9d6f4d278cfab6e1",
+    "e21f5a98e1d722d787ae0c0afb35cfe26b6f41893afc8dfa47f843e013051b74",
+    "f4226c76c2aad154ffc375ce5d39b785f9f92b7266ea54a32b58776acf580386",
+    "f44c0257c9987f9047c1c8d81c23b9b5bd373a7beeed736a274a6aed07448397",
+    "f459991d640cc760d429058e03e255229da8f1b1c33bdd47ff27e845331e9de6",
+    "f746bf13b2c999adece51260612cb1aea834b238a7946f5f1c3d95f1831d4fb8",
+    "fd9b75c9966cf9107a6e605068ae16f6a653a3225d5306c8a45ce0b7ced5a185"
+  ],
+  "holdout_hash_normalization": "SHA256 UTF8(NFKC + casefold + collapse whitespace) of original base prompt",
+  "checks": {
+    "raw120": {
+      "internal_exact_duplicates": 0,
+      "official_exact_response_matches": 0,
+      "stylegram_public_exact_response_matches": 0,
+      "old_holdout_exact_response_matches": 0,
+      "derived_holdout_exact_response_matches": 0,
+      "internal_normalized_duplicates": 0,
+      "official_normalized_response_matches": 0,
+      "stylegram_public_normalized_response_matches": 0,
+      "old_holdout_normalized_response_matches": 0,
+      "derived_holdout_normalized_response_matches": 0,
+      "public_exact_prompt_matches": 0,
+      "public_normalized_prompt_matches": 0,
+      "official_reconstructed_exact_prompt_matches": 0,
+      "official_reconstructed_normalized_prompt_matches": 0
+    },
+    "clean120": {
+      "internal_exact_duplicates": 0,
+      "official_exact_response_matches": 0,
+      "stylegram_public_exact_response_matches": 0,
+      "old_holdout_exact_response_matches": 0,
+      "derived_holdout_exact_response_matches": 0,
+      "internal_normalized_duplicates": 0,
+      "official_normalized_response_matches": 0,
+      "stylegram_public_normalized_response_matches": 0,
+      "old_holdout_normalized_response_matches": 0,
+      "derived_holdout_normalized_response_matches": 0,
+      "public_exact_prompt_matches": 0,
+      "public_normalized_prompt_matches": 0,
+      "official_reconstructed_exact_prompt_matches": 0,
+      "official_reconstructed_normalized_prompt_matches": 0
+    }
+  },
+  "different_job_cross_view_normalized_collisions": 0,
+  "weights": "No weights encoded or recalculated here. Both arms require identical EXP042 fixed_weights using original extra10073 counts; identical row order/labels ensure identical per-fold row weights. No post-append normalization.",
+  "outputs": {
+    "raw120.csv": {
+      "path": "cloud/format120-044/payload/raw120.csv",
+      "sha256": "b818da09b547be8af23e49aa5b353788ffbf8f4135dc8200858a6a511f531497",
+      "bytes": 168498
+    },
+    "clean120.csv": {
+      "path": "cloud/format120-044/payload/clean120.csv",
+      "sha256": "6ada86f4a45eb2c8fe0dadae28d48edbc3fb792858972c39a29b12185f99d59f",
+      "bytes": 168086
+    }
+  },
+  "limits": [
+    "Known/exact prompt and response checks only; true official prompts unknown and reconstructed prompts approximate.",
+    "Inherited EXP042 lexical review found cp0049/version-control and cp0029/tides related to EXP027 tasks; EXP027 is not independent evaluation here.",
+    "Old requested model identity is not independent provider-snapshot authentication.",
+    "Clean view retains wording and other formatting; not a new-protocol generation or semantic quality certification.",
+    "Only120 permitted train rows copied into each CSV. Source800, all holdout text and aligned-new120 text are not copied into these payloads."
+  ],
+  "training": false,
+  "remote_operations": false
+}

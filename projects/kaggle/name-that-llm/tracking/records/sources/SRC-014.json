@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "id": "SRC-014",
+  "kind": "notebook",
+  "title": "0.661 | Qwen3.8-27B LoRA + Spectral Ensemble",
+  "url": "https://www.kaggle.com/code/lightningv08/0-661-qwen3-8-27b-lora-spectral-ensemble",
+  "observed_at": "2026-10-30T15:16:41.600Z",
+  "source_version": {
+    "notebook_version": 21,
+    "script_version_id": null,
+    "source_sha256": "9dc9b5fd1c8bb0dc3e51f3a0dec8b25f49c03e195913b4af4455949a47eeeda1",
+    "code_sha256": "ccf20f79c762d4e3e87a22d35bc4f6178bc4c38cbdcaed2add0210c26cc098a2"
+  },
+  "family_id": "code-ccf20f79c762",
+  "public_score": {
+    "value": 0.661,
+    "evidence_type": "platform_page",
+    "bound_to_source": false,
+    "script_version_id": null
+  },
+  "summary": "27B GSQ LoRA / Spectral 分支，概率份额 10%；与第 03 项 7.5% 分支分别保留。",
+  "author_claim": "正文声明保存在下方 description.md；标题分数不作为独立证据。",
+  "verified": "2026-10-30 已观察页面分数并保存源码；增量说明见摘要。",
+  "use_for_us": "用于选择对照实验，不直接替换当前基线。",
+  "test_plan": "先核对具体得分版本，再把单项差异变成 IDEA。",
+  "limitations": "页面分数与下载源码版本未绑定；排名只代表当日快照。同代码的副本不是独立算法。",
+  "evidence": [
+    "reviews/public-top20-20261030/lightningv08--0-661-qwen3-8-27b-lora-spectral-ensemble/source.ipynb",
+    "reviews/public-top20-20261030/lightningv08--0-661-qwen3-8-27b-lora-spectral-ensemble/metadata.json",
+    "reviews/public-top20-20261030/lightningv08--0-661-qwen3-8-27b-lora-spectral-ensemble/description.md",
+    "reviews/public-top20-20261030/ui-scores.json"
+  ]
+}

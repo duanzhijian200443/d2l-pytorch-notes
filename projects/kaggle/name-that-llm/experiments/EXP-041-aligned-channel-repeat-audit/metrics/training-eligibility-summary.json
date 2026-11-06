@@ -1,0 +1,10 @@
+{
+  "counts": {
+    "CONTROLLED_TRAINING_CANDIDATE": 120,
+    "EXPLORATORY_TRAINING_CANDIDATE_NO_PAIRED_CHANNEL_EVIDENCE": 120,
+    "RESERVED_HOLDOUT": 60
+  },
+  "unchanged_source_sha256": "2d6c691016a6ae6f789d5c6a625a207a3ec89e5093bf804c5052b11c90a6125b",
+  "paired_panel": "78 answers remain diagnostic panel; no actual pool ingestion",
+  "policy": "All old/new protocol versions, models, routes and repeats with the same base prompt must share one split. No training utility claim. Keep raw length outlier, flag rather than silently remove."
+}

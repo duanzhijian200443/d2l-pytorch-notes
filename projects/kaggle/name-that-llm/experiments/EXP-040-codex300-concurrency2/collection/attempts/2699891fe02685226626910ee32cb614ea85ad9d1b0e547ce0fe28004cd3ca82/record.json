@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0159",
+  "prompt": "Recast this first-person account as a neutral incident summary: 'I opened the cupboard and the loose shelf tipped forward. Nothing broke, but three folders fell. I moved the remaining folders to the table and left a note so nobody else would use the cupboard.' Aim for about 80 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "rewrite_original_material",
+  "target_words": 80,
+  "prompt_group": "cp0159",
+  "split": "train",
+  "source": "codex_subscription",
+  "base_prompt": "Recast this first-person account as a neutral incident summary: 'I opened the cupboard and the loose shelf tipped forward. Nothing broke, but three folders fell. I moved the remaining folders to the table and left a note so nobody else would use the cupboard.' Aim for about 80 words.",
+  "base_prompt_sha256": "efe5cc8fdaa3cc120489db72311503c75ec27018ca44b0db29b330aabcfcfb0a",
+  "base_prompt_id": "cp0159",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0159::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "2699891fe02685226626910ee32cb614ea85ad9d1b0e547ce0fe28004cd3ca82",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:21:01.258682+00:00",
+  "ended_at": "2026-11-01T13:21:17.937321+00:00",
+  "prompt_sha256": "3b78dfc26abfac6c49a8e91d6d71e75a81abba7393fde6c17b69a70b48839f93",
+  "text": "When the cupboard was opened, a loose shelf tipped forward, causing three folders to fall. No items were broken or otherwise damaged during the incident. As a precaution, the remaining folders were removed from the cupboard and placed on a nearby table. A note was then left on the cupboard advising others not to use it. The cupboard and shelf should remain out of service until the shelf can be inspected, secured, and confirmed safe for future use.",
+  "text_sha256": "0ca8cf25dde45b1b39619d5129bea262f70a9497ffcfffb68a0496be1e4dbaec",
+  "raw_final_sha256": "0ca8cf25dde45b1b39619d5129bea262f70a9497ffcfffb68a0496be1e4dbaec",
+  "word_count": 78,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4238,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 111,
+      "reasoning_output_tokens": 17
+    }
+  ],
+  "attempt_path": "collection\\attempts\\2699891fe02685226626910ee32cb614ea85ad9d1b0e547ce0fe28004cd3ca82",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

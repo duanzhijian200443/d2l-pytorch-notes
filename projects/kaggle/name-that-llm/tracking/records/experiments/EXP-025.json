@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "EXP-025",
+  "title": "Codex试采续采：Windows状态写入容错，复用6条成功原文",
+  "baseline_id": "EXP-023",
+  "hypothesis": "Resume exactly the same 1000-response pilot without duplicating its six successful requests after a local persistence failure.",
+  "changes": [
+    "Bounded retries for local Windows atomic replacement only",
+    "Drain and commit completed in-flight responses on local IO error",
+    "Validate finalizer exit code/run_id/state/summary/1000 successful attempts"
+  ],
+  "observed_at": "2026-11-01T10:14:33.494345+00:00",
+  "source": {
+    "notebook_ref": null,
+    "notebook_version": null,
+    "script_version_id": null,
+    "local_path": "experiments/EXP-025-codex-subscription-pilot-r2/code/codex_collect.py",
+    "sha256": "5c1d5ccd66fec5d4cea4b0e9ea526c9cbfc171f73d7e81e5b23d9188ccda1d24"
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-025-codex-subscription-pilot-r2/manifest.json",
+    "validation_split_id": "codex-pilot-prompt-v1",
+    "content_hashes_verified": true
+  },
+  "config": {
+    "note": "仅作台账索引；完整参数以 config_path 指向的 config.json 为准。"
+  },
+  "environment": {
+    "platform": "local_windows_codex_cli_chatgpt_auth",
+    "accelerator": "none",
+    "container": null,
+    "seed": null
+  },
+  "execution": {
+    "scope": "Resume shared collection: 6 saved, up to 994 new requests",
+    "status": "STOPPED_INCOMPLETE",
+    "observed_at": "2026-11-01T10:14:33.494345+00:00",
+    "collection_path": "experiments/EXP-023-codex-subscription-pilot-r1/collection",
+    "responses": 558,
+    "controller_pid": 30080,
+    "run_id": "0df2733358d4478c816ae31ca2b8bfeb",
+    "controller_status": "STOPPED_FAILURE"
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": null,
+    "per_class_recall_path": null,
+    "oof_path": null,
+    "leakage_audit": "not_audited"
+  },
+  "cost": {
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0
+  },
+  "timing_note": null,
+  "conclusion": "Saved 558 raw Codex-source responses; integrity complete=False. Training utility and API equivalence not evaluated.",
+  "limitations": "Codex pipeline source; exact backend snapshot and API equivalence unknown; no model training/OOF/LB acceptance. Subscription consumption unknown in USD.",
+  "next_action": "Inspect original failed/uncertain attempts before any new request; do not replay automatically.",
+  "related_sources": [],
+  "evidence": [
+    "experiments/EXP-025-codex-subscription-pilot-r2/config.json",
+    "experiments/EXP-025-codex-subscription-pilot-r2/manifest.json",
+    "experiments/EXP-025-codex-subscription-pilot-r2/report.md",
+    "experiments/EXP-025-codex-subscription-pilot-r2/metrics/offline-preflight.json",
+    "experiments/EXP-025-codex-subscription-pilot-r2/code/codex_collect.py",
+    "experiments/EXP-025-codex-subscription-pilot-r2/run_and_finalize.py",
+    "experiments/EXP-023-codex-subscription-pilot-r1/metrics/manual-reconciliation.json",
+    "experiments/EXP-023-codex-subscription-pilot-r1/collection/records.jsonl",
+    "experiments/EXP-023-codex-subscription-pilot-r1/collection/summary.json",
+    "experiments/EXP-025-codex-subscription-pilot-r2/metrics/collection-audit.json"
+  ],
+  "config_path": "experiments/EXP-025-codex-subscription-pilot-r2/config.json"
+}

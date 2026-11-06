@@ -1,0 +1,44 @@
+{
+  "id": "chatcmpl-EfPs5Z9WrgwaRe53ncoc0ik7fKC3Y",
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "message": {
+        "content": "Mara held up the blue cup, its glaze faded and chipped at the rim. “Trash,” she said, dropping it into the box. Daniel caught it before it landed. “Keep it.” “Why? It’s ugly.” He wiped dust from the handle with his sleeve and set it carefully beside his knee. Mara turned back to the shelves, moving faster now. “We’re sorting, not collecting.” Daniel reached for another box, but she snatched it first. Inside lay a cracked photograph of their mother, laughing beside a kitchen sink. Mara slid the picture beneath a stack of newspapers. Daniel stared at her, then placed the cup on top of the hidden photograph. She grabbed it again. For a moment neither spoke. Finally, Mara carried the cup downstairs, while Daniel followed, holding the box.",
+        "refusal": "",
+        "role": "assistant",
+        "annotations": null,
+        "audio": null,
+        "function_call": null,
+        "tool_calls": null
+      }
+    }
+  ],
+  "created": 1793539605,
+  "model": "openai/gpt-5.6-luna",
+  "object": "chat.completion",
+  "metadata": null,
+  "moderation": null,
+  "service_tier": null,
+  "system_fingerprint": null,
+  "usage": {
+    "completion_tokens": 202,
+    "prompt_tokens": 141,
+    "total_tokens": 343,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 29,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": null,
+    "cost": {
+      "input_tokens_cost_nanodollars": 28200,
+      "output_tokens_cost_nanodollars": 242400
+    },
+    "total_backend_latency_ms": 2937
+  }
+}

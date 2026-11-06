@@ -1,0 +1,36 @@
+{
+  "status": "PASS_ENGINEERING_ENTRYPOINTS",
+  "scope": "synthetic_fixtures_and_temporary_tamper_checks",
+  "new_model_execution": false,
+  "results": [
+    {
+      "case": "n60_full-r2",
+      "returncode": 0,
+      "status": "PASS_CACHED_BASELINE_MATH"
+    },
+    {
+      "case": "n60_partial-r2",
+      "returncode": 2,
+      "status": "NEEDS_ADDITIONAL_ATLAS_SCORES"
+    },
+    {
+      "case": "null_anchor",
+      "returncode": 1,
+      "status": "REJECTED"
+    },
+    {
+      "case": "wrong_anchor",
+      "returncode": 1,
+      "status": "REJECTED"
+    },
+    {
+      "case": "modified_generated_source",
+      "status": "REJECTED_BEFORE_STAGING"
+    }
+  ],
+  "code_sha256": {
+    "experiments/EXP-028-full-stack-cache/check_entrypoints.py": "5a7895e9163ae6f9d5d8ac6d912ed20b830982873327f2be4bac818e661b8b9e",
+    "cloud/full-stack-cache/assemble.py": "27365dd9ceaf8c7622f5950f64cac70c1717e5ffc26e52479b508cfe6ddc23d3",
+    "cloud/full-stack-cache/verify_cache.py": "4f0034ee5f33a2809a84c851d8c9b7ad65e80d198094c79e2679e68d08d26688"
+  }
+}

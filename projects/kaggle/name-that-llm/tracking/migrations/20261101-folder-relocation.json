@@ -1,0 +1,67 @@
+{
+  "status": "COMPLETE",
+  "observed_at": "2026-11-01T07:06:10.094571+00:00",
+  "operation": "move three working/history files; keep frozen evidence in place",
+  "files": [
+    {
+      "from": "name-that-llm-atlas20-repro.ipynb",
+      "to": "notebooks/name-that-llm-atlas20-repro.ipynb",
+      "before_sha256": "2ead068a34ee5aeb974be85e279d53e40be821b358caa2ccd6f3892b2a1e8f48",
+      "expected_after_sha256": "2ead068a34ee5aeb974be85e279d53e40be821b358caa2ccd6f3892b2a1e8f48",
+      "link_targets_rebased": 0,
+      "changes": "path only; byte-identical",
+      "after_sha256": "2ead068a34ee5aeb974be85e279d53e40be821b358caa2ccd6f3892b2a1e8f48",
+      "verified": true
+    },
+    {
+      "from": "公开方案与实验记录.md",
+      "to": "archive/research-notes/公开方案与实验记录.md",
+      "before_sha256": "e5fb323726deeed5b627bd202dca3594f1901a90f50f0434e542bce07c79f190",
+      "expected_after_sha256": "1d52dbf5f116e091de1e63893ddee091f78ad432b9a9ea596fa55c3b8b9cca03",
+      "link_targets_rebased": 30,
+      "changes": "local Markdown link targets only",
+      "after_sha256": "1d52dbf5f116e091de1e63893ddee091f78ad432b9a9ea596fa55c3b8b9cca03",
+      "verified": true
+    },
+    {
+      "from": "公开高分方案Top20-2026-10-29.md",
+      "to": "archive/research-notes/公开高分方案Top20-2026-10-29.md",
+      "before_sha256": "9fa9f0fb45ab04d2d75e5fc4440d4af4eed254a58f33ba198fe7303d7c486bd6",
+      "expected_after_sha256": "d90284bb978af20b6d75d658f50f0f65b518dd0c40d534a5327b2929ed2dd838",
+      "link_targets_rebased": 103,
+      "changes": "local Markdown link targets only",
+      "after_sha256": "d90284bb978af20b6d75d658f50f0f65b518dd0c40d534a5327b2929ed2dd838",
+      "verified": true
+    }
+  ],
+  "verified_at": "2026-11-01T07:06:11.171726+00:00",
+  "notebook_byte_identical": true,
+  "historical_evidence_rewritten": false,
+  "markdown_body_preserved_except_link_destinations": true,
+  "verification": {
+    "observed_at": "2026-11-01T07:07:39.826512+00:00",
+    "unit_tests_passed": 23,
+    "notebook_code_cells_parsed": 8,
+    "current_and_archived_links": "PASS",
+    "generators_executed_only_in_temporary_copy": [
+      {
+        "script": "reviews/public-top20-20261029/build_catalog.py",
+        "exit_code": 0,
+        "output": "archive/research-notes/公开高分方案Top20-2026-10-29.md",
+        "local_links_checked": 72,
+        "history_banner": true,
+        "old_root_output_created": false
+      },
+      {
+        "script": "reviews/public-top20-20261030/update_report.py",
+        "exit_code": 0,
+        "output": "archive/research-notes/公开高分方案Top20-2026-10-29.md",
+        "local_links_checked": 103,
+        "history_banner": true,
+        "old_root_output_created": false
+      }
+    ],
+    "notebook_execution": false,
+    "model_training": false
+  }
+}

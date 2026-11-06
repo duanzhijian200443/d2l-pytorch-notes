@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0148",
+  "prompt": "Revise this explanation to distinguish observation from inference: 'The display has fewer visitors today. People must dislike the new layout. We should move everything back immediately. Yesterday the weather was warmer and a school group came.' A response of around 120 words is enough.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "rewrite_original_material",
+  "target_words": 120,
+  "prompt_group": "cp0148",
+  "split": "train",
+  "source": "codex_subscription",
+  "base_prompt": "Revise this explanation to distinguish observation from inference: 'The display has fewer visitors today. People must dislike the new layout. We should move everything back immediately. Yesterday the weather was warmer and a school group came.' A response of around 120 words is enough.",
+  "base_prompt_sha256": "ab34e995264f82074f33abb0ed9b33ff7507c57bcf99050897ea672e7be65a92",
+  "base_prompt_id": "cp0148",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0148::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "a4b663d00c831d4aa16e61424c61088704193521b38987bf88dc7fa9441d7521",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:47:48.145113+00:00",
+  "ended_at": "2026-11-01T13:48:03.622762+00:00",
+  "prompt_sha256": "b70df37b4d2f1b14af45fd5493056162df35ba92129187cee461e5759c50da52",
+  "text": "Today, we observed fewer visitors at the display than yesterday. We also know that the layout recently changed, yesterday’s weather was warmer, and a school group visited yesterday. These are observations, although a single day’s visitor count may not reflect a meaningful trend. The idea that people dislike the new layout is an inference, not a confirmed explanation. Attendance could also have been affected by the cooler weather, the absence of the school group, the day of the week, or other factors. Therefore, moving everything back immediately would be premature. Instead, we should monitor visitor numbers over a longer period, compare similar days, gather visitor feedback, and observe how people interact with the new layout before deciding whether changes are necessary.",
+  "text_sha256": "d4ecf7773d4383e5077ec1c22c028a2114fab974d8a849c25ee136126d5c9221",
+  "raw_final_sha256": "d4ecf7773d4383e5077ec1c22c028a2114fab974d8a849c25ee136126d5c9221",
+  "word_count": 121,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4232,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 174,
+      "reasoning_output_tokens": 25
+    }
+  ],
+  "attempt_path": "collection\\attempts\\a4b663d00c831d4aa16e61424c61088704193521b38987bf88dc7fa9441d7521",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

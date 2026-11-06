@@ -1,0 +1,79 @@
+{
+  "status": "PASS_AUDIT_INTEGRITY_ONLY",
+  "inputs_rechecked_after_run": true,
+  "code_sha256": "f1bfe94ab448ba1a01a32e4fdc8a02b31de7a8eaef0bcb748dcabc3ab5f63e34",
+  "config_sha256": "cf473079e8e8da3c8998c9ed24d3f3c4a2e667f7e046c239a6c3d20eccbaa5fb",
+  "outputs": [
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/a1-canonical-bridges.csv",
+      "bytes": 603719,
+      "sha256": "59be5f0056bb6fe53a01f86b015545778497be5495930d3104a2812a003debed"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/C1-recovered-prompt-increment-candidate-index.csv",
+      "bytes": 6935029,
+      "sha256": "9f745d56b74a141c4265f3871048c254cb192df745ae95abbcf97ffd788001c6"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/C2-new-recovered-prompt-increment-candidate-index.csv",
+      "bytes": 4842092,
+      "sha256": "23cc0c73b6bde6c72acb8a926213ff4713278aa6eae6623a0b42de037dd44188"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/historical-route-evidence-joins.parquet",
+      "bytes": 139766,
+      "sha256": "7f67d155628779ce49c0b4fa65f15af28258bb6b642aeaff0d5e60f1c1731238"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/main-runtime-index.parquet",
+      "bytes": 16407502,
+      "sha256": "15e53cbe64ee2e2793afc0e92ae8bad49145cca5e09e72aaac92389e88d20762"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/overlap.csv",
+      "bytes": 981,
+      "sha256": "fcf1c37efa9c84bbb9ee6b0cc48213cea216e8613b5f0316b1f31aee46b9e634"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/per-label.csv",
+      "bytes": 2949,
+      "sha256": "9d3201e430ae13563e03354ecae631d0b5466452f6ea5f65c6c30c942ace5c4e"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/per-source.csv",
+      "bytes": 3092,
+      "sha256": "1cc60cb828966f5c4036430d9be5a39cd06315f76ba7baf3eec987f7ed97915b"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/prompt-groups.csv",
+      "bytes": 994067,
+      "sha256": "7f40da83e6b7b2cd697009b9499a8638f57c9b1bc8087778192bf8d4cfceb04d"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/prompt-text-index.csv",
+      "bytes": 1322634,
+      "sha256": "04be00db020bd92a525c856d93c6e4921b6334beb4ebbca2dbf56f4d7f7033e7"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/row-risk-index.parquet",
+      "bytes": 27208853,
+      "sha256": "9eefca76e503e52b74995e1d33edd54b69fb21d86c04d2de1fdb7656389990c6"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/shared-extra10469-index.parquet",
+      "bytes": 1426500,
+      "sha256": "eea95b19972878f81a9f1a02bc39f49366406f0ae22197ee5d8b79d93a938e17"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/source-route-claims.csv",
+      "bytes": 34159,
+      "sha256": "bfe5e902834b850581f1140a694743069f898298f24c6eb2050499eb4dfa1048"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/summary.json",
+      "bytes": 16378,
+      "sha256": "a3ce8dbd386d7d0567513831500a91f79f7b2e21c2c720eb5c4b6ad464eb72ae"
+    }
+  ],
+  "not_training_approval": true
+}

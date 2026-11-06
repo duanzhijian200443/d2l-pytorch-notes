@@ -1,0 +1,285 @@
+{
+  "observed_at": "2026-11-01T11:49:22.740181+00:00",
+  "analysis_kind": "Direct output trace screening, not causal system-prompt equivalence test",
+  "source": {
+    "path": "experiments/EXP-023-codex-subscription-pilot-r1/collection/records.jsonl",
+    "sha256": "cb903279b3727b31ce2125b89c5ce8f530d769a984f49c2cb86e4fbefb1e9722",
+    "rows": 1000
+  },
+  "inputs": [
+    {
+      "path": "experiments/EXP-021-codex-subscription-pilot/model-instructions.txt",
+      "sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb"
+    },
+    {
+      "path": "experiments/EXP-021-codex-subscription-pilot/prompts.jsonl",
+      "sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0"
+    },
+    {
+      "path": "experiments/EXP-021-codex-subscription-pilot/runtime-preflight.json",
+      "sha256": "64443ec556eaf5b3fbe6a5d246221a7e55fca9205990a4ff0fe10f493de9a053"
+    },
+    {
+      "path": "experiments/EXP-023-codex-subscription-pilot-r1/config.json",
+      "sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e"
+    }
+  ],
+  "by_model": {
+    "gpt-5.6-luna": 250,
+    "gpt-5.6-terra": 250,
+    "gpt-5.6-sol": 250,
+    "gpt-6-astra": 250
+  },
+  "strong_pattern_rows": 0,
+  "context_screen_rows": 7,
+  "pattern_counts": {
+    "codex_or_context_file": 0,
+    "instruction_configuration": 0,
+    "role_or_context_delimiter": 0,
+    "runtime_tool_namespace": 0,
+    "workspace_path": 0,
+    "base_instruction_literal": 0,
+    "explicit_identity": 0,
+    "instruction_discussion": 2,
+    "ai_self_reference": 0,
+    "generic_assistant_term": 0,
+    "tool_or_execution_claim": 0,
+    "access_disclaimer": 0,
+    "answer_wrapper": 0,
+    "politeness_discourse": 5,
+    "cjk_text": 0
+  },
+  "patterns": {
+    "strong_candidates": {
+      "codex_or_context_file": "\\bCodex\\b|\\bAGENTS\\.md\\b|\\bMEMORY(?:_SUMMARY)?\\.md\\b|\\bMEMORY_SUMMARY\\b|\\bSKILL\\.md\\b|\\bCODEX_HOME\\b|\\.codex(?:[/\\\\]|\\b)",
+      "instruction_configuration": "\\b(?:model_instructions_file|developer_instructions|approval_policy|sandbox_mode|skip_host_skill_discovery|code_mode_host|include_environment_context)\\b",
+      "role_or_context_delimiter": "<\\|(?:im_start|im_end|start|end|assistant|system|developer)\\|>|</?(?:system|developer|environment_context|skills_instructions|permissions|tool_call|tool_result)(?:\\s|>)|\\[/?INST\\]",
+      "runtime_tool_namespace": "\\bfunctions\\.(?:exec|wait)\\b|\\bmcp__\\w+|\\b(?:recipient|to)=(?:functions|tools|python|web)\\b|<tool_call>|<tool_result>",
+      "workspace_path": "\\b[A-Z]:[/\\\\](?:Users|计算机学习|Windows|agent-config)(?:[/\\\\]|\\b)|/(?:home|root|workspace|mnt/data)/|name-that-llm|shiroha_quiz|长期记忆策略|OpenAI 接入开发文档",
+      "base_instruction_literal": "Answer the user's request\\.",
+      "explicit_identity": "\\b(?:I(?:'m| am)|as)\\s+(?:an?\\s+)?(?:Codex|ChatGPT|OpenAI(?:'s)?\\s+(?:AI\\s+)?(?:assistant|model))\\b"
+    },
+    "context_only_candidates": {
+      "instruction_discussion": "\\b(?:system prompt|system instructions?|developer messages?|developer instructions?|hidden instructions?|instruction hierarchy|my instructions?|as instructed|as requested)\\b",
+      "ai_self_reference": "\\b(?:as an? (?:AI|language model)|I(?:'m| am) an? (?:AI|language model)|my (?:training data|knowledge cutoff))\\b",
+      "generic_assistant_term": "\\b(?:assistant|ChatGPT|OpenAI|language model|system message|prompt injection)\\b",
+      "tool_or_execution_claim": "\\b(?:I(?:'ve| have) (?:updated|modified|edited|run|executed|tested)|I(?:'ll| will) (?:inspect|run|execute|edit|modify|read the files)|tests? passed|running command|tool calls?|sandbox|repository|terminal command|command output)\\b",
+      "access_disclaimer": "\\bI (?:cannot|can't|don't have access to|do not have access to) (?:browse|access|run|execute|inspect)\\b",
+      "answer_wrapper": "\\A\\s*(?:Sure[!,.—:]|Certainly[!,.—:]|Here(?:'s| is| are)\\b|Of course[!,.—:])",
+      "politeness_discourse": "\\bOf course,",
+      "cjk_text": "[\\u3400-\\u9fff]"
+    }
+  },
+  "hits": {
+    "instruction_discussion": [
+      {
+        "job_key": "aa099bd59c4ac6d8b891aaa6af4f3b31bec321442abab3b0b3f7851baa0216cd",
+        "prompt_id": "cp0152",
+        "model": "gpt-5.6-terra",
+        "category": "rewrite_original_material",
+        "matched": "as instructed",
+        "in_prompt": false,
+        "excerpt": "the room will be unattended.  \n7. Finally, turn off the lights, lock the room if required, and return the key as instructed.",
+        "prompt": "Rewrite these instructions in a clear sequence: 'After using the room, chairs go back along the wall. Get the key from the office first. Tell the caretaker if anything is damaged. Windows should be shut when you leave. Switch on only the lights you need.' Use approximately 120 words for the response."
+      },
+      {
+        "job_key": "ad21deba09bee93deba27e7d870153bc63827d02f099080b3dcea741a49ae1a1",
+        "prompt_id": "cp0152",
+        "model": "gpt-5.6-sol",
+        "category": "rewrite_original_material",
+        "matched": "as instructed",
+        "in_prompt": false,
+        "excerpt": "a final check to ensure the room is secure and tidy. Finally, leave the room and return the key to the office as instructed.",
+        "prompt": "Rewrite these instructions in a clear sequence: 'After using the room, chairs go back along the wall. Get the key from the office first. Tell the caretaker if anything is damaged. Windows should be shut when you leave. Switch on only the lights you need.' Use approximately 120 words for the response."
+      }
+    ],
+    "politeness_discourse": [
+      {
+        "job_key": "a2d7fc8bcc775fb226ee51f9f6d51b5fb9f0db9ed5be9794ef3d33944c0a42f8",
+        "prompt_id": "cp0172",
+        "model": "gpt-5.6-luna",
+        "category": "short_email",
+        "matched": "Of course,",
+        "in_prompt": false,
+        "excerpt": " formal is required—perhaps a brief conversation or a few suggestions by email, whichever is easiest for you. Of course, please don’t feel any pressure if your schedule is full or you’d rather not. I thought of you because you alw",
+        "prompt": "Compose an email asking a former teammate whether they would be comfortable sharing a few practical tips with a newcomer to the group. A response of around 120 words is enough."
+      },
+      {
+        "job_key": "13741dea045850e42b3b361362d76ee9b6cdc07aa7c8156eafcfaf608a111177",
+        "prompt_id": "cp0172",
+        "model": "gpt-5.6-terra",
+        "category": "short_email",
+        "matched": "Of course,",
+        "in_prompt": false,
+        "excerpt": "d be especially valuable because you know how the group operates in practice, beyond the usual documentation. Of course, no pressure at all if your schedule is busy.\n\nThanks for considering it, and I hope all is going well with yo",
+        "prompt": "Compose an email asking a former teammate whether they would be comfortable sharing a few practical tips with a newcomer to the group. A response of around 120 words is enough."
+      },
+      {
+        "job_key": "a53936f25668850784762be3ee7d1efc96adbbb0d27dc7d5a1c171bb9c2a2562",
+        "prompt_id": "cp0172",
+        "model": "gpt-5.6-sol",
+        "category": "short_email",
+        "matched": "Of course,",
+        "in_prompt": false,
+        "excerpt": "d. There’s no need to prepare anything formal—a short email or brief conversation would be more than enough.\n\nOf course, I completely understand if you’re too busy or would prefer not to. I just wanted to ask because I know your p",
+        "prompt": "Compose an email asking a former teammate whether they would be comfortable sharing a few practical tips with a newcomer to the group. A response of around 120 words is enough."
+      },
+      {
+        "job_key": "ef4b35b61066feca17db859be1aa50a5aab00699bc70115d879b357e9258c468",
+        "prompt_id": "cp0242",
+        "model": "gpt-5.6-luna",
+        "category": "short_email",
+        "matched": "Of course,",
+        "in_prompt": false,
+        "excerpt": "lable, I could really use your help for about an hour—mostly carrying a few boxes and loading some furniture. Of course, no pressure at all if your schedule has changed. I really appreciate your kindness and willingness to help, a",
+        "prompt": "Draft an email to a friend who offered to help you move, explaining that the move is smaller than expected and only an hour of help is needed. A response of around 120 words is enough."
+      },
+      {
+        "job_key": "8fdf676711f90040c4db3a49bf3a42132d2212fbb381639c260a6bf2e8a884f5",
+        "prompt_id": "cp0242",
+        "model": "gpt-5.6-sol",
+        "category": "short_email",
+        "matched": "Of course,",
+        "in_prompt": false,
+        "excerpt": "r than taking up a big part of your day. If you’re still available, could you come by around [time] on [day]? Of course, no worries if your plans have changed.\n\nYour help will make everything go much faster. I’ll have coffee and s",
+        "prompt": "Draft an email to a friend who offered to help you move, explaining that the move is smaller than expected and only an hour of help is needed. A response of around 120 words is enough."
+      }
+    ],
+    "codex_or_context_file": [],
+    "instruction_configuration": [],
+    "role_or_context_delimiter": [],
+    "runtime_tool_namespace": [],
+    "workspace_path": [],
+    "base_instruction_literal": [],
+    "explicit_identity": [],
+    "ai_self_reference": [],
+    "generic_assistant_term": [],
+    "tool_or_execution_claim": [],
+    "access_disclaimer": [],
+    "answer_wrapper": [],
+    "cjk_text": []
+  },
+  "entire_prompt_echo_rows": [],
+  "event_checks": {
+    "turn_completed_count_distribution": {
+      "1": 1000
+    },
+    "agent_message_count_distribution": {
+      "1": 1000
+    },
+    "event_types": {
+      "thread.started": 1000,
+      "item.completed": 3000,
+      "turn.started": 1000,
+      "turn.completed": 1000
+    },
+    "item_types": {
+      "error": 2000,
+      "agent_message": 1000
+    },
+    "tool_event_rows": [],
+    "failure_event_rows": [],
+    "informational_error_item_counts": {
+      "experimental_feature_notice": 1000,
+      "disabled_code_mode_notice": 1000
+    },
+    "unknown_error_items": []
+  },
+  "consistency_errors": [],
+  "input_token_ranges": {
+    "gpt-5.6-luna": {
+      "n": 250,
+      "min": 2580,
+      "max": 2624
+    },
+    "gpt-5.6-terra": {
+      "n": 250,
+      "min": 4115,
+      "max": 4159
+    },
+    "gpt-5.6-sol": {
+      "n": 250,
+      "min": 4115,
+      "max": 4159
+    },
+    "gpt-6-astra": {
+      "n": 250,
+      "min": 4229,
+      "max": 4273
+    }
+  },
+  "model_identity_scope": {
+    "requested_only": 1000
+  },
+  "runtime_preflight_evidence": {
+    "operation": "debug prompt-input (no inference)",
+    "limitations": [
+      "debug prompt-input cannot use exec --ignore-user-config; disabled known user MCP servers and blanked developer_instructions as an approximation",
+      "No inference performed; model entitlement and generated response model identity remain unverified",
+      "This is a client input rendering, not proof of the full server-side prompt or tool catalog",
+      "User-level AGENTS instructions were still present in debug rendering despite project_doc_max_bytes=0; debug retains user config unlike exec --ignore-user-config"
+    ],
+    "disabled_environment_probe": {
+      "observed_at": "2026-11-01T08:16:28.551093+00:00",
+      "exit_code": 0,
+      "extra_overrides": [
+        "mcp_servers.node_repl.enabled=false",
+        "mcp_servers.shiroha_study.enabled=false",
+        "mcp_servers.openaiDeveloperDocs.enabled=false",
+        "mcp_servers.kaggle.enabled=false",
+        "developer_instructions=\"\"",
+        "include_environment_context=false",
+        "include_environment_context_time=false"
+      ],
+      "items": [
+        {
+          "type": "additional_tools",
+          "role": "developer",
+          "content_chars": 0
+        },
+        {
+          "type": "message",
+          "role": "developer",
+          "content_chars": 26
+        },
+        {
+          "type": "message",
+          "role": "developer",
+          "content_chars": 342
+        },
+        {
+          "type": "message",
+          "role": "user",
+          "content_chars": 728
+        },
+        {
+          "type": "message",
+          "role": "user",
+          "content_chars": 11
+        }
+      ],
+      "tool_names": [
+        "functions.exec",
+        "functions.wait"
+      ],
+      "markers": {
+        "<environment_context>": false,
+        "# AGENTS.md instructions": true,
+        "长期记忆策略": true,
+        "OpenAI 接入开发文档": true,
+        "MEMORY_SUMMARY": false,
+        "skills_instructions": false,
+        "permissions instructions": true
+      },
+      "tool_count": 2
+    },
+    "minimal_instruction": "Answer the user's request.\n"
+  },
+  "limitations": [
+    "No matched intervention removing runtime context; absent literal traces do not exclude indirect style or content conditioning.",
+    "Actual full server-side prompt and backend model snapshots are not exposed by the saved events.",
+    "debug prompt-input had different user-config handling from actual exec --ignore-user-config; do not equate its content with all generated requests.",
+    "Regex matches require context review; generic task words and answer wrappers are not intrinsic contamination.",
+    "Hash/event checks cover all 1,000 saved answers; manual semantic review covers candidate hits, not every sentence of the full corpus."
+  ]
+}

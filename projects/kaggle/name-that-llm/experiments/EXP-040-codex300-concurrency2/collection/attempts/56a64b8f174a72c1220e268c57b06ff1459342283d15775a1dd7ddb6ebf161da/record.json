@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0002",
+  "prompt": "A person wants to read more but repeatedly abandons very ambitious reading schedules. Propose a small routine that still works during a busy week. Keep your response near 120 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "everyday_advice",
+  "target_words": 120,
+  "prompt_group": "cp0002",
+  "split": "train",
+  "source": "codex_subscription",
+  "base_prompt": "A person wants to read more but repeatedly abandons very ambitious reading schedules. Propose a small routine that still works during a busy week. Keep your response near 120 words.",
+  "base_prompt_sha256": "85dac271382de3ef0babc5a9d2168348de4187a30b49df60359cff89d4cd7676",
+  "base_prompt_id": "cp0002",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0002::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "56a64b8f174a72c1220e268c57b06ff1459342283d15775a1dd7ddb6ebf161da",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:31:48.861277+00:00",
+  "ended_at": "2026-11-01T13:32:09.602851+00:00",
+  "prompt_sha256": "048a3ed4962ae69914fdb9bd874125de5dd99d284e2552445a59cbe0b660e345",
+  "text": "Choose a “minimum reading” routine that is too small to fail: read five pages or for ten minutes each day, whichever comes first. Attach it to an existing cue, such as after breakfast, during a commute, or before sleep, and keep the current book visible and easy to reach. On busy days, count even one page as success; the goal is to preserve the habit, not compensate for missed time. Pick enjoyable, accessible books rather than worthy-but-demanding ones, and stop at a natural pause so returning feels easy. Reserve one slightly longer session, perhaps 30 minutes on the weekend, only if it feels welcome. Track completed days with a simple checkmark, then reassess after a month.",
+  "text_sha256": "6c4db777ad874750cda6b6b955aec3a8c2d56b6489125a1a4da1f524192cb73a",
+  "raw_final_sha256": "6c4db777ad874750cda6b6b955aec3a8c2d56b6489125a1a4da1f524192cb73a",
+  "word_count": 116,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4215,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 148,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\56a64b8f174a72c1220e268c57b06ff1459342283d15775a1dd7ddb6ebf161da",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

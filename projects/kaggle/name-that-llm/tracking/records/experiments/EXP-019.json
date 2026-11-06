@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "id": "EXP-019",
+  "title": "重试：主svc4：原始公共数据每行权重0.175",
+  "baseline_id": "EXP-018",
+  "hypothesis": "固定svc4特征与分折，5400条raw/new公共原文是否改善开发验证；三公共权重比较同一行集和表示。",
+  "changes": [
+    "仅修复词表指纹序列化：NumPy索引转Python int；不改变特征/分类器/数据",
+    "public_row_weight=0.175"
+  ],
+  "observed_at": "2026-11-01T08:06:13.842221+00:00",
+  "source": {
+    "notebook_ref": "zhjianduan/name-that-llm-svc4-raw-public-cv",
+    "notebook_version": 4,
+    "script_version_id": null,
+    "local_path": "cloud/svc4-raw-public-r1/runner.py",
+    "sha256": "ac8ad5af198a810064ea9133ed2aeba6e708e9b9d477b628582f83ad6ed8ce3f"
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-019-svc4-raw-w0175-r1/manifest.json",
+    "validation_split_id": "prompt-group-v1",
+    "content_hashes_verified": true
+  },
+  "config": {
+    "variant": "raw-w0175",
+    "public_row_weight": 0.175,
+    "retry_of": "EXP-015"
+  },
+  "environment": {
+    "platform": "Kaggle private CPU",
+    "accelerator": null,
+    "container": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "seed": 42,
+    "internet": false,
+    "threads": 2,
+    "required_versions": {
+      "numpy": "2.1.3",
+      "pandas": "2.3.3",
+      "scipy": "1.16.3",
+      "sklearn": "1.6.1"
+    },
+    "versions": {
+      "numpy": "2.1.3",
+      "pandas": "2.3.3",
+      "scipy": "1.16.3",
+      "sklearn": "1.6.1",
+      "python": "3.13.15"
+    },
+    "cpu_count": 4
+  },
+  "execution": {
+    "scope": "grouped_oof",
+    "status": "COMPLETE",
+    "observed_at": "2026-11-01T08:06:13.842221+00:00",
+    "notebook_version": 4,
+    "result_status": "PASS",
+    "shared_sweep": true,
+    "shared_completed_svms_observed": 20,
+    "completed_at": "2026-11-01T07:57:34.667665+00:00"
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": 0.39709917971662945,
+    "scope": "isolated svc4 development OOF, fixed external data; not full ATLAS20",
+    "per_class_recall_path": "experiments/EXP-019-svc4-raw-w0175-r1/metrics/per_class_recall.csv",
+    "oof_path": "experiments/EXP-019-svc4-raw-w0175-r1/oof/oof.csv",
+    "leakage_audit": "PASS within checked scope: per-fold train IDs, shared matrix fingerprints, raw/new provenance and known/exact overlap checked. Upstream official length statistics, unknown semantic overlaps and unpersisted estimators limit claims.",
+    "scores_path": "experiments/EXP-019-svc4-raw-w0175-r1/oof/oof_decision.npy",
+    "acceptance_path": "cloud/svc4-raw-public-r1/analysis/verified.json",
+    "paired_comparison": {
+      "candidate": "EXP-019",
+      "reference": "EXP-018",
+      "contrast": "public_row_weight_only",
+      "delta_ba": -0.00519015659955252,
+      "ci95_lower": -0.014074074074074072,
+      "ci95_upper": 0.003703703703703703,
+      "bootstrap_draws": 2000,
+      "bootstrap_seed": 42,
+      "fixed_errors": 72,
+      "new_errors": 86,
+      "prediction_disagreements": 332,
+      "both_wrong": 1541,
+      "positive_folds": 1,
+      "negative_folds": 4,
+      "tied_folds": 0,
+      "multiple_comparison_adjustment": "none"
+    }
+  },
+  "cost": {
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0
+  },
+  "timing_note": "Shared EXP017-020: main computation 546.266s; guard process 550.998s; 20 SVM fits 335.244s total; sampled peak RSS 1055997952 bytes. Not per-variant execution time; excludes queue, output download and local acceptance.",
+  "conclusion": "OOF BA=0.397099180，较0.35低0.5190百分点；未校正prompt配对95%区间跨0，没有改用0.175的提升依据，也不证明两者等效。",
+  "limitations": "不是原matched/pool三源配方复现，也不是向ATLAS20新增5400条；公共生成长度已参考官方整体词数分布。未知语义prompt关系仍不保证穷尽隔离。",
+  "next_action": "本raw配方保留0.35作后续开发对照；检查来源/类别收益及与Stylegram错误互补性，再单独定义下一组实验。正式EXP-004基线保持独立。",
+  "related_sources": [
+    "SRC-029",
+    "SRC-035"
+  ],
+  "evidence": [
+    "experiments/EXP-019-svc4-raw-w0175-r1/config.json",
+    "experiments/EXP-019-svc4-raw-w0175-r1/manifest.json",
+    "experiments/EXP-019-svc4-raw-w0175-r1/report.md",
+    "experiments/EXP-018-svc4-raw-w035-r1/metrics/data-gate.json",
+    "experiments/EXP-018-svc4-raw-w035-r1/metrics/resource-preflight.json",
+    "cloud/svc4-raw-public-r1/preflight.json",
+    "cloud/svc4-raw-public-r1/README.md",
+    "cloud/svc4-raw-public-r1/execution-state.json",
+    "cloud/svc4-raw-public-r1/run-v4-readback.json",
+    "cloud/svc4-raw-public-r1/live-v4.log",
+    "cloud/svc4-raw-public-r1/verification-preflight.json",
+    "cloud/svc4-raw-public-r1/complete-v4-readback.json",
+    "cloud/svc4-raw-public-r1/download-receipt.json",
+    "cloud/svc4-raw-public-r1/analysis/verified.json",
+    "cloud/svc4-raw-public-r1/analysis/report.md",
+    "experiments/EXP-019-svc4-raw-w0175-r1/metrics/summary.json",
+    "experiments/EXP-019-svc4-raw-w0175-r1/metrics/artifact-index.json",
+    "experiments/EXP-019-svc4-raw-w0175-r1/oof/oof.csv",
+    "cloud/svc4-raw-public-r1/independent-review.md"
+  ],
+  "config_path": "experiments/EXP-019-svc4-raw-w0175-r1/config.json",
+  "retry_of": "EXP-015"
+}

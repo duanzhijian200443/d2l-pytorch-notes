@@ -1,0 +1,6 @@
+# Harness-selected original math; model paths are excluded.
+from full_stack_observer import FullStackObserver as _cache_observer
+_cache = _cache_observer.from_env('main', test['id'].astype(str).tolist(), test['text'].tolist(), LABELS, {'source_sha256': '022cafd2e6504dd7cf38c8675b9597fb4fbd4c9dd0be69d38918293d9caac9b3', 'args': vars(a), 'data_dir': a.data, 'sim': a.sim, 'fake_test': a.fake_test, 'train_rows': len(train)})
+GUARDS = [(' — ', {'claude-opus-4-6', 'claude-opus-5', 'glm-5.3', 'glm-5.3-flash'}), ('’', {l for l in LABELS if not l.startswith(('claude', 'glm'))}), ('"', {'claude-fable-5', 'claude-opus-4-6', 'claude-opus-4-8', 'claude-opus-5', 'claude-sonnet-5', 'gemini-3.1-pro-preview', 'gemini-3.6-flash', 'gemini-3.7-flash', 'gemini-3.8-flash', 'glm-5.3', 'glm-5.3-flash', 'gpt-5.5', 'kimi-k3'}), ('“', {'gemini-3.8-flash', 'gpt-5.5', 'gpt-5.6-luna', 'gpt-5.6-sol', 'gpt-5.6-terra', 'gpt-6-astra', 'kimi-k3', 'qwen3.8-max'}), ('–', {'claude-opus-5', 'gemini-3.1-pro-preview', 'glm-5.3-flash', 'gpt-5.6-luna', 'gpt-5.6-sol', 'gpt-5.6-terra', 'kimi-k3'})]
+tot = sum(LP.values())
+_cache.capture('main_members', members=LP, total=tot, specs=specs, args=vars(a), groups=Gte, train_targets=y)

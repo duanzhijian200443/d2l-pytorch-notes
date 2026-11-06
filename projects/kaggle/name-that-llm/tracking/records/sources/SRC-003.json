@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "id": "SRC-003",
+  "kind": "notebook",
+  "title": "0.662 | Qwen3.8-27B LoRA + Weighted Ensemble",
+  "url": "https://www.kaggle.com/code/lightningv08/0-662-qwen3-8-27b-lora-weighted-ensemble",
+  "observed_at": "2026-10-30T15:16:41.600Z",
+  "source_version": {
+    "notebook_version": 33,
+    "script_version_id": null,
+    "source_sha256": "8d10a3ef3bee790ae177722146360366adccfa063ca451091c0d2318e94381cd",
+    "code_sha256": "fff6f518d38da0ac396ee67430c55df03eede37c73abf9f9bd0d22a72a3691f1"
+  },
+  "family_id": "code-fff6f518d38d",
+  "public_score": {
+    "value": 0.662,
+    "evidence_type": "platform_page",
+    "bound_to_source": false,
+    "script_version_id": null
+  },
+  "summary": "新增 Qwen3.8-27B GSQ3 LoRA，最新源码概率份额 7.5%，ATLAS 20%；预计算 CPU 状态与进程隔离。",
+  "author_claim": "正文声明保存在下方 description.md；标题分数不作为独立证据。",
+  "verified": "2026-10-30 已观察页面分数并保存源码；增量说明见摘要。",
+  "use_for_us": "用于选择对照实验，不直接替换当前基线。",
+  "test_plan": "先核对具体得分版本，再把单项差异变成 IDEA。",
+  "limitations": "页面分数与下载源码版本未绑定；排名只代表当日快照。同代码的副本不是独立算法。",
+  "evidence": [
+    "reviews/public-top20-20261030/lightningv08--0-662-qwen3-8-27b-lora-weighted-ensemble/source.ipynb",
+    "reviews/public-top20-20261030/lightningv08--0-662-qwen3-8-27b-lora-weighted-ensemble/metadata.json",
+    "reviews/public-top20-20261030/lightningv08--0-662-qwen3-8-27b-lora-weighted-ensemble/description.md",
+    "reviews/public-top20-20261030/ui-scores.json"
+  ]
+}

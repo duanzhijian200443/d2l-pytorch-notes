@@ -1,0 +1,38 @@
+[
+  {
+    "source_url": "https://www.kaggle.com/datasets/crtproduction/name-that-llm-open-pool/versions/12?select=ntl_open_pool.parquet",
+    "method": "authenticated official Kaggle SDK file download response followed by HTTP byte range; signed URL deliberately not persisted",
+    "observed_at": "2026-11-02T04:00:52.342577+00:00",
+    "file": "v12-ntl_open_pool.parquet-tail.bin",
+    "bytes": 65536,
+    "content_range": "bytes 96322559-96388094/96388095",
+    "sha256": "4625ae4f393a6bcfd04f85219642e0c698a0e6f970efb16c93051447cc217619"
+  },
+  {
+    "source_url": "https://www.kaggle.com/datasets/crtproduction/name-that-llm-open-pool/versions/13?select=ntl_open_pool.parquet",
+    "method": "authenticated official Kaggle SDK file download response followed by HTTP byte range; signed URL deliberately not persisted",
+    "observed_at": "2026-11-02T04:00:57.546227+00:00",
+    "file": "v13-ntl_open_pool.parquet-tail.bin",
+    "bytes": 65536,
+    "content_range": "bytes 96322514-96388049/96388050",
+    "sha256": "f7a21c3c80c175385c0565918a7b12687f3018e9e1206e3a2c692e3871373f9e"
+  },
+  {
+    "source_url": "https://www.kaggle.com/datasets/crtproduction/name-that-llm-open-pool/versions/13?select=gemini37_unverified.parquet",
+    "method": "authenticated official Kaggle SDK file download response followed by HTTP byte range; signed URL deliberately not persisted",
+    "observed_at": "2026-11-02T04:01:02.207902+00:00",
+    "file": "v13-gemini37_unverified.parquet-tail.bin",
+    "bytes": 65536,
+    "content_range": "bytes 5301424-5366959/5366960",
+    "sha256": "c009b39068d1090dbbb397e5dd94d16023cd7456d8f51231002672096e3380ea"
+  },
+  {
+    "source_url": "https://www.kaggle.com/datasets/crtproduction/name-that-llm-open-pool/versions/13?select=prompts.parquet",
+    "method": "authenticated official Kaggle SDK file download response followed by HTTP byte range; signed URL deliberately not persisted",
+    "observed_at": "2026-11-02T04:01:07.422154+00:00",
+    "file": "v13-prompts.parquet-tail.bin",
+    "bytes": 65536,
+    "content_range": "bytes 1527321-1592856/1592857",
+    "sha256": "4e97e5589e1a1ccc338b4425419caca003b9100c24fc62bdd0663deab97ad367"
+  }
+]

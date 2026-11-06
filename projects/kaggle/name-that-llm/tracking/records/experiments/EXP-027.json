@@ -1,0 +1,538 @@
+{
+  "schema_version": 1,
+  "id": "EXP-027",
+  "title": "固定10%融合：多家族外部验证及完整集成接入检查",
+  "baseline_id": "EXP-026",
+  "hypothesis": "固定10%融合在另一多家族来源仍优于Stylegram，并核对其进入ATLAS20的必要接口与证据。",
+  "changes": [
+    "评测改为SRC063自拟题多家族原文；排除服务版本无法确认的Gemini3.7",
+    "成员训练数据、模型参数、alpha和18类输出保持不变",
+    "单独审计完整集成接入与重复计入风险"
+  ],
+  "observed_at": "2026-11-01T09:11:47.723428+00:00",
+  "source": {
+    "notebook_ref": "zhjianduan/name-that-llm-fixed-blend-multiclass-027",
+    "notebook_version": 2,
+    "script_version_id": null,
+    "local_path": "cloud/fixed-blend-multiclass/runner.py",
+    "sha256": "80ba5cd354fd41ce177d8e3816b8cdb9f031161116febedf70c719641b19b639"
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-027-multiclass-external-validation/manifest.json",
+    "validation_split_id": null,
+    "content_hashes_verified": true
+  },
+  "config": {
+    "candidate_experiment": "EXP-024",
+    "alpha": 0.1,
+    "evaluation_source": "SRC-063 V1",
+    "expected_covered_labels": 17,
+    "prediction_labels": 18,
+    "refit_models": 3,
+    "evaluation_rows": 729,
+    "evaluation_groups": 56
+  },
+  "environment": {
+    "platform": "private Kaggle CPU after audit",
+    "accelerator": null,
+    "internet": false,
+    "threads": 2,
+    "container": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "required_versions": {
+      "numpy": "2.1.3",
+      "pandas": "2.3.3",
+      "scipy": "1.16.3",
+      "sklearn": "1.6.1"
+    },
+    "seed": 42
+  },
+  "execution": {
+    "scope": "external_seventeen_class_validation_of_fixed_recipe",
+    "status": "COMPLETE",
+    "observed_at": "2026-11-01T09:11:47.723428+00:00",
+    "result_status": "PASS",
+    "notebook_version": 2,
+    "completed_at": "2026-11-01T09:09:49.998304+00:00",
+    "accepted_at": "2026-11-01T09:11:27.068612+00:00"
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": "17-covered-label macro recall with unrestricted18-way predictions; not full18 or ATLAS20",
+    "per_class_recall_path": "experiments/EXP-027-multiclass-external-validation/metrics/per_class.csv",
+    "oof_path": null,
+    "leakage_audit": "PASS_FOR_EXTERNAL_SEVENTEEN_CLASS_CHECK; two-member known/exact scope only",
+    "covered_label_macro_recall": 0.3850244661433554,
+    "component_metrics": {
+      "stylegram": {
+        "metric": "covered_label_macro_recall",
+        "score_columns": 18,
+        "covered_labels": [
+          "claude-fable-5",
+          "claude-opus-4-6",
+          "claude-opus-4-8",
+          "claude-opus-5",
+          "claude-sonnet-5",
+          "gemini-3.1-pro-preview",
+          "gemini-3.6-flash",
+          "gemini-3.8-flash",
+          "glm-5.3",
+          "glm-5.3-flash",
+          "gpt-5.5",
+          "gpt-5.6-luna",
+          "gpt-5.6-sol",
+          "gpt-5.6-terra",
+          "gpt-6-astra",
+          "kimi-k3",
+          "qwen3.8-max"
+        ],
+        "covered_label_count": 17,
+        "macro_recall": 0.38935967341973915,
+        "accuracy": 0.4499314128943759,
+        "correct": 328,
+        "rows": 729,
+        "per_class": [
+          {
+            "model": "claude-fable-5",
+            "support": 19,
+            "correct": 1,
+            "recall": 0.05263157894736842
+          },
+          {
+            "model": "claude-opus-4-6",
+            "support": 55,
+            "correct": 28,
+            "recall": 0.509090909090909
+          },
+          {
+            "model": "claude-opus-4-8",
+            "support": 55,
+            "correct": 18,
+            "recall": 0.32727272727272727
+          },
+          {
+            "model": "claude-opus-5",
+            "support": 54,
+            "correct": 34,
+            "recall": 0.6296296296296297
+          },
+          {
+            "model": "claude-sonnet-5",
+            "support": 52,
+            "correct": 31,
+            "recall": 0.5961538461538461
+          },
+          {
+            "model": "gemini-3.1-pro-preview",
+            "support": 54,
+            "correct": 42,
+            "recall": 0.7777777777777778
+          },
+          {
+            "model": "gemini-3.6-flash",
+            "support": 51,
+            "correct": 20,
+            "recall": 0.39215686274509803
+          },
+          {
+            "model": "gemini-3.8-flash",
+            "support": 54,
+            "correct": 26,
+            "recall": 0.48148148148148145
+          },
+          {
+            "model": "glm-5.3",
+            "support": 16,
+            "correct": 1,
+            "recall": 0.0625
+          },
+          {
+            "model": "glm-5.3-flash",
+            "support": 17,
+            "correct": 3,
+            "recall": 0.17647058823529413
+          },
+          {
+            "model": "gpt-5.5",
+            "support": 54,
+            "correct": 30,
+            "recall": 0.5555555555555556
+          },
+          {
+            "model": "gpt-5.6-luna",
+            "support": 52,
+            "correct": 20,
+            "recall": 0.38461538461538464
+          },
+          {
+            "model": "gpt-5.6-sol",
+            "support": 54,
+            "correct": 13,
+            "recall": 0.24074074074074073
+          },
+          {
+            "model": "gpt-5.6-terra",
+            "support": 53,
+            "correct": 11,
+            "recall": 0.20754716981132076
+          },
+          {
+            "model": "gpt-6-astra",
+            "support": 54,
+            "correct": 42,
+            "recall": 0.7777777777777778
+          },
+          {
+            "model": "kimi-k3",
+            "support": 17,
+            "correct": 1,
+            "recall": 0.058823529411764705
+          },
+          {
+            "model": "qwen3.8-max",
+            "support": 18,
+            "correct": 7,
+            "recall": 0.3888888888888889
+          }
+        ]
+      },
+      "svc4": {
+        "metric": "covered_label_macro_recall",
+        "score_columns": 18,
+        "covered_labels": [
+          "claude-fable-5",
+          "claude-opus-4-6",
+          "claude-opus-4-8",
+          "claude-opus-5",
+          "claude-sonnet-5",
+          "gemini-3.1-pro-preview",
+          "gemini-3.6-flash",
+          "gemini-3.8-flash",
+          "glm-5.3",
+          "glm-5.3-flash",
+          "gpt-5.5",
+          "gpt-5.6-luna",
+          "gpt-5.6-sol",
+          "gpt-5.6-terra",
+          "gpt-6-astra",
+          "kimi-k3",
+          "qwen3.8-max"
+        ],
+        "covered_label_count": 17,
+        "macro_recall": 0.2813407839914336,
+        "accuracy": 0.31824417009602196,
+        "correct": 232,
+        "rows": 729,
+        "per_class": [
+          {
+            "model": "claude-fable-5",
+            "support": 19,
+            "correct": 0,
+            "recall": 0.0
+          },
+          {
+            "model": "claude-opus-4-6",
+            "support": 55,
+            "correct": 28,
+            "recall": 0.509090909090909
+          },
+          {
+            "model": "claude-opus-4-8",
+            "support": 55,
+            "correct": 9,
+            "recall": 0.16363636363636364
+          },
+          {
+            "model": "claude-opus-5",
+            "support": 54,
+            "correct": 23,
+            "recall": 0.42592592592592593
+          },
+          {
+            "model": "claude-sonnet-5",
+            "support": 52,
+            "correct": 22,
+            "recall": 0.4230769230769231
+          },
+          {
+            "model": "gemini-3.1-pro-preview",
+            "support": 54,
+            "correct": 40,
+            "recall": 0.7407407407407407
+          },
+          {
+            "model": "gemini-3.6-flash",
+            "support": 51,
+            "correct": 9,
+            "recall": 0.17647058823529413
+          },
+          {
+            "model": "gemini-3.8-flash",
+            "support": 54,
+            "correct": 9,
+            "recall": 0.16666666666666666
+          },
+          {
+            "model": "glm-5.3",
+            "support": 16,
+            "correct": 0,
+            "recall": 0.0
+          },
+          {
+            "model": "glm-5.3-flash",
+            "support": 17,
+            "correct": 3,
+            "recall": 0.17647058823529413
+          },
+          {
+            "model": "gpt-5.5",
+            "support": 54,
+            "correct": 9,
+            "recall": 0.16666666666666666
+          },
+          {
+            "model": "gpt-5.6-luna",
+            "support": 52,
+            "correct": 18,
+            "recall": 0.34615384615384615
+          },
+          {
+            "model": "gpt-5.6-sol",
+            "support": 54,
+            "correct": 11,
+            "recall": 0.2037037037037037
+          },
+          {
+            "model": "gpt-5.6-terra",
+            "support": 53,
+            "correct": 9,
+            "recall": 0.16981132075471697
+          },
+          {
+            "model": "gpt-6-astra",
+            "support": 54,
+            "correct": 33,
+            "recall": 0.6111111111111112
+          },
+          {
+            "model": "kimi-k3",
+            "support": 17,
+            "correct": 1,
+            "recall": 0.058823529411764705
+          },
+          {
+            "model": "qwen3.8-max",
+            "support": 18,
+            "correct": 8,
+            "recall": 0.4444444444444444
+          }
+        ]
+      },
+      "blend": {
+        "metric": "covered_label_macro_recall",
+        "score_columns": 18,
+        "covered_labels": [
+          "claude-fable-5",
+          "claude-opus-4-6",
+          "claude-opus-4-8",
+          "claude-opus-5",
+          "claude-sonnet-5",
+          "gemini-3.1-pro-preview",
+          "gemini-3.6-flash",
+          "gemini-3.8-flash",
+          "glm-5.3",
+          "glm-5.3-flash",
+          "gpt-5.5",
+          "gpt-5.6-luna",
+          "gpt-5.6-sol",
+          "gpt-5.6-terra",
+          "gpt-6-astra",
+          "kimi-k3",
+          "qwen3.8-max"
+        ],
+        "covered_label_count": 17,
+        "macro_recall": 0.3850244661433554,
+        "accuracy": 0.4444444444444444,
+        "correct": 324,
+        "rows": 729,
+        "per_class": [
+          {
+            "model": "claude-fable-5",
+            "support": 19,
+            "correct": 1,
+            "recall": 0.05263157894736842
+          },
+          {
+            "model": "claude-opus-4-6",
+            "support": 55,
+            "correct": 29,
+            "recall": 0.5272727272727272
+          },
+          {
+            "model": "claude-opus-4-8",
+            "support": 55,
+            "correct": 18,
+            "recall": 0.32727272727272727
+          },
+          {
+            "model": "claude-opus-5",
+            "support": 54,
+            "correct": 33,
+            "recall": 0.6111111111111112
+          },
+          {
+            "model": "claude-sonnet-5",
+            "support": 52,
+            "correct": 31,
+            "recall": 0.5961538461538461
+          },
+          {
+            "model": "gemini-3.1-pro-preview",
+            "support": 54,
+            "correct": 42,
+            "recall": 0.7777777777777778
+          },
+          {
+            "model": "gemini-3.6-flash",
+            "support": 51,
+            "correct": 20,
+            "recall": 0.39215686274509803
+          },
+          {
+            "model": "gemini-3.8-flash",
+            "support": 54,
+            "correct": 23,
+            "recall": 0.42592592592592593
+          },
+          {
+            "model": "glm-5.3",
+            "support": 16,
+            "correct": 1,
+            "recall": 0.0625
+          },
+          {
+            "model": "glm-5.3-flash",
+            "support": 17,
+            "correct": 3,
+            "recall": 0.17647058823529413
+          },
+          {
+            "model": "gpt-5.5",
+            "support": 54,
+            "correct": 29,
+            "recall": 0.5370370370370371
+          },
+          {
+            "model": "gpt-5.6-luna",
+            "support": 52,
+            "correct": 21,
+            "recall": 0.40384615384615385
+          },
+          {
+            "model": "gpt-5.6-sol",
+            "support": 54,
+            "correct": 12,
+            "recall": 0.2222222222222222
+          },
+          {
+            "model": "gpt-5.6-terra",
+            "support": 53,
+            "correct": 11,
+            "recall": 0.20754716981132076
+          },
+          {
+            "model": "gpt-6-astra",
+            "support": 54,
+            "correct": 42,
+            "recall": 0.7777777777777778
+          },
+          {
+            "model": "kimi-k3",
+            "support": 17,
+            "correct": 1,
+            "recall": 0.058823529411764705
+          },
+          {
+            "model": "qwen3.8-max",
+            "support": 18,
+            "correct": 7,
+            "recall": 0.3888888888888889
+          }
+        ]
+      }
+    },
+    "comparison": {
+      "alpha": 0.1,
+      "delta_macro_recall": -0.004335207276383757,
+      "fixed_errors": 6,
+      "new_errors": 10,
+      "prediction_disagreements": 33,
+      "paired_prompt_bootstrap": {
+        "delta_definition": "blend_minus_stylegram_covered_label_macro_recall",
+        "unit": "external_prompt_id",
+        "draws": 2000,
+        "seed": 42,
+        "valid_draws": 2000,
+        "invalid_draws": 0,
+        "ci95": [
+          -0.012253261510263534,
+          0.0034165309819484883
+        ],
+        "missing_class_policy": "null interval if any resample lacks a covered true class",
+        "conditional_on_fitted_models": true,
+        "includes_retraining_uncertainty": false
+      }
+    },
+    "external_predictions_path": "experiments/EXP-027-multiclass-external-validation/predictions/predictions.csv",
+    "acceptance_path": "experiments/EXP-027-multiclass-external-validation/metrics/verified.json",
+    "independent_review_path": "experiments/EXP-027-multiclass-external-validation/metrics/independent-review.json"
+  },
+  "cost": {
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0
+  },
+  "timing_note": "CPU runner 389.678s; guard 395.312s; sampled RSS 5.500GiB. Excludes queue/setup/download/verification.",
+  "conclusion": "17类外部检查验收PASS；Stylegram 0.389359673，svc4 0.281340784，固定10%融合 0.385024466。差值-0.4335个百分点，95%区间[-1.2253, +0.3417] 个百分点。本来源尚不支持稳定增益，暂不升级候选；不依据此结果继续扫权重。",
+  "limitations": "56题/17类且不均衡，五个少数类各16至19条；源数据经官方8gram后筛，服务身份仅发布者声明，语义重叠未穷尽；没有完整集成隔离缓存，不能宣称榜单改进。",
+  "next_action": "依据本次跨来源证据决定是否保留候选；正式0.662不变。完整集成先补成员训练谱系与gate前缓存，再按integration-plan的固定分离对照执行，不自动启GPU或提交。",
+  "related_sources": [
+    "SRC-063",
+    "SRC-038"
+  ],
+  "evidence": [
+    "experiments/EXP-027-multiclass-external-validation/config.json",
+    "experiments/EXP-027-multiclass-external-validation/manifest.json",
+    "experiments/EXP-027-multiclass-external-validation/report.md",
+    "experiments/EXP-027-multiclass-external-validation/audit_external.py",
+    "experiments/EXP-027-multiclass-external-validation/download-manifest.json",
+    "experiments/EXP-027-multiclass-external-validation/evaluation.csv",
+    "experiments/EXP-027-multiclass-external-validation/metrics/data-gate.json",
+    "experiments/EXP-027-multiclass-external-validation/metrics/row-audit.csv",
+    "experiments/EXP-027-multiclass-external-validation/metrics/group-audit.csv",
+    "experiments/EXP-027-multiclass-external-validation/integration-plan.md",
+    "experiments/EXP-027-multiclass-external-validation/metrics/integration-readiness.json",
+    "cloud/fixed-blend-multiclass/execution-state.json",
+    "cloud/fixed-blend-multiclass/preflight.json",
+    "cloud/fixed-blend-multiclass/dataset-v1-readback.json",
+    "cloud/fixed-blend-multiclass/saved-v1-readback.json",
+    "cloud/fixed-blend-multiclass/run-v2-readback.json",
+    "cloud/fixed-blend-multiclass/live-v2.log",
+    "experiments/EXP-027-multiclass-external-validation/record_results.py",
+    "experiments/EXP-027-multiclass-external-validation/metrics/verified.json",
+    "experiments/EXP-027-multiclass-external-validation/metrics/independent-review.json",
+    "experiments/EXP-027-multiclass-external-validation/metrics/archive-manifest.json",
+    "experiments/EXP-027-multiclass-external-validation/metrics/data-use.json",
+    "experiments/EXP-027-multiclass-external-validation/metrics/verification-tests.json",
+    "experiments/EXP-027-multiclass-external-validation/metrics/per_class.csv",
+    "experiments/EXP-027-multiclass-external-validation/metrics/comparison.csv",
+    "experiments/EXP-027-multiclass-external-validation/predictions/predictions.csv",
+    "cloud/fixed-blend-multiclass/complete-v2-readback.json",
+    "cloud/fixed-blend-multiclass/verify_outputs.py",
+    "cloud/fixed-blend-multiclass/test_verify_outputs.py",
+    "experiments/EXP-027-multiclass-external-validation/independent_check.py",
+    "experiments/EXP-027-multiclass-external-validation/metrics/prelaunch-review.json",
+    "cloud/fixed-blend-multiclass/README.md"
+  ],
+  "config_path": "experiments/EXP-027-multiclass-external-validation/config.json"
+}

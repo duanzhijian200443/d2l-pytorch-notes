@@ -1,0 +1,71 @@
+--- our-atlas20-v2
++++ judith007-latest
+@@ -1,4 +1,18 @@
++import matplotlib.pyplot as plt
++runs = {'nlm-v27': [0.651, 0.651, 0.643, 0.651], 'Who am I?': [0.645, 0.654], 'V31': [0.660, 0.660], '0.663 (this)': [0.662],
++        'LoRA x AC': [0.549], 'lora-instyle': [0.561], 'Teach + ATLAS': [0.606]}
++page = {'nlm-v27': 0.651, 'Who am I?': 0.654, 'V31': 0.660, '0.663 (this)': 0.663, 'LoRA x AC': 0.547, 'lora-instyle': 0.563, 'Teach + ATLAS': 0.607}
++fig, ax = plt.subplots(figsize=(8, 3.2))
++for i, (k, v) in enumerate(runs.items()):
++    ax.scatter([i] * len(v), [x - page[k] for x in v], s=60, color='tab:blue', label='our submission, identical code' if i == 0 else None, zorder=3)
++ax.axhspan(-0.01, 0.01, color='tab:orange', alpha=0.15, label='+-0.01: one submission cannot tell these apart')
++ax.axhline(0, color='k', lw=0.8)
++ax.set_xticks(range(len(runs))); ax.set_xticklabels(runs, rotation=20)
++ax.set_ylabel('score - author page score'); ax.set_title('Same code, different public score')
++ax.set_ylim(-0.013, 0.013); ax.legend(fontsize=8, loc='upper right'); plt.tight_layout(); plt.show()
++
++
+ # Name That LLM - full solution: fold-averaged two-stage LoRA24 (Qwen3-8B-Base, Qwen3-14B-Base, Qwen2.5-7B),
+ # Nishant two-stage checkpoints, 4-view n-gram SVM on train+pool, shared-prompt Gaussian, adaptive centred twins,
+ # 10% public ATLAS (source-conditioned likelihood, arXiv 2610.19583) before Sinkhorn balancing.
+ import glob, os, subprocess, json, sys
+@@ -11,9 +25,9 @@
+ def adir(name):
+     h = glob.glob(f'/kaggle/input/**/{name}/heads.pt', recursive=True); assert h, name; return os.path.dirname(h[0])
+ DATA = next(p for p in ['/kaggle/input/competitions/name-that-llm', '/kaggle/input/name-that-llm'] if os.path.exists(p + '/train.csv'))
+ import pandas as _pd
+-FAST_COMMIT = len(_pd.read_csv(DATA + '/test.csv')) < 50   # fork: the 3-row commit run skips the heavy cells; the hidden rerun runs everything
++FAST_COMMIT = os.getenv('KAGGLE_IS_COMPETITION_RERUN') is None and len(_pd.read_csv(DATA + '/test.csv')) < 50   # ours: the scoring rerun never takes the fast path   # fork: the 3-row commit run skips the heavy cells; the hidden rerun runs everything
+ print('FAST_COMMIT', FAST_COMMIT)
+ HEADS = os.path.dirname(next(iter(glob.glob('/kaggle/input/**/heads/q3_8bx.npz', recursive=True))))
+ EXTRA = next(iter(glob.glob('/kaggle/input/**/nlm_matched_clean.parquet', recursive=True)))
+ POOL = next(iter(glob.glob('/kaggle/input/**/nlm_pool_v5.parquet', recursive=True)))
+@@ -29,14 +43,11 @@
+ N8, N8C = nmeta('lora8b_v1'); N14, N14C = nmeta('lora14b_v1')
+ print('nishant', N8, N8C['keep'], N8C['max_len'], N14, N14C['keep'], N14C['max_len'])
+ ATLAS = os.path.dirname(next(iter(glob.glob('/kaggle/input/**/atlas_bundle.json', recursive=True))))
+ print('atlas', ATLAS)
+-BL = mdir('/llama31-8b-base-verified/')
++BL = next((os.path.dirname(x) for x in cfgs if '/llama-3-1-8b-base/' in x.lower()), None) or mdir('/llama-3.1/', '/8b/')   # ours: avazaku's cache is gone; same Meta weights from alexchilton/llama-3-1-8b-base
+ _SHARDS = {'model-00001-of-00004.safetensors': 4976698672, 'model-00002-of-00004.safetensors': 4999802720, 'model-00003-of-00004.safetensors': 4915916176, 'model-00004-of-00004.safetensors': 1168138808}
+-assert all(
+-    os.path.getsize(os.path.join(BL, f)) == n
+-    for f, n in _SHARDS.items()
+-), BL   # fork: Llama-3.1-8B from avazaku's public cache (NousResearch copy)
++assert all(os.path.getsize(os.path.join(BL, f)) == n for f, n in _SHARDS.items()), BL   # fork: Llama-3.1-8B from avazaku's public cache (NousResearch copy)
+ AL = [adir(f'ts_llama8_f{k}') for k in (0, 2, 4)] + [adir('ts_llama8')]
+ import shutil, time as _tc; _c = _tc.time()
+ shutil.copytree(BL, '/tmp/llama-3.1/8b', dirs_exist_ok=True); BL = '/tmp/llama-3.1/8b'   # fork: see the intro
+ print('llama copied to local disk in', round(_tc.time() - _c), 's')
+@@ -865,9 +876,9 @@
+     # Matrix form: weighted Bernoulli log likelihood ratio for each class.
+     _evidence = (_Xte * _fw[None, :]) @ _log_rate.T + ((1.0 - _Xte) * _fw[None, :]) @ _log_not_rate.T
+     _evidence -= (((_Xte * _fw[None, :]) @ _base_log_rate) + (((1.0 - _Xte) * _fw[None, :]) @ _base_log_not_rate))[:, None]
+     _evidence -= _evidence.mean(axis=1, keepdims=True)
+-    _evidence = np.clip(1.5 * _evidence / max(float(_fw.sum()), 1e-6), -0.30, 0.30)
++    _evidence = np.clip(1.2 * _evidence / max(float(_fw.sum()), 1e-6), -0.30, 0.30)
+     _raw = _v38_before_hard.copy()
+     _probs = _v38sp.softmax(_raw, axis=1)
+     _sorted = np.sort(_probs, axis=1)
+     _margin = _sorted[:, -1] - _sorted[:, -2]
+@@ -1881,9 +1892,9 @@
+ import subprocess, sys
+ cmd = [sys.executable, 'infer.py', '--data', str(DATA), '--models', json.dumps(MODELS),
+        '--perpassage', '1', '--extra', str(EXTRA), '--extra_w', '0.5', '--tfidf_w', '0.25',
+        '--distort_w', '0.10', '--svc_w', '1.5', '--pool', str(POOL), '--adapt_w', '1.0',
+-       '--adapt_thr', '0.15', '--sinkhorn', '0.45', '--sinkhorn_target_mix', '0.35', '--post', '0', '--atlas_dir', str(ATLAS),
++       '--adapt_thr', '0.15', '--sinkhorn', '0.60', '--sinkhorn_target_mix', '0.35', '--post', '0', '--atlas_dir', str(ATLAS),
+        '--atlas_base', str(B8), '--atlas_w', '0.20', '--atlas_margin', '0.3',
+        '--atlas_bs', '4', '--atlas_chunk', '3', '--atlas_budget', str(max(180, ATLAS_BUDGET)),
+        '--comp_path', '/kaggle/working/comp_logit.npy', '--comp_w', '0.15',
+        '--out', '/kaggle/working/submission.parquet', '--cache', '/kaggle/working/cache']

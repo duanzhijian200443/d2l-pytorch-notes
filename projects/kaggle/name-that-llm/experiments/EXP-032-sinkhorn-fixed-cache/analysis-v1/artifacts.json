@@ -1,0 +1,44 @@
+{
+  "files": [
+    {
+      "path": "analysis-manifest.json",
+      "bytes": 42639,
+      "sha256": "ccfcb103a497956450bfc5ce863efdc798a68161c5d003b83ec42c96ef9fd411"
+    },
+    {
+      "path": "errors.csv",
+      "bytes": 46767,
+      "sha256": "82dd39a10f64f84ea23ec72160cc2ea40fcb89faf6d8b39c715a128baf9d78f0"
+    },
+    {
+      "path": "per_class.csv",
+      "bytes": 1672,
+      "sha256": "abe14e495045a29e38929396e99e000757bd1cff97c35a6d2524683c6a0b3e0e"
+    },
+    {
+      "path": "per_prompt.csv",
+      "bytes": 7565,
+      "sha256": "a93a407f411d6c78f9e887d9da163e52709e2945ac1a2ee3b3846161baf05d3a"
+    },
+    {
+      "path": "predictions.csv",
+      "bytes": 130985,
+      "sha256": "158929d7cfba794543fb4ee2a6f4292c8caec5eb9f11e55299acf70b994e8aec"
+    },
+    {
+      "path": "result.json",
+      "bytes": 130611,
+      "sha256": "c4cb1a4a8e20bd52bb474d4b7b467d03bffc2ba7e6ed1f0fd29e71ea07656519"
+    },
+    {
+      "path": "scores.npz",
+      "bytes": 661723,
+      "sha256": "31623e1705ff0b0569688e60b33313f83d9f2010a7bea382f57be801fc9ea2db"
+    },
+    {
+      "path": "summary.json",
+      "bytes": 1872,
+      "sha256": "42a9808107bcc32863d361d93d3066e4b629e3bd874d433f0f90a142a333dbbb"
+    }
+  ]
+}

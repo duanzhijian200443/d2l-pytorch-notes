@@ -1,0 +1,18 @@
+{
+  "observed_at": "2026-10-31T14:22:04.599020+00:00",
+  "operation": "add history banner only; preserve existing body",
+  "files": [
+    {
+      "path": "公开方案与实验记录.md",
+      "original_bytes_sha256": "d6928a86ddb3698e6ea798db820a5ae11c6ac05cbec486ff0989f6823d0bf4e0",
+      "original_text_sha256": "d6928a86ddb3698e6ea798db820a5ae11c6ac05cbec486ff0989f6823d0bf4e0",
+      "body_preserved": true
+    },
+    {
+      "path": "公开高分方案Top20-2026-10-29.md",
+      "original_bytes_sha256": "7ab7b3dba47afb56439328518a636ac6a6bee494d1061a4ba47d0c6fa66ee2de",
+      "original_text_sha256": "c79b4bd3e9396f5cce239b00de2b8ab723da91aa3ec79b66ac1bd13cb77119ef",
+      "body_preserved": true
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0218",
+  "prompt": "Describe how a small library could test whether a new display actually helps readers discover books, rather than merely attracting glances. Aim for about 160 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "business_decision",
+  "target_words": 160,
+  "prompt_group": "cp0218",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "base_prompt": "Describe how a small library could test whether a new display actually helps readers discover books, rather than merely attracting glances. Aim for about 160 words.",
+  "base_prompt_sha256": "39228873ff000adebd201188177df62870e25d1cec49ac783df79f775b0809c7",
+  "base_prompt_id": "cp0218",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0218::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "d1121795fcb50ea7fdb845599ccac060366791e05ec086dec7bbb1c2bf706e18",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:38:07.987969+00:00",
+  "ended_at": "2026-11-01T13:38:29.568600+00:00",
+  "prompt_sha256": "113c4cbe90241b00e5fc34084c314b9a8cf7c221f0b4f3895ae7ffc6cac25587",
+  "text": "A small library could run a simple controlled trial by placing the new display in a prominent location for several weeks, then comparing results with similar weeks when the usual display is used. To reduce bias from season, events, or changing foot traffic, staff could alternate the two displays weekly and keep the featured books, location, and promotion as consistent as possible. Measures should go beyond observations of people looking: staff could track how many displayed books are picked up, borrowed, reserved, or later searched for in the catalog. A brief, optional checkout question could ask how readers found the book, while anonymous shelf observations could estimate the proportion of browsers who engage more deeply, such as reading a blurb or taking a title elsewhere. Comparing circulation with the books’ earlier borrowing rates would help separate display effects from existing popularity. Staff could also note whether the display benefits unfamiliar authors and subjects, not just bestsellers. If engagement and borrowing rise consistently without reducing discovery elsewhere, the display is likely helping readers discover books.",
+  "text_sha256": "5ab4a9639fc1dc03bf2f869a7e41821c99cdada9259fb196b51622d0cb3a3072",
+  "raw_final_sha256": "5ab4a9639fc1dc03bf2f869a7e41821c99cdada9259fb196b51622d0cb3a3072",
+  "word_count": 174,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4210,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 235,
+      "reasoning_output_tokens": 29
+    }
+  ],
+  "attempt_path": "collection\\attempts\\d1121795fcb50ea7fdb845599ccac060366791e05ec086dec7bbb1c2bf706e18",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

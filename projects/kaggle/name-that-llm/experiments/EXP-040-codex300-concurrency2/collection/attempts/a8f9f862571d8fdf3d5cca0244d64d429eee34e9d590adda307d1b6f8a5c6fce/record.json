@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0013",
+  "prompt": "I want to keep a small balcony pleasant, but I dislike spending weekends on maintenance. Suggest priorities for arranging the space. Please answer in roughly 160 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "everyday_advice",
+  "target_words": 160,
+  "prompt_group": "cp0013",
+  "split": "train",
+  "source": "codex_subscription",
+  "base_prompt": "I want to keep a small balcony pleasant, but I dislike spending weekends on maintenance. Suggest priorities for arranging the space. Please answer in roughly 160 words.",
+  "base_prompt_sha256": "743025754d5e15ee7d248267257d07d0545242e70485950cbbe18df6b30b6936",
+  "base_prompt_id": "cp0013",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0013::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "a8f9f862571d8fdf3d5cca0244d64d429eee34e9d590adda307d1b6f8a5c6fce",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:42:33.442937+00:00",
+  "ended_at": "2026-11-01T13:42:56.583384+00:00",
+  "prompt_sha256": "3d8695149f1fb88aaf0a89840c8b1329b5b29fe1b1a3411379b077e705a260e4",
+  "text": "Prioritize comfort, durability, and easy cleaning over filling every corner. Start by identifying sun, wind, and privacy conditions, then choose one compact seating setup that fits without blocking the door or walking space; foldable chairs or a slim bench with weather-resistant cushions work well. Use an outdoor rug or deck tiles only if they can be lifted and rinsed easily. Keep plants limited to a few large containers with hardy, climate-appropriate varieties, preferably evergreen or drought-tolerant, and use self-watering pots or drip irrigation to reduce watering. Group plants together so care is quick and the balcony feels intentional. Add vertical interest with a simple trellis or railing planter rather than many small pots. Choose powder-coated metal, teak, recycled plastic, or other weatherproof furniture, and store loose textiles in a waterproof box. For atmosphere, install warm solar or plug-in lights with a timer. Leave some open floor area, avoid delicate décor, and make every item earn its place through comfort, shade, storage, or greenery.",
+  "text_sha256": "8ccc18eb2b3b4206ded3bcd91814bae87c159e1f06aa464aa7085384983a1de6",
+  "raw_final_sha256": "8ccc18eb2b3b4206ded3bcd91814bae87c159e1f06aa464aa7085384983a1de6",
+  "word_count": 163,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4211,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 236,
+      "reasoning_output_tokens": 24
+    }
+  ],
+  "attempt_path": "collection\\attempts\\a8f9f862571d8fdf3d5cca0244d64d429eee34e9d590adda307d1b6f8a5c6fce",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

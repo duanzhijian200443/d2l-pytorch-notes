@@ -1,0 +1,387 @@
+{
+  "role": "historical_import_receipt_not_authoritative_registry",
+  "status": "IMPORTED",
+  "task": "20261101-community-newmodels",
+  "created_at": "2026-11-01T07:35:57Z",
+  "project_rules_read": [
+    "AGENTS.md",
+    "research/README.md"
+  ],
+  "formal_id_allocator": "/root",
+  "entries": [
+    {
+      "status": "PENDING_IMPORT",
+      "category": "solutions",
+      "ref": "kilupy/ntl-full-0662-ours15",
+      "author": "Kilupy",
+      "title": "Kilupy ours8 V1：加权1.5的LoRA成员，依赖私有数据",
+      "url": "https://www.kaggle.com/code/kilupy/ntl-full-0662-ours15?scriptVersionId=364235852",
+      "observed_at": "2026-11-01T07:35:57Z",
+      "source_version": {
+        "notebook_version": 1,
+        "script_version_id": 364235852,
+        "source_sha256": "9bfda2872c6cb2bae77109d5b023b8dc28c140deb500289e8d42dad07d0abbc4",
+        "code_sha256": "f608191f7677839c48f8ebeee5482ee40a033af0d59763db2e108f11da6f809f"
+      },
+      "public_score": {
+        "value": 0.664,
+        "evidence_type": "platform_page",
+        "bound_to_source": true,
+        "script_version_id": 364235852
+      },
+      "artifact_dir": "solutions/kilupy--ntl-full-0662-ours15--v1",
+      "notes_path": "solutions/kilupy--ntl-full-0662-ours15--v1/notes.md",
+      "files": [
+        "solutions/kilupy--ntl-full-0662-ours15--v1/analysis-evidence.json",
+        "solutions/kilupy--ntl-full-0662-ours15--v1/code.txt",
+        "solutions/kilupy--ntl-full-0662-ours15--v1/description.md",
+        "solutions/kilupy--ntl-full-0662-ours15--v1/diff-vs-SRC-002.patch",
+        "solutions/kilupy--ntl-full-0662-ours15--v1/download-receipt.json",
+        "solutions/kilupy--ntl-full-0662-ours15--v1/metadata.json",
+        "solutions/kilupy--ntl-full-0662-ours15--v1/notes.md",
+        "solutions/kilupy--ntl-full-0662-ours15--v1/source.ipynb",
+        "solutions/kilupy--ntl-full-0662-ours15--v1/snapshots/browser-observation-20261101.json"
+      ],
+      "existing_src_candidates": [],
+      "related_source_candidates": [
+        "SRC-002",
+        "SRC-001",
+        "SRC-026"
+      ],
+      "same_code_existing_src": [],
+      "tags": [
+        "ensemble",
+        "lora",
+        "reproducibility",
+        "private-dependency",
+        "runtime"
+      ],
+      "summary": "V1已绑定0.664；相对All Public V8仅新增ours8 LoRA，log-prob权重1.5；网页含Private Dataset，不能称完整公开可复现。",
+      "limitations": "固定源码已读；无独立训练或隐藏评分复现。网页明确含私有数据依赖，额外ours8训练/权重溯源未确认。",
+      "downloaded_code_executed": false,
+      "family_id": "code-f608191f7677",
+      "author_claim": "继承All Public正文；未提供新增ours8训练与消融说明。",
+      "verified": "V1/364235852绑定0.664；对SRC-002只有新成员与输入扫描，网页明确Private Dataset。",
+      "use_for_us": "IDEA-004加成员接口与互补性对照；复现先取得私有依赖来源。",
+      "test_plan": "固定prompt组和强预测，比较新成员0/小权重/1.5并记录ATLAS覆盖。"
+    },
+    {
+      "status": "PENDING_IMPORT",
+      "category": "solutions",
+      "ref": "bgunshui/ntl-apex-e",
+      "author": "bgunshui",
+      "title": "Apex E V1：Open Pool、SVC12与V40A多项组合",
+      "url": "https://www.kaggle.com/code/bgunshui/ntl-apex-e?scriptVersionId=364347706",
+      "observed_at": "2026-11-01T07:35:57Z",
+      "source_version": {
+        "notebook_version": 1,
+        "script_version_id": 364347706,
+        "source_sha256": "ccb4549744df976c6dfa9da31f761a9bc4acfaeea34588e4c9bdae7aa4829f7a",
+        "code_sha256": "176028c830935d9ed88a36e659fd55294cc07ccf398d874161f20ff7207e93e6"
+      },
+      "public_score": {
+        "value": 0.663,
+        "evidence_type": "platform_page",
+        "bound_to_source": true,
+        "script_version_id": 364347706
+      },
+      "artifact_dir": "solutions/bgunshui--ntl-apex-e--v1",
+      "notes_path": "solutions/bgunshui--ntl-apex-e--v1/notes.md",
+      "files": [
+        "solutions/bgunshui--ntl-apex-e--v1/analysis-evidence.json",
+        "solutions/bgunshui--ntl-apex-e--v1/code.txt",
+        "solutions/bgunshui--ntl-apex-e--v1/description.md",
+        "solutions/bgunshui--ntl-apex-e--v1/diff-vs-SRC-002.patch",
+        "solutions/bgunshui--ntl-apex-e--v1/download-receipt.json",
+        "solutions/bgunshui--ntl-apex-e--v1/metadata.json",
+        "solutions/bgunshui--ntl-apex-e--v1/notes.md",
+        "solutions/bgunshui--ntl-apex-e--v1/source.ipynb",
+        "solutions/bgunshui--ntl-apex-e--v1/snapshots/browser-observation-20261101.json"
+      ],
+      "existing_src_candidates": [],
+      "related_source_candidates": [
+        "SRC-002",
+        "SRC-016",
+        "SRC-022",
+        "SRC-027"
+      ],
+      "same_code_existing_src": [],
+      "tags": [
+        "ensemble",
+        "svm",
+        "data",
+        "postprocessing",
+        "validation",
+        "runtime"
+      ],
+      "summary": "V1已绑定0.663；组合Open Pool、SVC12、Sinkhorn0.60/标点1.2与家族风格残差；正文0.670不是平台成绩。",
+      "limitations": "固定源码已读；无独立训练或隐藏评分复现。多项改动并存；Open Pool固定附件版本/过滤后行数及单项增量未确认。",
+      "downloaded_code_executed": false,
+      "family_id": "code-176028c83093",
+      "author_claim": "正文称0.670 pipeline并组合Open Pool/SVC12、0.60/1.2与家族风格残差。",
+      "verified": "V1/364347706绑定0.663；源码多项组合，数据过滤依赖标记列且有回退。",
+      "use_for_us": "拆开数据、权重、后处理和残差的验证候选。",
+      "test_plan": "IDEA-003/002/004固定池版本与缓存，逐项对照并记录ATLAS覆盖。"
+    },
+    {
+      "status": "PENDING_IMPORT",
+      "category": "solutions",
+      "ref": "bgunshui/ntl-one-swap",
+      "author": "bgunshui",
+      "title": "bgunshui One Swap V1：原作者V3同代码副本",
+      "url": "https://www.kaggle.com/code/bgunshui/ntl-one-swap",
+      "observed_at": "2026-11-01T07:35:57Z",
+      "source_version": {
+        "notebook_version": 1,
+        "script_version_id": null,
+        "source_sha256": "86a72c03d95a46a3378b6e736a23fa0cc8dbc55bc50542852a07c8fe492aa628",
+        "code_sha256": "d8c630d3b9fd1b3b0453de6fffb9e5d613f7a9c1c79cf47ab42f7dd9ad30321f"
+      },
+      "public_score": null,
+      "artifact_dir": "solutions/bgunshui--ntl-one-swap--v1",
+      "notes_path": "solutions/bgunshui--ntl-one-swap--v1/notes.md",
+      "files": [
+        "solutions/bgunshui--ntl-one-swap--v1/analysis-evidence.json",
+        "solutions/bgunshui--ntl-one-swap--v1/code.txt",
+        "solutions/bgunshui--ntl-one-swap--v1/description.md",
+        "solutions/bgunshui--ntl-one-swap--v1/diff-vs-original-one-swap-v1.patch",
+        "solutions/bgunshui--ntl-one-swap--v1/diff-vs-original-one-swap-v3.patch",
+        "solutions/bgunshui--ntl-one-swap--v1/diff-vs-SRC-002.patch",
+        "solutions/bgunshui--ntl-one-swap--v1/download-receipt.json",
+        "solutions/bgunshui--ntl-one-swap--v1/metadata.json",
+        "solutions/bgunshui--ntl-one-swap--v1/notes.md",
+        "solutions/bgunshui--ntl-one-swap--v1/source.ipynb",
+        "solutions/bgunshui--ntl-one-swap--v1/snapshots/browser-observation-20261101.json"
+      ],
+      "existing_src_candidates": [],
+      "related_source_candidates": [
+        "SRC-002",
+        "SRC-027"
+      ],
+      "same_code_existing_src": [],
+      "family_id": "code-d8c630d3b9fd",
+      "tags": [
+        "ensemble",
+        "svm",
+        "data",
+        "duplicate-code"
+      ],
+      "summary": "与原作者One Swap V3完整代码相同；页面未显示Score，不把继承0.664正文作为本副本成绩。",
+      "author_claim": "正文继承Open Pool替换、SVC权重阶梯和单SVC CV；并非本副本的独立运行证据。",
+      "verified": "固定V1，完整代码等同zbigniewkirchner V3；主窗口列表未显示Score。",
+      "use_for_us": "复用One Swap方法分析，保留副本出处和依赖。",
+      "test_plan": "按IDEA-003拆分换池与权重，在固定prompt隔离下验证。",
+      "limitations": "源码与网页分数分开记录；本次未执行训练/完整隐藏评分，也未绑定全部输入的内容哈希。",
+      "downloaded_code_executed": false,
+      "related_ref_candidates": [
+        {
+          "ref": "zbigniewkirchner/0-664-one-swap-198k-clean-pool-fully-public",
+          "notebook_version": 3,
+          "relation": "identical-code"
+        }
+      ]
+    },
+    {
+      "status": "PENDING_IMPORT",
+      "category": "solutions",
+      "ref": "lomnafsk/ntl-0-664-public-pipeline",
+      "author": "Mahmoud Nasser",
+      "title": "lomnafsk V3：0.60/1.2与被覆盖的guard",
+      "url": "https://www.kaggle.com/code/lomnafsk/ntl-0-664-public-pipeline",
+      "observed_at": "2026-11-01T07:35:57Z",
+      "source_version": {
+        "notebook_version": 3,
+        "script_version_id": null,
+        "source_sha256": "2e0783b06cf99e74a89b613fd9302b8333c9c786e69c5b99022adc9619ddc74a",
+        "code_sha256": "ea3905785055fd2ed8517531f09c04574b96c8a6111fb6d51ffc3ff3b3c51cd9"
+      },
+      "public_score": {
+        "value": 0.659,
+        "evidence_type": "platform_page",
+        "bound_to_source": false,
+        "script_version_id": null
+      },
+      "artifact_dir": "solutions/lomnafsk--ntl-0-664-public-pipeline--v3",
+      "notes_path": "solutions/lomnafsk--ntl-0-664-public-pipeline--v3/notes.md",
+      "files": [
+        "solutions/lomnafsk--ntl-0-664-public-pipeline--v3/analysis-evidence.json",
+        "solutions/lomnafsk--ntl-0-664-public-pipeline--v3/code.txt",
+        "solutions/lomnafsk--ntl-0-664-public-pipeline--v3/description.md",
+        "solutions/lomnafsk--ntl-0-664-public-pipeline--v3/diff-vs-SRC-002.patch",
+        "solutions/lomnafsk--ntl-0-664-public-pipeline--v3/download-receipt.json",
+        "solutions/lomnafsk--ntl-0-664-public-pipeline--v3/metadata.json",
+        "solutions/lomnafsk--ntl-0-664-public-pipeline--v3/notes.md",
+        "solutions/lomnafsk--ntl-0-664-public-pipeline--v3/source.ipynb",
+        "solutions/lomnafsk--ntl-0-664-public-pipeline--v3/snapshots/browser-observation-20261101.json"
+      ],
+      "existing_src_candidates": [],
+      "related_source_candidates": [
+        "SRC-002",
+        "SRC-022"
+      ],
+      "same_code_existing_src": [],
+      "family_id": "code-ea3905785055",
+      "tags": [
+        "ensemble",
+        "postprocessing",
+        "runtime"
+      ],
+      "summary": "页面0.659未绑定V3；当前0.60/1.2加post1，但最终typography覆盖guard改动。",
+      "author_claim": "标题0.664；正文参数仍旧，未提供当前V3消融。",
+      "verified": "读取固定V3完整diff，静态追踪post前快照被最终typography重用。",
+      "use_for_us": "用于核对后处理顺序及标题/分数/版本边界。",
+      "test_plan": "按IDEA-002固定预测验证最终写回是否包含每项变更。",
+      "limitations": "源码与网页分数分开记录；本次未执行训练/完整隐藏评分，也未绑定全部输入的内容哈希。",
+      "downloaded_code_executed": false
+    },
+    {
+      "status": "PENDING_IMPORT",
+      "category": "solutions",
+      "ref": "vasily61/name-that-llm-0-664-reproduction-notes",
+      "author": "Селиванов Василий",
+      "title": "vasily61 V1：SRC-021同代码与Claude覆盖负结果",
+      "url": "https://www.kaggle.com/code/vasily61/name-that-llm-0-664-reproduction-notes",
+      "observed_at": "2026-11-01T07:35:57Z",
+      "source_version": {
+        "notebook_version": 1,
+        "script_version_id": null,
+        "source_sha256": "50b5a89254096f8088f4bbde3e592e639adffb923364418ea95d7bef89f5a39a",
+        "code_sha256": "f9fbf9845de6c62c9bca9a753d2fe5aac1d35e106541c1e07ca5755a6449bce9"
+      },
+      "public_score": null,
+      "artifact_dir": "solutions/vasily61--name-that-llm-0-664-reproduction-notes--v1",
+      "notes_path": "solutions/vasily61--name-that-llm-0-664-reproduction-notes--v1/notes.md",
+      "files": [
+        "solutions/vasily61--name-that-llm-0-664-reproduction-notes--v1/analysis-evidence.json",
+        "solutions/vasily61--name-that-llm-0-664-reproduction-notes--v1/code.txt",
+        "solutions/vasily61--name-that-llm-0-664-reproduction-notes--v1/description.md",
+        "solutions/vasily61--name-that-llm-0-664-reproduction-notes--v1/diff-vs-SRC-002.patch",
+        "solutions/vasily61--name-that-llm-0-664-reproduction-notes--v1/download-receipt.json",
+        "solutions/vasily61--name-that-llm-0-664-reproduction-notes--v1/metadata.json",
+        "solutions/vasily61--name-that-llm-0-664-reproduction-notes--v1/notes.md",
+        "solutions/vasily61--name-that-llm-0-664-reproduction-notes--v1/source.ipynb",
+        "solutions/vasily61--name-that-llm-0-664-reproduction-notes--v1/snapshots/browser-observation-20261101.json"
+      ],
+      "existing_src_candidates": [],
+      "related_source_candidates": [
+        "SRC-021",
+        "SRC-002"
+      ],
+      "same_code_existing_src": [
+        "SRC-021"
+      ],
+      "family_id": "code-f9fbf9845de6",
+      "tags": [
+        "ensemble",
+        "duplicate-code",
+        "ablation",
+        "validation"
+      ],
+      "summary": "代码与SRC-021完全相同；作者明确本fork未评分，外部350行Claude覆盖仅4纠错却68改错。",
+      "author_claim": "0.664属于上游V2；当前fork未评价，Claude探索未包含在复现代码。",
+      "verified": "代码hash=f9fbf9845de6与SRC-021一致，读到作者明确限定；列表未显示Score。",
+      "use_for_us": "同源复用SRC-021；负结果提醒记录互换矩阵与样本条件。",
+      "test_plan": "IDEA-004采用完整类别、来源可查的prompt分组验证。",
+      "limitations": "源码与网页分数分开记录；本次未执行训练/完整隐藏评分，也未绑定全部输入的内容哈希。",
+      "downloaded_code_executed": false
+    },
+    {
+      "status": "PENDING_IMPORT",
+      "category": "solutions",
+      "ref": "maverickss26/kaggle-name-the-llm-v4",
+      "author": "maverick_ss_26",
+      "title": "maverick V9：输入诊断、失败保底与预测缓存",
+      "url": "https://www.kaggle.com/code/maverickss26/kaggle-name-the-llm-v4",
+      "observed_at": "2026-11-01T07:35:57Z",
+      "source_version": {
+        "notebook_version": 9,
+        "script_version_id": null,
+        "source_sha256": "84caf16d1fdfb42653615bea773b90636e4be9986add56feab3dba9eaf369235",
+        "code_sha256": "011698096a6d1f2b46f1b4199c941884c77e0ddf1fe947f8834797476d7bb12f"
+      },
+      "public_score": {
+        "value": 0.651,
+        "evidence_type": "platform_page",
+        "bound_to_source": false,
+        "script_version_id": null
+      },
+      "artifact_dir": "solutions/maverickss26--kaggle-name-the-llm-v4--v9",
+      "notes_path": "solutions/maverickss26--kaggle-name-the-llm-v4--v9/notes.md",
+      "files": [
+        "solutions/maverickss26--kaggle-name-the-llm-v4--v9/analysis-evidence.json",
+        "solutions/maverickss26--kaggle-name-the-llm-v4--v9/code.txt",
+        "solutions/maverickss26--kaggle-name-the-llm-v4--v9/description.md",
+        "solutions/maverickss26--kaggle-name-the-llm-v4--v9/diff-vs-own-v8.patch",
+        "solutions/maverickss26--kaggle-name-the-llm-v4--v9/diff-vs-SRC-002.patch",
+        "solutions/maverickss26--kaggle-name-the-llm-v4--v9/download-receipt.json",
+        "solutions/maverickss26--kaggle-name-the-llm-v4--v9/metadata.json",
+        "solutions/maverickss26--kaggle-name-the-llm-v4--v9/notes.md",
+        "solutions/maverickss26--kaggle-name-the-llm-v4--v9/source.ipynb",
+        "solutions/maverickss26--kaggle-name-the-llm-v4--v9/snapshots/browser-observation-20261101.json"
+      ],
+      "existing_src_candidates": [],
+      "related_source_candidates": [
+        "SRC-002",
+        "SRC-022"
+      ],
+      "same_code_existing_src": [],
+      "family_id": "code-011698096a6d",
+      "tags": [
+        "ensemble",
+        "runtime",
+        "reproducibility",
+        "cache"
+      ],
+      "summary": "页面0.651未绑定V9；工程重构默认0.60/1.2，Llama缺失会删除成员，失败保底不等于完整集成。",
+      "author_claim": "声称默认复刻0.664，主要为结构、输入处理、保底和开关；未提供OOF验证。",
+      "verified": "固定V9、与旧V8同kernel id139393444；读取diff并识别默认参数属于SRC-022。",
+      "use_for_us": "参考输入诊断、缓存与post覆盖修复，保持阶段成功和保底区别。",
+      "test_plan": "小型固定预测验证缓存和post顺序；采用前固定项目真实基线参数。",
+      "limitations": "源码与网页分数分开记录；本次未执行训练/完整隐藏评分，也未绑定全部输入的内容哈希。",
+      "downloaded_code_executed": false
+    }
+  ],
+  "precision": "collection-end; exact per-page timestamp not recorded",
+  "imported_at": "2026-11-01T07:38:25.223483+00:00",
+  "canonical_records": [
+    {
+      "source_id": "SRC-039",
+      "record_path": "tracking/records/sources/SRC-039.json",
+      "artifact_dir": "research/solutions/SRC-039-kilupy-ntl-full-0662-ours15-v1"
+    },
+    {
+      "source_id": "SRC-040",
+      "record_path": "tracking/records/sources/SRC-040.json",
+      "artifact_dir": "research/solutions/SRC-040-bgunshui-ntl-apex-e-v1"
+    },
+    {
+      "source_id": "SRC-041",
+      "record_path": "tracking/records/sources/SRC-041.json",
+      "artifact_dir": "research/solutions/SRC-041-bgunshui-ntl-one-swap-v1"
+    },
+    {
+      "source_id": "SRC-042",
+      "record_path": "tracking/records/sources/SRC-042.json",
+      "artifact_dir": "research/solutions/SRC-042-lomnafsk-ntl-0-664-public-pipeline-v3"
+    },
+    {
+      "source_id": "SRC-043",
+      "record_path": "tracking/records/sources/SRC-043.json",
+      "artifact_dir": "research/solutions/SRC-043-vasily61-name-that-llm-0-664-reproduction-notes-v1"
+    },
+    {
+      "source_id": "SRC-044",
+      "record_path": "tracking/records/sources/SRC-044.json",
+      "artifact_dir": "research/solutions/SRC-044-maverickss26-kaggle-name-the-llm-v4-v9"
+    }
+  ],
+  "path_migrations": {
+    "solutions/kilupy--ntl-full-0662-ours15--v1": "research/solutions/SRC-039-kilupy-ntl-full-0662-ours15-v1",
+    "solutions/bgunshui--ntl-apex-e--v1": "research/solutions/SRC-040-bgunshui-ntl-apex-e-v1",
+    "solutions/bgunshui--ntl-one-swap--v1": "research/solutions/SRC-041-bgunshui-ntl-one-swap-v1",
+    "solutions/lomnafsk--ntl-0-664-public-pipeline--v3": "research/solutions/SRC-042-lomnafsk-ntl-0-664-public-pipeline-v3",
+    "solutions/vasily61--name-that-llm-0-664-reproduction-notes--v1": "research/solutions/SRC-043-vasily61-name-that-llm-0-664-reproduction-notes-v1",
+    "solutions/maverickss26--kaggle-name-the-llm-v4--v9": "research/solutions/SRC-044-maverickss26-kaggle-name-the-llm-v4-v9"
+  },
+  "time_correction": "Root-transcribed browser 07:36/39/43/49 estimates were replaced in canonical evidence by collection window07:30—07:35:57UTC. Raw download/API timestamps are unchanged."
+}

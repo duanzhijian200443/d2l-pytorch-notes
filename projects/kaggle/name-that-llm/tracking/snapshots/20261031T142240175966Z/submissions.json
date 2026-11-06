@@ -1,0 +1,57 @@
+{
+  "observed_at": "2026-10-31T14:22:37.951069+00:00",
+  "source": "official Kaggle API",
+  "submissions": [
+    {
+      "ref": 57832487,
+      "totalBytes": 0,
+      "date": "2026-10-31T08:18:18.780Z",
+      "description": "",
+      "fileName": "submission.parquet",
+      "submittedBy": "zhjianduan",
+      "submittedByRef": "zhjianduan",
+      "teamName": "zhjian duan",
+      "url": "/code/zhjianduan/0-664-hyperparameter-tuned-who-are-u?scriptVersionId=364159717",
+      "status": "PENDING"
+    },
+    {
+      "ref": 57778357,
+      "totalBytes": 60075,
+      "date": "2026-10-29T17:36:23.270Z",
+      "description": "",
+      "fileName": "submission.parquet",
+      "publicScore": "0.662",
+      "status": "COMPLETE",
+      "submittedBy": "zhjianduan",
+      "submittedByRef": "zhjianduan",
+      "teamName": "zhjian duan",
+      "url": "/code/zhjianduan/name-that-llm-atlas20-repro?scriptVersionId=363569852"
+    },
+    {
+      "ref": 57759707,
+      "totalBytes": 60084,
+      "date": "2026-10-29T05:14:08.043Z",
+      "description": "",
+      "fileName": "submission.parquet",
+      "publicScore": "0.654",
+      "status": "COMPLETE",
+      "submittedBy": "zhjianduan",
+      "submittedByRef": "zhjianduan",
+      "teamName": "zhjian duan",
+      "url": "/code/zhjianduan/name-that-llm-who-am-i-v30-repro?scriptVersionId=363200699"
+    },
+    {
+      "ref": 57736953,
+      "totalBytes": 60059,
+      "date": "2026-10-28T12:46:34.197Z",
+      "description": "No-Llama word+char TF-IDF / LinearSVC baseline; prompt-grouped 5-fold OOF BA 0.3122446; notebook v4",
+      "fileName": "submission.parquet",
+      "publicScore": "0.308",
+      "status": "COMPLETE",
+      "submittedBy": "zhjianduan",
+      "submittedByRef": "zhjianduan",
+      "teamName": "zhjian duan",
+      "url": "/code/zhjianduan/name-that-llm-no-llama-groupcv?scriptVersionId=363168447"
+    }
+  ]
+}

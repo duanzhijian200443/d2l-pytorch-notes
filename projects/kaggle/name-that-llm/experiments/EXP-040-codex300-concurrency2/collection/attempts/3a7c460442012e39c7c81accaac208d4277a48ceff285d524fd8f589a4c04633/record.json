@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0078",
+  "prompt": "How should a project leader communicate a delay when the revised completion date is still uncertain? Aim for about 160 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "business_decision",
+  "target_words": 160,
+  "prompt_group": "cp0078",
+  "split": "train",
+  "source": "codex_subscription",
+  "base_prompt": "How should a project leader communicate a delay when the revised completion date is still uncertain? Aim for about 160 words.",
+  "base_prompt_sha256": "56b0a4015332654c000251cd059c2086082c2c14b6842a660c780b1b7d802138",
+  "base_prompt_id": "cp0078",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0078::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "3a7c460442012e39c7c81accaac208d4277a48ceff285d524fd8f589a4c04633",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T14:03:44.279978+00:00",
+  "ended_at": "2026-11-01T14:03:59.076164+00:00",
+  "prompt_sha256": "21455fe27ccba7ca839e7a1a31626b4876a938f34e21eb12935d89739dbb8574",
+  "text": "Communicate the delay promptly, clearly, and honestly, without speculating about a completion date that cannot yet be supported. Explain what has changed, the current impact, and the main factors preventing a reliable revised estimate. Take responsibility for the communication, even if the cause lies elsewhere, and acknowledge the effect on customers, colleagues, or stakeholders. Describe the actions underway to resolve the issue, such as investigating the root cause, adding resources, reprioritizing work, or consulting specialists. Instead of offering false certainty, provide the next concrete checkpoint: for example, commit to sharing an updated forecast by a specific date after the outstanding information is reviewed. Reassure stakeholders that progress will be reported regularly and identify any decisions, support, or mitigation they can provide now. Use a calm, factual tone and avoid minimizing the problem or assigning blame. A message such as, “We are behind schedule, and I do not want to give you an unreliable date. We are assessing the remaining work and will provide a credible forecast by Friday, with updates twice weekly,” demonstrates accountability, transparency, and respect.",
+  "text_sha256": "962bbed7cfc7bf395f0cadf5201460447162c1715f6b16a1da62b53d89d9e577",
+  "raw_final_sha256": "962bbed7cfc7bf395f0cadf5201460447162c1715f6b16a1da62b53d89d9e577",
+  "word_count": 177,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2668,
+      "cached_input_tokens": 2432,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 253,
+      "reasoning_output_tokens": 28
+    }
+  ],
+  "attempt_path": "collection\\attempts\\3a7c460442012e39c7c81accaac208d4277a48ceff285d524fd8f589a4c04633",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

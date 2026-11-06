@@ -1,0 +1,44 @@
+{
+  "kind": "discussion",
+  "category": "discussions",
+  "title": "ATLAS与均匀平滑对照：小幅优势及运行覆盖限制",
+  "author": "josephadamski91",
+  "url": "https://www.kaggle.com/competitions/name-that-llm/discussion/754131",
+  "observed_at": "2026-11-01T07:32:12.411250+00:00",
+  "source_version": {
+    "topic_id": 754131,
+    "snapshot_sha256": "073b97fe0a6ae19010d26e13f8fceca75cb137399c834eb958c259279c4ed557"
+  },
+  "public_score": null,
+  "summary": "作者将ATLAS预测替换为均匀分布：V31/20%为0.663 vs0.662；归因尚受覆盖量和旧权重恢复限制。",
+  "author_claim": "V31/20%真实ATLAS0.663、均匀替换0.662；Teach10%为0.607/0.605；本地两种blend预测近同。",
+  "verified": "已读原帖与10月31日评论；原文承认不同运行ATLAS覆盖行数可变，旧对照用恢复checkpoint。",
+  "use_for_us": "分开测试去掉ATLAS、均匀平滑替代、真实ATLAS，评估信号与概率平滑的贡献。",
+  "test_plan": "冻结同一输入概率、ATLAS处理行集合、权重及后处理，只替换该分支概率，测成对差异。",
+  "limitations": "帖子表格分数未绑定提交ID；其他blend的移除效应不能与本表直接相减来量化平滑贡献。",
+  "tags": [
+    "atlas",
+    "calibration",
+    "ablation",
+    "smoothing",
+    "runtime"
+  ],
+  "related_sources": [
+    "SRC-001",
+    "SRC-026"
+  ],
+  "schema_version": 1,
+  "id": "SRC-058",
+  "artifact_dir": "research/discussions/SRC-058-754131-atlas-vs-uniform-smoothing",
+  "notes_path": "research/discussions/SRC-058-754131-atlas-vs-uniform-smoothing/notes.md",
+  "collection_observation_note": "源码/API时间见回执。浏览器仅记录2026-11-01 UTC采集日期及07:35:57 UTC汇总截至时刻，不将其伪作逐页精确读取时间。",
+  "supersedes": null,
+  "evidence": [
+    "research/discussions/SRC-058-754131-atlas-vs-uniform-smoothing/notes.md",
+    "research/discussions/SRC-058-754131-atlas-vs-uniform-smoothing/snapshots/20261101T073212Z.json"
+  ],
+  "evidence_sha256": {
+    "research/discussions/SRC-058-754131-atlas-vs-uniform-smoothing/notes.md": "0085f4f4004cdad9a8661927aa9b7fdc590cca349299b22c637f19313640b468",
+    "research/discussions/SRC-058-754131-atlas-vs-uniform-smoothing/snapshots/20261101T073212Z.json": "073b97fe0a6ae19010d26e13f8fceca75cb137399c834eb958c259279c4ed557"
+  }
+}

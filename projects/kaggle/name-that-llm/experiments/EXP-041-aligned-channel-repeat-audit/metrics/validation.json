@@ -1,0 +1,22 @@
+{
+  "status": "PASS_OFFLINE_DIAGNOSTIC",
+  "observed_at": "2026-11-01T14:14:30.868480+00:00",
+  "input_hashes_unchanged": true,
+  "independent_statistics": "PASS",
+  "raw_final_hash_checks": 378,
+  "complete_paired_cells": 19,
+  "independent_prompt_groups": 10,
+  "static_figure_visually_inspected": true,
+  "training_run": false,
+  "formal_pool_ingestion": false,
+  "new_model_calls": 0,
+  "semantic_or_backend_equivalence_established": false,
+  "documentation": {
+    "provider": "OpenAI Docs MCP",
+    "url": "https://learn.chatgpt.com/docs/config-file/config-reference",
+    "verified_keys": [
+      "model_instructions_file",
+      "developer_instructions"
+    ]
+  }
+}

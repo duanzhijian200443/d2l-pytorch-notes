@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "id": "EXP-000",
+  "title": "待填写",
+  "baseline_id": null,
+  "hypothesis": "",
+  "changes": [],
+  "observed_at": null,
+  "source": {
+    "notebook_ref": null,
+    "notebook_version": null,
+    "script_version_id": null,
+    "local_path": null,
+    "sha256": null
+  },
+  "inputs": {
+    "manifest_path": null,
+    "validation_split_id": null,
+    "content_hashes_verified": false
+  },
+  "config": {},
+  "environment": {
+    "platform": null,
+    "accelerator": null,
+    "container": null,
+    "seed": null
+  },
+  "execution": {
+    "scope": "planned",
+    "status": "PLANNED",
+    "observed_at": null
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": null,
+    "per_class_recall_path": null,
+    "oof_path": null,
+    "leakage_audit": "not_audited"
+  },
+  "cost": {
+    "gpu_seconds": null,
+    "api_usd": null,
+    "colab_cu": null
+  },
+  "timing_note": null,
+  "conclusion": "",
+  "limitations": "",
+  "next_action": "",
+  "related_sources": [],
+  "evidence": []
+}

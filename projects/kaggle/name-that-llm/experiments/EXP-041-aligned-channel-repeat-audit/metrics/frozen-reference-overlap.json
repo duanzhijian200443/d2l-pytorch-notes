@@ -1,0 +1,28 @@
+{
+  "scope": "EXP033 frozen four-model row-feature index; not a fresh platform/full-label/semantic overlap audit",
+  "reference": "experiments\\EXP-033-codex-source-contamination-audit\\metrics\\row-features.csv",
+  "reference_sha256": "3e1eb5e731ab705105946f02d8260b043cfb5d94d372ce06d4f020084bcf78db",
+  "by_source_rows": {
+    "codex": 1000,
+    "official-train": 600,
+    "abdullah-v2": 576,
+    "dophuchung-v1": 489,
+    "lucas-v7": 1845,
+    "prvs-raw-v6": 2080,
+    "prvs-clean-v6": 1152,
+    "matched-v3": 5338,
+    "pool-v5": 36016,
+    "enai-v3": 9719,
+    "earthmaker-v1": 213,
+    "prvs-raw-v6-new": 1200,
+    "abdullah-v2-low": 43,
+    "dophuchung-v1-low": 299,
+    "enai-v3-gap": 4311,
+    "enai-v3-new": 5408,
+    "codex-prose-subset": 700,
+    "kaggle-paired20": 20
+  },
+  "new_rows": 378,
+  "overlaps": [],
+  "normalization": "NFKC + casefold + collapse whitespace"
+}

@@ -1,0 +1,9 @@
+{
+  "observed_at": "2026-11-01T10:18:55.461597+00:00",
+  "standard_new_experiment_exit_code": 1,
+  "global_errors": [
+    "EXP-029: source hash mismatch"
+  ],
+  "registration_method": "existing ledger.create_experiment helper; exclusive record and directory creation",
+  "scope": "Only new experiment registered. EXP-029 and generated views unchanged. Global check/render remain required; no global validation pass claimed."
+}

@@ -1,0 +1,90 @@
+{
+  "kernels": [
+    {
+      "ref": "maverickss26/kaggle-name-the-llm-v4",
+      "title": "Kaggle_name_the_LLM_v4",
+      "author": "maverick_ss_26",
+      "last_run_time": "2026-11-01T06:06:33.200Z",
+      "total_votes": 73
+    },
+    {
+      "ref": "bgunshui/ntl-one-swap",
+      "title": "NTL One Swap",
+      "author": "bgunshui",
+      "last_run_time": "2026-11-01T02:49:52.147Z"
+    },
+    {
+      "ref": "lightningv08/0-662-qwen3-8-27b-lora-weighted-ensemble",
+      "title": "0.662 | Qwen3.8-27B LoRA + Weighted Ensemble",
+      "author": "Vladislav Lavrentev",
+      "last_run_time": "2026-11-01T00:13:01.843Z",
+      "total_votes": 161
+    },
+    {
+      "ref": "afantihust/ntl-fork664-m25",
+      "title": "ntl-fork664-m25",
+      "author": "闪客阿凡提",
+      "last_run_time": "2026-10-31T23:27:51.580Z",
+      "total_votes": 1
+    },
+    {
+      "ref": "afantihust/ntl-fork664-s50",
+      "title": "ntl-fork664-s50",
+      "author": "闪客阿凡提",
+      "last_run_time": "2026-10-31T22:58:42.023Z",
+      "total_votes": 1
+    },
+    {
+      "ref": "afantihust/ntl-fork664-s70",
+      "title": "ntl-fork664-s70",
+      "author": "闪客阿凡提",
+      "last_run_time": "2026-10-31T22:58:34.790Z"
+    },
+    {
+      "ref": "lomnafsk/ntl-0-664-public-pipeline",
+      "title": "NTL 0.664 public pipeline",
+      "author": "Mahmoud Nasser",
+      "last_run_time": "2026-10-31T18:42:48.873Z"
+    },
+    {
+      "ref": "zbigniewkirchner/0-664-one-swap-198k-clean-pool-fully-public",
+      "title": "0.664 | One Swap: 198k Clean Pool, Fully Public",
+      "author": "Zbigniew Kirchner",
+      "last_run_time": "2026-10-31T16:46:07.867Z",
+      "total_votes": 25
+    },
+    {
+      "ref": "vasily61/name-that-llm-0-664-reproduction-notes",
+      "title": "Name That LLM 0.664: Reproduction Notes",
+      "author": "Селиванов Василий",
+      "last_run_time": "2026-10-31T14:27:14.920Z"
+    },
+    {
+      "ref": "afantihust/ntl-fork-664",
+      "title": "ntl-fork-664",
+      "author": "闪客阿凡提",
+      "last_run_time": "2026-10-31T11:06:43.923Z"
+    },
+    {
+      "ref": "judith007/0-664-hyperparameter-tuned-who-are-u",
+      "title": "0.664 [Hyperparameter Tuned] | Who are U?",
+      "author": "Shiner",
+      "last_run_time": "2026-10-31T04:24:44.747Z",
+      "total_votes": 85
+    },
+    {
+      "ref": "cosmorin/why-1-is-1-gap-analysis-across-6-competitions",
+      "title": "Why #1 Is #1: Gap Analysis Across 6 Competitions",
+      "author": "cosmorin",
+      "last_run_time": "2026-10-25T14:02:13.750Z",
+      "total_votes": 1
+    },
+    {
+      "ref": "johnnykhan1/name-that-llm-family-first-then-the-model",
+      "title": "Name That LLM: Family First, Then the Model",
+      "author": "John K",
+      "last_run_time": "2026-10-24T05:59:13.180Z",
+      "total_votes": 1
+    }
+  ]
+}

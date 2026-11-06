@@ -1,0 +1,33 @@
+{
+  "role": "read-only-independent-output-binding",
+  "observed_at": "2026-11-01T08:53:40.063020+00:00",
+  "ref": "zhjianduan/name-that-llm-fixed-blend-external-026",
+  "fixed_version": 2,
+  "files": [
+    {
+      "relative_path": "results/artifacts.json",
+      "sha256": "2fd3d42c34ab7c8d4655e281e7769937c4da58266800c844c3b61dd662d54691",
+      "bytes": 2798,
+      "matches_existing": true
+    },
+    {
+      "relative_path": "results/guard.json",
+      "sha256": "01e9793905e2c8d57b9aa094860e22b7484f5ac2389adc027239f5574b70a86e",
+      "bytes": 287,
+      "matches_existing": true
+    },
+    {
+      "relative_path": "results/result.json",
+      "sha256": "a2a62fbc561c1206d616929fd04df7a138814c683f16fd63fb311248e9779d23",
+      "bytes": 9545,
+      "matches_existing": true
+    },
+    {
+      "relative_path": "results/state.json",
+      "sha256": "e83d93ed48ba316ad48b8d95f5f03319faa1fcfcbec616d8348f988d10382872",
+      "bytes": 187,
+      "matches_existing": true
+    }
+  ],
+  "signed_urls_saved": false
+}

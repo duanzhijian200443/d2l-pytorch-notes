@@ -1,0 +1,94 @@
+{
+  "experiment_id": "EXP-045",
+  "status": "FROZEN_BEFORE_SCORING",
+  "config": {
+    "path": "experiments/EXP-045-public-data-full-stack/config.json",
+    "sha256": "a94865f53b62dd1f8863ea3bc64baee68830c3f2ffa47520387f7bd4deb924c7",
+    "bytes": 3992
+  },
+  "code": [
+    {
+      "path": "experiments/EXP-045-public-data-full-stack/run_local.py",
+      "sha256": "8eb6226ffab3387a915c4090813576a9a3844eafea6e30a70672132a584d604f",
+      "bytes": 15011
+    },
+    {
+      "path": "experiments/EXP-045-public-data-full-stack/math_replay.py",
+      "sha256": "f7230439faecb4643e91ae575f373dc57bcd3ddd76733b77c35844aaa3e51a39",
+      "bytes": 14758
+    },
+    {
+      "path": "experiments/EXP-045-public-data-full-stack/test_math_replay.py",
+      "sha256": "e491228793d81280dcc4a450359b4eafbcc71dd083d4ed7a285ac759642c0a29",
+      "bytes": 11570
+    },
+    {
+      "path": "experiments/EXP-032-sinkhorn-fixed-cache/compare_cached.py",
+      "sha256": "560704753b82e70a035d2254608a45959a4fe14cd45465c4c4f2cacc3dc3aa4f",
+      "bytes": 39299
+    },
+    {
+      "path": "src/full_stack_replay.py",
+      "sha256": "b1bab1993fb17850d8b3cfb26716f47c869dbca5107c3435b859864d2ca99586",
+      "bytes": 39577
+    },
+    {
+      "path": "src/margin_blend.py",
+      "sha256": "8c4288447de755d9bd160e5646794b2307f56ae00ae11104d062d9697ef5dc83",
+      "bytes": 3072
+    },
+    {
+      "path": "src/sinkhorn_compare.py",
+      "sha256": "42048f6ea4a17025179965da4452f0e8091d69146163a328872a903145e39956",
+      "bytes": 11939
+    }
+  ],
+  "inputs": [
+    {
+      "path": "experiments/EXP-045-public-data-full-stack/metrics/input-review.json",
+      "sha256": "77cb1af04653c9c9fa4cc815110309272caea7c01a2dd7d3ae76dd75dd5c5dc8",
+      "bytes": 16676
+    },
+    {
+      "path": "experiments/EXP-045-public-data-full-stack/oof/aligned-candidate-margins.npz",
+      "sha256": "f505c62006fa16df923aba2ff2768f0921d97b4f95c03d3d0e10fc4a1f3d3b9e",
+      "bytes": 251384
+    },
+    {
+      "path": "experiments/EXP-032-sinkhorn-fixed-cache/protocol.json",
+      "sha256": "445dc1f91457700aa7c95036f04dc76fa695522feadbe5f64b4f06088d16133a",
+      "bytes": 14689
+    },
+    {
+      "path": "experiments/EXP-031-full-stack-capture-r1/metrics/download-receipt.json",
+      "sha256": "cc961e4f365620f8fd6928c2dc19aa9bf16832c8ddbc954efd101887dcc920c6",
+      "bytes": 630
+    },
+    {
+      "path": "cloud/full-stack-capture-r1/outputs-v2/results/artifacts.json",
+      "sha256": "1732849196220d023716a2dc912d660282c94022c2df370c69d9a6c2899bac63",
+      "bytes": 98232
+    },
+    {
+      "path": "cloud/fixed-blend-multiclass/outputs-v2/results/artifacts.json",
+      "sha256": "242b099fd1d9199c1912e50d47ed3e3d4896d36f3d6d7175a9532a3a1cb203e9",
+      "bytes": 2800
+    },
+    {
+      "path": "experiments/EXP-029-full-stack-capture/panel/test.csv",
+      "sha256": "8eeec7f64e924f0fd79dca57d324d42d269f400bdfbfff76d60b4c168d9ae6f2",
+      "bytes": 655284
+    },
+    {
+      "path": "train.csv",
+      "sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+      "bytes": 2139418
+    },
+    {
+      "path": "experiments/EXP-029-full-stack-capture/labels-local-only.csv",
+      "sha256": "f5425fbae56355e72537074cf5eef514c0319cd67489fc63c36fe07b2ff2302b",
+      "bytes": 156374
+    }
+  ],
+  "original_cache_unchanged": true
+}

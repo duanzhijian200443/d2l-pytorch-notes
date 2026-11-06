@@ -1,0 +1,44 @@
+{
+  "id": "chatcmpl-EfQ3o0BNGq9J6Fx6d7KmA7XKV6sv7",
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "message": {
+        "content": "Choosing between frequent brief updates and less frequent detailed stories depends on the neighborhood’s needs, audience, and available resources. Frequent short newsletters keep residents informed about meetings, events, road closures, and urgent announcements while maintaining regular engagement. They are easier to read quickly and can help the newsletter become a dependable habit. However, producing them often may strain volunteers, lead to repetitive content, and give readers little context or emotional connection. Less frequent issues allow writers to investigate topics, explain local decisions, introduce community members, and tell stories that build understanding and neighborhood identity. Their drawback is that information can become outdated, and readers may feel disconnected between editions. A balanced approach is often best: publish brief updates regularly, perhaps digitally or through a short bulletin, while reserving a monthly or quarterly issue for in-depth reporting and profiles. The ideal schedule should match the community’s news cycle and the team’s capacity, prioritizing accuracy and usefulness over frequency alone.",
+        "refusal": "",
+        "role": "assistant",
+        "annotations": null,
+        "audio": null,
+        "function_call": null,
+        "tool_calls": null
+      }
+    }
+  ],
+  "created": 1793540332,
+  "model": "openai/gpt-5.6-luna",
+  "object": "chat.completion",
+  "metadata": null,
+  "moderation": null,
+  "service_tier": null,
+  "system_fingerprint": null,
+  "usage": {
+    "completion_tokens": 215,
+    "prompt_tokens": 135,
+    "total_tokens": 350,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 18,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": null,
+    "cost": {
+      "input_tokens_cost_nanodollars": 27000,
+      "output_tokens_cost_nanodollars": 258000
+    },
+    "total_backend_latency_ms": 3452
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "observed_at": "2026-11-01T07:32:09.650901+00:00",
+  "retrieval": {
+    "method": "read-only POST",
+    "topic_endpoint": "https://www.kaggle.com/api/i/discussions.DiscussionsService/GetForumTopicById",
+    "comments_endpoint": "https://www.kaggle.com/api/i/discussions.DiscussionsService/GetForumMessagesInTopic"
+  },
+  "topic_response": {
+    "forumTopic": {
+      "authorId": 16294566,
+      "authorThumbnailName": "16294566-kg.jpeg?t=2026-10-16-21-22-02",
+      "authorUserDisplayName": "HALX2158",
+      "authorUserName": "mizuno0522",
+      "commentSort": "COMMENT_LIST_SORT_BY_HOT",
+      "firstMessage": {
+        "id": 3547599,
+        "postDate": "2026-10-31T05:50:13.137Z",
+        "rawMarkdown": "I can't access Llama 3.1 (still 403 for me), so I forked nlm-v27 by dhruvtibarewal (public 0.651) without its `ll8v5` member and tried to win the score back. It didn't work, so here are the results in case they save someone a few slots.\n\n| Version | Change | Public LB |\n|---|---|---|\n| Original | With Llama | 0.651 |\n| v22 | Without Llama, plus runtime guards | 0.642 |\n| v23 | v22 + the author's ModernBERT-large (OOF 0.588, weight 1.5) | 0.638 |\n| v24 | v23 + my own Mistral-7B two-stage (OOF 0.578, weight 1.0) | 0.640 |\n| v25 | v22 + Mistral-7B only | 0.641 |\n| v26 | v22 + ModernBERT-large at weight 0.5 | 0.641 |\n| v26 | v22 + ModernBERT-large at weight 0.3 | 0.642 |\n\n**What I take from this**\n\n- **A decent OOF didn't help here.** ModernBERT's OOF is close to the 0.597 the author reports for Llama, yet adding it lowered my score by 0.004. Smaller weights removed the loss but added nothing: 0.641 at weight 0.5 and 0.642 at weight 0.3, against 0.642 for v22.\n- **The same member moved in opposite directions.** Mistral gave +0.002 on v23 and −0.001 on v22. At that size I treat it as roughly zero.\n- **Next time I'd add one part at a time at a modest weight**, and check each on the LB.\n\n**What I don't know:** I attribute the 0.009 drop to removing Llama, but I haven't isolated it. A public no-Llama version scoring 0.643 is consistent with that, but it isn't proof. I also don't know whether a different non-Llama model would have worked.\n\nHas anyone recovered this gap without Llama? I'd like to know what kind of model did it.",
+        "content": "<p>I can't access Llama 3.1 (still 403 for me), so I forked nlm-v27 by dhruvtibarewal (public 0.651) without its <code>ll8v5</code> member and tried to win the score back. It didn't work, so here are the results in case they save someone a few slots.</p>\n<table>\n<thead>\n<tr>\n<th>Version</th>\n<th>Change</th>\n<th>Public LB</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Original</td>\n<td>With Llama</td>\n<td>0.651</td>\n</tr>\n<tr>\n<td>v22</td>\n<td>Without Llama, plus runtime guards</td>\n<td>0.642</td>\n</tr>\n<tr>\n<td>v23</td>\n<td>v22 + the author's ModernBERT-large (OOF 0.588, weight 1.5)</td>\n<td>0.638</td>\n</tr>\n<tr>\n<td>v24</td>\n<td>v23 + my own Mistral-7B two-stage (OOF 0.578, weight 1.0)</td>\n<td>0.640</td>\n</tr>\n<tr>\n<td>v25</td>\n<td>v22 + Mistral-7B only</td>\n<td>0.641</td>\n</tr>\n<tr>\n<td>v26</td>\n<td>v22 + ModernBERT-large at weight 0.5</td>\n<td>0.641</td>\n</tr>\n<tr>\n<td>v26</td>\n<td>v22 + ModernBERT-large at weight 0.3</td>\n<td>0.642</td>\n</tr>\n</tbody>\n</table>\n<p><strong>What I take from this</strong></p>\n<ul>\n<li><strong>A decent OOF didn't help here.</strong> ModernBERT's OOF is close to the 0.597 the author reports for Llama, yet adding it lowered my score by 0.004. Smaller weights removed the loss but added nothing: 0.641 at weight 0.5 and 0.642 at weight 0.3, against 0.642 for v22.</li>\n<li><strong>The same member moved in opposite directions.</strong> Mistral gave +0.002 on v23 and −0.001 on v22. At that size I treat it as roughly zero.</li>\n<li><strong>Next time I'd add one part at a time at a modest weight</strong>, and check each on the LB.</li>\n</ul>\n<p><strong>What I don't know:</strong> I attribute the 0.009 drop to removing Llama, but I haven't isolated it. A public no-Llama version scoring 0.643 is consistent with that, but it isn't proof. I also don't know whether a different non-Llama model would have worked.</p>\n<p>Has anyone recovered this gap without Llama? I'd like to know what kind of model did it.</p>",
+        "parent": {},
+        "author": {
+          "displayName": "HALX2158",
+          "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/16294566-kg.jpeg?t=2026-10-16-21-22-02",
+          "url": "/mizuno0522",
+          "tier": "CONTRIBUTOR",
+          "id": 16294566,
+          "progressionOptOut": false
+        },
+        "authorType": "TOPIC",
+        "votes": {
+          "canUpvote": true
+        },
+        "kernelVersion": 0,
+        "competitionRanking": 635,
+        "feedbackTrackingData": {},
+        "isThankYou": false,
+        "teamUpInfo": {
+          "teamLeader": {
+            "displayName": "HALX2158",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/16294566-kg.jpeg?t=2026-10-16-21-22-02",
+            "url": "/mizuno0522",
+            "userName": "mizuno0522",
+            "tier": "CONTRIBUTOR",
+            "id": 16294566,
+            "profileUrl": "/mizuno0522",
+            "performanceTier": "CONTRIBUTOR",
+            "userId": 16294566,
+            "progressionOptOut": false
+          },
+          "intro": ""
+        }
+      },
+      "firstMessageId": 3547599,
+      "forumId": 13688374,
+      "forumName": "Name That LLM",
+      "id": 754427,
+      "name": "I couldn't replace the Llama member: three add-on attempts that didn't recover the score",
+      "parentName": "name-that-llm",
+      "parentUrl": "/competitions/name-that-llm",
+      "postDate": "2026-10-31T05:50:13.135235200Z",
+      "url": "/competitions/name-that-llm/discussion/754427",
+      "authorPerformanceTier": "CONTRIBUTOR",
+      "authorProgressionOptOut": false
+    }
+  },
+  "comments_response": {
+    "commentSort": "COMMENT_LIST_SORT_BY_NEW"
+  },
+  "hydrated_message_responses": []
+}

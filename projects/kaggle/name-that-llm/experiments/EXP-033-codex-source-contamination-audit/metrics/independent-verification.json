@@ -1,0 +1,197 @@
+{
+  "observed_at": "2026-11-01T11:53:52.311068+00:00",
+  "status": "PASS",
+  "independence": "Fresh Python standard-library csv/json/re/collections implementation; did not import or execute compare_sources.py. Only this verification JSON was written.",
+  "unit": "Rows containing the feature, not the number of markers",
+  "definitions": {
+    "newline": "Contains CR or LF",
+    "literal_double_asterisk": "Contains literal **",
+    "bold_single_line_paired": "\\*\\*[^*\\r\\n]+\\*\\*|__[^_\\r\\n]+__",
+    "bold_multiline_paired": "\\*\\*[^*]+\\*\\*|__[^_]+__",
+    "bold_limit": "Marker heuristics, not a full Markdown parser",
+    "filters": "Exact four requested model labels; prvs additionally split == new"
+  },
+  "inputs": {
+    "codex": {
+      "path": "experiments/EXP-023-codex-subscription-pilot-r1/collection/records.jsonl",
+      "sha256": "cb903279b3727b31ce2125b89c5ce8f530d769a984f49c2cb86e4fbefb1e9722"
+    },
+    "official-train": {
+      "path": "train.csv",
+      "sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707"
+    },
+    "prvs-raw-v6-new": {
+      "path": "data/public-pools/prvsiyan/prvsiyans-extended-name-that-llm-dataset/v6/passages.csv",
+      "sha256": "2490c3b12f1f063a53abcbc79e741e0a0f62bbe4dc34df0871677ffe8d75b67e"
+    },
+    "lucas-v7": {
+      "path": "data/public-pools/lucasboesen/ntl-free-proxy-generations/v7/gen_passages.csv",
+      "sha256": "d037d212e17a7e98465f9c606f4437225fb221939a5f51b0f8150d15c07c68a5"
+    },
+    "kaggle-paired20": {
+      "path": "experiments/EXP-033-codex-source-contamination-audit/inputs/kaggle-proxy-pilot-20.jsonl",
+      "sha256": "227ed0103dee52a9a6bea6680a77e8e6409c7e289e99d404f311337db2cac269"
+    }
+  },
+  "compared_metrics_sha256": {
+    "source_profiles": "f8c42ff005276d103684f2dac023ca70cf048b5977ea44eef6692d6b26f70623",
+    "paired_control": "f96308ed537b7198dd07435bafa9150120853efbc2c04a4ee1523d066bafbf94"
+  },
+  "computed_profiles": {
+    "codex": {
+      "n": 1000,
+      "by_model": {
+        "gpt-5.6-luna": 250,
+        "gpt-5.6-terra": 250,
+        "gpt-5.6-sol": 250,
+        "gpt-6-astra": 250
+      },
+      "counts": {
+        "newline": 709,
+        "literal_double_asterisk": 215,
+        "bold_single_line_paired": 213,
+        "bold_multiline_paired": 215
+      }
+    },
+    "official-train": {
+      "n": 600,
+      "by_model": {
+        "gpt-5.6-terra": 150,
+        "gpt-5.6-luna": 150,
+        "gpt-6-astra": 150,
+        "gpt-5.6-sol": 150
+      },
+      "counts": {
+        "newline": 0,
+        "literal_double_asterisk": 0,
+        "bold_single_line_paired": 0,
+        "bold_multiline_paired": 0
+      }
+    },
+    "prvs-raw-v6-new": {
+      "n": 1200,
+      "by_model": {
+        "gpt-5.6-luna": 300,
+        "gpt-5.6-sol": 300,
+        "gpt-5.6-terra": 300,
+        "gpt-6-astra": 300
+      },
+      "counts": {
+        "newline": 0,
+        "literal_double_asterisk": 1,
+        "bold_single_line_paired": 1,
+        "bold_multiline_paired": 1
+      }
+    },
+    "lucas-v7": {
+      "n": 1845,
+      "by_model": {
+        "gpt-5.6-luna": 472,
+        "gpt-5.6-sol": 442,
+        "gpt-5.6-terra": 472,
+        "gpt-6-astra": 459
+      },
+      "counts": {
+        "newline": 0,
+        "literal_double_asterisk": 1,
+        "bold_single_line_paired": 1,
+        "bold_multiline_paired": 1
+      }
+    },
+    "kaggle-paired20": {
+      "n": 20,
+      "by_model": {
+        "gpt-5.6-luna": 10,
+        "gpt-5.6-terra": 10
+      },
+      "counts": {
+        "newline": 13,
+        "literal_double_asterisk": 1,
+        "bold_single_line_paired": 1,
+        "bold_multiline_paired": 1
+      }
+    }
+  },
+  "comparison_with_source_profiles": {
+    "codex": {
+      "n_matches": true,
+      "by_model_matches": true,
+      "newline_matches": true,
+      "bold_matches": true
+    },
+    "official-train": {
+      "n_matches": true,
+      "by_model_matches": true,
+      "newline_matches": true,
+      "bold_matches": true
+    },
+    "prvs-raw-v6-new": {
+      "n_matches": true,
+      "by_model_matches": true,
+      "newline_matches": true,
+      "bold_matches": true
+    },
+    "lucas-v7": {
+      "n_matches": true,
+      "by_model_matches": true,
+      "newline_matches": true,
+      "bold_matches": true
+    },
+    "kaggle-paired20": {
+      "n_matches": true,
+      "by_model_matches": true,
+      "newline_matches": true,
+      "bold_matches": true
+    }
+  },
+  "paired_control": {
+    "n": 20,
+    "independent_prompt_groups": 10,
+    "features": {
+      "newline": {
+        "kaggle": 13,
+        "codex": 13,
+        "codex_only": 0,
+        "kaggle_only": 0
+      },
+      "bold": {
+        "kaggle": 1,
+        "codex": 6,
+        "codex_only": 5,
+        "kaggle_only": 0
+      }
+    }
+  },
+  "paired_control_matches": true,
+  "bold_definition_correction": {
+    "original_single_line_codex": 213,
+    "corrected_multiline_codex": 215,
+    "examples": [
+      {
+        "prompt_id": "cp0103",
+        "model": "gpt-5.6-luna",
+        "matched_span": "**THE LIGHTHOUSE  \nNorth Head**",
+        "text_sha256": "6f38ba8b0297d9fd35f7f1dd183256340945198d6642878a78e98f582381f7d4"
+      },
+      {
+        "prompt_id": "cp0103",
+        "model": "gpt-5.6-sol",
+        "matched_span": "**THE LIGHTHOUSE  \nBLACKWATER POINT**",
+        "text_sha256": "ead7a5744cc4567183f221d2a63462dc3b67792994739b2be26af3bd39cb188e"
+      }
+    ],
+    "resolution": "Main source-profiles was regenerated with newline-permitting paired markers; independent result matches 215 and all requested other sources. Difference was a metric-definition omission, not altered data."
+  },
+  "causal_assessment": {
+    "supported": "Descriptive source-format differences are substantial; same-prompt control has identical newline incidence and Codex bold 6/20 versus Kaggle 1/20.",
+    "not_established": "Causal attribution to built-in Codex instructions.",
+    "reasons": [
+      "Per source-provenance-notes.md, public prompts enforce paragraph/format constraints and some sources apply filtering or whitespace normalization; Codex prompts use a different task/format design.",
+      "Official request prompts, preprocessing and generation settings are not published.",
+      "Task mix, reasoning, provider route and model snapshot are not fully aligned.",
+      "The paired control contains only 10 independent prompt groups and one generation per model/route/cell; there is no within-route randomness baseline."
+    ],
+    "notes_reference": "experiments/EXP-033-codex-source-contamination-audit/metrics/source-provenance-notes.md",
+    "provenance_scope": "Protocol interpretation follows the reviewed notes; this subtask independently recomputed selected raw-data counts, not all provenance claims."
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "code_sha256": "bfa7227897a5608827a030f4cb362c09d2dac3b7eff1aea9874f3373a7febe44",
+  "input_receipt_sha256": "be761d522ebbd611f512782448fd137f62c0319eeb3c41c886c1137055e1019e",
+  "module_hashes": {
+    "comp_stack.py": "4a4b800a5380094d78da66d140d224f8a3974d1e3012086783d5bf81b1264514",
+    "infer.py": "63112c88d43f9d69b3132243315e0db28c40b4bf0f42bac651f73ef07a67f9bb",
+    "sibling_style.py": "8a7f3b3dad7cbe1755b66e8455a157894cac92b8983fc805f5ed6286ea915e66"
+  },
+  "files": [
+    {
+      "name": "coverage.json",
+      "bytes": 24492,
+      "sha256": "eea1ada360511e9d3f4d67ebcf3d51060851932357f16f32685fb1b68a26cd68"
+    },
+    {
+      "name": "predictions.csv",
+      "bytes": 305282,
+      "sha256": "05aceba98d951f5970e4f80007611cbb39bcca7ece87cbc7ffb3fc07cec7859e"
+    },
+    {
+      "name": "scores.npz",
+      "bytes": 1359094,
+      "sha256": "e4fe9ca6ebb3987cfac0fe06b655868b5dfaa39c78347a964ec5e4b5fd9113ac"
+    },
+    {
+      "name": "summary.json",
+      "bytes": 11642,
+      "sha256": "ba50f3a3beafd1dd3c264c1bd82f054b5187cad63752735a11869192332157df"
+    }
+  ]
+}

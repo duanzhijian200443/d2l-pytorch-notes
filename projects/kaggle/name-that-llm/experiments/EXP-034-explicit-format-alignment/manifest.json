@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-034",
+  "freeze_status": "PREPARED_OFFLINE_VALIDATED_NOT_GENERATED",
+  "frozen_at": "2026-11-01T12:02:09.418848+00:00",
+  "config": {
+    "path": "experiments/EXP-034-explicit-format-alignment/config.json",
+    "sha256": "debb4cce6a7d1d995b639bcf720c50327ae51896addaa553fdd7be77efa5b6a8"
+  },
+  "inputs": [
+    {
+      "path": "experiments/EXP-021-codex-subscription-pilot/prompts.jsonl",
+      "sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0"
+    },
+    {
+      "path": "experiments/EXP-021-codex-subscription-pilot/model-instructions.txt",
+      "sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb"
+    },
+    {
+      "path": "experiments/EXP-023-codex-subscription-pilot-r1/config.json",
+      "sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e"
+    },
+    {
+      "path": "experiments/EXP-023-codex-subscription-pilot-r1/collection/records.jsonl",
+      "sha256": "cb903279b3727b31ce2125b89c5ce8f530d769a984f49c2cb86e4fbefb1e9722"
+    },
+    {
+      "path": "data/public-pools/lucasboesen/ntl-free-proxy-generations/v7/README.md",
+      "sha256": "141deba51e17556fb943cc4e6d3e8a16b7aefad1e5055e1304d03dabd08ff8b2"
+    },
+    {
+      "path": "data/public-pools/prvsiyan/prvsiyans-extended-name-that-llm-dataset/v6/README.md",
+      "sha256": "4ccfb84c9ec871afec5e99dbc6d03d9b183e4ed12c2032a813bfd1017551ccbd"
+    }
+  ],
+  "code": [
+    {
+      "path": "experiments/EXP-034-explicit-format-alignment/code/prepare_alignment.py",
+      "sha256": "13c222146dff8380ad1e9e7188768c25a49f2eeb2f95eed4daf382a6b908c226"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "experiments/EXP-034-explicit-format-alignment/format-instructions.txt",
+      "sha256": "f992f4ec440aa9bb3fb5ea3cfbab16b20b6504fdb180b324a1ff02221072d65c"
+    },
+    {
+      "path": "experiments/EXP-034-explicit-format-alignment/prompts.jsonl",
+      "sha256": "ae45936ba73373d551f9ac44ce13df906f1e32bfb468198b1683992cb9f02103"
+    },
+    {
+      "path": "experiments/EXP-034-explicit-format-alignment/kaggle-request-preview.jsonl",
+      "sha256": "92ad48cc9c0bff77e019f5277b8ce6e73c392c4649c89c0a2be87c7471c5646c"
+    },
+    {
+      "path": "experiments/EXP-034-explicit-format-alignment/pilot/config.json",
+      "sha256": "57d8c463af42b76e7f4263dc4982e8cd34ea2cbc550f6cafefc7731059737856"
+    },
+    {
+      "path": "experiments/EXP-034-explicit-format-alignment/pilot/prompts.jsonl",
+      "sha256": "63533cddb357ff89c521d98d303f578b67d6f727a987a0a7818f6ec49ba46abb"
+    },
+    {
+      "path": "experiments/EXP-034-explicit-format-alignment/metrics/offline-alignment.json",
+      "sha256": "06871d8ea054188e4db4f2e8f7535428f293c7fa7b8ffc91daef596fbc96a01c"
+    },
+    {
+      "path": "experiments/EXP-034-explicit-format-alignment/metrics/validation.json",
+      "sha256": "87e7efe4e50f78831f9950ff973b8976cf36f543b70c4ee13360edc97c6040f9"
+    },
+    {
+      "path": "experiments/EXP-034-explicit-format-alignment/metrics/prompt-compatibility-review.md",
+      "sha256": "93d224931db55174717d7b0dcba49e207d01a979cadd3fdaa62a4e2a405695a4"
+    }
+  ],
+  "new_model_requests": 0
+}

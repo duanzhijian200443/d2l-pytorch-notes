@@ -1,0 +1,23 @@
+{
+  "role": "browser_dom_observation_from_parent",
+  "observer": "/root",
+  "observed_at": "2026-11-01T07:35:57Z",
+  "precision": "collection-end; exact per-page timestamp not recorded",
+  "observation_window": {
+    "from": "2026-11-01T07:30:00Z",
+    "to": "2026-11-01T07:35:57Z"
+  },
+  "surface": "Kaggle competition Code search list for 0.664",
+  "url": "https://www.kaggle.com/code/bgunshui/ntl-one-swap",
+  "score_display": null,
+  "public_score": null,
+  "score_bound_to_source": false,
+  "script_version_id": null,
+  "no_displayed_score_does_not_mean_failure_or_zero": true,
+  "evidence_origin": "Parent agent read live Kaggle rendered search list and sent observation; collector did not directly operate browser.",
+  "observation_time_precision": "collection-end only; per-page time unknown",
+  "browser_read_date_utc": "2026-11-01",
+  "collection_end_at_utc": "2026-11-01T07:35:57Z",
+  "exact_per_page_read_at": null,
+  "recorded_at": "2026-11-01T07:39:27.783667+00:00"
+}

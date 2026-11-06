@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-051",
+  "scope": "bounded local tools and read-only fixed Kaggle versions",
+  "registry": "configs/experiment-workbench.json",
+  "profiles": [
+    "EXP-046",
+    "EXP-048",
+    "EXP-049",
+    "EXP-050"
+  ],
+  "operations": [
+    "list",
+    "doctor",
+    "status",
+    "collect",
+    "verify",
+    "report",
+    "check",
+    "prepare",
+    "run-local"
+  ],
+  "remote_mutations": false,
+  "automatic_retry": false,
+  "automatic_install_or_login": false,
+  "new_training": false,
+  "budget": {
+    "new_gpu_seconds": 0,
+    "model_api_usd": 0,
+    "colab_cu": 0
+  },
+  "remote_output_limits": {
+    "file_bytes": 16777216,
+    "total_bytes": 67108864,
+    "log_bytes_after_sdk_response": 2097152
+  },
+  "limitations": [
+    "fixed registered objects only",
+    "public saved outputs are not hidden artifacts",
+    "machine-specific existing interpreter paths",
+    "no sandbox claim for local script execution"
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "id": "SRC-068",
+  "kind": "notebook",
+  "category": "solutions",
+  "artifact_dir": "research/solutions/SRC-068-chyibo-name-that-llm-0663-fork-v1",
+  "notes_path": "research/solutions/SRC-068-chyibo-name-that-llm-0663-fork-v1/notes.md",
+  "author": "chyibo",
+  "tags": [
+    "ensemble",
+    "svm",
+    "data",
+    "postprocessing",
+    "runtime",
+    "source-lineage"
+  ],
+  "related_sources": [
+    "SRC-002",
+    "SRC-021",
+    "SRC-036",
+    "SRC-038",
+    "SRC-040",
+    "SRC-065",
+    "SRC-067",
+    "SRC-069"
+  ],
+  "supersedes": null,
+  "title": "chyibo V1：0.665，与 Apex E 共用推理配方",
+  "url": "https://www.kaggle.com/code/chyibo/name-that-llm-0663-fork?scriptVersionId=364709540",
+  "observed_at": "2026-11-02T07:16:39.169214+00:00",
+  "source_version": {
+    "notebook_version": 1,
+    "script_version_id": 364709540,
+    "notebook_id": 142199340,
+    "source_sha256": "07cb21ed6f9b2b2d0920756a8fea64ec5a5d37637d7ea4fad07ab6eb85ce5140",
+    "code_sha256": "e3b8fa97495e45873b1297b782488819b4a04ac53cd08baa74e3637505b54605"
+  },
+  "public_score": {
+    "value": 0.665,
+    "evidence_type": "platform_page",
+    "bound_to_source": true,
+    "script_version_id": 364709540
+  },
+  "summary": "V1绑定0.665，整份源码与alexchilton V9相同，实际推理代码与另一条0.665相同；沿用已有Apex E配方。",
+  "author_claim": "继承的正文称Apex E流程曾得0.663；本条绑定得分来自V1页面。",
+  "verified": "固定V1代码、页面0.665和准备池190588行；逐单元核对，匿名元数据公开31项附件，未执行代码。",
+  "use_for_us": "不把相同配方算两次；将Open Pool/svc_w、后处理和家族残差分别拆解验证。",
+  "test_plan": "固定输入、预算和覆盖mask，逐项切换池/权重/后处理/残差，并核对逐行改判和ATLAS完成行。",
+  "limitations": "单次Public分数，数据/上游Notebook历史字节、隐藏有效分支、覆盖及耗时未逐项核实。",
+  "evidence": [
+    "research/solutions/SRC-068-chyibo-name-that-llm-0663-fork-v1/notes.md",
+    "research/solutions/SRC-068-chyibo-name-that-llm-0663-fork-v1/metadata.json",
+    "research/solutions/SRC-068-chyibo-name-that-llm-0663-fork-v1/platform-observation.json",
+    "research/solutions/SRC-068-chyibo-name-that-llm-0663-fork-v1/public-input-check.json",
+    "research/solutions/SRC-068-chyibo-name-that-llm-0663-fork-v1/receipt.json",
+    "research/solutions/SRC-068-chyibo-name-that-llm-0663-fork-v1/source.ipynb",
+    "research/solutions/SRC-068-chyibo-name-that-llm-0663-fork-v1/upstream-alex-v9-metadata.json",
+    "tracking/snapshots/20261102T071145Z-public0665/fixed-v1-module-comparison.json",
+    "tracking/snapshots/20261102T071145Z-public0665/historical-input-card-observations.json",
+    "tracking/snapshots/20261102T071145Z-public0665/kaggle-browser-observation.json"
+  ],
+  "family_id": "code-e3b8fa97495e",
+  "same_code_sources": [
+    "SRC-069"
+  ],
+  "same_effective_pipeline_sources": [
+    "SRC-040",
+    "SRC-067",
+    "SRC-069"
+  ],
+  "evidence_sha256": {
+    "research/solutions/SRC-068-chyibo-name-that-llm-0663-fork-v1/notes.md": "f781df73188ab8d20a8cd4e97ff02abb56d493408b5271e25901db26ce05e4b8",
+    "research/solutions/SRC-068-chyibo-name-that-llm-0663-fork-v1/metadata.json": "1520cdb02ff79c6c999fc723c3e3794f5755d4e541bcabfb35ea47795194d9aa",
+    "research/solutions/SRC-068-chyibo-name-that-llm-0663-fork-v1/platform-observation.json": "df1817154f10d467e90a9789c46998d6bfb45d92a9b7c2139313500adc7758e8",
+    "research/solutions/SRC-068-chyibo-name-that-llm-0663-fork-v1/public-input-check.json": "35e1a16ae53ad2ee00d9cb4fa3e0901051412804d9d19751c4d5bae6d6baed9b",
+    "research/solutions/SRC-068-chyibo-name-that-llm-0663-fork-v1/receipt.json": "055c502669450c634fc09e58c020704a4c2e5982b5668cda49d4c0a416df2caf",
+    "research/solutions/SRC-068-chyibo-name-that-llm-0663-fork-v1/source.ipynb": "07cb21ed6f9b2b2d0920756a8fea64ec5a5d37637d7ea4fad07ab6eb85ce5140",
+    "research/solutions/SRC-068-chyibo-name-that-llm-0663-fork-v1/upstream-alex-v9-metadata.json": "2b574d3dbc1a84d50cea378db6564f5a05e73bb4ddd215da1240fa48007ad26d",
+    "tracking/snapshots/20261102T071145Z-public0665/fixed-v1-module-comparison.json": "d21d57ac91eb2cf10eebae6b601af3722bffe1c0daeba62c17d7050cf7d86edc",
+    "tracking/snapshots/20261102T071145Z-public0665/historical-input-card-observations.json": "3eff123189939f010046ec7835d9559cf0748d8cd4c4661b35e3e6350f47359d",
+    "tracking/snapshots/20261102T071145Z-public0665/kaggle-browser-observation.json": "8129e0a8eaafd857ca6aa18d6ef3d56229aa9d54a5f341468b594ef65b7c52d1"
+  }
+}

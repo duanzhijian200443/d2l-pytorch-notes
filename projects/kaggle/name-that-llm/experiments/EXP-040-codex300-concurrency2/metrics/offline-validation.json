@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "observed_at": "2026-11-01T13:15:54.752378+00:00",
+  "full_tests": 12,
+  "full_suite_seconds": 46.014,
+  "targeted_display_check": "PASS",
+  "targeted_seconds": 1.005,
+  "actual_model_calls": 0,
+  "code": [
+    {
+      "path": "experiments/EXP-040-codex300-concurrency2/code/run_batch.py",
+      "sha256": "2a9764444fb2e819d3ae90013b7044bc78ea5847a8d58ae78c5ce3bb92db050f"
+    },
+    {
+      "path": "experiments/EXP-040-codex300-concurrency2/code/test_run_batch.py",
+      "sha256": "fc51333393dc4c40d511618f2d0c842c0961186ba83f860341cd84112d9c2250"
+    }
+  ],
+  "independent_handoff_review": "GateprePopen,activeanswerdrained,no kills,oldlocks/PIDgone,rawsuccessesunchanged;newkeysinherited"
+}

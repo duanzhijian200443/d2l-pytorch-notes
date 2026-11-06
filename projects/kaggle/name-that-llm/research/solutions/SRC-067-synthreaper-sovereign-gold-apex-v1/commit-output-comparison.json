@@ -1,0 +1,202 @@
+{
+  "method": "Kaggle list_kernel_session_output v1, four small materialized source modules read as bytes; no module imported or executed; selected original commit log rows and hash of full log. No temporary download URLs are persisted.",
+  "observed_at": "2026-11-02T07:11:16.291685+00:00",
+  "results": [
+    {
+      "ref": "synthreaper/ntl-sovereign-gold-apex",
+      "fixed_version": "v1",
+      "file_names": [
+        "comp_stack.py",
+        "deberta_v3_large/encoder/config.json",
+        "deberta_v3_large/encoder/model.safetensors",
+        "deberta_v3_large/encoder/tokenizer.json",
+        "deberta_v3_large/encoder/tokenizer_config.json",
+        "deberta_v3_large/head.safetensors",
+        "deberta_v3_large/meta.json",
+        "gauss.py",
+        "infer.py",
+        "pool_open_safe.parquet",
+        "sibling_style.py",
+        "submission.parquet"
+      ],
+      "materialized_module_hashes": {
+        "comp_stack.py": {
+          "size": 53256,
+          "sha256": "4a4b800a5380094d78da66d140d224f8a3974d1e3012086783d5bf81b1264514"
+        },
+        "gauss.py": {
+          "size": 8219,
+          "sha256": "908b57113f1a7b8ebdbf204c6be87cbc385f765ba50ac07b4e270c64b7cf1000"
+        },
+        "infer.py": {
+          "size": 49002,
+          "sha256": "63112c88d43f9d69b3132243315e0db28c40b4bf0f42bac651f73ef07a67f9bb"
+        },
+        "sibling_style.py": {
+          "size": 4970,
+          "sha256": "8a7f3b3dad7cbe1755b66e8455a157894cac92b8983fc805f5ed6286ea915e66"
+        }
+      },
+      "filtered_commit_log_rows": [
+        {
+          "stream_name": "stdout",
+          "time": 41.28129998,
+          "data": "FAST_COMMIT True\n"
+        },
+        {
+          "stream_name": "stdout",
+          "time": 186.170483473,
+          "data": "llama source alexchilton/llama-3-1-8b-base /kaggle/input/models/alexchilton/llama-3-1-8b-base/transformers/default/1 {'model-00001-of-00004.safetensors': 4976698672, 'model-00002-of-00004.safetensors': 4999802720, 'model-00003-of-00004.safetensors': 4915916176, 'model-00004-of-00004.safetensors': 1168138808}\n"
+        },
+        {
+          "stream_name": "stdout",
+          "time": 585.949660071,
+          "data": "variant E dropped flag_gemini37_routing_risk 0\n"
+        },
+        {
+          "stream_name": "stdout",
+          "time": 587.217705578,
+          "data": "variant E svc pool = open safe pool 190588\n"
+        },
+        {
+          "stream_name": "stdout",
+          "time": 587.226894857,
+          "data": "{'gemini-3.8-flash': 21550, 'gemini-3.6-flash': 16942, 'gpt-5.6-luna': 15869, 'gpt-5.6-terra': 13597, 'gpt-5.6-sol': 12861, 'gpt-5.5': 11755, 'glm-5.3-flash': 11657, 'glm-5.3': 11347, 'gpt-6-astra': 9947, 'claude-fable-5': 9594, 'kimi-k3': 9426, 'gemini-3.1-pro-preview': 9364, 'claude-sonnet-5': 8536, 'claude-opus-4-8': 7507, 'claude-opus-4-6': 6799, 'claude-opus-5': 6288, 'qwen3.8-max': 4271, 'gemini-3.7-flash': 3278}\n"
+        },
+        {
+          "stream_name": "stdout",
+          "time": 587.384538297,
+          "data": "comp stack wall time 0\n"
+        },
+        {
+          "stream_name": "stdout",
+          "time": 587.413731113,
+          "data": "RUNNING MAIN INFERENCE\n"
+        },
+        {
+          "stream_name": "stdout",
+          "time": 587.437488129,
+          "data": "             id    model\n"
+        },
+        {
+          "stream_name": "stdout",
+          "time": 587.437512884,
+          "data": "0  00353fb1c541  gpt-5.5\n"
+        },
+        {
+          "stream_name": "stdout",
+          "time": 587.437519695,
+          "data": "1  005f5a9a6139  gpt-5.5\n"
+        },
+        {
+          "stream_name": "stdout",
+          "time": 587.437535529,
+          "data": "2  0062a53d5487  gpt-5.5\n"
+        }
+      ],
+      "log_sha256": "fd3467c9dc6c35614d25cdf1e8b34c6d6d909c5d7527e0aeafe848d7baf4900e",
+      "log_row_count": 51
+    },
+    {
+      "ref": "bgunshui/ntl-apex-e",
+      "fixed_version": "v1",
+      "file_names": [
+        "comp_stack.py",
+        "deberta_v3_large/encoder/config.json",
+        "deberta_v3_large/encoder/model.safetensors",
+        "deberta_v3_large/encoder/tokenizer.json",
+        "deberta_v3_large/encoder/tokenizer_config.json",
+        "deberta_v3_large/head.safetensors",
+        "deberta_v3_large/meta.json",
+        "gauss.py",
+        "infer.py",
+        "pool_open_safe.parquet",
+        "sibling_style.py",
+        "submission.parquet"
+      ],
+      "materialized_module_hashes": {
+        "comp_stack.py": {
+          "size": 53256,
+          "sha256": "4a4b800a5380094d78da66d140d224f8a3974d1e3012086783d5bf81b1264514"
+        },
+        "gauss.py": {
+          "size": 8219,
+          "sha256": "908b57113f1a7b8ebdbf204c6be87cbc385f765ba50ac07b4e270c64b7cf1000"
+        },
+        "infer.py": {
+          "size": 49002,
+          "sha256": "63112c88d43f9d69b3132243315e0db28c40b4bf0f42bac651f73ef07a67f9bb"
+        },
+        "sibling_style.py": {
+          "size": 4970,
+          "sha256": "8a7f3b3dad7cbe1755b66e8455a157894cac92b8983fc805f5ed6286ea915e66"
+        }
+      },
+      "filtered_commit_log_rows": [
+        {
+          "stream_name": "stdout",
+          "time": 21.253894786,
+          "data": "FAST_COMMIT True\n"
+        },
+        {
+          "stream_name": "stdout",
+          "time": 78.253929931,
+          "data": "llama source alexchilton/llama-3-1-8b-base /kaggle/input/models/alexchilton/llama-3-1-8b-base/transformers/default/1 {'model-00001-of-00004.safetensors': 4976698672, 'model-00002-of-00004.safetensors': 4999802720, 'model-00003-of-00004.safetensors': 4915916176, 'model-00004-of-00004.safetensors': 1168138808}\n"
+        },
+        {
+          "stream_name": "stdout",
+          "time": 375.442293727,
+          "data": "variant E dropped flag_gemini37_routing_risk 8297\n"
+        },
+        {
+          "stream_name": "stdout",
+          "time": 376.661705728,
+          "data": "variant E svc pool = open safe pool 190210\n"
+        },
+        {
+          "stream_name": "stdout",
+          "time": 376.6781092,
+          "data": "{'gemini-3.8-flash': 21070, 'gemini-3.6-flash': 16794, 'gpt-5.6-luna': 15265, 'glm-5.3-flash': 13470, 'gpt-5.6-terra': 13445, 'gpt-5.6-sol': 12739, 'glm-5.3': 12185, 'gpt-5.5': 11328, 'gpt-6-astra': 9805, 'kimi-k3': 9489, 'gemini-3.1-pro-preview': 9286, 'claude-fable-5': 9098, 'claude-sonnet-5': 7850, 'claude-opus-4-8': 6955, 'claude-opus-4-6': 6181, 'claude-opus-5': 5649, 'gemini-3.7-flash': 5325, 'qwen3.8-max': 4276}\n"
+        },
+        {
+          "stream_name": "stdout",
+          "time": 376.846697854,
+          "data": "comp stack wall time 0\n"
+        },
+        {
+          "stream_name": "stdout",
+          "time": 376.87358992,
+          "data": "RUNNING MAIN INFERENCE\n"
+        },
+        {
+          "stream_name": "stdout",
+          "time": 376.890026659,
+          "data": "             id    model\n"
+        },
+        {
+          "stream_name": "stdout",
+          "time": 376.890044391,
+          "data": "0  00353fb1c541  gpt-5.5\n"
+        },
+        {
+          "stream_name": "stdout",
+          "time": 376.890071317,
+          "data": "1  005f5a9a6139  gpt-5.5\n"
+        },
+        {
+          "stream_name": "stdout",
+          "time": 376.89007607,
+          "data": "2  0062a53d5487  gpt-5.5\n"
+        }
+      ],
+      "log_sha256": "331d8566c9e4072fb02e05b5a497facb44f36936351fccf15f64d6fa0ed24aa6",
+      "log_row_count": 52
+    }
+  ],
+  "matching_materialized_modules": {
+    "comp_stack.py": true,
+    "gauss.py": true,
+    "infer.py": true,
+    "sibling_style.py": true
+  }
+}

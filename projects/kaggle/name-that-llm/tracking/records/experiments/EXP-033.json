@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "EXP-033",
+  "title": "Codex原文污染诊断：对照官方及固定公共数据",
+  "baseline_id": "EXP-030",
+  "hypothesis": "Identify direct instruction/environment leakage and distinguish source-format differences from unidentifiable implicit prompt effects.",
+  "changes": [
+    "Scan all 1000 final texts and raw completion events",
+    "Compare matched four-model official and fixed public views separately",
+    "Control model balance and length strata; retain 20 paired-route controls"
+  ],
+  "observed_at": "2026-11-01T11:54:40.422629+00:00",
+  "source": {
+    "notebook_ref": null,
+    "notebook_version": null,
+    "script_version_id": null,
+    "local_path": "experiments/EXP-033-codex-source-contamination-audit/code/compare_sources.py",
+    "sha256": "82f26509ead14faec08c548c8c971f44d3b873772c23f7c99d03729e6a747ede"
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-033-codex-source-contamination-audit/manifest.json",
+    "validation_split_id": "descriptive_audit_no_fit",
+    "content_hashes_verified": true
+  },
+  "config": {
+    "note": "仅作台账索引；完整参数以 config_path 指向的 config.json 为准。"
+  },
+  "environment": {
+    "platform": "local_cpu_read_only_data_analysis",
+    "accelerator": "none",
+    "container": null,
+    "seed": null
+  },
+  "execution": {
+    "scope": "Offline descriptive diagnostics only; no training or generation",
+    "status": "COMPLETE",
+    "observed_at": "2026-11-01T11:54:40.422629+00:00"
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": "1000-text direct trace checks, same-label source comparison and 20 paired controls; no causal/API-equivalence or training-utility acceptance",
+    "per_class_recall_path": null,
+    "oof_path": null,
+    "leakage_audit": "direct instruction traces screened; exact overlap checked; semantic prompt overlap not fully established"
+  },
+  "cost": {
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0
+  },
+  "timing_note": null,
+  "conclusion": "No explicit instruction/tool/environment trace detected in 1000 responses. Codex newline 70.9%, bold 21.5%; major format shift is confounded by explicit public-source instructions/filtering. Cannot infer hidden-prompt causality.",
+  "limitations": "Unknown official requests/backend snapshots; public views overlap and use differing prompts, reasoning and preprocessing. Only 10 independent prompt groups in paired controls. No training or utility evaluation.",
+  "next_action": "Keep Codex raw source isolated; consider controlled repeated same-prompt/format collection and later fixed-group validation only if requested.",
+  "related_sources": [],
+  "evidence": [
+    "experiments/EXP-033-codex-source-contamination-audit/config.json",
+    "experiments/EXP-033-codex-source-contamination-audit/manifest.json",
+    "experiments/EXP-033-codex-source-contamination-audit/report.md",
+    "experiments/EXP-033-codex-source-contamination-audit/code/compare_sources.py",
+    "experiments/EXP-033-codex-source-contamination-audit/code/direct_trace_audit.py",
+    "experiments/EXP-033-codex-source-contamination-audit/metrics/source-profiles.json",
+    "experiments/EXP-033-codex-source-contamination-audit/metrics/length-standardized.csv",
+    "experiments/EXP-033-codex-source-contamination-audit/metrics/direct-traces.json",
+    "experiments/EXP-033-codex-source-contamination-audit/metrics/direct-traces-review.md",
+    "experiments/EXP-033-codex-source-contamination-audit/metrics/source-provenance-notes.md",
+    "experiments/EXP-033-codex-source-contamination-audit/metrics/paired-control.json",
+    "experiments/EXP-033-codex-source-contamination-audit/metrics/independent-verification.json",
+    "experiments/EXP-033-codex-source-contamination-audit/metrics/closing-offers-review.json",
+    "experiments/EXP-033-codex-source-contamination-audit/metrics/input-integrity.json",
+    "experiments/EXP-033-codex-source-contamination-audit/metrics/exact-overlap.json"
+  ],
+  "config_path": "experiments/EXP-033-codex-source-contamination-audit/config.json"
+}

@@ -1,0 +1,29 @@
+{
+  "dataset_files": [
+    {
+      "name": "README.md",
+      "creation_date": "2026-10-22T15:10:15.029Z",
+      "total_bytes": "3733"
+    },
+    {
+      "name": "passages.csv",
+      "creation_date": "2026-10-22T15:10:15.266Z",
+      "total_bytes": "741816"
+    },
+    {
+      "name": "prompts_pilot.json",
+      "creation_date": "2026-10-22T15:10:15.029Z",
+      "total_bytes": "2111"
+    },
+    {
+      "name": "prompts_v22.json",
+      "creation_date": "2026-10-22T15:10:15.108Z",
+      "total_bytes": "6420"
+    },
+    {
+      "name": "templates.json",
+      "creation_date": "2026-10-22T15:10:15.018Z",
+      "total_bytes": "549"
+    }
+  ]
+}

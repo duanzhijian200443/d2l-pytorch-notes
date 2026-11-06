@@ -1,0 +1,22 @@
+{
+  "generation_requests": 0,
+  "download_file_signature": "(response, outfile, http_client, quiet=True, resume=False, chunk_size=1048576, max_retries=5, timeout=300)",
+  "task": {
+    "type": "ApiBenchmarkTask",
+    "task_slug": "ntl-exp036-proxy-metadata",
+    "version": 1,
+    "state": "BENCHMARK_TASK_VERSION_CREATION_STATE_COMPLETED",
+    "private": true,
+    "backing_published": false,
+    "source_kernel_id": 142110137
+  },
+  "runs": [
+    {
+      "id": 5781838,
+      "state": "BENCHMARK_TASK_RUN_STATE_COMPLETED",
+      "version": 0,
+      "slug": "ntl-exp036-proxy-metadata",
+      "model": "gemini-3.8-flash"
+    }
+  ]
+}

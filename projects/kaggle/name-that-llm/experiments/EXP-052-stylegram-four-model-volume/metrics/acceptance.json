@@ -1,0 +1,56 @@
+{
+  "status": "PASS_FIXED_STYLEGRAM_DEVELOPMENT_OOF",
+  "observed_at": "2026-11-02T07:11:35.231821+00:00",
+  "ref": "zhjianduan/name-that-llm-stylegram-volume-052",
+  "version": 2,
+  "scriptVersionId": 364782106,
+  "trained_svms": 20,
+  "arm_fold_jobs": 10,
+  "control_fits": 0,
+  "actual_runtime": {
+    "numpy": "2.1.3",
+    "pandas": "2.3.3",
+    "scipy": "1.16.3",
+    "sklearn": "1.6.1",
+    "python": "3.13.15"
+  },
+  "worker_wall_seconds": 1531.221894125,
+  "peak_observed_rss_bytes": 10629353472,
+  "archive_sha256": "a979680f7354d1bfa7a24b6ecccc5e99dff92237b90d851245861912cb31489b",
+  "analysis_manifest_sha256": "d5900278d41c7c3117fa5b97a036bc12fda21cb3564dd89f11d7c40ee5bf5784",
+  "result_sha256": "63033ad87bbef1d470320fade729a5ef0b10453fa7b018933cd4a0e1f7bcb764",
+  "actual_primary": {
+    "comparison": "four240_minus_four120",
+    "primary": true,
+    "delta_ba": -0.002224707929405989,
+    "fixed": 4,
+    "new_errors": 10,
+    "net_correct": -6,
+    "changed": 34,
+    "both_wrong_changed": 20,
+    "bootstrap": {
+      "unit": "official prompt_id",
+      "draws": 2000,
+      "seed": 42,
+      "valid_draws": 2000,
+      "null_draws": 0,
+      "redraws": 0,
+      "missing_class_policy": "store null; no redraw; percentile interval uses valid draws only",
+      "ci95": [
+        -0.005185185185185185,
+        0.0003703703703703704
+      ]
+    }
+  },
+  "analysis_verifier": "{\"status\": \"PASS_INDEPENDENT_ROW_RECOMPUTATION\", \"rows\": 2699, \"arms\": 3, \"comparisons\": 3, \"paired_draws_per_comparison\": 2000}",
+  "sample_scope": {
+    "official_rows": 2699,
+    "official_prompt_groups": 150,
+    "classes": 18,
+    "folds": 5
+  },
+  "gpu_seconds": 0,
+  "model_api_usd": 0,
+  "colab_cu": 0,
+  "formal_submission": false
+}

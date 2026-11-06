@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "id": "SRC-067",
+  "kind": "notebook",
+  "category": "solutions",
+  "artifact_dir": "research/solutions/SRC-067-synthreaper-sovereign-gold-apex-v1",
+  "notes_path": "research/solutions/SRC-067-synthreaper-sovereign-gold-apex-v1/notes.md",
+  "author": "synthreaper",
+  "tags": [
+    "ensemble",
+    "svm",
+    "data",
+    "postprocessing",
+    "runtime",
+    "source-lineage"
+  ],
+  "related_sources": [
+    "SRC-002",
+    "SRC-021",
+    "SRC-036",
+    "SRC-038",
+    "SRC-040",
+    "SRC-065",
+    "SRC-068",
+    "SRC-069"
+  ],
+  "supersedes": null,
+  "title": "Sovereign Gold Apex V1：Open Pool V13、SVC12 与 V40A，绑定0.665",
+  "url": "https://www.kaggle.com/code/synthreaper/ntl-sovereign-gold-apex?scriptVersionId=364684268",
+  "observed_at": "2026-11-02T07:16:39.169214+00:00",
+  "source_version": {
+    "notebook_version": 1,
+    "script_version_id": 364684268,
+    "notebook_id": 142184076,
+    "source_sha256": "ca4c9e18ed32dcd8168b8118b192d39d657803d30dcd89a564b1c2d1d9c846dd",
+    "code_sha256": "5e2bbb0482edbc63ff2b9afc59c8855a8d90e1385b91036b11549a9fd6c72b28"
+  },
+  "public_score": {
+    "value": 0.665,
+    "evidence_type": "platform_page",
+    "bound_to_source": true,
+    "script_version_id": 364684268
+  },
+  "summary": "V1绑定0.665；与SRC-040的四个实际推理脚本逐字节相同。公开保存安全池190588/190210行，完整隐藏拟合数与覆盖未知。",
+  "author_claim": "作者列198k Open Pool、SVC 12、DP8B、ATLAS 20%、V40A残差、标点1.2和Sinkhorn0.60；声称单SVC CV提升及节省约40 GPU分钟。",
+  "verified": "Kaggle固定V1和最新源码一致；V1/364684268绑定0.665。两份Apex实际生成四个推理模块的SHA完全相等，保存日志证实本条V13安全池190588行、风险剔除0，SRC040分别190210行/8297行；两者均快路占位。",
+  "use_for_us": "以EXP047为对照拆开池、svc_w、后处理与家族残差，复用SRC065/EXP050的V13审计；避免将同一数学配方重复计作两种方法。",
+  "test_plan": "固定成员/覆盖/训练隔离，分别测试池替换、svc_w、Sinkhorn、标点及V40A开关；报告纠错/引错、ATLAS入选与完成行及时间。",
+  "limitations": "同源版本分差原因未知；保存日志不证明隐藏评分已用特定家族残差、ATLAS覆盖或最终SVC训练行数。输入卡V13不代表其余全部附件内容绑定。",
+  "evidence": [
+    "research/solutions/SRC-067-synthreaper-sovereign-gold-apex-v1/notes.md",
+    "research/solutions/SRC-067-synthreaper-sovereign-gold-apex-v1/code.txt",
+    "research/solutions/SRC-067-synthreaper-sovereign-gold-apex-v1/commit-output-comparison.json",
+    "research/solutions/SRC-067-synthreaper-sovereign-gold-apex-v1/description.md",
+    "research/solutions/SRC-067-synthreaper-sovereign-gold-apex-v1/metadata.json",
+    "research/solutions/SRC-067-synthreaper-sovereign-gold-apex-v1/receipt.json",
+    "research/solutions/SRC-067-synthreaper-sovereign-gold-apex-v1/snapshots/browser-observation-20261102.json",
+    "research/solutions/SRC-067-synthreaper-sovereign-gold-apex-v1/source.ipynb",
+    "research/solutions/SRC-067-synthreaper-sovereign-gold-apex-v1/vs-EXP-004.diff",
+    "research/solutions/SRC-067-synthreaper-sovereign-gold-apex-v1/vs-EXP-047.diff",
+    "research/solutions/SRC-067-synthreaper-sovereign-gold-apex-v1/vs-SRC-036.diff",
+    "research/solutions/SRC-067-synthreaper-sovereign-gold-apex-v1/vs-SRC-040.diff",
+    "tracking/snapshots/20261102T071145Z-public0665/fixed-v1-module-comparison.json",
+    "tracking/snapshots/20261102T071145Z-public0665/historical-input-card-observations.json",
+    "tracking/snapshots/20261102T071145Z-public0665/kaggle-browser-observation.json"
+  ],
+  "family_id": "code-5e2bbb0482ed",
+  "same_code_sources": [],
+  "same_effective_pipeline_sources": [
+    "SRC-040",
+    "SRC-068",
+    "SRC-069"
+  ],
+  "evidence_sha256": {
+    "research/solutions/SRC-067-synthreaper-sovereign-gold-apex-v1/notes.md": "1b5b0fac2bbc5c6538af4943e0dc7e1110acb7fa7e2d026e2ae472a7c3098db3",
+    "research/solutions/SRC-067-synthreaper-sovereign-gold-apex-v1/code.txt": "5e2bbb0482edbc63ff2b9afc59c8855a8d90e1385b91036b11549a9fd6c72b28",
+    "research/solutions/SRC-067-synthreaper-sovereign-gold-apex-v1/commit-output-comparison.json": "470563625f06f10f94b93ad700c383f8ed552e6d56d2b929c58676446b539a09",
+    "research/solutions/SRC-067-synthreaper-sovereign-gold-apex-v1/description.md": "0c9d33f76e142b4f95462d21ac40110d21fd9308b42531daee8847784b076407",
+    "research/solutions/SRC-067-synthreaper-sovereign-gold-apex-v1/metadata.json": "1267102c13d75411df2237f5e2be46821723edd0020485d804126c41ca91cd8a",
+    "research/solutions/SRC-067-synthreaper-sovereign-gold-apex-v1/receipt.json": "bf50d521459f6b8cbf3a391f1f65c2eb5a0f8d72071ec4f5c3c07d82887bd2f6",
+    "research/solutions/SRC-067-synthreaper-sovereign-gold-apex-v1/snapshots/browser-observation-20261102.json": "69f4a6d7e889f741441a6d45419bbdfdc7c67e0fed2a48b9c6067fc11aafdca5",
+    "research/solutions/SRC-067-synthreaper-sovereign-gold-apex-v1/source.ipynb": "ca4c9e18ed32dcd8168b8118b192d39d657803d30dcd89a564b1c2d1d9c846dd",
+    "research/solutions/SRC-067-synthreaper-sovereign-gold-apex-v1/vs-EXP-004.diff": "cf693571aa508a310cb141e4dd711519d3c5edd75f0415db991faf9c2eacea63",
+    "research/solutions/SRC-067-synthreaper-sovereign-gold-apex-v1/vs-EXP-047.diff": "8b08888f0c5904763cd959f61357fdeb23841305e69ceea826882150d5ae22be",
+    "research/solutions/SRC-067-synthreaper-sovereign-gold-apex-v1/vs-SRC-036.diff": "0e708330fd8a1cc59177433a5c60a133d575605e851cf07b710ef7798744d319",
+    "research/solutions/SRC-067-synthreaper-sovereign-gold-apex-v1/vs-SRC-040.diff": "f2d7e37b3232bcde821dd72c12e48dd4848860fe28e72b695dabcdb0baf8f8e6",
+    "tracking/snapshots/20261102T071145Z-public0665/fixed-v1-module-comparison.json": "d21d57ac91eb2cf10eebae6b601af3722bffe1c0daeba62c17d7050cf7d86edc",
+    "tracking/snapshots/20261102T071145Z-public0665/historical-input-card-observations.json": "3eff123189939f010046ec7835d9559cf0748d8cd4c4661b35e3e6350f47359d",
+    "tracking/snapshots/20261102T071145Z-public0665/kaggle-browser-observation.json": "8129e0a8eaafd857ca6aa18d6ef3d56229aa9d54a5f341468b594ef65b7c52d1"
+  }
+}

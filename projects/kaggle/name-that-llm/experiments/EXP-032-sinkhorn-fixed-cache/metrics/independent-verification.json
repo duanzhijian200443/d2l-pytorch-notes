@@ -1,0 +1,347 @@
+{
+  "status": "PASS",
+  "scope": "independent_predictions_csv_metric_recalculation",
+  "predictions_sha256": "158929d7cfba794543fb4ee2a6f4292c8caec5eb9f11e55299acf70b994e8aec",
+  "script_sha256": "4441c37e09469f5c6c63836617b3e6ea90266e6858574fb01cbea16c3ecf8cd2",
+  "numpy_version": "2.4.4",
+  "rows": 729,
+  "prompt_groups": 56,
+  "covered_labels": [
+    "claude-fable-5",
+    "claude-opus-4-6",
+    "claude-opus-4-8",
+    "claude-opus-5",
+    "claude-sonnet-5",
+    "gemini-3.1-pro-preview",
+    "gemini-3.6-flash",
+    "gemini-3.8-flash",
+    "glm-5.3",
+    "glm-5.3-flash",
+    "gpt-5.5",
+    "gpt-5.6-luna",
+    "gpt-5.6-sol",
+    "gpt-5.6-terra",
+    "gpt-6-astra",
+    "kimi-k3",
+    "qwen3.8-max"
+  ],
+  "metrics": {
+    "045": {
+      "correct": 488,
+      "accuracy": 0.6694101508916324,
+      "macro_recall": 0.6010754296632904
+    },
+    "030": {
+      "correct": 492,
+      "accuracy": 0.6748971193415638,
+      "macro_recall": 0.6055403306810412
+    }
+  },
+  "delta": {
+    "correct": 4,
+    "accuracy": 0.005486968449931462,
+    "macro_recall": 0.004464901017750766
+  },
+  "four_cells": {
+    "both_correct": 487,
+    "only_045_correct": 1,
+    "only_030_correct": 5,
+    "both_wrong": 236
+  },
+  "per_class": [
+    {
+      "label": "claude-fable-5",
+      "support": 19,
+      "correct_045": 10,
+      "correct_030": 10,
+      "recall_045": 0.5263157894736842,
+      "recall_030": 0.5263157894736842,
+      "delta": 0.0
+    },
+    {
+      "label": "claude-opus-4-6",
+      "support": 55,
+      "correct_045": 50,
+      "correct_030": 50,
+      "recall_045": 0.9090909090909091,
+      "recall_030": 0.9090909090909091,
+      "delta": 0.0
+    },
+    {
+      "label": "claude-opus-4-8",
+      "support": 55,
+      "correct_045": 45,
+      "correct_030": 45,
+      "recall_045": 0.8181818181818182,
+      "recall_030": 0.8181818181818182,
+      "delta": 0.0
+    },
+    {
+      "label": "claude-opus-5",
+      "support": 54,
+      "correct_045": 44,
+      "correct_030": 44,
+      "recall_045": 0.8148148148148148,
+      "recall_030": 0.8148148148148148,
+      "delta": 0.0
+    },
+    {
+      "label": "claude-sonnet-5",
+      "support": 52,
+      "correct_045": 33,
+      "correct_030": 33,
+      "recall_045": 0.6346153846153846,
+      "recall_030": 0.6346153846153846,
+      "delta": 0.0
+    },
+    {
+      "label": "gemini-3.1-pro-preview",
+      "support": 54,
+      "correct_045": 47,
+      "correct_030": 48,
+      "recall_045": 0.8703703703703703,
+      "recall_030": 0.8888888888888888,
+      "delta": 0.018518518518518517
+    },
+    {
+      "label": "gemini-3.6-flash",
+      "support": 51,
+      "correct_045": 35,
+      "correct_030": 37,
+      "recall_045": 0.6862745098039216,
+      "recall_030": 0.7254901960784313,
+      "delta": 0.0392156862745098
+    },
+    {
+      "label": "gemini-3.8-flash",
+      "support": 54,
+      "correct_045": 27,
+      "correct_030": 27,
+      "recall_045": 0.5,
+      "recall_030": 0.5,
+      "delta": 0.0
+    },
+    {
+      "label": "glm-5.3",
+      "support": 16,
+      "correct_045": 2,
+      "correct_030": 2,
+      "recall_045": 0.125,
+      "recall_030": 0.125,
+      "delta": 0.0
+    },
+    {
+      "label": "glm-5.3-flash",
+      "support": 17,
+      "correct_045": 7,
+      "correct_030": 7,
+      "recall_045": 0.4117647058823529,
+      "recall_030": 0.4117647058823529,
+      "delta": 0.0
+    },
+    {
+      "label": "gpt-5.5",
+      "support": 54,
+      "correct_045": 43,
+      "correct_030": 44,
+      "recall_045": 0.7962962962962963,
+      "recall_030": 0.8148148148148148,
+      "delta": 0.018518518518518517
+    },
+    {
+      "label": "gpt-5.6-luna",
+      "support": 52,
+      "correct_045": 35,
+      "correct_030": 35,
+      "recall_045": 0.6730769230769231,
+      "recall_030": 0.6730769230769231,
+      "delta": 0.0
+    },
+    {
+      "label": "gpt-5.6-sol",
+      "support": 54,
+      "correct_045": 27,
+      "correct_030": 28,
+      "recall_045": 0.5,
+      "recall_030": 0.5185185185185185,
+      "delta": 0.018518518518518517
+    },
+    {
+      "label": "gpt-5.6-terra",
+      "support": 53,
+      "correct_045": 23,
+      "correct_030": 22,
+      "recall_045": 0.4339622641509434,
+      "recall_030": 0.41509433962264153,
+      "delta": -0.018867924528301886
+    },
+    {
+      "label": "gpt-6-astra",
+      "support": 54,
+      "correct_045": 49,
+      "correct_030": 49,
+      "recall_045": 0.9074074074074074,
+      "recall_030": 0.9074074074074074,
+      "delta": 0.0
+    },
+    {
+      "label": "kimi-k3",
+      "support": 17,
+      "correct_045": 0,
+      "correct_030": 0,
+      "recall_045": 0.0,
+      "recall_030": 0.0,
+      "delta": 0.0
+    },
+    {
+      "label": "qwen3.8-max",
+      "support": 18,
+      "correct_045": 11,
+      "correct_030": 11,
+      "recall_045": 0.6111111111111112,
+      "recall_030": 0.6111111111111112,
+      "delta": 0.0
+    }
+  ],
+  "paired_prompt_bootstrap": {
+    "draws": 2000,
+    "seed": 42,
+    "valid_draws": 2000,
+    "invalid_draws": 0,
+    "ci95": [
+      -0.0001512762479988439,
+      0.010075679928918386
+    ],
+    "ci95_percentage_points": [
+      -0.015127624799884389,
+      1.0075679928918386
+    ],
+    "draws_delta_nonpositive": 102,
+    "group_order": "lexicographically sorted prompt_id",
+    "quantile_method": "linear",
+    "statistic": "mean of 17 class recall differences after aggregating sampled-group correct counts and support"
+  },
+  "changed_predictions": [
+    {
+      "id": "x27-1e75b21be116d637c05ae2d3",
+      "source_id": "pilot_p06_gemini-3.1-pro-preview",
+      "prompt_id": "earthmaker-task:75d48783471779affd0dbade614cfe1d55e547ca7352e18cdca6a399b1a66ae4",
+      "model": "gemini-3.1-pro-preview",
+      "prediction_045": "gemini-3.6-flash",
+      "prediction_030": "gemini-3.1-pro-preview"
+    },
+    {
+      "id": "x27-41ead61200d30dfcc303fb05",
+      "source_id": "pilot_p01_gemini-3.6-flash",
+      "prompt_id": "earthmaker-task:3f3198b2681a379324f9e176a753a7e3888d45f3ea99b0752ab617bc0ad29252",
+      "model": "gemini-3.6-flash",
+      "prediction_045": "gemini-3.7-flash",
+      "prediction_030": "gemini-3.6-flash"
+    },
+    {
+      "id": "x27-4c97bb217e779e1b0f9ac4be",
+      "source_id": "pilot_p04_gemini-3.8-flash",
+      "prompt_id": "earthmaker-task:e5aba0f23dd681961cf53bb0bfabf2c35f2ffcccea978d2788f6798f2a74ce5c",
+      "model": "gemini-3.8-flash",
+      "prediction_045": "gemini-3.6-flash",
+      "prediction_030": "gemini-3.1-pro-preview"
+    },
+    {
+      "id": "x27-927a1613866924d72a140be7",
+      "source_id": "v22_v22_01_gemini-3.6-flash",
+      "prompt_id": "earthmaker-task:9d91309a3f606b8ae0faf64b47b72e0611ff629a6565ac7400b29a12d17e2608",
+      "model": "gemini-3.6-flash",
+      "prediction_045": "gemini-3.7-flash",
+      "prediction_030": "gemini-3.6-flash"
+    },
+    {
+      "id": "x27-b059c68cd641cb105f78184d",
+      "source_id": "v22_v22_04_gpt-5.6-terra",
+      "prompt_id": "earthmaker-task:2977c40c615089dcfd89842c770cc82f604c44ea2e048648c2be9499c92b5d85",
+      "model": "gpt-5.6-terra",
+      "prediction_045": "gpt-5.6-terra",
+      "prediction_030": "gpt-6-astra"
+    },
+    {
+      "id": "x27-d98f2f557dd96411985ad54a",
+      "source_id": "v22_v22_17_gpt-5.6-sol",
+      "prompt_id": "earthmaker-task:536bea95e72fa50a81975df42fc6513b8032033539be264f4b5be7a098e6b247",
+      "model": "gpt-5.6-sol",
+      "prediction_045": "qwen3.8-max",
+      "prediction_030": "gpt-5.6-sol"
+    },
+    {
+      "id": "x27-dcc95a334d872c3c06d65114",
+      "source_id": "pilot_p05_gpt-5.5",
+      "prompt_id": "earthmaker-task:a0bfbbe9e6bc0c8a2a714ef5fadac0e3a5299d0a4784b183657f4ae8fb66c8de",
+      "model": "gpt-5.5",
+      "prediction_045": "qwen3.8-max",
+      "prediction_030": "gpt-5.5"
+    },
+    {
+      "id": "x27-eab19b148beb2ead11cf73a4",
+      "source_id": "pilot_p01_kimi-k3",
+      "prompt_id": "earthmaker-task:3f3198b2681a379324f9e176a753a7e3888d45f3ea99b0752ab617bc0ad29252",
+      "model": "kimi-k3",
+      "prediction_045": "glm-5.3-flash",
+      "prediction_030": "claude-opus-4-8"
+    },
+    {
+      "id": "x27-f2cf71f539a01677a8cf3b11",
+      "source_id": "pilot_p19_gemini-3.8-flash",
+      "prompt_id": "earthmaker-task:91b7e1463a5dabee6fea0f391c47511fa6f55be957f58d707ed7fe1fdb567d1a",
+      "model": "gemini-3.8-flash",
+      "prediction_045": "gemini-3.7-flash",
+      "prediction_030": "gemini-3.6-flash"
+    }
+  ],
+  "missing_true_class": {
+    "label": "gemini-3.7-flash",
+    "support": 0,
+    "predicted_045": 22,
+    "predicted_030": 19,
+    "entered": [],
+    "exited": [
+      {
+        "id": "x27-41ead61200d30dfcc303fb05",
+        "source_id": "pilot_p01_gemini-3.6-flash",
+        "prompt_id": "earthmaker-task:3f3198b2681a379324f9e176a753a7e3888d45f3ea99b0752ab617bc0ad29252",
+        "model": "gemini-3.6-flash",
+        "prediction_045": "gemini-3.7-flash",
+        "prediction_030": "gemini-3.6-flash"
+      },
+      {
+        "id": "x27-927a1613866924d72a140be7",
+        "source_id": "v22_v22_01_gemini-3.6-flash",
+        "prompt_id": "earthmaker-task:9d91309a3f606b8ae0faf64b47b72e0611ff629a6565ac7400b29a12d17e2608",
+        "model": "gemini-3.6-flash",
+        "prediction_045": "gemini-3.7-flash",
+        "prediction_030": "gemini-3.6-flash"
+      },
+      {
+        "id": "x27-f2cf71f539a01677a8cf3b11",
+        "source_id": "pilot_p19_gemini-3.8-flash",
+        "prompt_id": "earthmaker-task:91b7e1463a5dabee6fea0f391c47511fa6f55be957f58d707ed7fe1fdb567d1a",
+        "model": "gemini-3.8-flash",
+        "prediction_045": "gemini-3.7-flash",
+        "prediction_030": "gemini-3.6-flash"
+      }
+    ]
+  },
+  "matches_published_summary": {
+    "accuracy_045": true,
+    "accuracy_030": true,
+    "macro_recall_045": true,
+    "macro_recall_030": true,
+    "bootstrap_ci": true,
+    "four_cells": true,
+    "prediction_disagreements": true
+  },
+  "recommendation": "Retain baseline 0.45; observed gain is exploratory and CI includes zero.",
+  "limitations": [
+    "Only supplied predictions and metrics were independently verified, not model execution or source-cache acceptance.",
+    "Absent true Gemini 3.7 has undefined recall; its false positives are counted against other true classes, but potential recovery for actual Gemini 3.7 cannot be assessed.",
+    "Class balancing is panel-composition-dependent; 17-class panel cannot establish full 18-class or leaderboard performance.",
+    "Bootstrap is conditional on existing predictions and selected prompt groups; no retraining, exposure-independence, representativeness or selection-uncertainty claim."
+  ]
+}

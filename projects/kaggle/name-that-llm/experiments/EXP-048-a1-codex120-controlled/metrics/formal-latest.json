@@ -1,0 +1,12 @@
+{
+  "submission_id": 57893384,
+  "script_version_id": 364733823,
+  "observed_at": "2026-11-02T16:27:10.518052+00:00",
+  "source": "Kaggle official submissions list",
+  "ref": 57893384,
+  "url": "/code/zhjianduan/name-that-llm-a1-codex120-1102?scriptVersionId=364733823",
+  "date": "2026-11-02T03:18:07.177Z",
+  "status": "COMPLETE",
+  "public_score": "0.663",
+  "description": "Controlled 046 V2 + EXP040 raw Codex120 train only in Stylegram. Fixed baseline members/weights. pending-handoff-stylegram-add120-20261102T014124Z; script364733823; raw hash cbb0f2227f7748d9172f04d23c1653403103a192dbb7503d897153d24bb00acd."
+}

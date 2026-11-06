@@ -1,0 +1,43 @@
+{
+  "kind": "discussion",
+  "category": "discussions",
+  "title": "Enai：9719条OpenAI生成文本的发布公告",
+  "author": "enaimaan",
+  "url": "https://www.kaggle.com/competitions/name-that-llm/discussion/753974",
+  "observed_at": "2026-11-01T07:32:15.438860+00:00",
+  "source_version": {
+    "topic_id": 753974,
+    "snapshot_sha256": "ea4df16acf2e063f7680cbfcf701b1ba5e4f79af2fc6fef1f5935f0b1fcb6782"
+  },
+  "public_score": null,
+  "summary": "公告称9719条、四模型且含exact prompts/设置/溯源；数据本体与生成文本许可本轮未独立核验。",
+  "author_claim": "9719条=2341 Luna+2338 Sol+2336 Terra+2704 Astra；4311补现有prompt覆盖，5408为新prompt面板。",
+  "verified": "已读原公告与1条评论；未读取固定dataset版本文件，公告不能证明逐行溯源、许可或收益。",
+  "use_for_us": "可补GPT类数据，但先对接已有prompt键与来源清单，避免将共享prompt算作独立增量。",
+  "test_plan": "固定数据版本/哈希，核验exact messages、returned model、settings、去重、官方prompt关联和许可来源，再决定分层对照。",
+  "limitations": "SRC-027作者说明未建立生成文本许可所以未纳入v10；存在许可声明不等于生成文本授权已厘清。",
+  "tags": [
+    "data",
+    "provenance",
+    "license",
+    "openai"
+  ],
+  "related_sources": [
+    "SRC-027",
+    "SRC-062"
+  ],
+  "schema_version": 1,
+  "id": "SRC-061",
+  "artifact_dir": "research/discussions/SRC-061-753974-openai-provenance-data-announcement",
+  "notes_path": "research/discussions/SRC-061-753974-openai-provenance-data-announcement/notes.md",
+  "collection_observation_note": "源码/API时间见回执。浏览器仅记录2026-11-01 UTC采集日期及07:35:57 UTC汇总截至时刻，不将其伪作逐页精确读取时间。",
+  "supersedes": null,
+  "evidence": [
+    "research/discussions/SRC-061-753974-openai-provenance-data-announcement/notes.md",
+    "research/discussions/SRC-061-753974-openai-provenance-data-announcement/snapshots/20261101T073215Z.json"
+  ],
+  "evidence_sha256": {
+    "research/discussions/SRC-061-753974-openai-provenance-data-announcement/notes.md": "860870ee41288dce58d6df5cab284c004524e7e2c6962d4e5f1376d27564431b",
+    "research/discussions/SRC-061-753974-openai-provenance-data-announcement/snapshots/20261101T073215Z.json": "ea4df16acf2e063f7680cbfcf701b1ba5e4f79af2fc6fef1f5935f0b1fcb6782"
+  }
+}

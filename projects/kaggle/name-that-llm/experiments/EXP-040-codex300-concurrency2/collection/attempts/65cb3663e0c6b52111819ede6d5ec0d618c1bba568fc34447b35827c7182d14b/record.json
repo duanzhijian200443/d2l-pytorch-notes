@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0035",
+  "prompt": "A shadow has a sharp edge near an object but a fuzzier edge farther away. Explain how the size of the light source affects this. Aim for about 120 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "science_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0035",
+  "split": "train",
+  "source": "codex_subscription",
+  "base_prompt": "A shadow has a sharp edge near an object but a fuzzier edge farther away. Explain how the size of the light source affects this. Aim for about 120 words.",
+  "base_prompt_sha256": "e57170b3d13404490cce17d2bd58c273080273def1a46b0246084ca8325d1133",
+  "base_prompt_id": "cp0035",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0035::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "65cb3663e0c6b52111819ede6d5ec0d618c1bba568fc34447b35827c7182d14b",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:53:19.974125+00:00",
+  "ended_at": "2026-11-01T13:53:39.300534+00:00",
+  "prompt_sha256": "5ae4afae45ee947d3cd2d204fe3cc557196cee9b40545ebb461f4688cb214a4e",
+  "text": "The size of a light source determines how wide the shadow’s fuzzy region, or penumbra, becomes. A very small, nearly point-like source sends light from almost one direction, so an object blocks it along a well-defined boundary and produces a sharp-edged shadow. A larger source sends rays toward the object from many different points. Near the object, those slightly different shadows still overlap closely, so the edge looks fairly sharp. Farther away, the individual shadows spread apart: some parts of the surface can see only a portion of the source, while others see all or none of it. This creates a broader penumbra and a softer edge. Thus, larger or apparently closer light sources produce fuzzier shadows, whereas smaller or more distant sources produce sharper ones.",
+  "text_sha256": "2a8a9523332b4ac675fb9fb9b58869b1731c720b80654bc71750468f1f9ea7ed",
+  "raw_final_sha256": "2a8a9523332b4ac675fb9fb9b58869b1731c720b80654bc71750468f1f9ea7ed",
+  "word_count": 126,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4214,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 195,
+      "reasoning_output_tokens": 34
+    }
+  ],
+  "attempt_path": "collection\\attempts\\65cb3663e0c6b52111819ede6d5ec0d618c1bba568fc34447b35827c7182d14b",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

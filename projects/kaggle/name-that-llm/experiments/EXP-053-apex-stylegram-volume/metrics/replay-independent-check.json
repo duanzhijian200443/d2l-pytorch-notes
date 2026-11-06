@@ -1,0 +1,32 @@
+{
+  "status": "PASS_INDEPENDENT_LAYER_ROUTE_AND_SCOPE_CHECK",
+  "rows": 729,
+  "prompt_groups": 56,
+  "labels_in_truth": 17,
+  "direct_main_fit_hits": 698,
+  "main_fit_rows": 200478,
+  "arms": {
+    "zero": {
+      "requested": 182,
+      "covered": 171,
+      "missing": 11
+    },
+    "four120": {
+      "requested": 182,
+      "covered": 171,
+      "missing": 11
+    },
+    "four240": {
+      "requested": 182,
+      "covered": 171,
+      "missing": 11
+    }
+  },
+  "alternative_gate_implementation": "EXP045 arithmetic with independently assembled current three family-score arrays; float32 matrices bitwise equal",
+  "main_conditional_mix": "independent scipy softmax, 16-member weighted sum and .15 complementary mix within 1e-12",
+  "numeric_results": "verified row predictions, covered macro recall, changed/fixed/new_error, exact route and missing-ID lists",
+  "final_scores": "all null, no final score arrays",
+  "source_bridge": "shared loader receipt SRC068, fixed SRC067/SRC068 comp module byte-identical; verified function hash",
+  "replay_artifacts_sha256": "7e59b05327050eeaf0ce59af5995b4b8936393be4119ccb7852a642beffd7ea0",
+  "replay_source_sha256": "bfa7227897a5608827a030f4cb362c09d2dac3b7eff1aea9874f3373a7febe44"
+}

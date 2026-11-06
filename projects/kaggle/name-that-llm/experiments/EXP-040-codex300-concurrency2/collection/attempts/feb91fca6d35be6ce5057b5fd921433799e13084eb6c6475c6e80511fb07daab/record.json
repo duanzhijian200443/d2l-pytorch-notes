@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0063",
+  "prompt": "Two suppliers offer the same materials: one is cheaper but less predictable about delivery dates. Describe the trade-off a workshop owner should examine. Aim for about 160 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "business_decision",
+  "target_words": 160,
+  "prompt_group": "cp0063",
+  "split": "train",
+  "source": "codex_subscription",
+  "base_prompt": "Two suppliers offer the same materials: one is cheaper but less predictable about delivery dates. Describe the trade-off a workshop owner should examine. Aim for about 160 words.",
+  "base_prompt_sha256": "0d62c4b613573514c82f6e366a9c8fe7c4a40a3c3585dc5f4abd6afd0e050195",
+  "base_prompt_id": "cp0063",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0063::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "feb91fca6d35be6ce5057b5fd921433799e13084eb6c6475c6e80511fb07daab",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:16:18.567709+00:00",
+  "ended_at": "2026-11-01T13:16:35.983080+00:00",
+  "prompt_sha256": "c41256e4bdef46e06286efae52b6fedad73541877a758ff7ec6a168ac6cfb9f7",
+  "text": "A workshop owner should compare the cheaper supplier’s savings with the operational cost of uncertain delivery. Lower material prices may improve profit margins, reduce quotations to customers, or create room for investment in equipment and labor. However, unpredictable arrivals can interrupt production, delay customer orders, require expensive emergency purchases, increase storage or scheduling problems, and damage the workshop’s reputation. The owner should estimate how often delays occur, how long they typically last, and how much a shutdown or late delivery would cost. It is also important to consider material quality, minimum order quantities, payment terms, shipping reliability, and the availability of alternative suppliers. If the workshop holds enough safety stock, has flexible production schedules, or can switch suppliers easily, the cheaper option may be worthwhile. If materials are critical, customers expect firm completion dates, or delays would stop high-value work, the more reliable supplier may provide better overall value despite a higher price. A trial order or split purchasing arrangement could test reliability while limiting risk.",
+  "text_sha256": "662bd3ce491b45b677dc52ff3d21397c2200aac73a5ff3368d9b19b767bb4b67",
+  "raw_final_sha256": "662bd3ce491b45b677dc52ff3d21397c2200aac73a5ff3368d9b19b767bb4b67",
+  "word_count": 166,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2678,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 227,
+      "reasoning_output_tokens": 25
+    }
+  ],
+  "attempt_path": "collection\\attempts\\feb91fca6d35be6ce5057b5fd921433799e13084eb6c6475c6e80511fb07daab",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

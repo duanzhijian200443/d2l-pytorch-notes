@@ -1,0 +1,38 @@
+{
+  "status": "PASS_DERIVED_FORMAT_VIEW",
+  "observed_at": "2026-11-01T16:17:17.513063+00:00",
+  "counts": {
+    "rows": 1000,
+    "changed_rows": 727,
+    "bold_rows": 215,
+    "bold_pairs": 537,
+    "newline_rows": 709,
+    "newline_runs": 2906
+  },
+  "train_rows": 800,
+  "holdout_rows": 200,
+  "train_prompt_groups": 200,
+  "holdout_prompt_groups": 50,
+  "rows_per_model": {
+    "gpt-5.6-luna": 250,
+    "gpt-5.6-terra": 250,
+    "gpt-5.6-sol": 250,
+    "gpt-6-astra": 250
+  },
+  "raw_source_sha256_before_and_after": "cb903279b3727b31ce2125b89c5ce8f530d769a984f49c2cb86e4fbefb1e9722",
+  "remaining_newline_rows": 0,
+  "remaining_bold_rows": 0,
+  "body_and_word_sequence_checks": 1000,
+  "idempotence_checks": 1000,
+  "exact_and_normalized_duplicate_groups": 0,
+  "cross_split_collision_groups": 0,
+  "cross_job_original_view_collisions": 0,
+  "training_started": false,
+  "formal_pool_accepted": false,
+  "limits": [
+    "Not identical to regeneration with a single-paragraph instruction.",
+    "Single-star emphasis and other Markdown markers remain.",
+    "Formatting removal can also remove model attribution signal; efficacy is untested.",
+    "Source model labels remain requested_only."
+  ]
+}

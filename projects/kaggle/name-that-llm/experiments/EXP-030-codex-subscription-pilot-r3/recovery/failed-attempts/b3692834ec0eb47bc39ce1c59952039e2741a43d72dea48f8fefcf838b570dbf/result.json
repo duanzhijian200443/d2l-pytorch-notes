@@ -1,0 +1,13 @@
+{
+  "job_key": "b3692834ec0eb47bc39ce1c59952039e2741a43d72dea48f8fefcf838b570dbf",
+  "status": "FAILED",
+  "started_at": "2026-11-01T10:00:13.906368+00:00",
+  "ended_at": "2026-11-01T10:14:33.064019+00:00",
+  "returncode": 1,
+  "reasons": [
+    "EMPTY_FINAL",
+    "INTERRUPTED_OR_TIMEOUT",
+    "NO_TURN_COMPLETED",
+    "PROCESS_FAILED"
+  ]
+}

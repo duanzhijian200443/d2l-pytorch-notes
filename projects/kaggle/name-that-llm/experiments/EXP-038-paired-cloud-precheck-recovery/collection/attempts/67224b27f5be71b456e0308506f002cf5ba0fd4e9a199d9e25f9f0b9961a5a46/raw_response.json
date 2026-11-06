@@ -1,0 +1,44 @@
+{
+  "id": "chatcmpl-EfPvOzgikqJdC6GFJODZdBi4bCRiO",
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "message": {
+        "content": "Place a washable mat along one wall, leaving a clear walkway directly in front of the door. Each roommate gets one compact row on the mat, with everyday shoes paired and pointed toward the wall; keep only two or three pairs there and move extras to bedrooms or closets. Use existing shoeboxes or sturdy reusable bags in a closet for seasonal footwear. Agree that bags, coats, and loose items stay off the floor, and do a quick evening reset so the doorway remains unobstructed.",
+        "refusal": "",
+        "role": "assistant",
+        "annotations": null,
+        "audio": null,
+        "function_call": null,
+        "tool_calls": null
+      }
+    }
+  ],
+  "created": 1793539810,
+  "model": "openai/gpt-5.6-luna",
+  "object": "chat.completion",
+  "metadata": null,
+  "moderation": null,
+  "service_tier": null,
+  "system_fingerprint": null,
+  "usage": {
+    "completion_tokens": 160,
+    "prompt_tokens": 137,
+    "total_tokens": 297,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 53,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": null,
+    "cost": {
+      "input_tokens_cost_nanodollars": 27400,
+      "output_tokens_cost_nanodollars": 192000
+    },
+    "total_backend_latency_ms": 2807
+  }
+}

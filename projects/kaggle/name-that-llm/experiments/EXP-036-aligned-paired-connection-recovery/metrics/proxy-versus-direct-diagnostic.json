@@ -1,0 +1,60 @@
+{
+  "observed_at": "2026-11-01T12:27:15.277509+00:00",
+  "generation_requests": 0,
+  "checks": [
+    {
+      "trust_env": true,
+      "model": "nonexistent_diagnostic_model",
+      "matched_original_payload_except_model": true,
+      "trace": [
+        "connection.connect_tcp.started",
+        "connection.connect_tcp.complete",
+        "http11.send_request_headers.started",
+        "http11.send_request_headers.complete",
+        "http11.send_request_body.started",
+        "http11.send_request_body.complete",
+        "http11.receive_response_headers.started",
+        "http11.receive_response_headers.complete",
+        "proxy.start_tls.started",
+        "proxy.start_tls.complete",
+        "http11.send_request_headers.started",
+        "http11.send_request_headers.complete",
+        "http11.send_request_body.started",
+        "http11.send_request_body.complete",
+        "http11.receive_response_headers.started",
+        "http11.receive_response_headers.complete",
+        "http11.receive_response_body.started",
+        "http11.receive_response_body.complete",
+        "http11.response_closed.started",
+        "http11.response_closed.complete"
+      ],
+      "http_status": 404,
+      "body_bytes": 158,
+      "content_type": "application/json"
+    },
+    {
+      "trust_env": false,
+      "model": "nonexistent_diagnostic_model",
+      "matched_original_payload_except_model": true,
+      "trace": [
+        "connection.connect_tcp.started",
+        "connection.connect_tcp.complete",
+        "connection.start_tls.started",
+        "connection.start_tls.complete",
+        "http11.send_request_headers.started",
+        "http11.send_request_headers.complete",
+        "http11.send_request_body.started",
+        "http11.send_request_body.complete",
+        "http11.receive_response_headers.started",
+        "http11.receive_response_headers.complete",
+        "http11.receive_response_body.started",
+        "http11.receive_response_body.complete",
+        "http11.response_closed.started",
+        "http11.response_closed.complete"
+      ],
+      "http_status": 404,
+      "body_bytes": 158,
+      "content_type": "application/json"
+    }
+  ]
+}

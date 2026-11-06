@@ -1,0 +1,11 @@
+{
+  "status": "DRY_RUN",
+  "planned_total": 1000,
+  "target_total": 1000,
+  "already_saved": 558,
+  "remaining_in_this_run": 442,
+  "workers": 2,
+  "controller_automatic_retries": 0,
+  "cli_internal_retry_policy": "see frozen cli_overrides; not inferred",
+  "observed_at": "2026-11-01T10:19:22.114748+00:00"
+}

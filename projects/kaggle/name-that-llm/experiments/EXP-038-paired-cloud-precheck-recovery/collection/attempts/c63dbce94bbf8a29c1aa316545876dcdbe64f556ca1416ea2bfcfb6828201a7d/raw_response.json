@@ -1,0 +1,44 @@
+{
+  "id": "chatcmpl-EfQAD0sPrhsOJ2KRRvSjmhyC1IwnF",
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "message": {
+        "content": "A puddle can disappear on a cool day because evaporation happens at temperatures far below boiling. Water molecules are constantly moving, and some at the surface have enough energy to escape into the air as water vapor. The remaining molecules lose a little energy, which is why evaporation can cool the puddle. Boiling occurs throughout the liquid when vapor bubbles form, but evaporation occurs only at the surface and does not require the water to reach 100°C. Dry air can absorb more water vapor, while wind carries away moist air above the puddle and replaces it with drier air. Sunlight, even on a cool day, may add energy, and a broad, shallow surface allows more molecules to escape. Over time, these effects can remove all the water.",
+        "refusal": "",
+        "role": "assistant",
+        "annotations": null,
+        "audio": null,
+        "function_call": null,
+        "tool_calls": null
+      }
+    }
+  ],
+  "created": 1793540729,
+  "model": "openai/gpt-5.6-luna",
+  "object": "chat.completion",
+  "metadata": null,
+  "moderation": null,
+  "service_tier": null,
+  "system_fingerprint": null,
+  "usage": {
+    "completion_tokens": 195,
+    "prompt_tokens": 130,
+    "total_tokens": 325,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 35,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": null,
+    "cost": {
+      "input_tokens_cost_nanodollars": 26000,
+      "output_tokens_cost_nanodollars": 234000
+    },
+    "total_backend_latency_ms": 2684
+  }
+}

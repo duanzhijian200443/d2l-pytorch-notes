@@ -1,0 +1,249 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-050",
+  "status": "COMPLETE_AUDIT_ONLY",
+  "created_at": "2026-11-02T04:47:07.127137+00:00",
+  "files": [
+    {
+      "path": "cloud/a1-public-stylegram-046/payload/preflight_manifest.json",
+      "bytes": 123106,
+      "sha256": "de7a305b5d26a5ad0cca0ed41cf31e2af1f85037dd354286aeef77ac67aaabf5"
+    },
+    {
+      "path": "data/open-pool-v13-audit/README.md",
+      "bytes": 832,
+      "sha256": "cb82431a98a36c3e10285853ca5a169ad91a4cb6bb79318d484123ab275b2246"
+    },
+    {
+      "path": "data/open-pool-v13-audit/baseline-prvs-v6/passages_clean.csv",
+      "bytes": 7314552,
+      "sha256": "6ec42c0bb360d6eaf7ed657b943881bd988358eee49b06abca88b0e6c101d567"
+    },
+    {
+      "path": "data/open-pool-v13-audit/baseline-prvs-v7/passages_clean.csv",
+      "bytes": 7519791,
+      "sha256": "502653b8cc053bc1ef08920d0ddda892e8b656f14229e38e0755d8a2f079eaf9"
+    },
+    {
+      "path": "data/open-pool-v13-audit/download-receipt.json",
+      "bytes": 2085,
+      "sha256": "fecaec7c8698aa9c402f37a3e4546b78eebbfeb53d6e3f6f967a1b174f627f96"
+    },
+    {
+      "path": "data/open-pool-v13-audit/v13/gemini37_unverified.parquet",
+      "bytes": 5366960,
+      "sha256": "b48fb955177a9b1d3d1e818b9d3301c843d9feec5a9f39393bca85866d427090"
+    },
+    {
+      "path": "data/open-pool-v13-audit/v13/ntl_open_pool.parquet",
+      "bytes": 96388050,
+      "sha256": "38e48b40e1db0ab1bf6e4f29d3697e37307c49d1ae5020a7af3cd59c484657d5"
+    },
+    {
+      "path": "data/open-pool-v13-audit/v13/prompts.parquet",
+      "bytes": 1592857,
+      "sha256": "c4a528244ad0c909c771c7206557b7884f8eab8a37130245b58ea45e65bf43c9"
+    },
+    {
+      "path": "data/public-pools/abdullah1afify/ntl-generations/v2/ntl_generations.csv",
+      "bytes": 870886,
+      "sha256": "83003454e3cc0368cae8b05bca243daf036b64a42a792c3f7bfd5fd91b3db378"
+    },
+    {
+      "path": "data/public-pools/dhruvtibarewal/nlm-matched-clean/v3/nlm_matched_clean.parquet",
+      "bytes": 11146946,
+      "sha256": "000f8d541f7c4c5942a18c4fcf557aa01756882931307414cf2530ac21980482"
+    },
+    {
+      "path": "data/public-pools/dhruvtibarewal/nlm-matched-clean/v3/nlm_pool_v2.parquet",
+      "bytes": 17484290,
+      "sha256": "064ecd0dfa43ac9b0d4a7be9d89264333698ff727a5926f44856de2f7a92350d"
+    },
+    {
+      "path": "data/public-pools/dhruvtibarewal/nlm-matched-clean/v3/nlm_pool_v5.parquet",
+      "bytes": 54745036,
+      "sha256": "040afb3609d7f6586d57c89ddb42d9bf4b58cc26426104b57390bdf6312b4650"
+    },
+    {
+      "path": "data/public-pools/dophuchung/ntl-proxy-generations/v1/ntl_proxy_generations.csv",
+      "bytes": 889391,
+      "sha256": "593708f7fd55636bd270824c0e129447b2a5808b1e224bb3dbf43bf2383fdf9c"
+    },
+    {
+      "path": "data/public-pools/lucasboesen/ntl-free-proxy-generations/v7/gen_passages.csv",
+      "bytes": 3835894,
+      "sha256": "d037d212e17a7e98465f9c606f4437225fb221939a5f51b0f8150d15c07c68a5"
+    },
+    {
+      "path": "data/public-pools/prvsiyan/prvsiyans-extended-name-that-llm-dataset/v6/passages_clean.csv",
+      "bytes": 7314552,
+      "sha256": "6ec42c0bb360d6eaf7ed657b943881bd988358eee49b06abca88b0e6c101d567"
+    },
+    {
+      "path": "data/public-pools/seyitkaangunes/ntl-extra-api-passages/v2/ntl_extra_passages_claude.csv",
+      "bytes": 4387162,
+      "sha256": "710dbe484fda23f0dee9b67c20e5bef9376bf754af05584ad142bc17845cd4b9"
+    },
+    {
+      "path": "experiments/EXP-008-public-pool-audit/outputs/row_flags.parquet",
+      "bytes": 17167871,
+      "sha256": "dd0ef1c8b006f90fb5f6c493b0b5d4322563af61105d590eac10dcadaf26e6f8"
+    },
+    {
+      "path": "experiments/EXP-009-baseline-data-lineage/comp_stack.py",
+      "bytes": 54212,
+      "sha256": "b6b6a7b8adbe50580c2d0de5a41d0764ae752fe729e1471872a9197ac956f222"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/payload/extra.csv",
+      "bytes": 8672205,
+      "sha256": "1e9125fd49b19084842332ede84ea65bc0174ee1bb28c8d48acc8ddbd5e36c0e"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/config.json",
+      "bytes": 9115,
+      "sha256": "cf473079e8e8da3c8998c9ed24d3f3c4a2e667f7e046c239a6c3d20eccbaa5fb"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/download-version-discrepancy.json",
+      "bytes": 731,
+      "sha256": "cc85a1aa4382e009ad83d4a905998701015788cc4f94accb1b0b48d0b3cd0ac1"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/download_inputs.py",
+      "bytes": 3273,
+      "sha256": "e974b15e1ce601afb0c87afb5f9248222cba0137ce388821246002a4b5b99602"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/environment.json",
+      "bytes": 332,
+      "sha256": "16cf237187b9fc11dd9a3f40add69b073b4b0a518179dbe4edf8095caa91c205"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/C1-recovered-prompt-increment-candidate-index.csv",
+      "bytes": 6935029,
+      "sha256": "9f745d56b74a141c4265f3871048c254cb192df745ae95abbcf97ffd788001c6"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/C2-new-recovered-prompt-increment-candidate-index.csv",
+      "bytes": 4842092,
+      "sha256": "23cc0c73b6bde6c72acb8a926213ff4713278aa6eae6623a0b42de037dd44188"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/a1-canonical-bridges.csv",
+      "bytes": 603719,
+      "sha256": "59be5f0056bb6fe53a01f86b015545778497be5495930d3104a2812a003debed"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/audit-complete.json",
+      "bytes": 3469,
+      "sha256": "1ad8188be534b56a2978fed4df09238474084524e976615dff32d12df0118965"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/historical-route-evidence-joins.parquet",
+      "bytes": 139766,
+      "sha256": "7f67d155628779ce49c0b4fa65f15af28258bb6b642aeaff0d5e60f1c1731238"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/main-runtime-index.parquet",
+      "bytes": 16407502,
+      "sha256": "15e53cbe64ee2e2793afc0e92ae8bad49145cca5e09e72aaac92389e88d20762"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/overlap.csv",
+      "bytes": 981,
+      "sha256": "fcf1c37efa9c84bbb9ee6b0cc48213cea216e8613b5f0316b1f31aee46b9e634"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/per-label.csv",
+      "bytes": 2949,
+      "sha256": "9d3201e430ae13563e03354ecae631d0b5466452f6ea5f65c6c30c942ace5c4e"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/per-source.csv",
+      "bytes": 3092,
+      "sha256": "1cc60cb828966f5c4036430d9be5a39cd06315f76ba7baf3eec987f7ed97915b"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/prompt-groups.csv",
+      "bytes": 994067,
+      "sha256": "7f40da83e6b7b2cd697009b9499a8638f57c9b1bc8087778192bf8d4cfceb04d"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/prompt-text-index.csv",
+      "bytes": 1322634,
+      "sha256": "04be00db020bd92a525c856d93c6e4921b6334beb4ebbca2dbf56f4d7f7033e7"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/row-risk-index.parquet",
+      "bytes": 27208853,
+      "sha256": "9eefca76e503e52b74995e1d33edd54b69fb21d86c04d2de1fdb7656389990c6"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/shared-extra10469-index.parquet",
+      "bytes": 1426500,
+      "sha256": "eea95b19972878f81a9f1a02bc39f49366406f0ae22197ee5d8b79d93a938e17"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/source-route-claims.csv",
+      "bytes": 34159,
+      "sha256": "bfe5e902834b850581f1140a694743069f898298f24c6eb2050499eb4dfa1048"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/summary.json",
+      "bytes": 16378,
+      "sha256": "a3ce8dbd386d7d0567513831500a91f79f7b2e21c2c720eb5c4b6ad464eb72ae"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/report.md",
+      "bytes": 10524,
+      "sha256": "1e1c0028281bba378ccdd0ba5716af9d7bc249f594a68bfb4240c7fa8cce610e"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/test-result.json",
+      "bytes": 727,
+      "sha256": "b2bbeb479b65b1df0f548ff13230a5cd41bac91dec721898e47e43c8c98968ef"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/verification.json",
+      "bytes": 1262,
+      "sha256": "51670d3aacd8881e916c3927a0b7c4f7c743231aa90940cc94cd4b4366153328"
+    },
+    {
+      "path": "experiments/EXP-050-open-pool-v13-increment-audit/verify_results.py",
+      "bytes": 4769,
+      "sha256": "2e90f79a3dd619e8a04a718ee8b590e618c82e11155e5b686cc33eb4d6445370"
+    },
+    {
+      "path": "research/datasets/SRC-065-open-pool-kaggle-v13/files/v11_append_log.csv",
+      "bytes": 678,
+      "sha256": "606db6d76989cc1458876dc6e4ebbb43198d002f18c7ba8b8f9f4d478a7821dd"
+    },
+    {
+      "path": "src/open_pool_audit.py",
+      "bytes": 24387,
+      "sha256": "f1bfe94ab448ba1a01a32e4fdc8a02b31de7a8eaef0bcb748dcabc3ab5f63e34"
+    },
+    {
+      "path": "src/test_open_pool_audit.py",
+      "bytes": 5031,
+      "sha256": "fb1af9cfe4d12011eff691eeb533722d9cd11689fcbe58abfb8400373324d39e"
+    },
+    {
+      "path": "train.csv",
+      "bytes": 2139418,
+      "sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707"
+    },
+    {
+      "path": "validation/prompt-group-v1/manifest.json",
+      "bytes": 1060,
+      "sha256": "2b05e2bde656d5e773e8d512cba607859e9b9bfe7d9d7dfe9deb00907b4d93c8"
+    }
+  ],
+  "authoritative_output": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/summary.json",
+  "row_risks": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/row-risk-index.parquet",
+  "strict_oof_approved": false,
+  "training_approved": false,
+  "cloud_writes": false,
+  "hash_scope": "Manifest does not hash itself; all listed input, code, report and output files are hashed. metrics-first-pass is historical and excluded from current artifact list."
+}

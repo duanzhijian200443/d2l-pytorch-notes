@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-055",
+  "freeze_status": "FIXED_EXP049_SOURCE_V2_READBACK",
+  "recorded_at": "2026-11-02T09:05:36.848891+00:00",
+  "config": {
+    "path": "experiments/EXP-055-a1-sinkhorn030-formal/config.json",
+    "bytes": 1546,
+    "sha256": "ea904ec2582b6e6f1564604415c127c4c3712fc9cfd8242afcc1ee4fcd7d70b3"
+  },
+  "code": [
+    {
+      "path": "cloud/a1-sinkhorn030-055/control.py",
+      "bytes": 5348,
+      "sha256": "ea224a1f136b714de8dfdb16da6b01d9fc420592408fbbe65021cbb339522ce7"
+    },
+    {
+      "path": "cloud/a1-sinkhorn030-055/verify_quick.py",
+      "bytes": 4997,
+      "sha256": "8dc4fdd0178e5f805c91e04b53124fab9d97cacf1b523c6670c64c65d04a314f"
+    },
+    {
+      "path": "cloud/a1-public-stylegram-046/control.py",
+      "bytes": 20567,
+      "sha256": "786a59bfccc62c9913e8cdcc2cd59e0cb24e1fa5f53afa92c1eecfa235a44076"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "cloud/a1-sinkhorn030-049/kernel/a1.ipynb",
+      "bytes": 192935,
+      "sha256": "35ddcc24900d4bace4b3c4cc167475ad2c119af83a9eb687ef717f7bea1200b5"
+    },
+    {
+      "path": "cloud/a1-sinkhorn030-049/kernel/kernel-metadata.json",
+      "bytes": 2109,
+      "sha256": "8c0a1ad41ecda521e57a0072bb68d93bbfa2ce65014a4ee42ffb0d09d679ba6f"
+    },
+    {
+      "path": "experiments/EXP-049-a1-sinkhorn030-ready/manifest.json",
+      "bytes": 3235,
+      "sha256": "aaeb4788a95d39d94953d449ecf6165916a59d059daa09a566cf023126f8acbd"
+    }
+  ],
+  "remote_save_run_evidence": [
+    {
+      "path": "cloud/a1-sinkhorn030-055/discovery.json",
+      "bytes": 2686,
+      "sha256": "f4ec02c10542ae79bd966b9f7bb7b5b9e8063d3cf4af16c63d4af91093ed329e"
+    },
+    {
+      "path": "cloud/a1-sinkhorn030-055/save-only-intent.json",
+      "bytes": 878,
+      "sha256": "36f96144524415e9866c9b376a8f9cf4a645ee38d132cbd369cf75855e1025bb"
+    },
+    {
+      "path": "cloud/a1-sinkhorn030-055/save-only-response.json",
+      "bytes": 286,
+      "sha256": "089e77db459bacc3aeb8e6b619599a07d3cb1327f6dbbbee5954ff3cfdb6c1a1"
+    },
+    {
+      "path": "cloud/a1-sinkhorn030-055/run-intent.json",
+      "bytes": 873,
+      "sha256": "59b662d90ed67e37fb136ce17d0a2eb9e2249413fcc90c2c467df0ccf263b3bb"
+    },
+    {
+      "path": "cloud/a1-sinkhorn030-055/run-response.json",
+      "bytes": 286,
+      "sha256": "ae60b77fd887a03573c5749e13df8868a9d4ad274b5d49cfbd4fcc9898785475"
+    },
+    {
+      "path": "cloud/a1-sinkhorn030-055/readback-v1-20261102T090151708503Z-0f51da/verified.json",
+      "bytes": 11594,
+      "sha256": "29a6428178b2612f6488990b74b5cac8b1d7f40f84e75afdcf2b379a2996fa9e"
+    },
+    {
+      "path": "cloud/a1-sinkhorn030-055/readback-v2-20261102T090207715709Z-c04d53/verified.json",
+      "bytes": 11594,
+      "sha256": "e02868b6de861f87fcc1e051faa03c0bfc40176566561f5e40a3878a389589a2"
+    }
+  ],
+  "candidate_prepared_before_dispatch": true,
+  "manifest_recorded_after_readback": true
+}

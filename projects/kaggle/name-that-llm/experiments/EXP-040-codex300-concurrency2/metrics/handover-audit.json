@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "observed_at": "2026-11-01T13:12:08.090487+00:00",
+  "saved_count": 20,
+  "by_model": {
+    "gpt-5.6-luna": 5,
+    "gpt-5.6-terra": 5,
+    "gpt-5.6-sol": 5,
+    "gpt-6-astra": 5
+  },
+  "all_success_raw_hashes_match": true,
+  "gate_only_marker": true,
+  "gate_model_requests": 0,
+  "old_locks_released": true,
+  "no_model_process_killed": true,
+  "old_terminal_status_preserved": "LOCAL_ERROR"
+}

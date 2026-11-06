@@ -1,0 +1,405 @@
+[
+  {
+    "id": "IDEA-001",
+    "priority": 0,
+    "title": "建立固定 prompt 分组验证与泄漏检查",
+    "status": "completed",
+    "sources": [
+      "SRC-026",
+      "SRC-029"
+    ],
+    "next_action": "EXP-007 已复核历史 OOF 并固定 prompt-group-v1；后续模型继续独立检查训练范围，不能自动继承无泄漏结论。",
+    "acceptance": "同一 prompt 不跨折；所有拟合隔离验证；重复结果可追溯；不同验证范围分别报告。",
+    "budget": "先 CPU；不启动完整多大模型训练。",
+    "experiment_id": "EXP-007",
+    "baseline_delta": "固定验证协议是已有基础，不是对EXP-004新增模型或已兑现分数。",
+    "evidence_assessment": "已完成EXP-007协议/历史轻量OOF复核；不自动证明后续encoder、adapter、head或校准器训练隔离。",
+    "expected_benefit": "减少无效结论与重复训练；无直接Public增益预估。",
+    "related_experiments": [
+      "EXP-004",
+      "EXP-007",
+      "EXP-009"
+    ],
+    "evidence": [
+      "validation/README.md",
+      "experiments/EXP-009-baseline-data-lineage/report.md"
+    ],
+    "observed_at": "2026-11-01T08:55:13.090528+00:00",
+    "planning_scope": "当前只分析与排期，不启动训练、生成、GPU、提交或重试；未来执行另行固定配置与预算。"
+  },
+  {
+    "id": "IDEA-002",
+    "priority": 1,
+    "title": "强模型缓存通过隔离检查后，仅比较Sinkhorn 0.45/0.30",
+    "status": "evaluated_exploratory",
+    "sources": [
+      "SRC-021",
+      "SRC-022",
+      "SRC-029",
+      "SRC-043",
+      "SRC-050",
+      "SRC-051",
+      "SRC-052",
+      "SRC-053",
+      "SRC-059",
+      "SRC-067",
+      "SRC-068"
+    ],
+    "next_action": "EXP049已将同一A1缓存固定比较0.45/0.30：净多对2条，区间跨0。单因素候选包已准备未上云；先收EXP048结果，不继续在已见面板扫参。",
+    "acceptance": "同ID、类序、输入概率、覆盖mask及后处理顺序；按prompt配对报告改对/改错与区间。稀疏场景先抽样再重建组相关过程，不使用真实组大小选择参数。",
+    "budget": "现有文件审计为CPU/IO；缓存齐备后的两候选比较为低成本CPU。生成完整强预测可能需GPU推理或重新训练，耗时/金额未核实，不按公开样例十分钟估算，不在本轮执行。",
+    "phase": "real_cache_verified_small_positive_inconclusive",
+    "baseline_delta": "直接改变EXP-004最后平衡强度，属于真实参数增量；0.60/1.2是已有EXP-005组合，不能重新包装为0.664复现。",
+    "evidence_assessment": "实际完整缓存固定对比：17类宏召回+0.4465个百分点，95%区间[-0.0151,+1.0076]个百分点。缺类且训练独立性未知，非榜单收益。 新 0.665 将 0.60/1.2 与换池、svc_w 和家族残差同时引入。自有 EXP-005 的同一后处理组合得 0.659，据此维持已见面板的停止条件。",
+    "expected_benefit": "小幅准确率候选、方向未确定；相比增加模型更容易隔离机制。CPU后处理便宜，但获取可信强预测可能是主要成本。",
+    "prerequisites": "完整ATLAS20尚无已验收干净OOF。全量adapter在官方训练集的预测/五折+final平均都不算OOF；需训练范围可证明的折预测或新的独立面板，SVM margin不得冒充概率。先重建对照输出再改参数。",
+    "stop_rule": "缓存无法证明独立性则仅做机制检查，不能报告收益；新验证若支持不足或跨场景明显退化，保留0.45，不继续在同一数据扫描到有利结果。",
+    "related_experiments": [
+      "EXP-004",
+      "EXP-005",
+      "EXP-006",
+      "EXP-009",
+      "EXP-028",
+      "EXP-031",
+      "EXP-032",
+      "EXP-046",
+      "EXP-049"
+    ],
+    "evidence": [
+      "tracking/records/experiments/EXP-004.json",
+      "tracking/records/experiments/EXP-005.json",
+      "experiments/EXP-009-baseline-data-lineage/report.md",
+      "research/solutions/SRC-036-one-swap-v1/notes.md",
+      "reviews/judith007-0664-20261031/v2-score-0664/notes.md",
+      "validation/README.md",
+      "experiments/EXP-028-full-stack-cache/report.md",
+      "experiments/EXP-032-sinkhorn-fixed-cache/report.md",
+      "experiments/EXP-049-a1-sinkhorn030-ready/report.md",
+      "research/solutions/SRC-067-synthreaper-sovereign-gold-apex-v1/notes.md"
+    ],
+    "observed_at": "2026-11-02T07:17:44.703387+00:00",
+    "planning_scope": "真实推理和固定CPU比较已完成；无新训练、提交或重开GPU。"
+  },
+  {
+    "id": "IDEA-003",
+    "priority": 1,
+    "title": "Open Pool V13增量审计后，分开检验换池、采样与svc_w",
+    "status": "planned",
+    "sources": [
+      "SRC-027",
+      "SRC-030",
+      "SRC-031",
+      "SRC-032",
+      "SRC-033",
+      "SRC-034",
+      "SRC-035",
+      "SRC-036",
+      "SRC-037",
+      "SRC-038",
+      "SRC-065",
+      "SRC-066",
+      "SRC-040",
+      "SRC-067",
+      "SRC-068",
+      "SRC-069"
+    ],
+    "next_action": "本轮 P1。先在旧池上复用 EXP-031 的 729×18 主 SVC margin 和各成员分数，复现 1.5 对照，再只改融合系数到 12。重新算 ATLAS 选行并核缓存覆盖，固定原 mask 的结果只作机制诊断。换池另测，区分复核社区 V11→V13 与验证自有 v5→V13 两个问题。自有路线从 EXP-050 的 C2 候选（29478 行/5061 组）按固定类别及来源配额设计，核 prompt 祖先、清洗依赖、实际去重与被替换的旧池样本。抽样结果只适用于该子集。",
+    "acceptance": "以原主svc4配方和相同权重/环境作对照，区分官方only与正式基线、每行权重与log融合系数；同时报告成员增量、完整集成增量、ATLAS候选/完成行和固定预算下表现。",
+    "budget": "已有成员缓存时，调融合权重为低成本 CPU 重放，当前重放器固定校验 1.5，未来先核对照再扩展。换池须重新拟合四视图 SVC，CPU/内存成本较高。新增 ATLAS 选行缺预测时，动态结果留空，补充推理另估成本。",
+    "audit_experiment_id": "EXP-008",
+    "baseline_lineage_experiment_id": "EXP-009",
+    "observed_at": "2026-11-02T07:17:44.703387+00:00",
+    "completed_experiments": [
+      "EXP-010",
+      "EXP-011",
+      "EXP-012",
+      "EXP-017",
+      "EXP-018",
+      "EXP-019",
+      "EXP-020"
+    ],
+    "phase": "v13_actual_increment_audit_complete_candidates_not_approved",
+    "active_experiments": [],
+    "failed_experiments": [
+      "EXP-013",
+      "EXP-014",
+      "EXP-015",
+      "EXP-016"
+    ],
+    "selected_development_reference": "EXP-018",
+    "baseline_delta": "可能改变主svc4的实际数据组成，是本批最直接的数据增量候选。4158条prvs clean/new已全被基线使用；15989候选中14604已进已审计支路；raw5400中5376也已在基线投影，不把它们再次算新数据。",
+    "evidence_assessment": "实测A1实际用数命中97870、未命中上界92718；全可得raw输入未命中91481；C1/C2仅候选。实际prvs hash为平台V7，旧V6投影非实际运行。无全文重复不证明checkpoint未见或语义独立；全train上游筛选依赖不能由折内重权撤销。 同源码的 Alex V9（V11，准备 190210 行）得 0.663，chyibo V1（V13，准备 190588 行）得 0.665。两条 0.665 共享推理脚本，计作同一配方。其余附件和隐藏覆盖未锁定，纯换池收益未知。",
+    "expected_benefit": "比重复加已用来源更可能改变数据覆盖；潜在幅度无法量化，也可能因清洗偏差、类权重和时间预算下降。不能把作者SVC五折+0.0203当强集成增益。",
+    "prerequisites": "固定平台V13及文件哈希；取得实际过滤/去重后行数、prompt_canon的证据层级和上游筛选依据。已有全官方train逐类标点/内容筛选无法靠按折重算match_weight撤销；严格OOF需从足够原始候选按折重建相关筛选与匹配，或使用未参与这些步骤的独立外部验证。否则只标开发/探索指标。",
+    "stop_rule": "若无可解释真实增量或无法完成来源隔离，先停在审计；不得用raw5400结果绕过原matched/pool门槛。改变训练或svc_w导致ATLAS覆盖不一致时不能宣称纯换池收益。",
+    "related_experiments": [
+      "EXP-004",
+      "EXP-008",
+      "EXP-009",
+      "EXP-010",
+      "EXP-011",
+      "EXP-012",
+      "EXP-017",
+      "EXP-018",
+      "EXP-019",
+      "EXP-020",
+      "EXP-046",
+      "EXP-050",
+      "EXP-031",
+      "EXP-047",
+      "EXP-049"
+    ],
+    "evidence": [
+      "experiments/EXP-009-baseline-data-lineage/report.md",
+      "cloud/svc4-raw-public/README.md",
+      "cloud/svc4-raw-public-r1/analysis/verified.json",
+      "research/solutions/SRC-036-one-swap-v1/notes.md",
+      "research/datasets/SRC-038-open-pool-kaggle-v11/notes.md",
+      "research/datasets/SRC-065-open-pool-kaggle-v13/notes.md",
+      "research/datasets/SRC-065-open-pool-kaggle-v13/factcheck.json",
+      "research/datasets/SRC-066-lucas-free-proxy-v12/notes.md",
+      "research/datasets/SRC-066-lucas-free-proxy-v12/actual-counts.json",
+      "experiments/EXP-050-open-pool-v13-increment-audit/report.md",
+      "experiments/EXP-050-open-pool-v13-increment-audit/metrics/summary.json",
+      "research/solutions/SRC-067-synthreaper-sovereign-gold-apex-v1/notes.md",
+      "research/solutions/SRC-068-chyibo-name-that-llm-0663-fork-v1/notes.md",
+      "research/solutions/SRC-069-alexchilton-all-public-v9/notes.md"
+    ],
+    "planning_scope": "逐行审计完成；后续训练/生成/GPU/提交需明确实验范围和预算。本次不执行。"
+  },
+  {
+    "id": "IDEA-004",
+    "priority": 0,
+    "title": "固定10%融合：跨来源证据不一致，暂不升级",
+    "status": "planned",
+    "sources": [
+      "SRC-026",
+      "SRC-029",
+      "SRC-055",
+      "SRC-059",
+      "SRC-062",
+      "SRC-063"
+    ],
+    "next_action": "本来源尚不支持稳定增益，暂不升级候选；不依据此结果继续扫权重。 完整集成接入需要分开配方、分数尺度与追加成员，见EXP027 integration-plan。",
+    "acceptance": "保持alpha=.10与18类预测，分别报告新来源/各类/整体及逐prompt配对差异；覆盖缺口单列。工程验收与效果判断分开；完整集成晋级另需与EXP-004同范围、同预算的逐行对照。",
+    "budget": "立即步骤为已有产物复用与数据/缓存审计，无新增拟合；旧OOF及EXP-026未保存拟合模型/词表，新的外部推理需另定重拟合预算。EXP-026实测3个SVM共213.845秒、守护389.756秒、峰值5.549GiB仅作历史参考；扩展18类成本未知。",
+    "phase": "fixed_blend_multisource_checks_complete",
+    "observed_at": "2026-11-01T09:50:40.400832+00:00",
+    "active_experiments": [],
+    "completed_experiments": [
+      "EXP-022",
+      "EXP-024",
+      "EXP-026",
+      "EXP-027"
+    ],
+    "baseline_delta": "新证据是标准化margin融合的受限外部增量，尚不是完整0.662配方新增10%概率分支；基线本来已有Stylegram和svc4，直接重复加入可能重复计权。",
+    "evidence_assessment": "EXP-026四GPT/Dolly5200行，1300来源题归并为1299正文题；净54条，+1.0385百分点，修正区间[+0.6736,+1.3857]。EXP-027另一来源729行/56题/17类，净少4条、宏召回−0.4335百分点，区间[−1.2253,+0.3417]跨0；暂不支持稳定增益。",
+    "expected_benefit": "优先验证跨来源/类别的稳健互补性；完整集成Public增益未知，不能把四类+1.0385百分点加到0.662。",
+    "prerequisites": "两外部面板均已查看，只证明指定两轻量成员known/exact范围；新独立验证须先冻结面板与所有参与成员的训练隔离。完整集成接入须拆配方、尺度和新增分支，不继承两成员收益。",
+    "stop_rule": "不在EXP-026已见面板上改alpha或改选纯svc4；区间跨0记证据不足，不自动扩大网格。若不能证明训练隔离/完整支路映射，暂停强集成收益声明。",
+    "related_experiments": [
+      "EXP-004",
+      "EXP-009",
+      "EXP-010",
+      "EXP-018",
+      "EXP-022",
+      "EXP-024",
+      "EXP-026",
+      "EXP-027"
+    ],
+    "evidence": [
+      "experiments/EXP-009-baseline-data-lineage/report.md",
+      "experiments/EXP-024-oof-margin-blend/metrics/acceptance.json",
+      "experiments/EXP-026-independent-blend-validation/report.md",
+      "experiments/EXP-026-independent-blend-validation/metrics/verified.json",
+      "experiments/EXP-026-independent-blend-validation/metrics/independent-review.json",
+      "tracking/records/experiments/EXP-027.json",
+      "research/datasets/SRC-063-earthmaker-own-prompts-v1/notes.md",
+      "experiments/EXP-026-independent-blend-validation/metrics/prompt-unit-correction.json",
+      "experiments/EXP-027-multiclass-external-validation/report.md"
+    ],
+    "planning_scope": "两成员外部检查已完成，正式基线不变；不继续在已见数据上搜索alpha。",
+    "planned_experiments": []
+  },
+  {
+    "id": "IDEA-005",
+    "priority": 3,
+    "title": "新增生成数据暂缓扩量；复用已有试采做来源审计",
+    "status": "evaluated_no_stable_primary_gain",
+    "sources": [
+      "SRC-023",
+      "SRC-024",
+      "SRC-025",
+      "SRC-028"
+    ],
+    "next_action": "EXP052和Apex EXP053的同一官方开发五折均不支持120→240扩量，零数据保留。120相对0的效果未稳定；若另测权重或新题分布，预注册单因素。",
+    "acceptance": "数据新增性与prompt隔离可追溯，原文不润色；未来单来源/单设置对照有支持后才讨论扩大。",
+    "budget": "本轮无新调用或支出；已有订阅消耗折算未知。旧$5/$100仅历史规划，不是当前预算或消费。",
+    "baseline_delta": "只有可追溯且未重复的数据才可能构成新增训练覆盖；当前采集没有模型/完整集成收益证据。SRC-062既有Dolly评测集保留为已使用的评测资料，不立即并入训练后又称独立验证。",
+    "evidence_assessment": "EXP042 aligned120主BA差−0.0741pp；EXP044旧clean120对旧raw120差−0.0741pp、净−2、95%CI[−0.2593,+0.1111]pp，target类召回不变、稀疏方向不一致。不同实验比较不可混为同一配对。 EXP052四标签配平：120−A +0.03704pp、240−A −0.18543pp、240−120 −0.22247pp（95% CI [−0.51852,+0.03704]pp），各类误报合计319→329。",
+    "expected_benefit": "可能补覆盖缺类或生成设置，但收益、质量与订阅消耗仍未知；优先使用已有公共资料和已完成结果减少无效扩量。",
+    "prerequisites": "实际loader核验旧新协议/所有渠道/重复答案的全局prompt隔离，保留来源及requested_only标签身份限制；固定来源权重和预算后执行。",
+    "stop_rule": "响应后端/分组/原文证据不满足用途则隔离该数据；不因采集完成就启动训练，不重复已保存请求。",
+    "related_experiments": [
+      "EXP-021",
+      "EXP-023",
+      "EXP-025",
+      "EXP-026",
+      "EXP-038",
+      "EXP-040",
+      "EXP-041",
+      "EXP-042",
+      "EXP-043",
+      "EXP-044",
+      "EXP-052",
+      "EXP-053"
+    ],
+    "evidence": [
+      "tracking/records/experiments/EXP-025.json",
+      "experiments/EXP-026-independent-blend-validation/metrics/data-use.json",
+      "experiments/EXP-041-aligned-channel-repeat-audit/report.md",
+      "experiments/EXP-042-luna-terra120-ablation/report.md",
+      "experiments/EXP-044-format120-parallel/report.md",
+      "experiments/EXP-044-format120-parallel/metrics/verified.json",
+      "experiments/EXP-052-stylegram-four-model-volume/report.md",
+      "experiments/EXP-052-stylegram-four-model-volume/analysis/summary.json",
+      "experiments/EXP-053-apex-stylegram-volume/report.md"
+    ],
+    "observed_at": "2026-11-02T08:22:12.724246+00:00",
+    "planning_scope": "本轮CPU训练及完整验收完成；未扩大生成、启动GPU或正式提交。"
+  },
+  {
+    "id": "IDEA-006",
+    "priority": 2,
+    "title": "固定覆盖下拆分ATLAS信号、均匀平滑与去分支",
+    "status": "planned",
+    "sources": [
+      "SRC-001",
+      "SRC-036",
+      "SRC-045",
+      "SRC-058",
+      "SRC-059"
+    ],
+    "baseline_delta": "ATLAS20%已经属于EXP-004；新增的是对其作用机制的对照，不是再次添加ATLAS。",
+    "evidence_assessment": "SRC-058作者报告V31/20%真实ATLAS0.663、均匀替代0.662，但覆盖行与恢复权重有混杂；尚无我们同输入三臂结果。",
+    "expected_benefit": "主要是判断ATLAS计算是否值得及有无更稳健平滑，可能节省推理成本；准确率提升及可省时长未证实。",
+    "prerequisites": "复用IDEA-002的合格强预测，保留底座概率、ATLAS概率、原选行和完成mask；先固定覆盖研究机制，再另测实际时间预算。",
+    "next_action": "在同一输入上预先固定三臂：真实ATLAS20%、同覆盖均匀概率20%、移除该分支并明示其余权重归一化。Sinkhorn0.45/target_mix0.35/标点1.5不变，不同时调整27B或SVC。",
+    "acceptance": "逐阶段保存概率和最终改判；均匀混合在单行后处理前应保持argmax（除数值并列），其它改判需追到后续群组/非线性步骤。只有隔离验证可支持收益，机制一致性不等于提分。",
+    "stop_rule": "无固定mask或合格概率就停止收益比较；不得用不同耗时产生的覆盖差直接归因ATLAS信息，也不根据一次社区差分删除分支。",
+    "budget": "有缓存时为低成本CPU；取得完整ATLAS预测成本可能高，历史隐藏耗时未核实，不在本轮新增GPU。",
+    "related_experiments": [
+      "EXP-004",
+      "EXP-009"
+    ],
+    "evidence": [
+      "research/discussions/SRC-058-754131-atlas-vs-uniform-smoothing/notes.md",
+      "research/solutions/SRC-036-one-swap-v1/notes.md",
+      "validation/README.md"
+    ],
+    "observed_at": "2026-11-01T08:55:13.090528+00:00",
+    "planning_scope": "当前只分析与排期，不启动训练、生成、GPU、提交或重试；未来执行另行固定配置与预算。"
+  },
+  {
+    "id": "IDEA-007",
+    "priority": 2,
+    "title": "先验证输入与输出不变，再评估适配器暂存和运行加速",
+    "status": "planned",
+    "sources": [
+      "SRC-002",
+      "SRC-036",
+      "SRC-044",
+      "SRC-054",
+      "SRC-056"
+    ],
+    "baseline_delta": "基线已含部分本地模型暂存、双T4并行和快保存；先检查其余adapter加载瓶颈，避免重复算已有优化。",
+    "evidence_assessment": "SRC-054的4884→2866秒是作者特定主流程计时，不是完整隐藏评分；SRC-044部分保底会改变模型组成。TPU14.2倍是特定吞吐探针，不是端到端保证。",
+    "expected_benefit": "可能减少IO/加载与提高完整推理覆盖；固定预测下本身不应提分。若ATLAS覆盖改变，单独记录预算路径收益，不能伪称算法收益。",
+    "prerequisites": "冻结输入字节、实际激活成员、dtype/seed、原完整输出和ATLAS候选/完成行；性能测量分离复制成本、加载、拟合、推理和保存。",
+    "next_action": "先静态检查哪些权重尚未本地暂存、失败跳过/占位输出能否识别，再拟定相同代码与预测的mount/local对照。TPU迁移延后至确有LoRA训练需求时另定探针，不在此时执行。",
+    "acceptance": "原成员/预测哈希一致（无法逐字一致时事先定义数值容差与argmax要求），完整阶段无缺失；保存成功不等于隐藏成功，已失败必需分支不能用保底CSV掩盖。",
+    "stop_rule": "若提速依赖删成员、跳计算、改变精度或输出不一致，则转为独立算法候选而非接受性能优化；不直接套用作者加速倍数预算。",
+    "budget": "静态检查低成本；实际计时需一次受控推理且占用硬件，先另定预算。TPU编译/迁移/兼容成本未知，不启动。",
+    "related_experiments": [
+      "EXP-004",
+      "EXP-009"
+    ],
+    "evidence": [
+      "reviews/atlas20-drive-20261101/adaptation-validation.json",
+      "research/discussions/SRC-054-754426-halx-fork-guards/notes.md",
+      "research/discussions/SRC-056-754657-gopain-tpu-qwen-lora/notes.md"
+    ],
+    "observed_at": "2026-11-01T08:55:13.090528+00:00",
+    "planning_scope": "当前只分析与排期，不启动训练、生成、GPU、提交或重试；未来执行另行固定配置与预算。"
+  },
+  {
+    "id": "IDEA-008",
+    "priority": 3,
+    "title": "新增大模型或 LoRA 的训练与替换暂缓",
+    "status": "deferred",
+    "sources": [
+      "SRC-039",
+      "SRC-040",
+      "SRC-042",
+      "SRC-043",
+      "SRC-045",
+      "SRC-055",
+      "SRC-067",
+      "SRC-068"
+    ],
+    "baseline_delta": "ours8/27B候选或新的家族残差可能改变信号，但基线已含多个LoRA、Stylegram与家族gates；应证明互补而非再加同源特征。",
+    "evidence_assessment": "KilupyV1有0.664绑定却含私有依赖且训练范围未知；lightningV43未确认成绩且三项同改；ApexE0.663多改动混杂。去Llama负结果也没有严格隔离，不能以单模OOF或模型尺寸决定替换。 新 0.665 沿用 EXP-047 的六个主成员，没有提供新增大模型训练的收益证据。",
+    "expected_benefit": "潜在互补性尚不可量化，可能负收益并挤占ATLAS时间；现阶段性价比低于少参数/数据审计路线。",
+    "prerequisites": "完整公开权重与版本/hash、标签序、adapter/head训练prompt范围、独立预测及GPU时空预算；家族残差可靠度/门控必须在外层训练范围拟合。",
+    "next_action": "保留新增主模型或 LoRA 的输入与训练隔离审计。轻量家族残差的独立开关移至 IDEA-009，单独判断成本和边际价值。",
+    "acceptance": "报告单成员与完整集成的配对改判、错误交集和预算覆盖；最强单成员不自动成为最佳替换。",
+    "stop_rule": "私有缺失权重或不明训练范围则不复现；必需输出被后续步骤覆盖则先修清数据流，不能拿标题成绩作收益。",
+    "budget": "只读依赖盘点低成本；新LoRA/27B训练与推理可能高成本，GPU小时/金额未知，当前不排启动。",
+    "related_experiments": [
+      "EXP-004",
+      "EXP-009",
+      "EXP-022",
+      "EXP-026"
+    ],
+    "evidence": [
+      "research/solutions/SRC-039-kilupy-ntl-full-0662-ours15-v1/notes.md",
+      "research/solutions/SRC-040-bgunshui-ntl-apex-e-v1/notes.md",
+      "research/solutions/SRC-045-lightningv08-0-662-qwen3-8-27b-lora-weighted-ensemble-v43/notes.md",
+      "research/solutions/SRC-067-synthreaper-sovereign-gold-apex-v1/notes.md"
+    ],
+    "observed_at": "2026-11-02T07:17:44.703387+00:00",
+    "planning_scope": "当前只分析与排期，不启动训练、生成、GPU、提交或重试；未来执行另行固定配置与预算。"
+  },
+  {
+    "id": "IDEA-009",
+    "priority": 2,
+    "status": "planned",
+    "title": "固定标点后输出，单独验证家族内风格残差",
+    "sources": [
+      "SRC-040",
+      "SRC-067",
+      "SRC-068",
+      "SRC-069"
+    ],
+    "next_action": "在同一份 EXP-047 配方的标点后概率上只切换 V40A 残差关/开，预先固定各家族概率总量、0.08 强度上限和原门控。",
+    "baseline_delta": "EXP-004/047 已有互补栈家族门控。新增的是标点修正之后的独立家族内重排。",
+    "evidence_assessment": "四个同源版本的输出脚本一致，0.663 与 0.665 都含此残差。隐藏评分缺少开/关对照及实际改判。",
+    "expected_benefit": "可能修正同家族模型之间的混淆，作用限于被门控选中的预测，公共分数增量未知。",
+    "prerequisites": "需完整同序概率、官方训练文本与独立验证面板。家族分类器、校准与可靠度估计只使用外层训练 prompt 组。",
+    "acceptance": "报告每家族激活、纠错、引错、配对 macro recall 变化与 prompt 组区间，并验证家族总质量在数值容差内守恒。",
+    "stop_rule": "无独立面板或改正数不足以覆盖引错时保留为机制记录。",
+    "budget": "有合格缓存时为小型 CPU 拟合和重放。缺基线完整概率时另估获取成本，本次只排期。",
+    "related_experiments": [
+      "EXP-004",
+      "EXP-047",
+      "EXP-049"
+    ],
+    "evidence": [
+      "research/solutions/SRC-067-synthreaper-sovereign-gold-apex-v1/notes.md",
+      "research/solutions/SRC-068-chyibo-name-that-llm-0663-fork-v1/notes.md",
+      "research/solutions/SRC-069-alexchilton-all-public-v9/notes.md"
+    ],
+    "observed_at": "2026-11-02T07:17:44.703387+00:00",
+    "planning_scope": "仅登记计划，未启动训练或提交。"
+  }
+]

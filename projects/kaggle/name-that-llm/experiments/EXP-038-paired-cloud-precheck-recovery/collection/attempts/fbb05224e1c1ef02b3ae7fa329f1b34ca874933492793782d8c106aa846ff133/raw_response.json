@@ -1,0 +1,44 @@
+{
+  "id": "chatcmpl-EfPkRlQjCFnH95RrTycbUvpeNICTb",
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "message": {
+        "content": "A password manager reduces the need to remember many passwords by securely storing account credentials in an encrypted vault and filling them in when the user visits a legitimate website or app. It can also generate long, unique, random passwords for every account, avoiding the unsafe habit of reusing a few memorable passwords. Instead of memorizing dozens of login details, the user generally needs to remember only one strong master password, and may use biometric unlocking where available. This makes it practical to use different passwords for banking, email, shopping, work, and social media accounts. However, the user remains responsible for protecting the master password, because anyone who obtains it may gain access to the entire vault. They should choose a long, unique master password, enable multi-factor authentication, keep devices and the password manager updated, and be alert to phishing sites that imitate real login pages. The user must also safeguard recovery codes and ensure trusted emergency access or backup arrangements are appropriate.",
+        "refusal": "",
+        "role": "assistant",
+        "annotations": null,
+        "audio": null,
+        "function_call": null,
+        "tool_calls": null
+      }
+    }
+  ],
+  "created": 1793539131,
+  "model": "openai/gpt-5.6-terra",
+  "object": "chat.completion",
+  "metadata": null,
+  "moderation": null,
+  "service_tier": null,
+  "system_fingerprint": null,
+  "usage": {
+    "completion_tokens": 232,
+    "prompt_tokens": 133,
+    "total_tokens": 365,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 35,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": null,
+    "cost": {
+      "input_tokens_cost_nanodollars": 266000,
+      "output_tokens_cost_nanodollars": 2784000
+    },
+    "total_backend_latency_ms": 2929
+  }
+}

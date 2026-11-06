@@ -1,0 +1,34 @@
+{
+  "job": {
+    "request_index": 60,
+    "block_index": 15,
+    "job_id": "915f2733fd8dbe45629e36687a07ef0d0dac3b04220df0097c1eb9e2e69642fc",
+    "cell_id": "cp0001|gpt-5.6-luna",
+    "route": "codex_subscription",
+    "repeat_id": 2,
+    "prompt_id": "cp0001",
+    "prompt_group": "cp0001",
+    "split": "train",
+    "model_label": "gpt-5.6-luna",
+    "protocol_version": "single-paragraph-plain-text-v1",
+    "target_words": 80,
+    "user_message": "I share a narrow entryway with two roommates, and shoes keep blocking the door. Suggest a practical arrangement that requires no drilling or new furniture. Aim for about 80 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+    "user_message_sha256": "1c6e07bbb92e9a3ff9d5a4f8b0566eadde63070049ce52037be5c20c455135f2",
+    "base_instruction": "Answer the user's request.",
+    "reasoning_effort": "low",
+    "execution_authorized": true,
+    "state": "AUTHORIZED_NOT_SENT",
+    "codex_execution_contract": {
+      "fresh_ephemeral_exec": true,
+      "ignore_user_config": true,
+      "sandbox": "read-only",
+      "frozen_runtime_config": "experiments/EXP-034-explicit-format-alignment/pilot/config.json",
+      "remove_api_key_env_overrides": true,
+      "attempt_path": "collection/codex_subscription/cp0001/gpt-5.6-luna/repeat-02",
+      "note": "Use job_id/repeat_id for durable identity. Never put repeat identifiers into the model-visible prompt."
+    }
+  },
+  "started_at": "2026-11-01T13:31:37.633586+00:00",
+  "run_id": "75230ec19d8d4d4daf6e771359fd475b",
+  "controller_pid": 33640
+}

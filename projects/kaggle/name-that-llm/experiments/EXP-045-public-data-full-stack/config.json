@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-045",
+  "created_at": "2026-11-01T16:56:14.839479+00:00",
+  "scope": "exploratory_external_full_stack_public_data_replay",
+  "arms": {
+    "A0": "原完整ATLAS20缓存基线",
+    "A1": "仅替换为已隔离公共池的Stylegram配方",
+    "A2": "A1的Stylegram分数再逐行标准化",
+    "A3": "标准化后加入10% raw svc4"
+  },
+  "primary_comparisons": [
+    "A1-A0",
+    "A2-A1",
+    "A3-A2",
+    "A3-A0"
+  ],
+  "parameters": {
+    "stylegram_weight": 1.516,
+    "raw_svc_internal_alpha": 0.1,
+    "comp_weight": 0.15,
+    "atlas_weight": 0.2,
+    "atlas_margin": 0.3,
+    "sinkhorn": 0.45,
+    "target_mix": 0.35,
+    "typography_scale": 1.5,
+    "typography_cap": 0.3
+  },
+  "preserve": [
+    "all other main/comp members and weights",
+    "original family gate training and raw scores",
+    "original main svc4 and main divisor",
+    "all 18 predicted classes",
+    "original dynamic ATLAS route"
+  ],
+  "coverage_policy": "Score only arms whose newly requested ATLAS rows all have verified cached predictions; otherwise null score.",
+  "actual_capture_public_pool": {
+    "rows": 10469,
+    "groups": 716,
+    "evidence": "EXP031 logs/comp.log"
+  },
+  "candidate_stylegram_public_pool": {
+    "rows": 10073,
+    "groups": 694
+  },
+  "recipe_difference_limit": "EXP009 10325 rows was a six-source projection, not the actual EXP031 run. A1 is a recipe replacement, not a pure deletion of252 rows.",
+  "fixed_mask_diagnostic_scoring": false,
+  "refit": false,
+  "self_generated_data": false,
+  "retune": false,
+  "validation": {
+    "rows": 729,
+    "prompt_groups": 56,
+    "true_classes": 17,
+    "predicted_classes": 18,
+    "metric": "covered-17-class macro recall",
+    "bootstrap_draws": 2000,
+    "bootstrap_seed": 42,
+    "already_inspected_panel": true,
+    "full_stack_training_independence_certified": false,
+    "is_clean_oof": false
+  },
+  "budget": {
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0,
+    "remote_runs": 0
+  },
+  "source_capture_artifact_sha256": "1732849196220d023716a2dc912d660282c94022c2df370c69d9a6c2899bac63",
+  "inputs": [
+    {
+      "path": "experiments/EXP-045-public-data-full-stack/metrics/input-review.json",
+      "sha256": "77cb1af04653c9c9fa4cc815110309272caea7c01a2dd7d3ae76dd75dd5c5dc8",
+      "bytes": 16676
+    },
+    {
+      "path": "experiments/EXP-045-public-data-full-stack/oof/aligned-candidate-margins.npz",
+      "sha256": "f505c62006fa16df923aba2ff2768f0921d97b4f95c03d3d0e10fc4a1f3d3b9e",
+      "bytes": 251384
+    },
+    {
+      "path": "experiments/EXP-032-sinkhorn-fixed-cache/protocol.json",
+      "sha256": "445dc1f91457700aa7c95036f04dc76fa695522feadbe5f64b4f06088d16133a",
+      "bytes": 14689
+    },
+    {
+      "path": "experiments/EXP-031-full-stack-capture-r1/metrics/download-receipt.json",
+      "sha256": "cc961e4f365620f8fd6928c2dc19aa9bf16832c8ddbc954efd101887dcc920c6",
+      "bytes": 630
+    },
+    {
+      "path": "cloud/full-stack-capture-r1/outputs-v2/results/artifacts.json",
+      "sha256": "1732849196220d023716a2dc912d660282c94022c2df370c69d9a6c2899bac63",
+      "bytes": 98232
+    },
+    {
+      "path": "cloud/fixed-blend-multiclass/outputs-v2/results/artifacts.json",
+      "sha256": "242b099fd1d9199c1912e50d47ed3e3d4896d36f3d6d7175a9532a3a1cb203e9",
+      "bytes": 2800
+    },
+    {
+      "path": "experiments/EXP-029-full-stack-capture/panel/test.csv",
+      "sha256": "8eeec7f64e924f0fd79dca57d324d42d269f400bdfbfff76d60b4c168d9ae6f2",
+      "bytes": 655284
+    },
+    {
+      "path": "train.csv",
+      "sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+      "bytes": 2139418
+    },
+    {
+      "path": "experiments/EXP-029-full-stack-capture/labels-local-only.csv",
+      "sha256": "f5425fbae56355e72537074cf5eef514c0319cd67489fc63c36fe07b2ff2302b",
+      "bytes": 156374
+    }
+  ]
+}

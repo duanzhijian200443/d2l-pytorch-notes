@@ -1,0 +1,15 @@
+{
+  "observed_at_utc": "2026-11-01T11:24:48.686614+00:00",
+  "ref": "zhjianduan/name-that-llm-cache-capture-031",
+  "save_only_version": {
+    "version": 1,
+    "status": "COMPLETE"
+  },
+  "real_compute_version": {
+    "version": 2,
+    "status": "RUNNING",
+    "output_log_empty": true
+  },
+  "latest_version": 2,
+  "verification": "Both Kaggle MCP and official CLI/SDK queried in this turn"
+}

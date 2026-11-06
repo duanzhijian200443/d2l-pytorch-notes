@@ -1,0 +1,257 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-046",
+  "status": "PASS",
+  "observed_at_utc": "2026-11-01T17:39:51.370579+00:00",
+  "scope": "Final local candidate source/package/controller review. No remote launch/submission performed by reviewer. Cloud execution, private rerun and leaderboard result remain unverified.",
+  "manifest_sha256": "282ebba8a0f6d018f8891aa1ceb69012db8dbb62d0f5041608ae2201217d0d92",
+  "code_sha256": {
+    "cloud/a1-public-stylegram-046/kernel/a1.ipynb": "cea8f8cbfa382306dbdd7b7361b16d1d68febc09d7ef585dcb01ee1ef9e46625",
+    "cloud/a1-public-stylegram-046/build_package.py": "92923088c57f476d7b3a68792c2370cfd502d7dac0fee21bd8fc3b51a02f78c9",
+    "cloud/a1-public-stylegram-046/runtime_preflight.py": "be6f63cc6d0a49eb62b7190677392ba50edbe1c96df1d8f09fb62dd294b6e42b",
+    "cloud/a1-public-stylegram-046/run_receipts.py": "f5d30d463e857e911cf7db0d6580d64cc723ca339d10f2d5b0234afd23a02525",
+    "cloud/a1-public-stylegram-046/control.py": "786a59bfccc62c9913e8cdcc2cd59e0cb24e1fa5f53afa92c1eecfa235a44076",
+    "experiments/EXP-046-atlas20-a1-submission/a1_stylegram.py": "7af3a26ab544b1fcb67a34ea615a865e35e94af8471cfd4fdcda5c02e98f1f86",
+    "experiments/EXP-046-atlas20-a1-submission/patch_comp.py": "604919ca3bddafc12c582455962a55b92b47e619a6b324916e9d60fec120f833",
+    "experiments/EXP-046-atlas20-a1-submission/input_preflight.py": "26ee6c2a149a5b0e48f8016cd4427ef1576f02b178de85fab2ba9e5f4dc10d57"
+  },
+  "input_and_config_sha256": {
+    "cloud/a1-public-stylegram-046/kernel/kernel-metadata.json": "74007dcac3b5e34c7886fb3e946147ddb2335a3e1e64b530a29e646983943c37",
+    "experiments/EXP-046-atlas20-a1-submission/extra-inputs.json": "b7bf1347c6185c14d2480975873989f58115c02de65dc8bbd12ab09697faa687",
+    "experiments/EXP-046-atlas20-a1-submission/config.json": "bf0ba31b6b01894192c9e16ed3f4bf5df79bb38c0ae31d5baff0ff833889583d"
+  },
+  "test_sha256": {
+    "experiments/EXP-046-atlas20-a1-submission/test_a1_stylegram.py": "ab49b45095ad13778237ddca2a48172b31ed6887b97e48bb6cecb3d0d80d0c51",
+    "experiments/EXP-046-atlas20-a1-submission/test_input_preflight.py": "6df0cee1eb7b2890bb6cae2c4fe9be9d167fb4ca91f3b2b77175fd46ee02e151",
+    "experiments/EXP-046-atlas20-a1-submission/test_run_receipts.py": "6e89b07cbb675cb375d71a66d3ddbbb69d99d76b13071ec0e11e077a29df0b59",
+    "experiments/EXP-046-atlas20-a1-submission/test_submission_package.py": "697e43c8aeb5421eb6d4676774e18280d0906301581cf92fdbe6278af1efc297"
+  },
+  "notebook_sha256": "cea8f8cbfa382306dbdd7b7361b16d1d68febc09d7ef585dcb01ee1ef9e46625",
+  "metadata_sha256": "74007dcac3b5e34c7886fb3e946147ddb2335a3e1e64b530a29e646983943c37",
+  "payload_zip_sha256": "1a2a4fb46b561810fe04fc1fcc2fad8c8a7e387cff57ca304ce1a0553178fc35",
+  "payload_names": [
+    "a1_stylegram.py",
+    "extra-inputs.json",
+    "input_policy.py",
+    "input_preflight.py",
+    "payload-hashes.json",
+    "preflight_manifest.json",
+    "run_receipts.py",
+    "runtime_preflight.py",
+    "stylegram_core.py"
+  ],
+  "checks": {
+    "manifest_all_hashes_and_sizes": true,
+    "payload_exact_allowlist_and_byte_equality": true,
+    "no_cached_panel_in_payload": true,
+    "all_code_cells_compile": true,
+    "gauss_and_infer_source_cells_unchanged": true,
+    "strict_comp_patch_source_and_gate_bytes_verified": true,
+    "official_global_dtype_rows_labels_compatible": true,
+    "A1_exact_EXP027_AST_synthetic_training_parity": true,
+    "full_classifier_tfidf_fit_excludes_test_text": true,
+    "hidden_test_not_locked_to_old_hash_size_rows": true,
+    "rerun_environment_key_presence_forces_full_path": true,
+    "comp_and_main_nonzero_exit_propagated": true,
+    "actual_member_gate_ATLAS_log_receipts_integrated": true,
+    "single_save_single_run_intent_and_lock_no_automatic_retry": true,
+    "SDK_signature_and_actual_response_fields_inspected": true,
+    "metadata_private_netoff_T4_32pins_image": true
+  },
+  "tests": {
+    "command": "python -m unittest discover -s experiments/EXP-046-atlas20-a1-submission -p 'test_*.py' -v",
+    "count": 24,
+    "result": "PASS",
+    "reported_test_seconds": 0.732,
+    "training_scope": "small synthetic StyleGrams parity only; no real-data fit or GPU model"
+  },
+  "real_historical_log_validation": {
+    "comp": {
+      "file_sha256": "d5d472bf5816392b057dbd9828c3e45f3b257c7e0b494b0f8b063c914959a901",
+      "receipt": {
+        "status": "PASS",
+        "log_sha256": "d5d472bf5816392b057dbd9828c3e45f3b257c7e0b494b0f8b063c914959a901",
+        "test_rows": 729,
+        "eligible_comp_rows": 728,
+        "members": [
+          {
+            "name": "stylegram",
+            "displayed_weight": "1.516",
+            "rows": 729
+          },
+          {
+            "name": "stylometry_lgb",
+            "displayed_weight": "0.063",
+            "rows": 729
+          },
+          {
+            "name": "glm9b_twin",
+            "displayed_weight": "0.165",
+            "rows": 728
+          },
+          {
+            "name": "gauss_glm9b_L8",
+            "displayed_weight": "0.165",
+            "rows": 728
+          },
+          {
+            "name": "q3_8b_twin",
+            "displayed_weight": "0.329",
+            "rows": 728
+          },
+          {
+            "name": "gauss_q3_8b_L22",
+            "displayed_weight": "0.329",
+            "rows": 728
+          },
+          {
+            "name": "q25_7b_twin",
+            "displayed_weight": "0.211",
+            "rows": 728
+          },
+          {
+            "name": "q3_4b_twin",
+            "displayed_weight": "0.124",
+            "rows": 728
+          },
+          {
+            "name": "gauss_q3_4b_L4",
+            "displayed_weight": "0.124",
+            "rows": 728
+          },
+          {
+            "name": "debv3l",
+            "displayed_weight": "0.050",
+            "rows": 729
+          },
+          {
+            "name": "debv3l_twin",
+            "displayed_weight": "0.250",
+            "rows": 728
+          },
+          {
+            "name": "gauss_debv3l_L24",
+            "displayed_weight": "0.250",
+            "rows": 728
+          },
+          {
+            "name": "electl",
+            "displayed_weight": "0.032",
+            "rows": 729
+          },
+          {
+            "name": "desk",
+            "displayed_weight": "0.132",
+            "rows": 729
+          },
+          {
+            "name": "lora24_seed7",
+            "displayed_weight": "0.113",
+            "rows": 729
+          },
+          {
+            "name": "lora24_claude",
+            "displayed_weight": "0.177",
+            "rows": 729
+          },
+          {
+            "name": "lora24_claude_twin",
+            "displayed_weight": "0.150",
+            "rows": 728
+          },
+          {
+            "name": "lora20_q25_instyle",
+            "displayed_weight": "0.170",
+            "rows": 729
+          },
+          {
+            "name": "tokattn_deb",
+            "displayed_weight": "0.185",
+            "rows": 729
+          },
+          {
+            "name": "ultrabert",
+            "displayed_weight": "0.095",
+            "rows": 729
+          }
+        ],
+        "member_count": 20,
+        "family_gates": [
+          "claude",
+          "claude_lora",
+          "gemini",
+          "glm",
+          "gpt"
+        ],
+        "allowed_omissions": [
+          "lora24_public",
+          "lora24_public_twin",
+          "tokattn_q35"
+        ],
+        "conditional_members_not_applicable": [],
+        "scope": "Frozen-source log execution evidence; caller must additionally validate exit code and artifacts."
+      }
+    },
+    "main": {
+      "file_sha256": "8359330dd9b9f7484b472f3e59735a45d881778f8a643de7c766866e17db18fa",
+      "receipt": {
+        "status": "PASS",
+        "log_sha256": "8359330dd9b9f7484b472f3e59735a45d881778f8a643de7c766866e17db18fa",
+        "test_rows": 729,
+        "base_members_observed": [
+          "tfidf",
+          "svc4",
+          "distort",
+          "q14v5",
+          "q8v5",
+          "ll8v5",
+          "n14b",
+          "q25_14",
+          "deb"
+        ],
+        "gaussian_heads_observed": [
+          "q14v5_gauss",
+          "q8v5_gauss"
+        ],
+        "gaussian_rows": 724,
+        "adapter_counts": {
+          "q14v5": 6,
+          "q8v5": 6,
+          "ll8v5": 6,
+          "n14b": 1,
+          "q25_14": 1
+        },
+        "twin_evidence": "No distinct twin-completion line exists; twin computation remains inferred from hash-frozen successful l24 paths, not independently observed.",
+        "comp_loaded": true,
+        "atlas_requested_rows": 206,
+        "atlas_completed_rows": 206,
+        "atlas_weight": 0.2,
+        "typography_changed_rows": 3,
+        "scope": "Frozen-source logs plus caller exit/artifact validation; not a new model run."
+      }
+    }
+  },
+  "resolved_findings": [
+    {
+      "finding": "comp_meta family_gates_applied bool alone did not prove gate/member execution",
+      "resolution": "verify_comp_log observes unique members, printed weights, row counts, conditional eligibility, only historical skips, all five applied gates and completion"
+    },
+    {
+      "finding": "infer catches comp/ATLAS exceptions and allows partial ATLAS output",
+      "resolution": "original math kept; successful subprocess followed by strict log validation; missing/skip/invalid/partial ATLAS now fails before success receipt"
+    }
+  ],
+  "limitations": [
+    "Reviewer authored the isolated run_receipts.py and its tests under explicit root delegation; their evidence is not an independent second-author review of that helper.",
+    "Current result is local code review, not successful official hidden inference or a competition score.",
+    "Large 130 model files are checked by size and pinned attachments, not rehashed at this runtime; historical full-hash provenance retained.",
+    "Only sklearn version1.6.1 is asserted directly; remaining library versions recorded and image digest pinned, synthetic parity runs in actual cloud before inference.",
+    "Main twin has no standalone completion log; its successful computation is inferred from unchanged source paths, unlike directly observed base/Gaussian/adapter completions.",
+    "ATLAS zero requested rows is structurally legal and completed0/0 is printed after loop; real model/tokenizer empty-input behavior not executed locally and exceptions fail closed.",
+    "Controller remote readback may omit dataset/kernel version suffix; report distinguishes original pinned request from independently proven remote bytes.",
+    "Controller current output filter covers quick-commit artifacts; main-process.log and execution receipts require later explicit read-only CLI download if exposed by hidden run.",
+    "Platform9h limit passed as32400s and confirmed in current official competition page; full hidden runtime completion cannot be guaranteed.",
+    "A1 replaces actual captured public10469/716 Stylegram pool with10073/694 recipe; not a pure252-row deletion. Local729/56/17 panel is exploratory and is not clean OOF."
+  ],
+  "policy_receipt_sha256": "374e09995d6837aa4d291817a973a31eefa1a4d5e8675ea0229d3737fe90c059"
+}

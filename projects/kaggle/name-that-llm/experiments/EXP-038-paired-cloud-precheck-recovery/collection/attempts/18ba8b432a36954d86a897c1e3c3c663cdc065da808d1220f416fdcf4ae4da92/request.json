@@ -1,0 +1,42 @@
+{
+  "job": {
+    "request_index": 69,
+    "block_index": 18,
+    "job_id": "18ba8b432a36954d86a897c1e3c3c663cdc065da808d1220f416fdcf4ae4da92",
+    "cell_id": "cp0123|gpt-5.6-luna",
+    "route": "kaggle_model_proxy",
+    "repeat_id": 1,
+    "prompt_id": "cp0123",
+    "prompt_group": "cp0123",
+    "split": "train",
+    "model_label": "gpt-5.6-luna",
+    "protocol_version": "single-paragraph-plain-text-v1",
+    "target_words": 160,
+    "user_message": "Is it better for a neighborhood newsletter to publish frequently with brief updates or less often with detailed stories? Explain the trade-off. Use approximately 160 words for the response.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+    "user_message_sha256": "ab7803c308801a23d5af02707b29ac41d4161aa758cb925047e566ae9376596a",
+    "base_instruction": "Answer the user's request.",
+    "reasoning_effort": "low",
+    "execution_authorized": true,
+    "state": "AUTHORIZED_NOT_SENT",
+    "api_payload": {
+      "model": "openai/gpt-5.6-luna",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Answer the user's request."
+        },
+        {
+          "role": "user",
+          "content": "Is it better for a neighborhood newsletter to publish frequently with brief updates or less often with detailed stories? Explain the trade-off. Use approximately 160 words for the response.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph."
+        }
+      ],
+      "reasoning_effort": "low",
+      "max_completion_tokens": 1024,
+      "stream": false,
+      "n": 1
+    }
+  },
+  "started_at": "2026-11-01T13:38:00.044238+00:00",
+  "run_id": "75230ec19d8d4d4daf6e771359fd475b",
+  "controller_pid": 33640
+}

@@ -1,0 +1,6 @@
+{
+  "automation_id": "15",
+  "interval_minutes": 15,
+  "run_id": "1e1164753d6946c6b620d1c002d55cb6",
+  "scope": "EXP038worker1+EXP040workers2=3"
+}

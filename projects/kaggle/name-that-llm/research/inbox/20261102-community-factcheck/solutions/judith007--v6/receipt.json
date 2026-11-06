@@ -1,0 +1,14 @@
+{
+  "observed_at": "2026-11-02T03:59:47.222709+00:00",
+  "existing_source": "SRC-022",
+  "ref": "judith007/0-664-hyperparameter-tuned-who-are-u",
+  "current_version": 6,
+  "old_version": 6,
+  "source_sha256": "cd5c96f4f045928b860fa6c4d008af3d6edcf4c52b101a1bafca9ed20c7d9c9d",
+  "code_sha256": "e4d918a3c9a53bf5121c48224878b50cb0011780e0e24ec2ba11cce883945715",
+  "old_code_same_method_sha256": "e4d918a3c9a53bf5121c48224878b50cb0011780e0e24ec2ba11cce883945715",
+  "code_equal": true,
+  "old_source_path": "reviews/judith007-0664-20261031/0-664-hyperparameter-tuned-who-are-u.ipynb",
+  "directory": "research/inbox/20261102-community-factcheck/solutions/judith007--v6",
+  "score_binding": "not_established_by_latest_metadata"
+}

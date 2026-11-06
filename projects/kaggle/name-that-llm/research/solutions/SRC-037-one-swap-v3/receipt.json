@@ -1,0 +1,9 @@
+{
+  "role": "download_receipt_not_authoritative_registry",
+  "ref": "zbigniewkirchner/0-664-one-swap-198k-clean-pool-fully-public",
+  "version": 3,
+  "observed_at": "2026-11-01T07:32:09.367821+00:00",
+  "source_sha256": "86a72c03d95a46a3378b6e736a23fa0cc8dbc55bc50542852a07c8fe492aa628",
+  "code_sha256": "d8c630d3b9fd1b3b0453de6fffb9e5d613f7a9c1c79cf47ab42f7dd9ad30321f",
+  "status": "DOWNLOADED_NOT_EXECUTED"
+}

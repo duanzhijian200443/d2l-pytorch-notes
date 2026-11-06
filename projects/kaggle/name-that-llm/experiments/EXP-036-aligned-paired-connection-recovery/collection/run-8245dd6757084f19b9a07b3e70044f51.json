@@ -1,0 +1,72 @@
+{
+  "status": "STOPPED_FAILURE",
+  "phase": "TERMINAL",
+  "run_id": "8245dd6757084f19b9a07b3e70044f51",
+  "controller_pid": 38012,
+  "started_at": "2026-11-01T12:30:35.457498+00:00",
+  "observed_at": "2026-11-01T12:30:53.011999+00:00",
+  "target_total": 80,
+  "saved_total": 1,
+  "saved_new_total": 0,
+  "saved_this_run": 0,
+  "already_saved": 1,
+  "launched_this_run": 1,
+  "requests_sent_total": 3,
+  "requests_by_route": {
+    "kaggle_model_proxy": 2,
+    "codex_subscription": 1
+  },
+  "active": [],
+  "failures": [
+    {
+      "job_id": "1b03a75bec73cb035c88427846ec6aadb5f36f81985ecc24a51c41b1c64b90f5",
+      "route": "kaggle_model_proxy",
+      "status": "UNCERTAIN",
+      "started_at": "2026-11-01T12:30:51.516241+00:00",
+      "ended_at": "2026-11-01T12:30:52.711249+00:00",
+      "reasons": [
+        "EXCEPTION_KaggleTransportError"
+      ],
+      "http_status": 404,
+      "stage": "generate",
+      "error_type": "NotFoundError",
+      "cause_chain": [
+        {
+          "type": "NotFoundError"
+        },
+        {
+          "type": "HTTPStatusError"
+        }
+      ],
+      "transport_trace": [
+        "http11.send_request_headers.started",
+        "http11.send_request_headers.complete",
+        "http11.send_request_body.started",
+        "http11.send_request_body.complete",
+        "http11.receive_response_headers.started",
+        "http11.receive_response_headers.complete",
+        "http11.receive_response_body.started",
+        "http11.receive_response_body.complete",
+        "http11.response_closed.started",
+        "http11.response_closed.complete"
+      ]
+    }
+  ],
+  "local_errors": [],
+  "failed_this_run": 1,
+  "confirmed_cost_usd": "0",
+  "cost_known": false,
+  "new_cost_known": false,
+  "historical_cost_known": false,
+  "historical_dispatched": 2,
+  "historical_unknown_job_ids": [
+    "70b6ce572cadd5f96fe3ccc5b694ba913902e902dafe3c149a90275d6b016b36"
+  ],
+  "historical_saved": 1,
+  "maximum_saved_total": 79,
+  "global_max_inflight": 1,
+  "preflight_observed_at": "2026-11-01T12:28:45.826116+00:00",
+  "elapsed_seconds": 17.265,
+  "audit_status": "INCOMPLETE",
+  "audit_run_id": "8245dd6757084f19b9a07b3e70044f51"
+}

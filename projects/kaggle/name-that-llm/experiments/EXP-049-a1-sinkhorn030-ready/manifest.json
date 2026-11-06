@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-049",
+  "freeze_status": "FROZEN_PREPARED_BEFORE_DIAGNOSTIC",
+  "status": "READY_NOT_LAUNCHED",
+  "config": {
+    "path": "experiments/EXP-049-a1-sinkhorn030-ready/config.json",
+    "sha256": "9315c06bfa6a5d9cfbb3990bb9aea6a83fcc2225d8eee9cbe128b5d72d74b64f",
+    "bytes": 1140
+  },
+  "code": [
+    {
+      "path": "cloud/a1-sinkhorn030-049/prepare_verify.py",
+      "sha256": "bee724dbd3e5991699b05765e367797999c56e73c8dc8452893b95f20c7c2528",
+      "bytes": 7254
+    },
+    {
+      "path": "cloud/a1-sinkhorn030-049/test_prepare_verify.py",
+      "sha256": "e7993ad82189a4bd060ee52e682ce29bbf15daf8cd2125e031407103719e5ecb",
+      "bytes": 1362
+    },
+    {
+      "path": "experiments/EXP-049-a1-sinkhorn030-ready/run_local.py",
+      "sha256": "3c060d653d783b5a41694f8e772c5922b3cbed755d0e9528367a6afd3fe943c4",
+      "bytes": 7619
+    }
+  ],
+  "source_bindings": [
+    {
+      "path": "cloud/a1-public-stylegram-046/kernel/a1.ipynb",
+      "sha256": "cea8f8cbfa382306dbdd7b7361b16d1d68febc09d7ef585dcb01ee1ef9e46625",
+      "bytes": 192688
+    },
+    {
+      "path": "cloud/a1-public-stylegram-046/kernel/kernel-metadata.json",
+      "sha256": "74007dcac3b5e34c7886fb3e946147ddb2335a3e1e64b530a29e646983943c37",
+      "bytes": 2119
+    },
+    {
+      "path": "experiments/EXP-045-public-data-full-stack/manifest.json",
+      "sha256": "15f9b5366ee60b47dc06178fa9befa67ba32896d37407f5d1f3ea3e18ae3421e",
+      "bytes": 3412
+    },
+    {
+      "path": "experiments/EXP-045-public-data-full-stack/outputs/scores.npz",
+      "sha256": "149c5a4e9c0f37b5796d45352fb4c4a104a823a4a7e6741a6efecf0e74ca7e47",
+      "bytes": 214623
+    },
+    {
+      "path": "experiments/EXP-045-public-data-full-stack/outputs/coverage.json",
+      "sha256": "b88cc937a76bc989203eff37b29b40e5dfe47e1b93cc232b37bfe24da1958035",
+      "bytes": 32806
+    },
+    {
+      "path": "experiments/EXP-032-sinkhorn-fixed-cache/metrics_utils.py",
+      "sha256": "e568d6f70d72ccdf5a6b393c44873c597eca5c6da2106966fa9a6fef73f3efba",
+      "bytes": 8313
+    }
+  ],
+  "candidate_files": [
+    {
+      "path": "cloud/a1-sinkhorn030-049/kernel/a1.ipynb",
+      "sha256": "35ddcc24900d4bace4b3c4cc167475ad2c119af83a9eb687ef717f7bea1200b5",
+      "bytes": 192935
+    },
+    {
+      "path": "cloud/a1-sinkhorn030-049/kernel/kernel-metadata.json",
+      "sha256": "8c0a1ad41ecda521e57a0072bb68d93bbfa2ce65014a4ee42ffb0d09d679ba6f",
+      "bytes": 2109
+    },
+    {
+      "path": "cloud/a1-sinkhorn030-049/candidate.diff",
+      "sha256": "7064ee3d0e7637349cdb5b3aff17dd25945653a1bd984861c07be16620d77a95",
+      "bytes": 3356
+    }
+  ],
+  "change_audit": {
+    "changed_cells": [
+      0,
+      2,
+      12
+    ],
+    "attachment_count": 32,
+    "payload_and_model_source_cells_unchanged": true,
+    "mathematical_change": "cell12 command --sinkhorn 0.45 -> 0.30",
+    "other_changes": [
+      "cell0 description",
+      "cell2 bootstrap comment identity",
+      "cell12 experiment and Sinkhorn receipt",
+      "metadata id/title"
+    ]
+  },
+  "local_diagnostic_completed": false,
+  "remote_execution": false,
+  "submission": false
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "EXP-002",
+  "title": "Who am I V30 完整复现",
+  "baseline_id": null,
+  "hypothesis": "",
+  "changes": [],
+  "observed_at": "2026-10-31T15:57:13.732725+00:00",
+  "source": {
+    "notebook_ref": "zhjianduan/name-that-llm-who-am-i-v30-repro",
+    "notebook_version": 7,
+    "script_version_id": 363200699
+  },
+  "inputs": {
+    "manifest_path": "cloud/who-am-i-v30/kernel-metadata.json",
+    "content_hashes_verified": false,
+    "validation_split_id": null,
+    "verified_scope": "历史 CSV 哈希与已列出的预检项目通过；未声明所有模型资产均完成内容哈希审计。"
+  },
+  "config": {
+    "upstream_notebook_version": 30,
+    "upstream_script_version_id": 362877806
+  },
+  "environment": {
+    "platform": "Kaggle",
+    "accelerator": "T4 x2"
+  },
+  "execution": {
+    "scope": "public_sample_full",
+    "status": "COMPLETE",
+    "observed_at": "2026-10-29T10:52:04.052581+00:00"
+  },
+  "submission": {
+    "id": 57759707,
+    "status": "COMPLETE",
+    "script_version_id": 363200699,
+    "public_score": 0.654,
+    "submitted_at": "2026-10-29T05:14:08.043Z",
+    "observed_at": "2026-10-31T15:57:13.732725+00:00",
+    "url": "https://www.kaggle.com/code/zhjianduan/name-that-llm-who-am-i-v30-repro?scriptVersionId=363200699"
+  },
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": "公开三条示例预测 3/3 与原 V30 一致；不是隐藏集准确率"
+  },
+  "cost": {
+    "gpu_seconds": null,
+    "api_usd": null,
+    "colab_cu": null
+  },
+  "timing_note": "公开样例全流程 13118.538489206 秒（3 小时 38 分 39 秒）；隐藏评分耗时未知。",
+  "conclusion": "正式 Public LB 0.654；旧 execution-state 中 pending/未验证字段属于历史阶段。",
+  "limitations": "相同显示分数不证明逐条隐藏预测相同；旧状态文件不是实时来源。",
+  "next_action": "保留复现证据；当前优化使用 EXP-004 为对照。",
+  "related_sources": [],
+  "evidence": [
+    "cloud/who-am-i-v30/execution-state.json",
+    "cloud/who-am-i-v30/outputs/full-v7/local_verification.json",
+    "tracking/snapshots/20261031T141753Z/submissions.json",
+    "tracking/snapshots/20261031T142240175966Z/submissions.json",
+    "tracking/snapshots/20261031T152451658633Z/submissions.json",
+    "tracking/snapshots/20261031T155715059384Z/submissions.json"
+  ]
+}

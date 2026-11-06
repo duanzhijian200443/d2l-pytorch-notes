@@ -1,0 +1,70 @@
+{
+  "observed_at": "2026-11-01T07:32:15.226936+00:00",
+  "retrieval": {
+    "method": "read-only POST",
+    "topic_endpoint": "https://www.kaggle.com/api/i/discussions.DiscussionsService/GetForumTopicById",
+    "comments_endpoint": "https://www.kaggle.com/api/i/discussions.DiscussionsService/GetForumMessagesInTopic"
+  },
+  "topic_response": {
+    "forumTopic": {
+      "authorId": 11792984,
+      "authorThumbnailName": "11792984-kg.jpg?t=2023-08-28-20-41-18",
+      "authorUserDisplayName": "Pablo Diego Pereira",
+      "authorUserName": "pablodiegoo",
+      "commentSort": "COMMENT_LIST_SORT_BY_HOT",
+      "firstMessage": {
+        "id": 3547009,
+        "postDate": "2026-10-30T03:43:11.883Z",
+        "rawMarkdown": "When scoring attribution models on `GroupKFold(n_splits=5, groups=prompt_id)` across all `2,699` training passages (`18` models x `180` prompts), two distinct sources of error dominate:\n1. **Shared Prompt Effect ($p_g$):** Even strong classifiers shift their logit profiles according to topic domain and prompt-induced response length ($x_{gi} = \\mu_c + p_g + \\varepsilon_{gi}$).\n2. **Marginal Collapse vs. Non-Uniform Test Priors:** Uncalibrated linear and neural heads over-predict high-entropy generalist models, while naive uniform Sinkhorn-Knopp (`target = 1/18`) hurts on the leaderboard because Public/Private test class counts are unequal.\n\nIn our updated public notebook ([**Name That LLM Starter Notebook**](https://www.kaggle.com/code/pablodiegoo/name-that-llm-starter-notebook)), we benchmarked each transductive layer step by step on 5-fold `GroupKFold(prompt_id)` before integrating them with the multi-backbone `LoRA24 + Shared-Prompt Gaussian + ATLAS 20%` ensemble:\n\n| Step | Specification (`5-Fold GroupKFold` on `prompt_id`) | OOF Balanced Accuracy | Fold Std |\n| :--- | :--- | ---: | ---: |\n| 1 | Word `TF-IDF` (`1..3`-grams) baseline | `0.3145` | `0.0153` |\n| 2 | + Character `TF-IDF` (`char` + `char_wb`) + `20` Stylometric Ratios | `0.3367` | `0.0166` |\n| 3 | + `LinearSVC` + Stamatatos Topic Distortion (masking words outside top-100 function words) | `0.3686` | `0.0155` |\n| 4 | + Prompt-Clustered Adaptive Centering (`sim_thr=0.15`, α=0.65$) | `0.3812` | `0.0173` |\n| 5 | + Target-Shrunk Damped Sinkhorn-Knopp (α=0.45, ρ=0.35, 100 rounds) | `0.3834` | `0.0136` |\n| 6 | + Within-Cluster Hungarian Assignment (`linear_sum_assignment`) | `0.4345` | `0.0216` |\n\n**Key Takeaways:**\n- **Stamatatos Topic Masking (`+0.0319` OOF):** Replacing all vocabulary outside the top-100 English function words with `*` while keeping case and punctuation forces the secondary linear head to learn purely syntactic cadence rather than prompt nouns.\n- **Target-Shrunk Sinkhorn-Knopp (τ=(1−ρ) π'_pred + ρπ _train with ρ=0.35 ρ=0.35):** Shrinking predicted marginals partially toward empirical training priors rather than forcing uniformity improves both mean OOF accuracy and cuts fold-to-fold standard deviation by `21%` (`0.0173 -> 0.0136`).\n- **Family-Mass-Preserving Sibling Residual (`V40A` + `V31`):** Applying 5-fold `GroupKFold` reliability-weighted stylometric tie-breaking strictly inside each provider family (`claude`, `gemini`, `gpt`, `glm`) via `logsumexp` conservation resolves sibling ties without perturbing cross-provider probabilities.",
+        "content": "<p>When scoring attribution models on <code>GroupKFold(n_splits=5, groups=prompt_id)</code> across all <code>2,699</code> training passages (<code>18</code> models x <code>180</code> prompts), two distinct sources of error dominate:</p>\n<ol>\n<li><strong>Shared Prompt Effect ($p_g$):</strong> Even strong classifiers shift their logit profiles according to topic domain and prompt-induced response length ($x_{gi} = \\mu_c + p_g + \\varepsilon_{gi}$).</li>\n<li><strong>Marginal Collapse vs. Non-Uniform Test Priors:</strong> Uncalibrated linear and neural heads over-predict high-entropy generalist models, while naive uniform Sinkhorn-Knopp (<code>target = 1/18</code>) hurts on the leaderboard because Public/Private test class counts are unequal.</li>\n</ol>\n<p>In our updated public notebook (<a href=\"https://www.kaggle.com/code/pablodiegoo/name-that-llm-starter-notebook\" target=\"_blank\"><strong>Name That LLM Starter Notebook</strong></a>), we benchmarked each transductive layer step by step on 5-fold <code>GroupKFold(prompt_id)</code> before integrating them with the multi-backbone <code>LoRA24 + Shared-Prompt Gaussian + ATLAS 20%</code> ensemble:</p>\n<table>\n<thead>\n<tr>\n<th>Step</th>\n<th>Specification (<code>5-Fold GroupKFold</code> on <code>prompt_id</code>)</th>\n<th>OOF Balanced Accuracy</th>\n<th>Fold Std</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>1</td>\n<td>Word <code>TF-IDF</code> (<code>1..3</code>-grams) baseline</td>\n<td><code>0.3145</code></td>\n<td><code>0.0153</code></td>\n</tr>\n<tr>\n<td>2</td>\n<td>+ Character <code>TF-IDF</code> (<code>char</code> + <code>char_wb</code>) + <code>20</code> Stylometric Ratios</td>\n<td><code>0.3367</code></td>\n<td><code>0.0166</code></td>\n</tr>\n<tr>\n<td>3</td>\n<td>+ <code>LinearSVC</code> + Stamatatos Topic Distortion (masking words outside top-100 function words)</td>\n<td><code>0.3686</code></td>\n<td><code>0.0155</code></td>\n</tr>\n<tr>\n<td>4</td>\n<td>+ Prompt-Clustered Adaptive Centering (<code>sim_thr=0.15</code>, α=0.65$)</td>\n<td><code>0.3812</code></td>\n<td><code>0.0173</code></td>\n</tr>\n<tr>\n<td>5</td>\n<td>+ Target-Shrunk Damped Sinkhorn-Knopp (α=0.45, ρ=0.35, 100 rounds)</td>\n<td><code>0.3834</code></td>\n<td><code>0.0136</code></td>\n</tr>\n<tr>\n<td>6</td>\n<td>+ Within-Cluster Hungarian Assignment (<code>linear_sum_assignment</code>)</td>\n<td><code>0.4345</code></td>\n<td><code>0.0216</code></td>\n</tr>\n</tbody>\n</table>\n<p><strong>Key Takeaways:</strong></p>\n<ul>\n<li><strong>Stamatatos Topic Masking (<code>+0.0319</code> OOF):</strong> Replacing all vocabulary outside the top-100 English function words with <code>*</code> while keeping case and punctuation forces the secondary linear head to learn purely syntactic cadence rather than prompt nouns.</li>\n<li><strong>Target-Shrunk Sinkhorn-Knopp (τ=(1−ρ) π'_pred + ρπ _train with ρ=0.35 ρ=0.35):</strong> Shrinking predicted marginals partially toward empirical training priors rather than forcing uniformity improves both mean OOF accuracy and cuts fold-to-fold standard deviation by <code>21%</code> (<code>0.0173 -&gt; 0.0136</code>).</li>\n<li><strong>Family-Mass-Preserving Sibling Residual (<code>V40A</code> + <code>V31</code>):</strong> Applying 5-fold <code>GroupKFold</code> reliability-weighted stylometric tie-breaking strictly inside each provider family (<code>claude</code>, <code>gemini</code>, <code>gpt</code>, <code>glm</code>) via <code>logsumexp</code> conservation resolves sibling ties without perturbing cross-provider probabilities.</li>\n</ul>",
+        "parent": {},
+        "author": {
+          "displayName": "Pablo Diego Pereira",
+          "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/11792984-kg.jpg?t=2023-08-28-20-41-18",
+          "url": "/pablodiegoo",
+          "tier": "CONTRIBUTOR",
+          "id": 11792984,
+          "progressionOptOut": false
+        },
+        "authorType": "TOPIC",
+        "votes": {
+          "canUpvote": true
+        },
+        "kernelVersion": 0,
+        "competitionRanking": 494,
+        "feedbackTrackingData": {},
+        "isThankYou": false,
+        "teamUpInfo": {
+          "teamLeader": {
+            "displayName": "Pablo Diego Pereira",
+            "thumbnailUrl": "https://storage.googleapis.com/kaggle-avatars/thumbnails/11792984-kg.jpg?t=2023-08-28-20-41-18",
+            "url": "/pablodiegoo",
+            "userName": "pablodiegoo",
+            "tier": "CONTRIBUTOR",
+            "id": 11792984,
+            "profileUrl": "/pablodiegoo",
+            "performanceTier": "CONTRIBUTOR",
+            "userId": 11792984,
+            "progressionOptOut": false
+          },
+          "intro": ""
+        }
+      },
+      "firstMessageId": 3547009,
+      "forumId": 13688374,
+      "forumName": "Name That LLM",
+      "id": 754026,
+      "name": "[ Ablation Note ] Why Prompt-Clustered Adaptive Centering + Target-Shrunk Sinkhorn-Knopp (ρ = 0.35) Outperform Uniform Marginal Forcing",
+      "parentName": "name-that-llm",
+      "parentUrl": "/competitions/name-that-llm",
+      "postDate": "2026-10-30T03:43:11.882121800Z",
+      "url": "/competitions/name-that-llm/discussion/754026",
+      "authorPerformanceTier": "CONTRIBUTOR",
+      "authorProgressionOptOut": false
+    }
+  },
+  "comments_response": {
+    "commentSort": "COMMENT_LIST_SORT_BY_NEW"
+  },
+  "hydrated_message_responses": []
+}

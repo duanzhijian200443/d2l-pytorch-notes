@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "id": "EXP-013",
+  "title": "主svc4：仅官方数据五折基准",
+  "baseline_id": "EXP-004",
+  "hypothesis": "固定主svc4特征与分折，原始可追溯公共样本是否提高开发验证；三公共权重在同一行集/词表下比较。",
+  "changes": [
+    "独立主svc4成员，原四视图与分类器参数",
+    "仅官方数据拟合特征/分类器"
+  ],
+  "observed_at": "2026-11-01T07:45:20.553325+00:00",
+  "source": {
+    "notebook_ref": "zhjianduan/name-that-llm-svc4-raw-public-cv",
+    "notebook_version": 2,
+    "script_version_id": null,
+    "local_path": "cloud/svc4-raw-public/runner.py",
+    "sha256": "d2d916f0eeee28b23911c15ab83e096ea6c7a906f6ba4482674ded92c386871f"
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-013-svc4-official-only/manifest.json",
+    "validation_split_id": "prompt-group-v1",
+    "content_hashes_verified": true
+  },
+  "config": {
+    "variant": "official-only",
+    "public_row_weight": null,
+    "note": "完整参数以config_path快照为准"
+  },
+  "environment": {
+    "platform": "Kaggle private CPU",
+    "accelerator": null,
+    "container": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "seed": 42,
+    "internet": false,
+    "threads": 2,
+    "required_versions": {
+      "numpy": "2.1.3",
+      "pandas": "2.3.3",
+      "scipy": "1.16.3",
+      "sklearn": "1.6.1"
+    },
+    "versions": {
+      "numpy": "2.1.3",
+      "pandas": "2.3.3",
+      "scipy": "1.16.3",
+      "sklearn": "1.6.1"
+    }
+  },
+  "execution": {
+    "scope": "grouped_oof",
+    "status": "ERROR",
+    "observed_at": "2026-11-01T07:45:20.553325+00:00",
+    "notebook_version": 2,
+    "result_status": "FAILED_BEFORE_CLASSIFIER_FIT"
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": null,
+    "per_class_recall_path": null,
+    "oof_path": null,
+    "leakage_audit": "not_audited"
+  },
+  "cost": {
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0
+  },
+  "timing_note": "Shared failed guard process elapsed 15.430s; completed SVMs=0; no GPU/API use.",
+  "conclusion": "首轮在第0折特征指纹记录阶段因numpy.int64无法JSON序列化退出；尚未拟合任何SVM，无OOF结果。",
+  "limitations": "不是原matched/pool三源配方复现，也不是向ATLAS20新增5400条；公共生成长度已参考官方整体词数分布。未知语义prompt关系仍不保证穷尽隔离。",
+  "next_action": "保持失败原件，新EXP仅修复指纹序列化后在剩余共享预算内重试。",
+  "related_sources": [
+    "SRC-029",
+    "SRC-035"
+  ],
+  "evidence": [
+    "experiments/EXP-013-svc4-official-only/config.json",
+    "experiments/EXP-013-svc4-official-only/manifest.json",
+    "experiments/EXP-013-svc4-official-only/report.md",
+    "experiments/EXP-014-svc4-raw-w035/metrics/data-gate.json",
+    "experiments/EXP-014-svc4-raw-w035/metrics/resource-preflight.json",
+    "cloud/svc4-raw-public/preflight.json",
+    "cloud/svc4-raw-public/execution-state.json",
+    "cloud/svc4-raw-public/run-v2-readback.json",
+    "cloud/svc4-raw-public/live-v2.log",
+    "cloud/svc4-raw-public/README.md",
+    "cloud/svc4-raw-public/failed-v2/results/guard.json",
+    "cloud/svc4-raw-public/failed-v2/results/failure.json",
+    "cloud/svc4-raw-public/failed-v2/results/training.log"
+  ],
+  "config_path": "experiments/EXP-013-svc4-official-only/config.json"
+}

@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "source": "codex_subscription",
+  "models": [
+    {
+      "slug": "gpt-5.6-luna",
+      "reasoning_effort": "low"
+    },
+    {
+      "slug": "gpt-5.6-terra",
+      "reasoning_effort": "low"
+    },
+    {
+      "slug": "gpt-5.6-sol",
+      "reasoning_effort": "low"
+    },
+    {
+      "slug": "gpt-6-astra",
+      "reasoning_effort": "low"
+    }
+  ],
+  "instructions_file": "../EXP-021-codex-subscription-pilot/model-instructions.txt",
+  "workspace": "workspace",
+  "cli_overrides": [
+    "project_doc_max_bytes=0",
+    "skills.include_instructions=false",
+    "skills.bundled.enabled=false",
+    "features.skip_host_skill_discovery=true",
+    "features.apps=false",
+    "features.plugins=false",
+    "plugins._default.enabled=false",
+    "features.remote_plugin=false",
+    "features.memories=false",
+    "memories.use_memories=false",
+    "memories.generate_memories=false",
+    "features.hooks=false",
+    "features.multi_agent=false",
+    "features.shell_tool=false",
+    "features.unified_exec=false",
+    "features.browser_use=false",
+    "features.computer_use=false",
+    "features.image_generation=false",
+    "features.view_image=false",
+    "features.code_mode_host=false",
+    "features.goals=false",
+    "features.sleep_tool=false",
+    "features.tool_suggest=false",
+    "features.skill_search=false",
+    "features.unbounded_connection_retries=false",
+    "web_search=\"disabled\"",
+    "include_collaboration_mode_instructions=false",
+    "include_apps_instructions=false",
+    "include_environment_context=false",
+    "include_environment_context_time=false",
+    "developer_instructions=\"\"",
+    "tools.update_plan.enabled=false",
+    "tools.experimental_request_user_input.enabled=false",
+    "personality=\"none\""
+  ],
+  "request_timeout_seconds": 180,
+  "validation": {
+    "split_id": "codex-pilot-prompt-v1",
+    "training_use": "quarantined_pending_validation; preserve original base prompt split across all variants",
+    "variant_grouping": "Keep every variant/repeat/channel of a base prompt in its original group and split.",
+    "responses_by_split": {
+      "train": 240,
+      "holdout": 60
+    }
+  },
+  "environment": {
+    "platform": "local_windows_codex_cli_chatgpt_auth",
+    "accelerator": "none",
+    "codex_version": "0.166.0-alpha.5.1"
+  },
+  "budget": {
+    "max_successful_responses": 300,
+    "max_model_requests": 300,
+    "max_concurrent_requests": 2,
+    "automatic_retries": 0,
+    "wall_seconds": 21600,
+    "api_usd": 0,
+    "subscription_usage": "User authorized existing Codex subscription only; no API-key override",
+    "original_wall_deadline_utc": "2026-11-01T19:04:50.831777+00:00"
+  },
+  "limitations": [
+    "CLI requested model slug is recorded; underlying provider snapshot may remain unknown",
+    "Minimal client instructions do not prove equivalence to bare API or competition generation",
+    "Low reasoning is a controlled pilot choice, not a recovered competition setting",
+    "API-key environment overrides must be removed for child Codex processes",
+    "Collection completion is not training utility acceptance"
+  ],
+  "prompts_file": "prompts.jsonl",
+  "retry_of": "EXP-039",
+  "experiment_id": "EXP-040",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "collection_authorized": true,
+  "authorization": {
+    "generation": true,
+    "basis": "改成3并发",
+    "interpretation": "Overall3=Codex300batch2+pairedEXP038serial1",
+    "approved_at": "2026-11-01T13:12:08.090487+00:00"
+  },
+  "sampling": {
+    "seed": 20261101039,
+    "shared_prompt_groups": 75,
+    "train_groups": 60,
+    "holdout_groups": 15,
+    "excluded_paired_prompt_ids": [
+      "cp0001",
+      "cp0022",
+      "cp0043",
+      "cp0064",
+      "cp0081",
+      "cp0102",
+      "cp0123",
+      "cp0144",
+      "cp0161",
+      "cp0182"
+    ],
+    "category_sampling": "6train each;5categories2holdout,5categories1holdout;cover available wordtargets then sample remaining"
+  },
+  "concurrency": {
+    "this_batch": 2,
+    "existing_EXP038": 1,
+    "combined_maximum": 3,
+    "do_not_interrupt_companion": true
+  },
+  "source_experiment": "experiments/EXP-039-codex-aligned-300",
+  "workers": 2,
+  "target_total": 300,
+  "recovery": {
+    "saved_count": 20,
+    "remaining": 280,
+    "source_job_ids_preserved": true,
+    "gate_is_not_model_request": true
+  }
+}

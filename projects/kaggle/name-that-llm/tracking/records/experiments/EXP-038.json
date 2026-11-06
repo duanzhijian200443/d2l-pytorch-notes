@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "EXP-038",
+  "title": "双渠道续采：修正私有任务不存在403，保留2条成功",
+  "baseline_id": "EXP-037",
+  "hypothesis": "Official missingprivateTask403 semantics allowcloudcontinuation withoutduplicatingmodelcalls.",
+  "changes": [
+    "403/404preexistence handlingmatchesofficialCLI;401stillfails",
+    "Preserve2successfulrawresponses and2historicalunknownAPIcalls",
+    "ReclassifyoneprovenGET-onlyfailureas0modeldispatch;remaining76of80"
+  ],
+  "observed_at": "2026-11-01T12:56:27.540863+00:00",
+  "source": {
+    "notebook_ref": null,
+    "notebook_version": null,
+    "script_version_id": null,
+    "local_path": "experiments/EXP-038-paired-cloud-precheck-recovery/code/run_recovery.py",
+    "sha256": "f6cda5217ec87ddf5d84a65f3f4bb6d65e0a761107d29c36ef0fb935ea6885d8"
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-038-paired-cloud-precheck-recovery/manifest.json",
+    "validation_split_id": "codex-pilot-prompt-v1",
+    "content_hashes_verified": true
+  },
+  "config": {
+    "note": "仅作台账索引；完整参数以 config_path 指向的 config.json 为准。"
+  },
+  "environment": {
+    "platform": "local_Codex_and_private_Kaggle_Benchmarks_CPU",
+    "accelerator": "none_requested",
+    "container": null,
+    "seed": 20261101
+  },
+  "execution": {
+    "scope": "Bothcloudmodelsverifiedbyactualrawresponses;frozenserialcollectioncontinuesinbackground",
+    "status": "RUNNING",
+    "observed_at": "2026-11-01T12:56:27.419816+00:00",
+    "run_id": "75230ec19d8d4d4daf6e771359fd475b",
+    "controller_pid": 33640,
+    "new_model_requests": 11,
+    "cumulative_model_requests": 15,
+    "saved_responses": 12
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": "13runner+15transporttestsPASS;bothcloudmodelsactualsuccessverified;livehash/dedupchecksPASS,notfullcollectionacceptance.",
+    "per_class_recall_path": null,
+    "oof_path": null,
+    "leakage_audit": "not_audited"
+  },
+  "cost": {
+    "gpu_seconds": null,
+    "api_usd": null,
+    "colab_cu": 0,
+    "confirmed_api_usd": 0.0025668,
+    "historical_cost_known": false,
+    "new_cost_known": true
+  },
+  "timing_note": null,
+  "conclusion": "ActualcloudLunaandTerrasucceededwithmatchingreturnedIDs,normalstopandknowncost.2priorCodexsuccessesunchanged;no repeatedsuccessfuljob IDs;backgroundcontinues.",
+  "limitations": "2historicalunknowncosts retained;80cumulativeproviderattemptcap;privatecloudserverinternalreschedulingnotfullyobservable.",
+  "next_action": "15-minuteheartbeatid15monitors;stoponnewerror/unknowncost;finalauditat80cumulativeproviderdispatches.",
+  "related_sources": [],
+  "evidence": [
+    "experiments/EXP-038-paired-cloud-precheck-recovery/config.json",
+    "experiments/EXP-038-paired-cloud-precheck-recovery/manifest.json",
+    "experiments/EXP-038-paired-cloud-precheck-recovery/report.md",
+    "experiments/EXP-038-paired-cloud-precheck-recovery/recovery-receipt.json",
+    "experiments/EXP-038-paired-cloud-precheck-recovery/metrics/kaggle-preflight.json",
+    "experiments/EXP-038-paired-cloud-precheck-recovery/metrics/execution-preflight.json",
+    "experiments/EXP-038-paired-cloud-precheck-recovery/metrics/offline-validation.json",
+    "experiments/EXP-038-paired-cloud-precheck-recovery/code/run_recovery.py",
+    "experiments/EXP-038-paired-cloud-precheck-recovery/code/kaggle_transport.py",
+    "experiments/EXP-038-paired-cloud-precheck-recovery/collection/state.json",
+    "experiments/EXP-038-paired-cloud-precheck-recovery/collection/records.jsonl",
+    "experiments/EXP-038-paired-cloud-precheck-recovery/metrics/recovery-live-verification.json",
+    "experiments/EXP-038-paired-cloud-precheck-recovery/metrics/monitor-binding.json"
+  ],
+  "config_path": "experiments/EXP-038-paired-cloud-precheck-recovery/config.json"
+}

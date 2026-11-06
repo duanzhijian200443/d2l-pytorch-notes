@@ -1,0 +1,9 @@
+{
+  "role": "download_receipt_not_authoritative_registry",
+  "ref": "judith007/0-664-hyperparameter-tuned-who-are-u",
+  "version": 6,
+  "observed_at": "2026-11-01T07:32:12.046888+00:00",
+  "source_sha256": "cd5c96f4f045928b860fa6c4d008af3d6edcf4c52b101a1bafca9ed20c7d9c9d",
+  "code_sha256": "e4d918a3c9a53bf5121c48224878b50cb0011780e0e24ec2ba11cce883945715",
+  "status": "DOWNLOADED_NOT_EXECUTED"
+}

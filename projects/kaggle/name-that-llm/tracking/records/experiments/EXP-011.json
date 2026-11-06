@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "id": "EXP-011",
+  "title": "Stylegram 公共样本权重份额 25% 五折对照",
+  "baseline_id": "EXP-010",
+  "hypothesis": "固定stylegram数据与特征，在隔离已知官方prompt关联后，比较公共训练权重份额的影响。",
+  "changes": [
+    "全部对照共同排除252条已知官方prompt重建回答",
+    "公共样本每类总权重份额=0.25"
+  ],
+  "observed_at": "2026-11-01T06:44:54.372235+00:00",
+  "source": {
+    "notebook_ref": "zhjianduan/name-that-llm-stylegram-share-cv",
+    "notebook_version": 2,
+    "script_version_id": null,
+    "local_path": "experiments/EXP-010-012-stylegram-share/runner.py",
+    "sha256": "74d9aa65c128b6b1490f965002bed56024e9ca08c9bfa62546dc2d70724cb4c4",
+    "reported_script_version_id": 364307522,
+    "reported_script_version_id_note": "Retained DOT archive identifier; official CLI fixed-v2 response does not expose global scriptVersionId."
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-010-012-stylegram-share/preflight.json",
+    "validation_split_id": "prompt-group-v1",
+    "content_hashes_verified": true
+  },
+  "config": {
+    "share": 0.25,
+    "C": 0.5,
+    "seed": 42,
+    "max_iter": 4000,
+    "feature_dtype": "float64",
+    "folds": 5,
+    "split": "prompt-group-v1",
+    "variants_in_same_run": [
+      0.5,
+      0.25,
+      0.75
+    ],
+    "dense_primary": true,
+    "sparse_secondary": {
+      "per_prompt": [
+        2,
+        3,
+        6
+      ],
+      "repeats": 5,
+      "seed": 42
+    },
+    "max_cpu_run_seconds": 7200
+  },
+  "environment": {
+    "platform": "Kaggle private CPU",
+    "accelerator": null,
+    "container": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "seed": 42,
+    "versions": {
+      "python": "3.13.15",
+      "numpy": "2.1.3",
+      "pandas": "2.3.3",
+      "scipy": "1.16.3",
+      "sklearn": "1.6.1"
+    },
+    "cpu_count": 4
+  },
+  "execution": {
+    "scope": "grouped_oof",
+    "status": "COMPLETE",
+    "observed_at": "2026-11-01T06:44:54.372235+00:00",
+    "notebook_version": 2,
+    "result_status": "PASS",
+    "completed_at": "2026-10-31T18:38:36.635006+00:00"
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": 0.45970917225950786,
+    "scope": "Isolated stylegram fixed prompt-group-v1 5-fold development OOF; not full ATLAS20 or leaderboard",
+    "per_class_recall_path": "experiments/EXP-010-012-stylegram-share/analysis/per_class.csv",
+    "oof_path": "experiments/EXP-010-012-stylegram-share/download-v2/results/oof-share0.25.csv",
+    "leakage_audit": "PASS within checked scope: per-fold features, known official-prompt links removed, 0 normalized text overlap, text-only validation clustering. Unknown semantic overlap and upstream selection bias remain unverified.",
+    "scores_path": "experiments/EXP-010-012-stylegram-share/download-v2/results/oof-share0.25.npy",
+    "acceptance_path": "experiments/EXP-010-012-stylegram-share/acceptance-20261101/acceptance-status.json",
+    "paired_comparison": {
+      "share": 0.25,
+      "baseline": 0.5,
+      "delta_ba": -0.008533432761620718,
+      "bootstrap_low": -0.018178421710300905,
+      "bootstrap_high": 0.0011200596569723611,
+      "fixed_errors": 88,
+      "introduced_errors": 111,
+      "prediction_disagreements": 385,
+      "positive_folds": 1,
+      "negative_folds": 4,
+      "fold_deltas": {
+        "0": -0.005555555555555647,
+        "1": -0.020370370370370372,
+        "2": -0.012962962962962898,
+        "3": 0.003703703703703709,
+        "4": -0.00753512132822487
+      }
+    }
+  },
+  "cost": {
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0
+  },
+  "timing_note": "Shared sweep EXP-010/011/012: main program 3822.3624 seconds for all 30 SVM fits; not per-share runtime. Acceptance only reads cached outputs; no retraining.",
+  "conclusion": "完整产物验收PASS；OOF BA=0.4597091723，较50%变化-0.853个百分点；prompt配对区间跨0，未获得替换50%的依据。不是榜单成绩。",
+  "limitations": "仅stylegram成员；五折开发验证和稀疏压力测试，不是完整ATLAS20或隐藏榜单。仅隔离已知prompt关联，不能保证识别所有语义重复。",
+  "next_action": "保留50%作为本成员开发对照；不按单次逐类得失事后挑份额。主svc4权重实验先解决公共池来源与验证隔离，另行登记，不从本结果自动启动。",
+  "related_sources": [
+    "SRC-029",
+    "SRC-030",
+    "SRC-031",
+    "SRC-032",
+    "SRC-034",
+    "SRC-035"
+  ],
+  "evidence": [
+    "experiments/EXP-010-012-stylegram-share/preflight.json",
+    "experiments/EXP-010-012-stylegram-share/review-checks.json",
+    "experiments/EXP-010-012-stylegram-share/remote-v2.json",
+    "experiments/EXP-010-012-stylegram-share/execution-state.json",
+    "experiments/EXP-010-012-stylegram-share/report.md",
+    "experiments/EXP-010-012-stylegram-share/analysis/verified.json",
+    "experiments/EXP-010-012-stylegram-share/acceptance-20261101/acceptance-status.json",
+    "experiments/EXP-010-012-stylegram-share/acceptance-20261101/provenance-check.json",
+    "experiments/EXP-010-012-stylegram-share/acceptance-20261101/independent-review.json",
+    "experiments/EXP-010-012-stylegram-share/acceptance-20261101/download-manifest.json",
+    "experiments/EXP-010-012-stylegram-share/download-v2/name-that-llm-stylegram-share-cv.log"
+  ]
+}

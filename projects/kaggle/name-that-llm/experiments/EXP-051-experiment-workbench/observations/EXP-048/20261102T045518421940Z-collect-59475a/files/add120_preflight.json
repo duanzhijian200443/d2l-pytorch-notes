@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "new_rows": 120,
+  "new_groups": 60,
+  "source": "EXP040 aligned Codex subscription",
+  "new120_sha256": "cbb0f2227f7748d9172f04d23c1653403103a192dbb7503d897153d24bb00acd",
+  "holdout_overlap": 0,
+  "scope": "exact hash, group and text checks; semantic overlap not exhaustively excluded"
+}

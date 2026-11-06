@@ -1,0 +1,42 @@
+{
+  "kind": "discussion",
+  "category": "discussions",
+  "title": "HALX：无 Llama 配方与补充成员的负结果",
+  "author": "mizuno0522",
+  "url": "https://www.kaggle.com/competitions/name-that-llm/discussion/754427",
+  "observed_at": "2026-11-01T07:32:09.650901+00:00",
+  "source_version": {
+    "topic_id": 754427,
+    "snapshot_sha256": "2215f139c39e997dd064ac8ee58f033ae11dab739f35a32f61151ef86fbe2fe3"
+  },
+  "public_score": null,
+  "summary": "0.651→0.642 同时移除 Llama 并改运行保护；ModernBERT/Mistral 未补回差距，不能外推所有集成。",
+  "author_claim": "无 Llama 的 v22 为0.642；加入 ModernBERT/Mistral 的多种设置最高仍0.642。",
+  "verified": "已读取原帖的七行结果及作者未隔离移除效应的明确限制；未取得对应提交ID与固定版本映射。",
+  "use_for_us": "保留低单模OOF但互补的成员；针对当前集成做逐一添加/移除与权重对照。",
+  "test_plan": "固定其余条件只将 Llama 权重设0，再比较新成员小权重加入与替换，并记录错误分歧。",
+  "limitations": "原表两行均写v26且无scriptVersionId；0.009下降混合了运行保护等变化，不能视为严格Llama消融。",
+  "tags": [
+    "ablation",
+    "llama",
+    "ensemble",
+    "negative-result"
+  ],
+  "related_sources": [
+    "SRC-026"
+  ],
+  "schema_version": 1,
+  "id": "SRC-055",
+  "artifact_dir": "research/discussions/SRC-055-754427-halx-no-llama-ablations",
+  "notes_path": "research/discussions/SRC-055-754427-halx-no-llama-ablations/notes.md",
+  "collection_observation_note": "源码/API时间见回执。浏览器仅记录2026-11-01 UTC采集日期及07:35:57 UTC汇总截至时刻，不将其伪作逐页精确读取时间。",
+  "supersedes": null,
+  "evidence": [
+    "research/discussions/SRC-055-754427-halx-no-llama-ablations/notes.md",
+    "research/discussions/SRC-055-754427-halx-no-llama-ablations/snapshots/20261101T073209Z.json"
+  ],
+  "evidence_sha256": {
+    "research/discussions/SRC-055-754427-halx-no-llama-ablations/notes.md": "a8995ede4d70ee3b8559a3aa32f44994229e00bbe5f370d309ab574ec6063372",
+    "research/discussions/SRC-055-754427-halx-no-llama-ablations/snapshots/20261101T073209Z.json": "2215f139c39e997dd064ac8ee58f033ae11dab739f35a32f61151ef86fbe2fe3"
+  }
+}

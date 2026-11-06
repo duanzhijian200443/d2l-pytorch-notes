@@ -1,0 +1,28 @@
+{
+  "experiment": "EXP-054",
+  "source_file": "cloud/apex-zero-054/kernel/apex-zero.ipynb",
+  "source_sha256": "ca4c9e18ed32dcd8168b8118b192d39d657803d30dcd89a564b1c2d1d9c846dd",
+  "submission_id": 57903109,
+  "source_version_id": 364820326,
+  "status_at_binding": "PENDING",
+  "public_score_at_binding": null,
+  "observed_at": "2026-11-02T09:13:01.320006+00:00",
+  "receipts": [
+    {
+      "path": "cloud/apex-zero-054/ready-for-submission.json",
+      "sha256": "9bdf6e2e9e425559892f9d5d3d76f901c7bd116827ee020a422f98700a4a401d"
+    },
+    {
+      "path": "cloud/apex-zero-054/formal-submit-intent.json",
+      "sha256": "55c3ae150dfab18480d04680e528c1a66be916a7fc85230f63fe41045dcd0b91"
+    },
+    {
+      "path": "cloud/apex-zero-054/formal-submit-ack.json",
+      "sha256": "b250ea3c3b2fabe47c76eec434aab139f714de00989703abce8fec7d1bb6eb67"
+    },
+    {
+      "path": "cloud/apex-zero-054/formal-submit-binding.json",
+      "sha256": "ef63f22f60fa1b0be854daa8a194507f1ae70b56495bfdac5cd377e88a436fe4"
+    }
+  ]
+}

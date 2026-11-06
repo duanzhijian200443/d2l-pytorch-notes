@@ -1,0 +1,40 @@
+{
+  "status": "PENDING_IMPORT",
+  "role": "temporary_intake_not_authoritative_index",
+  "entries": [
+    {
+      "category": "solutions",
+      "ref": "mercurydust/name-that-llm-submission",
+      "source_url": "https://www.kaggle.com/code/mercurydust/name-that-llm-submission",
+      "notebook_version": 11,
+      "body_version": "V34.1",
+      "source_sha256": "5335c55713f17f5cebf7b262ce7bfac9b86ccb79366d3cb8c1c4907628b020d8",
+      "code_sha256": "d7d0a8a91052183c9d6677c7eebd106540c259053270680939ad2b7cef575f23",
+      "observed_at": "2026-11-02T03:59:27.657746+00:00",
+      "related_sources": [
+        "SRC-017"
+      ],
+      "action": "NEW_FIXED_VERSION_CANDIDATE",
+      "artifact_dir": "research/inbox/20261102-community-factcheck/solutions/mercurydust-v11",
+      "notes_path": "research/inbox/20261102-community-factcheck/solutions/mercurydust-v11/notes.md",
+      "factcheck_path": "research/inbox/20261102-community-factcheck/solutions/mercurydust-v11/factcheck.json",
+      "files": [
+        "source.ipynb",
+        "code.txt",
+        "description.md",
+        "metadata.json",
+        "latest-source.ipynb",
+        "latest-code.txt",
+        "latest-description.md",
+        "latest-metadata.json",
+        "fetch-receipt.json",
+        "attachment-metadata-check.json",
+        "attachment-public-search-mcp.json",
+        "minimal_batch_index_proof.py",
+        "minimal-proof-result.json",
+        "notes.md",
+        "factcheck.json"
+      ]
+    }
+  ]
+}

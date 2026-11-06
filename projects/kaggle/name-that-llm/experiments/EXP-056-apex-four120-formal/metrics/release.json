@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "experiment": "EXP-056",
+  "release_time": "2026-11-02T10:14:48.690263+00:00",
+  "source_sha256": "c6c9dee6bf8194f656aca10b15e599294bee1465603e78bccd4ddcaac9decc56",
+  "private": true,
+  "internet": false,
+  "audit": {
+    "path": "cloud/apex-volume-formal/frozen-independent-audit.json",
+    "sha256": "f99ef8fa019ce6d3339d8ea008dd78be6903031d6f618020d9c689a46f080e95",
+    "bytes": 5031
+  },
+  "meaning": "Independent source/row/weight and guard checks passed before cloud release, not yet hidden grading."
+}

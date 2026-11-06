@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-046",
+  "status": "CURRENT_OFFICIAL_READ_ONLY_CHECK",
+  "observed_at_utc": "2026-11-01T17:21:54Z",
+  "observation_note": "Rules/competition/quota/submission MCP reads performed during this review; final local official SDK daily-limit read completed at2026-11-01T17:21:53.866590+00:00. Refresh transient limits/status immediately before dispatch.",
+  "competition": "name-that-llm",
+  "sources": [
+    {
+      "tool": "mcp__kaggle__list_competition_pages",
+      "request": {
+        "competitionName": "name-that-llm"
+      },
+      "pages": [
+        "Code Requirements",
+        "Evaluation",
+        "data-description",
+        "rules"
+      ],
+      "urls": [
+        "https://www.kaggle.com/competitions/name-that-llm/overview/code-requirements",
+        "https://www.kaggle.com/competitions/name-that-llm/overview/evaluation",
+        "https://www.kaggle.com/competitions/name-that-llm/data",
+        "https://www.kaggle.com/competitions/name-that-llm/rules"
+      ]
+    },
+    {
+      "tool": "mcp__kaggle__get_competition",
+      "request": {
+        "competitionName": "name-that-llm"
+      },
+      "url": "https://www.kaggle.com/competitions/name-that-llm"
+    },
+    {
+      "tool": "mcp__kaggle__get_accelerator_quota",
+      "request": {}
+    },
+    {
+      "tool": "mcp__kaggle__search_competition_submissions",
+      "request": {
+        "competitionName": "name-that-llm",
+        "group": "All",
+        "sortBy": "Date",
+        "page": 1,
+        "pageSize": 100
+      }
+    },
+    {
+      "tool": "official Kaggle Python API competition_get_submission_limits",
+      "request": {
+        "competition_name": "name-that-llm"
+      },
+      "observed_at_utc": "2026-11-01T17:21:53.866590+00:00"
+    }
+  ],
+  "current_rules": {
+    "notebooks_only": true,
+    "cpu_max_runtime_seconds": 32400,
+    "gpu_max_runtime_seconds": 32400,
+    "internet_allowed": false,
+    "required_output_file": "submission.parquet",
+    "input_test_path": "/kaggle/input/competitions/name-that-llm/test.csv",
+    "required_columns": [
+      "id",
+      "model"
+    ],
+    "every_current_test_id_once": true,
+    "nulls_allowed": false,
+    "duplicate_ids_allowed": false,
+    "output_label_count": 18,
+    "scoring": "18-class balanced accuracy; model frequencies may differ across public and private leaderboard.",
+    "max_daily_submissions": 5,
+    "max_final_selections": 2,
+    "external_data": "Code Requirements allow freely/publicly available external data including pretrained models. This run uses existing public data and no self-generated120.",
+    "user_has_entered": true,
+    "interactive_row_documentation_conflict": "data-description says three public examples; Evaluation says one. Do not hardcode one exact public count; use verified official input plus bounded small-row condition.",
+    "deadline_conflict_not_used": "Timeline page says2027-01-13 while competition metadata deadline was2027-01-14T23:59:00.817Z. This review does not resolve that unrelated discrepancy or rely on it."
+  },
+  "daily_limits": {
+    "num_today": 0,
+    "num_total": 5,
+    "num_allowed_now": 5,
+    "limited_by_total": false
+  },
+  "quota": {
+    "gpu_time_used_seconds": 12019.661,
+    "gpu_time_reserved_seconds": 0,
+    "gpu_total_allowed_seconds": 108000,
+    "gpu_unreserved_remaining_seconds": 95980.339,
+    "quota_refresh_time": "2026-11-07T00:00:00Z",
+    "note": "Personal weekly quota observation; not a guarantee of scoring availability or hidden-run completion."
+  },
+  "competition_submissions": [
+    {
+      "ref": 57843313,
+      "status": "COMPLETE",
+      "date": "2026-10-31T15:42:28.377Z",
+      "public_score": "0.664"
+    },
+    {
+      "ref": 57832487,
+      "status": "COMPLETE",
+      "date": "2026-10-31T08:18:18.780Z",
+      "public_score": "0.659"
+    },
+    {
+      "ref": 57778357,
+      "status": "COMPLETE",
+      "date": "2026-10-29T17:36:23.270Z",
+      "public_score": "0.662"
+    },
+    {
+      "ref": 57759707,
+      "status": "COMPLETE",
+      "date": "2026-10-29T05:14:08.043Z",
+      "public_score": "0.654"
+    },
+    {
+      "ref": 57736953,
+      "status": "COMPLETE",
+      "date": "2026-10-28T12:46:34.197Z",
+      "public_score": "0.308"
+    }
+  ],
+  "active_competition_submissions_observed": 0,
+  "submission_inventory_scope": "All-group first page size100 returned five submissions, all COMPLETE; no continuation token returned. This is competition submission state, not a complete global notebook-session inventory.",
+  "sdk_contract": {
+    "code_submit_method": "KaggleApi.competition_submit_code",
+    "required_explicit_args": {
+      "file_name": "submission.parquet",
+      "competition": "name-that-llm",
+      "kernel": "<owner>/<notebook-slug>",
+      "kernel_version": "exact positive saved version number",
+      "message": "unique EXP046 request marker"
+    },
+    "mcp_tool": "mcp__kaggle__create_code_competition_submission",
+    "mcp_fields": [
+      "competitionName",
+      "fileName",
+      "kernelOwner",
+      "kernelSlug",
+      "kernelVersion",
+      "submissionDescription"
+    ],
+    "response_type": "ApiCreateCodeSubmissionResponse",
+    "response_fields": [
+      "message",
+      "ref"
+    ],
+    "readback_type": "ApiSubmission",
+    "readback_fields": "ref/date/description/file_name/status/public_score/error_description; installed type does not expose a scriptVersionId or kernelVersion field.",
+    "source_files": [
+      "C:/Users/34331/AppData/Roaming/uv/tools/kaggle/Lib/site-packages/kaggle/api/kaggle_api_extended.py",
+      "C:/Users/34331/AppData/Roaming/uv/tools/kaggle/Lib/site-packages/kagglesdk/competitions/types/competition_api_service.py"
+    ],
+    "do_not_use": "File-upload competition_submit or submit_to_competition blob upload; this task submits a frozen Notebook version, not729-row cached predictions."
+  },
+  "launcher_requirements": [
+    "Hold an exclusive local submission claim across state check and request; reject existing in-flight/unknown/acknowledged marker.",
+    "Persist exact competition/ref/version/file_name/code hash/unique description plus pre-request submission inventory and timestamp before network dispatch.",
+    "Set state SUBMIT_REQUEST_IN_FLIGHT and request_count1 atomically before invoking the one code-submission request.",
+    "Supply exact positive kernel_version and file_name submission.parquet. No latest-version default and no cached729-row output upload.",
+    "Validate and persist returned positive integer submission ref before subsequent polling; acknowledgement is not scoring success.",
+    "On timeout/disconnect/exception/invalid acknowledgement, record UNKNOWN and do not retry submission. Reconcile via exact ref when known or unique description/new submission inventory when unknown.",
+    "A temporarily empty reconciliation search is not proof that the write failed; no automatic duplicate submission.",
+    "Read back frozen notebook version/source and private/netoff/T4x2/image/inputs; public quick-commit COMPLETE only validates packaging/output format.",
+    "FAST_COMMIT may run only on the verified official public test input with0<rows<50 and KAGGLE_IS_COMPETITION_RERUN key absent. Any key presence, including empty or0 string, or>=50rows forces full path.",
+    "Hidden full path uses all current official test IDs; comp subprocess must propagate nonzero exit and missing/misaligned model/gate metadata must fail closed.",
+    "Refresh daily allowance, quota and active submissions immediately before final dispatch; no source switch or automatic retry after immutable request.",
+    "Track quickcommit version, global scriptVersionId if independently available, submission ID, hidden rerun status and public score as distinct evidence."
+  ],
+  "not_performed": {
+    "submission_calls": 0,
+    "kernel_writes": 0,
+    "model_inference": 0,
+    "task_modifications": 0
+  },
+  "documentation_limits": "Official FAQ/debugging pages opened through web but yielded no readable body. Current9h constraint was verified from live competition Code Requirements via official Kaggle MCP. This check did not independently establish the rerun environment variable from readable official generic docs.",
+  "sensitive_fields_omitted": true
+}

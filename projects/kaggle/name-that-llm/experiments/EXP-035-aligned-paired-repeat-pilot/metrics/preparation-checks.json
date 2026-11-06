@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "observed_at": "2026-11-01T12:09:00.948557+00:00",
+  "requests": 80,
+  "routes": {
+    "codex_subscription": 40,
+    "kaggle_model_proxy": 40
+  },
+  "by_model_route": {
+    "codex_subscription|gpt-5.6-terra": 20,
+    "kaggle_model_proxy|gpt-5.6-terra": 20,
+    "kaggle_model_proxy|gpt-5.6-luna": 20,
+    "codex_subscription|gpt-5.6-luna": 20
+  },
+  "unique_jobs": 80,
+  "cells": 20,
+  "independent_prompt_groups": 10,
+  "same_visible_prompt_within_cell": true,
+  "repeat_ids_only_in_metadata": true,
+  "inputs_hash_verified": true,
+  "requests_sent": 0,
+  "historical_cost_receipt_path": "pending-handoff-kaggle-proxy-pilot-20261101T084539Z/authorization-v2-results/manifest.json",
+  "historical_cost_receipt_sha256": "5e682b8557fa628a0400107054cdbafc6d32fa66fdc821dbe52135ea1d8dcbbd",
+  "historical_40_request_cost_usd": "0.0429388"
+}

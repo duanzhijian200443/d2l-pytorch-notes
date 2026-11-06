@@ -1,0 +1,29 @@
+{
+  "experiment_id": "EXP-056",
+  "baseline_experiment": "EXP-054",
+  "baseline_submission_id": 57903109,
+  "baseline_script_version_id": 364820326,
+  "mother_source_sha256": "ca4c9e18ed32dcd8168b8118b192d39d657803d30dcd89a564b1c2d1d9c846dd",
+  "ref": "zhjianduan/ntl-apex-codex120-056",
+  "arm_size": 120,
+  "labels": 4,
+  "rows_per_label": 30,
+  "complete_train_groups": 30,
+  "training_data": {
+    "path": "experiments/EXP-052-stylegram-four-model-volume/data/four120.csv",
+    "sha256": "a4e86314a77f7ed699dbfb107b32a8263a1ff09fc7c3ec92b98d4028d487005d",
+    "bytes": 159249
+  },
+  "training_protocol": "EXP052 frozen raw; append only inside Apex Stylegram; all pre-existing weights unchanged, new rows inherit existing class public row weight",
+  "excluded": "all 60 holdout rows; no validation/test rows used",
+  "unchanged": "EXP054 full recipe, non-Stylegram members and gates, Open Pool V13, main SVC w12, ATLAS .20, comp .15, Sinkhorn .60, punctuation 1.2, sibling residual",
+  "image": "gcr.io/kaggle-private-byod/python@sha256:9a6bcfda6d03b2cd9aa347ee8c1bae62043328ed0f4afe9bda014e4f8bbf9435",
+  "gpu": "NvidiaTeslaT4",
+  "private": true,
+  "internet": false,
+  "formal_submissions_max": 1,
+  "comparison": "own displayed Public Score vs actual EXP054, plus 240 minus 120",
+  "candidate_sha256": "c6c9dee6bf8194f656aca10b15e599294bee1465603e78bccd4ddcaac9decc56",
+  "metadata_sha256": "d87f61378abc03e0c932577ce5f0647690cd1b7905a07c97d096b3636f57030e",
+  "frozen_at": "2026-11-02T10:14:48.676330+00:00"
+}

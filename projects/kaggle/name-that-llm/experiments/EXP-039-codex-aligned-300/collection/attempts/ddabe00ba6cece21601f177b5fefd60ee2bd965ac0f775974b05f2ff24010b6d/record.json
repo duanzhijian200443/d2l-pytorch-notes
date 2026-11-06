@@ -1,0 +1,44 @@
+{
+  "prompt_id": "cp0237",
+  "prompt": "Rewrite this explanation for a child without adding a moral lecture: 'A queue is a shared agreement about turn-taking. It can seem slow to each individual, but it prevents a contest over who can reach the counter most forcefully.' Use approximately 120 words for the response.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "rewrite_original_material",
+  "target_words": 120,
+  "prompt_group": "cp0237",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "base_prompt": "Rewrite this explanation for a child without adding a moral lecture: 'A queue is a shared agreement about turn-taking. It can seem slow to each individual, but it prevents a contest over who can reach the counter most forcefully.' Use approximately 120 words for the response.",
+  "base_prompt_sha256": "6aabea8ce3402f1f3e1c7c44443a9ac52eb3e7dc24ce4914f7798725917416cc",
+  "base_prompt_id": "cp0237",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0237::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "ddabe00ba6cece21601f177b5fefd60ee2bd965ac0f775974b05f2ff24010b6d",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:09:01.062059+00:00",
+  "ended_at": "2026-11-01T13:09:19.508816+00:00",
+  "prompt_sha256": "83472ab0e97c40243f71dc1b45b7bfbcf1dbd274de688bee217ec0400ba3176f",
+  "text": "A queue is a line of people waiting for the same thing, such as buying a snack or getting on a ride. Everyone agrees, without needing to talk about it, that the person who arrived first goes first, followed by the next person, and so on. Waiting in line can feel slow because each person has to wait for those ahead. But without a queue, everyone might rush toward the counter at once. People could bump into one another, argue about who was first, or try to squeeze through the crowd. That would make it harder for the worker to help anyone. A queue keeps the order clear, so people know when their turn is coming and the counter does not become a pushing contest.",
+  "text_sha256": "1415a65740f45e5fdc235e911c0d21b02c62e3db02f6f9df1935c9aea236de1d",
+  "raw_final_sha256": "1415a65740f45e5fdc235e911c0d21b02c62e3db02f6f9df1935c9aea236de1d",
+  "word_count": 125,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4234,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 170,
+      "reasoning_output_tokens": 23
+    }
+  ],
+  "attempt_path": "collection\\attempts\\ddabe00ba6cece21601f177b5fefd60ee2bd965ac0f775974b05f2ff24010b6d",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

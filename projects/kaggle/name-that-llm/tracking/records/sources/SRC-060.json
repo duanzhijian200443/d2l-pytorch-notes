@@ -1,0 +1,43 @@
+{
+  "kind": "discussion",
+  "category": "discussions",
+  "title": "Pablo：自适应中心化与收缩边际Sinkhorn的OOF声明",
+  "author": "pablodiegoo",
+  "url": "https://www.kaggle.com/competitions/name-that-llm/discussion/754026",
+  "observed_at": "2026-11-01T07:32:15.226936+00:00",
+  "source_version": {
+    "topic_id": 754026,
+    "snapshot_sha256": "66fde552e1471afe1492480ddea7814282947310aa2d5b9391428bd7301f0b4d"
+  },
+  "public_score": null,
+  "summary": "作者给轻量管线OOF阶梯0.3145→0.4345；无逐行OOF/源码版本绑定，且全prompt Hungarian提升不代表稀疏测试收益。",
+  "author_claim": "5折prompt GroupKFold中topic masking0.3686，中心化0.3812，target-shrunk Sinkhorn0.3834，Hungarian0.4345。",
+  "verified": "已读原帖，保留其具体参数与表格；该讨论未给得分scriptVersionId、OOF文件和完整验证隔离证据。",
+  "use_for_us": "作为IDEA-002的候选校准设置与风格特征方向，必须先检验分折与组大小效应。",
+  "test_plan": "固定无泄漏分折缓存，在抽稀后重新聚类，逐项开关中心化/收缩边际/Hungarian并检查label与group泄漏。",
+  "limitations": "2699条并不等于文中18×180的完整格；公开测试类别先验不等的解释是作者假设，非官方证明。",
+  "tags": [
+    "sinkhorn",
+    "centering",
+    "validation",
+    "stylometry",
+    "hungarian"
+  ],
+  "related_sources": [
+    "SRC-013"
+  ],
+  "schema_version": 1,
+  "id": "SRC-060",
+  "artifact_dir": "research/discussions/SRC-060-754026-target-shrunk-sinkhorn",
+  "notes_path": "research/discussions/SRC-060-754026-target-shrunk-sinkhorn/notes.md",
+  "collection_observation_note": "源码/API时间见回执。浏览器仅记录2026-11-01 UTC采集日期及07:35:57 UTC汇总截至时刻，不将其伪作逐页精确读取时间。",
+  "supersedes": null,
+  "evidence": [
+    "research/discussions/SRC-060-754026-target-shrunk-sinkhorn/notes.md",
+    "research/discussions/SRC-060-754026-target-shrunk-sinkhorn/snapshots/20261101T073215Z.json"
+  ],
+  "evidence_sha256": {
+    "research/discussions/SRC-060-754026-target-shrunk-sinkhorn/notes.md": "4e0c2875e1205cfd1f1f0bb49bf49eb57ded7f9c45eff651904b7243c40024de",
+    "research/discussions/SRC-060-754026-target-shrunk-sinkhorn/snapshots/20261101T073215Z.json": "66fde552e1471afe1492480ddea7814282947310aa2d5b9391428bd7301f0b4d"
+  }
+}

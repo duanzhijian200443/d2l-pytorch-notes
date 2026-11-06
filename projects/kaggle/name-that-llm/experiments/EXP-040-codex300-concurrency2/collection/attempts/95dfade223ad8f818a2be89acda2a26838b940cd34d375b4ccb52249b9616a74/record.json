@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0058",
+  "prompt": "How does a map application balance storing map information on the device with downloading information during use? A response of around 160 words is enough.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "technology_explanation",
+  "target_words": 160,
+  "prompt_group": "cp0058",
+  "split": "train",
+  "source": "codex_subscription",
+  "base_prompt": "How does a map application balance storing map information on the device with downloading information during use? A response of around 160 words is enough.",
+  "base_prompt_sha256": "bdc930416610dbced5ff7f003b83dcd165e74aedce4bc60e9df96b01111e64b4",
+  "base_prompt_id": "cp0058",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0058::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "95dfade223ad8f818a2be89acda2a26838b940cd34d375b4ccb52249b9616a74",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:51:54.005055+00:00",
+  "ended_at": "2026-11-01T13:52:14.456105+00:00",
+  "prompt_sha256": "026215ede2f72910da9bb70ce5ec3bd601daad5f733214a6249e824366aaeaf9",
+  "text": "A map application balances device storage and live downloads by keeping a carefully managed cache of useful data while fetching other information when needed. Basic assets, such as the application interface, low-detail maps, recent searches, and frequently viewed map tiles, may remain on the device for fast access. Users can often download selected regions for offline navigation, including roads, place names, and routing data. During normal use, the application downloads higher-detail tiles, traffic conditions, transit updates, business information, and route changes based on the user’s location, zoom level, and planned journey. Vector map data can reduce storage and bandwidth because the device renders roads and labels from compact geographic instructions rather than downloading complete images. Cached information is assigned size and age limits, and older or rarely used data is removed automatically when space is needed. The application also checks for updated versions so stored maps do not become dangerously outdated. This approach provides quick, reliable operation while limiting storage use, network consumption, and battery drain.",
+  "text_sha256": "3c686aed18cca61d6077f93de4a720fe8a4de566cc20abcb1853a87fae2e5da0",
+  "raw_final_sha256": "3c686aed18cca61d6077f93de4a720fe8a4de566cc20abcb1853a87fae2e5da0",
+  "word_count": 166,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4207,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 240,
+      "reasoning_output_tokens": 38
+    }
+  ],
+  "attempt_path": "collection\\attempts\\95dfade223ad8f818a2be89acda2a26838b940cd34d375b4ccb52249b9616a74",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

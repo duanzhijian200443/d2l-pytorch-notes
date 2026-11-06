@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0232",
+  "prompt": "A workshop can give participants identical materials or let each person bring whatever they have. Discuss fairness, creativity, and convenience. Please answer in roughly 120 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "tradeoff_argument",
+  "target_words": 120,
+  "prompt_group": "cp0232",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "base_prompt": "A workshop can give participants identical materials or let each person bring whatever they have. Discuss fairness, creativity, and convenience. Please answer in roughly 120 words.",
+  "base_prompt_sha256": "a93bb2aae1b553fd362010ccc62b68af5d30a53e1df762c76abb7a1446c88deb",
+  "base_prompt_id": "cp0232",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0232::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "863dd9ccebd4df158ca468267354813c7cd0f22ddaecd5650292a34942dfa9a0",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:49:21.993709+00:00",
+  "ended_at": "2026-11-01T13:49:46.964984+00:00",
+  "prompt_sha256": "8b2fe7508d99a7b075e19cdbbbd63fd2897c43be67f6b5f820b19342a24b0e50",
+  "text": "Giving all workshop participants identical materials promotes fairness because everyone starts with the same resources, regardless of income or access to supplies. It also makes instructions easier to follow and allows organizers to plan activities reliably. However, buying and distributing materials can be costly, and uniform supplies may limit creative possibilities. Letting participants bring whatever they have encourages individuality, experimentation, and resourcefulness while reducing waste and organizers’ expenses. Yet some people may arrive with better equipment than others, creating unequal opportunities, and forgotten or unsuitable supplies can disrupt the session. A practical compromise is to provide a basic shared kit while inviting optional personal materials. This approach offers a fair foundation, supports creative choices, and keeps preparation reasonably convenient for everyone.",
+  "text_sha256": "2013994516223dd33f3a1d30b1db863e7591b62350f050ef3c7eb2430f551c14",
+  "raw_final_sha256": "2013994516223dd33f3a1d30b1db863e7591b62350f050ef3c7eb2430f551c14",
+  "word_count": 121,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4325,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 144,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\863dd9ccebd4df158ca468267354813c7cd0f22ddaecd5650292a34942dfa9a0",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

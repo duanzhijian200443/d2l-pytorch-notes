@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0099",
+  "prompt": "Explain how a city's street names can function as an unofficial record of its changing priorities. Please answer in roughly 200 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "humanities_history",
+  "target_words": 200,
+  "prompt_group": "cp0099",
+  "split": "train",
+  "source": "codex_subscription",
+  "base_prompt": "Explain how a city's street names can function as an unofficial record of its changing priorities. Please answer in roughly 200 words.",
+  "base_prompt_sha256": "e8db15f978097e99b0755db4ed47264f5a931d9b502ed331fa1dd2658a90d79c",
+  "base_prompt_id": "cp0099",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0099::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "eac560e79f8e65602af1cae18073ea325499ca85ea547cc4a278fbffb863c70b",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:55:55.113641+00:00",
+  "ended_at": "2026-11-01T13:56:10.392793+00:00",
+  "prompt_sha256": "d4af51a2e8fe16676f3d09eae126b485cb63c21d0b1d512c2b6818077224962c",
+  "text": "A city’s street names can serve as an unofficial archive because they reveal whom and what successive generations considered worthy of public recognition. Early names may describe practical features such as rivers, markets, trades, landowners, or routes to nearby settlements, reflecting a city’s geography and economic foundations. As political power changes, streets may be renamed for monarchs, military leaders, revolutionaries, presidents, or national heroes, turning the map into a statement about legitimacy and civic identity. Industrial growth can introduce names honoring inventors, business founders, railways, or factories, while later periods may celebrate artists, scientists, athletes, civil rights leaders, and previously marginalized communities. Renaming can also expose conflict. Removing the name of a colonial official, segregationist, or defeated regime may represent an attempt to reject older values, although resistance to such changes shows that public memory is contested. New developments likewise reveal contemporary ambitions through names associated with environmental ideals, technological innovation, local heritage, or cultural diversity. Because these choices accumulate rather than follow a single plan, the street map becomes a layered record of changing priorities. It shows how a city has understood prosperity, authority, belonging, and justice at different moments, while omissions reveal whose contributions were ignored or deliberately forgotten.",
+  "text_sha256": "b8ff44a79c7a722d292a489b8362cb63a0fc615b110bbd857a319ada2ce81a74",
+  "raw_final_sha256": "b8ff44a79c7a722d292a489b8362cb63a0fc615b110bbd857a319ada2ce81a74",
+  "word_count": 201,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4204,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 269,
+      "reasoning_output_tokens": 14
+    }
+  ],
+  "attempt_path": "collection\\attempts\\eac560e79f8e65602af1cae18073ea325499ca85ea547cc4a278fbffb863c70b",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

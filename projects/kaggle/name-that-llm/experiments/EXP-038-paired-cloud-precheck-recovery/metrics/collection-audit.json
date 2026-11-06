@@ -1,0 +1,30 @@
+{
+  "observed_at": "2026-11-01T13:48:13.710563+00:00",
+  "run_id": "75230ec19d8d4d4daf6e771359fd475b",
+  "status": "DISPATCH_COMPLETE_PARTIAL_AUDITED",
+  "responses": 78,
+  "new_responses": 76,
+  "historical_successes": 2,
+  "requests_sent_total": 80,
+  "requests_by_route": {
+    "kaggle_model_proxy": 40,
+    "codex_subscription": 40
+  },
+  "counts": {
+    "codex_subscription|gpt-5.6-terra": 20,
+    "kaggle_model_proxy|gpt-5.6-luna": 20,
+    "codex_subscription|gpt-5.6-luna": 20,
+    "kaggle_model_proxy|gpt-5.6-terra": 18
+  },
+  "complete_paired_cells": 19,
+  "expected_complete_paired_cells": 19,
+  "historical_uncertain": 2,
+  "historical_cost_known": false,
+  "new_cost_known": true,
+  "cost_known": false,
+  "confirmed_cost_usd": "0.0609668",
+  "integrity_errors": [],
+  "duplicate_job_ids": 0,
+  "raw_repeats_preserved": true,
+  "training_or_api_equivalence": "NOT_EVALUATED"
+}

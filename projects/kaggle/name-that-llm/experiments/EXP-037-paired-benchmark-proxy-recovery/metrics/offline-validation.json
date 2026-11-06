@@ -1,0 +1,28 @@
+{
+  "observed_at": "2026-11-01T12:44:10.791852+00:00",
+  "status": "PASS",
+  "runner_tests": 11,
+  "runner_seconds": 16.438,
+  "transport_tests": 13,
+  "transport_seconds": 0.267,
+  "model_requests": 0,
+  "sources": [
+    {
+      "path": "experiments/EXP-037-paired-benchmark-proxy-recovery/code/run_recovery.py",
+      "sha256": "017a4d498fe84bfc5a1b80f50539d9b05e486196506e105b008051979c41f6c1"
+    },
+    {
+      "path": "experiments/EXP-037-paired-benchmark-proxy-recovery/code/test_run_recovery.py",
+      "sha256": "a61a53aeff0d49a6e8e7e83079e6265167a4192cb4016923542cd304da4a266f"
+    },
+    {
+      "path": "experiments/EXP-037-paired-benchmark-proxy-recovery/code/kaggle_transport.py",
+      "sha256": "4c3239a3acf492f002b0dd5d6727293676c8df4e1266ac36b4f76bd43f29a194"
+    },
+    {
+      "path": "experiments/EXP-037-paired-benchmark-proxy-recovery/code/test_cloud_transport.py",
+      "sha256": "8477f8c14dbd1380e8b6aaac40ff43dc4a7e6e381b52506da7a0f51c70839d99"
+    }
+  ],
+  "integration": "Official readonly preflight PASS;SDK task/run identities anddownloadsignature verified; runversion0 omissionhandledexplicitly; inference notyetverified"
+}

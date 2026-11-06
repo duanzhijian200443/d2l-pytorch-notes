@@ -1,0 +1,42 @@
+{
+  "role": "Fixed Notebook Input tab, opened each Open Pool card; logs from public saved runs, observed in Kaggle browser.",
+  "recorded_at": "2026-11-02T07:15:42.718476+00:00",
+  "notebooks": [
+    {
+      "ref": "alexchilton/name-that-llm-0-663-all-public-what-failed",
+      "version": 9,
+      "script_version_id": 364580223,
+      "score": 0.663,
+      "fixed_url": "https://www.kaggle.com/code/alexchilton/name-that-llm-0-663-all-public-what-failed?scriptVersionId=364580223",
+      "fixed_input_url": "https://www.kaggle.com/code/alexchilton/name-that-llm-0-663-all-public-what-failed/input?scriptVersionId=364580223",
+      "input_item_title": "Name That LLM Open Pool: 191k Clean Passages",
+      "selected_item_version_text": "Last Updated: 3 days ago (Version 11)",
+      "selected_item_heading": "Name That LLM Open Pool v10: 198,507 clean passages, ready to train",
+      "prepared_rows_in_public_commit": 190210,
+      "gemini_risk_rows_removed_in_public_commit": 8297,
+      "best_score_version": 9,
+      "gpu": "T4 x2",
+      "commit_runtime": "8m 17s",
+      "commit_log_rows": [
+        "30.3s 10 FAST_COMMIT True",
+        "484.6s 31 variant E dropped flag_gemini37_routing_risk 8297",
+        "486.0s 32 variant E svc pool = open safe pool 190210",
+        "486.2s 39 comp stack wall time 0"
+      ]
+    },
+    {
+      "ref": "bgunshui/ntl-apex-e",
+      "version": 1,
+      "script_version_id": 364347706,
+      "score": 0.663,
+      "fixed_url": "https://www.kaggle.com/code/bgunshui/ntl-apex-e?scriptVersionId=364347706",
+      "fixed_input_url": "https://www.kaggle.com/code/bgunshui/ntl-apex-e/input?scriptVersionId=364347706",
+      "input_item_title": "Name That LLM Open Pool: 191k Clean Passages",
+      "selected_item_version_text": "Last Updated: 3 days ago (Version 11)",
+      "selected_item_heading": "Name That LLM Open Pool v10: 198,507 clean passages, ready to train",
+      "prepared_rows_in_public_commit": 190210,
+      "gemini_risk_rows_removed_in_public_commit": 8297,
+      "commit_log_evidence": "fixed-v1-module-comparison.json"
+    }
+  ]
+}

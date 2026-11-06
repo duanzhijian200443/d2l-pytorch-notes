@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0078",
+  "prompt": "How should a project leader communicate a delay when the revised completion date is still uncertain? Aim for about 160 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "business_decision",
+  "target_words": 160,
+  "prompt_group": "cp0078",
+  "split": "train",
+  "source": "codex_subscription",
+  "base_prompt": "How should a project leader communicate a delay when the revised completion date is still uncertain? Aim for about 160 words.",
+  "base_prompt_sha256": "56b0a4015332654c000251cd059c2086082c2c14b6842a660c780b1b7d802138",
+  "base_prompt_id": "cp0078",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0078::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "24fce05a8919d83c79526bd86ae200ef6206a44d548d58525f9eb2857b55eee8",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T14:03:59.098441+00:00",
+  "ended_at": "2026-11-01T14:04:15.169823+00:00",
+  "prompt_sha256": "21455fe27ccba7ca839e7a1a31626b4876a938f34e21eb12935d89739dbb8574",
+  "text": "A project leader should communicate the delay promptly, clearly, and without inventing a completion date. Explain what has changed, why the original deadline is no longer realistic, and what impact the delay may have on customers, stakeholders, budgets, or dependent work. Take accountability where appropriate, while avoiding blame or unnecessary technical detail. If the revised date is uncertain, say so directly and describe what must be learned or completed before a reliable forecast can be made. Provide a near-term commitment instead, such as a date for the next status update, completion of a key assessment, or delivery of a revised plan. Share the actions underway to reduce uncertainty, address the cause, and limit further disruption. Where possible, offer options, workarounds, or partial deliverables and invite stakeholders to identify critical priorities. Keep updates regular even when little has changed. This approach preserves trust by replacing false precision with transparency, evidence, and specific follow-through, while showing that the team remains actively engaged and accountable.",
+  "text_sha256": "bc50b5617e4b2d949e1d82fe77a3bda5cff59867c1f7b6b29b8c0ff278900adc",
+  "raw_final_sha256": "bc50b5617e4b2d949e1d82fe77a3bda5cff59867c1f7b6b29b8c0ff278900adc",
+  "word_count": 162,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4203,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 216,
+      "reasoning_output_tokens": 13
+    }
+  ],
+  "attempt_path": "collection\\attempts\\24fce05a8919d83c79526bd86ae200ef6206a44d548d58525f9eb2857b55eee8",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

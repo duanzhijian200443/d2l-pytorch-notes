@@ -1,0 +1,11 @@
+{
+  "status": "COMPLETE",
+  "observed_at": "2026-11-01T09:09:49.998304+00:00",
+  "child_exit": 0,
+  "termination_reason": null,
+  "elapsed_seconds": 395.31244918799996,
+  "peak_rss_bytes": 5905727488,
+  "wall_seconds": 3300.0,
+  "rss_limit_bytes": 12884901888,
+  "artifacts_verified": true
+}

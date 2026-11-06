@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "EXP-037",
+  "title": "双渠道续采：官方Benchmarks云端代理，保留累计派发与原文",
+  "baseline_id": "EXP-036",
+  "hypothesis": "Official privateBenchmarkproxy can resume exact pairedprotocol where localtoken routefailed.",
+  "changes": [
+    "Replace localKaggleproxytransport with privateBenchmarkCPU onerequest percreation",
+    "Preserve all3historicaldispatches andoriginalsuccessfultext;skipall3",
+    "Keep originalcumulative80 cap,confirmed0.10USDsoftstop and10promptgroups"
+  ],
+  "observed_at": "2026-11-01T12:48:07.094699+00:00",
+  "source": {
+    "notebook_ref": null,
+    "notebook_version": null,
+    "script_version_id": null,
+    "local_path": "experiments/EXP-037-paired-benchmark-proxy-recovery/code/run_recovery.py",
+    "sha256": "017a4d498fe84bfc5a1b80f50539d9b05e486196506e105b008051979c41f6c1"
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-037-paired-benchmark-proxy-recovery/manifest.json",
+    "validation_split_id": "codex-pilot-prompt-v1",
+    "content_hashes_verified": true
+  },
+  "config": {
+    "note": "仅作台账索引；完整参数以 config_path 指向的 config.json 为准。"
+  },
+  "environment": {
+    "platform": "local_Codex_and_private_Kaggle_Benchmarks_CPU",
+    "accelerator": "none_requested",
+    "container": null,
+    "seed": 20261101
+  },
+  "execution": {
+    "scope": "1newCodexsuccess;KagglefailedinreadonlytaskpreexistenceGET403 beforecreate,zeroactualcloudmodeldispatch;original5attemptintentsretained",
+    "status": "STOPPED_FAILURE",
+    "observed_at": "2026-11-01T12:45:05.910701+00:00",
+    "run_id": "1ca08611bb774f978baafe49ab79e12e",
+    "new_model_requests": 1,
+    "controller_attempt_intents_total": 5,
+    "actual_or_uncertain_model_dispatches_total": 4,
+    "saved_responses_total": 2
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": "11runner+13transportofflinechecksPASS;0newgeneratedresults",
+    "per_class_recall_path": null,
+    "oof_path": null,
+    "leakage_audit": "not_audited"
+  },
+  "cost": {
+    "gpu_seconds": null,
+    "api_usd": null,
+    "colab_cu": 0
+  },
+  "timing_note": null,
+  "conclusion": "Cloudcreationnotreached:missingprivateTaskreturns403,officialCLI treats403/404asnotfound.1newCodexsuccessretained;fixandcontinuationEXP038.",
+  "limitations": "2historicalunknown costs retained;78maximumsuccesses under80dispatchcap. Serverinternalrescheduling outsideclientcontrol. No bareAPIequivalence ortrainingclaim.",
+  "next_action": "EXP038 continues original plan withmetadata-onlyfailedjob eligible,2successfuljobs skipped,2historicalAPIunknowns countagainstcap.",
+  "related_sources": [],
+  "evidence": [
+    "experiments/EXP-037-paired-benchmark-proxy-recovery/config.json",
+    "experiments/EXP-037-paired-benchmark-proxy-recovery/manifest.json",
+    "experiments/EXP-037-paired-benchmark-proxy-recovery/report.md",
+    "experiments/EXP-037-paired-benchmark-proxy-recovery/recovery-receipt.json",
+    "experiments/EXP-037-paired-benchmark-proxy-recovery/metrics/execution-preflight.json",
+    "experiments/EXP-037-paired-benchmark-proxy-recovery/metrics/kaggle-preflight.json",
+    "experiments/EXP-037-paired-benchmark-proxy-recovery/metrics/cloud-sdk-readonly-integration.json",
+    "experiments/EXP-037-paired-benchmark-proxy-recovery/metrics/offline-validation.json",
+    "experiments/EXP-037-paired-benchmark-proxy-recovery/code/run_recovery.py",
+    "experiments/EXP-037-paired-benchmark-proxy-recovery/code/kaggle_transport.py"
+  ],
+  "config_path": "experiments/EXP-037-paired-benchmark-proxy-recovery/config.json"
+}

@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0083",
+  "prompt": "Describe the role of public squares in the social life of a town before electronic communication became common. Keep your response near 160 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "humanities_history",
+  "target_words": 160,
+  "prompt_group": "cp0083",
+  "split": "train",
+  "source": "codex_subscription",
+  "base_prompt": "Describe the role of public squares in the social life of a town before electronic communication became common. Keep your response near 160 words.",
+  "base_prompt_sha256": "763fae98269fbecd3b48d3085e2bb8e6d6150f39511f955ba226e0e9ea69dde2",
+  "base_prompt_id": "cp0083",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0083::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "405efa8d4c9a7241c072946597452347bf8809f68a5e018cacd76a250e94e6e9",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T13:36:27.816788+00:00",
+  "ended_at": "2026-11-01T13:36:46.154196+00:00",
+  "prompt_sha256": "b5a6a0d29162867ef30fa154cadcba3d6b37be7f03ad2268ca18f0fb8b90a69b",
+  "text": "Before electronic communication became common, public squares served as the social heart of a town. They were places where people exchanged news, arranged business, and encountered neighbors from different parts of the community. Farmers brought produce to market, craftsmen displayed their goods, and merchants negotiated prices, making the square an important economic center as well as a meeting place. Religious ceremonies, political speeches, public announcements, celebrations, and punishments often took place there, allowing information and authority to reach a broad audience. Travelers could learn local developments, while residents could hear rumors, opinions, and stories that might otherwise remain confined to individual households. The square also offered opportunities for leisure: people watched performances, met friends, courted, argued, or simply observed town life. Because communication depended heavily on face-to-face contact, regular visits to the square helped maintain relationships and a shared sense of identity. In this way, the public square connected private lives with civic affairs and made the town feel like a coherent social community.",
+  "text_sha256": "ce6c4f3484618197c7eda9820f949a5e6c5d56c3db4a1a4e438a457f2aa27fb5",
+  "raw_final_sha256": "ce6c4f3484618197c7eda9820f949a5e6c5d56c3db4a1a4e438a457f2aa27fb5",
+  "word_count": 164,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2671,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 225,
+      "reasoning_output_tokens": 22
+    }
+  ],
+  "attempt_path": "collection\\attempts\\405efa8d4c9a7241c072946597452347bf8809f68a5e018cacd76a250e94e6e9",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

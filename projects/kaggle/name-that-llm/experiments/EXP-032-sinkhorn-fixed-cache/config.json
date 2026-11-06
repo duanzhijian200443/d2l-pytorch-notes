@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-032",
+  "baseline_id": "EXP-004",
+  "prediction_source_experiment": "EXP-031",
+  "prediction_source_ref": "zhjianduan/name-that-llm-cache-capture-031",
+  "prediction_source_version": 2,
+  "prediction_source_run_id": "exp031-20261101T110842Z",
+  "scope": "exploratory_external_cached_postprocessing",
+  "model": {
+    "name": "same frozen ATLAS20 member outputs",
+    "parameters": {
+      "sinkhorn_control": 0.45,
+      "sinkhorn_candidate": 0.3,
+      "sinkhorn_target_mix": 0.35,
+      "sinkhorn_iterations": 100,
+      "atlas_w": 0.2,
+      "comp_w": 0.15,
+      "typography_scale": 1.5,
+      "typography_cap": 0.3,
+      "post": 0
+    }
+  },
+  "validation": {
+    "retune": false,
+    "new_models": false,
+    "covered_classes": 17,
+    "output_classes": 18,
+    "rows": 729,
+    "prompt_groups": 56,
+    "bootstrap_draws": 2000,
+    "bootstrap_seed": 42,
+    "independence_certified": false
+  },
+  "input_bindings": {
+    "panel_sha256": "8eeec7f64e924f0fd79dca57d324d42d269f400bdfbfff76d60b4c168d9ae6f2",
+    "local_truth_sha256": "f5425fbae56355e72537074cf5eef514c0319cd67489fc63c36fe07b2ff2302b",
+    "train_sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707"
+  },
+  "budget": {
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0,
+    "wall_seconds": null
+  },
+  "prerequisites": [
+    "EXP031 real V2 complete with valid artifacts and source bindings",
+    "Full ATLAS coverage and independently verified cache replay",
+    "Control .45 matches actual stored final scores and submission before scoring candidate"
+  ],
+  "status": "PREPARED_NOT_RUN",
+  "created_at_utc": "2026-11-01T11:24:48.686614+00:00",
+  "protocol_path": "experiments/EXP-032-sinkhorn-fixed-cache/protocol.json",
+  "protocol_sha256": "445dc1f91457700aa7c95036f04dc76fa695522feadbe5f64b4f06088d16133a"
+}

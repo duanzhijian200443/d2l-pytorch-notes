@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-043",
+  "freeze_status": "DERIVED_VIEW_COMPLETE_NOT_TRAINED",
+  "config": {
+    "path": "experiments/EXP-043-codex-format-view/config.json",
+    "sha256": "a3a989d6e9734ef0eaf065f63684ce376a5ef291b640522dc33bb94e2c3e40f2",
+    "bytes": 1130
+  },
+  "inputs": [
+    {
+      "path": "experiments/EXP-023-codex-subscription-pilot-r1/collection/records.jsonl",
+      "sha256": "cb903279b3727b31ce2125b89c5ce8f530d769a984f49c2cb86e4fbefb1e9722",
+      "bytes": 2428324
+    },
+    {
+      "path": "experiments/EXP-040-codex300-concurrency2/collection/combined-records.jsonl",
+      "sha256": "2d6c691016a6ae6f789d5c6a625a207a3ec89e5093bf804c5052b11c90a6125b",
+      "bytes": 1165478
+    }
+  ],
+  "code": [
+    {
+      "path": "experiments/EXP-043-codex-format-view/transform.py",
+      "sha256": "dadcce47a6a16e01f692e9b40b1e688b9dafdf3a06125f35ed53b4bb213aa422",
+      "bytes": 3147
+    },
+    {
+      "path": "experiments/EXP-043-codex-format-view/test_transform.py",
+      "sha256": "4f1e77afeaceb9606e6006690dcbe98406ca4a537dbb98ebbe377f56b4cc79b7",
+      "bytes": 1787
+    },
+    {
+      "path": "experiments/EXP-043-codex-format-view/build_view.py",
+      "sha256": "ce452c52ece3c061ec7422781521d39a7a9635795073d7bc3c8b76f37cc959bb",
+      "bytes": 7834
+    }
+  ],
+  "outputs": [
+    {
+      "path": "experiments/EXP-043-codex-format-view/derived/holdout.jsonl",
+      "sha256": "a11dfa645ab153e6e5d1898bf2557d0acd6bffaea443a96ad85163c05bfd4063",
+      "bytes": 396280
+    },
+    {
+      "path": "experiments/EXP-043-codex-format-view/derived/row-changes.jsonl",
+      "sha256": "98c35df6b2e6a0c7899ee29e204b0a11fea9ed41d0788927a2a13aff2669c45a",
+      "bytes": 778008
+    },
+    {
+      "path": "experiments/EXP-043-codex-format-view/derived/selections.json",
+      "sha256": "b2fe0393c93856cb9aa092e45b87a3573cea60935819932959eba5aed69f58e7",
+      "bytes": 61685
+    },
+    {
+      "path": "experiments/EXP-043-codex-format-view/derived/train.jsonl",
+      "sha256": "157c7f45c635160718f47f6e018f5553b52b8b38fc23eaf9ad495aa554bb9ffb",
+      "bytes": 1574130
+    }
+  ],
+  "metrics": {
+    "path": "experiments/EXP-043-codex-format-view/metrics/derivation.json",
+    "sha256": "188b4f75747957bc638875cd952a64eabf4df957942cd309251ef8b73dabcce5",
+    "bytes": 1242
+  }
+}

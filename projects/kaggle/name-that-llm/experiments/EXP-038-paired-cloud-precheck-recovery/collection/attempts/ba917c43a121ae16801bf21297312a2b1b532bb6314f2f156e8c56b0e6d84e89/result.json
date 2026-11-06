@@ -1,0 +1,12 @@
+{
+  "job_id": "ba917c43a121ae16801bf21297312a2b1b532bb6314f2f156e8c56b0e6d84e89",
+  "route": "codex_subscription",
+  "status": "SUCCEEDED",
+  "started_at": "2026-11-01T12:55:59.988428+00:00",
+  "ended_at": "2026-11-01T12:56:13.490781+00:00",
+  "reasons": [],
+  "cost_usd": null,
+  "cost_nanodollars": null,
+  "text_sha256": "45c09ff5b1b1461497b830e74e176dbc7a8c15c0d598e11d9b384c02034ef4a5",
+  "provider_response_id": "01a1972e-5cb0-7353-96e2-c7a2850ef794"
+}

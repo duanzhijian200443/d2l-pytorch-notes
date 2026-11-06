@@ -1,0 +1,25 @@
+{
+  "observed_at": "2026-11-01T12:30:52.967328+00:00",
+  "run_id": "8245dd6757084f19b9a07b3e70044f51",
+  "status": "INCOMPLETE",
+  "responses": 1,
+  "new_responses": 0,
+  "historical_successes": 1,
+  "requests_sent_total": 3,
+  "requests_by_route": {
+    "kaggle_model_proxy": 2,
+    "codex_subscription": 1
+  },
+  "counts": {
+    "codex_subscription|gpt-5.6-terra": 1
+  },
+  "historical_uncertain": 1,
+  "historical_cost_known": false,
+  "new_cost_known": false,
+  "cost_known": false,
+  "confirmed_cost_usd": "0",
+  "integrity_errors": [],
+  "duplicate_job_ids": 0,
+  "raw_repeats_preserved": true,
+  "training_or_api_equivalence": "NOT_EVALUATED"
+}

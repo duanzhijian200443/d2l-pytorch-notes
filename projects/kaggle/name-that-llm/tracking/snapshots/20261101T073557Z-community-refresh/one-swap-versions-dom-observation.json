@@ -1,0 +1,44 @@
+{
+  "role": "browser_dom_observation",
+  "observed_at": "2026-11-01T07:35:57Z",
+  "url": "https://www.kaggle.com/code/zbigniewkirchner/0-664-one-swap-198k-clean-pool-fully-public",
+  "current_rendered_version": 3,
+  "current_script_version_id": 364294976,
+  "version3_type": "Quick Version",
+  "version3_runtime_seconds": 11,
+  "version3_output_files": 0,
+  "version3_public_score": null,
+  "best_score": {
+    "value": 0.664,
+    "notebook_version": 1,
+    "script_version_id": 364073396,
+    "url": "https://www.kaggle.com/code/zbigniewkirchner/0-664-one-swap-198k-clean-pool-fully-public?scriptVersionId=364073396"
+  },
+  "history": [
+    {
+      "version": 1,
+      "kind": "Save & Run All",
+      "created_at": "2026-10-31T01:30:21Z",
+      "runtime": "11m29s"
+    },
+    {
+      "version": 2,
+      "kind": "Save & Run All",
+      "created_at": "2026-10-31T10:14:12Z",
+      "runtime": "3m35s"
+    },
+    {
+      "version": 3,
+      "kind": "Quick Version",
+      "created_at": "2026-10-31T16:46:07Z",
+      "runtime": "11s"
+    }
+  ],
+  "license": "Apache 2.0",
+  "limitations": "UI run duration is notebook save/preview, not hidden competition scoring.",
+  "observation_time_precision": "collection-end only; per-page time unknown",
+  "browser_read_date_utc": "2026-11-01",
+  "collection_end_at_utc": "2026-11-01T07:35:57Z",
+  "exact_per_page_read_at": null,
+  "recorded_at": "2026-11-01T07:39:27.783667+00:00"
+}

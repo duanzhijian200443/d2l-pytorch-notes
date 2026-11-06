@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-054",
+  "status": "PASS_PRIVATE_V2_COMMIT_FORMAL_SUBMISSION_PENDING",
+  "observed_at": "2026-11-02T09:13:01.320006+00:00",
+  "source_version": {
+    "ref": "zhjianduan/ntl-apex-zero-054",
+    "version": 2,
+    "script_version_id": 364820326,
+    "source_bytes_sha256": "ca4c9e18ed32dcd8168b8118b192d39d657803d30dcd89a564b1c2d1d9c846dd"
+  },
+  "files": [
+    {
+      "path": "experiments/EXP-054-apex-zero-formal/config.json",
+      "bytes": 1147,
+      "sha256": "2d507feb385cf989d37f2ebb4c880974e71be47de012232cb55ba577172e98af"
+    },
+    {
+      "path": "cloud/apex-zero-054/control.py",
+      "bytes": 11421,
+      "sha256": "90d7703efcf0e298b29a37034a1f546d065f99b979962ca7965c025269ce8f60"
+    },
+    {
+      "path": "cloud/apex-zero-054/verify_output.py",
+      "bytes": 4010,
+      "sha256": "4af213de23f70d2780c9115939613b87c1682eefd2088e3b3a210ed6d4ccfe6e"
+    },
+    {
+      "path": "cloud/apex-zero-054/kernel/kernel-metadata.json",
+      "bytes": 2054,
+      "sha256": "048535fc89265728c52dbd42089edf8dfebfbcd331b1dcfe26141efdc27f0763"
+    },
+    {
+      "path": "cloud/apex-zero-054/kernel/apex-zero.ipynb",
+      "bytes": 134149,
+      "sha256": "ca4c9e18ed32dcd8168b8118b192d39d657803d30dcd89a564b1c2d1d9c846dd"
+    },
+    {
+      "path": "cloud/apex-zero-054/owned-version-source-check.json",
+      "bytes": 12768,
+      "sha256": "faf400a5e98100d82f42585d1464268dc061b98c21b32af11e90655372d87406"
+    },
+    {
+      "path": "cloud/apex-zero-054/v1-ack.json",
+      "bytes": 238,
+      "sha256": "33c2988a997cd4ce75f0ab13efde104a86e60e94cfb032bc89a31570b18cc998"
+    },
+    {
+      "path": "cloud/apex-zero-054/readback-v1.json",
+      "bytes": 3979,
+      "sha256": "94e2623471c84ab56bcb8d460fd863c413b759b9219469d51808ba8ae2e999b3"
+    },
+    {
+      "path": "cloud/apex-zero-054/v2-intent.json",
+      "bytes": 2409,
+      "sha256": "81cee480ba19dda05d3e41fad7e6767c4fb4079c0401e66d8c2c93f00f735805"
+    },
+    {
+      "path": "cloud/apex-zero-054/v2-ack.json",
+      "bytes": 238,
+      "sha256": "e0e37b7787c3cf073d367dae01837541e46d6ba6efeea5b1d539695f5c2b2aeb"
+    },
+    {
+      "path": "cloud/apex-zero-054/readback-v2.json",
+      "bytes": 3979,
+      "sha256": "a5417698bfbca033298fb044099b14cad88186b1ce4fafd899eddb9c12fd2265"
+    },
+    {
+      "path": "cloud/apex-zero-054/script-identity.json",
+      "bytes": 724,
+      "sha256": "8e70e399a62854bbff1fc926f78c486a8cda1123a273701b71846a1745e5efcf"
+    },
+    {
+      "path": "experiments/EXP-054-apex-zero-formal/metrics/commit-verification.json",
+      "bytes": 2418,
+      "sha256": "8207ae1252d105a7ccd890ab84ae77a4bae165396db5415f1ceb87b21b224ea3"
+    },
+    {
+      "path": "cloud/apex-zero-054/ready-for-submission.json",
+      "bytes": 1027,
+      "sha256": "9bdf6e2e9e425559892f9d5d3d76f901c7bd116827ee020a422f98700a4a401d"
+    },
+    {
+      "path": "cloud/apex-zero-054/outputs-v2/comp_stack.py",
+      "bytes": 53256,
+      "sha256": "4a4b800a5380094d78da66d140d224f8a3974d1e3012086783d5bf81b1264514"
+    },
+    {
+      "path": "cloud/apex-zero-054/outputs-v2/gauss.py",
+      "bytes": 8219,
+      "sha256": "908b57113f1a7b8ebdbf204c6be87cbc385f765ba50ac07b4e270c64b7cf1000"
+    },
+    {
+      "path": "cloud/apex-zero-054/outputs-v2/infer.py",
+      "bytes": 49002,
+      "sha256": "63112c88d43f9d69b3132243315e0db28c40b4bf0f42bac651f73ef07a67f9bb"
+    },
+    {
+      "path": "cloud/apex-zero-054/outputs-v2/ntl-apex-zero-054.log",
+      "bytes": 8885,
+      "sha256": "227116397d8222bf5c5e0a553b7866de541b54f1d046c3a5b69114cad1a4fd34"
+    },
+    {
+      "path": "cloud/apex-zero-054/outputs-v2/sibling_style.py",
+      "bytes": 4970,
+      "sha256": "8a7f3b3dad7cbe1755b66e8455a157894cac92b8983fc805f5ed6286ea915e66"
+    },
+    {
+      "path": "cloud/apex-zero-054/outputs-v2/submission.parquet",
+      "bytes": 1682,
+      "sha256": "ef94c7669e36a465bbd3e2dd8cf4905b5e1c2e51e18053a588cb56623086170a"
+    },
+    {
+      "path": "experiments/EXP-054-apex-zero-formal/report.md",
+      "bytes": 3538,
+      "sha256": "ec6dce2c5590f760cbfb51f1bb46327cf2bd803c2ff71b629ce987b595b88685"
+    },
+    {
+      "path": "cloud/apex-zero-054/formal-submit-binding.json",
+      "bytes": 486,
+      "sha256": "ef63f22f60fa1b0be854daa8a194507f1ae70b56495bfdac5cd377e88a436fe4"
+    },
+    {
+      "path": "cloud/apex-zero-054/formal-submit-ack.json",
+      "bytes": 155,
+      "sha256": "b250ea3c3b2fabe47c76eec434aab139f714de00989703abce8fec7d1bb6eb67"
+    },
+    {
+      "path": "cloud/apex-zero-054/formal-submit-intent.json",
+      "bytes": 836,
+      "sha256": "55c3ae150dfab18480d04680e528c1a66be916a7fc85230f63fe41045dcd0b91"
+    }
+  ],
+  "attachment_count": 31,
+  "competition_attachment": 1,
+  "private": true,
+  "internet": false,
+  "submission_owner": "root",
+  "formal_submission": {
+    "id": 57903109,
+    "status": "PENDING",
+    "script_version_id": 364820326,
+    "observed_at": "2026-11-02T09:13:01.320006+00:00",
+    "public_score": null
+  }
+}

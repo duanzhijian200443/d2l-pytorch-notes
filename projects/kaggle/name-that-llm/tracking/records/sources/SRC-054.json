@@ -1,0 +1,43 @@
+{
+  "kind": "discussion",
+  "category": "discussions",
+  "title": "HALX：轻量保存、输入检查与适配器本地暂存",
+  "author": "mizuno0522",
+  "url": "https://www.kaggle.com/competitions/name-that-llm/discussion/754426",
+  "observed_at": "2026-11-01T07:32:09.649536+00:00",
+  "source_version": {
+    "topic_id": 754426,
+    "snapshot_sha256": "bd8d33e1becf8f2a1737b2fd4ffddd4f90e211f02632898e860728affaa9ab67"
+  },
+  "public_score": null,
+  "summary": "作者将主流程 4884→2866 秒归因于适配器暂存；轻量 commit 成功不能证明隐藏重跑成功。",
+  "author_claim": "轻量 commit 约1.8小时→167秒；适配器暂存 /tmp 后主流程4884→2866秒且预测相同。",
+  "verified": "已读取 2026-10-31 原帖及当前评论响应；本轮未运行工具 Notebook 或复现计时。",
+  "use_for_us": "把输入解析、CUDA 环境和必要输出完整性纳入保存前检查，测量适配器加载耗时。",
+  "test_plan": "先固定同一源码/输入/环境，测 mount 与本地暂存的加载与主流程时间及预测哈希；可选支路降级需单独验证输出完整性。",
+  "limitations": "作者单一环境自报，4884/2866 是主流程，不是完整隐藏评分；GPU额度观察不是平台政策。",
+  "tags": [
+    "runtime",
+    "ablation",
+    "light-commit",
+    "io",
+    "ensemble"
+  ],
+  "related_sources": [
+    "SRC-026"
+  ],
+  "schema_version": 1,
+  "id": "SRC-054",
+  "artifact_dir": "research/discussions/SRC-054-754426-halx-fork-guards",
+  "notes_path": "research/discussions/SRC-054-754426-halx-fork-guards/notes.md",
+  "collection_observation_note": "源码/API时间见回执。浏览器仅记录2026-11-01 UTC采集日期及07:35:57 UTC汇总截至时刻，不将其伪作逐页精确读取时间。",
+  "supersedes": null,
+  "evidence": [
+    "research/discussions/SRC-054-754426-halx-fork-guards/notes.md",
+    "research/discussions/SRC-054-754426-halx-fork-guards/snapshots/20261101T073209Z.json"
+  ],
+  "evidence_sha256": {
+    "research/discussions/SRC-054-754426-halx-fork-guards/notes.md": "c15a254e55b20d66f94ae3a0670f3e81e2268dfeaa748cc6236fbe8c4b30d940",
+    "research/discussions/SRC-054-754426-halx-fork-guards/snapshots/20261101T073209Z.json": "bd8d33e1becf8f2a1737b2fd4ffddd4f90e211f02632898e860728affaa9ab67"
+  }
+}

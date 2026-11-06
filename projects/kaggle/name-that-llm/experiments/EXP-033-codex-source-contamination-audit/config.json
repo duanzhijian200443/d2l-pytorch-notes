@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-033",
+  "scope": "Read-only source contamination diagnosis; no generation, training, scoring, submission or publication",
+  "models": [
+    "gpt-5.6-luna",
+    "gpt-5.6-terra",
+    "gpt-5.6-sol",
+    "gpt-6-astra"
+  ],
+  "primary_controls": "per-model descriptive rates and Codex-weighted length bins; no prompt-equivalence claim",
+  "length_bins": [
+    0,
+    80,
+    120,
+    160,
+    250
+  ],
+  "minimum_stratum_rows_each_source": 5,
+  "paired_control": "10 prompts x 2 models, 20 pairs; one generation per route per cell",
+  "data_handling": "Preserve raw originals; no concatenation of overlapping public views as independent samples."
+}

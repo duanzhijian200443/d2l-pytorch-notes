@@ -1,0 +1,47 @@
+{
+  "status": "PENDING_IMPORT",
+  "claims": [
+    {
+      "claim": "平台V12，2026-11-01北京时间22:39更新",
+      "verdict": "VERIFIED",
+      "evidence": "api-dataset-get.json",
+      "actual": "2026-11-01T14:39:54Z = 2026-11-01T22:39:54+08:00"
+    },
+    {
+      "claim": "V12有7906回答/1872题/8标签",
+      "verdict": "VERIFIED_WITH_SCOPE",
+      "evidence": "actual-counts.json",
+      "actual": "CSV实际7906行、1872唯一prompt_id、8个model；不是独立语义题去重或finish_reason审计"
+    },
+    {
+      "claim": "V12较V11新增192条",
+      "verdict": "VERIFIED",
+      "evidence": "actual-counts.json",
+      "actual": "全字段多重集差异+192/-0，48新prompt_id；四标签各48"
+    },
+    {
+      "claim": "旧项目固定V7为4255条",
+      "verdict": "VERIFIED",
+      "evidence": "actual-counts.json",
+      "actual": "原CSV哈希与SRC-034一致，V12相对V7+3651/-0行、+920个prompt_id"
+    },
+    {
+      "claim": "每题有全部8标签",
+      "verdict": "CONTRADICTED",
+      "evidence": "actual-counts.json",
+      "actual": "只有363/1872组有8标签；新增48组各4标签"
+    },
+    {
+      "claim": "Lucas已部分进入Open Pool，不能直接相加",
+      "verdict": "SUPPORTED_BY_FIXED_SOURCE_MANIFEST_NOT_ROW_JOIN",
+      "evidence": "open-pool-v11/sources.csv",
+      "actual": "OpenPool平台V11 sources.csv列lucasboesen/ntl-free-proxy-generations，3511 passages，8 models；未读OpenPool全量parquet核定逐行交集"
+    },
+    {
+      "claim": "7906均是正常结束无截断的可训练回答",
+      "verdict": "NOT_ESTABLISHED",
+      "evidence": "actual-counts.json",
+      "actual": "CSV无finish_reason列；未完成截断、拒答、跨源正文/语义去重、训练准入审计"
+    }
+  ]
+}

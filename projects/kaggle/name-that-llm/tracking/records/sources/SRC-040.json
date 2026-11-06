@@ -1,0 +1,92 @@
+{
+  "category": "solutions",
+  "title": "Apex E V1：Open Pool、SVC12与V40A多项组合",
+  "author": "bgunshui",
+  "url": "https://www.kaggle.com/code/bgunshui/ntl-apex-e?scriptVersionId=364347706",
+  "observed_at": "2026-11-02T07:17:28.604484+00:00",
+  "source_version": {
+    "notebook_version": 1,
+    "script_version_id": 364347706,
+    "source_sha256": "ccb4549744df976c6dfa9da31f761a9bc4acfaeea34588e4c9bdae7aa4829f7a",
+    "code_sha256": "176028c830935d9ed88a36e659fd55294cc07ccf398d874161f20ff7207e93e6",
+    "notebook_id": 142000613
+  },
+  "public_score": {
+    "value": 0.663,
+    "evidence_type": "platform_page",
+    "bound_to_source": true,
+    "script_version_id": 364347706
+  },
+  "summary": "V1已绑定0.663；组合Open Pool、SVC12、Sinkhorn0.60/标点1.2与家族风格残差；正文0.670不是平台成绩。",
+  "author_claim": "正文称0.670 pipeline加公共池与最佳公开设置；该标题不能作为成绩。",
+  "verified": "V1/364347706绑定0.663；Open Pool、SVC12、Sinkhorn0.60/标点1.2与家族残差同时启用。 本轮已核实挂载平台 V11，公开保存时准备 190210 行，四个推理脚本与两份 0.665 相同。",
+  "use_for_us": "保留组合配置及家族风格残差线索，关联One Swap和SRC-022。",
+  "test_plan": "冻结缓存，分别开关数据池、SVC权重、后处理与残差，做单变量验证。",
+  "limitations": "多项设置同时变化。保存阶段的挂载池与过滤后行数已知，其余历史附件字节、最终 SVC 拟合规模和隐藏 ATLAS 覆盖未知。",
+  "tags": [
+    "ensemble",
+    "svm",
+    "data",
+    "postprocessing",
+    "validation",
+    "runtime"
+  ],
+  "schema_version": 1,
+  "id": "SRC-040",
+  "artifact_dir": "research/solutions/SRC-040-bgunshui-ntl-apex-e-v1",
+  "notes_path": "research/solutions/SRC-040-bgunshui-ntl-apex-e-v1/notes.md",
+  "kind": "notebook",
+  "related_sources": [
+    "SRC-002",
+    "SRC-016",
+    "SRC-022",
+    "SRC-027",
+    "SRC-036",
+    "SRC-037",
+    "SRC-038",
+    "SRC-067",
+    "SRC-068",
+    "SRC-069"
+  ],
+  "collection_observation_note": "源码/API时间见回执。浏览器仅记录2026-11-01 UTC采集日期及07:35:57 UTC汇总截至时刻，不将其伪作逐页精确读取时间。",
+  "supersedes": null,
+  "family_id": "code-176028c83093",
+  "evidence": [
+    "research/solutions/SRC-040-bgunshui-ntl-apex-e-v1/notes.md",
+    "research/solutions/SRC-040-bgunshui-ntl-apex-e-v1/analysis-evidence.json",
+    "research/solutions/SRC-040-bgunshui-ntl-apex-e-v1/code.txt",
+    "research/solutions/SRC-040-bgunshui-ntl-apex-e-v1/description.md",
+    "research/solutions/SRC-040-bgunshui-ntl-apex-e-v1/diff-vs-SRC-002.patch",
+    "research/solutions/SRC-040-bgunshui-ntl-apex-e-v1/download-receipt.json",
+    "research/solutions/SRC-040-bgunshui-ntl-apex-e-v1/metadata.json",
+    "research/solutions/SRC-040-bgunshui-ntl-apex-e-v1/snapshots/browser-observation-20261101.json",
+    "research/solutions/SRC-040-bgunshui-ntl-apex-e-v1/source.ipynb",
+    "tracking/snapshots/20261101T073557Z-community-refresh/score-list-dom-observation.json",
+    "tracking/snapshots/20261101T073557Z-community-refresh/search-0664-dom-observation.json",
+    "tracking/snapshots/20261102T071145Z-public0665/fixed-v1-module-comparison.json",
+    "tracking/snapshots/20261102T071145Z-public0665/historical-input-card-observations.json",
+    "tracking/snapshots/20261102T071145Z-public0665/kaggle-browser-observation.json"
+  ],
+  "same_code_sources": [],
+  "evidence_sha256": {
+    "research/solutions/SRC-040-bgunshui-ntl-apex-e-v1/notes.md": "cc0cdbaca8209d0ffd0072a4d8e53b1a15604f06df30deeb560b5f04877e4495",
+    "research/solutions/SRC-040-bgunshui-ntl-apex-e-v1/analysis-evidence.json": "d9c3737643c6d0b067963ad5b183928d16e5b3465eaa7819c61ab1a11bc0c970",
+    "research/solutions/SRC-040-bgunshui-ntl-apex-e-v1/code.txt": "105980c09b3529b4b95a208765469518f8de6010eecbccc0fecd046bf5dbdf6c",
+    "research/solutions/SRC-040-bgunshui-ntl-apex-e-v1/description.md": "93c4ae5c38f49ca5ed2d69d4ea69e750d467be89c9ca4e2174a406c5ba5037cb",
+    "research/solutions/SRC-040-bgunshui-ntl-apex-e-v1/diff-vs-SRC-002.patch": "6c70a17f7f9e665749b8661b443dacb32710bf50aef877b4c87ecf1f40484767",
+    "research/solutions/SRC-040-bgunshui-ntl-apex-e-v1/download-receipt.json": "7b21ae97c44c0eff6dce6e92428dec10a1c21988ddbb55a9c20832a7980bd219",
+    "research/solutions/SRC-040-bgunshui-ntl-apex-e-v1/metadata.json": "4ad27dbeff19473dfdfff923d2ce9cec58ec58558e4fc9f5431c8a0108835bb0",
+    "research/solutions/SRC-040-bgunshui-ntl-apex-e-v1/snapshots/browser-observation-20261101.json": "3dcec1ed25f43a5d80f728a2657b7fe26237fcb58f8f91bae67b4dae0fba635e",
+    "research/solutions/SRC-040-bgunshui-ntl-apex-e-v1/source.ipynb": "ccb4549744df976c6dfa9da31f761a9bc4acfaeea34588e4c9bdae7aa4829f7a",
+    "tracking/snapshots/20261101T073557Z-community-refresh/score-list-dom-observation.json": "dd3d6bcf84ff467a6b47f594d7ba9ef888b776c319b8b2dfae31c49ab4dd1fd2",
+    "tracking/snapshots/20261101T073557Z-community-refresh/search-0664-dom-observation.json": "830019135b8a239cee4684ed235682b78788848caef8f8b0f54c2ea68ceb05e7",
+    "tracking/snapshots/20261102T071145Z-public0665/fixed-v1-module-comparison.json": "d21d57ac91eb2cf10eebae6b601af3722bffe1c0daeba62c17d7050cf7d86edc",
+    "tracking/snapshots/20261102T071145Z-public0665/historical-input-card-observations.json": "3eff123189939f010046ec7835d9559cf0748d8cd4c4661b35e3e6350f47359d",
+    "tracking/snapshots/20261102T071145Z-public0665/kaggle-browser-observation.json": "8129e0a8eaafd857ca6aa18d6ef3d56229aa9d54a5f341468b594ef65b7c52d1"
+  },
+  "same_effective_pipeline_sources": [
+    "SRC-067",
+    "SRC-068",
+    "SRC-069"
+  ]
+}

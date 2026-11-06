@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "id": "SRC-006",
+  "kind": "notebook",
+  "title": "NTL 0.662 all-public (fork)",
+  "url": "https://www.kaggle.com/code/youdian1s/ntl-0-662-all-public-fork",
+  "observed_at": "2026-10-30T15:16:41.600Z",
+  "source_version": {
+    "notebook_version": 1,
+    "script_version_id": null,
+    "source_sha256": "5189208ae0661fe140d36e0e2a99120967de54409606ccaa53a421c8943b656f",
+    "code_sha256": "67f48bd7116b1c81e57fb89e34926d5b83d8f9d1e3c5dbb21e52a74dc094c58d"
+  },
+  "family_id": "code-67f48bd7116b",
+  "public_score": {
+    "value": 0.662,
+    "evidence_type": "platform_page",
+    "bound_to_source": false,
+    "script_version_id": null
+  },
+  "summary": "沿用 alexchilton 全公开版；缺失路径解析改为返回 None，说明用于未使用的指令模型变量。",
+  "author_claim": "正文声明保存在下方 description.md；标题分数不作为独立证据。",
+  "verified": "2026-10-30 已观察页面分数并保存源码；增量说明见摘要。",
+  "use_for_us": "用于选择对照实验，不直接替换当前基线。",
+  "test_plan": "先核对具体得分版本，再把单项差异变成 IDEA。",
+  "limitations": "页面分数与下载源码版本未绑定；排名只代表当日快照。同代码的副本不是独立算法。",
+  "evidence": [
+    "reviews/public-top20-20261030/youdian1s--ntl-0-662-all-public-fork/source.ipynb",
+    "reviews/public-top20-20261030/youdian1s--ntl-0-662-all-public-fork/metadata.json",
+    "reviews/public-top20-20261030/youdian1s--ntl-0-662-all-public-fork/description.md",
+    "reviews/public-top20-20261030/ui-scores.json"
+  ]
+}

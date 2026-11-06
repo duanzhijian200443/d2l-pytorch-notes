@@ -1,0 +1,155 @@
+{
+  "id": 12862556,
+  "ref": "crtproduction/name-that-llm-open-pool",
+  "subtitle": "Junk, off-genre and licence-risk rows removed; +0.027 accuracy at equal size",
+  "creator_name": "Carrot Production",
+  "total_bytes": "101598085",
+  "last_updated": "2026-10-30T07:53:21.983Z",
+  "download_count": 4830,
+  "license_name": "CC BY-SA 4.0",
+  "description": "# Name That LLM Open Pool v10: 198,507 clean passages, ready to train\n\n**v10 = the clean v9 release plus 5,581 new passages** that passed exactly the same checks. Every passage in the file\npassed all quality, genre and licence checks, so you can train on the whole file with no filtering. At equal size, the clean data scored **+0.027 balanced accuracy** over the raw public\npool on the competition's real passages, and both seeds agree.\n\n\u003e **Please support this dataset with an upvote** if it helps you. Building and testing it took a lot of GPU time and\n\u003e effort, and votes help every competitor find the same free, clean data. If you think something here is wrong,\n\u003e please say so in the comments.\n\n## At a glance\n\n| | |\n|---|---|\n| Passages | **198,507**, all 18 competition labels |\n| Removed from the raw pool | 70,558 rows (see below; ids in `removed_rows.csv`) |\n| Words per passage | median 98, range 36-275 |\n| Source datasets | 54, all CC BY 4.0, CC BY-SA 4.0 or CC0 with verifiable provenance |\n| Prompt groups | 44,601 |\n| Contains competition data? | **No.** No train copies, nothing close to train content, no answers to train prompts. |\n| License | **CC BY-SA 4.0** |\n\n## Why clean: the evidence\n\n**1. The raw pool did not look like real passages.** Style rates in the competition's train.csv against the raw pool\n(v7) and v9, with each label weighted equally:\n\n| Feature | Real train | Raw pool v7 | v9 clean |\n|---|---|---|---|\n| ends with . ! ? or quote | 99.9% | 93.4% | 99.4% |\n| uses we / our / us | 30.7% | 15.5% | 15.5% |\n| uses I / me / my | 6.4% | 15.4% | 5.8% |\n| contains a digit | 9.9% | 29.2% | 20.8% |\n| contains ( ) | 1.1% | 11.4% | 4.1% |\n| contains / | 0.3% | 11.6% | 1.6% |\n| contains straight \" | 4.0% | 19.1% | 8.7% |\n| contains a colon | 52.1% | 54.0% | 46.6% |\n| API dump or refusal | 0.0% | 8.2% | 0.0% |\n\nThe \"we / our / us\" gap does not move with cleaning. It comes from the host's prompts, not from junk.\n\n**2. At equal size, clean data trains a better model.** A Qwen3-1.7B LoRA classifier was trained only on pool data,\nwith exactly 2,500 passages per label (45,000 in total) in every run. It was then scored on all 2,699 competition\ntrain passages, whose prompts it never saw. Mean of 2 seeds:\n\n| Training data (45k passages) | Balanced acc. | vs raw v1-5 |\n|---|---|---|\n| raw pool v1-5 | 0.466 | +0.000 |\n| raw pool v1-7 | 0.464 | -0.001 |\n| v1-5 minus hard junk | 0.474 | +0.009 |\n| v1-5 minus junk and off-genre sources | 0.493 | +0.027 |\n| v1-7 minus junk and off-genre sources | 0.492 | +0.026 |\n\n**3. The dirtiest labels gain the most.** Across the 18 labels, the share of junk and off-genre text in a label's raw\nsample correlates with its recall gain after cleaning (Spearman 0.64). kimi-k3 gained +16 recall points and\nclaude-opus-4-8 +13.\n\n**4. Stricter filters were tested too** (same setup):\n\n| Training data (45k passages) | Balanced acc. | vs clean v1-7, same seed | Seeds |\n|---|---|---|---|\n| v1-7 minus junk and off-genre sources | 0.492 | +0.000 | 2 |\n| the same plus licence/provenance filters and 8.6k new passages | 0.492 | +0.000 | 2 |\n| the previous row minus Kaggle Benchmarks proxy rows | 0.491 | -0.001 | 2 |\n| the previous-but-one row minus the 30% least train-like passages per label | 0.488 | -0.004 | 2 |\n\nv9 and v10 use the licence and provenance filters (no loss) and keep the Kaggle Benchmarks proxy rows, flagged in\n`flag_kb_proxy`. Selecting only the most train-like passages did not help, so they do not filter on `style_score`.\nAll runs are in `dataq_results.csv`.\n\n**5. Full-size check on the leaderboard.** The same DeBERTa-v3-large recipe was trained twice, changing only the pool:\nraw v7 (254k passages) scored **0.585** public LB, clean v9 (193k passages) scored **0.587**. A quarter fewer passages,\nsame or slightly better score. Internal pool-based validation said v9 was worse, so do not judge data changes by it.\n\n## What was removed\n\n| Reason (first matching) | Rows |\n|---|---|\n| Off-genre sources (chat logs, benchmark answers, reasoning traces) | 38,747 |\n| Raw API responses stored as text (HTTP headers, JSON) | 13,114 |\n| Refusals | 6,939 |\n| Licence or provenance risk (licence-excluded source re-uploaded as CC0, unverifiable origin) | 4,289 |\n| Chat preambles, CJK text, length outside 36-275 words, same text with two labels | 2,197 |\n| Source dataset no longer public | 2,195 |\n| Cut off mid-sentence | 1,515 |\n| Typography the label never uses in train (e.g. em dash for some Gemini labels) | 1,278 |\n| Answers to the competition's train prompts | 284 |\n\n## Files\n\n| File | What it is |\n|---|---|\n| `ntl_open_pool.parquet` | the 198,507 clean passages |\n| `v10_append_log.csv` | how many candidate rows of the v10 sources each filter removed |\n| `removed_rows.csv` | id and reason for every row removed from the raw pool |\n| `removal_summary.csv` | rows removed per reason |\n| `per_model.csv` | passages and sources per label |\n| `sources.csv` | passages credited to each source dataset, with its licence |\n| `dataq_results.csv` | every data-quality training run behind the numbers above |\n| `style_gap.csv` | style rates: real train against raw and clean pool |\n| `fig*.png` | the figures from the announcement post |\n\n## Columns of `ntl_open_pool.parquet`\n\n| Column | Meaning |\n|---|---|\n| `id` | stable row id, unchanged since v1 |\n| `text` | the passage |\n| `model` | label as published by the source (one of the 18 competition labels) |\n| `lab` | provider: anthropic, google, openai, zai, moonshot, qwen |\n| `prompt_group` | source and the source's own prompt id; passages answering the same prompt share it |\n| `source_dataset` | Kaggle dataset credited for this passage |\n| `source_file` | file inside that dataset |\n| `source_license` | licence of `source_dataset` |\n| `origin_hint` | the source's own src/source column, if it had one |\n| `n_words` | whitespace word count |\n| `also_in` | every source dataset containing this exact passage, separated by semicolons |\n| `n_sources` | number of datasets in `also_in` |\n| `max_cos_train` | highest TF-IDF cosine to any competition train passage (all below 0.3) |\n| `max_sim_train_prompt` | highest TF-IDF cosine to any competition train prompt centroid |\n| `style_score` | probability that a style-only model (punctuation, pronouns, rhythm, function words; no topic words) takes the passage for a real train passage |\n| `flag_kb_proxy` | generated through the Kaggle Benchmarks proxy (69,319 rows). Allowed as public community data; drop with `df[~df.flag_kb_proxy]` to be strict |\n| `flag_gemini37_routing_risk` | gemini-3.7-flash rows from sources whose 3.7 requests were reported to be served by 3.8 |\n| `flag_near_train_prompt`, `flag_train_prompt_regen` | always False since v9 (those rows were removed); kept so code written for older versions still runs |\n\n## Passages per label\n\n| Label | Lab | Passages | Sources |\n|---|---|---|---|\n| `gemini-3.8-flash` | google | 21,070 | 44 |\n| `gemini-3.6-flash` | google | 16,794 | 39 |\n| `gpt-5.6-luna` | openai | 15,265 | 42 |\n| `gemini-3.7-flash` | google | 13,622 | 12 |\n| `glm-5.3-flash` | zai | 13,470 | 14 |\n| `gpt-5.6-terra` | openai | 13,445 | 43 |\n| `gpt-5.6-sol` | openai | 12,739 | 42 |\n| `glm-5.3` | zai | 12,185 | 14 |\n| `gpt-5.5` | openai | 11,328 | 40 |\n| `gpt-6-astra` | openai | 9,805 | 39 |\n| `kimi-k3` | moonshot | 9,489 | 12 |\n| `gemini-3.1-pro-preview` | google | 9,286 | 33 |\n| `claude-fable-5` | anthropic | 9,098 | 15 |\n| `claude-sonnet-5` | anthropic | 7,850 | 29 |\n| `claude-opus-4-8` | anthropic | 6,955 | 28 |\n| `claude-opus-4-6` | anthropic | 6,181 | 26 |\n| `claude-opus-5` | anthropic | 5,649 | 24 |\n| `qwen3.8-max` | qwen | 4,276 | 11 |\n\n## Quickstart\n\n```python\nimport pandas as pd\npool = pd.read_parquet(\"/kaggle/input/name-that-llm-open-pool/ntl_open_pool.parquet\")\nprint(len(pool), pool.model.value_counts())   # train on all of it\n```\n\n## Caveats\n\n- **Labels are the publishers' claims.** Nothing here re-verifies which model produced a passage.\n- **The tests use a 1.7B model at a fixed 45k passages.** Larger models are more robust to noise, so the gain at full\n  scale may be smaller. A full-size result will be posted in the discussion thread.\n- **Not the hosts' prompts.** Cross-validation that mixes pool data into training reads a few points higher than the LB.\n- **Uneven classes** (about 4k for `qwen3.8-max` up to about\n  21k for `gemini-3.8-flash`). Use class weights or sampling.\n\n## License and attribution\n\nReleased under **CC BY-SA 4.0**. The CC0 and CC BY 4.0 sources are compatible with it. All credit for the generations\nbelongs to the original authors below. This dataset only gathers, cleans, de-duplicates and documents them.\n\n| Dataset | Licence | Passages credited | Labels |\n|---|---|---|---|\n| [harshitkmr/ntl-google-gen-v1](https://www.kaggle.com/datasets/harshitkmr/ntl-google-gen-v1) | CC BY 4.0 | 25,345 | 4 |\n| [drjcfmd/ntl-generated-v2](https://www.kaggle.com/datasets/drjcfmd/ntl-generated-v2) | CC BY-SA 4.0 | 21,258 | 18 |\n| [trnhip/ntl-api-gen](https://www.kaggle.com/datasets/trnhip/ntl-api-gen) | CC BY 4.0 | 16,818 | 9 |\n| [willrice/name-that-llm-openrouter-harvest](https://www.kaggle.com/datasets/willrice/name-that-llm-openrouter-harvest) | CC BY 4.0 | 12,833 | 13 |\n| [elliotthankinson/ntl-exact-gens-v3](https://www.kaggle.com/datasets/elliotthankinson/ntl-exact-gens-v3) | CC BY 4.0 | 12,654 | 10 |\n| [arxitekton/ntl-claude-gen-v1](https://www.kaggle.com/datasets/arxitekton/ntl-claude-gen-v1) | CC BY 4.0 | 12,463 | 16 |\n| [maniceet/name-that-llm-openrouter-openai-generations](https://www.kaggle.com/datasets/maniceet/name-that-llm-openrouter-openai-generations) | CC BY 4.0 | 7,620 | 10 |\n| [abdullah1afify/ntl-generations](https://www.kaggle.com/datasets/abdullah1afify/ntl-generations) | CC BY 4.0 | 4,958 | 13 |\n| [vbandaru/ntl-extra-passages-w05](https://www.kaggle.com/datasets/vbandaru/ntl-extra-passages-w05) | CC BY 4.0 | 4,359 | 13 |\n| [lxdlxdlxd/ntl-synth-generations-v1](https://www.kaggle.com/datasets/lxdlxdlxd/ntl-synth-generations-v1) | CC BY 4.0 | 4,348 | 13 |\n| [davidpiln/ntl-vertex-gemini-gen](https://www.kaggle.com/datasets/davidpiln/ntl-vertex-gemini-gen) | CC BY 4.0 | 4,187 | 2 |\n| [abhinavsaipodugu/ntl-proxy-gpt-gemini-passages](https://www.kaggle.com/datasets/abhinavsaipodugu/ntl-proxy-gpt-gemini-passages) | CC BY 4.0 | 3,914 | 8 |\n| [aswathvanan/ntl-proxy-passages](https://www.kaggle.com/datasets/aswathvanan/ntl-proxy-passages) | CC BY-SA 4.0 | 3,844 | 12 |\n| [alessandrolair/ntl-kaggle-benchmarks-generated-passages](https://www.kaggle.com/datasets/alessandrolair/ntl-kaggle-benchmarks-generated-passages) | CC BY 4.0 | 3,701 | 12 |\n| [alperen5252525/ntl-vertex-gemini-proxy-gpt-generations](https://www.kaggle.com/datasets/alperen5252525/ntl-vertex-gemini-proxy-gpt-generations) | CC BY 4.0 | 3,573 | 9 |\n| [lucasboesen/ntl-free-proxy-generations](https://www.kaggle.com/datasets/lucasboesen/ntl-free-proxy-generations) | CC BY 4.0 | 3,511 | 8 |\n| [michaelsemenoff/ntl-pool-v3](https://www.kaggle.com/datasets/michaelsemenoff/ntl-pool-v3) | CC BY 4.0 | 3,387 | 13 |\n| [arxitekton/ntl-claude-gen-v2](https://www.kaggle.com/datasets/arxitekton/ntl-claude-gen-v2) | CC BY 4.0 | 3,313 | 14 |\n| [pardheev/ntl-proxy-extra-passages](https://www.kaggle.com/datasets/pardheev/ntl-proxy-extra-passages) | CC BY 4.0 | 2,819 | 9 |\n| [michaelsemenoff/ntl-own-extra-v1](https://www.kaggle.com/datasets/michaelsemenoff/ntl-own-extra-v1) | CC BY 4.0 | 2,784 | 17 |\n| [dedruck/ntl-proxy-gen](https://www.kaggle.com/datasets/dedruck/ntl-proxy-gen) | CC BY 4.0 | 2,560 | 11 |\n| [darragh1walsh/ntl-kaggle-ai-gen-run-1](https://www.kaggle.com/datasets/darragh1walsh/ntl-kaggle-ai-gen-run-1) | CC0 1.0 | 2,431 | 12 |\n| [seyitkaangunes/ntl-extra-api-passages](https://www.kaggle.com/datasets/seyitkaangunes/ntl-extra-api-passages) | CC BY 4.0 | 2,314 | 5 |\n| [kenandemirci/ntl-glm-gemini-generations](https://www.kaggle.com/datasets/kenandemirci/ntl-glm-gemini-generations) | CC BY 4.0 | 2,279 | 5 |\n| [yutoab/ntl-free-proxy-thin-labels](https://www.kaggle.com/datasets/yutoab/ntl-free-proxy-thin-labels) | CC BY 4.0 | 2,119 | 5 |\n| [mathleteutd/ntl-12-model-proxy-passages](https://www.kaggle.com/datasets/mathleteutd/ntl-12-model-proxy-passages) | CC BY 4.0 | 2,063 | 12 |\n| [vidhikishorwaghela/ntl-own-proxy-generations](https://www.kaggle.com/datasets/vidhikishorwaghela/ntl-own-proxy-generations) | CC BY 4.0 | 2,018 | 12 |\n| [zbigniewkirchner/ntl-extra-gpt-passages](https://www.kaggle.com/datasets/zbigniewkirchner/ntl-extra-gpt-passages) | CC BY 4.0 | 1,932 | 7 |\n| [chosunghwan/ntl-gemini-new-prompts](https://www.kaggle.com/datasets/chosunghwan/ntl-gemini-new-prompts) | CC BY 4.0 | 1,887 | 4 |\n| [philipvallen/ntl-pools](https://www.kaggle.com/datasets/philipvallen/ntl-pools) | CC BY 4.0 | 1,628 | 10 |\n| [tadeuhayashida/ntl-claude-fable-5-generations](https://www.kaggle.com/datasets/tadeuhayashida/ntl-claude-fable-5-generations) | CC BY 4.0 | 1,609 | 1 |\n| [danielandresmiranda/ntl-openrouter-glm-kimi](https://www.kaggle.com/datasets/danielandresmiranda/ntl-openrouter-glm-kimi) | CC BY 4.0 | 1,482 | 3 |\n| [bingli283/ntl-gen-pilot-v1](https://www.kaggle.com/datasets/bingli283/ntl-gen-pilot-v1) | CC BY 4.0 | 1,477 | 7 |\n| [trnhip/ntl-proxy-gen](https://www.kaggle.com/datasets/trnhip/ntl-proxy-gen) | CC BY 4.0 | 1,456 | 11 |\n| [illiadolenko/ntl-generated-corpus-v1](https://www.kaggle.com/datasets/illiadolenko/ntl-generated-corpus-v1) | CC0 1.0 | 1,166 | 13 |\n| [zitaoxu2002/ntl-proxy-passages-pre-ruling](https://www.kaggle.com/datasets/zitaoxu2002/ntl-proxy-passages-pre-ruling) | CC BY 4.0 | 1,026 | 12 |\n| [carlosoponce/ntl-own-proxy-passages](https://www.kaggle.com/datasets/carlosoponce/ntl-own-proxy-passages) | CC BY 4.0 | 973 | 3 |\n| [ziyuzhou1207/ntl-zz-proxy-generations](https://www.kaggle.com/datasets/ziyuzhou1207/ntl-zz-proxy-generations) | CC BY 4.0 | 972 | 8 |\n| [dophuchung/ntl-proxy-generations](https://www.kaggle.com/datasets/dophuchung/ntl-proxy-generations) | CC BY 4.0 | 963 | 7 |\n| [haileycheng/name-that-llm-same-prompt-passages](https://www.kaggle.com/datasets/haileycheng/name-that-llm-same-prompt-passages) | CC BY 4.0 | 899 | 12 |\n| [kaplinskiy/ntl-gpt-proxy-passages](https://www.kaggle.com/datasets/kaplinskiy/ntl-gpt-proxy-passages) | CC BY 4.0 | 887 | 5 |\n| [jadkutbi/ntl-own-proxy-generations](https://www.kaggle.com/datasets/jadkutbi/ntl-own-proxy-generations) | CC BY 4.0 | 874 | 8 |\n| [nuridudak/ntl-130k-clean-passages](https://www.kaggle.com/datasets/nuridudak/ntl-130k-clean-passages) | CC BY-SA 4.0 | 850 | 17 |\n| [simonrba/ntl-pool-extra](https://www.kaggle.com/datasets/simonrba/ntl-pool-extra) | CC BY-SA 4.0 | 737 | 8 |\n| [asiralabi/ntl-src](https://www.kaggle.com/datasets/asiralabi/ntl-src) | CC BY-SA 4.0 | 715 | 12 |\n| [earthmaker/ntl-own-prompt-generations](https://www.kaggle.com/datasets/earthmaker/ntl-own-prompt-generations) | CC BY 4.0 | 714 | 18 |\n| [prvsiyan/ntl-own-prompt-generations-v1](https://www.kaggle.com/datasets/prvsiyan/ntl-own-prompt-generations-v1) | CC BY-SA 4.0 | 703 | 12 |\n| [alperen5252525/ntl-public-passage-pool-v1](https://www.kaggle.com/datasets/alperen5252525/ntl-public-passage-pool-v1) | CC BY-SA 4.0 | 594 | 8 |\n| [rainycloudss/ntl-free-proxy-fresh-prompts](https://www.kaggle.com/datasets/rainycloudss/ntl-free-proxy-fresh-prompts) | CC BY 4.0 | 513 | 12 |\n| [keshavatearth/ntl-gpt-new-prompts-v1](https://www.kaggle.com/datasets/keshavatearth/ntl-gpt-new-prompts-v1) | CC BY 4.0 | 496 | 5 |\n| [hansamaqht/name-that-llm-glm-extra](https://www.kaggle.com/datasets/hansamaqht/name-that-llm-glm-extra) | CC0 1.0 | 434 | 2 |\n| [mrralphie/ntl-pool-b2m](https://www.kaggle.com/datasets/mrralphie/ntl-pool-b2m) | CC BY-SA 4.0 | 30 | 3 |\n| [dominicjamil/ntl-pools](https://www.kaggle.com/datasets/dominicjamil/ntl-pools) | CC0 1.0 | 10 | 7 |\n| [swaroopmeher/ntl-public-data-sub1020](https://www.kaggle.com/datasets/swaroopmeher/ntl-public-data-sub1020) | CC BY-SA 4.0 | 7 | 7 |\n\n## Changelog\n\n- **v10 (2026-10-30)**: +5,581 passages (ids from `ntlop_263484`), mostly the five Claude labels:\n  abdullah1afify/ntl-generations 2,574; zitaoxu2002/ntl-proxy-passages-pre-ruling 1,026; carlosoponce/ntl-own-proxy-passages 973; aswathvanan/ntl-proxy-passages 474; elliotthankinson/ntl-exact-gens-v3 367; lucasboesen/ntl-free-proxy-generations 167. Same filters as v9; `style_score` from the same style model.\n  Every v9 row is unchanged. Not added: a new OpenAI-response dataset whose licence for the generated text is not yet\n  established, a source with no documentation of how it was generated, and two re-merges of existing sources.\n- **v9 (2026-10-29), clean release.** Removed 70,558 rows: off-genre sources, raw API responses,\n  refusals, licence and provenance risks, off-format and cut-off passages, train-prompt answers, and label-inconsistent\n  typography. Added 8,593 new passages from openly licensed sources and the `style_score` and `flag_kb_proxy` columns.\n  Every kept row keeps its id. The README.md file is retired: this page is the documentation.\n- **v7 (2026-10-28)**: +7,583 passages from 3 new and 3 existing sources; cut-off passages skipped.\n- **v6 (2026-10-27)**: +20,442 passages from 6 sources.\n- **v5 (2026-10-26)**: flagged 715 answers to train prompts.\n- **v4 (2026-10-26)**: train-prompt similarity check, cover image.\n- **v1 (2026-10-26)**: first release, 226,536 passages from 50 datasets.\n",
+  "owner_name": "Carrot Production",
+  "owner_ref": "crtproduction",
+  "kernel_count": 25,
+  "title": "Name That LLM Open Pool: 198k Clean Passages",
+  "topic_count": 1,
+  "view_count": 1328,
+  "vote_count": 46,
+  "current_version_number": 11,
+  "usability_rating": 0.9411765,
+  "tags": [
+    {
+      "ref": "classification",
+      "name": "classification",
+      "description": "",
+      "full_path": "task \u003e classification",
+      "competition_count": 258,
+      "dataset_count": 60188,
+      "script_count": 23248,
+      "total_count": 83694
+    },
+    {
+      "ref": "text",
+      "name": "text",
+      "description": "",
+      "full_path": "data type \u003e text",
+      "competition_count": 207,
+      "dataset_count": 11620,
+      "script_count": 5136,
+      "total_count": 16963
+    },
+    {
+      "ref": "nlp",
+      "name": "nlp",
+      "description": "Natural Language Processing gives a computer program the ability to extract meaning human language. Applications include sentiment analysis, translation, and speech recognition.",
+      "full_path": "analysis \u003e nlp",
+      "competition_count": 146,
+      "dataset_count": 8803,
+      "script_count": 11557,
+      "total_count": 20506
+    },
+    {
+      "ref": "deep learning",
+      "name": "deep learning",
+      "description": "",
+      "full_path": "technique \u003e deep learning",
+      "competition_count": 104,
+      "dataset_count": 7080,
+      "script_count": 19532,
+      "total_count": 26716
+    },
+    {
+      "ref": "artificial intelligence",
+      "name": "artificial intelligence",
+      "description": "This tag has datasets and kernels where people come together and use cutting-edge research to train models on pictures of cats.",
+      "full_path": "subject \u003e science and technology \u003e computer science \u003e artificial intelligence",
+      "competition_count": 134,
+      "dataset_count": 6005,
+      "script_count": 4352,
+      "total_count": 10491
+    }
+  ],
+  "versions": [
+    {
+      "version_number": 11,
+      "creation_date": "2026-10-30T07:53:21.983Z",
+      "creator_name": "Carrot Production",
+      "creator_ref": "name-that-llm-open-pool",
+      "version_notes": "v10: +5,581 clean passages (mostly Claude labels) from 6 openly licensed sources, same filters as v9; every v9 row unchanged",
+      "status": "Ready"
+    },
+    {
+      "version_number": 10,
+      "creation_date": "2026-10-29T09:26:49.773Z",
+      "creator_name": "Carrot Production",
+      "creator_ref": "name-that-llm-open-pool",
+      "version_notes": "v9 clean release: 192,926 passages; junk, off-genre and licence-risk rows removed (ids kept); evidence files and figures added; README.md retired",
+      "status": "Ready"
+    },
+    {
+      "version_number": 9,
+      "creation_date": "2026-10-28T05:26:40.213Z",
+      "creator_name": "Carrot Production",
+      "creator_ref": "name-that-llm-open-pool",
+      "version_notes": "v7 docs: column descriptions for every file (data unchanged)",
+      "status": "Ready"
+    },
+    {
+      "version_number": 8,
+      "creation_date": "2026-10-28T03:12:38.940Z",
+      "creator_name": "Carrot Production",
+      "creator_ref": "name-that-llm-open-pool",
+      "version_notes": "v7: +7,583 passages from 3 new and 3 updated open sources (254,561 total); truncated generations skipped; all v6 rows unchanged",
+      "status": "Ready"
+    },
+    {
+      "version_number": 7,
+      "creation_date": "2026-10-27T09:09:57.207Z",
+      "creator_name": "Carrot Production",
+      "creator_ref": "name-that-llm-open-pool",
+      "version_notes": "Docs: column descriptions for every file, quickstart notebook link, 'Does it help?' checks. Data unchanged (246,978 rows, same ids).",
+      "status": "Ready"
+    },
+    {
+      "version_number": 6,
+      "creation_date": "2026-10-27T03:20:08.537Z",
+      "creator_name": "Carrot Production",
+      "creator_ref": "name-that-llm-open-pool",
+      "version_notes": "v6: +20,442 passages from 6 trusted sources (nothing removed)",
+      "status": "Ready"
+    },
+    {
+      "version_number": 5,
+      "creation_date": "2026-10-26T13:39:11.813Z",
+      "creator_name": "Carrot Production",
+      "creator_ref": "name-that-llm-open-pool",
+      "version_notes": "v5: flag 715 train_regen passages (no removal)",
+      "status": "Ready"
+    },
+    {
+      "version_number": 4,
+      "creation_date": "2026-10-26T13:28:10.320Z",
+      "creator_name": "Carrot Production",
+      "creator_ref": "name-that-llm-open-pool",
+      "version_notes": "v4: train-prompt leakage columns",
+      "status": "Ready"
+    },
+    {
+      "version_number": 3,
+      "creation_date": "2026-10-26T12:23:53.647Z",
+      "creator_name": "Carrot Production",
+      "creator_ref": "name-that-llm-open-pool",
+      "version_notes": "Rebuild download archive; add upvote note, sources, cover",
+      "status": "Ready"
+    },
+    {
+      "version_number": 2,
+      "creation_date": "2026-10-26T08:41:01.083Z",
+      "creator_name": "Carrot Production",
+      "creator_ref": "name-that-llm-open-pool",
+      "version_notes": "Add column descriptions and update frequency",
+      "status": "Ready"
+    }
+  ],
+  "thumbnail_image_url": "https://storage.googleapis.com/kaggle-datasets-images/12862556/21431847/e78276078b2d359814eafe510cfb4d8d/dataset-thumbnail.png?t=2026-10-30-07-54-43"
+}

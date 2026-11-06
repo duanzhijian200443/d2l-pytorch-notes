@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "experiment": "EXP-028",
+  "scope": "cache_engineering_no_new_models",
+  "baseline": "EXP-004",
+  "baseline_sha256": "6c9145f038ccffbe08dc6da6db3d1dcf3d2e0e7d2286927bfc8800ef5148cfb8",
+  "source_recipe_unchanged": true,
+  "model": {
+    "name": "fixed ATLAS20 source; model outputs stubbed in fixtures",
+    "parameters": {
+      "comp_w": 0.15,
+      "atlas_w": 0.2,
+      "atlas_margin": 0.3,
+      "sk_div": 1.0,
+      "sinkhorn": 0.45,
+      "target_mix": 0.35,
+      "typography_weight": 1.5,
+      "typography_cap": 0.3,
+      "post": 0
+    }
+  },
+  "validation": {
+    "split_id": null,
+    "clean_oof": false,
+    "accuracy_scoring": false,
+    "fixture_seeds": "data 28000+N; math 28100+N",
+    "cases": [
+      "n60_full-r2",
+      "n3_full-r2",
+      "n60_partial-r2"
+    ]
+  },
+  "environment": {
+    "platform": "Windows local CPU",
+    "accelerator": null,
+    "versions": {
+      "python": "3.13.13",
+      "numpy": "2.4.4",
+      "scipy": "1.17.1",
+      "pandas": "3.0.6"
+    }
+  },
+  "budget": {
+    "wall_seconds": null,
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0
+  },
+  "real_model_capture": {
+    "executed": false,
+    "launch_ready": false,
+    "next_requirements": [
+      "evaluation scope and data",
+      "fixed actual input/checkpoint bytes",
+      "pre-capture member inventory",
+      "environment and bounded runtime budget"
+    ]
+  },
+  "record_timing": "Completed engineering configuration; exact per-run helper hashes and fixture seeds are bound in each fixture receipt. This record is not a preregistered accuracy experiment."
+}

@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "id": "SRC-069",
+  "kind": "notebook",
+  "category": "solutions",
+  "artifact_dir": "research/solutions/SRC-069-alexchilton-all-public-v9",
+  "notes_path": "research/solutions/SRC-069-alexchilton-all-public-v9/notes.md",
+  "author": "alexchilton",
+  "tags": [
+    "ensemble",
+    "svm",
+    "data",
+    "postprocessing",
+    "runtime",
+    "source-lineage"
+  ],
+  "related_sources": [
+    "SRC-002",
+    "SRC-021",
+    "SRC-036",
+    "SRC-038",
+    "SRC-040",
+    "SRC-065",
+    "SRC-067",
+    "SRC-068"
+  ],
+  "supersedes": null,
+  "title": "alexchilton All Public V9 · 与 0.665 fork 同源码，原作者 0.663",
+  "url": "https://www.kaggle.com/code/alexchilton/name-that-llm-0-663-all-public-what-failed?scriptVersionId=364580223",
+  "observed_at": "2026-11-02T07:16:39.169214+00:00",
+  "source_version": {
+    "notebook_version": 9,
+    "script_version_id": 364580223,
+    "notebook_id": 139599456,
+    "source_sha256": "07cb21ed6f9b2b2d0920756a8fea64ec5a5d37637d7ea4fad07ab6eb85ce5140",
+    "code_sha256": "e3b8fa97495e45873b1297b782488819b4a04ac53cd08baa74e3637505b54605"
+  },
+  "public_score": {
+    "value": 0.663,
+    "evidence_type": "platform_page",
+    "bound_to_source": true,
+    "script_version_id": 364580223
+  },
+  "summary": "Alex V9绑定0.663；与chyibo V1的141003字节原件完全一致，Alex挂载Open Pool V11并写出190210行。",
+  "author_claim": "作者在V9复现bgunshui Apex E；另报告0.60/1.2两次0.659及One Swap隐藏评分失败，这些运行未逐一绑定。",
+  "verified": "相同稳定Notebook ID关联SRC-002 V8；固定V9/364580223的0.663已绑定，四实际脚本与三份V1等字节。Alex保存日志删8297行、保留190210；chyibo为0/190588。",
+  "use_for_us": "对比同源码、不同Open Pool挂载，以输入变化解释复现风险，保留不同作者的正式观察。",
+  "test_plan": "先固定V11/V13与相同下游配置，核实际去重行数与ATLAS覆盖；再分开比较池、svc_w和后处理。",
+  "limitations": "快路保存日志不证明隐藏SVC拟合规模、ATLAS覆盖与分差归因；相同全源码不证明具体Fork操作历史。",
+  "evidence": [
+    "research/solutions/SRC-069-alexchilton-all-public-v9/notes.md",
+    "research/solutions/SRC-069-alexchilton-all-public-v9/metadata.json",
+    "research/solutions/SRC-069-alexchilton-all-public-v9/receipt.json",
+    "research/solutions/SRC-069-alexchilton-all-public-v9/snapshots/kaggle-page-observation.json",
+    "research/solutions/SRC-068-chyibo-name-that-llm-0663-fork-v1/source.ipynb",
+    "tracking/snapshots/20261102T071145Z-public0665/fixed-v1-module-comparison.json",
+    "tracking/snapshots/20261102T071145Z-public0665/historical-input-card-observations.json",
+    "tracking/snapshots/20261102T071145Z-public0665/kaggle-browser-observation.json"
+  ],
+  "family_id": "code-e3b8fa97495e",
+  "same_code_sources": [
+    "SRC-068"
+  ],
+  "same_effective_pipeline_sources": [
+    "SRC-040",
+    "SRC-067",
+    "SRC-068"
+  ],
+  "evidence_sha256": {
+    "research/solutions/SRC-069-alexchilton-all-public-v9/notes.md": "6df88965f6f2c290d55a5430924db1a3df0251e262353b05c6f4d9f36ab98e57",
+    "research/solutions/SRC-069-alexchilton-all-public-v9/metadata.json": "35d92946f4e69f6dc35523c7bf01ff7ce1846a5a0e08ea6bb9ae097fd87fd132",
+    "research/solutions/SRC-069-alexchilton-all-public-v9/receipt.json": "72fa03ee141d9fd7105758259df4e13fcf8a9606cc9804f84fb10d311dde97b2",
+    "research/solutions/SRC-069-alexchilton-all-public-v9/snapshots/kaggle-page-observation.json": "b3f988a011480d7956bf001bb9b03ad362e6f69951cb44f6dcb7c1bb8be54334",
+    "research/solutions/SRC-068-chyibo-name-that-llm-0663-fork-v1/source.ipynb": "07cb21ed6f9b2b2d0920756a8fea64ec5a5d37637d7ea4fad07ab6eb85ce5140",
+    "tracking/snapshots/20261102T071145Z-public0665/fixed-v1-module-comparison.json": "d21d57ac91eb2cf10eebae6b601af3722bffe1c0daeba62c17d7050cf7d86edc",
+    "tracking/snapshots/20261102T071145Z-public0665/historical-input-card-observations.json": "3eff123189939f010046ec7835d9559cf0748d8cd4c4661b35e3e6350f47359d",
+    "tracking/snapshots/20261102T071145Z-public0665/kaggle-browser-observation.json": "8129e0a8eaafd857ca6aa18d6ef3d56229aa9d54a5f341468b594ef65b7c52d1"
+  }
+}

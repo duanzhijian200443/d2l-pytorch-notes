@@ -1,0 +1,38 @@
+{
+  "id": "chatcmpl-EfPcrxIZKLZPccCddr83Ww8XGnEqC",
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "message": {
+        "content": "Historians distinguish them because they were created under different conditions and answer different questions. A contemporary diary may preserve immediate impressions, uncertainties, and details later forgotten, but it can still be biased, selective, mistaken, or written for an expected audience. A memoir benefits from hindsight and may explain broader significance, yet decades of memory, later beliefs, political motives, and public reputation can reshape recollection. Neither is automatically reliable; historians compare each with other evidence and consider purpose, audience, timing, and context.",
+        "refusal": "",
+        "role": "assistant",
+        "annotations": null,
+        "audio": null,
+        "function_call": null,
+        "tool_calls": null
+      }
+    }
+  ],
+  "created": 1793538661,
+  "model": "openai/gpt-5.6-terra",
+  "object": "chat.completion",
+  "metadata": null,
+  "moderation": null,
+  "service_tier": null,
+  "system_fingerprint": null,
+  "usage": {
+    "completion_tokens": 105,
+    "prompt_tokens": 135,
+    "total_tokens": 240,
+    "completion_tokens_details": null,
+    "prompt_tokens_details": null,
+    "cost": {
+      "input_tokens_cost_nanodollars": 270000,
+      "output_tokens_cost_nanodollars": 1260000
+    },
+    "total_backend_latency_ms": 1910
+  }
+}

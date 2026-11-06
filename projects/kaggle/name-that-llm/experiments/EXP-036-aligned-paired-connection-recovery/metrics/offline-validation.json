@@ -1,0 +1,22 @@
+{
+  "observed_at": "2026-11-01T12:30:28.444855+00:00",
+  "status": "PASS",
+  "tests": 11,
+  "seconds": 15.706,
+  "model_requests": 0,
+  "code": [
+    {
+      "path": "experiments/EXP-036-aligned-paired-connection-recovery/code/run_recovery.py",
+      "sha256": "07d74b52146cc94d5d7d13d26c42918e16f8d6e0200b7ef0126d51dbdd11c133"
+    },
+    {
+      "path": "experiments/EXP-036-aligned-paired-connection-recovery/code/test_run_recovery.py",
+      "sha256": "afe2cd5451452dd755942e4c5d869812bc43670a0ba27a1fa81c9d22f10b474c"
+    },
+    {
+      "path": "experiments/EXP-036-aligned-paired-connection-recovery/code/kaggle_transport.py",
+      "sha256": "24d82024f1cd41840dc6fb548a97a83cc523846317abe6ead5b05618c3fec020"
+    }
+  ],
+  "independent_static_review": "No blocking findings; count, preserved-history, uncertainty and final-audit boundaries checked"
+}

@@ -1,0 +1,47 @@
+{
+  "prompt_id": "cp0150",
+  "prompt": "Convert this rambling update into a concise progress report: 'We have nearly all the photographs, except two people have not replied, and the printer needs the final files, but the captions are mostly done, though someone must check the dates before we send anything.' Keep your response near 160 words.\n\nWrite the requested response as one self-contained paragraph of plain text. Do not use a title, headings, bullet points, numbered lists, Markdown formatting, code fences, or line breaks. Include only the requested content, without any introductory or closing commentary from the assistant. Keep the approximate word target given in the task. If the task calls for an email, dialogue, steps, or calculations, express that content within the same paragraph.",
+  "category": "rewrite_original_material",
+  "target_words": 160,
+  "prompt_group": "cp0150",
+  "split": "train",
+  "source": "codex_subscription",
+  "base_prompt": "Convert this rambling update into a concise progress report: 'We have nearly all the photographs, except two people have not replied, and the printer needs the final files, but the captions are mostly done, though someone must check the dates before we send anything.' Keep your response near 160 words.",
+  "base_prompt_sha256": "196c10432e1c41c3360953b055abf462d628a54d83d9ea55d86c4802d31c08d6",
+  "base_prompt_id": "cp0150",
+  "protocol_version": "single-paragraph-plain-text-v1",
+  "variant_id": "cp0150::single-paragraph-plain-text-v1",
+  "format_instructions_sha256": "8452715527573b3034ccbb0bd8b23f1535cccb06d9d4742a448cc68ec92119f4",
+  "job_key": "6a82562b6f78ef9ede4de3c0d01054d2137afe9d2a6220121de0d03ee835dce2",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T14:03:08.252013+00:00",
+  "ended_at": "2026-11-01T14:03:21.416752+00:00",
+  "prompt_sha256": "3d75d50abdf06f49ffda12b88599aa0628b0f6a49f357d961981c5ecb091098c",
+  "text": "The project is nearing completion. Nearly all required photographs have been received, with only two outstanding contributors yet to respond. The team should follow up with both individuals promptly to avoid delaying the final production schedule. The printer is also waiting for the completed files, so materials cannot be sent for printing until the remaining images and any associated details are resolved. Caption writing is largely complete, and most photographs now have corresponding text. Before the final package is delivered, however, someone must conduct a careful verification of all dates to ensure they are accurate and consistently formatted. This review should include checking the captions against the original source information and confirming that no dates have been omitted or transcribed incorrectly. Once the outstanding responses are received, the dates are verified, and the final files are assembled, the materials can be sent to the printer for production. Overall, progress is strong, but the remaining responses and final fact-check are the key immediate priorities.",
+  "text_sha256": "61724cabe1848842dfce2aee9a54ec7702e5b48d390f7f5e3398200e6b7428b6",
+  "raw_final_sha256": "61724cabe1848842dfce2aee9a54ec7702e5b48d390f7f5e3398200e6b7428b6",
+  "word_count": 163,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2704,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 218,
+      "reasoning_output_tokens": 28
+    }
+  ],
+  "attempt_path": "collection\\attempts\\6a82562b6f78ef9ede4de3c0d01054d2137afe9d2a6220121de0d03ee835dce2",
+  "binding": {
+    "config_sha256": "743fab948a5c8f58df11038d0355e5a872350748ea1585d4c7b2b7e5bb9fa66f",
+    "prompts_sha256": "7a8c35d4418711ce721be6e16aed10fe233044b72e1e94c93221b50e3253fd41",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+    "execution_experiment": "experiments/EXP-040-codex300-concurrency2",
+    "execution_config_sha256": "56b6cd05d728548ffd21a05d0abf8417175d618b2309b6ec5c095f5712c6098a",
+    "execution_manifest_sha256": "9eb0fc967afc255860cdae5138298004219675c0fd21f809a4578af95b20d5ac"
+  }
+}

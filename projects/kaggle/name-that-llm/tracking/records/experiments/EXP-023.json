@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "id": "EXP-023",
+  "title": "Codex订阅原文试采重试：移除无效provider覆盖，1000条/2并发",
+  "baseline_id": "EXP-004",
+  "hypothesis": "Collect 1000 traceable Codex subscription responses for a later prompt-isolated utility comparison; collection alone does not establish training benefit.",
+  "changes": [
+    "250 original English prompts shared across four exact requested GPT labels",
+    "Independent CLI sessions; low reasoning; minimal base instructions",
+    "Maximum two workers; no controller retries; stop dispatch on failure; raw preservation and resume deduplication",
+    "Remove invalid reserved provider overrides from failed EXP-021; reuse original prompts/instructions without replaying any generated response"
+  ],
+  "observed_at": "2026-11-01T08:28:49.790699+00:00",
+  "source": {
+    "notebook_ref": null,
+    "notebook_version": null,
+    "script_version_id": null,
+    "local_path": "experiments/EXP-023-codex-subscription-pilot-r1/code/codex_collect.py",
+    "sha256": "ff8409a1f8397db4510cf1775d8d27815782d3ed4e2691974b9e285d493e7158"
+  },
+  "inputs": {
+    "manifest_path": "experiments/EXP-023-codex-subscription-pilot-r1/manifest.json",
+    "validation_split_id": "codex-pilot-prompt-v1",
+    "content_hashes_verified": true
+  },
+  "config": {
+    "note": "仅作台账索引；完整参数以 config_path 指向的 config.json 为准。"
+  },
+  "environment": {
+    "platform": "local_windows_codex_cli_chatgpt_auth",
+    "accelerator": "none",
+    "container": null,
+    "seed": null
+  },
+  "execution": {
+    "scope": "1000-response collection; retry after local config rejection",
+    "status": "STOPPED_LOCAL_IO",
+    "observed_at": "2026-11-01T08:28:49.790699+00:00",
+    "controller_pid": 33288,
+    "run_id": "8978cd3ccfa04f26be3b8c3392fa7aa6",
+    "responses": 6,
+    "controller_status": "COMPLETE"
+  },
+  "submission": null,
+  "validation": {
+    "balanced_accuracy": null,
+    "scope": null,
+    "per_class_recall_path": null,
+    "oof_path": null,
+    "leakage_audit": "not_audited"
+  },
+  "cost": {
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0
+  },
+  "timing_note": null,
+  "conclusion": "Six responses succeeded; two verified per-attempt records reconciled into the aggregate after a local Windows state-write failure. No model call replayed.",
+  "limitations": "Requested model slug does not independently establish backend snapshot; residual runtime instructions possible; provider internal retries not proven disabled; no OOF/LB results; subscription cost equivalent unknown.",
+  "next_action": "Resume the same frozen collection with a separately registered controller fix; skip all six saved responses.",
+  "related_sources": [],
+  "evidence": [
+    "experiments/EXP-023-codex-subscription-pilot-r1/config.json",
+    "experiments/EXP-023-codex-subscription-pilot-r1/manifest.json",
+    "experiments/EXP-023-codex-subscription-pilot-r1/report.md",
+    "experiments/EXP-021-codex-subscription-pilot/prompts.jsonl",
+    "experiments/EXP-021-codex-subscription-pilot/model-instructions.txt",
+    "experiments/EXP-021-codex-subscription-pilot/runtime-preflight.json",
+    "experiments/EXP-023-codex-subscription-pilot-r1/metrics/offline-preflight.json",
+    "experiments/EXP-023-codex-subscription-pilot-r1/code/codex_collect.py",
+    "experiments/EXP-023-codex-subscription-pilot-r1/collection/records.jsonl",
+    "experiments/EXP-023-codex-subscription-pilot-r1/collection/summary.json",
+    "experiments/EXP-023-codex-subscription-pilot-r1/metrics/collection-audit.json",
+    "experiments/EXP-023-codex-subscription-pilot-r1/run_and_finalize.py",
+    "experiments/EXP-023-codex-subscription-pilot-r1/metrics/manual-reconciliation.json"
+  ],
+  "config_path": "experiments/EXP-023-codex-subscription-pilot-r1/config.json"
+}

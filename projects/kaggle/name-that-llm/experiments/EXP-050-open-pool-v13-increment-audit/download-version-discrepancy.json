@@ -1,0 +1,13 @@
+{
+  "status": "EXPECTED_HASH_MISMATCH_NO_TRAINING",
+  "observed_at": "2026-11-02T04:39:34.869957+00:00",
+  "requested_ref": "prvsiyan/prvsiyans-extended-name-that-llm-dataset/6",
+  "downloaded": {
+    "path": "data/open-pool-v13-audit/baseline-prvs-v6/passages_clean.csv",
+    "bytes": 7314552,
+    "sha256": "6ec42c0bb360d6eaf7ed657b943881bd988358eee49b06abca88b0e6c101d567"
+  },
+  "expected_actual_runtime_bytes": 7519791,
+  "expected_actual_runtime_sha256": "502653b8cc053bc1ef08920d0ddda892e8b656f14229e38e0755d8a2f079eaf9",
+  "resolution": "MCP V7 file listing size7519791; fixed V7 download then matched runtime SHA exactly. Retain rejected V6 download as discrepancy evidence; do not use it as actual input."
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-048",
+  "status": "OBSERVED_EXISTING_FIXED_SUBMISSION",
+  "observed_at": "2026-11-02T03:55:07.208171+00:00",
+  "source": {
+    "path": "tracking/snapshots/20261102T035507208171Z/codex120-latest.ipynb",
+    "sha256": "9ba9ab375efad299f8bc568674d30dba276ce72574ee237a784b0a6551a876d6",
+    "notebook_version": 2,
+    "script_version_id": 364733823
+  },
+  "data_reference": {
+    "path": "cloud/luna-terra120-042/payload/new120.csv",
+    "sha256": "cbb0f2227f7748d9172f04d23c1653403103a192dbb7503d897153d24bb00acd"
+  },
+  "baseline_manifest": "experiments/EXP-046-atlas20-a1-submission/manifest.json",
+  "environment_metadata": "tracking/snapshots/20261102T035507208171Z/codex120-latest-metadata.json",
+  "version_binding": "tracking/snapshots/20261102T035507208171Z/codex120-version-binding.json",
+  "limits": [
+    "Static source/payload inspection is not verification of hidden-run model coverage.",
+    "Large historical model bytes and semantic prompt overlap have not all been re-audited.",
+    "Additional fitting time can affect the original remaining ATLAS time budget."
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "ref": "junaid512/ntl-v1-baseline",
+  "title": "NTL v1 baseline",
+  "author": "Muhammad Junaid",
+  "category": "solutions",
+  "notebook_version": 3,
+  "script_version_id": null,
+  "observed_at": "2026-11-01T07:32:19.717803+00:00",
+  "source_sha256": "f7b530987559632b9f859959a21ca66755260bf44dda3c21a4cfa60933b5eb81",
+  "code_sha256": "d164e570c03550b08337e9934b5f18af1255aeacdf1e0a0d279547bfac693c6f",
+  "public_score": {
+    "value": 0.662,
+    "bound_to_source": false,
+    "evidence_type": "parent_observed_platform_page",
+    "script_version_id": null
+  },
+  "related_sources": [
+    "SRC-009"
+  ],
+  "same_code_sources": [
+    "SRC-002",
+    "SRC-009",
+    "SRC-010"
+  ],
+  "source_executed": false,
+  "action": "NEW_FIXED_VERSION",
+  "artifact_dir": "research/inbox/20261101-community-variants/solutions/junaid512--ntl-v1-baseline-v3",
+  "nearest_sources": [
+    {
+      "source": "SRC-010",
+      "line_similarity": 1.0
+    },
+    {
+      "source": "SRC-009",
+      "line_similarity": 1.0
+    },
+    {
+      "source": "SRC-002",
+      "line_similarity": 1.0
+    },
+    {
+      "source": "SRC-021",
+      "line_similarity": 0.9994764397905759
+    }
+  ],
+  "fixed_version_refetch_verified_at": "2026-11-01T07:33:45.070771+00:00",
+  "fixed_version_request_label": "v3"
+}

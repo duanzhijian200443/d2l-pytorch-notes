@@ -1,0 +1,16 @@
+{
+  "status": "HISTORICAL_SNAPSHOT",
+  "observed_at": "2026-11-01T12:46:56.198427+00:00",
+  "requests_sent_total": 4,
+  "requests_by_route": {
+    "codex_subscription": 2,
+    "kaggle_model_proxy": 2
+  },
+  "saved_total": 2,
+  "active": [],
+  "confirmed_cost_usd": "0",
+  "cost_known": false,
+  "controller_attempt_intents": 5,
+  "non_model_dispatch_failures": 1,
+  "note": "Originals retain5attemptintents.1failurewasreadonlyGET beforecreate,zero modeldispatch.4actual/uncertainproviderdispatches countagainst80."
+}

@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "observed_at": "2026-11-01T12:48:21.673234+00:00",
+  "runner_tests": 13,
+  "runner_seconds": 15.778,
+  "transport_tests": 15,
+  "transport_seconds": 0.282,
+  "generation_calls": 0,
+  "code": [
+    {
+      "path": "experiments/EXP-038-paired-cloud-precheck-recovery/code/run_recovery.py",
+      "sha256": "f6cda5217ec87ddf5d84a65f3f4bb6d65e0a761107d29c36ef0fb935ea6885d8"
+    },
+    {
+      "path": "experiments/EXP-038-paired-cloud-precheck-recovery/code/test_run_recovery.py",
+      "sha256": "3d542a024e25bc30b67311bfe57072219a01faf7aca4fb85eeb430bce2eb0366"
+    },
+    {
+      "path": "experiments/EXP-038-paired-cloud-precheck-recovery/code/kaggle_transport.py",
+      "sha256": "d1bb9d595e6cb667d200544aa6b3316f4174def41899eb7d526bfe5bcc253fe9"
+    },
+    {
+      "path": "experiments/EXP-038-paired-cloud-precheck-recovery/code/test_cloud_transport.py",
+      "sha256": "e68f4cebec2a2414caaba5c40e544fa3028248fe6dd30ca1438f67caf24336e8"
+    }
+  ],
+  "integration": "OfficialCLI403/404missing semantics; existingprivate metadataaccessible andoldtargetabsent verified."
+}

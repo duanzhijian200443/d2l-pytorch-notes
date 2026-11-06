@@ -1,0 +1,40 @@
+{
+  "kind": "discussion",
+  "category": "discussions",
+  "title": "0.66到0.70差距提问：方向意见而非高分配方",
+  "author": "kratagyajain5846",
+  "url": "https://www.kaggle.com/competitions/name-that-llm/discussion/754463",
+  "observed_at": "2026-11-01T07:32:12.410601+00:00",
+  "source_version": {
+    "topic_id": 754463,
+    "snapshot_sha256": "6780adcce015c4466c3870ff60eb5113e910b9a3dba465d66aa79de8425c9343"
+  },
+  "public_score": null,
+  "summary": "提问者报告标点、平衡、SVM伪标签和ATLAS覆盖改动未超出重跑波动；回复没有可核验0.70配方。",
+  "author_claim": "复现公共0.66配方后，硬标点、更软平衡、n-gram SVM伪标签、更大ATLAS覆盖均在重跑波动内。",
+  "verified": "已读原帖与2条评论；评论仅称数据和建模/管线都重要，没有版本、数值或消融证据。",
+  "use_for_us": "登记弱证据负结果，避免把泛泛社区回复升级为高分路线证明。",
+  "test_plan": "若跟进某个方向需先取得固定源码、参数和对照；不按此帖直接扩大训练。",
+  "limitations": "无精确基线、版本绑定、提交ID、数据清单；不能确认0.70方案用何数据/模型。",
+  "tags": [
+    "community",
+    "data",
+    "negative-result",
+    "unverified-claim"
+  ],
+  "related_sources": [],
+  "schema_version": 1,
+  "id": "SRC-057",
+  "artifact_dir": "research/discussions/SRC-057-754463-public-066-to-070-gap",
+  "notes_path": "research/discussions/SRC-057-754463-public-066-to-070-gap/notes.md",
+  "collection_observation_note": "源码/API时间见回执。浏览器仅记录2026-11-01 UTC采集日期及07:35:57 UTC汇总截至时刻，不将其伪作逐页精确读取时间。",
+  "supersedes": null,
+  "evidence": [
+    "research/discussions/SRC-057-754463-public-066-to-070-gap/notes.md",
+    "research/discussions/SRC-057-754463-public-066-to-070-gap/snapshots/20261101T073212Z.json"
+  ],
+  "evidence_sha256": {
+    "research/discussions/SRC-057-754463-public-066-to-070-gap/notes.md": "f27aa45e0b587f6a4e782f14cfc8714ec35f588b854dd1dd2013a79aac614509",
+    "research/discussions/SRC-057-754463-public-066-to-070-gap/snapshots/20261101T073212Z.json": "6780adcce015c4466c3870ff60eb5113e910b9a3dba465d66aa79de8425c9343"
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-050",
+  "scope": "CPU file and lineage audit only; no training or cloud writes",
+  "dataset_ref": "crtproduction/name-that-llm-open-pool/13",
+  "output_dir": "experiments/EXP-050-open-pool-v13-increment-audit/metrics",
+  "labels": [
+    "claude-fable-5",
+    "claude-opus-4-6",
+    "claude-opus-4-8",
+    "claude-opus-5",
+    "claude-sonnet-5",
+    "gemini-3.1-pro-preview",
+    "gemini-3.6-flash",
+    "gemini-3.7-flash",
+    "gemini-3.8-flash",
+    "glm-5.3",
+    "glm-5.3-flash",
+    "gpt-5.5",
+    "gpt-5.6-luna",
+    "gpt-5.6-sol",
+    "gpt-5.6-terra",
+    "gpt-6-astra",
+    "kimi-k3",
+    "qwen3.8-max"
+  ],
+  "inputs": {
+    "seyit": {
+      "path": "data/public-pools/seyitkaangunes/ntl-extra-api-passages/v2/ntl_extra_passages_claude.csv",
+      "bytes": 4387162,
+      "sha256": "710dbe484fda23f0dee9b67c20e5bef9376bf754af05584ad142bc17845cd4b9"
+    },
+    "lucas": {
+      "path": "data/public-pools/lucasboesen/ntl-free-proxy-generations/v7/gen_passages.csv",
+      "bytes": 3835894,
+      "sha256": "d037d212e17a7e98465f9c606f4437225fb221939a5f51b0f8150d15c07c68a5"
+    },
+    "abdullah": {
+      "path": "data/public-pools/abdullah1afify/ntl-generations/v2/ntl_generations.csv",
+      "bytes": 870886,
+      "sha256": "83003454e3cc0368cae8b05bca243daf036b64a42a792c3f7bfd5fd91b3db378"
+    },
+    "dophuchung": {
+      "path": "data/public-pools/dophuchung/ntl-proxy-generations/v1/ntl_proxy_generations.csv",
+      "bytes": 889391,
+      "sha256": "593708f7fd55636bd270824c0e129447b2a5808b1e224bb3dbf43bf2383fdf9c"
+    },
+    "prvs": {
+      "path": "data/open-pool-v13-audit/baseline-prvs-v7/passages_clean.csv",
+      "bytes": 7519791,
+      "sha256": "502653b8cc053bc1ef08920d0ddda892e8b656f14229e38e0755d8a2f079eaf9"
+    },
+    "matched": {
+      "path": "data/public-pools/dhruvtibarewal/nlm-matched-clean/v3/nlm_matched_clean.parquet",
+      "bytes": 11146946,
+      "sha256": "000f8d541f7c4c5942a18c4fcf557aa01756882931307414cf2530ac21980482"
+    },
+    "pool_v5": {
+      "path": "data/public-pools/dhruvtibarewal/nlm-matched-clean/v3/nlm_pool_v5.parquet",
+      "bytes": 54745036,
+      "sha256": "040afb3609d7f6586d57c89ddb42d9bf4b58cc26426104b57390bdf6312b4650"
+    },
+    "pool_v2": {
+      "path": "data/public-pools/dhruvtibarewal/nlm-matched-clean/v3/nlm_pool_v2.parquet",
+      "bytes": 17484290,
+      "sha256": "064ecd0dfa43ac9b0d4a7be9d89264333698ff727a5926f44856de2f7a92350d"
+    },
+    "open_pool": {
+      "path": "data/open-pool-v13-audit/v13/ntl_open_pool.parquet",
+      "bytes": 96388050,
+      "sha256": "38e48b40e1db0ab1bf6e4f29d3697e37307c49d1ae5020a7af3cd59c484657d5"
+    },
+    "prompts": {
+      "path": "data/open-pool-v13-audit/v13/prompts.parquet",
+      "bytes": 1592857,
+      "sha256": "c4a528244ad0c909c771c7206557b7884f8eab8a37130245b58ea45e65bf43c9"
+    },
+    "quarantine": {
+      "path": "data/open-pool-v13-audit/v13/gemini37_unverified.parquet",
+      "bytes": 5366960,
+      "sha256": "b48fb955177a9b1d3d1e818b9d3301c843d9feec5a9f39393bca85866d427090"
+    },
+    "official": {
+      "path": "train.csv",
+      "bytes": 2139418,
+      "sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707"
+    },
+    "a1": {
+      "path": "experiments/EXP-010-012-stylegram-share/payload/extra.csv",
+      "bytes": 8672205,
+      "sha256": "1e9125fd49b19084842332ede84ea65bc0174ee1bb28c8d48acc8ddbd5e36c0e"
+    },
+    "historical_row_flags": {
+      "path": "experiments/EXP-008-public-pool-audit/outputs/row_flags.parquet",
+      "bytes": 17167871,
+      "sha256": "dd0ef1c8b006f90fb5f6c493b0b5d4322563af61105d590eac10dcadaf26e6f8"
+    },
+    "baseline_comp_code": {
+      "path": "experiments/EXP-009-baseline-data-lineage/comp_stack.py",
+      "bytes": 54212,
+      "sha256": "b6b6a7b8adbe50580c2d0de5a41d0764ae752fe729e1471872a9197ac956f222"
+    },
+    "baseline_runtime_manifest": {
+      "path": "cloud/a1-public-stylegram-046/payload/preflight_manifest.json",
+      "bytes": 123106,
+      "sha256": "de7a305b5d26a5ad0cca0ed41cf31e2af1f85037dd354286aeef77ac67aaabf5"
+    },
+    "split_manifest": {
+      "path": "validation/prompt-group-v1/manifest.json",
+      "bytes": 1060,
+      "sha256": "2b05e2bde656d5e773e8d512cba607859e9b9bfe7d9d7dfe9deb00907b4d93c8"
+    },
+    "previous_prvs_v6": {
+      "path": "data/public-pools/prvsiyan/prvsiyans-extended-name-that-llm-dataset/v6/passages_clean.csv",
+      "bytes": 7314552,
+      "sha256": "6ec42c0bb360d6eaf7ed657b943881bd988358eee49b06abca88b0e6c101d567"
+    },
+    "src065_append_log": {
+      "path": "research/datasets/SRC-065-open-pool-kaggle-v13/files/v11_append_log.csv",
+      "bytes": 678,
+      "sha256": "606db6d76989cc1458876dc6e4ebbb43198d002f18c7ba8b8f9f4d478a7821dd"
+    }
+  },
+  "comp_sources": [
+    {
+      "name": "seyit",
+      "label_column": "model",
+      "finish_column": null,
+      "prompt_prefix": ""
+    },
+    {
+      "name": "lucas",
+      "label_column": "model",
+      "finish_column": null,
+      "prompt_prefix": ""
+    },
+    {
+      "name": "abdullah",
+      "label_column": "label",
+      "finish_column": "finish_reason",
+      "prompt_prefix": ""
+    },
+    {
+      "name": "dophuchung",
+      "label_column": "label",
+      "finish_column": null,
+      "prompt_prefix": ""
+    },
+    {
+      "name": "prvs",
+      "label_column": "model",
+      "finish_column": null,
+      "prompt_prefix": "pv_"
+    }
+  ],
+  "runtime_file_coverage": {
+    "all_six_loader_globs_inventory_checked": true,
+    "matched_csv_count": 5,
+    "no_match_glob": "ntl_generated*.csv",
+    "files": [
+      {
+        "input_name": "seyit",
+        "mounted_path": "/kaggle/input/datasets/seyitkaangunes/ntl-extra-api-passages/ntl_extra_passages_claude.csv",
+        "actual_runtime_hash_matched": true,
+        "sha256": "710dbe484fda23f0dee9b67c20e5bef9376bf754af05584ad142bc17845cd4b9"
+      },
+      {
+        "input_name": "lucas",
+        "mounted_path": "/kaggle/input/datasets/zhjianduan/ntl-free-proxy-generations/gen_passages.csv",
+        "actual_runtime_hash_matched": true,
+        "sha256": "d037d212e17a7e98465f9c606f4437225fb221939a5f51b0f8150d15c07c68a5"
+      },
+      {
+        "input_name": "abdullah",
+        "mounted_path": "/kaggle/input/datasets/zhjianduan/ntl-generations/ntl_generations.csv",
+        "actual_runtime_hash_matched": true,
+        "sha256": "83003454e3cc0368cae8b05bca243daf036b64a42a792c3f7bfd5fd91b3db378"
+      },
+      {
+        "input_name": "dophuchung",
+        "mounted_path": "/kaggle/input/datasets/dophuchung/ntl-proxy-generations/ntl_proxy_generations.csv",
+        "actual_runtime_hash_matched": true,
+        "sha256": "593708f7fd55636bd270824c0e129447b2a5808b1e224bb3dbf43bf2383fdf9c"
+      },
+      {
+        "input_name": "prvs",
+        "mounted_path": "/kaggle/input/datasets/prvsiyan/prvsiyans-extended-name-that-llm-dataset/passages_clean.csv",
+        "actual_runtime_hash_matched": true,
+        "sha256": "502653b8cc053bc1ef08920d0ddda892e8b656f14229e38e0755d8a2f079eaf9"
+      },
+      {
+        "input_name": "matched",
+        "mounted_path": "/kaggle/input/datasets/dhruvtibarewal/nlm-matched-clean/nlm_matched_clean.parquet",
+        "actual_runtime_hash_matched": true,
+        "sha256": "000f8d541f7c4c5942a18c4fcf557aa01756882931307414cf2530ac21980482"
+      },
+      {
+        "input_name": "pool_v5",
+        "mounted_path": "/kaggle/input/datasets/dhruvtibarewal/nlm-matched-clean/nlm_pool_v5.parquet",
+        "actual_runtime_hash_matched": true,
+        "sha256": "040afb3609d7f6586d57c89ddb42d9bf4b58cc26426104b57390bdf6312b4650"
+      },
+      {
+        "input_name": "pool_v2",
+        "mounted_path": "/kaggle/input/datasets/dhruvtibarewal/nlm-matched-clean/nlm_pool_v2.parquet",
+        "actual_runtime_hash_matched": true,
+        "sha256": "064ecd0dfa43ac9b0d4a7be9d89264333698ff727a5926f44856de2f7a92350d"
+      }
+    ],
+    "prvs_version_discrepancy": "Requested attachment /6 in EXP031/046 metadata; actual runtime bytes hash matches platform V7, not platform V6. Audit uses runtime bytes; old records unchanged."
+  },
+  "scope_limits": [
+    "No clean OOF certification: upstream OpenPool filtering and published match_weight touched full official train.",
+    "Novelty is only absence from audited runtime/raw text hashes, not absence from all checkpoint training corpora or semantic prompt overlap.",
+    "Source labels, licenses and route flags remain publisher assertions; no independent served-model verification.",
+    "prompt_canon p is recovered and may be centroid-inferred; s is source-local and blank is unknown.",
+    "Historical known-prompt/route links cover EXP008 fixed sources and the recovered actual prvs runtime file; unobserved sources remain unknown.",
+    "No V12/V13 row-level diff in this experiment.",
+    "Any candidate screen is diagnostic only; approved_for_training remains false."
+  ]
+}
