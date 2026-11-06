@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-031",
+  "status": "COMPLETE_VERIFIED",
+  "observed_at_utc": "2026-11-01T14:24:15.645257+00:00",
+  "ref": "zhjianduan/name-that-llm-cache-capture-031",
+  "run_id": "exp031-20261101T110842Z",
+  "gpu_started": true,
+  "gpu_run_requests": 1,
+  "budget": {
+    "cpu_preflight_wall_seconds": 3600,
+    "gpu_platform_wall_seconds": 28800,
+    "gpu_work_seconds": 28200,
+    "new_gpu_runs": 1,
+    "api_usd": 0,
+    "colab_cu": 0
+  },
+  "previous_failed_run": {
+    "experiment": "EXP-029",
+    "ref": "zhjianduan/name-that-llm-cache-capture-029",
+    "version": 3,
+    "terminal_status": "ERROR"
+  },
+  "preflight_manifest_sha256": "de7a305b5d26a5ad0cca0ed41cf31e2af1f85037dd354286aeef77ac67aaabf5",
+  "availability_sha256": "137b459d46cc8a6bfb60779516d1a04545462d1be9751d88b1432ba52de7061f",
+  "saved_version": 1,
+  "source_and_31_inputs_verified": true,
+  "gpu_may_be_active": false,
+  "quota_before_seconds": 106654.673,
+  "gpu_version": 2,
+  "gpu_submitted_at_utc": "2026-11-01T19:11:32.457614+08:00",
+  "gpu_status": "COMPLETE",
+  "gpu_readback_verified": true,
+  "last_reconciliation_path": "experiments/EXP-031-full-stack-capture-r1/logs/status-reconciliation-20261101T1306Z.json",
+  "completion_discrepancy": "Resolved: user previously mistook another collection task for this run; this V2 now genuinely COMPLETE.",
+  "completed_at_utc": "2026-11-01T14:09:21.338118+00:00",
+  "actual_hardware_verified": true,
+  "outputs_path": "cloud/full-stack-capture-r1/outputs-v2/results",
+  "artifacts_sha256": "1732849196220d023716a2dc912d660282c94022c2df370c69d9a6c2899bac63",
+  "acceptance_path": "experiments/EXP-032-sinkhorn-fixed-cache/analysis-v1/analysis-manifest.json"
+}

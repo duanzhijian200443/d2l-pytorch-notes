@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0072",
+  "prompt": "How can a manager ask for useful feedback on a draft plan without inviting an unstructured debate about every detail? A response of around 120 words is enough.",
+  "category": "business_decision",
+  "target_words": 120,
+  "prompt_group": "cp0072",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "089e8e7ead1aef8dcdcc4b1c31c60b61476215df9840a914eed527c11789113c",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:16:12.880217+00:00",
+  "ended_at": "2026-11-01T09:16:33.214236+00:00",
+  "prompt_sha256": "e41ef9763a9cfa476eed292955861ce7d57cf01b4811f071d4732889814b954a",
+  "text": "Ask for feedback with clear boundaries: explain the plan’s purpose, what’s already decided, what’s still open, and which questions reviewers should answer. This invites meaningful challenge without turning every detail into a negotiation.\n\nFor example:\n\n“Please review this draft before Thursday. Our goal is to reduce onboarding time; the budget and launch date are fixed. I’d especially value feedback on three things: assumptions that may be wrong, risks we’ve missed, and whether responsibilities are clear. For each concern, describe the likely impact and suggest an alternative where possible. Please label minor wording suggestions separately. I’ll review the input, make the final decisions, and share what changed and why.”\n\nLeave room for concerns outside those categories if they could materially undermine the plan.",
+  "text_sha256": "9612245e48816a3bcf594751ec5b90d8529515e8e3cadfaebf6ba9bf97d9f042",
+  "raw_final_sha256": "9612245e48816a3bcf594751ec5b90d8529515e8e3cadfaebf6ba9bf97d9f042",
+  "word_count": 122,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4239,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 154,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\089e8e7ead1aef8dcdcc4b1c31c60b61476215df9840a914eed527c11789113c",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

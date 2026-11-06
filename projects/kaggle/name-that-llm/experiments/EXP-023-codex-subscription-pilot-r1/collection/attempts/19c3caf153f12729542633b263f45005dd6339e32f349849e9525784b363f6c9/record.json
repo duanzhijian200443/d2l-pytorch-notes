@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0080",
+  "prompt": "Compare using one overall customer satisfaction score with collecting a few specific questions about different parts of an experience. Please answer in roughly 120 words.",
+  "category": "business_decision",
+  "target_words": 120,
+  "prompt_group": "cp0080",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "19c3caf153f12729542633b263f45005dd6339e32f349849e9525784b363f6c9",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:21:57.494144+00:00",
+  "ended_at": "2026-11-01T09:22:13.686254+00:00",
+  "prompt_sha256": "b29c9dae152212069a66d744810185d1012281e4bef925e00865b440bbbd3196",
+  "text": "An overall satisfaction score is simple, fast, and easy to trend over time. It gives a clear headline metric for executives and can reveal whether the total experience is improving or declining. However, it rarely explains *why* customers feel that way, making action difficult.\n\nA few targeted questions—such as ease of use, staff helpfulness, speed, value, or issue resolution—provide diagnostic detail. They identify the parts of the experience driving satisfaction or dissatisfaction and support more focused improvements. The tradeoff is a longer survey, more analysis, and potential respondent fatigue.\n\nA strong approach often combines both: ask one overall satisfaction question for the headline measure, then include a small number of carefully chosen driver questions. This preserves simplicity while producing actionable insight.",
+  "text_sha256": "bf816e9b925f1871f9741302fa5eb2cf92e9a3c1eac6c06ca2aea3177b4d8048",
+  "raw_final_sha256": "bf816e9b925f1871f9741302fa5eb2cf92e9a3c1eac6c06ca2aea3177b4d8048",
+  "word_count": 121,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4121,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 153,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\19c3caf153f12729542633b263f45005dd6339e32f349849e9525784b363f6c9",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

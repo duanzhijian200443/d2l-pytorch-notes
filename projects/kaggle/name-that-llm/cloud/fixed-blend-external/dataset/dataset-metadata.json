@@ -1,0 +1,10 @@
+{
+  "id": "zhjianduan/ntl-fixed-blend-external-inputs-026",
+  "title": "NTL Fixed Blend External Inputs 026",
+  "licenses": [
+    {
+      "name": "other"
+    }
+  ],
+  "description": "Private fixed alpha0.10 verification inputs. Original Enai/Databricks attribution and license scopes preserved; four-class external check, not a competition submission. Original training inputs unchanged."
+}

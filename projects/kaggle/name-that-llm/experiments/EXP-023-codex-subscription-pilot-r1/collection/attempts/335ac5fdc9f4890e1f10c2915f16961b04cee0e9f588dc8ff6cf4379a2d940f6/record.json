@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0093",
+  "prompt": "Describe how oral history can preserve experiences absent from official records, while noting a limitation researchers should consider. Keep your response near 160 words.",
+  "category": "humanities_history",
+  "target_words": 160,
+  "prompt_group": "cp0093",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "335ac5fdc9f4890e1f10c2915f16961b04cee0e9f588dc8ff6cf4379a2d940f6",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:29:09.732352+00:00",
+  "ended_at": "2026-11-01T09:29:23.113278+00:00",
+  "prompt_sha256": "5240ad419b324b909091de0e62485f34aa71c3b72ab88585b670df9b8b25ae7d",
+  "text": "Oral history can preserve experiences that official records overlook, especially those of marginalized, displaced, or otherwise underrepresented communities. Government documents, newspapers, and institutional archives often emphasize leaders, policies, and major events, while leaving out everyday life, personal emotions, informal labor, family relationships, and the ways people understood change. Interviews allow individuals to describe these dimensions in their own words, preserving memories, traditions, local knowledge, and interpretations that may never have been written down. Oral testimony can also reveal contradictions between official accounts and lived experience, helping researchers build a fuller, more human history.\n\nHowever, oral history has limitations. Memories are selective and can change over time; narrators may unintentionally misremember events, reshape them in light of later experiences, or omit details because of trauma, privacy concerns, or cultural expectations. Interviews are also shaped by the questions, identity, and relationship of the interviewer. Researchers should therefore treat oral histories as valuable interpretations of the past, not perfectly objective transcripts, and compare them thoughtfully with other available evidence.",
+  "text_sha256": "f1d33b768b90883f646eb54ea5900bbb5a9a9fff6a69b9af62bc7f56403b2ad5",
+  "raw_final_sha256": "f1d33b768b90883f646eb54ea5900bbb5a9a9fff6a69b9af62bc7f56403b2ad5",
+  "word_count": 166,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2586,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 235,
+      "reasoning_output_tokens": 22
+    }
+  ],
+  "attempt_path": "collection\\attempts\\335ac5fdc9f4890e1f10c2915f16961b04cee0e9f588dc8ff6cf4379a2d940f6",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

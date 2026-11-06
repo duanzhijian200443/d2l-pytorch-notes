@@ -1,0 +1,1 @@
+{"event":"comp_status","payload":{"items":[["probability",{"kind":"array","name":"event-0005-array-0001"}],["requested_weight",{"kind":"scalar","value":0.15}],["path",{"kind":"scalar","value":"/kaggle/working/comp_logit.npy"}]],"kind":"mapping"},"sequence":5}

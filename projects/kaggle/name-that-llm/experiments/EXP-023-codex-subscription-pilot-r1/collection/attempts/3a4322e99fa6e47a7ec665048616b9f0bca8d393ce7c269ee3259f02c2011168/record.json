@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0201",
+  "prompt": "What is a considerate way to tell a houseguest that you need an hour alone each afternoon, even though you enjoy their company? Aim for about 80 words.",
+  "category": "everyday_advice",
+  "target_words": 80,
+  "prompt_group": "cp0201",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "3a4322e99fa6e47a7ec665048616b9f0bca8d393ce7c269ee3259f02c2011168",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:03:22.570480+00:00",
+  "ended_at": "2026-11-01T11:03:35.455829+00:00",
+  "prompt_sha256": "755e95f52a2a8777acc542017dba18de961dc934128cf2a00960744cd04974d9",
+  "text": "“I’m really enjoying having you here and spending time together. I wanted to mention that I usually need about an hour alone each afternoon to recharge and reset. It’s not about wanting less time with you—it helps me feel refreshed and more present afterward. Would you mind if I took that quiet time each day, perhaps around 3:00? Please make yourself comfortable while I’m resting, and then we can plan something together afterward. I hope that feels okay to you.”",
+  "text_sha256": "61c686e474a57dbe2b559fce6cc242051f071adbe0ceb1789f5184c66f3bb197",
+  "raw_final_sha256": "61c686e474a57dbe2b559fce6cc242051f071adbe0ceb1789f5184c66f3bb197",
+  "word_count": 80,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4126,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 116,
+      "reasoning_output_tokens": 15
+    }
+  ],
+  "attempt_path": "collection\\attempts\\3a4322e99fa6e47a7ec665048616b9f0bca8d393ce7c269ee3259f02c2011168",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0087",
+  "prompt": "How can a folktale change as people retell it while still being recognized as the same story? Aim for about 120 words.",
+  "category": "humanities_history",
+  "target_words": 120,
+  "prompt_group": "cp0087",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "1db0743531c50769c8de7e261ecbc8533e09a3bd372308634336fa5d6609d6fb",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:25:43.489822+00:00",
+  "ended_at": "2026-11-01T09:25:56.881874+00:00",
+  "prompt_sha256": "214dcc7b01bd132a829edd82c6f1e3d7e18b5fbf5874a981ada222d4110fc93b",
+  "text": "A folktale can change through retelling because each storyteller adapts it to fit a new audience, place, or time. Details such as characters’ names, settings, language, humor, and even the ending may shift. A village might replace a forest with a city, or add local customs and beliefs. Yet the story remains recognizable because its central structure survives: the main characters face a familiar problem, experience key events, and reach a meaningful outcome. Repeated motifs, such as a clever youngest child, a dangerous bargain, or a lesson about kindness, also preserve its identity. In this way, a folktale is flexible in its details but stable in its core pattern, allowing different communities to make the story their own while sharing the same narrative.",
+  "text_sha256": "b1165f0ea70ff5babbe5f3c78fa8eb0b6be8090ec0bb26a29f58b51965d32706",
+  "raw_final_sha256": "b1165f0ea70ff5babbe5f3c78fa8eb0b6be8090ec0bb26a29f58b51965d32706",
+  "word_count": 123,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2586,
+      "cached_input_tokens": 2432,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 174,
+      "reasoning_output_tokens": 15
+    }
+  ],
+  "attempt_path": "collection\\attempts\\1db0743531c50769c8de7e261ecbc8533e09a3bd372308634336fa5d6609d6fb",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

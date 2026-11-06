@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0182",
+  "prompt": "A room has twelve chairs. Four are moved to a second room, then three are brought back. Explain how many remain in the first room without skipping the intermediate step. Aim for about 120 words.",
+  "category": "reasoning_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0182",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "9d05bb5ad9e4a020868b8621668451115eeb144714d0a18828c4599d4d9c5f3e",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:50:24.116579+00:00",
+  "ended_at": "2026-11-01T10:50:53.045622+00:00",
+  "prompt_sha256": "2c7df68a90db223dd682014051ca1b62ca489193f8e31cbf9e2bb52fc5fbda75",
+  "text": "The first room starts with **12 chairs**.\n\nFirst, **4 chairs are moved to the second room**. Subtract those chairs from the original total:\n\n**12 − 4 = 8**\n\nSo, after the first move, **8 chairs remain in the first room**, while 4 chairs are in the second room.\n\nNext, **3 of those chairs are brought back** from the second room to the first room. Add those 3 chairs to the 8 still in the first room:\n\n**8 + 3 = 11**\n\nTherefore, after both steps are completed, **11 chairs remain in the first room**. The intermediate total is important: the room goes from 12 chairs to 8 chairs when 4 are removed, and then from 8 chairs to 11 chairs when 3 are returned.",
+  "text_sha256": "b54089cf6e17d3c24cc956c7b957c4c565dd76c0b5fa5e41973090d7d17c76db",
+  "raw_final_sha256": "b54089cf6e17d3c24cc956c7b957c4c565dd76c0b5fa5e41973090d7d17c76db",
+  "word_count": 124,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4134,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 199,
+      "reasoning_output_tokens": 25
+    }
+  ],
+  "attempt_path": "collection\\attempts\\9d05bb5ad9e4a020868b8621668451115eeb144714d0a18828c4599d4d9c5f3e",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

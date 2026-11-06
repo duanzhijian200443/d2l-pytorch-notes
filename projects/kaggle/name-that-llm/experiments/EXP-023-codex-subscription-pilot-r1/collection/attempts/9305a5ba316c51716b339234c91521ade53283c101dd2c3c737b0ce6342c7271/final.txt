@@ -1,0 +1,5 @@
+Observation: The display has fewer visitors today than it did previously. Yesterday, the weather was warmer, and a school group visited.  
+
+Inference: The lower attendance may be related to the new layout, but that conclusion is not established. Weather, scheduled group visits, timing, promotion, or other factors could also explain the difference. Likewise, we cannot conclude that people dislike the layout based on a single day’s count.  
+
+Before moving everything back, we should collect more evidence: compare attendance across several days with similar weather and programming, observe how visitors navigate the display, and, if possible, ask visitors for feedback. A temporary adjustment or small experiment may be more appropriate than immediately reversing the entire layout.

@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0218",
+  "prompt": "Describe how a small library could test whether a new display actually helps readers discover books, rather than merely attracting glances. Aim for about 160 words.",
+  "category": "business_decision",
+  "target_words": 160,
+  "prompt_group": "cp0218",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "d4e82e60665e1d5827c9284a5111fe907e39d49fb70810dbf52fcf4898e87df2",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:13:51.605340+00:00",
+  "ended_at": "2026-11-01T11:14:07.015703+00:00",
+  "prompt_sha256": "39228873ff000adebd201188177df62870e25d1cec49ac783df79f775b0809c7",
+  "text": "A small library could run a simple A/B test. For several comparable weeks, place the new display in the same area on alternating days, using ordinary shelving or a previous display as the comparison condition. Track not only how many people look at it, but whether they discover and use the books: display-item checkouts, holds, renewals, in-library reading, and whether borrowers had borrowed those titles before. A brief, optional exit survey could ask visitors whether they noticed the display, picked up or searched for a book, found something unfamiliar, and intend to read it. Staff might also record approximate passersby and interactions, so checkout rates can be compared with exposure rather than raw totals. To test lasting discovery, email or ask consenting patrons a week later whether they remember the title or author and whether they started the book. Compare results across conditions while noting school holidays, events, weather, and changes in book selection. Success would mean more first-time discoveries and meaningful borrowing—not simply more people pausing to look.",
+  "text_sha256": "8bfde95447baeacd147e0182d8b51fa273cc98971ad03a9dfcd1ad35606d72c8",
+  "raw_final_sha256": "8bfde95447baeacd147e0182d8b51fa273cc98971ad03a9dfcd1ad35606d72c8",
+  "word_count": 169,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2589,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 265,
+      "reasoning_output_tokens": 55
+    }
+  ],
+  "attempt_path": "collection\\attempts\\d4e82e60665e1d5827c9284a5111fe907e39d49fb70810dbf52fcf4898e87df2",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

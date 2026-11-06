@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0180",
+  "prompt": "Compose a short message explaining that a shared document is ready for factual corrections, but that major changes to its structure will be considered separately. Please answer in roughly 160 words.",
+  "category": "short_email",
+  "target_words": 160,
+  "prompt_group": "cp0180",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "82b2488b261d16eda1a8ee60d51dae0fce74833bc13a4af8264412e01a14a1fd",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:49:23.778658+00:00",
+  "ended_at": "2026-11-01T10:49:48.043216+00:00",
+  "prompt_sha256": "4c0801d012211cbff3a83302c03d56a89dc6002818702809f2dfe66bf5456bf0",
+  "text": "Hi everyone,\n\nThe shared document is now ready for review, and I’d welcome your help checking it for factual accuracy. Please add comments or suggested edits wherever you spot incorrect information, outdated details, missing context, or statements that need clarification. Where possible, include a source or a brief explanation so we can resolve corrections quickly and confidently.\n\nFor this review, the priority is to make sure the content is accurate and reliable within the document’s current structure. Larger changes—such as reorganizing sections, changing the overall narrative, or substantially expanding the scope—will be considered separately rather than incorporated into this round.\n\nIf you have a structural suggestion, please note it clearly as a separate recommendation. That will help us keep factual corrections moving while giving broader proposals the focused discussion they deserve.\n\nThanks in advance for taking a look and helping improve the document. Your feedback will help us establish a sound factual baseline before we revisit questions of structure and presentation.",
+  "text_sha256": "250c763bb8d6bef2ee312fab435ded473850367c7d80f00cd44d1a682694f1d2",
+  "raw_final_sha256": "250c763bb8d6bef2ee312fab435ded473850367c7d80f00cd44d1a682694f1d2",
+  "word_count": 161,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4242,
+      "cached_input_tokens": 2048,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 191,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\82b2488b261d16eda1a8ee60d51dae0fce74833bc13a4af8264412e01a14a1fd",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

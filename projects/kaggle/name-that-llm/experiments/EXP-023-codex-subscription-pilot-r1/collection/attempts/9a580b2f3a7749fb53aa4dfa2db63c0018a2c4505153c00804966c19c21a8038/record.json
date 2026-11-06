@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0170",
+  "prompt": "Draft an email apologizing for sending an outdated event flyer. Clearly state that the correct start time is 3 p.m., and that the location has not changed. Please answer in roughly 160 words.",
+  "category": "short_email",
+  "target_words": 160,
+  "prompt_group": "cp0170",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "9a580b2f3a7749fb53aa4dfa2db63c0018a2c4505153c00804966c19c21a8038",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:42:19.244702+00:00",
+  "ended_at": "2026-11-01T10:42:44.957027+00:00",
+  "prompt_sha256": "7023bb2523fc2c02f43edfbed97329d5ac69c7bbc184ac254da72932101ce56d",
+  "text": "**Subject: Correction to Event Flyer — Start Time Is 3 p.m.**\n\nDear all,\n\nPlease accept my sincere apologies for sending an outdated version of the event flyer. I understand that the incorrect information may have caused confusion or disrupted your plans, and I regret the oversight.\n\nTo clarify, the correct start time for the event is **3:00 p.m.** The **location has not changed** and remains the same as listed on the flyer you received.\n\nPlease update your calendars accordingly and disregard the earlier start time shown on the outdated flyer. We will share a corrected version shortly to ensure everyone has the most accurate event details.\n\nThank you for your understanding and patience. We appreciate your flexibility and look forward to welcoming you at 3:00 p.m. at the originally announced location. If you have already shared the previous flyer with anyone, please forward this correction to them as well.\n\nPlease feel free to contact me if you have any questions.\n\nBest regards,  \n[Your Name]",
+  "text_sha256": "0acb2b736a6beaca7ffbf06fafd69b3224c13139c8759432689af17e9e1474cd",
+  "raw_final_sha256": "0acb2b736a6beaca7ffbf06fafd69b3224c13139c8759432689af17e9e1474cd",
+  "word_count": 164,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4134,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 216,
+      "reasoning_output_tokens": 10
+    }
+  ],
+  "attempt_path": "collection\\attempts\\9a580b2f3a7749fb53aa4dfa2db63c0018a2c4505153c00804966c19c21a8038",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

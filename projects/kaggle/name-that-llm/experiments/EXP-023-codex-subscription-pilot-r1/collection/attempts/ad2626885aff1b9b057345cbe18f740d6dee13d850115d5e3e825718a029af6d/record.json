@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0017",
+  "prompt": "I enjoy cooking new recipes, but my cupboards are filling with ingredients used only once. Suggest a more sustainable approach to choosing recipes. Keep your response near 120 words.",
+  "category": "everyday_advice",
+  "target_words": 120,
+  "prompt_group": "cp0017",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "ad2626885aff1b9b057345cbe18f740d6dee13d850115d5e3e825718a029af6d",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:41:42.279866+00:00",
+  "ended_at": "2026-11-01T08:42:01.467031+00:00",
+  "prompt_sha256": "c2ba5e3f7187f4f9d50eeb672b1fe6811d6e03faea11ec30df4d954a66561579",
+  "text": "Try choosing recipes around what you already own, rather than buying a new set of ingredients for every dish. Before planning meals, check your cupboards, fridge, and freezer, and pick two or three ingredients to use up.\n\nBuild a week of varied meals with overlapping ingredients: chickpeas could become a curry, a salad, and crispy taco filling. Keep experimenting, but choose recipes that introduce only one unfamiliar ingredient at a time—and find a second use for it before buying.\n\nBuy small quantities of specialty spices from bulk shops when available, and use sensible substitutions instead of purchasing another sauce or seasoning. Keep a simple “use next” list somewhere visible. You’ll preserve the fun of discovery while reducing waste, clutter, and spending.",
+  "text_sha256": "259ad77eb5b1e31704088ebf8cf2db413bd4525ce9170c045b3ea2a574cb0f2d",
+  "raw_final_sha256": "259ad77eb5b1e31704088ebf8cf2db413bd4525ce9170c045b3ea2a574cb0f2d",
+  "word_count": 121,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4241,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 149,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\ad2626885aff1b9b057345cbe18f740d6dee13d850115d5e3e825718a029af6d",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

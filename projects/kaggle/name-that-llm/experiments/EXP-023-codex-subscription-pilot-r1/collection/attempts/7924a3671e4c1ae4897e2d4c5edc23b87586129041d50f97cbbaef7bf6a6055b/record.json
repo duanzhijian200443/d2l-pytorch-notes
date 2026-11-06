@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0221",
+  "prompt": "How can learning the history of an ordinary object, such as a button, illuminate larger changes in society? A response of around 80 words is enough.",
+  "category": "humanities_history",
+  "target_words": 80,
+  "prompt_group": "cp0221",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "7924a3671e4c1ae4897e2d4c5edc23b87586129041d50f97cbbaef7bf6a6055b",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:15:37.131842+00:00",
+  "ended_at": "2026-11-01T11:15:49.904061+00:00",
+  "prompt_sha256": "79c4a51600d274e8bb70de89c09d4174b59784ee7a79d09c467296c6f596f23d",
+  "text": "Studying an ordinary object like a button can reveal major social changes because objects reflect how people lived, worked, and interacted. Changes in a button’s materials, design, and production may show shifts from handmade craftsmanship to industrial manufacturing. Its availability and cost can reveal class differences, trade networks, and consumer culture. Even its use in clothing can illuminate changing ideas about fashion, gender, identity, and status. Thus, examining a small object connects everyday experience to broader economic, technological, and cultural transformations.",
+  "text_sha256": "f683a78ae72d8e14acd3f9a45b463ec123e7febef9c103a81bbdacb121506a19",
+  "raw_final_sha256": "f683a78ae72d8e14acd3f9a45b463ec123e7febef9c103a81bbdacb121506a19",
+  "word_count": 81,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2589,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 104,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\7924a3671e4c1ae4897e2d4c5edc23b87586129041d50f97cbbaef7bf6a6055b",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "files": [
+    {
+      "path": "data/open-pool-v13-audit/v13/ntl_open_pool.parquet",
+      "bytes": 96388050,
+      "sha256": "38e48b40e1db0ab1bf6e4f29d3697e37307c49d1ae5020a7af3cd59c484657d5",
+      "ref": "crtproduction/name-that-llm-open-pool/13",
+      "file_name": "ntl_open_pool.parquet",
+      "source_url": "https://www.kaggle.com/datasets/crtproduction/name-that-llm-open-pool/versions/13",
+      "observed_at": "2026-11-02T04:35:48.928847+00:00",
+      "baseline_runtime_hash_verified": false
+    },
+    {
+      "path": "data/open-pool-v13-audit/v13/prompts.parquet",
+      "bytes": 1592857,
+      "sha256": "c4a528244ad0c909c771c7206557b7884f8eab8a37130245b58ea45e65bf43c9",
+      "ref": "crtproduction/name-that-llm-open-pool/13",
+      "file_name": "prompts.parquet",
+      "source_url": "https://www.kaggle.com/datasets/crtproduction/name-that-llm-open-pool/versions/13",
+      "observed_at": "2026-11-02T04:35:55.692655+00:00",
+      "baseline_runtime_hash_verified": false
+    },
+    {
+      "path": "data/open-pool-v13-audit/v13/gemini37_unverified.parquet",
+      "bytes": 5366960,
+      "sha256": "b48fb955177a9b1d3d1e818b9d3301c843d9feec5a9f39393bca85866d427090",
+      "ref": "crtproduction/name-that-llm-open-pool/13",
+      "file_name": "gemini37_unverified.parquet",
+      "source_url": "https://www.kaggle.com/datasets/crtproduction/name-that-llm-open-pool/versions/13",
+      "observed_at": "2026-11-02T04:36:01.953073+00:00",
+      "baseline_runtime_hash_verified": false
+    },
+    {
+      "path": "data/open-pool-v13-audit/baseline-prvs-v7/passages_clean.csv",
+      "bytes": 7519791,
+      "sha256": "502653b8cc053bc1ef08920d0ddda892e8b656f14229e38e0755d8a2f079eaf9",
+      "ref": "prvsiyan/prvsiyans-extended-name-that-llm-dataset/7",
+      "file_name": "passages_clean.csv",
+      "source_url": "https://www.kaggle.com/datasets/prvsiyan/prvsiyans-extended-name-that-llm-dataset/versions/7",
+      "observed_at": "2026-11-02T04:37:09.468360+00:00",
+      "baseline_runtime_hash_verified": true
+    }
+  ]
+}

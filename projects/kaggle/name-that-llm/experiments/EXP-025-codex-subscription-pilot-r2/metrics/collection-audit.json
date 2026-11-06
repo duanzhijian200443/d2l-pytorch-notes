@@ -1,0 +1,32 @@
+{
+  "observed_at": "2026-11-01T10:14:33.494345+00:00",
+  "status": "STOPPED_INCOMPLETE",
+  "responses": 558,
+  "by_model": {
+    "gpt-5.6-luna": 140,
+    "gpt-5.6-terra": 140,
+    "gpt-5.6-sol": 139,
+    "gpt-6-astra": 139
+  },
+  "by_split": {
+    "train": 558
+  },
+  "flags": {},
+  "prompt_groups": 140,
+  "duplicate_job_keys": 0,
+  "duplicate_text_rows": 0,
+  "text_hash_errors": [],
+  "split_leaks": [],
+  "peak_attempt_concurrency": 2,
+  "attempts_by_status": {
+    "SUCCEEDED": 558,
+    "FAILED": 2
+  },
+  "controller_status": "STOPPED_FAILURE",
+  "collector_returncode": 2,
+  "summary_run_id": "0df2733358d4478c816ae31ca2b8bfeb",
+  "state_run_id": "0df2733358d4478c816ae31ca2b8bfeb",
+  "training_acceptance": "NOT_EVALUATED",
+  "source": "codex_subscription",
+  "model_snapshot_verification": "NOT_ESTABLISHED"
+}

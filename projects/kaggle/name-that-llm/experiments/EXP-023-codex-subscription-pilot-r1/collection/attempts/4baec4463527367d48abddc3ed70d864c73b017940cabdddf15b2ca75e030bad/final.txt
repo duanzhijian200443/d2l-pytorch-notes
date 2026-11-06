@@ -1,0 +1,5 @@
+A clear night often becomes colder because the ground loses heat by emitting infrared radiation. With few clouds overhead, much of that energy escapes to space. As the surface cools, it also cools the air directly above it.
+
+Clouds contain water droplets or ice crystals that absorb outgoing infrared radiation and emit infrared radiation themselves, including back toward the ground. This downward radiation reduces the surface’s net heat loss, so temperatures usually fall more slowly beneath cloud cover. Clouds act somewhat like a blanket—not by stopping heat loss completely, but by slowing radiative cooling.
+
+The difference is especially noticeable on calm, dry nights. Wind, humidity, cloud height, and incoming air masses also influence how cold a night becomes.

@@ -1,0 +1,7 @@
+A single rectangular table seats 6 people: one at each short end and two along each of its two long sides. If we used two separate tables, they would seat \(6+6=12\) people. However, when the tables are joined at a short end, the touching ends are no longer accessible. The person who would have sat at the adjoining end of each table loses that seat, because the two tables occupy the same space there and prevent seating between them. Thus, two seats are removed from the total:
+
+\[
+12-2=10.
+\]
+
+Therefore, the combined arrangement seats 10 people, which is less than twice the original seating capacity of 6.

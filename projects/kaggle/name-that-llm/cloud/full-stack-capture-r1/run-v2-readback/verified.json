@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "source_equal": true,
+  "attachments": 31,
+  "runtime_status": "RUNNING",
+  "observed_at_utc": "2026-11-01T11:12:03.808389+00:00",
+  "gpu_physical_model_observed": false
+}

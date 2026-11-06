@@ -1,0 +1,8 @@
+{
+  "at": "2026-11-01T10:32:49.021087+00:00",
+  "error_type": "SSLError",
+  "message": "HTTPSConnectionPool(host='api.kaggle.com', port=443): Max retries exceeded with url: /v1/kernels.KernelsApiService/SaveKernel (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)')))",
+  "last_state": "GPU_SAVE_IN_FLIGHT",
+  "gpu_started": false,
+  "run_request_count": 0
+}

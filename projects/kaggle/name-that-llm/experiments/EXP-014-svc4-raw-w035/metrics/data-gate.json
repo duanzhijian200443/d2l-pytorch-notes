@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "observed_at_utc": "2026-11-01T07:37:44.721565+00:00",
+  "experiment_id": "EXP-014",
+  "applies_to": [
+    "EXP-013",
+    "EXP-014",
+    "EXP-015",
+    "EXP-016"
+  ],
+  "status": "PASS_FOR_SCOPED_DEVELOPMENT",
+  "training_executed_by_preparation": false,
+  "input_audit": {
+    "path": "cloud/svc4-raw-public/payload/input_audit.json",
+    "sha256": "eec44c16af52d290d27c01c5909a4ea65a628cfc291cec8e303ff28793ceb440"
+  },
+  "public_csv": {
+    "path": "cloud/svc4-raw-public/payload/public.csv",
+    "rows": 5400,
+    "bytes": 4711529,
+    "sha256": "0a1e31a0f8b0ece7ca44a961075252fe275107f3710804971838d714a4e77aaa",
+    "columns": [
+      "row_id",
+      "raw_row_number",
+      "id",
+      "prompt_id",
+      "model",
+      "text",
+      "call_id",
+      "text_sha256"
+    ]
+  },
+  "official": {
+    "rows": 2699,
+    "prompts": 150,
+    "labels": [
+      "claude-fable-5",
+      "claude-opus-4-6",
+      "claude-opus-4-8",
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "gemini-3.1-pro-preview",
+      "gemini-3.6-flash",
+      "gemini-3.7-flash",
+      "gemini-3.8-flash",
+      "glm-5.3",
+      "glm-5.3-flash",
+      "gpt-5.5",
+      "gpt-5.6-luna",
+      "gpt-5.6-sol",
+      "gpt-5.6-terra",
+      "gpt-6-astra",
+      "kimi-k3",
+      "qwen3.8-max"
+    ],
+    "test_example_rows": 3,
+    "split_id": "prompt-group-v1",
+    "fold_rows": {
+      "0": 540,
+      "1": 540,
+      "2": 540,
+      "3": 540,
+      "4": 539
+    },
+    "fold_prompts": {
+      "0": 30,
+      "1": 30,
+      "2": 30,
+      "3": 30,
+      "4": 30
+    },
+    "ordered_id_prompt_model_text_sha_alignment": true,
+    "prompt_disjoint_folds": true
+  },
+  "raw_public": {
+    "selection": "passages.csv split == new; preserve original row order and exact text; no row filtering beyond split selection",
+    "raw_source_rows": 9290,
+    "selected_rows": 5400,
+    "prompts": 300,
+    "classes": 18,
+    "rows_per_prompt": 18,
+    "rows_per_class": 300,
+    "class_counts": {
+      "claude-fable-5": 300,
+      "claude-opus-4-6": 300,
+      "claude-opus-4-8": 300,
+      "claude-opus-5": 300,
+      "claude-sonnet-5": 300,
+      "gemini-3.1-pro-preview": 300,
+      "gemini-3.6-flash": 300,
+      "gemini-3.7-flash": 300,
+      "gemini-3.8-flash": 300,
+      "glm-5.3": 300,
+      "glm-5.3-flash": 300,
+      "gpt-5.5": 300,
+      "gpt-5.6-luna": 300,
+      "gpt-5.6-sol": 300,
+      "gpt-5.6-terra": 300,
+      "gpt-6-astra": 300,
+      "kimi-k3": 300,
+      "qwen3.8-max": 300
+    },
+    "unique_row_id_id_call_id_prompt_model_and_text": true,
+    "prompt_template_and_sent_text_match_rows": 5400,
+    "source_prompt_id_nonempty_rows": 0,
+    "new_vs_reconstructed_official_prompt_exact_overlap": 0,
+    "raw_response_words_min": 36,
+    "raw_response_words_max": 294,
+    "outside_authors_40_250_word_range_retained": 70,
+    "author_funnel_pass_retained": 5326,
+    "author_funnel_fail_retained": 74,
+    "author_funnel_fail_step_counts": {
+      "40-250 whitespace words": 70,
+      "no markdown": 4
+    },
+    "clean_new_rows_for_diagnostic_only": 4158,
+    "clean_or_funnel_used_for_selection": false,
+    "punctuation_length_markdown_filter_used": false,
+    "provider_route_counts": {
+      "anthropic": 1500,
+      "google": 947,
+      "kaggle_proxy": 730,
+      "openai": 975,
+      "openrouter": 1248
+    }
+  },
+  "provenance": {
+    "unique_log_calls": 9291,
+    "selected_calls_checked": 5400,
+    "checks_failed": 0,
+    "request_prompt_exact_match_rows": 5400,
+    "response_and_envelope_text_exact_match_rows": 5400,
+    "request_response_model_identity_match_rows": 5400,
+    "join_rule": "CSV split=new selection joined to logs by call_id, not log.split filtering",
+    "log_split_new_published_split_counts": {
+      "new": 5401,
+      "new_kimi_nothink": 300,
+      "pilot_range": 170
+    },
+    "limit": "Supplied-record internal consistency; no independent provider-weight authentication"
+  },
+  "risks": {
+    "status": "PASS_KNOWN_CHECKS",
+    "risk_counts": {
+      "blank_text": 0,
+      "unknown_label": 0,
+      "missing_prompt_key": 0,
+      "identity_mismatch": 0,
+      "label_conflict": 0,
+      "provenance_issue": 0,
+      "official_exact_match": 0,
+      "official_high_similarity": 0,
+      "official_shingle_review": 0,
+      "linked_official_prompt": 0,
+      "reported_refusal": 0,
+      "reported_truncated": 0,
+      "error_or_refusal_screen": 0,
+      "hold_for_review": 0,
+      "recomputed_exact_official_train": 0,
+      "recomputed_exact_official_test_example": 0
+    },
+    "row_flags_rows_checked": 5400,
+    "all_selected_rows_preserved": true,
+    "strict_semantic_independence_proven": false
+  },
+  "baseline_overlap": {
+    "normalization": "NFKC + casefold + collapsed whitespace, the EXP-008 audit key",
+    "matched_rows": 5119,
+    "pool_rows": 257,
+    "already_in_main_projection": 5376,
+    "not_in_main_projection": 24,
+    "scope": "EXP-009 frozen-baseline rules on EXP-008 pinned current files, not historical hidden-run membership",
+    "new_data_claim_allowed": false
+  },
+  "original_three_source_recipe_gate": {
+    "status": "NOT_MET",
+    "original_recipe_executed": false,
+    "recipe": "official=1.0 + matched=0.5 + pool=0.35, compare pool 0.175/0.35/0.70",
+    "projection_rows": 123828,
+    "public_projection_rows": 121129,
+    "known_official_prompt_linked_rows_lower_bound": 121,
+    "reasons": [
+      "matched lacks source/prompt fields and the aggregate pool's complete raw lineage has not been recovered",
+      "removing known prompt-linked rows does not undo pool-v5 cleaning based on full official-label punctuation statistics",
+      "the replacement raw/new experiment changes sources and must not inherit the original-recipe or full-ensemble claim"
+    ],
+    "source_evidence": [
+      "experiments/EXP-008-public-pool-audit/report.md",
+      "experiments/EXP-009-baseline-data-lineage/report.md"
+    ]
+  },
+  "limitations": [
+    "The selected raw/new passages avoid the aggregate pool's label-conditioned punctuation cleaning, but their generation protocol was informed by official train data.",
+    "The pinned prvs README lines 38-39 say target lengths were sampled from the official train word-count distribution and the protocol was adjusted using label/length comparisons with official train. The generator source is not included, so further upstream selection cannot be ruled out independently.",
+    "Request/response logs establish internal consistency, not independent authentication of the underlying provider weights; Kaggle proxy rows echo routing slugs.",
+    "Zero known prompt links, exact response overlap and reconstructed-prompt exact overlap do not prove the absence of semantic or undocumented prompt overlap. The host's original prompts are not available here.",
+    "This is fixed-external-data development OOF preparation, not a strictly untouched holdout, full ATLAS20 OOF, or a leaderboard result.",
+    "5376 of the 5400 selected texts already occur in the EXP-009 current-input main-svc4 projection. This is a source/weight diagnostic, not 5400 novel additions to ATLAS20, and that projection is not historical hidden-run membership evidence."
+  ],
+  "conclusion": "All 5400 original raw/new rows are retained. Proceed only with the separately named isolated svc4 raw-public comparison; the original matched+pool weight draft remains below its data gate."
+}

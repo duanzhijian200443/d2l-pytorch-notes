@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0155",
+  "prompt": "Rewrite this feedback so it gives the writer an actionable next step: 'This article is confusing. Too much background. The interesting example is buried. The ending sounds like a different article. Please make it better.' Keep your response near 160 words.",
+  "category": "rewrite_original_material",
+  "target_words": 160,
+  "prompt_group": "cp0155",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "45dcf71cf4c384eb7b558935027fef120aa1ef4387697f163f9c8bf1bdb1928f",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:31:37.357598+00:00",
+  "ended_at": "2026-11-01T10:32:02.442106+00:00",
+  "prompt_sha256": "9dd17a55c15f19f8da8b0b8b0409ea31234caea6e41474c16b0b2ded85c03cab",
+  "text": "The article’s strongest material is the example, but the amount of background before it makes the main point hard to find. For the next draft, try restructuring around that example:\n\n1. **Move the example into the opening.** Use it to show readers the central problem, then state the article’s main takeaway in one clear sentence.\n2. **Trim and relocate the background.** Keep only what readers need to understand the example and your argument. Introduce that context where it becomes relevant, rather than presenting it all upfront.\n3. **Give each section a clear role.** Check whether it develops the main takeaway. Cut or revise passages that introduce a separate argument, and add transitions that explain how the remaining sections connect.\n4. **Reconnect the ending to the opening.** Return to the example and explain what readers should now understand or do differently, rather than introducing a new theme.\n\nStart by drafting a revised opening and ending; use those to guide what stays in the middle.",
+  "text_sha256": "7e7f02f61a7dacbce304c91327640f7797df5e28d9272980266b9835ba5fd031",
+  "raw_final_sha256": "7e7f02f61a7dacbce304c91327640f7797df5e28d9272980266b9835ba5fd031",
+  "word_count": 163,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4257,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 202,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\45dcf71cf4c384eb7b558935027fef120aa1ef4387697f163f9c8bf1bdb1928f",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,18 @@
+Before judging reusable packaging a failure, treat the confusing return process as a design problem and run a short improvement trial.
+
+First, map the current process with staff and customers. Identify exactly where uncertainty occurs: where packages are returned, who checks them, how deposits are refunded, and where used items are stored. Then simplify the workflow to a few consistent steps—for example: **receive, scan, refund, place in one labeled bin**.
+
+Support this with practical changes:
+
+- Create one clearly marked return point near the checkout.
+- Use a single package type or minimize variations where possible.
+- Add large, visual instructions for both staff and customers.
+- Integrate returns into the existing checkout system rather than using a separate process.
+- Provide a one-page staff guide and a brief hands-on demonstration.
+- Assign clear responsibility for emptying bins, cleaning packages, and resolving exceptions.
+- Replace complicated rules with a simple, consistent deposit or reward policy.
+- Give staff a quick way to report recurring problems.
+
+Pilot the revised process for several weeks at one location or during quieter hours. Track return time, mistakes, return rates, customer questions, and staff feedback. Hold short weekly check-ins and adjust the process quickly.
+
+The reusable-packaging idea should be evaluated only after the return system is easy to understand and operate. Early confusion may reflect poor implementation—not a flawed concept.

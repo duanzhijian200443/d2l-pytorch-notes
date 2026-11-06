@@ -1,0 +1,32 @@
+{
+  "observed_at": "2026-11-01T07:45:20.553325+00:00",
+  "variants": [
+    {
+      "id": "EXP-013",
+      "variant": "official-only",
+      "public_row_weight": null,
+      "directory": "experiments/EXP-013-svc4-official-only"
+    },
+    {
+      "id": "EXP-014",
+      "variant": "raw-w035",
+      "public_row_weight": 0.35,
+      "directory": "experiments/EXP-014-svc4-raw-w035"
+    },
+    {
+      "id": "EXP-015",
+      "variant": "raw-w0175",
+      "public_row_weight": 0.175,
+      "directory": "experiments/EXP-015-svc4-raw-w0175"
+    },
+    {
+      "id": "EXP-016",
+      "variant": "raw-w070",
+      "public_row_weight": 0.7,
+      "directory": "experiments/EXP-016-svc4-raw-w070"
+    }
+  ],
+  "baseline_formal": "EXP-004",
+  "shared_wall_seconds": 7200,
+  "status": "ERROR"
+}

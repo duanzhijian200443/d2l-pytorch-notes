@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0067",
+  "prompt": "Describe a fair way to divide responsibility when three collaborators are launching a small community newsletter. A response of around 120 words is enough.",
+  "category": "business_decision",
+  "target_words": 120,
+  "prompt_group": "cp0067",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "ad425b7761ff1fa6c46eaf47e4d064e29bfa81f98f197bc4d89eadcff77fb821",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:13:16.855759+00:00",
+  "ended_at": "2026-11-01T09:13:39.479253+00:00",
+  "prompt_sha256": "96da5cadf3b65d933d9e8c4e8475a6ce1a83432fc31117e384445a3cb86b52e4",
+  "text": "A fair approach is to divide responsibility by workload, interests, and availability—not simply by counting tasks. The three collaborators could take primary ownership of:\n\n- **Editorial:** planning themes, gathering community contributions, and editing articles.\n- **Production:** designing the layout, checking links, and preparing each issue.\n- **Community and distribution:** managing subscriptions, promoting the newsletter, and collecting reader feedback.\n\nAgree together on the newsletter’s purpose, publication schedule, and major decisions. Give each role a backup so nobody becomes indispensable or carries emergencies alone. Estimate the hours each role requires, including less visible administrative work, and redistribute tasks when workloads become uneven. After the first few issues, review what is working and offer role rotation. Share credit equally while acknowledging individual contributions.",
+  "text_sha256": "9573c7f3319f102dd443ef6ba5f14cfc0458ae4c5e737cb28f97202ba1889889",
+  "raw_final_sha256": "9573c7f3319f102dd443ef6ba5f14cfc0458ae4c5e737cb28f97202ba1889889",
+  "word_count": 120,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4234,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 155,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\ad425b7761ff1fa6c46eaf47e4d064e29bfa81f98f197bc4d89eadcff77fb821",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

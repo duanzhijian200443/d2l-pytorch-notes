@@ -1,0 +1,3 @@
+Compressing a photograph reduces its file size, making it faster to upload, easier to share, and cheaper to store. The trade-off depends on the compression method. Lossless compression preserves every pixel but usually offers smaller savings. Lossy compression, used by formats such as JPEG, achieves much smaller files by discarding information considered less noticeable.
+
+As compression increases, subtle textures—like hair, foliage, or fabric—may become blurred or disappear. Smooth gradients can develop visible bands, and sharp edges may show halos or blocky artifacts. These changes can be hard to notice on a small screen but obvious when zooming in, editing, or printing. The best balance depends on how the photograph will be viewed and how much detail matters.

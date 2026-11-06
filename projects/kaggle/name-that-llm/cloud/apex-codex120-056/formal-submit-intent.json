@@ -1,0 +1,19 @@
+{
+  "created_at": "2026-11-02T10:25:33.090858+00:00",
+  "ref": "zhjianduan/ntl-apex-codex120-056",
+  "version": 2,
+  "script_version_id": 364839807,
+  "ready_sha256": "3e7491f47cec1c6352a75b127dbdf4413d130aa695d15192afa837f1cf3eb37f",
+  "description": "EXP056 Apex V1; Stylegram only + four-model raw 120; paired against 57903109; script 364839807",
+  "submission_ids_before": [
+    57903109,
+    57903087,
+    57893384,
+    57879463,
+    57843313,
+    57832487,
+    57778357,
+    57759707,
+    57736953
+  ]
+}

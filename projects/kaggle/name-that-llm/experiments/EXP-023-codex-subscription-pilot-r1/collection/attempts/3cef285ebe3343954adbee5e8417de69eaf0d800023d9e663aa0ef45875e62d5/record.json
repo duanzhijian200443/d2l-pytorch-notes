@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0236",
+  "prompt": "Turn these original notes into a short reflective passage: 'Kept an old coat for years. Too small now. Found a cinema ticket in the pocket. Remembered the friend, not the film. Put the ticket in a drawer and donated the coat.' Please answer in roughly 80 words.",
+  "category": "rewrite_original_material",
+  "target_words": 80,
+  "prompt_group": "cp0236",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "3cef285ebe3343954adbee5e8417de69eaf0d800023d9e663aa0ef45875e62d5",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:24:48.902329+00:00",
+  "ended_at": "2026-11-01T11:25:04.717541+00:00",
+  "prompt_sha256": "723a29789ced5cec50527d21bda589abe18e0d66789d3f64331952edb1050961",
+  "text": "I kept the old coat for years, long after it had become too small. One day, I found a cinema ticket tucked inside its pocket. I couldn’t remember the film, but I remembered the friend who had been with me—our laughter, the evening, the feeling of being young. I placed the ticket carefully in a drawer, then donated the coat. Letting it go felt less like losing the past than making room for what remains.",
+  "text_sha256": "b402c57cc5ac48d34e296a0b842dfa0c0054d43b1b4298a1b8f72d3eb862376a",
+  "raw_final_sha256": "b402c57cc5ac48d34e296a0b842dfa0c0054d43b1b4298a1b8f72d3eb862376a",
+  "word_count": 75,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2617,
+      "cached_input_tokens": 2432,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 94,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\3cef285ebe3343954adbee5e8417de69eaf0d800023d9e663aa0ef45875e62d5",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

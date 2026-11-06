@@ -1,0 +1,5 @@
+If trains truly arrive exactly every fifteen minutes and a passenger arrives at a time chosen uniformly at random, the *average* waiting time is seven and a half minutes. It is not the wait for every passenger.
+
+A passenger arriving just as a train leaves waits almost fifteen minutes, while one arriving a moment before the next train waits almost no time. Other arrival times produce every possible wait in between. Across many randomly timed arrivals, these different waits balance out to an average of 7.5 minutes.
+
+The conclusion also depends on the assumptions. The passenger’s arrival must be unrelated to the timetable, and trains must run precisely every fifteen minutes. If people time their journeys using the schedule, their waits may be much shorter. If trains are delayed, bunched together, or have uneven gaps, the average can differ as well. Thus, seven and a half minutes describes an expected wait under an ideal random-arrival model—not a guaranteed waiting time for an individual trip.

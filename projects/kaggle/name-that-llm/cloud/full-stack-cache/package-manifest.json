@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "experiment": "EXP-028",
+  "created_at_utc": "2026-11-01T09:48:33.812008+00:00",
+  "status": "LOCAL_ENGINEERING_PACKAGE",
+  "model_predictions_generated": false,
+  "cloud_launch_ready": false,
+  "baseline_sha256": "6c9145f038ccffbe08dc6da6db3d1dcf3d2e0e7d2286927bfc8800ef5148cfb8",
+  "context_template_sha256": "5f49205740bfcd6470cd5ae6b16e06d7dcf8e2407e78f5dc1f6ae9bf8b6e32c1",
+  "files": [
+    {
+      "path": "cloud/full-stack-cache/generated/comp_stack.py",
+      "sha256": "64d061ebe633f2ba328b630041a7ddf1d21f09ac774d7cd818ea629a13bfa194",
+      "bytes": 49514
+    },
+    {
+      "path": "cloud/full-stack-cache/generated/full_stack_cache.py",
+      "sha256": "ff6b28d7834bdd4bd26bfb1fa69b3b9dc4ccaf194d968cf9b2d8ac4652df85a9",
+      "bytes": 17055
+    },
+    {
+      "path": "cloud/full-stack-cache/generated/full_stack_observer.py",
+      "sha256": "ada0dc10ba451308f453dd709540193b04912b95eb585abcbd36c87c0e8db5ca",
+      "bytes": 8228
+    },
+    {
+      "path": "cloud/full-stack-cache/generated/full_stack_replay.py",
+      "sha256": "b1bab1993fb17850d8b3cfb26716f47c869dbca5107c3435b859864d2ca99586",
+      "bytes": 39577
+    },
+    {
+      "path": "cloud/full-stack-cache/generated/gauss.py",
+      "sha256": "908b57113f1a7b8ebdbf204c6be87cbc385f765ba50ac07b4e270c64b7cf1000",
+      "bytes": 8219
+    },
+    {
+      "path": "cloud/full-stack-cache/generated/infer.py",
+      "sha256": "8b97f40e4fedf79c842c886e62419144d2e6d0c2e743779c264f7d3074d5f4f7",
+      "bytes": 49350
+    },
+    {
+      "path": "cloud/full-stack-cache/generated/instrumentation-receipt.json",
+      "sha256": "0370d47dc7463f80ff9e2eefb06acea44b197a3ae8141b7cbdfaeef5f96ae3fc",
+      "bytes": 11100
+    }
+  ],
+  "note": "This package exports/replays scores when run with valid bindings; it is not a completed real full-stack prediction cache."
+}

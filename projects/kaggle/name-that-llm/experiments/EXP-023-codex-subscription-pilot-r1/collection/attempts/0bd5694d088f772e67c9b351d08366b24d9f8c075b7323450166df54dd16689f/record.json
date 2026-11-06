@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0108",
+  "prompt": "A child leaves a note inside a library book and receives a reply years later. Write the reunion with restraint rather than a dramatic twist. Please answer in roughly 160 words.",
+  "category": "creative_short_fiction",
+  "target_words": 160,
+  "prompt_group": "cp0108",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "0bd5694d088f772e67c9b351d08366b24d9f8c075b7323450166df54dd16689f",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:38:57.122169+00:00",
+  "ended_at": "2026-11-01T09:39:20.440017+00:00",
+  "prompt_sha256": "d0674eb8c5f4531671cb9b2b8e7628b9383c7ca6771b5255de58c04fdd6cc8de",
+  "text": "The librarian had put two chairs beside the returns desk, though neither of them sat down at first.\n\n“I wasn’t sure you’d come,” the woman said.\n\nDaniel took the folded note from his coat. At nine, he had written in green pencil: If you read this, tell me where you live. He had added his address, then worried for weeks that a burglar would answer.\n\n“I found it last winter,” she said. “The book was in a box I never unpacked.”\n\nHer reply had arrived on Tuesday, forwarded from his mother’s old house.\n\nThey sat. She told him about the town where she had lived when she borrowed the book. He told her that he no longer remembered its story.\n\n“I brought it,” she said.\n\nHe opened to the page where his note had been. There was nothing to mark the place.\n\nAfter a while, they went to the desk together to ask whether he could borrow it again.",
+  "text_sha256": "25171495d0d1471382280ddc4caede16bf47dfa47604699604bc82ed7669968f",
+  "raw_final_sha256": "25171495d0d1471382280ddc4caede16bf47dfa47604699604bc82ed7669968f",
+  "word_count": 159,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4242,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 193,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\0bd5694d088f772e67c9b351d08366b24d9f8c075b7323450166df54dd16689f",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "plain": {
+    "shape": [
+      12772,
+      477022
+    ],
+    "dtype": "float64",
+    "nnz": 28875998,
+    "csr_bytes": 346563068,
+    "sha256": "d0f0c3077c53b6445cc0d77be50b14f99d96c0f6bfff8676a1cb7879075d791b"
+  },
+  "centred": {
+    "shape": [
+      12772,
+      477022
+    ],
+    "dtype": "float64",
+    "nnz": 173835707,
+    "csr_bytes": 2086079576,
+    "sha256": "3bc5d9864ad869f222895369a8e6cf64d036dfef1358bed702f9adc69be5faab"
+  },
+  "views": [
+    {
+      "view": "char",
+      "scale": 1.0,
+      "columns": 250000,
+      "vocabulary_sha256": "d7b71d2adf2d63b18842d4c0a2c63163cbd050468ccdec6f1fddfe1c064ae82f",
+      "idf_sha256": "fa31fb7ec9576aa3b98d2c73f2f784cd6e814d2b938b82fb51313a177cf3b97f"
+    },
+    {
+      "view": "word",
+      "scale": 0.7,
+      "columns": 180000,
+      "vocabulary_sha256": "ef09f5c6ed975449b33635edddf019cc005489ff36ea03282cc0864f65feff62",
+      "idf_sha256": "ffdd019dce41c75f31772ee6b8fd6e3883c4d56bb1ec21152f63a4477f2bcc84"
+    },
+    {
+      "view": "shape",
+      "scale": 0.5,
+      "columns": 19794,
+      "vocabulary_sha256": "53fefd729778132d58a4869f8ef8d357f7e88025e905171e90e1c60eeef66ed4",
+      "idf_sha256": "0e82c12440ea05713f768004a5fd34e1b734e81ddcc0b6c82488e05d3dcfcb39"
+    },
+    {
+      "view": "function",
+      "scale": 0.5,
+      "columns": 27228,
+      "vocabulary_sha256": "c510be1706b1d7348f917c55f9b6831a57fae71a59df1270f17056821b216de0",
+      "idf_sha256": "79cea1a4f3631b276972cd9ca8e1f9da4d7bdb597d7023799e2b7656aab82598"
+    }
+  ],
+  "feature_seconds": 92.44784918599998,
+  "evaluation_rows_in_fit": 0
+}

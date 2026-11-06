@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0188",
+  "prompt": "At a gathering, each of five people shakes hands once with every other person. Explain how to count the handshakes without counting each one twice. Keep your response near 80 words.",
+  "category": "reasoning_explanation",
+  "target_words": 80,
+  "prompt_group": "cp0188",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "f1cecad975f5334f5adbc3d61d279088de40ea9fc041f366a5a84e2fa9c0a5f9",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:54:50.384842+00:00",
+  "ended_at": "2026-11-01T10:55:08.040480+00:00",
+  "prompt_sha256": "5634e6998e47060e8562aac4f6a5176c455bcaedb1a35ce411a405cac48f8546",
+  "text": "Count unordered pairs of people, since each handshake involves two people and should be counted only once. Choose the first person in 5 ways, then a partner in 4 ways, giving \\(5 \\times 4 = 20\\). This counts every handshake twice—once from each person’s perspective—so divide by 2:  \n\n\\[\n\\frac{5 \\times 4}{2}=10.\n\\]\n\nEquivalently, use combinations: \\(\\binom{5}{2}=10\\).",
+  "text_sha256": "edf2601742f4a238f8840e4fdf241972e0db25d98db8f7317f9346e9d584724a",
+  "raw_final_sha256": "edf2601742f4a238f8840e4fdf241972e0db25d98db8f7317f9346e9d584724a",
+  "word_count": 57,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4131,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 130,
+      "reasoning_output_tokens": 20
+    }
+  ],
+  "attempt_path": "collection\\attempts\\f1cecad975f5334f5adbc3d61d279088de40ea9fc041f366a5a84e2fa9c0a5f9",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

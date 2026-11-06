@@ -1,0 +1,50 @@
+{
+  "run_id": "exp052-stylegram-four-volume-v1",
+  "config_sha256": "26245b0e84805401a427f8a0a288af223db17b4b3c6a65f4b7f33c619ad7c278",
+  "runner_sha256": "3dc0bb2d44660e8710b15ec41c649c0fcbcbe8b7d0dd30ae32ad8e243aefe5f5",
+  "legacy_runner_sha256": "de60b60bfd138b834d8723bbd832fd0522453f549c4050256197f6babe4ed45a",
+  "core_sha256": "caa46bd121164aba891c3d78e662540db9294d653db09f53d02833c1b4ab77ef",
+  "identity_sha256": "183e3f6f60a5df45c94d615abea0f42b81646fce882a4bfd6c9904d52e15e9c3",
+  "stages": [
+    {
+      "fold": 2,
+      "arm": "four120",
+      "stage": "tfidf_fit_transform",
+      "started_at": "2026-11-02T06:53:42.362143+00:00",
+      "status": "COMPLETE",
+      "seconds": 96.18608293900002
+    },
+    {
+      "fold": 2,
+      "arm": "four120",
+      "stage": "plain_fit",
+      "started_at": "2026-11-02T06:55:18.549067+00:00",
+      "status": "COMPLETE",
+      "seconds": 29.922583680000002
+    },
+    {
+      "fold": 2,
+      "arm": "four120",
+      "stage": "centred_fit",
+      "started_at": "2026-11-02T06:55:48.473780+00:00",
+      "status": "COMPLETE",
+      "seconds": 171.020719761
+    },
+    {
+      "fold": 2,
+      "arm": "four120",
+      "stage": "dense_prediction",
+      "started_at": "2026-11-02T06:58:39.500136+00:00",
+      "status": "COMPLETE",
+      "seconds": 0.6223644270000932
+    },
+    {
+      "fold": 2,
+      "arm": "four120",
+      "stage": "sparse_prediction",
+      "started_at": "2026-11-02T06:58:40.123156+00:00",
+      "status": "COMPLETE",
+      "seconds": 1.3294846999999663
+    }
+  ]
+}

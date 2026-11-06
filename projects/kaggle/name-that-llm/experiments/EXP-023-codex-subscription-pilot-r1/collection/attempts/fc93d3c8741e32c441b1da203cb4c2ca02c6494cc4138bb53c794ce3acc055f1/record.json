@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0044",
+  "prompt": "Explain why a video call can freeze even when a speed test reports a fast internet connection. Aim for about 200 words.",
+  "category": "technology_explanation",
+  "target_words": 200,
+  "prompt_group": "cp0044",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "fc93d3c8741e32c441b1da203cb4c2ca02c6494cc4138bb53c794ce3acc055f1",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:58:34.039610+00:00",
+  "ended_at": "2026-11-01T08:59:02.285145+00:00",
+  "prompt_sha256": "00b70ac1bc4542a7de28d82c2b6dff1da0c649d20e12c86c28535ab4c14ef8a6",
+  "text": "A speed test mainly measures **bandwidth**—how much data your connection can move per second. A video call also depends on whether that data arrives consistently and on time. Think of bandwidth as the width of a road: a wide road can still have traffic jams.\n\nSeveral problems can freeze a call despite a fast speed-test result:\n\n- **Latency:** Data takes too long to reach the other person, creating delays.\n- **Jitter:** Delivery times vary. Video calls can smooth out small variations, but larger ones can cause stuttering or freezes.\n- **Packet loss:** Some pieces of audio or video never arrive. The app may reduce quality or pause while it recovers.\n- **Upload limits:** Your outgoing video uses upload capacity, which may be much lower than the download speed highlighted by the test.\n- **Congestion and Wi-Fi interference:** Other devices, cloud backups, weak signals, or crowded wireless channels can briefly disrupt traffic.\n\nA speed test is also only a snapshot, often using a nearby server. Your call may travel along a different, more congested route.\n\nFinally, the connection may not be the culprit: an overloaded computer or a problem with the calling service can freeze video too.\n\nTry Ethernet, pause uploads, close demanding apps, and check latency and packet loss—not just download speed.",
+  "text_sha256": "9e28c153d7fbad1599d46f65f8d61ffee22f2f57c78d4a9427599917db191c07",
+  "raw_final_sha256": "9e28c153d7fbad1599d46f65f8d61ffee22f2f57c78d4a9427599917db191c07",
+  "word_count": 212,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4232,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 268,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\fc93d3c8741e32c441b1da203cb4c2ca02c6494cc4138bb53c794ce3acc055f1",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

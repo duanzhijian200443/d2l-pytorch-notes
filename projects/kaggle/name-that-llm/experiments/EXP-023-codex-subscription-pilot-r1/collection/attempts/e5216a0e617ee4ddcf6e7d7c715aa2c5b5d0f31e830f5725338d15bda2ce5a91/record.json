@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0209",
+  "prompt": "Why does a floating piece of ice not usually make a glass overflow when it melts, assuming the glass contains only water and ice? A response of around 200 words is enough.",
+  "category": "science_explanation",
+  "target_words": 200,
+  "prompt_group": "cp0209",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "e5216a0e617ee4ddcf6e7d7c715aa2c5b5d0f31e830f5725338d15bda2ce5a91",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:08:41.264539+00:00",
+  "ended_at": "2026-11-01T11:09:05.404040+00:00",
+  "prompt_sha256": "2633faa0bb8614f03fc343912aed4121b1f3ff1cf698c1a38dcf3fd5d37ea678",
+  "text": "A floating piece of ice usually does not make a glass overflow when it melts because it already displaces the same amount of water that it will become.\n\nThis follows from **Archimedes’ principle**: a floating object displaces a weight of liquid equal to its own weight. For example, an ice cube weighing 10 grams pushes aside 10 grams of water. Since liquid water has a density of approximately 1 gram per millilitre, the submerged part of the ice occupies about 10 millilitres.\n\nWhen the ice melts, it becomes 10 grams of liquid water—also about 10 millilitres. That meltwater exactly fills the volume that the submerged ice had displaced, so the water level stays essentially unchanged.\n\nYou might wonder about the part of the ice sticking above the surface. Ice is less dense than liquid water, which is why it floats with roughly 9% of its volume above water. As it melts, it contracts: that extra volume disappears rather than adding extra water above the original level.\n\nThus, even a glass filled to the brim should not overflow simply because its floating ice melts. In practice, temperature changes, surface tension, or movement can cause small differences, but the basic displacement argument remains the same.",
+  "text_sha256": "587bb72b0ff7f0af867ff680467b58f48167dca1406c3fbda058d59d153531e2",
+  "raw_final_sha256": "587bb72b0ff7f0af867ff680467b58f48167dca1406c3fbda058d59d153531e2",
+  "word_count": 203,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4243,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 255,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\e5216a0e617ee4ddcf6e7d7c715aa2c5b5d0f31e830f5725338d15bda2ce5a91",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

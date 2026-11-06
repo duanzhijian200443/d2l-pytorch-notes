@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "observed_at": "2026-11-01T08:19:18.916025+00:00",
+  "scope": "cached OOF complementarity analysis, not fusion evaluation",
+  "input_count": 103,
+  "code_files": 3,
+  "scenarios": 16,
+  "paired_prediction_rows": 10949,
+  "dimension_tables_reconciled": [
+    "per_class",
+    "per_fold",
+    "per_prompt",
+    "per_class_fold"
+  ],
+  "four_cell_partitions_reconciled": true,
+  "per_class_macro_recall_matches_scenario_ba": true,
+  "frozen_input_code_hashes_unchanged": true,
+  "output_and_report_hashes_verified": true,
+  "core_regression_tests_passed": 7,
+  "cache_input_tests_passed": 4,
+  "independent_review": {
+    "reviewer": "svc4_runtime_review",
+    "scope": "independent parent cache reconstruction, all 16 BA/overlap/route counts and 10949 paired rows; no separate bootstrap recomputation",
+    "status": "PASS"
+  },
+  "bootstrap_note": "Tested against independent synthetic prompt-resampling reference; actual intervals computed once by frozen core. m2-repeat0 has 1 missing-class draw, CI null by policy.",
+  "formal_baseline": "EXP-004",
+  "training": false,
+  "fusion": false,
+  "gpu": false,
+  "api_generation": false,
+  "competition_submission": false,
+  "manifest_sha256": "aa82b8ed31859b9c0e7ca12bd811ffe370b5554a67eafa4735a85e373f55051f",
+  "result_sha256": "9eeb5cb07da2cddd5a5aef3c52b7d142c122fff8ee6c5ab5263051c65a6bfebf",
+  "report_sha256": "d551752bcde44f415e5fb5e72f43dd6b2f0afe954f93b21fc028b48ff3040a66"
+}

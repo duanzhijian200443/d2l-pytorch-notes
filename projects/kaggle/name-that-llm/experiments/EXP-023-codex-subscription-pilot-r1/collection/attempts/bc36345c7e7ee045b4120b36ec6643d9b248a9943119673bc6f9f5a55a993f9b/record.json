@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0242",
+  "prompt": "Draft an email to a friend who offered to help you move, explaining that the move is smaller than expected and only an hour of help is needed. A response of around 120 words is enough.",
+  "category": "short_email",
+  "target_words": 120,
+  "prompt_group": "cp0242",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "bc36345c7e7ee045b4120b36ec6643d9b248a9943119673bc6f9f5a55a993f9b",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:29:01.532483+00:00",
+  "ended_at": "2026-11-01T11:29:18.842130+00:00",
+  "prompt_sha256": "c264687c0cd8823d5ed62ab24a1d877a55a9bfa2aedb8c30f770544ae26a9471",
+  "text": "Subject: Quick update on the move\n\nHey Alex,\n\nThanks again for offering to help me move—I really appreciate it! It turns out the move is going to be smaller than I expected. After sorting through everything and donating a few things, I’m left with just a handful of boxes and a couple of pieces of furniture.\n\nIf you’re still available, I’d only need about an hour of your time to help load and unload the heavier stuff. No need to block off your whole afternoon!\n\nLet me know what time works best for you, and I’ll make sure everything is packed and ready when you arrive. Lunch afterward is on me as a thank-you!\n\nSee you soon,\nSam",
+  "text_sha256": "c4aaa7ee180934b7cade92794045e8f01c7f843b3aa143ece244c6baec279ff4",
+  "raw_final_sha256": "c4aaa7ee180934b7cade92794045e8f01c7f843b3aa143ece244c6baec279ff4",
+  "word_count": 118,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4247,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 142,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\bc36345c7e7ee045b4120b36ec6643d9b248a9943119673bc6f9f5a55a993f9b",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0013",
+  "prompt": "I want to keep a small balcony pleasant, but I dislike spending weekends on maintenance. Suggest priorities for arranging the space. Please answer in roughly 160 words.",
+  "category": "everyday_advice",
+  "target_words": 160,
+  "prompt_group": "cp0013",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "7201676e87175f5d255a0dcd3aad534daa4b2b8b6e76cafe8492a67bc8bf2fea",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:39:15.246459+00:00",
+  "ended_at": "2026-11-01T08:39:40.885577+00:00",
+  "prompt_sha256": "743025754d5e15ee7d248267257d07d0545242e70485950cbbe18df6b30b6936",
+  "text": "Prioritize comfort and easy upkeep over filling every corner.\n\n1. **Start with one comfortable seat.** Choose a compact chair or bench with a weather-resistant frame. Add a small folding table for coffee or meals, leaving a clear route to the door.\n\n2. **Choose materials that tolerate your weather.** Powder-coated aluminum and outdoor-rated recycled plastic generally need little care. Avoid untreated wood if you dislike regular refinishing. Use washable cushions and keep them in a dry spot when not needed.\n\n3. **Keep planting simple.** Two or three larger pots usually dry out more slowly than many tiny ones. Choose hardy plants suited to your balcony’s sunlight, wind, and climate. Self-watering containers can reduce watering, but still need occasional checks.\n\n4. **Make cleaning effortless.** Keep drainage clear, minimize floor-level clutter, and skip rugs if they tend to stay damp.\n\n5. **Add one finishing touch.** A rechargeable outdoor lantern creates atmosphere without much upkeep. Secure anything wind could lift, and check building rules before attaching screens or planters.",
+  "text_sha256": "f39404d5fdbe41043b9a299f685508b6772332ac09822239f64b59206ee56cf3",
+  "raw_final_sha256": "f39404d5fdbe41043b9a299f685508b6772332ac09822239f64b59206ee56cf3",
+  "word_count": 165,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4239,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 218,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\7201676e87175f5d255a0dcd3aad534daa4b2b8b6e76cafe8492a67bc8bf2fea",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "experiment_id": "EXP-055",
+  "notebook_ref": "zhjianduan/name-that-llm-a1-sinkhorn030-049",
+  "status": "READY_FOR_SUBMISSION",
+  "reuse_required": false,
+  "observed_at": "2026-11-02T09:10:47.602568+00:00",
+  "save_request_count": 1,
+  "gpu_may_be_active": false,
+  "ack_outcome": "ACKNOWLEDGED",
+  "saved_version": 1,
+  "readback_receipts": {
+    "1": {
+      "path": "readback-v1-20261102T090151708503Z-0f51da\\verified.json",
+      "sha256": "29a6428178b2612f6488990b74b5cac8b1d7f40f84e75afdcf2b379a2996fa9e"
+    },
+    "2": {
+      "path": "readback-v2-20261102T090207715709Z-c04d53\\verified.json",
+      "sha256": "e02868b6de861f87fcc1e051faa03c0bfc40176566561f5e40a3878a389589a2"
+    }
+  },
+  "run_request_count": 1,
+  "run_version": 2,
+  "last_status": {
+    "version": 2,
+    "status": "COMPLETE",
+    "path": "status-v2-20261102T091026263710Z-2ea9af.json",
+    "observed_at": "2026-11-02T09:10:27.717124+00:00"
+  },
+  "downloaded_version": 2,
+  "outputs_path": "outputs-v2",
+  "outputs_manifest_sha256": "7e6eaf7b5301969836cb61f973a57d253f82509bf2b1449ec5633717df611fc4",
+  "script_version_id": 364819470,
+  "submission_request_count": 0
+}

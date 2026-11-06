@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0006",
+  "prompt": "Offer advice to someone hosting six dinner guests in a tiny apartment who wants the evening to feel relaxed rather than carefully staged. Aim for about 80 words.",
+  "category": "everyday_advice",
+  "target_words": 80,
+  "prompt_group": "cp0006",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "4db2812e68766c4cc174724318b91b861d22456e6d7821b9cfbfe7feb87108e9",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:34:37.895344+00:00",
+  "ended_at": "2026-11-01T08:34:54.175788+00:00",
+  "prompt_sha256": "6fd1399309207bd176dc975454be48c830e4f748e7b12e8ae1c17d67419c640c",
+  "text": "Keep the menu simple: one make-ahead main, a big salad, bread, and a dessert that needs no last-minute fuss. Serve everything family-style and let guests help themselves. Clear unnecessary furniture and coats, but don’t chase perfection—a little clutter feels lived-in. Use soft lighting, open a window briefly before people arrive, and play a low-key playlist. Mix seating if needed; stools and cushions are fine. Most importantly, finish cooking early so you can greet everyone with a drink and actually join the evening.",
+  "text_sha256": "e237cdbe7bc1b53e8012280d2b9e2e6badf071a9aa4acaab323be5d6f0f46144",
+  "raw_final_sha256": "e237cdbe7bc1b53e8012280d2b9e2e6badf071a9aa4acaab323be5d6f0f46144",
+  "word_count": 82,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4124,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 109,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\4db2812e68766c4cc174724318b91b861d22456e6d7821b9cfbfe7feb87108e9",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

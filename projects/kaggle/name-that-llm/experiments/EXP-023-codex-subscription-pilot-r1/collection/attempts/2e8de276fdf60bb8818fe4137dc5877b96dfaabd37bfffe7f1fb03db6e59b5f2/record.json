@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0018",
+  "prompt": "How should a casual walking group accommodate members who prefer different speeds while still giving everyone a chance to talk? Please answer in roughly 160 words.",
+  "category": "everyday_advice",
+  "target_words": 160,
+  "prompt_group": "cp0018",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "2e8de276fdf60bb8818fe4137dc5877b96dfaabd37bfffe7f1fb03db6e59b5f2",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:42:01.475020+00:00",
+  "ended_at": "2026-11-01T08:42:22.365101+00:00",
+  "prompt_sha256": "07420761fdd31c79645b1441d98033a734bf00664d04dacbde0e4a2b671ecd29",
+  "text": "A casual walking group can balance different speeds by agreeing on a flexible structure before setting out. Start and finish together, but allow faster walkers to move ahead between planned regrouping points, such as intersections, benches, or every ten minutes. Faster members can occasionally loop back rather than waiting, while slower walkers continue at a comfortable pace without feeling pressured.\n\nTo give everyone a chance to talk, rotate walking partners after each regrouping point. The group might also designate a “social pace” for the first and last portions of the walk, when everyone stays together. On longer outings, participants can form smaller pace groups but switch groups periodically if practical.\n\nChoose routes that are wide, safe, and easy to follow, preferably with shortcuts or optional extra loops. No one should be left alone unless they explicitly prefer it, so appoint a volunteer to stay near the back. Above all, describe pace differences neutrally and check in regularly: the goal is shared enjoyment, not keeping up or winning.",
+  "text_sha256": "5cddbd64e7af70208889b7147d20a8e12b9d80ed459ed651d976154c23d957bd",
+  "raw_final_sha256": "5cddbd64e7af70208889b7147d20a8e12b9d80ed459ed651d976154c23d957bd",
+  "word_count": 167,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4122,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 213,
+      "reasoning_output_tokens": 11
+    }
+  ],
+  "attempt_path": "collection\\attempts\\2e8de276fdf60bb8818fe4137dc5877b96dfaabd37bfffe7f1fb03db6e59b5f2",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

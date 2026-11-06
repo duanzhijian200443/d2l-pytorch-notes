@@ -1,0 +1,10 @@
+Introduce a lightweight but firm change-request process:
+
+1. **Log every request** in one shared tracker, regardless of size. Include the requested change, reason, requester, deadline, and affected deliverables.
+2. **Assess impact before accepting it.** The project lead estimates added time, cost, dependencies, and risk.
+3. **Require client approval of the trade-off.** Present options: extend the timeline, increase the budget, remove another deliverable, or defer the change to a later phase.
+4. **Set a cutoff point.** After an agreed milestone, only critical corrections are accepted; preference changes enter a future work queue.
+5. **Bundle minor requests.** Review them at a scheduled weekly checkpoint rather than interrupting work continuously.
+6. **Document approval** in writing and update the project plan immediately.
+
+This keeps the studio responsive while making cumulative impact visible and preventing “tiny” requests from silently derailing delivery.

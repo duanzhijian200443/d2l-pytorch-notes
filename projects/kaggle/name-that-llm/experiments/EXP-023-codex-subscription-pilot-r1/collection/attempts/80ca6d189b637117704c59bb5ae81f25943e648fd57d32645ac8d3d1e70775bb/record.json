@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0224",
+  "prompt": "What is the difference between collecting objects as souvenirs and collecting them as historical evidence? Please answer in roughly 200 words.",
+  "category": "humanities_history",
+  "target_words": 200,
+  "prompt_group": "cp0224",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "80ca6d189b637117704c59bb5ae81f25943e648fd57d32645ac8d3d1e70775bb",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:17:17.503706+00:00",
+  "ended_at": "2026-11-01T11:17:30.736250+00:00",
+  "prompt_sha256": "53d94a688749946b8905391696c7d17b4d60353bca329717cc84f18b57f86c3b",
+  "text": "Collecting objects as souvenirs is primarily a personal and emotional activity. Souvenirs are gathered to remember places, events, people, or experiences. Their value often comes from the collector’s memories and associations rather than from the object’s broader significance. A shell from a beach, a ticket, or a local craft may be meaningful because it represents a particular journey, even if it is common or historically unimportant.\n\nCollecting objects as historical evidence, by contrast, is an effort to document and understand the past. Historical collectors and researchers consider an object’s provenance, date, materials, creator, original use, and relationship to other sources. The object is valuable not only in itself but also for what it can reveal about social practices, technology, politics, economies, or everyday life. Accurate records, preservation, and context are therefore essential.\n\nThe two purposes can overlap. A souvenir may later become evidence of tourism, popular culture, or personal experience during a particular period. However, treating an object as historical evidence requires greater attention to authenticity, representativeness, and documentation. Souvenir collecting is usually centered on memory and personal meaning; historical collecting is centered on interpretation and public knowledge. One asks, “What does this remind me of?” while the other asks, “What can this help us learn about the past?”",
+  "text_sha256": "900b2ee417adf392c9d3a004ad205b0399a3b289ed7f30263ec3d116b5ffd8a9",
+  "raw_final_sha256": "900b2ee417adf392c9d3a004ad205b0399a3b289ed7f30263ec3d116b5ffd8a9",
+  "word_count": 209,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2582,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 298,
+      "reasoning_output_tokens": 29
+    }
+  ],
+  "attempt_path": "collection\\attempts\\80ca6d189b637117704c59bb5ae81f25943e648fd57d32645ac8d3d1e70775bb",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

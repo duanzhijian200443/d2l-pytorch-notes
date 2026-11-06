@@ -1,0 +1,9 @@
+Five numbers averaging 10 have a total sum of \(5 \times 10 = 50\). If one number increases by 5 and the other four do not change, the total increases from 50 to 55.
+
+There are still five numbers, so the new average is:
+
+\[
+55 \div 5 = 11
+\]
+
+Therefore, the average increases from 10 to 11, an increase of 1. In general, when only one value in a list changes, its effect on the average is spread across all values. Here, the increase of 5 is divided among five numbers, so the average rises by \(5 \div 5 = 1\).

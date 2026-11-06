@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0062",
+  "prompt": "A team is considering a weekly meeting, but its members already feel overloaded. Explain how to decide whether a meeting is the right tool. A response of around 120 words is enough.",
+  "category": "business_decision",
+  "target_words": 120,
+  "prompt_group": "cp0062",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "daa8af08ad4ab81336acad91cf2e9798201e0d589614a6a589706d20c2d3d0f2",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:10:14.440662+00:00",
+  "ended_at": "2026-11-01T09:10:39.071424+00:00",
+  "prompt_sha256": "feb325bf3a28a369b8c0dea2f685812f8be7b34a3896ec30a79d97375f650ab8",
+  "text": "Start with the outcome, not the calendar: what must the team decide, resolve, or create? A meeting is useful when real-time discussion, negotiation, or shared problem-solving will improve the result. If the goal is simply to share updates or gather routine feedback, use a written update, shared document, or asynchronous thread instead.\n\nConsider the cost: meeting length multiplied by attendees, plus preparation and interrupted focus. Ask whether everyone invited needs to contribute and whether a shorter, less frequent session would work.\n\nIf a meeting seems justified, trial it with a clear agenda, necessary participants, and defined decisions or actions. Review after a few weeks: did it unblock work enough to justify the time? Keep, adjust, or cancel it accordingly.",
+  "text_sha256": "a45b9d2bd581ebc4189ac5db572d5cbccbec535df541a9e69c7d3b3e4b6ad214",
+  "raw_final_sha256": "a45b9d2bd581ebc4189ac5db572d5cbccbec535df541a9e69c7d3b3e4b6ad214",
+  "word_count": 119,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4244,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 151,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\daa8af08ad4ab81336acad91cf2e9798201e0d589614a6a589706d20c2d3d0f2",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

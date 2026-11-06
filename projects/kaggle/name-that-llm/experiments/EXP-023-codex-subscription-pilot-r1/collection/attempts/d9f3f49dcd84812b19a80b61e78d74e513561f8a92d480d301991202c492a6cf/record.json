@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0239",
+  "prompt": "Create a clear paragraph from these observations, preserving their modest scale: 'Three neighbors planted flowers near the bus stop. One brought soil. Another saved seeds. The third made a sign. A passerby later left a watering can beside the bench.' Aim for about 80 words.",
+  "category": "rewrite_original_material",
+  "target_words": 80,
+  "prompt_group": "cp0239",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "d9f3f49dcd84812b19a80b61e78d74e513561f8a92d480d301991202c492a6cf",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:27:10.965679+00:00",
+  "ended_at": "2026-11-01T11:27:27.076097+00:00",
+  "prompt_sha256": "2b53c1ebd4e6d45f73c846c8ae1bfae8e5013aa5a4566ccdd3c57875a4632877",
+  "text": "Three neighbors planted flowers near the bus stop, each contributing something to the small project. One brought soil for the planting, another saved seeds, and the third made a sign to place nearby. Their efforts added a little color to a familiar spot without making it anything grand. Later, a passerby left a watering can beside the bench, adding one more useful item to what the neighbors had started. It was a modest change, made through a few simple contributions.",
+  "text_sha256": "6ae77abe1fcb9ec561d72f3de94d2df24842a8d87be4e783764921dd8f5bfe13",
+  "raw_final_sha256": "6ae77abe1fcb9ec561d72f3de94d2df24842a8d87be4e783764921dd8f5bfe13",
+  "word_count": 80,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4263,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 96,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\d9f3f49dcd84812b19a80b61e78d74e513561f8a92d480d301991202c492a6cf",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

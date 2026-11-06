@@ -1,0 +1,15 @@
+{
+  "source": "Kaggle MCP search_competition_submissions",
+  "observed_at": "2026-11-01T17:48:40Z",
+  "submission": {
+    "ref": 57879463,
+    "total_bytes": "0",
+    "date": "2026-11-01T17:48:25.780Z",
+    "description": "EXP046-A1-v2 public10073 Stylegram only; original ATLAS20 .20 comp .15 Sinkhorn .45",
+    "file_name": "submission.parquet",
+    "submitted_by": "zhjianduan",
+    "submitted_by_ref": "zhjianduan",
+    "team_name": "zhjian duan",
+    "url": "/code/zhjianduan/name-that-llm-a1-public-stylegram-046?scriptVersionId=364624288"
+  }
+}

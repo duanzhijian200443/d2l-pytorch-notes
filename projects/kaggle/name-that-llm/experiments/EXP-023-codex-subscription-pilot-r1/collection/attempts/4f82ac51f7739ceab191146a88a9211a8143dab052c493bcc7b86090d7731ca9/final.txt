@@ -1,0 +1,9 @@
+Introduce a simple change-request process that applies even to “tiny” edits:
+
+1. **Set a baseline:** Agree on scope, deliverables, deadlines, and included revision rounds before work starts.
+2. **Use one intake channel:** Ask clients to submit changes through a shared form or project board, rather than scattered messages.
+3. **Assess cumulative impact:** Log each request and estimate its effect on workload, cost, and delivery dates alongside other pending changes.
+4. **Require approval:** Before starting, offer clear choices: swap out existing work, extend the deadline, or approve additional budget where feasible.
+5. **Batch and freeze:** Review requests at scheduled checkpoints and set a final change cutoff, with explicit exceptions for urgent issues.
+
+Appoint one studio contact to enforce the process consistently and explain that it protects quality and predictable delivery.

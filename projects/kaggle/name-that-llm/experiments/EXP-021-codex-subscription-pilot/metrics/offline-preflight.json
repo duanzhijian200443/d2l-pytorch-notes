@@ -1,0 +1,27 @@
+{
+  "observed_at": "2026-11-01T08:20:35.858310+00:00",
+  "tests": {
+    "command": "python -X utf8 -m unittest discover -s src -p test_codex_collect.py -v",
+    "passed": 10,
+    "failed": 0,
+    "inference_calls": 0
+  },
+  "prompt_count": 250,
+  "category_counts": {
+    "everyday_advice": 25,
+    "science_explanation": 25,
+    "technology_explanation": 25,
+    "business_decision": 25,
+    "humanities_history": 25,
+    "creative_short_fiction": 25,
+    "tradeoff_argument": 25,
+    "rewrite_original_material": 25,
+    "short_email": 25,
+    "reasoning_explanation": 25
+  },
+  "train": 200,
+  "holdout": 50,
+  "dry_run_target": 4,
+  "full_target": 1000,
+  "max_workers": 2
+}

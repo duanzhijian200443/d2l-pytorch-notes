@@ -1,0 +1,259 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-031",
+  "run_id": "exp031-20261101T110842Z",
+  "scope": "exploratory_external",
+  "train_sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+  "panel_sha256": "8eeec7f64e924f0fd79dca57d324d42d269f400bdfbfff76d60b4c168d9ae6f2",
+  "panel_rows": 729,
+  "work_budget_seconds": 28200,
+  "platform_wall_seconds": 28800,
+  "shutdown_grace_seconds": 10,
+  "expected_main_members": [
+    "tfidf",
+    "svc4",
+    "distort",
+    "q14v5_gauss",
+    "q14v5",
+    "q14v5_twin",
+    "q8v5_gauss",
+    "q8v5",
+    "q8v5_twin",
+    "ll8v5",
+    "ll8v5_twin",
+    "n14b",
+    "n14b_twin",
+    "q25_14",
+    "q25_14_twin",
+    "deb"
+  ],
+  "expected_comp_members": [
+    "stylegram",
+    "stylometry_lgb",
+    "glm9b_twin",
+    "gauss_glm9b_L8",
+    "q3_8b_twin",
+    "gauss_q3_8b_L22",
+    "q25_7b_twin",
+    "q3_4b_twin",
+    "gauss_q3_4b_L4",
+    "debv3l",
+    "debv3l_twin",
+    "gauss_debv3l_L24",
+    "electl",
+    "desk",
+    "lora24_seed7",
+    "lora24_claude",
+    "lora24_claude_twin",
+    "lora20_q25_instyle",
+    "tokattn_deb",
+    "ultrabert"
+  ],
+  "expected_family_gates": [
+    "claude",
+    "claude_lora",
+    "gpt",
+    "gemini",
+    "glm"
+  ],
+  "allowed_omissions": [
+    "lora24_public",
+    "lora24_public_twin",
+    "tokattn_q35"
+  ],
+  "required_group_coverage": "At least one eligible comp group; otherwise retain results and report coverage unmet, without changing groups or shrinking inventory.",
+  "attachment_bindings": [
+    {
+      "kind": "competition",
+      "ref": "name-that-llm",
+      "version": null
+    },
+    {
+      "kind": "dataset",
+      "ref": "dhruvtibarewal/nlm-l24-adapters",
+      "version": 7
+    },
+    {
+      "kind": "dataset",
+      "ref": "seyitkaangunes/ntl-extra-api-passages",
+      "version": 2
+    },
+    {
+      "kind": "dataset",
+      "ref": "zhjianduan/ntl-generations",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "dophuchung/ntl-proxy-generations",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "zbigniewkirchner/ntl-qwen3-8b-lora-claude-head",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "dhruvtibarewal/nlm-matched-clean",
+      "version": 3
+    },
+    {
+      "kind": "dataset",
+      "ref": "dhruvtibarewal/nlm-offline-wheels",
+      "version": 2
+    },
+    {
+      "kind": "dataset",
+      "ref": "josephadamski91/ntl-atlas-qwen3-8b-v1",
+      "version": 3
+    },
+    {
+      "kind": "dataset",
+      "ref": "zhjianduan/ntl-free-proxy-generations",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "nishantdahal/ntl-two-stage-lora",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "nishantdahal/ntl-handwriting-blend",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "dhruvtibarewal/nlm-l24-adapters-v5",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+      "version": 6
+    },
+    {
+      "kind": "dataset",
+      "ref": "pjmathematician/ultrabert-380m-ntl",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "zhjianduan/llama31-8b-base-verified",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-glm4-9b-trunc25",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-extract-encoders2",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-electra-large-weights",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-desklib-weights",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-train-lora24-s7",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-train-tokattn",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-train-tokattn2",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "vnton37nguyn/ntl-train-lora-qwen25-instyle",
+      "version": 2
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen-3/Transformers/8b",
+      "version": 1
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen-3/Transformers/4b-base",
+      "version": 1
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen-3/Transformers/8b-base",
+      "version": 1
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen-3/Transformers/14b-base",
+      "version": 1
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen-3/Transformers/14b",
+      "version": 1
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen2.5/Transformers/7b",
+      "version": 1
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen2.5/Transformers/14b",
+      "version": 1
+    }
+  ],
+  "preflight_manifest_sha256": "de7a305b5d26a5ad0cca0ed41cf31e2af1f85037dd354286aeef77ac67aaabf5",
+  "input_hashes": {
+    "ATTRIBUTION.md": "45625a15987e43dbe2ac91ba7a9d9c76d0ac4c3dbece5d5382f758d3aa6a771b",
+    "availability.json": "137b459d46cc8a6bfb60779516d1a04545462d1be9751d88b1432ba52de7061f",
+    "comp_stack.py": "ec1c012c122d591957b5ccc6e00079f95cca8372f327dd4c3b5ac903666909d0",
+    "full_stack_cache.py": "ff6b28d7834bdd4bd26bfb1fa69b3b9dc4ccaf194d968cf9b2d8ac4652df85a9",
+    "full_stack_observer.py": "ada0dc10ba451308f453dd709540193b04912b95eb585abcbd36c87c0e8db5ca",
+    "full_stack_replay.py": "b1bab1993fb17850d8b3cfb26716f47c869dbca5107c3435b859864d2ca99586",
+    "gauss.py": "908b57113f1a7b8ebdbf204c6be87cbc385f765ba50ac07b4e270c64b7cf1000",
+    "infer.py": "8b97f40e4fedf79c842c886e62419144d2e6d0c2e743779c264f7d3074d5f4f7",
+    "input_policy.py": "d4167dbcccef49da7d439e4f459b1e15d17c8960ae6b622235ecee776cd3caf2",
+    "model_args.py": "ba74285aef26c1701121ab351054b712582724c770b050e352d685276770e624",
+    "panel/test.csv": "8eeec7f64e924f0fd79dca57d324d42d269f400bdfbfff76d60b4c168d9ae6f2",
+    "preflight_manifest.json": "de7a305b5d26a5ad0cca0ed41cf31e2af1f85037dd354286aeef77ac67aaabf5",
+    "runner.py": "62888bb733b6eaac285d34d3c18766df2c47f0ac8a7a77042bb6113c6f8de87b",
+    "runtime-build.json": "4058b1cfe516be69647d24030c8d8a8b70df28ce216a51d4af468fcfa24cf09d",
+    "setup.py": "16926b051a04adf252a8ec74add4c594e9f9508484b403c4b2cd6ab190ccef39"
+  },
+  "required_versions": {
+    "numpy": "2.1.3",
+    "pandas": "2.3.3",
+    "scipy": "1.16.3",
+    "scikit-learn": "1.6.1",
+    "torch": "2.11.0+cu128",
+    "transformers": "5.16.1",
+    "peft": "0.20.0",
+    "pyarrow": "23.0.1",
+    "lightgbm": "4.6.0"
+  },
+  "container": "gcr.io/kaggle-private-byod/python@sha256:2757e0c7d1e0a9cb43da657b97e223c321a98f5014bdf64f44f2f6b083ad2b2f",
+  "new_gpu_runs": 1,
+  "automatic_retry": false,
+  "formal_submission": false,
+  "public_resource": false,
+  "availability_sha256": "137b459d46cc8a6bfb60779516d1a04545462d1be9751d88b1432ba52de7061f",
+  "retry_of": "EXP-029",
+  "retry_change": "Shared CPU/GPU availability policy; original model math unchanged"
+}

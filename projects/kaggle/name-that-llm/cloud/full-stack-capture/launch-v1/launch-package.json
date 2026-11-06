@@ -1,0 +1,12 @@
+{
+  "status": "PREPARED_NOT_LAUNCHED",
+  "run_id": "exp029-20261101T103239Z",
+  "payload_zip_sha256": "714b454e851fa3727317f40a3a9b74d986626bca048d38cc94d1863e04a86c93",
+  "payload_zip_bytes": 346880,
+  "bootstrap_sha256": "fb36ae0f8a96213b5fe6e6b51aefd615309adc451c7406e7813fbaaac704f84d",
+  "metadata_sha256": "7f03f61d33bbac619084c6e94eb4aff94976e67c0f0773854d1af3ceecfbe671",
+  "plan_sha256": "31b6ec194a6fd108ecb593480a493e01165e61a835b086965480d96eae9adc27",
+  "preflight_manifest_sha256": "de7a305b5d26a5ad0cca0ed41cf31e2af1f85037dd354286aeef77ac67aaabf5",
+  "panel_truth_uploaded": false,
+  "prepare_capture_sha256": "e1a02caa58163e7d14a8e5dfcde5fb341960fd4e2f27e44c84ee6996b7cf71c3"
+}

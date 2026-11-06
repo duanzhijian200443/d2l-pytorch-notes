@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0042",
+  "prompt": "Describe the difference between backing up files and synchronizing files across devices. Include a situation where confusing them causes trouble. Use approximately 120 words for the response.",
+  "category": "technology_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0042",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "6efe0bcfe484e91819056d63ad96ac7de10cb2a508923919cc71bb0023416eb8",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:56:36.249126+00:00",
+  "ended_at": "2026-11-01T08:56:51.642445+00:00",
+  "prompt_sha256": "1f9d1e1481d22d19ef86d2c88a9af85e56cfa7c4d9f4be903512837534322223",
+  "text": "Backing up files means creating a separate copy that can be restored if the originals are deleted, corrupted, lost, or encrypted by malware. Backups usually preserve earlier versions and are stored independently, often on an external drive or cloud service. Synchronizing files means keeping files identical across multiple devices or locations. Changes made on one device are typically reflected everywhere, often immediately.\n\nConfusing the two can cause serious trouble. For example, if you accidentally delete an important folder from your laptop and use synchronization, the deletion may automatically spread to your phone and cloud folder. No independent backup exists, so recovery may be impossible. A proper backup would retain a previous copy, while synchronization alone would simply replicate the mistake.",
+  "text_sha256": "d5f65f60f814b47d9bb156ca6275221b87454eaf1ff1aa483281e7d6a7de1545",
+  "raw_final_sha256": "d5f65f60f814b47d9bb156ca6275221b87454eaf1ff1aa483281e7d6a7de1545",
+  "word_count": 120,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2590,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 174,
+      "reasoning_output_tokens": 28
+    }
+  ],
+  "attempt_path": "collection\\attempts\\6efe0bcfe484e91819056d63ad96ac7de10cb2a508923919cc71bb0023416eb8",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

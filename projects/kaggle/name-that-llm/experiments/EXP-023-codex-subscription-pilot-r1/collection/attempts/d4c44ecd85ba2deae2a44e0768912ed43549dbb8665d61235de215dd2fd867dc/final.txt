@@ -1,0 +1,15 @@
+Choosing Alex and Bea means the committee contains those two people, regardless of the order in which their names are listed. “Alex and Bea” and “Bea and Alex” describe the identical group: Alex is selected, Bea is selected, and neither of the other two people is selected. There are no separate roles such as first representative and second representative, so switching the names does not create a new outcome.
+
+This is a combinations problem, not a permutations problem. If order mattered, there would be \(4 \times 3 = 12\) ordered selections. However, every actual pair is counted twice in that calculation—for example, Alex–Bea and Bea–Alex. Dividing by two gives
+
+\[
+\frac{4 \times 3}{2}=6.
+\]
+
+Equivalently, the number is
+
+\[
+\binom{4}{2}=6.
+\]
+
+The six possible pairs are Alex–Bea, Alex–Chen, Alex–Dana, Bea–Chen, Bea–Dana, and Chen–Dana.

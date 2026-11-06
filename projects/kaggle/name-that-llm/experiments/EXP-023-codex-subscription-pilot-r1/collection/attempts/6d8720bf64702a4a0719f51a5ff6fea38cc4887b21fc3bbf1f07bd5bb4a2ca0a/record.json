@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0146",
+  "prompt": "Rewrite this promotional description in a calmer, more informative voice: 'Our unbelievable notebook will transform every single day! The perfect companion for every brilliant idea! Strong covers, numbered pages, and a pocket for loose notes make it absolutely essential!' Please answer in roughly 80 words.",
+  "category": "rewrite_original_material",
+  "target_words": 80,
+  "prompt_group": "cp0146",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "6d8720bf64702a4a0719f51a5ff6fea38cc4887b21fc3bbf1f07bd5bb4a2ca0a",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:24:59.865356+00:00",
+  "ended_at": "2026-11-01T10:25:17.293159+00:00",
+  "prompt_sha256": "8ed04ddf7ce6b5291b54aa8cc8f751cbea896fac187e7c1aa6595099d97e0214",
+  "text": "This practical notebook is designed for everyday writing, planning, and idea development. Its durable covers help protect your notes during regular use, while numbered pages make information easier to organize and reference. A built-in pocket provides a convenient place to store receipts, reminders, and other loose papers. Suitable for work, study, or personal projects, the notebook offers a straightforward combination of useful features in a portable format that can accompany you throughout the day.",
+  "text_sha256": "a3268263493b83b6d86994a8f38de668384954f28082b02343483ea9b8dfdb61",
+  "raw_final_sha256": "a3268263493b83b6d86994a8f38de668384954f28082b02343483ea9b8dfdb61",
+  "word_count": 74,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4148,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 117,
+      "reasoning_output_tokens": 24
+    }
+  ],
+  "attempt_path": "collection\\attempts\\6d8720bf64702a4a0719f51a5ff6fea38cc4887b21fc3bbf1f07bd5bb4a2ca0a",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

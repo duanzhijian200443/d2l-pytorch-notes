@@ -1,0 +1,9 @@
+If trains arrive exactly every fifteen minutes and a passenger’s arrival time is uniformly random, the waiting time can be anywhere from almost zero to almost fifteen minutes. Someone arriving just before a train departs may wait only a few seconds, while someone arriving just after it leaves may wait nearly the full fifteen minutes.
+
+Seven and a half minutes is therefore not the waiting time every passenger experiences. It is the **average**, or expected, waiting time across many random arrivals. Under the uniform-arrival assumption, every point in the fifteen-minute interval is equally likely, so short and long waits balance out:
+
+\[
+\text{average wait}=\frac{0+15}{2}=7.5\text{ minutes}.
+\]
+
+An individual passenger’s actual wait will usually differ from that average. Moreover, the calculation depends on ideal assumptions: trains must run precisely on schedule, and passenger arrivals must not cluster around particular departure times. Delays, cancellations, or passengers deliberately timing their arrival can change both the distribution of waiting times and its average. Thus, seven and a half minutes describes a long-run statistical expectation, not a guaranteed personal waiting time.

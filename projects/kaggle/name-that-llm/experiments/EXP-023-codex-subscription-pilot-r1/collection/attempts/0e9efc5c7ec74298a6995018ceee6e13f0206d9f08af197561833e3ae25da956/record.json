@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0065",
+  "prompt": "How should a volunteer organization decide which of ten useful website improvements to tackle first with only one available developer? Please answer in roughly 120 words.",
+  "category": "business_decision",
+  "target_words": 120,
+  "prompt_group": "cp0065",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "0e9efc5c7ec74298a6995018ceee6e13f0206d9f08af197561833e3ae25da956",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:11:48.133179+00:00",
+  "ended_at": "2026-11-01T09:12:05.428793+00:00",
+  "prompt_sha256": "88d96a1ff706dec2d1486d923cbdcf5cf4401e317486f86f48f9d130101c0a6a",
+  "text": "Prioritize improvements by impact, urgency, effort, and risk. First, list the ten ideas with a clear problem statement and intended outcome. Score each one—for example, 1–5—on:\n\n- Benefit to volunteers, beneficiaries, or donors  \n- Alignment with current organizational goals  \n- Urgency, including security, accessibility, and broken workflows  \n- Developer effort and ongoing maintenance  \n- Dependencies or risk  \n\nAddress critical security, legal, accessibility, or reliability issues first. Next, favor small, high-impact changes that remove common friction, such as simplifying donations, sign-ups, event registration, or key information access. Validate assumptions by asking a few representative users and reviewing website analytics or support requests. Choose one well-scoped task, define success metrics, and finish it before starting another. Re-rank the remaining list regularly, since needs and constraints will change.",
+  "text_sha256": "c52a67ce014162ed4427072c0f4bc4b8f92f4e1b246612e75dee32810885e3b7",
+  "raw_final_sha256": "c52a67ce014162ed4427072c0f4bc4b8f92f4e1b246612e75dee32810885e3b7",
+  "word_count": 125,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4122,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 178,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\0e9efc5c7ec74298a6995018ceee6e13f0206d9f08af197561833e3ae25da956",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

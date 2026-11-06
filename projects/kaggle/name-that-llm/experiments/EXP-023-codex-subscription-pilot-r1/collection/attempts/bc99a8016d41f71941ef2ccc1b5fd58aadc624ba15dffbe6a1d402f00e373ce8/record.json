@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0002",
+  "prompt": "A person wants to read more but repeatedly abandons very ambitious reading schedules. Propose a small routine that still works during a busy week. Keep your response near 120 words.",
+  "category": "everyday_advice",
+  "target_words": 120,
+  "prompt_group": "cp0002",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "bc99a8016d41f71941ef2ccc1b5fd58aadc624ba15dffbe6a1d402f00e373ce8",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:32:07.526471+00:00",
+  "ended_at": "2026-11-01T08:32:27.119523+00:00",
+  "prompt_sha256": "85dac271382de3ef0babc5a9d2168348de4187a30b49df60359cff89d4cd7676",
+  "text": "Try a **10-minute daily reading routine**:\n\n- Pick one book you genuinely want to read—not one you feel obligated to finish.\n- Attach reading to an existing habit, such as morning coffee, lunch, or getting into bed.\n- Set a timer for 10 minutes. When it ends, you may stop without guilt.\n- Keep the book visible and your phone out of reach.\n- On especially busy days, use a “minimum version”: read just one page. This preserves the habit even when time and energy are scarce.\n- Once a week, spend five minutes noting where you are and choosing when you’ll read during the coming week.\n\nDo not set weekly page or chapter quotas. The goal is consistency, not speed. If you naturally continue past 10 minutes, enjoy it—but never make that the new minimum.",
+  "text_sha256": "3f9dbfc4f366db3af32f68bf3d6d4efa7c65fe103f03f9b1c9f0e03d771cf01c",
+  "raw_final_sha256": "3f9dbfc4f366db3af32f68bf3d6d4efa7c65fe103f03f9b1c9f0e03d771cf01c",
+  "word_count": 136,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4129,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 170,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\bc99a8016d41f71941ef2ccc1b5fd58aadc624ba15dffbe6a1d402f00e373ce8",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

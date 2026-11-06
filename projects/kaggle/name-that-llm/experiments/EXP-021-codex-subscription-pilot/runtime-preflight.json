@@ -1,0 +1,200 @@
+{
+  "observed_at": "2026-11-01T08:15:07.784801+00:00",
+  "operation": "debug prompt-input (no inference)",
+  "exit_code": 0,
+  "codex_version": "0.166.0-alpha.5.1",
+  "executable": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe",
+  "removed_environment_variable_names": [],
+  "debug_extra_overrides": [
+    "mcp_servers.node_repl.enabled=false",
+    "mcp_servers.shiroha_study.enabled=false",
+    "mcp_servers.openaiDeveloperDocs.enabled=false",
+    "mcp_servers.kaggle.enabled=false",
+    "developer_instructions=\"\""
+  ],
+  "stdout_chars": 14057,
+  "stderr_chars": 0,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "limitations": [
+    "debug prompt-input cannot use exec --ignore-user-config; disabled known user MCP servers and blanked developer_instructions as an approximation",
+    "No inference performed; model entitlement and generated response model identity remain unverified",
+    "This is a client input rendering, not proof of the full server-side prompt or tool catalog",
+    "User-level AGENTS instructions were still present in debug rendering despite project_doc_max_bytes=0; debug retains user config unlike exec --ignore-user-config"
+  ],
+  "top_level_type": "list",
+  "items": [
+    {
+      "type": "additional_tools",
+      "role": "developer",
+      "content_chars": 0
+    },
+    {
+      "type": "message",
+      "role": "developer",
+      "content_chars": 26
+    },
+    {
+      "type": "message",
+      "role": "developer",
+      "content_chars": 342
+    },
+    {
+      "type": "message",
+      "role": "user",
+      "content_chars": 1320
+    },
+    {
+      "type": "message",
+      "role": "user",
+      "content_chars": 11
+    }
+  ],
+  "markers": {
+    "AGENTS.md": true,
+    "MEMORY_SUMMARY": false,
+    "skills_instructions": false,
+    "Available skills": false,
+    "shiroha": false,
+    "name-that-llm": true,
+    "collaboration_mode": false,
+    "apps_instructions": false,
+    "permissions instructions": true
+  },
+  "tools_count": null,
+  "tools_count_note": "null means input debug output does not expose a tools array; it does not prove tools are absent",
+  "structural_followup": [
+    {
+      "type": "additional_tools",
+      "keys": [
+        "type",
+        "id",
+        "role",
+        "tools"
+      ],
+      "tools_count": 1,
+      "tools_item_keys": [
+        [
+          "type",
+          "name",
+          "description",
+          "tools"
+        ]
+      ],
+      "tools_names": [
+        "functions"
+      ]
+    },
+    {
+      "type": "message",
+      "keys": [
+        "type",
+        "id",
+        "role",
+        "content",
+        "internal_chat_message_metadata_passthrough"
+      ]
+    },
+    {
+      "type": "message",
+      "keys": [
+        "type",
+        "id",
+        "role",
+        "content",
+        "internal_chat_message_metadata_passthrough"
+      ]
+    },
+    {
+      "type": "message",
+      "keys": [
+        "type",
+        "id",
+        "role",
+        "content",
+        "internal_chat_message_metadata_passthrough"
+      ],
+      "context_markers": {
+        "<environment_context>": true,
+        "<INSTRUCTIONS>": true,
+        "# AGENTS.md instructions": true,
+        "长期记忆策略": true,
+        "OpenAI 接入开发文档": true,
+        "<skills_instructions>": false,
+        "<permissions instructions>": false
+      }
+    },
+    {
+      "type": "message",
+      "keys": [
+        "type",
+        "id",
+        "role",
+        "content",
+        "internal_chat_message_metadata_passthrough"
+      ],
+      "context_markers": {
+        "<environment_context>": false,
+        "<INSTRUCTIONS>": false,
+        "# AGENTS.md instructions": false,
+        "长期记忆策略": false,
+        "OpenAI 接入开发文档": false,
+        "<skills_instructions>": false,
+        "<permissions instructions>": false
+      }
+    }
+  ],
+  "environment_context_disabled_probe": {
+    "observed_at": "2026-11-01T08:16:28.551093+00:00",
+    "exit_code": 0,
+    "extra_overrides": [
+      "mcp_servers.node_repl.enabled=false",
+      "mcp_servers.shiroha_study.enabled=false",
+      "mcp_servers.openaiDeveloperDocs.enabled=false",
+      "mcp_servers.kaggle.enabled=false",
+      "developer_instructions=\"\"",
+      "include_environment_context=false",
+      "include_environment_context_time=false"
+    ],
+    "items": [
+      {
+        "type": "additional_tools",
+        "role": "developer",
+        "content_chars": 0
+      },
+      {
+        "type": "message",
+        "role": "developer",
+        "content_chars": 26
+      },
+      {
+        "type": "message",
+        "role": "developer",
+        "content_chars": 342
+      },
+      {
+        "type": "message",
+        "role": "user",
+        "content_chars": 728
+      },
+      {
+        "type": "message",
+        "role": "user",
+        "content_chars": 11
+      }
+    ],
+    "tool_names": [
+      "functions.exec",
+      "functions.wait"
+    ],
+    "markers": {
+      "<environment_context>": false,
+      "# AGENTS.md instructions": true,
+      "长期记忆策略": true,
+      "OpenAI 接入开发文档": true,
+      "MEMORY_SUMMARY": false,
+      "skills_instructions": false,
+      "permissions instructions": true
+    },
+    "tool_count": 2
+  }
+}

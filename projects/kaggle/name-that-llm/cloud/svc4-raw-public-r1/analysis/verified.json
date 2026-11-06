@@ -1,0 +1,322 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "scope": "isolated svc4 raw-public development OOF, not original matched/pool recipe or full ATLAS20",
+  "input_directory": "C:\\计算机学习\\深度学习\\projects\\kaggle\\name-that-llm\\cloud\\svc4-raw-public-r1\\outputs-v4\\results",
+  "protocol_sha256": "9117d147deb4c2ab27a6054655970445095e638bc11a2d506310bf73170f4855",
+  "protocol_path": "cloud/svc4-raw-public-r1/payload/protocol.json",
+  "experiment_directories": {
+    "EXP-017": "experiments/EXP-017-svc4-official-only-r1",
+    "EXP-018": "experiments/EXP-018-svc4-raw-w035-r1",
+    "EXP-019": "experiments/EXP-019-svc4-raw-w0175-r1",
+    "EXP-020": "experiments/EXP-020-svc4-raw-w070-r1"
+  },
+  "verifier_sha256": "ba2c7141dff75fdc327922487d883aab02d64ca7ef3f91a1ba16f65d2ab2fe22",
+  "official_train_sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+  "folds_sha256": "e8ba1e3712852168dc57f56960d4f3e00be612d639ade8a7dcb0f0d8335ce551",
+  "runtime_versions": {
+    "numpy": "2.1.3",
+    "pandas": "2.3.3",
+    "scipy": "1.16.3",
+    "sklearn": "1.6.1"
+  },
+  "stable_artifacts_verified": 82,
+  "input_result_hashes": {
+    "EXP-017/fold0.npz": "73b87406f684394a92dd7a1827edfa4b689f6a1d505f25a94f794876f4ed4784",
+    "EXP-017/fold1.npz": "af51454fa26c2fa280388bcd7ea525cda10644b4c4fb50a9fe7f8c1fba51fe09",
+    "EXP-017/fold2.npz": "f566a76745dfb3057be47dbd4d11a7277ff31f46f314f2c52c22bf02d4696473",
+    "EXP-017/fold3.npz": "49b4bc22f123884f653efcce2c01ec6e0a22e2d3207bcef011d0c2e5a371bcea",
+    "EXP-017/fold4.npz": "aef9f99634082fb8d531928f99fe0e2a3626cf8618cbf1dd7dc75cc770a21746",
+    "EXP-017/metrics-fold0.json": "cc1871eb6a1576fe44256f763d286d08bca7f4e5e8020d1aee5d3ffaa033c4ac",
+    "EXP-017/metrics-fold1.json": "9ebe77d4523954dbefe741f9b32a3bca1c7a6f0a42b7bad68c316c7dec3269cd",
+    "EXP-017/metrics-fold2.json": "9401b7e5fc6b910f26d50842c2dc12d7af0fe24abb589a06efe761345aac9a98",
+    "EXP-017/metrics-fold3.json": "3d95b17480c47e6e19f088b327d38fcf700f56964a058bfaace05a3188aebd42",
+    "EXP-017/metrics-fold4.json": "7c6c1d40a159d8acfad032e2e4fa63befcf0aebba8afc42803cd37469aeb741b",
+    "EXP-017/oof.csv": "85b67cef67373d5f91cf51b5903cd3b4b35ef3655c75a8cf7c8acd541475cc5a",
+    "EXP-017/oof_decision.npy": "6cfa4cfc8f9694c8c07f1b13d2b72e871ef1c625a5c9b7edd9d8c379219e4d02",
+    "EXP-017/weights-fold0.json": "c78e2d74c47b8792d3dd2eff76ebf6e20f5feb5b0b04b49dc123eb9c814b6673",
+    "EXP-017/weights-fold1.json": "bc0edbc0a739787f3cf99b917516eaef4f4123b59a8f0e1b1b75f8c8b7cb63cc",
+    "EXP-017/weights-fold2.json": "89d5102c6e67437f575db663ca7bb004bf5c28d5733c4f1c7c00b8014ba6aeb2",
+    "EXP-017/weights-fold3.json": "7f7e3a70019986640b42dd3c6bf0bf78c618f053d6bff1e4cad099d77dae1b26",
+    "EXP-017/weights-fold4.json": "1c5c015bbc435b3956dbc67be62a9dc97d536946c58c1385161731f1db6fb37a",
+    "EXP-018/fold0.npz": "3a06e4f67adeca3ae359b9317bce5ffb4c69414e5b766e8470424b4adfcd6013",
+    "EXP-018/fold1.npz": "c7258848c8749deb4a91da6d2f91e2b69e09c268b75980cb6bf1a09c03e8da58",
+    "EXP-018/fold2.npz": "01f1d466f88fbad4a7d497bb91cd95c77f6f396dfdb54696be779d0a370b10da",
+    "EXP-018/fold3.npz": "d68b0debd54b2867870fdd5ded419610d17364e5007d0b99ab8f881297c74293",
+    "EXP-018/fold4.npz": "2446b23579b9d97f4c5bd02691924cf13cfd33d13b9c334f5b51f43092ccc642",
+    "EXP-018/metrics-fold0.json": "a79f781e774e1a4fc54eb34657c5c02368c36d75c65d21d8d3615e382a614ff7",
+    "EXP-018/metrics-fold1.json": "d26da854e14424e2e3cbada6e86301202b2f046b513eb1eff4807b39e5405270",
+    "EXP-018/metrics-fold2.json": "e9b4ff4f05ba7eac4f0834624c6737f802602e6b6007546dbfe64292625cf829",
+    "EXP-018/metrics-fold3.json": "b66ea28d925c431cc2b583c94eb27e785ca0bf2fe87da0a89fd5b099b615118f",
+    "EXP-018/metrics-fold4.json": "0081d367b5379a78c7420c498006e5b85f3e693a81f8270accad435330e42f76",
+    "EXP-018/oof.csv": "73ae7f803e52fbef7348b0db42f4eb9cfca5d4252cf1acb799bf2985f44c7f49",
+    "EXP-018/oof_decision.npy": "e9ed77f155ab7b465ba4185722b9f229636ca337400cd7c74d7665404f96a93a",
+    "EXP-018/weights-fold0.json": "e76bce152d190652c9786daca9823a386b37760510d5350f8b08f1cc9b691818",
+    "EXP-018/weights-fold1.json": "9ca1fae92324729ea2e8a1cea719e41211632d45712c1668949abf34cae154c6",
+    "EXP-018/weights-fold2.json": "29a0a1373d746bcc51998fdf8a6a794299824451a27a9c471a91685477e872f8",
+    "EXP-018/weights-fold3.json": "253312325ac150ad7031ab1c95160f51f5d723a45be0b12d4da4424d0c8b4076",
+    "EXP-018/weights-fold4.json": "1cab409427f31969de8432f31c11282fb4aee30ff1d19dbf61b6eb80b62a7193",
+    "EXP-019/fold0.npz": "c8d517c883f2f16a21d0680799911799ec64304f215913c1bcd5c77f508c63bf",
+    "EXP-019/fold1.npz": "cfcfb6d0ae19b184bad584d62e63b25bc28b571707cf964ea2b9ce7f0def654e",
+    "EXP-019/fold2.npz": "a717a36865bad81f26d4af52e5db1785e9c7094fb535decf9a540768ce2537f2",
+    "EXP-019/fold3.npz": "f4c8491d00475ff517102ce6ea4fe791f0b8709b28e8af9ce3322f0e9c0d593c",
+    "EXP-019/fold4.npz": "ed9abebcd8d62e1f1aa1cd4363590acde194edd08d6c87dce65c0ab26cb7ea31",
+    "EXP-019/metrics-fold0.json": "9d06b461cfa8f28daec05c8b3b8f15ad9163bec7df5d5861c931e54389b15081",
+    "EXP-019/metrics-fold1.json": "c083703a12203ed8c1bfba542635b744723f05ed7febcfec673470e18c27d5f6",
+    "EXP-019/metrics-fold2.json": "4e29bf588b3140b8f9d00fa36cae8c812e460207a542419df9e53e676ea2f819",
+    "EXP-019/metrics-fold3.json": "61532c56cbcdd3b7843060d6f6b51df1a01dca587db5911ffbaa011f50874d33",
+    "EXP-019/metrics-fold4.json": "538483ae2dcfc00c2366e15233ea2fe283e17c9c46efd91c4d130c3b3636bf20",
+    "EXP-019/oof.csv": "0735d798b8cb9f56497e015559e635cab52eb2900931f769ff59b33181454c9a",
+    "EXP-019/oof_decision.npy": "f610902c6a15eeeb3be43c53e479809302ef9abb2c6343b2afbfb09f70dfe352",
+    "EXP-019/weights-fold0.json": "1ba68ed521334892f66c818bad01b5f0201f4bec43c492a602b80d58485b8aab",
+    "EXP-019/weights-fold1.json": "d2a54f06511120bff93fe5cdf93e1179e470d85721e3b6be279a1a5665b3a3ad",
+    "EXP-019/weights-fold2.json": "89924f14c2b7c635a0162f42629d53fb42fcd6eca8616602486bbe2e1bec868d",
+    "EXP-019/weights-fold3.json": "9f065698f9881a0a9159ac83b217ef9f57e44c69c55819a1ed593f5378bb5854",
+    "EXP-019/weights-fold4.json": "3286d03708c25732c161744af23a05a3beaa3d484e607a7bb3671b7a49f22a49",
+    "EXP-020/fold0.npz": "fe6316421253de641e87950fdb8fc45a144e086de2cda75258d73f0b6ee99723",
+    "EXP-020/fold1.npz": "51445616bfd397adbbc9fada5f16cd7b06c50c48b3f014abe0bcd28a19b5e57f",
+    "EXP-020/fold2.npz": "86c8a4538ace0adfbdf71a2d617e48d7d45f29a5283b05777edf5790a871f277",
+    "EXP-020/fold3.npz": "8ba1deb7f3df27b011ff3ab0264f37f26257735b8ef8027e5743c9d6feb1cf42",
+    "EXP-020/fold4.npz": "a294875f1a116d9f9ffc71d89502c58c86a9659e349b6496641d13448b70cafa",
+    "EXP-020/metrics-fold0.json": "a1d9cc688d40f52c461a12d1667bc6f1060b5c9d668aecb877381b86d84a1728",
+    "EXP-020/metrics-fold1.json": "1105bc7b6e0de5cab29b4f8646322dbacffea566bfafcbaa2482627004f8a99b",
+    "EXP-020/metrics-fold2.json": "fd8ff3b50c6b36e84cb4996410fcae4a7225d8b12e91af8c890bb0c215e6df29",
+    "EXP-020/metrics-fold3.json": "6197a6b9716184bb722b22443bcf0d1658d7d083a13486da1eef5b6bb3f09b25",
+    "EXP-020/metrics-fold4.json": "bc677669c3033720d144b829f50acfd748395b6bf3f1dca768c511150fbe65b8",
+    "EXP-020/oof.csv": "ce38296fa3b852f555d51b65d34675dd17a5d473d0ab262683b9f969c1afe4ad",
+    "EXP-020/oof_decision.npy": "fe5cd83da14d13782423cf1988d13350aaae5caeec1ce00bc8bd08cad15d1ad5",
+    "EXP-020/weights-fold0.json": "9ff0a588fcdb5ef1072b580bd0cef01f7de90193f301f5f412e7823917b453a2",
+    "EXP-020/weights-fold1.json": "2532603b8b8f0fa2e7d685220b97e1a87abaea534e525dd036a6822045449d3a",
+    "EXP-020/weights-fold2.json": "1ea1b47045ef83061ab74e257a164da9b6846b198b11c0a1c79dcb2d759797d0",
+    "EXP-020/weights-fold3.json": "afb00532abcd6bacea3dcc319de1cfadcca78339c2f1a39344400f4aad5249de",
+    "EXP-020/weights-fold4.json": "6fb12f8765fb2ad4ad568101d0a468f10266d97424db5224a7dd8f16820f537f",
+    "environment.json": "c802177e7d24f69ea33a957aeebeafe95242f87d422fab90317f5aef90278e14",
+    "feature-fold0-official-only.json": "49750beb13552e3012bc2cd5c84363037ab407f4716044c7375a5f2efd18b930",
+    "feature-fold0-official-plus-raw.json": "eb9a942df2878ef9908dc450cb7e3a787fb010631c6f0c944821c773b55c59c3",
+    "feature-fold1-official-only.json": "fb34575d944ae3f27dd5671b836d2ba5d80d350863fae82e43efc0e04ff9c8ef",
+    "feature-fold1-official-plus-raw.json": "710d18370000a2e27d04c8d63d72b8ee57189d7e6ed31ab8dfc839da1f1b0dfa",
+    "feature-fold2-official-only.json": "8de6b6915ab38c161fb0ceec1f317f23de7122c74e6fe06a4d344cb9cee5aa6c",
+    "feature-fold2-official-plus-raw.json": "1d8d0e733946d5849ffa1b2b4c8f63e979f88ffe9ee202887b0a16606458ff3b",
+    "feature-fold3-official-only.json": "875e69b951d7adc9b108dcdf28620fb812a3848756ab56b511fbeb5446536294",
+    "feature-fold3-official-plus-raw.json": "6ea6c6c18bcedafab30e8f8861a0465e3628e7e89695a1a303bf7ad6db443f56",
+    "feature-fold4-official-only.json": "22ea87f57724e3fb4e2b3d62992be6be4dc80bb29a0b62603f3e7fa8e72eb2c6",
+    "feature-fold4-official-plus-raw.json": "0c9271f68d24849ff31c2ca7be9616d11279e5313e75eecabb24d346d4b55565",
+    "fold_metrics.csv": "6a564b4f9cfaa9b80d3347390f674c1c45373316515c2c41a6711ea01df6b595",
+    "input_preflight.json": "377db6808d0b8aa508212f8b83f531d465552073a888b05f919241c9cfbbf3e2",
+    "result.json": "fae09b2c5ed0546e4f0262999533c06665ed026fb57af88712cb9605b10cac68",
+    ".run.lock": "f0d449dd9239e2dc3a67776384f6f53bf36fe3affe534d796a7b12dea2d504e6",
+    "artifacts.json": "a65d3b94bab9b16b8af05516f8fee7c35baad7f8da030b72051d5e58605f135a",
+    "guard.json": "cf1f8d2837573610e7885798d44b3052bb42c08c6433be1e8c747ff3ab3dcb0a",
+    "state.json": "5b84020ee4b40571728763b41de4ac53f86133d009c967a5e917409414019e00",
+    "training.log": "252a8fd6ea608a35f285ae0bb25150a98e30c8ece24c8bee7255fbd0e042a156"
+  },
+  "analysis_environment": {
+    "python": "3.13.13",
+    "numpy": "2.4.4",
+    "pandas": "3.0.6"
+  },
+  "trained_svms": 20,
+  "convergence_warnings": 0,
+  "oof_rows_per_variant": 2699,
+  "score_columns": 18,
+  "budget_reconciliation": {
+    "runner_total_seconds": 546.266347423,
+    "work_budget_seconds": 6780,
+    "guard_elapsed_seconds": 550.998393638,
+    "platform_wall_seconds": 7080,
+    "comparison_tolerance_seconds": 1e-06,
+    "tolerance_reason": "one microsecond for floating-point/JSON rounding only; no operational grace period"
+  },
+  "feature_receipts_checked": 10,
+  "fold_npz_checked": 20,
+  "fold_metrics_checked": 20,
+  "weight_receipts_checked": 20,
+  "official_only_feature_fit_is_official_training_fold_only": true,
+  "augmented_variants_share_fold_matrix_fingerprints": true,
+  "class_weight_semantics": "sklearn 1.6.1 balanced weights from unweighted training class counts",
+  "public_mass_formula": "float(np.float32(public_row_weight)) * 300 per class",
+  "summaries": [
+    {
+      "experiment": "EXP-017",
+      "public_row_weight": null,
+      "balanced_accuracy": 0.3844842157593836,
+      "accuracy": 0.3845868840311226,
+      "correct": 1038,
+      "rows": 2699
+    },
+    {
+      "experiment": "EXP-018",
+      "public_row_weight": 0.35,
+      "balanced_accuracy": 0.40228933631618197,
+      "accuracy": 0.40237124861059653,
+      "correct": 1086,
+      "rows": 2699
+    },
+    {
+      "experiment": "EXP-019",
+      "public_row_weight": 0.175,
+      "balanced_accuracy": 0.39709917971662945,
+      "accuracy": 0.39718414227491666,
+      "correct": 1072,
+      "rows": 2699
+    },
+    {
+      "experiment": "EXP-020",
+      "public_row_weight": 0.7,
+      "balanced_accuracy": 0.39080039771314934,
+      "accuracy": 0.3908855131530196,
+      "correct": 1055,
+      "rows": 2699
+    }
+  ],
+  "comparisons": [
+    {
+      "candidate": "EXP-018",
+      "reference": "EXP-017",
+      "contrast": "adding_raw_public_including_feature_fit",
+      "delta_ba": 0.017805120556798393,
+      "ci95_lower": 0.002997557120879269,
+      "ci95_upper": 0.03222222222222223,
+      "bootstrap_draws": 2000,
+      "bootstrap_seed": 42,
+      "fixed_errors": 266,
+      "new_errors": 218,
+      "prediction_disagreements": 1024,
+      "both_wrong": 1395,
+      "positive_folds": 4,
+      "negative_folds": 1,
+      "tied_folds": 0,
+      "multiple_comparison_adjustment": "none"
+    },
+    {
+      "candidate": "EXP-019",
+      "reference": "EXP-018",
+      "contrast": "public_row_weight_only",
+      "delta_ba": -0.00519015659955252,
+      "ci95_lower": -0.014074074074074072,
+      "ci95_upper": 0.003703703703703703,
+      "bootstrap_draws": 2000,
+      "bootstrap_seed": 42,
+      "fixed_errors": 72,
+      "new_errors": 86,
+      "prediction_disagreements": 332,
+      "both_wrong": 1541,
+      "positive_folds": 1,
+      "negative_folds": 4,
+      "tied_folds": 0,
+      "multiple_comparison_adjustment": "none"
+    },
+    {
+      "candidate": "EXP-020",
+      "reference": "EXP-018",
+      "contrast": "public_row_weight_only",
+      "delta_ba": -0.011488938603032628,
+      "ci95_lower": -0.02037037037037037,
+      "ci95_upper": -0.002965386527467065,
+      "bootstrap_draws": 2000,
+      "bootstrap_seed": 42,
+      "fixed_errors": 56,
+      "new_errors": 87,
+      "prediction_disagreements": 291,
+      "both_wrong": 1557,
+      "positive_folds": 1,
+      "negative_folds": 4,
+      "tied_folds": 0,
+      "multiple_comparison_adjustment": "none"
+    }
+  ],
+  "bootstrap": {
+    "draws": 2000,
+    "seed": 42,
+    "unit": "official prompt",
+    "paired": true,
+    "percentile": [
+      2.5,
+      97.5
+    ],
+    "multiple_comparison_adjustment": "none",
+    "conditional_on_fitted_development_models": true
+  },
+  "sparse": {
+    "sizes": [
+      2,
+      3,
+      6
+    ],
+    "repeats": 5,
+    "seed": 42,
+    "variant_scenarios": 60,
+    "selection_rule": "validation/protocol.py::select_sparse_rows: SHA-256 of seed:repeat:id, sort by prompt/key, head(m), then sort by ID",
+    "aggregate_folds_before_18_class_ba": true,
+    "repeats_are_independent_training_runs": false
+  },
+  "limitations": [
+    "The selected raw/new passages avoid the aggregate pool's label-conditioned punctuation cleaning, but their generation protocol was informed by official train data.",
+    "The pinned prvs README lines 38-39 say target lengths were sampled from the official train word-count distribution and the protocol was adjusted using label/length comparisons with official train. The generator source is not included, so further upstream selection cannot be ruled out independently.",
+    "Request/response logs establish internal consistency, not independent authentication of the underlying provider weights; Kaggle proxy rows echo routing slugs.",
+    "Zero known prompt links, exact response overlap and reconstructed-prompt exact overlap do not prove the absence of semantic or undocumented prompt overlap. The host's original prompts are not available here.",
+    "This is fixed-external-data development OOF preparation, not a strictly untouched holdout, full ATLAS20 OOF, or a leaderboard result.",
+    "5376 of the 5400 selected texts already occur in the EXP-009 current-input main-svc4 projection. This is a source/weight diagnostic, not 5400 novel additions to ATLAS20, and that projection is not historical hidden-run membership evidence.",
+    "Feature matrices/vocabularies/IDF vectors and fitted estimators were not persisted; receipt consistency and membership are verified, not independent reconstruction of their contents.",
+    "Downloaded run/version identity is not independently queried by this offline verifier."
+  ],
+  "training_or_remote_actions_performed": false,
+  "verified_at_utc": "2026-11-01T08:05:32.804731+00:00",
+  "analysis_outputs": [
+    {
+      "path": "summary_metrics.csv",
+      "bytes": 314,
+      "sha256": "c2d707079e369c29043ed4b77fc21521ab8bc4b628a1d2cefb0e259c72938969"
+    },
+    {
+      "path": "fold_metrics_recomputed.csv",
+      "bytes": 5561,
+      "sha256": "b0dc8629344038f4a5157562b87337c883aae837bc2cbbeebbd64409104317ce"
+    },
+    {
+      "path": "per_class_recall.csv",
+      "bytes": 3195,
+      "sha256": "3d4f3fecc7c8773c40fd07c9409c4f5be49397cdc275974ea71e2acf550d4c21"
+    },
+    {
+      "path": "comparisons.csv",
+      "bytes": 653,
+      "sha256": "0679ff9a54b9f48ce69af9c17cb564611e210915c6b3c0faa6aa355277c7bf97"
+    },
+    {
+      "path": "comparison_folds.csv",
+      "bytes": 740,
+      "sha256": "ad8bc98934f18352ae10fd696b3ef9cc3b707296aa427bbcf8a0d5b1cccc8b4c"
+    },
+    {
+      "path": "error_changes.csv",
+      "bytes": 151974,
+      "sha256": "55669d0c78ee28f36e9a4cfdc860b6043a93aba01d9cea8f914cc2c7c4ec5a5f"
+    },
+    {
+      "path": "sparse_metrics.csv",
+      "bytes": 7570,
+      "sha256": "3315377e94dbb66f581f190ac4d13c3d4bac8c41ed3e882dbd7cc8bfb639f201"
+    },
+    {
+      "path": "sparse_summary.csv",
+      "bytes": 2613,
+      "sha256": "e3eb283c39002b66013e9dd926bcaf7fd802826ff643a4dc684859f83f093a7d"
+    },
+    {
+      "path": "sparse_selections.csv",
+      "bytes": 288786,
+      "sha256": "a383b6a6e517826ab20078436a1208718f3c5612ee6272ad0dcbb3667d438db3"
+    },
+    {
+      "path": "sparse_comparisons.csv",
+      "bytes": 5350,
+      "sha256": "c85c2964020d57c8d444714c64e3ed9ff02f7d12b927e35c29a44f1e2533cb6b"
+    },
+    {
+      "path": "report.md",
+      "bytes": 2711,
+      "sha256": "c8f78d6891a955ed556d39b1eaa89cd92d271fff0e3dd499b8e2b1f3a8cff467"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0113",
+  "prompt": "Write a scene where a normally impatient person waits willingly for something that is not arriving on a timetable. Please answer in roughly 160 words.",
+  "category": "creative_short_fiction",
+  "target_words": 160,
+  "prompt_group": "cp0113",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "4080f90c3760bbb649b436dabde324c6a735f8138241452304998b8e3e5cce68",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:41:47.726820+00:00",
+  "ended_at": "2026-11-01T09:42:07.040678+00:00",
+  "prompt_sha256": "cd1469f5bf7eeba99af01e7b80b5b7f5ab85edb6077a682a2296adad093213ee",
+  "text": "Mara hated waiting. She drummed through elevators, abandoned slow checkout lines, and once left soup on the stove because it took too long to simmer.\n\nBut every evening in October, she sat on the back steps with a wool blanket around her shoulders and a mug cooling untouched between her hands.\n\nThe first frost had come early. Across the yard, the maple stood bare except for one stubborn leaf, copper-red against the darkening sky.\n\nHer neighbor had told her it would fall when it was ready.\n\n“That’s not how anything works,” Mara had said.\n\nNow she watched wind pass through the branches. Rain glossed the fence. A squirrel crossed the power line with insulting efficiency. Still the leaf held.\n\nShe did not check her phone. She did not count minutes.\n\nOn the ninth evening, it loosened without drama, turning once in the porch light before landing in the wet grass.\n\nMara smiled, as if someone had finally arrived.",
+  "text_sha256": "8be8aef1bc035ad58a9039a47901cf277ad166cebcbe0002d221b96c35567dd7",
+  "raw_final_sha256": "8be8aef1bc035ad58a9039a47901cf277ad166cebcbe0002d221b96c35567dd7",
+  "word_count": 158,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4121,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 208,
+      "reasoning_output_tokens": 12
+    }
+  ],
+  "attempt_path": "collection\\attempts\\4080f90c3760bbb649b436dabde324c6a735f8138241452304998b8e3e5cce68",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

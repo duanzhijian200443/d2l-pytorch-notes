@@ -1,0 +1,110 @@
+{
+  "copied_at": "2026-11-01T08:06:13.842221+00:00",
+  "notebook_version": 4,
+  "source_directory": "cloud/svc4-raw-public-r1/outputs-v4/results/EXP-020",
+  "verified_path": "cloud/svc4-raw-public-r1/analysis/verified.json",
+  "exact_copies": [
+    {
+      "source": "cloud/svc4-raw-public-r1/outputs-v4/results/EXP-020/fold0.npz",
+      "path": "experiments/EXP-020-svc4-raw-w070-r1/oof/fold0.npz",
+      "sha256": "fe6316421253de641e87950fdb8fc45a144e086de2cda75258d73f0b6ee99723",
+      "bytes": 80267
+    },
+    {
+      "source": "cloud/svc4-raw-public-r1/outputs-v4/results/EXP-020/fold1.npz",
+      "path": "experiments/EXP-020-svc4-raw-w070-r1/oof/fold1.npz",
+      "sha256": "51445616bfd397adbbc9fada5f16cd7b06c50c48b3f014abe0bcd28a19b5e57f",
+      "bytes": 80220
+    },
+    {
+      "source": "cloud/svc4-raw-public-r1/outputs-v4/results/EXP-020/fold2.npz",
+      "path": "experiments/EXP-020-svc4-raw-w070-r1/oof/fold2.npz",
+      "sha256": "86c8a4538ace0adfbdf71a2d617e48d7d45f29a5283b05777edf5790a871f277",
+      "bytes": 80257
+    },
+    {
+      "source": "cloud/svc4-raw-public-r1/outputs-v4/results/EXP-020/fold3.npz",
+      "path": "experiments/EXP-020-svc4-raw-w070-r1/oof/fold3.npz",
+      "sha256": "8ba1deb7f3df27b011ff3ab0264f37f26257735b8ef8027e5743c9d6feb1cf42",
+      "bytes": 80255
+    },
+    {
+      "source": "cloud/svc4-raw-public-r1/outputs-v4/results/EXP-020/fold4.npz",
+      "path": "experiments/EXP-020-svc4-raw-w070-r1/oof/fold4.npz",
+      "sha256": "a294875f1a116d9f9ffc71d89502c58c86a9659e349b6496641d13448b70cafa",
+      "bytes": 80133
+    },
+    {
+      "source": "cloud/svc4-raw-public-r1/outputs-v4/results/EXP-020/metrics-fold0.json",
+      "path": "experiments/EXP-020-svc4-raw-w070-r1/metrics/metrics-fold0.json",
+      "sha256": "a1d9cc688d40f52c461a12d1667bc6f1060b5c9d668aecb877381b86d84a1728",
+      "bytes": 829
+    },
+    {
+      "source": "cloud/svc4-raw-public-r1/outputs-v4/results/EXP-020/metrics-fold1.json",
+      "path": "experiments/EXP-020-svc4-raw-w070-r1/metrics/metrics-fold1.json",
+      "sha256": "1105bc7b6e0de5cab29b4f8646322dbacffea566bfafcbaa2482627004f8a99b",
+      "bytes": 831
+    },
+    {
+      "source": "cloud/svc4-raw-public-r1/outputs-v4/results/EXP-020/metrics-fold2.json",
+      "path": "experiments/EXP-020-svc4-raw-w070-r1/metrics/metrics-fold2.json",
+      "sha256": "fd8ff3b50c6b36e84cb4996410fcae4a7225d8b12e91af8c890bb0c215e6df29",
+      "bytes": 831
+    },
+    {
+      "source": "cloud/svc4-raw-public-r1/outputs-v4/results/EXP-020/metrics-fold3.json",
+      "path": "experiments/EXP-020-svc4-raw-w070-r1/metrics/metrics-fold3.json",
+      "sha256": "6197a6b9716184bb722b22443bcf0d1658d7d083a13486da1eef5b6bb3f09b25",
+      "bytes": 832
+    },
+    {
+      "source": "cloud/svc4-raw-public-r1/outputs-v4/results/EXP-020/metrics-fold4.json",
+      "path": "experiments/EXP-020-svc4-raw-w070-r1/metrics/metrics-fold4.json",
+      "sha256": "bc677669c3033720d144b829f50acfd748395b6bf3f1dca768c511150fbe65b8",
+      "bytes": 828
+    },
+    {
+      "source": "cloud/svc4-raw-public-r1/outputs-v4/results/EXP-020/oof.csv",
+      "path": "experiments/EXP-020-svc4-raw-w070-r1/oof/oof.csv",
+      "sha256": "ce38296fa3b852f555d51b65d34675dd17a5d473d0ab262683b9f969c1afe4ad",
+      "bytes": 146155
+    },
+    {
+      "source": "cloud/svc4-raw-public-r1/outputs-v4/results/EXP-020/oof_decision.npy",
+      "path": "experiments/EXP-020-svc4-raw-w070-r1/oof/oof_decision.npy",
+      "sha256": "fe5cd83da14d13782423cf1988d13350aaae5caeec1ce00bc8bd08cad15d1ad5",
+      "bytes": 388784
+    },
+    {
+      "source": "cloud/svc4-raw-public-r1/outputs-v4/results/EXP-020/weights-fold0.json",
+      "path": "experiments/EXP-020-svc4-raw-w070-r1/metrics/weights-fold0.json",
+      "sha256": "9ff0a588fcdb5ef1072b580bd0cef01f7de90193f301f5f412e7823917b453a2",
+      "bytes": 2326
+    },
+    {
+      "source": "cloud/svc4-raw-public-r1/outputs-v4/results/EXP-020/weights-fold1.json",
+      "path": "experiments/EXP-020-svc4-raw-w070-r1/metrics/weights-fold1.json",
+      "sha256": "2532603b8b8f0fa2e7d685220b97e1a87abaea534e525dd036a6822045449d3a",
+      "bytes": 2326
+    },
+    {
+      "source": "cloud/svc4-raw-public-r1/outputs-v4/results/EXP-020/weights-fold2.json",
+      "path": "experiments/EXP-020-svc4-raw-w070-r1/metrics/weights-fold2.json",
+      "sha256": "1ea1b47045ef83061ab74e257a164da9b6846b198b11c0a1c79dcb2d759797d0",
+      "bytes": 2326
+    },
+    {
+      "source": "cloud/svc4-raw-public-r1/outputs-v4/results/EXP-020/weights-fold3.json",
+      "path": "experiments/EXP-020-svc4-raw-w070-r1/metrics/weights-fold3.json",
+      "sha256": "afb00532abcd6bacea3dcc319de1cfadcca78339c2f1a39344400f4aad5249de",
+      "bytes": 2326
+    },
+    {
+      "source": "cloud/svc4-raw-public-r1/outputs-v4/results/EXP-020/weights-fold4.json",
+      "path": "experiments/EXP-020-svc4-raw-w070-r1/metrics/weights-fold4.json",
+      "sha256": "6fb12f8765fb2ad4ad568101d0a468f10266d97424db5224a7dd8f16820f537f",
+      "bytes": 2056
+    }
+  ]
+}

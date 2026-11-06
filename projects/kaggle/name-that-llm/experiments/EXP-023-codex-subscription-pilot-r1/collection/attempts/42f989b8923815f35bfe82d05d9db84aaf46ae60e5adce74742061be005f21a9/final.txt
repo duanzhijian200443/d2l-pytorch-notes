@@ -1,0 +1,19 @@
+The candle is predicted to be **5 centimeters tall after five hours**, assuming it continues to burn down by the same amount each hour.
+
+To find the hourly decrease, compare its initial height with its height after two hours. It starts at 20 centimeters and falls to 14 centimeters, so it loses:
+
+20 − 14 = 6 centimeters.
+
+That loss happens over two hours. Dividing by two gives a constant burning rate of:
+
+6 ÷ 2 = 3 centimeters per hour.
+
+Over five hours, the candle would therefore lose a total of:
+
+3 × 5 = 15 centimeters.
+
+Subtracting this loss from its original height gives:
+
+20 − 15 = **5 centimeters**.
+
+We can describe the same relationship with the equation **h = 20 − 3t**, where *h* is the height in centimeters and *t* is the time in hours since the candle was first lit. This prediction depends on the stated assumption that the rate stays constant throughout all five hours.

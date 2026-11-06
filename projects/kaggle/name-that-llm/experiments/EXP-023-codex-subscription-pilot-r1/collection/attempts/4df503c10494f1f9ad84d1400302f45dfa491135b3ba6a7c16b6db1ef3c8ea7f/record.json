@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0145",
+  "prompt": "Expand this original outline into a brief scene: 'A potter opens the kiln. Most bowls are blue. One is unexpectedly green. She puts it aside, then carries it to the front window.' Keep the focus on the potter's reaction. Keep your response near 160 words.",
+  "category": "rewrite_original_material",
+  "target_words": 160,
+  "prompt_group": "cp0145",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "4df503c10494f1f9ad84d1400302f45dfa491135b3ba6a7c16b6db1ef3c8ea7f",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:24:33.685062+00:00",
+  "ended_at": "2026-11-01T10:24:59.842923+00:00",
+  "prompt_sha256": "198e950f88c2836e199565268d5dc64f3b71190b49eafce31fe3e9779c6259b0",
+  "text": "Mara opened the kiln and waited for the last warmth to touch her face. Even after twenty years, she held her breath at this part.\n\nBlue, blue, blue. She lifted the bowls onto the bench, turning each to inspect its foot.\n\nThen green.\n\nShe left that one where it was and leaned closer. Not a blue altered by shadow: green, pale at the rim and deep where the glaze gathered inside. She checked the shelf beside it, as though an explanation might be sitting there.\n\n“Oh,” she said, without pleasure.\n\nShe put it aside and unloaded the rest. Twice she reached for it instead of the next bowl. The third time, she let herself pick it up.\n\nHer thumb followed the lip. There was nothing wrong with the shape.\n\nAt the front window, she moved a blue bowl out of the light and set the green one in its place. She turned it slightly, then turned it back.\n\nFor a moment, she forgot to check for flaws.",
+  "text_sha256": "e908d83f5ab99ef03570d6b21a67c0b1efec7db0f42cce97bc2ea5a7f4f1efb9",
+  "raw_final_sha256": "e908d83f5ab99ef03570d6b21a67c0b1efec7db0f42cce97bc2ea5a7f4f1efb9",
+  "word_count": 167,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4265,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 202,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\4df503c10494f1f9ad84d1400302f45dfa491135b3ba6a7c16b6db1ef3c8ea7f",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,9 @@
+The claim is too absolute. A good explanation should avoid unnecessary technical vocabulary, but it should not always avoid it.
+
+Technical terms can make an explanation more precise and efficient. For example, in medicine, “hypertension” identifies a specific condition more clearly than a long informal description of persistently high blood pressure. In programming, terms such as “recursion” or “encryption” let informed readers connect an explanation to established ideas, methods, and documentation.
+
+The key is audience and purpose. For beginners, unexplained jargon can create confusion and make a subject seem inaccessible. A strong explanation may introduce the plain-language idea first, then give the technical term: “This is a way for a function to call itself; programmers call it recursion.” That approach preserves clarity while building the reader’s vocabulary.
+
+Avoiding all technical language can also be misleading. Everyday substitutes may be vague, inaccurate, or cumbersome, especially when distinctions matter. Calling every online security measure a “password protection system,” for instance, obscures differences between authentication, authorization, and encryption.
+
+Therefore, good explanations use technical vocabulary deliberately: omit it when it adds no value, define it when the audience may not know it, and retain it when precision or future learning requires it.

@@ -1,0 +1,24 @@
+{
+  "id": "zhjianduan/ntl-apex-volume-053-main",
+  "id_no": 142244920,
+  "title": "NTL Apex Volume 053 Main",
+  "code_file": "ntl-apex-volume-053-main.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "keywords": [],
+  "dataset_sources": [
+    "crtproduction/name-that-llm-open-pool",
+    "dhruvtibarewal/nlm-matched-clean"
+  ],
+  "kernel_sources": [],
+  "competition_sources": [
+    "name-that-llm"
+  ],
+  "model_sources": [],
+  "docker_image": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+  "machine_shape": "None"
+}

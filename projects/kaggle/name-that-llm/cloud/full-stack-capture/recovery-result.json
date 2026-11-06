@@ -1,0 +1,26 @@
+{
+  "observed_at_utc": "2026-11-01T10:45:04.712048+00:00",
+  "status": "REPAIRED_AND_GPU_V3_RUNNING",
+  "cpu_status": "PASS",
+  "cpu_elapsed_seconds": 1118.6381434389998,
+  "cpu_files": 531,
+  "cpu_bytes": 190823294363,
+  "original_failures": [
+    "Initial QUICK_SAVE request SSL EOF; no run request was sent",
+    "Save response ref uses /code/owner/slug; original controller expected owner/slug",
+    "Raw script QUICK_SAVE export failed in nbformat because source was parsed as notebook JSON"
+  ],
+  "repair": "Only outer upload representation changed to one-code-cell Notebook; original code text and embedded payload ZIP unchanged",
+  "raw_reference_normalization": "Remove leading /code/ only, then require exact owner/slug",
+  "gpu_run_requests": 1,
+  "gpu_version": 3,
+  "models_rerun_before_v3": false,
+  "artifact_paths": [
+    "cloud/full-stack-capture/notebook-v2-readback",
+    "cloud/full-stack-capture/notebook-v3-readback/verified.json",
+    "cloud/full-stack-capture/launch-notebook-v2/packaging-repair.json",
+    "cloud/full-stack-capture/launch-notebook-v2/run-ack.json"
+  ],
+  "old_controller_reusable_as_is": false,
+  "controller_note": "Original controller stopped. Do not restart; its lock and original source retained as failed-attempt evidence."
+}

@@ -1,0 +1,33 @@
+{
+  "observed_at": "2026-11-01T08:40:13.690Z",
+  "status": {
+    "status": "READY"
+  },
+  "info": {
+    "id": 13008550,
+    "ref": "zhjianduan/ntl-fixed-blend-external-inputs-026",
+    "subtitle": "",
+    "creator_name": "zhjian duan",
+    "total_bytes": "17884735",
+    "last_updated": "2026-11-01T08:39:53.140Z",
+    "is_private": true,
+    "license_name": "Other (specified in description)",
+    "description": "Private fixed alpha0.10 verification inputs. Original Enai/Databricks attribution and license scopes preserved; four-class external check, not a competition submission. Original training inputs unchanged.",
+    "owner_name": "zhjian duan",
+    "owner_ref": "zhjianduan",
+    "title": "NTL Fixed Blend External Inputs 026",
+    "current_version_number": 1,
+    "usability_rating": 0.4117647,
+    "versions": [
+      {
+        "version_number": 1,
+        "creation_date": "2026-11-01T08:39:53.140Z",
+        "creator_name": "zhjian duan",
+        "creator_ref": "ntl-fixed-blend-external-inputs-026",
+        "version_notes": "Initial release",
+        "status": "Ready"
+      }
+    ],
+    "thumbnail_image_url": "https://storage.googleapis.com/kaggle-datasets-images/new-version-temp-images/default-backgrounds-77.png-35648469/dataset-thumbnail.png"
+  }
+}

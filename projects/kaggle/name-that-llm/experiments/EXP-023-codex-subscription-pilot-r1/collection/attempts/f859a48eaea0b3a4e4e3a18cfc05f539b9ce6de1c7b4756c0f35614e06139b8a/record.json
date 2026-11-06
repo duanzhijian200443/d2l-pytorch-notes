@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0110",
+  "prompt": "Create a short story in which a delivery cyclist takes the wrong street and accidentally solves a very small neighborhood problem. A response of around 120 words is enough.",
+  "category": "creative_short_fiction",
+  "target_words": 120,
+  "prompt_group": "cp0110",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "f859a48eaea0b3a4e4e3a18cfc05f539b9ce6de1c7b4756c0f35614e06139b8a",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:40:00.224683+00:00",
+  "ended_at": "2026-11-01T09:40:18.434781+00:00",
+  "prompt_sha256": "42850d360ca3ccb1148501e4abe361bfb3d64aca48e264cb0859b8738c78dfa9",
+  "text": "Mara missed the turn for Oak Lane when a bus sighed across the intersection, so she pedaled down a quiet street she’d never noticed. Near number twelve, an elderly man stood beside a toppled grocery bag, oranges rolling toward a storm drain.\n\nMara braked, caught the last orange with her front wheel, and helped gather the rest. While she packed them back, she noticed the drain grate was clogged with wet leaves and orange peels. A small puddle had been creeping toward the man’s doorstep for days.\n\nUsing a spare delivery bag, Mara cleared the grate. Water gurgled away at once.\n\n“Wrong street,” she said, checking her map.\n\n“Right cyclist,” the man replied.",
+  "text_sha256": "4592739f93497b067a06a503aff36e3e1799b6f8f37d55b71aa0e046d0dafe9c",
+  "raw_final_sha256": "4592739f93497b067a06a503aff36e3e1799b6f8f37d55b71aa0e046d0dafe9c",
+  "word_count": 113,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4125,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 149,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\f859a48eaea0b3a4e4e3a18cfc05f539b9ce6de1c7b4756c0f35614e06139b8a",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

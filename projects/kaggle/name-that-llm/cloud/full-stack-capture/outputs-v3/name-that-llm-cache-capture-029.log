@@ -1,0 +1,83 @@
+[{"stream_name":"stderr","time":7.42267241,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.422719904,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.422726535,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.422730958,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.02319291,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.023220203,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.023225146,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.023229225,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":11.390410738,"data":"CAPTURE_STAGE {\"status\": \"RUNNING\", \"phase\": \"payload_preflight\", \"observed_at\": \"2026-11-01T10:43:59.675080+00:00\"}\n"}
+,{"stream_name":"stdout","time":11.593057659,"data":"CAPTURE_STAGE {\"status\": \"RUNNING\", \"phase\": \"payload_preflight\", \"observed_at\": \"2026-11-01T10:43:59.675080+00:00\"}\n"}
+,{"stream_name":"stdout","time":51.175754909,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":51.175782507,"data":"  File \"/kaggle/working/payload/runner.py\", line 648, in \u003cmodule\u003e\n"}
+,{"stream_name":"stdout","time":51.175789484,"data":"    main()\n"}
+,{"stream_name":"stdout","time":51.175794235,"data":"    ~~~~^^\n"}
+,{"stream_name":"stdout","time":51.175798655,"data":"  File \"/kaggle/working/payload/runner.py\", line 636, in main\n"}
+,{"stream_name":"stdout","time":51.17580295,"data":"    worker(HERE, out)\n"}
+,{"stream_name":"stdout","time":51.175806855,"data":"    ~~~~~~^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":51.175812201,"data":"  File \"/kaggle/working/payload/runner.py\", line 343, in worker\n"}
+,{"stream_name":"stdout","time":51.175816272,"data":"    save(out / 'required-input-paths.json', required_optional_inputs())\n"}
+,{"stream_name":"stdout","time":51.17582054,"data":"                                            ~~~~~~~~~~~~~~~~~~~~~~~~^^\n"}
+,{"stream_name":"stdout","time":51.175824693,"data":"  File \"/kaggle/working/payload/runner.py\", line 246, in required_optional_inputs\n"}
+,{"stream_name":"stdout","time":51.175829002,"data":"    require(bool(hits), 'Required original optional input is absent: ' + name)\n"}
+,{"stream_name":"stdout","time":51.175833238,"data":"    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":51.175837523,"data":"  File \"/kaggle/working/payload/runner.py\", line 65, in require\n"}
+,{"stream_name":"stdout","time":51.175841765,"data":"    raise ValueError(message)\n"}
+,{"stream_name":"stdout","time":51.175845699999996,"data":"ValueError: Required original optional input is absent: lora24_public\n"}
+,{"stream_name":"stdout","time":51.177307958,"data":"CAPTURE_STAGE {\"status\": \"RUNNING\", \"phase\": \"archive\", \"observed_at\": \"2026-11-01T10:44:41.365832+00:00\", \"prior_error\": \"CAPTURE_FAILED\"}\n"}
+,{"stream_name":"stdout","time":51.353626113,"data":"FULL_STACK_CAPTURE_TERMINAL {\"status\": \"ERROR\", \"cause\": \"CAPTURE_FAILED\", \"observed_at\": \"2026-11-01T10:44:41.541493+00:00\", \"scope\": \"exploratory_external\", \"experiment_id\": \"EXP-029\", \"run_id\": \"exp029-20261101T103239Z\", \"elapsed_seconds\": 41.966066111, \"work_budget_seconds\": 28200, \"platform_wall_seconds\": 28800, \"peak_rss_bytes\": 113377280, \"child_exit\": 1, \"archive\": {\"status\": \"COMPLETE\", \"path\": \"cache-artifacts.zip\", \"sha256\": \"ce995f5dcb889bf0663b865ecc7b00c324d841102a297eada101a94f1fb3bced\", \"bytes\": 347756}, \"formal_submission_created\": false, \"automatic_retry\": false, \"gpu_runtime_release\": \"platform termination, not Colab unassign\", \"traceback\": \"Traceback (most recent call last):\\n  File \\\"/kaggle/working/payload/runner.py\\\", line 535, in supervise\\n    require(child.returncode == 0, 'Worker failed with exit ' + str(child.returncode))\\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/kaggle/working/payload/runner.py\\\", line 65, in require\\n    raise ValueError(message)\\nValueError: Worker failed with exit 1\\n\"}\n"}
+,{"stream_name":"stdout","time":51.384507104,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":51.384524924,"data":"  File \"/kaggle/working/payload/runner.py\", line 648, in \u003cmodule\u003e\n"}
+,{"stream_name":"stdout","time":51.384540342,"data":"    main()\n"}
+,{"stream_name":"stdout","time":51.384544664,"data":"    ~~~~^^\n"}
+,{"stream_name":"stdout","time":51.384548361,"data":"  File \"/kaggle/working/payload/runner.py\", line 636, in main\n"}
+,{"stream_name":"stdout","time":51.384552145,"data":"    worker(HERE, out)\n"}
+,{"stream_name":"stdout","time":51.384555528,"data":"    ~~~~~~^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":51.384558686,"data":"  File \"/kaggle/working/payload/runner.py\", line 343, in worker\n"}
+,{"stream_name":"stdout","time":51.384562091,"data":"    save(out / 'required-input-paths.json', required_optional_inputs())\n"}
+,{"stream_name":"stdout","time":51.384566448,"data":"                                            ~~~~~~~~~~~~~~~~~~~~~~~~^^\n"}
+,{"stream_name":"stdout","time":51.384570605,"data":"  File \"/kaggle/working/payload/runner.py\", line 246, in required_optional_inputs\n"}
+,{"stream_name":"stdout","time":51.384574868,"data":"    require(bool(hits), 'Required original optional input is absent: ' + name)\n"}
+,{"stream_name":"stdout","time":51.384578285,"data":"    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":51.384581966,"data":"  File \"/kaggle/working/payload/runner.py\", line 65, in require\n"}
+,{"stream_name":"stdout","time":51.384586149,"data":"    raise ValueError(message)\n"}
+,{"stream_name":"stdout","time":51.384589738,"data":"ValueError: Required original optional input is absent: lora24_public\n"}
+,{"stream_name":"stdout","time":51.384593118,"data":"CAPTURE_STAGE {\"status\": \"RUNNING\", \"phase\": \"archive\", \"observed_at\": \"2026-11-01T10:44:41.365832+00:00\", \"prior_error\": \"CAPTURE_FAILED\"}\n"}
+,{"stream_name":"stdout","time":51.384598948,"data":"FULL_STACK_CAPTURE_TERMINAL {\"status\": \"ERROR\", \"cause\": \"CAPTURE_FAILED\", \"observed_at\": \"2026-11-01T10:44:41.541493+00:00\", \"scope\": \"exploratory_external\", \"experiment_id\": \"EXP-029\", \"run_id\": \"exp029-20261101T103239Z\", \"elapsed_seconds\": 41.966066111, \"work_budget_seconds\": 28200, \"platform_wall_seconds\": 28800, \"peak_rss_bytes\": 113377280, \"child_exit\": 1, \"archive\": {\"status\": \"COMPLETE\", \"path\": \"cache-artifacts.zip\", \"sha256\": \"ce995f5dcb889bf0663b865ecc7b00c324d841102a297eada101a94f1fb3bced\", \"bytes\": 347756}, \"formal_submission_created\": false, \"automatic_retry\": false, \"gpu_runtime_release\": \"platform termination, not Colab unassign\", \"traceback\": \"Traceback (most recent call last):\\n  File \\\"/kaggle/working/payload/runner.py\\\", line 535, in supervise\\n    require(child.returncode == 0, 'Worker failed with exit ' + str(child.returncode))\\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/kaggle/working/payload/runner.py\\\", line 65, in require\\n    raise ValueError(message)\\nValueError: Worker failed with exit 1\\n\"}\n"}
+,{"stream_name":"stderr","time":51.61577032,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":51.616457047,"data":"  File \"\u003cstring\u003e\", line 1, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":51.616471946,"data":"    import sys;import papermill as pm;pm.execute_notebook(\"__notebook__.ipynb\",\"__notebook__.ipynb\",progress_bar=False,log_output=True,stdout_file=sys.stdout,stderr_file=sys.stderr,allow_errors=False,timeout=28800)\n"}
+,{"stream_name":"stderr","time":51.616476818,"data":"                                      ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":51.61648151,"data":"  File \"/usr/local/lib/python3.13/dist-packages/papermill/execute.py\", line 131, in execute_notebook\n"}
+,{"stream_name":"stderr","time":51.616485578,"data":"    raise_for_execution_errors(nb, output_path)\n"}
+,{"stream_name":"stderr","time":51.616489645,"data":"    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":51.616493578000004,"data":"  File \"/usr/local/lib/python3.13/dist-packages/papermill/execute.py\", line 251, in raise_for_execution_errors\n"}
+,{"stream_name":"stderr","time":51.616497806,"data":"    raise error\n"}
+,{"stream_name":"stderr","time":51.616501621,"data":"papermill.exceptions.PapermillExecutionError: \n"}
+,{"stream_name":"stderr","time":51.61650513,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":51.616508635,"data":"Exception encountered at \"In [1]\":\n"}
+,{"stream_name":"stderr","time":51.616512098,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":51.616515705,"data":"CalledProcessError                        Traceback (most recent call last)\n"}
+,{"stream_name":"stderr","time":51.616520656,"data":"/tmp/ipykernel_23/361574213.py in \u003ccell line: 0\u003e()\n"}
+,{"stream_name":"stderr","time":51.616527505,"data":"      8     assert all(not pathlib.PurePosixPath(n).is_absolute() and '..' not in pathlib.PurePosixPath(n).parts for n in z.namelist())\n"}
+,{"stream_name":"stderr","time":51.616529987,"data":"      9     z.extractall(p)\n"}
+,{"stream_name":"stderr","time":51.61653237,"data":"---\u003e 10 subprocess.run([sys.executable,'-B','-u',str(p/'runner.py')],check=True)\n"}
+,{"stream_name":"stderr","time":51.616534909,"data":"\n"}
+,{"stream_name":"stderr","time":51.616537101,"data":"/usr/lib/python3.13/subprocess.py in run(input, capture_output, timeout, check, *popenargs, **kwargs)\n"}
+,{"stream_name":"stderr","time":51.616539643,"data":"    575         retcode = process.poll()\n"}
+,{"stream_name":"stderr","time":51.616542375,"data":"    576         if check and retcode:\n"}
+,{"stream_name":"stderr","time":51.616544753,"data":"--\u003e 577             raise CalledProcessError(retcode, process.args,\n"}
+,{"stream_name":"stderr","time":51.616547221,"data":"    578                                      output=stdout, stderr=stderr)\n"}
+,{"stream_name":"stderr","time":51.616549518,"data":"    579     return CompletedProcess(process.args, retcode, stdout, stderr)\n"}
+,{"stream_name":"stderr","time":51.616551823,"data":"\n"}
+,{"stream_name":"stderr","time":51.616557223,"data":"CalledProcessError: Command '['/usr/bin/python3', '-B', '-u', '/kaggle/working/payload/runner.py']' returned non-zero exit status 1.\n"}
+,{"stream_name":"stderr","time":51.616567475,"data":"\n"}
+,{"stream_name":"stderr","time":53.67829575,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":53.678327681,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":53.844836445,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":53.844860807,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":54.690284347,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":54.765945317,"data":"[NbConvertApp] Writing 471255 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":57.246766246,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":57.736413555,"data":"[NbConvertApp] Writing 746429 bytes to __results__.html\n"}
+]

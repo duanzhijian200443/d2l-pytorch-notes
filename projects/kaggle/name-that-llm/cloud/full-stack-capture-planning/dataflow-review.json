@@ -1,0 +1,232 @@
+{
+  "schema_version": 1,
+  "reviewed_at_utc": "2026-11-01 09:59:29 UTC",
+  "status": "PASS_STATIC_DATAFLOW_AND_NO_GPU_GUARD_REVIEW",
+  "scope": "Independent read-only review of the EXP-029 real-capture runner and builder; not evidence that models or a GPU run completed",
+  "reviewed_files_sha256": {
+    "cloud/full-stack-capture/runner.py": "923c05137561bc0571b64975c809ee67b2fce192d7165299c00c63e1de6ceb76",
+    "cloud/full-stack-capture/build_runtime.py": "d022edd5cb18362467010dd9311c596e43b8e0fb66e7b723fdff4f7196e04394",
+    "cloud/full-stack-cache/instrument.py": "1a3a4f2635139828a6cf3dc4d9e142c9ebd7ac4ceac16f53bec7fd6006f7d569",
+    "src/full_stack_cache.py": "ff6b28d7834bdd4bd26bfb1fa69b3b9dc4ccaf194d968cf9b2d8ac4652df85a9",
+    "src/full_stack_observer.py": "ada0dc10ba451308f453dd709540193b04912b95eb585abcbd36c87c0e8db5ca",
+    "src/full_stack_replay.py": "b1bab1993fb17850d8b3cfb26716f47c869dbca5107c3435b859864d2ca99586",
+    "cloud/full-stack-capture-planning/capture-review.json": "979a4e2075986b3eb3c25b2f5ae1ca0f8e3ac6b0fcca7162a8f0b9fac23f04d5"
+  },
+  "remaining_blocking_findings": [],
+  "initial_hook_review": "cloud/full-stack-capture-planning/capture-review.json",
+  "resolved_or_scoped_findings": [
+    {
+      "id": "HOOK-01",
+      "disposition": "RESOLVED_BY_NEW_RUNNER",
+      "evidence": [
+        "build_runtime.remap_comp_input changes only comp DATA_DIR's expression to NTL_CAPTURE_DATA and checks restored AST equality.",
+        "worker copies original official train and the pinned blinded test into /kaggle/working/panel; main DATA is exported from the same NTL_CAPTURE_DATA.",
+        "Actual local 729-row CSV round-trips through both original readers with identical IDs/texts."
+      ]
+    },
+    {
+      "id": "HOOK-02",
+      "disposition": "RESOLVED_BY_NEW_ENTRYPOINT",
+      "evidence": [
+        "setup exports FAST_COMMIT=False after original discovery; model_args executes only the original cell12 prefix through command construction.",
+        "command waits for each child and rejects nonzero exit; the current comp commit receipt must exist and its manifest hash must match before main starts.",
+        "Stale original comp/meta/submission files and an occupied supervisor output directory are rejected."
+      ]
+    },
+    {
+      "id": "HOOK-03",
+      "disposition": "INTENTIONAL_FAIL_CLOSED_POLICY_RETAINED",
+      "evidence": [
+        "The selected real run targets full 22-member/5-gate coverage and complete original ATLAS requests.",
+        "A normal zero-row ATLAS return provides the required event and is accepted by the hook template.",
+        "A thrown ATLAS call before any return still fails observer commit. Uncommitted files are retained for diagnosis; this is not accepted as complete coverage.",
+        "Returned partial ATLAS scores produce NEEDS_ADDITIONAL_ATLAS_SCORES and preserve a structured terminal cause."
+      ]
+    },
+    {
+      "id": "RUNNER-IMPORTS",
+      "disposition": "RESOLVED",
+      "evidence": [
+        "A short-lived preflight child performs actual imports, including the original peft/torchao workaround, and an in-memory Parquet write/read.",
+        "It checks two T4 devices using tiny tensors and records CUDA/driver versions; parent supervisor/worker retains no CUDA model context.",
+        "The preflight runs before and after offline setup. These real dependency/GPU checks were not executed by this reviewer."
+      ]
+    },
+    {
+      "id": "RUNNER-FINALIZATION",
+      "disposition": "RESOLVED",
+      "evidence": [
+        "bounded_sha checks the absolute finalization deadline and signal state on every chunk and after reading.",
+        "Archive creation runs in a separate checked process group with a deadline reserving finalization time.",
+        "A final 28790-second boundary prevents a COMPLETE decision after that point, leaving 10 seconds for small terminal records."
+      ]
+    },
+    {
+      "id": "RUNNER-COVERAGE-STATUS",
+      "disposition": "RESOLVED",
+      "evidence": [
+        "No eligible comp group is distinguished as CONDITIONAL_COVERAGE_UNSATISFIED.",
+        "Missing planned member/gate coverage is CAPTURE_INVENTORY_MISMATCH; returned incomplete ATLAS is NEEDS_ADDITIONAL_ATLAS_SCORES.",
+        "The supervisor preserves these causes rather than collapsing them into generic CAPTURE_FAILED."
+      ]
+    }
+  ],
+  "accepted_experiment_policy": {
+    "scope": "exploratory_external",
+    "panel_rows": 729,
+    "known_true_classes": 17,
+    "prediction_classes": 18,
+    "expected_main_members": 16,
+    "expected_comp_members": 22,
+    "required_coverage_condition": "At least one eligible comp G_TE group must exist, and all predeclared attachment-dependent members/gates must actually contribute.",
+    "condition_is_predeclared": true,
+    "all_singletons": "Keep real outputs/caches and report target coverage not met; do not invent groups, delete required keys retrospectively, or call it an algorithm defect.",
+    "excluded_member": "tokattn_q35; the runner checks that a Q35 backbone is absent and does not count it in expected members.",
+    "statistical_limit": "The 17-label imbalanced panel and its source/training exposure do not establish robust improvement, 18-class balanced accuracy, clean OOF, or a leaderboard gain. Any later Sinkhorn comparison remains exploratory."
+  },
+  "data_flow": [
+    {
+      "stage": "plan_and_payload",
+      "checks": [
+        "Pinned original train and blinded panel SHA256; exact 729 rows; exploratory scope; fixed 28200/28800-second budgets.",
+        "Runtime file hashes and exact declared file inventory are checked before work and again at completion.",
+        "Plan hash is retained in context and checked unchanged at completion."
+      ]
+    },
+    {
+      "stage": "mounted_inputs",
+      "checks": [
+        "CPU manifest must be PASS and its 31 attachment bindings exactly equal the plan.",
+        "Every listed mounted file must exist at the same path with the same size.",
+        "Files <=16MiB are rehashed on the GPU runtime; larger files rely on the CPU full hash plus same immutable attachment versions and GPU path/size checks."
+      ]
+    },
+    {
+      "stage": "panel_staging",
+      "checks": [
+        "The source official train path is selected only from CPU-manifest entries with the fixed original train hash.",
+        "Original training bytes and blinded test bytes are copied into one new panel directory, then rehashed.",
+        "Test requires only id/text, unique 729 IDs and nonblank text; truth/prompt sidecar is not consumed.",
+        "SMOKE, TINY, FAKE_TEST, POOL and NTL_DATA environment overrides are cleared."
+      ]
+    },
+    {
+      "stage": "setup_and_components",
+      "checks": [
+        "Original cell2 discovery runs in a checked child; only offline pip is used, now with check=True.",
+        "Main/comp load the same staged panel; only comp's directory binding and main's directory argument differ from historical paths.",
+        "Comp must exit zero and print exactly one matching run/component commit hash before main.",
+        "Original cell12 creates the model specifications and flags. Only executable/script path and capped ATLAS budget are changed by the runner."
+      ]
+    },
+    {
+      "stage": "replay_and_outputs",
+      "checks": [
+        "Both component manifests are read with the external printed hashes, expected IDs/texts/18-label order and matching context contents/hash.",
+        "Declared 16/22 member coverage and 5 family gates are checked without removing missing keys.",
+        "CPU replay validates captured arithmetic; final actual Parquet IDs/models must equal the cached typography argmax.",
+        "No sidecar truth is loaded and no accuracy or parameter search runs in the GPU worker."
+      ]
+    }
+  ],
+  "immutable_binding_limit": {
+    "gpu_full_large_file_rehash": false,
+    "required_external_condition": "Root must bind the actual saved GPU kernel's 31 original attachment versions and requested image to the CPU preflight readback; matching plan declarations alone are not platform proof.",
+    "not_claimed": "The GPU stage does not independently detect a same-size byte rewrite of a >16MiB mount if the provider's immutable-version guarantee is violated.",
+    "historical_limit": "These newly pinned attachment bytes need not equal the historical EXP-004 scorer's bytes; source compatibility is not historical checkpoint authentication."
+  },
+  "guard_assessment": {
+    "work_seconds": 28200,
+    "platform_seconds": 28800,
+    "term_grace_seconds": 10,
+    "process_ownership": "The supervisor creates one worker session/process group. Setup, preflight and model children inherit it. Failure, signal and work/RSS timeout converge through finally to TERM then KILL of that owned group, including after the leader exits.",
+    "archive_ownership": "Archive has a separate child group and is stopped on archive timeout/failure.",
+    "main_budget": "Original relative ATLAS budget is capped to remaining global work minus120 seconds; less than180 seconds fails before main. Original main T0 is not shifted.",
+    "finalization": "Chunked hashes and the terminal decision obey the absolute finalization boundary; final small records use the reserved last10 seconds.",
+    "os_level_limit": "Reviewer tests mock Linux group signals on Windows. They prove call/control-flow behavior, not actual Linux scheduler/driver teardown."
+  },
+  "verification": {
+    "final_candidate": {
+      "status": "PASS_FINAL_CANDIDATE_READONLY_CHECKS",
+      "hashes": {
+        "runner.py": "923c05137561bc0571b64975c809ee67b2fce192d7165299c00c63e1de6ceb76",
+        "build_runtime.py": "d022edd5cb18362467010dd9311c596e43b8e0fb66e7b723fdff4f7196e04394"
+      },
+      "checks": [
+        "owned_process_group_TERM_KILL_after_timeout_and_leader_exit",
+        "180_second_budget_boundary_and_nonfinite_rejection",
+        "real_cell12_prefix_builds_16_member_plan_with_original_fixed_parameters",
+        "comp_DATA_DIR_AST_restoration_and_compile",
+        "source_bytes_unchanged_at_close"
+      ],
+      "models_loaded": false,
+      "gpu_operations": false,
+      "files_written": false
+    },
+    "panel_reader": {
+      "panel_sha256": "8eeec7f64e924f0fd79dca57d324d42d269f400bdfbfff76d60b4c168d9ae6f2",
+      "rows": 729,
+      "columns": [
+        "id",
+        "text"
+      ],
+      "unique_ids": true,
+      "main_default_reader_ids_equal": true,
+      "main_default_reader_texts_equal": true,
+      "comp_default_reader_texts_equal": true,
+      "truth_or_prompt_columns_present": false,
+      "local_official_train_sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707"
+    },
+    "initial_build_ast": {
+      "status": "PASS_READONLY_BUILD_AST",
+      "build_runtime_sha256": "92dbba727202ae16bc3e3b6eecfdd9548d50ecb5bc534cc5e008461e2712ca1d",
+      "comp_ast_restoration_checked": true,
+      "setup_and_model_args_compile": true,
+      "generated_sources_executed": false,
+      "files_written": false,
+      "source_receipt": {
+        "cell2_sha256": "b662e3d7211d8a239bf190c36e299e4bbd4120116e6365d3ca083dba314c352f",
+        "cell12_sha256": "8e8c4a931e247d316bd7c8c1b1837185ed8e4b50b08af25b336cb75201ca4967",
+        "model_command_ast_sha256": "1933bb67515ec2cd132e69d2970e6dc4ff39f84ab66cbb2edbe16ff529b3203b"
+      }
+    },
+    "initial_guard_probe": {
+      "runner_snapshot_sha256": "86c74b91e21b7ac251556ad0f0d9a6629740bc095dabde3322d4226184792811",
+      "source_unchanged_during_tests": true,
+      "model_or_gpu_calls": false,
+      "filesystem_writes": false,
+      "checks": [
+        {
+          "name": "stop_group_after_leader_exit",
+          "term_and_kill_entire_owned_group": true
+        },
+        {
+          "name": "stop_group_after_timeout",
+          "term_and_kill_entire_owned_group": true
+        },
+        {
+          "name": "own_group_rejected",
+          "passed": true
+        },
+        {
+          "name": "plan_scope_panel_budget_omission_mutations_rejected",
+          "cases": 5,
+          "passed": true
+        }
+      ],
+      "limits": [
+        "Process-group calls were mocked on Windows; this does not prove Linux OS-level termination behavior."
+      ]
+    },
+    "author_reported_checks": "Runtime author separately reported12 no-GPU checks including a real exit7 child/log, receipt failures, budget boundary and finalization checks. This report distinguishes that author evidence from the reviewer's own probes.",
+    "models_or_gpu_executed_by_reviewer": false,
+    "remote_execution_started_by_reviewer": false,
+    "frozen_exp028_files_changed_by_reviewer": false
+  },
+  "remaining_acceptance_conditions": [
+    "Complete and verify the actual CPU preflight result, then bind its manifest hash into the real payload.",
+    "Root must read back actual saved GPU attachment versions, privacy, offline flags and image, rather than treating requested metadata as proof.",
+    "The runtime must pass its real import/Parquet/T4 preflight and actual checkpoint loading; those remain unrun in this review.",
+    "Only the actual terminal outputs, component receipts, archived bytes, complete coverage and replay can establish capture completion."
+  ]
+}

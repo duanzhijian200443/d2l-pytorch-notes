@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0144",
+  "prompt": "Make this paragraph easier for a general audience to understand: 'The room booking procedure comprises submission of an intended usage interval, subsequent availability verification, and issuance of an acknowledgement. An acknowledgement of receipt does not constitute approval of the requested interval.' Aim for about 80 words.",
+  "category": "rewrite_original_material",
+  "target_words": 80,
+  "prompt_group": "cp0144",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "d03dc96e9d290f105a821decd800ef80d6c51ddf6755e6920d3050ab929dea5f",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:23:47.641675+00:00",
+  "ended_at": "2026-11-01T10:24:11.884113+00:00",
+  "prompt_sha256": "9a5ecba632d1563c0e9e29e24c2051b9bb468621056648f767b6ede79ec6bc1c",
+  "text": "To book a room, send a request with the date and the start and end times you would like to use it. Your request will then be checked to see whether the room is available during that time. You will also receive a message confirming that your request has been received. This message does not mean your booking has been approved. Wait for a separate confirmation that the room is booked before making plans that depend on using it.",
+  "text_sha256": "bf16e3b9a87caa35f9976e740c65e8ef4f6591d82a91315806e0bf9fe4471683",
+  "raw_final_sha256": "bf16e3b9a87caa35f9976e740c65e8ef4f6591d82a91315806e0bf9fe4471683",
+  "word_count": 79,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4261,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 89,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\d03dc96e9d290f105a821decd800ef80d6c51ddf6755e6920d3050ab929dea5f",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

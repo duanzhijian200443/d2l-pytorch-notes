@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0034",
+  "prompt": "How can a lake freeze at its surface while water beneath the ice remains liquid? Explain why this matters for aquatic life. A response of around 200 words is enough.",
+  "category": "science_explanation",
+  "target_words": 200,
+  "prompt_group": "cp0034",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "ec4e276c61e1f38ba23c899bbced3a64f96c87d1502d2791137e0132c8502dea",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:51:35.075365+00:00",
+  "ended_at": "2026-11-01T08:51:50.271962+00:00",
+  "prompt_sha256": "277f9da2788781f050b1877bdf63f950a97bb17b9fe54c64ac2443b06259c686",
+  "text": "A lake can freeze at the surface because water behaves unusually as it cools. Most substances become denser as they get colder, but water is densest at about 4°C. In autumn, cooler surface water sinks, mixing the lake until much of it reaches roughly 4°C. When the surface cools below 4°C, it becomes less dense and stays on top. It eventually freezes, forming a layer of ice.\n\nIce is less dense than liquid water, so it floats. It also acts as an insulator, slowing the loss of heat from the water below. As a result, the deeper water usually remains liquid, often near 4°C, even when the air temperature is far below freezing. The lake would freeze solid only under unusually severe or prolonged conditions.\n\nThis is crucial for aquatic life. Fish, amphibians, aquatic plants, and microorganisms can survive in the liquid water beneath the ice throughout winter. They continue respiring and, where light penetrates, some organisms continue photosynthesis. The ice also protects the water from extreme temperature changes and provides a relatively stable habitat. Without this insulating surface layer, lakes in cold climates could freeze from the bottom upward and become solid, making survival impossible for most aquatic organisms.",
+  "text_sha256": "58339de7b1fb45a3b23c93fa2377c343b56fdbd1a3515ce8538bf119c7f28521",
+  "raw_final_sha256": "58339de7b1fb45a3b23c93fa2377c343b56fdbd1a3515ce8538bf119c7f28521",
+  "word_count": 200,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2592,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 279,
+      "reasoning_output_tokens": 25
+    }
+  ],
+  "attempt_path": "collection\\attempts\\ec4e276c61e1f38ba23c899bbced3a64f96c87d1502d2791137e0132c8502dea",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

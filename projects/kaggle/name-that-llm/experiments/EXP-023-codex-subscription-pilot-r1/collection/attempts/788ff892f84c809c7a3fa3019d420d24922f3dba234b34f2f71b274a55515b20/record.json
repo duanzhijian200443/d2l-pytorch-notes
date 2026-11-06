@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0072",
+  "prompt": "How can a manager ask for useful feedback on a draft plan without inviting an unstructured debate about every detail? A response of around 120 words is enough.",
+  "category": "business_decision",
+  "target_words": 120,
+  "prompt_group": "cp0072",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "788ff892f84c809c7a3fa3019d420d24922f3dba234b34f2f71b274a55515b20",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:15:47.383751+00:00",
+  "ended_at": "2026-11-01T09:16:00.064870+00:00",
+  "prompt_sha256": "e41ef9763a9cfa476eed292955861ce7d57cf01b4811f071d4732889814b954a",
+  "text": "Ask for feedback on the plan’s **goals, major assumptions, risks, and trade-offs**, rather than every detail. Share the decisions that are already made and identify the few areas where input could still change the outcome. For example:\n\n> “I’m looking for feedback on whether this plan achieves the main objective, what significant risks or dependencies I may have missed, and whether the proposed priorities are sound. Please focus on issues that would materially affect the outcome, not wording or minor implementation choices. If you suggest a change, explain the problem it addresses and, where possible, propose an alternative. I’ll collect comments until Friday, then decide what to incorporate and document the rationale.”\n\nThis creates clear boundaries, makes feedback actionable, and preserves the manager’s responsibility for the final decision.",
+  "text_sha256": "dac375310ce43da54debbf4655871720d0ed601a8f7a2df9ae7544d0f5ef6cf3",
+  "raw_final_sha256": "dac375310ce43da54debbf4655871720d0ed601a8f7a2df9ae7544d0f5ef6cf3",
+  "word_count": 128,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2590,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 161,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\788ff892f84c809c7a3fa3019d420d24922f3dba234b34f2f71b274a55515b20",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

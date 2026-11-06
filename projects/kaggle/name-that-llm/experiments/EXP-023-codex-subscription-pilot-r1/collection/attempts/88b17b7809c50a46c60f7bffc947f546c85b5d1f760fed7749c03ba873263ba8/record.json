@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0092",
+  "prompt": "Discuss the difference between explaining a historical person's choices in context and excusing every consequence of those choices. Aim for about 120 words.",
+  "category": "humanities_history",
+  "target_words": 120,
+  "prompt_group": "cp0092",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "88b17b7809c50a46c60f7bffc947f546c85b5d1f760fed7749c03ba873263ba8",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:28:49.911190+00:00",
+  "ended_at": "2026-11-01T09:29:09.719499+00:00",
+  "prompt_sha256": "63275590a536482daa8a4ff43dca0342a6e1d701b9feaad89d3c8f79cebe4136",
+  "text": "Explaining a historical figure’s choices means examining the pressures, beliefs, options, and norms that shaped their decisions. Context can show why an action seemed reasonable, necessary, or imaginable at the time—even when it now appears clearly wrong. It guards against simplistic judgments and helps us understand how people and institutions operate.\n\nExcusing consequences is different. It treats context as a moral eraser, minimizing harm or denying responsibility for choices that injured others. Historical actors may have faced real constraints, but constraints do not make every action inevitable or harmless. We can acknowledge complexity while still naming cruelty, injustice, or failure. Good history holds both ideas together: people acted within their world, and their actions had consequences for real people.",
+  "text_sha256": "9084f72e21c967bdb2f3ee1e976021d97c09bc86daf9edea1811cec30fa06a58",
+  "raw_final_sha256": "9084f72e21c967bdb2f3ee1e976021d97c09bc86daf9edea1811cec30fa06a58",
+  "word_count": 119,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4120,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 147,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\88b17b7809c50a46c60f7bffc947f546c85b5d1f760fed7749c03ba873263ba8",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "observed_at_utc": "2026-11-01T10:59:47.866Z",
+  "v3_status": {
+    "status": "ERROR",
+    "failure_message": ""
+  },
+  "quota": {
+    "quota_refresh_time": "2026-11-07T00:00:00Z",
+    "gpu_quota": {
+      "time_used": "1345.327s",
+      "time_reserved": "0s",
+      "total_time_allowed": "108000s",
+      "minimum_time_allowed": "108000s",
+      "has_ever_run": true
+    },
+    "tpu_quota": {
+      "time_used": "0s",
+      "time_reserved": "0s",
+      "total_time_allowed": "72000s",
+      "minimum_time_allowed": "72000s"
+    }
+  }
+}

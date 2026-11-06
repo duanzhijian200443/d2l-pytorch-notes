@@ -1,0 +1,5 @@
+A map application usually combines **local storage, caching, and on-demand downloading**. Basic information—such as major roads, place names, and recently viewed areas—may be stored on the device so the map opens quickly and still works with a weak connection. Users can often download selected regions for fully offline navigation.
+
+To limit storage use, apps divide maps into small geographic **tiles** and save only the tiles needed at each zoom level. Vector tiles are especially efficient because they store road and boundary data rather than complete images. Frequently used or recently downloaded tiles remain in a cache, while older ones may be deleted automatically.
+
+During use, the app downloads missing tiles and rapidly changing information, such as traffic conditions, road closures, transit times, and business details. It may also preload tiles along a planned route. The balance depends on available storage, network speed, data limits, battery use, and how current the information must be. This hybrid approach provides fast, reliable maps without requiring the entire world map to be stored locally.

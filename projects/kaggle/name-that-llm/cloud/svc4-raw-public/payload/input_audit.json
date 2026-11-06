@@ -1,0 +1,441 @@
+{
+  "schema_version": 1,
+  "observed_at_utc": "2026-11-01T07:37:44.721565+00:00",
+  "status": "PASS_FOR_SCOPED_DEVELOPMENT",
+  "scope": "Local read-only-input preparation for EXP-013/014/015/016; no model fit or remote action",
+  "source_ref": "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+  "source_version": 6,
+  "source_selection_file": "data/public-pools/prvsiyan/prvsiyans-extended-name-that-llm-dataset/v6/passages.csv",
+  "sources": [
+    {
+      "path": "train.csv",
+      "bytes": 2139418,
+      "sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707"
+    },
+    {
+      "path": "test.csv",
+      "bytes": 2218,
+      "sha256": "4545aa3a3459f4c0724f97ad5bd06c4caa3506bdfea5fab905e8203184fc0c57"
+    },
+    {
+      "path": "validation/prompt-group-v1/manifest.json",
+      "bytes": 1060,
+      "sha256": "2b05e2bde656d5e773e8d512cba607859e9b9bfe7d9d7dfe9deb00907b4d93c8"
+    },
+    {
+      "path": "validation/prompt-group-v1/folds.csv",
+      "bytes": 267236,
+      "sha256": "e8ba1e3712852168dc57f56960d4f3e00be612d639ade8a7dcb0f0d8335ce551"
+    },
+    {
+      "path": "experiments/EXP-008-public-pool-audit/download-manifest.json",
+      "bytes": 8788,
+      "sha256": "5f2da21401efada94e636fd2fb843013c7eff6ae1ed2d07a5a2771c3ed071cfa"
+    },
+    {
+      "path": "experiments/EXP-008-public-pool-audit/outputs/row_flags.parquet",
+      "bytes": 17167871,
+      "sha256": "dd0ef1c8b006f90fb5f6c493b0b5d4322563af61105d590eac10dcadaf26e6f8"
+    },
+    {
+      "path": "experiments/EXP-009-baseline-data-lineage/outputs/main_svc_rows.parquet",
+      "bytes": 8947400,
+      "sha256": "0a9eb07418b131a4da0da1d8898fa253e16090aac8c689a4f128a0626fa29643"
+    },
+    {
+      "path": "experiments/EXP-008-public-pool-audit/audit.py",
+      "bytes": 25581,
+      "sha256": "d4e88a90995b74ad0d518d8bdb476b6db62a7b6d963ac6664fd5ee4bc58c291e"
+    },
+    {
+      "path": "data/public-pools/seyitkaangunes/ntl-extra-api-passages/v2/README.md",
+      "bytes": 7249,
+      "sha256": "b83824c09eb78ff807764cf876e2b52a90d67b0aefebc5e338f85557aa76eb45",
+      "dataset_ref": "seyitkaangunes/ntl-extra-api-passages",
+      "dataset_version": 2
+    },
+    {
+      "path": "data/public-pools/seyitkaangunes/ntl-extra-api-passages/v2/ntl_extra_passages_claude.csv",
+      "bytes": 4387162,
+      "sha256": "710dbe484fda23f0dee9b67c20e5bef9376bf754af05584ad142bc17845cd4b9",
+      "dataset_ref": "seyitkaangunes/ntl-extra-api-passages",
+      "dataset_version": 2
+    },
+    {
+      "path": "data/public-pools/seyitkaangunes/ntl-extra-api-passages/v2/prompts.csv",
+      "bytes": 266160,
+      "sha256": "25df24d4e4ca0f8242bd365cc9ea8039f0056f3eae78fa3dd186bbae5a608395",
+      "dataset_ref": "seyitkaangunes/ntl-extra-api-passages",
+      "dataset_version": 2
+    },
+    {
+      "path": "data/public-pools/abdullah1afify/ntl-generations/v2/README.md",
+      "bytes": 2011,
+      "sha256": "14697a7a068fcaa260aa96ea5418624b2c4a19a6bcae89a7e8e21630960344b8",
+      "dataset_ref": "abdullah1afify/ntl-generations",
+      "dataset_version": 2
+    },
+    {
+      "path": "data/public-pools/abdullah1afify/ntl-generations/v2/make_tasks.py",
+      "bytes": 6160,
+      "sha256": "35ee0cf1a3c3ed6670c704b1d61d132bbfeb0d6f17a93b53bffb3644243419f6",
+      "dataset_ref": "abdullah1afify/ntl-generations",
+      "dataset_version": 2
+    },
+    {
+      "path": "data/public-pools/abdullah1afify/ntl-generations/v2/ntl_generations.csv",
+      "bytes": 870886,
+      "sha256": "83003454e3cc0368cae8b05bca243daf036b64a42a792c3f7bfd5fd91b3db378",
+      "dataset_ref": "abdullah1afify/ntl-generations",
+      "dataset_version": 2
+    },
+    {
+      "path": "data/public-pools/abdullah1afify/ntl-generations/v2/prompts_used.csv",
+      "bytes": 32000,
+      "sha256": "b42003b1068ba24de1accf33265e208e1a492d1ca8c81eb581d256b54bdefdbc",
+      "dataset_ref": "abdullah1afify/ntl-generations",
+      "dataset_version": 2
+    },
+    {
+      "path": "data/public-pools/dophuchung/ntl-proxy-generations/v1/README.md",
+      "bytes": 2556,
+      "sha256": "592c2d035f7a9fcfad1b127fed01550b9f9fe7f4ab14024d6663bd8fe398fcf7",
+      "dataset_ref": "dophuchung/ntl-proxy-generations",
+      "dataset_version": 1
+    },
+    {
+      "path": "data/public-pools/dophuchung/ntl-proxy-generations/v1/ntl_proxy_generations.csv",
+      "bytes": 889391,
+      "sha256": "593708f7fd55636bd270824c0e129447b2a5808b1e224bb3dbf43bf2383fdf9c",
+      "dataset_ref": "dophuchung/ntl-proxy-generations",
+      "dataset_version": 1
+    },
+    {
+      "path": "data/public-pools/dhruvtibarewal/nlm-matched-clean/v3/nlm_matched_clean.parquet",
+      "bytes": 11146946,
+      "sha256": "000f8d541f7c4c5942a18c4fcf557aa01756882931307414cf2530ac21980482",
+      "dataset_ref": "dhruvtibarewal/nlm-matched-clean",
+      "dataset_version": 3
+    },
+    {
+      "path": "data/public-pools/dhruvtibarewal/nlm-matched-clean/v3/nlm_pool_v2.parquet",
+      "bytes": 17484290,
+      "sha256": "064ecd0dfa43ac9b0d4a7be9d89264333698ff727a5926f44856de2f7a92350d",
+      "dataset_ref": "dhruvtibarewal/nlm-matched-clean",
+      "dataset_version": 3
+    },
+    {
+      "path": "data/public-pools/dhruvtibarewal/nlm-matched-clean/v3/nlm_pool_v5.parquet",
+      "bytes": 54745036,
+      "sha256": "040afb3609d7f6586d57c89ddb42d9bf4b58cc26426104b57390bdf6312b4650",
+      "dataset_ref": "dhruvtibarewal/nlm-matched-clean",
+      "dataset_version": 3
+    },
+    {
+      "path": "data/public-pools/lucasboesen/ntl-free-proxy-generations/v7/README.md",
+      "bytes": 4718,
+      "sha256": "141deba51e17556fb943cc4e6d3e8a16b7aefad1e5055e1304d03dabd08ff8b2",
+      "dataset_ref": "lucasboesen/ntl-free-proxy-generations",
+      "dataset_version": 7
+    },
+    {
+      "path": "data/public-pools/lucasboesen/ntl-free-proxy-generations/v7/gen_passages.csv",
+      "bytes": 3835894,
+      "sha256": "d037d212e17a7e98465f9c606f4437225fb221939a5f51b0f8150d15c07c68a5",
+      "dataset_ref": "lucasboesen/ntl-free-proxy-generations",
+      "dataset_version": 7
+    },
+    {
+      "path": "data/public-pools/prvsiyan/prvsiyans-extended-name-that-llm-dataset/v6/CHANGELOG.md",
+      "bytes": 4835,
+      "sha256": "271980b8738f7966ceac6ed1f92edeaa66730264365c67387f119105f32afdf7",
+      "dataset_ref": "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+      "dataset_version": 6
+    },
+    {
+      "path": "data/public-pools/prvsiyan/prvsiyans-extended-name-that-llm-dataset/v6/README.md",
+      "bytes": 33109,
+      "sha256": "4ccfb84c9ec871afec5e99dbc6d03d9b183e4ed12c2032a813bfd1017551ccbd",
+      "dataset_ref": "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+      "dataset_version": 6
+    },
+    {
+      "path": "data/public-pools/prvsiyan/prvsiyans-extended-name-that-llm-dataset/v6/blocks.csv",
+      "bytes": 39560,
+      "sha256": "f2005971375d638229af331a0358ca4cf7b3bc31343ea735ce57c8aaf6167154",
+      "dataset_ref": "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+      "dataset_version": 6
+    },
+    {
+      "path": "data/public-pools/prvsiyan/prvsiyans-extended-name-that-llm-dataset/v6/cover_1200x675.png",
+      "bytes": 111668,
+      "sha256": "3ff2643183a5b2542f26b210471d18e17053e2c099e262ab10bad9569e2aebcc",
+      "dataset_ref": "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+      "dataset_version": 6
+    },
+    {
+      "path": "data/public-pools/prvsiyan/prvsiyans-extended-name-that-llm-dataset/v6/label_summary.csv",
+      "bytes": 11376,
+      "sha256": "db6d7ff97c66e3dad4a6aa624d59a53c4303fd23dd4863deaa355e88ace8365b",
+      "dataset_ref": "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+      "dataset_version": 6
+    },
+    {
+      "path": "data/public-pools/prvsiyan/prvsiyans-extended-name-that-llm-dataset/v6/make_cover.py",
+      "bytes": 4877,
+      "sha256": "076e281f9b5df0378e13136ddda197ec28ffe73453eb4c62eef0c61a8bdaa946",
+      "dataset_ref": "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+      "dataset_version": 6
+    },
+    {
+      "path": "data/public-pools/prvsiyan/prvsiyans-extended-name-that-llm-dataset/v6/passages.csv",
+      "bytes": 14171601,
+      "sha256": "2490c3b12f1f063a53abcbc79e741e0a0f62bbe4dc34df0871677ffe8d75b67e",
+      "dataset_ref": "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+      "dataset_version": 6
+    },
+    {
+      "path": "data/public-pools/prvsiyan/prvsiyans-extended-name-that-llm-dataset/v6/passages_clean.csv",
+      "bytes": 7314552,
+      "sha256": "6ec42c0bb360d6eaf7ed657b943881bd988358eee49b06abca88b0e6c101d567",
+      "dataset_ref": "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+      "dataset_version": 6
+    },
+    {
+      "path": "data/public-pools/prvsiyan/prvsiyans-extended-name-that-llm-dataset/v6/prompts.csv",
+      "bytes": 377389,
+      "sha256": "58dabf5d31bb3fd76ff49dda3c4603970aece7553a5afe78d2e2dc4463b98acd",
+      "dataset_ref": "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+      "dataset_version": 6
+    },
+    {
+      "path": "data/public-pools/prvsiyan/prvsiyans-extended-name-that-llm-dataset/v6/provenance.jsonl",
+      "bytes": 75148294,
+      "sha256": "55a8ac476f3bdea19b4a0625e8b6bc86e9cb0ec9ce38273dd26c8545ffaa5104",
+      "dataset_ref": "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+      "dataset_version": 6
+    },
+    {
+      "path": "data/public-pools/prvsiyan/prvsiyans-extended-name-that-llm-dataset/v6/provenance_summary.json",
+      "bytes": 22621,
+      "sha256": "0b0a3640d3ca3616c0befa9a29889a243e12192cf842c7ad626febc30b4ae0b3",
+      "dataset_ref": "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+      "dataset_version": 6
+    },
+    {
+      "path": "data/public-pools/prvsiyan/prvsiyans-extended-name-that-llm-dataset/v6/starter_notebook.ipynb",
+      "bytes": 8448,
+      "sha256": "006038067e3ce1fd0446ce75b4b7f8d486728fdc3f3fe36431c2ea689d1b4945",
+      "dataset_ref": "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+      "dataset_version": 6
+    },
+    {
+      "path": "data/public-pools/prvsiyan/prvsiyans-extended-name-that-llm-dataset/v6/train_vs_dataset_stats.csv",
+      "bytes": 4376,
+      "sha256": "4e94fc70cd5675968dd6a40f2f6aa30d19e58652440be0e93b10441d2a3b67a8",
+      "dataset_ref": "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+      "dataset_version": 6
+    },
+    {
+      "path": "cloud/svc4-raw-public/prepare_inputs.py",
+      "bytes": 29209,
+      "sha256": "7f36e7aa306e2d72a56019c22928731cec00b727106e1b16d633c968dccb852b",
+      "role": "preparation code"
+    }
+  ],
+  "official": {
+    "rows": 2699,
+    "prompts": 150,
+    "labels": [
+      "claude-fable-5",
+      "claude-opus-4-6",
+      "claude-opus-4-8",
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "gemini-3.1-pro-preview",
+      "gemini-3.6-flash",
+      "gemini-3.7-flash",
+      "gemini-3.8-flash",
+      "glm-5.3",
+      "glm-5.3-flash",
+      "gpt-5.5",
+      "gpt-5.6-luna",
+      "gpt-5.6-sol",
+      "gpt-5.6-terra",
+      "gpt-6-astra",
+      "kimi-k3",
+      "qwen3.8-max"
+    ],
+    "test_example_rows": 3,
+    "split_id": "prompt-group-v1",
+    "fold_rows": {
+      "0": 540,
+      "1": 540,
+      "2": 540,
+      "3": 540,
+      "4": 539
+    },
+    "fold_prompts": {
+      "0": 30,
+      "1": 30,
+      "2": 30,
+      "3": 30,
+      "4": 30
+    },
+    "ordered_id_prompt_model_text_sha_alignment": true,
+    "prompt_disjoint_folds": true
+  },
+  "public": {
+    "selection": "passages.csv split == new; preserve original row order and exact text; no row filtering beyond split selection",
+    "raw_source_rows": 9290,
+    "selected_rows": 5400,
+    "prompts": 300,
+    "classes": 18,
+    "rows_per_prompt": 18,
+    "rows_per_class": 300,
+    "class_counts": {
+      "claude-fable-5": 300,
+      "claude-opus-4-6": 300,
+      "claude-opus-4-8": 300,
+      "claude-opus-5": 300,
+      "claude-sonnet-5": 300,
+      "gemini-3.1-pro-preview": 300,
+      "gemini-3.6-flash": 300,
+      "gemini-3.7-flash": 300,
+      "gemini-3.8-flash": 300,
+      "glm-5.3": 300,
+      "glm-5.3-flash": 300,
+      "gpt-5.5": 300,
+      "gpt-5.6-luna": 300,
+      "gpt-5.6-sol": 300,
+      "gpt-5.6-terra": 300,
+      "gpt-6-astra": 300,
+      "kimi-k3": 300,
+      "qwen3.8-max": 300
+    },
+    "unique_row_id_id_call_id_prompt_model_and_text": true,
+    "prompt_template_and_sent_text_match_rows": 5400,
+    "source_prompt_id_nonempty_rows": 0,
+    "new_vs_reconstructed_official_prompt_exact_overlap": 0,
+    "raw_response_words_min": 36,
+    "raw_response_words_max": 294,
+    "outside_authors_40_250_word_range_retained": 70,
+    "author_funnel_pass_retained": 5326,
+    "author_funnel_fail_retained": 74,
+    "author_funnel_fail_step_counts": {
+      "40-250 whitespace words": 70,
+      "no markdown": 4
+    },
+    "clean_new_rows_for_diagnostic_only": 4158,
+    "clean_or_funnel_used_for_selection": false,
+    "punctuation_length_markdown_filter_used": false,
+    "provider_route_counts": {
+      "anthropic": 1500,
+      "google": 947,
+      "kaggle_proxy": 730,
+      "openai": 975,
+      "openrouter": 1248
+    }
+  },
+  "provenance": {
+    "unique_log_calls": 9291,
+    "selected_calls_checked": 5400,
+    "checks_failed": 0,
+    "request_prompt_exact_match_rows": 5400,
+    "response_and_envelope_text_exact_match_rows": 5400,
+    "request_response_model_identity_match_rows": 5400,
+    "join_rule": "CSV split=new selection joined to logs by call_id, not log.split filtering",
+    "log_split_new_published_split_counts": {
+      "new": 5401,
+      "new_kimi_nothink": 300,
+      "pilot_range": 170
+    },
+    "limit": "Supplied-record internal consistency; no independent provider-weight authentication"
+  },
+  "risks": {
+    "status": "PASS_KNOWN_CHECKS",
+    "risk_counts": {
+      "blank_text": 0,
+      "unknown_label": 0,
+      "missing_prompt_key": 0,
+      "identity_mismatch": 0,
+      "label_conflict": 0,
+      "provenance_issue": 0,
+      "official_exact_match": 0,
+      "official_high_similarity": 0,
+      "official_shingle_review": 0,
+      "linked_official_prompt": 0,
+      "reported_refusal": 0,
+      "reported_truncated": 0,
+      "error_or_refusal_screen": 0,
+      "hold_for_review": 0,
+      "recomputed_exact_official_train": 0,
+      "recomputed_exact_official_test_example": 0
+    },
+    "row_flags_rows_checked": 5400,
+    "all_selected_rows_preserved": true,
+    "strict_semantic_independence_proven": false
+  },
+  "baseline_overlap": {
+    "normalization": "NFKC + casefold + collapsed whitespace, the EXP-008 audit key",
+    "matched_rows": 5119,
+    "pool_rows": 257,
+    "already_in_main_projection": 5376,
+    "not_in_main_projection": 24,
+    "scope": "EXP-009 frozen-baseline rules on EXP-008 pinned current files, not historical hidden-run membership",
+    "new_data_claim_allowed": false
+  },
+  "original_three_source_recipe_gate": {
+    "status": "NOT_MET",
+    "original_recipe_executed": false,
+    "recipe": "official=1.0 + matched=0.5 + pool=0.35, compare pool 0.175/0.35/0.70",
+    "projection_rows": 123828,
+    "public_projection_rows": 121129,
+    "known_official_prompt_linked_rows_lower_bound": 121,
+    "reasons": [
+      "matched lacks source/prompt fields and the aggregate pool's complete raw lineage has not been recovered",
+      "removing known prompt-linked rows does not undo pool-v5 cleaning based on full official-label punctuation statistics",
+      "the replacement raw/new experiment changes sources and must not inherit the original-recipe or full-ensemble claim"
+    ],
+    "source_evidence": [
+      "experiments/EXP-008-public-pool-audit/report.md",
+      "experiments/EXP-009-baseline-data-lineage/report.md"
+    ]
+  },
+  "limitations": [
+    "The selected raw/new passages avoid the aggregate pool's label-conditioned punctuation cleaning, but their generation protocol was informed by official train data.",
+    "The pinned prvs README lines 38-39 say target lengths were sampled from the official train word-count distribution and the protocol was adjusted using label/length comparisons with official train. The generator source is not included, so further upstream selection cannot be ruled out independently.",
+    "Request/response logs establish internal consistency, not independent authentication of the underlying provider weights; Kaggle proxy rows echo routing slugs.",
+    "Zero known prompt links, exact response overlap and reconstructed-prompt exact overlap do not prove the absence of semantic or undocumented prompt overlap. The host's original prompts are not available here.",
+    "This is fixed-external-data development OOF preparation, not a strictly untouched holdout, full ATLAS20 OOF, or a leaderboard result.",
+    "5376 of the 5400 selected texts already occur in the EXP-009 current-input main-svc4 projection. This is a source/weight diagnostic, not 5400 novel additions to ATLAS20, and that projection is not historical hidden-run membership evidence."
+  ],
+  "environment": {
+    "python": "3.13.13",
+    "pandas": "3.0.6",
+    "pyarrow": "23.0.1"
+  },
+  "outputs": {
+    "public_csv": {
+      "path": "cloud/svc4-raw-public/payload/public.csv",
+      "rows": 5400,
+      "bytes": 4711529,
+      "sha256": "0a1e31a0f8b0ece7ca44a961075252fe275107f3710804971838d714a4e77aaa",
+      "columns": [
+        "row_id",
+        "raw_row_number",
+        "id",
+        "prompt_id",
+        "model",
+        "text",
+        "call_id",
+        "text_sha256"
+      ]
+    },
+    "attribution": {
+      "path": "cloud/svc4-raw-public/payload/attribution.md",
+      "sha256": "e66d75d4142e917acfaf82d1bf4c1406f7d1bc920fadeed3fd3ed162760c4373"
+    }
+  },
+  "output_policy": "Existing different bytes are rejected; same-byte reruns reuse the initial observed_at_utc after full revalidation"
+}

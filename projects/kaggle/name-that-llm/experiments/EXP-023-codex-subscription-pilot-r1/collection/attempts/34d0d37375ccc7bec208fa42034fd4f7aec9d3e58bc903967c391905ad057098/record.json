@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0098",
+  "prompt": "Why do familiar rituals sometimes survive after the original reason for them has been forgotten? Keep your response near 160 words.",
+  "category": "humanities_history",
+  "target_words": 160,
+  "prompt_group": "cp0098",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "34d0d37375ccc7bec208fa42034fd4f7aec9d3e58bc903967c391905ad057098",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:32:51.561655+00:00",
+  "ended_at": "2026-11-01T09:33:16.385163+00:00",
+  "prompt_sha256": "1a7ece84b48e01576bf8eaf43dc1dc2f604da41512ed27f66168db3e12a37957",
+  "text": "Familiar rituals can outlive their original purpose because the reasons people continue them are not necessarily the reasons they began.\n\nA practice that once served a practical need—marking a harvest, protecting food, coordinating work—may gradually become a sign of belonging. People repeat it because “this is what we do,” linking themselves to family, community, or earlier generations. Its historical explanation matters less than its social meaning.\n\nRituals also offer predictability. Repeated gestures, words, and sequences can make uncertain moments feel more manageable, especially around grief, celebration, or major life changes. Even without knowing why a custom exists, participants may value how it makes them feel.\n\nFinally, habits are easier to inherit than explanations. Children learn by copying, and communities often preserve actions more faithfully than accounts of their origins. Those accounts may also change over time.\n\nSo a ritual’s survival need not mean thoughtless repetition: an old practice can acquire new emotional and social purposes after its first purpose disappears.",
+  "text_sha256": "fd980acdbb249575c91c644d2fb59ae1fb8b70b7a73bd15b67a51c12a1a0162f",
+  "raw_final_sha256": "fd980acdbb249575c91c644d2fb59ae1fb8b70b7a73bd15b67a51c12a1a0162f",
+  "word_count": 160,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4231,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 204,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\34d0d37375ccc7bec208fa42034fd4f7aec9d3e58bc903967c391905ad057098",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,11 @@
+Think of the buttons as three equal groups. One group contains the blue buttons. Because there are twice as many red buttons as blue buttons, the red buttons make up two groups of the same size.
+
+That means the eighteen buttons are divided into three equal groups altogether: one blue group and two red groups. To find the number of buttons in each group, divide eighteen by three:
+
+18 ÷ 3 = 6.
+
+The blue buttons fill one group, so there are **6 blue buttons**. The red buttons fill two groups, so there are **12 red buttons**, since 2 × 6 = 12.
+
+You can check the answer against both facts in the question. First, 6 + 12 = 18, so the total is correct. Second, 12 is twice 6, so the red count is twice the blue count.
+
+The key is to divide the total into three equal shares, not two, because the ratio of red to blue is 2:1.

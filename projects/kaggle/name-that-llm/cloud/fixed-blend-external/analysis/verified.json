@@ -1,0 +1,498 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "experiment_id": "EXP-026",
+  "declared_notebook_version": 2,
+  "scope": "external four-covered-class macro recall with 18-way argmax; not 18-class BA, full ATLAS20, or a leaderboard result",
+  "input_directory": "C:\\计算机学习\\深度学习\\projects\\kaggle\\name-that-llm\\cloud\\fixed-blend-external\\outputs-v2\\results",
+  "protocol_sha256": "8cada9716782903f6e799374c8bfc7aa7f6beb6f39c74cf0e1d941cac68faaa2",
+  "verifier_sha256": "3df4388d0d85637bcce596f8466fd17938980f3c65000b302a490a8199fd6d1d",
+  "evaluation_sha256": "72228be3ddaad8feaa1ba232e689537e0cf49ebc72068df4a7e556836f1bdd17",
+  "data_gate_sha256": "8b5d203368ccbefc6c0165e3556187514eb117e7aca6e768c05154768091509a",
+  "local_inputs": {
+    "cloud/fixed-blend-external/payload/CC-BY-4.0.txt": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+    "cloud/fixed-blend-external/payload/CC-BY-SA-3.0.txt": "3f941b3b89cf7b8370ceb83cc76d2120d471b58735d8ca60238a751a48d7f72f",
+    "cloud/fixed-blend-external/payload/attribution.md": "cef18751a1ab0e2ca6eb92964fc18a7d6936a0c681a474d5ed731f02c7495900",
+    "cloud/fixed-blend-external/payload/config.json": "c95fe12d0a287525700805e3a0e90c750ecdd6feec2a0f0be79cd8bb97a53c4a",
+    "cloud/fixed-blend-external/payload/data_gate.json": "8b5d203368ccbefc6c0165e3556187514eb117e7aca6e768c05154768091509a",
+    "cloud/fixed-blend-external/payload/enai-LICENSE.md": "2e59b4158f4f024416630807e7b2d6a8d4ab02616d6b12c6924fca26ec68fa29",
+    "cloud/fixed-blend-external/payload/enai-attribution.json": "e7ff01517c033779765a1e38eaf9a61a106b40a4a8e1414872a381dfa2b18d87",
+    "cloud/fixed-blend-external/payload/evaluation.csv": "72228be3ddaad8feaa1ba232e689537e0cf49ebc72068df4a7e556836f1bdd17",
+    "cloud/fixed-blend-external/payload/guard.py": "eaf2c31758045488eb53ba3f9c7f824c848bfe0a33698fab816d96485f9b6d3b",
+    "cloud/fixed-blend-external/payload/margin_blend.py": "8c4288447de755d9bd160e5646794b2307f56ae00ae11104d062d9697ef5dc83",
+    "cloud/fixed-blend-external/payload/protocol.json": "8cada9716782903f6e799374c8bfc7aa7f6beb6f39c74cf0e1d941cac68faaa2",
+    "cloud/fixed-blend-external/payload/public.csv": "0a1e31a0f8b0ece7ca44a961075252fe275107f3710804971838d714a4e77aaa",
+    "cloud/fixed-blend-external/payload/runner.py": "888b0aa30c0dc982f3efc0f2396e1385b66a66adc82f3f057e6f3675ad85a4ba",
+    "cloud/fixed-blend-external/payload/style_extra.csv": "1e9125fd49b19084842332ede84ea65bc0174ee1bb28c8d48acc8ddbd5e36c0e",
+    "cloud/fixed-blend-external/payload/stylegram_core.py": "caa46bd121164aba891c3d78e662540db9294d653db09f53d02833c1b4ab77ef",
+    "cloud/fixed-blend-external/payload/svc4.py": "80f66aedad27e8017defe31de7f0286c1b54efa5e96ba6e2cb42516a86e73c18",
+    "cloud/svc4-raw-public-r1/payload/public.csv": "0a1e31a0f8b0ece7ca44a961075252fe275107f3710804971838d714a4e77aaa",
+    "experiments/EXP-010-012-stylegram-share/payload/extra.csv": "1e9125fd49b19084842332ede84ea65bc0174ee1bb28c8d48acc8ddbd5e36c0e",
+    "experiments/EXP-026-independent-blend-validation/evaluation.csv": "72228be3ddaad8feaa1ba232e689537e0cf49ebc72068df4a7e556836f1bdd17",
+    "experiments/EXP-026-independent-blend-validation/metrics/data-gate.json": "8b5d203368ccbefc6c0165e3556187514eb117e7aca6e768c05154768091509a",
+    "train.csv": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707"
+  },
+  "result_files": {
+    "component-and-blend-scores.npz": "0a9eb3f5ddd086e70c35c0df998afe365eda99f9ad6e192c0ed859de241a59f4",
+    "confusion.csv": "544c24e5df19678ee3e3d90e8575d212a2ce73bf9cd9658a8e53b178fa4b213d",
+    "environment.json": "7b7dfa6b7686fab73d00fbceb407401193afa6d4fed65bac3ef39d1bb50cc0d0",
+    "features-stylegram.json": "2a8f76eb7058ece423666609a6347587b3edaf3a904c0d38ea029fda39ffe58d",
+    "features-svc4.json": "0d529903bdc3fd9a162c4ed93fdda7f7f5adde88b96aa72a4131088a5b9acba7",
+    "fit-stylegram_centred.json": "4a4d143641662a89c030e0c6cc758c49a3113ae0dcdabe250942d305d222af2b",
+    "fit-stylegram_plain.json": "9e2f9eeaad04a4c95f034be621770614eed246753b799b7c89cc59e9d6f71329",
+    "fit-svc4.json": "06af65aac8c96c77589c509b20a93d7428a790ec6f5e006c83171360fd323176",
+    "input_preflight.json": "ed548082edb341d25fa78ecbab78843ea584e115e291cda4526bcaaed9e28e70",
+    "metrics.json": "f32509ae7e486fe07ad773f94cb5b1eb9ae57834bd7706328eb47d838b71e461",
+    "predictions.csv": "95981f14a491d67809b6c34b7283f95ee331f137aab4cad71195e6df104c4ed9",
+    "result.json": "a2a62fbc561c1206d616929fd04df7a138814c683f16fd63fb311248e9779d23",
+    "stylegram-scores.npz": "89144a50ae018affd37e1ed8ec3d8e0ec41dd5c06f6dcab10cbb9b5750fc0a4f",
+    "training-membership.npz": "69155fb28d8871d889d5180394bebde3f9864d2b044283dcf229b37977092655",
+    "weights-stylegram.json": "78575b049bf13097938e137a008cc47dd99a37e7ad4d3f71fc3bf1e54478274e",
+    "weights-stylegram.npz": "a85f955f8664e6cb5e854c51fb407c071c5a40a56c395233b99c7212121a23b3",
+    "weights-svc4.json": "eb9f9536e55a80fa60fdbbb4849cadf4ac58ad1acd9dd0d44ce6a86ba0aa5a5b",
+    "weights-svc4.npz": "b285fcf27ca1341796054a8b3adbfa03aaf489d8a8ff598b503108e88d3e4c25",
+    ".run.lock": "e52c4aef5879fbc8790b189f44229b641a55c8600bdfcfd23906f301f7ef5d33",
+    "artifacts.json": "2fd3d42c34ab7c8d4655e281e7769937c4da58266800c844c3b61dd662d54691",
+    "guard.json": "01e9793905e2c8d57b9aa094860e22b7484f5ac2389adc027239f5574b70a86e",
+    "state.json": "e83d93ed48ba316ad48b8d95f5f03319faa1fcfcbec616d8348f988d10382872",
+    "training.log": "ac6b75cadb2423b47a627d798213c28095085891d3351bd4987e3af86534109a"
+  },
+  "stable_artifacts_verified": 18,
+  "trained_svms": 3,
+  "convergence_warnings": 0,
+  "evaluation_rows": 5200,
+  "evaluation_groups": 1300,
+  "evaluation_labels": [
+    "gpt-5.6-luna",
+    "gpt-5.6-sol",
+    "gpt-5.6-terra",
+    "gpt-6-astra"
+  ],
+  "class_rows": {
+    "gpt-5.6-luna": 1300,
+    "gpt-5.6-sol": 1300,
+    "gpt-5.6-terra": 1300,
+    "gpt-6-astra": 1300
+  },
+  "score_columns": 18,
+  "prediction_class_mask_applied": false,
+  "alpha": 0.1,
+  "weight_checks": [
+    {
+      "kind": "stylegram",
+      "rows": 12772,
+      "sample_weight_dtype": "float64",
+      "verified": true
+    },
+    {
+      "kind": "svc4",
+      "rows": 8099,
+      "sample_weight_dtype": "float32",
+      "verified": true
+    }
+  ],
+  "fit_records": [
+    {
+      "member": "stylegram_plain",
+      "rows": 12772,
+      "features": 477022,
+      "classes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "labels": [
+        "claude-fable-5",
+        "claude-opus-4-6",
+        "claude-opus-4-8",
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "gemini-3.1-pro-preview",
+        "gemini-3.6-flash",
+        "gemini-3.7-flash",
+        "gemini-3.8-flash",
+        "glm-5.3",
+        "glm-5.3-flash",
+        "gpt-5.5",
+        "gpt-5.6-luna",
+        "gpt-5.6-sol",
+        "gpt-5.6-terra",
+        "gpt-6-astra",
+        "kimi-k3",
+        "qwen3.8-max"
+      ],
+      "n_iter": 15,
+      "convergence_warnings": 0,
+      "fit_seconds": 27.500343971999996,
+      "parameters": {
+        "C": 0.5,
+        "class_weight": null,
+        "dual": true,
+        "fit_intercept": true,
+        "intercept_scaling": 1,
+        "loss": "squared_hinge",
+        "max_iter": 4000,
+        "multi_class": "ovr",
+        "penalty": "l2",
+        "random_state": 42,
+        "tol": 0.0001,
+        "verbose": 0
+      },
+      "rss_bytes_after_fit": 3107635200,
+      "models_saved": false
+    },
+    {
+      "member": "stylegram_centred",
+      "rows": 12772,
+      "features": 477022,
+      "classes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "labels": [
+        "claude-fable-5",
+        "claude-opus-4-6",
+        "claude-opus-4-8",
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "gemini-3.1-pro-preview",
+        "gemini-3.6-flash",
+        "gemini-3.7-flash",
+        "gemini-3.8-flash",
+        "glm-5.3",
+        "glm-5.3-flash",
+        "gpt-5.5",
+        "gpt-5.6-luna",
+        "gpt-5.6-sol",
+        "gpt-5.6-terra",
+        "gpt-6-astra",
+        "kimi-k3",
+        "qwen3.8-max"
+      ],
+      "n_iter": 13,
+      "convergence_warnings": 0,
+      "fit_seconds": 164.72308511799997,
+      "parameters": {
+        "C": 0.5,
+        "class_weight": null,
+        "dual": true,
+        "fit_intercept": true,
+        "intercept_scaling": 1,
+        "loss": "squared_hinge",
+        "max_iter": 4000,
+        "multi_class": "ovr",
+        "penalty": "l2",
+        "random_state": 42,
+        "tol": 0.0001,
+        "verbose": 0
+      },
+      "rss_bytes_after_fit": 3176329216,
+      "models_saved": false
+    },
+    {
+      "member": "svc4",
+      "rows": 8099,
+      "features": 422099,
+      "classes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "labels": [
+        "claude-fable-5",
+        "claude-opus-4-6",
+        "claude-opus-4-8",
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "gemini-3.1-pro-preview",
+        "gemini-3.6-flash",
+        "gemini-3.7-flash",
+        "gemini-3.8-flash",
+        "glm-5.3",
+        "glm-5.3-flash",
+        "gpt-5.5",
+        "gpt-5.6-luna",
+        "gpt-5.6-sol",
+        "gpt-5.6-terra",
+        "gpt-6-astra",
+        "kimi-k3",
+        "qwen3.8-max"
+      ],
+      "n_iter": 20,
+      "convergence_warnings": 0,
+      "fit_seconds": 21.62116766500003,
+      "parameters": {
+        "C": 0.5,
+        "class_weight": "balanced",
+        "dual": "auto",
+        "fit_intercept": true,
+        "intercept_scaling": 1,
+        "loss": "squared_hinge",
+        "max_iter": 5000,
+        "multi_class": "ovr",
+        "penalty": "l2",
+        "random_state": 42,
+        "tol": 0.0001,
+        "verbose": 0
+      },
+      "rss_bytes_after_fit": 774811648,
+      "models_saved": false
+    }
+  ],
+  "runtime_versions": {
+    "numpy": "2.1.3",
+    "pandas": "2.3.3",
+    "scipy": "1.16.3",
+    "sklearn": "1.6.1"
+  },
+  "analysis_versions": {
+    "python": "3.13.13",
+    "numpy": "2.4.4",
+    "pandas": "3.0.6"
+  },
+  "budget": {
+    "runner_seconds": 386.083316783,
+    "work_limit_seconds": 3300,
+    "guard_seconds": 389.755681086,
+    "platform_limit_seconds": 3600,
+    "peak_rss_bytes": 5958111232,
+    "rss_limit_bytes": 12884901888,
+    "comparison_tolerance_seconds": 1e-06,
+    "tolerance_scope": "floating-point rounding only, no execution grace"
+  },
+  "stylegram_route": {
+    "inferred_groups": 640,
+    "centred_rows": 3659,
+    "plain_rows": 1541,
+    "eligible_group_size_range": [
+      2,
+      18
+    ],
+    "plain_fallback_exact_match": true
+  },
+  "maximum_independent_blend_absolute_error": 0.0,
+  "recomputed_metrics": {
+    "stylegram": {
+      "metric": "covered_label_macro_recall",
+      "score_columns": 18,
+      "covered_labels": [
+        "gpt-5.6-luna",
+        "gpt-5.6-sol",
+        "gpt-5.6-terra",
+        "gpt-6-astra"
+      ],
+      "covered_label_count": 4,
+      "macro_recall": 0.18884615384615383,
+      "accuracy": 0.18884615384615386,
+      "correct": 982,
+      "rows": 5200,
+      "per_class": [
+        {
+          "model": "gpt-5.6-luna",
+          "support": 1300,
+          "correct": 239,
+          "recall": 0.18384615384615385
+        },
+        {
+          "model": "gpt-5.6-sol",
+          "support": 1300,
+          "correct": 115,
+          "recall": 0.08846153846153847
+        },
+        {
+          "model": "gpt-5.6-terra",
+          "support": 1300,
+          "correct": 129,
+          "recall": 0.09923076923076923
+        },
+        {
+          "model": "gpt-6-astra",
+          "support": 1300,
+          "correct": 499,
+          "recall": 0.38384615384615384
+        }
+      ]
+    },
+    "svc4": {
+      "metric": "covered_label_macro_recall",
+      "score_columns": 18,
+      "covered_labels": [
+        "gpt-5.6-luna",
+        "gpt-5.6-sol",
+        "gpt-5.6-terra",
+        "gpt-6-astra"
+      ],
+      "covered_label_count": 4,
+      "macro_recall": 0.2469230769230769,
+      "accuracy": 0.2469230769230769,
+      "correct": 1284,
+      "rows": 5200,
+      "per_class": [
+        {
+          "model": "gpt-5.6-luna",
+          "support": 1300,
+          "correct": 368,
+          "recall": 0.28307692307692306
+        },
+        {
+          "model": "gpt-5.6-sol",
+          "support": 1300,
+          "correct": 190,
+          "recall": 0.14615384615384616
+        },
+        {
+          "model": "gpt-5.6-terra",
+          "support": 1300,
+          "correct": 306,
+          "recall": 0.2353846153846154
+        },
+        {
+          "model": "gpt-6-astra",
+          "support": 1300,
+          "correct": 420,
+          "recall": 0.3230769230769231
+        }
+      ]
+    },
+    "blend": {
+      "metric": "covered_label_macro_recall",
+      "score_columns": 18,
+      "covered_labels": [
+        "gpt-5.6-luna",
+        "gpt-5.6-sol",
+        "gpt-5.6-terra",
+        "gpt-6-astra"
+      ],
+      "covered_label_count": 4,
+      "macro_recall": 0.1992307692307692,
+      "accuracy": 0.19923076923076924,
+      "correct": 1036,
+      "rows": 5200,
+      "per_class": [
+        {
+          "model": "gpt-5.6-luna",
+          "support": 1300,
+          "correct": 258,
+          "recall": 0.19846153846153847
+        },
+        {
+          "model": "gpt-5.6-sol",
+          "support": 1300,
+          "correct": 116,
+          "recall": 0.08923076923076922
+        },
+        {
+          "model": "gpt-5.6-terra",
+          "support": 1300,
+          "correct": 143,
+          "recall": 0.11
+        },
+        {
+          "model": "gpt-6-astra",
+          "support": 1300,
+          "correct": 519,
+          "recall": 0.3992307692307692
+        }
+      ]
+    }
+  },
+  "recomputed_comparison": {
+    "alpha": 0.1,
+    "delta_macro_recall": 0.010384615384615381,
+    "fixed_errors": 73,
+    "new_errors": 19,
+    "prediction_disagreements": 373,
+    "paired_prompt_bootstrap": {
+      "delta_definition": "blend_minus_stylegram_covered_label_macro_recall",
+      "unit": "external_prompt_id",
+      "draws": 2000,
+      "seed": 42,
+      "valid_draws": 2000,
+      "invalid_draws": 0,
+      "ci95": [
+        0.006923076923076923,
+        0.014038461538461538
+      ],
+      "missing_class_policy": "null interval if any resample lacks a covered true class",
+      "conditional_on_fitted_models": true,
+      "includes_retraining_uncertainty": false
+    }
+  },
+  "independent_blend_argmax_exact_match": true,
+  "limits": [
+    "Only four externally generated GPT labels; all predictions still choose among 18 classes.",
+    "Data independence is limited to audited known ancestry and exact/normalized prompt/response checks; semantic overlap is not exhaustively ruled out.",
+    "Publisher-provided labels/settings are not independent authentication of serving weights.",
+    "The model recipe is fixed but full-data classifiers are refitted; prior OOF classifiers were not persisted.",
+    "No alpha tuning, class-specific selection, formal submission or baseline change.",
+    "Matrix/vocabulary/IDF receipts and memberships are checked, but fitted estimators and matrix contents were not persisted for independent reconstruction.",
+    "The bootstrap interval is conditional on these refitted models and the selected four-class source; it includes no retraining uncertainty.",
+    "The caller must bind the local download to Kaggle V2; this offline verifier authenticates the frozen protocol/input/result bytes without querying the remote service."
+  ],
+  "real_training_performed_by_verifier": false,
+  "remote_calls_performed": false,
+  "verified_at_utc": "2026-11-01T08:50:01.065400+00:00",
+  "analysis_outputs": [
+    {
+      "path": "per_class.csv",
+      "sha256": "e334f2dcd621bdae3f768d83be3a4416e7153ab827e20e11bd5c1a469f1f524c",
+      "bytes": 603
+    },
+    {
+      "path": "errors.csv",
+      "sha256": "a96abe4b43e2ec6ea554fe9a572fa539414f46fa82f81716ddfab98747933301",
+      "bytes": 50405
+    },
+    {
+      "path": "comparison.csv",
+      "sha256": "f1a6106b971845c7da2ae9d23680eb9fa27192ce3a46db4bc9279f87931873fa",
+      "bytes": 317
+    }
+  ]
+}

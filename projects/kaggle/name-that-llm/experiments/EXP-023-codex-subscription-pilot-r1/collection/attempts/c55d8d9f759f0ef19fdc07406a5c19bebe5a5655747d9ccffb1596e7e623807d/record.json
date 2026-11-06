@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0054",
+  "prompt": "A wireless headset sounds fine for music but less clear during a call. Explain a plausible technical reason without diagnosing a specific product. Aim for about 200 words.",
+  "category": "technology_explanation",
+  "target_words": 200,
+  "prompt_group": "cp0054",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "c55d8d9f759f0ef19fdc07406a5c19bebe5a5655747d9ccffb1596e7e623807d",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:05:03.390589+00:00",
+  "ended_at": "2026-11-01T09:05:20.502531+00:00",
+  "prompt_sha256": "900a0185ad00a64e6b192b3cce9c1a0735d7438bc9ca8111de991edc9ed3fe14",
+  "text": "A plausible reason is that the headset switches operating modes when a call begins.\n\nFor music, Bluetooth headsets typically use a high-quality stereo profile such as A2DP. This mode dedicates most of the available wireless bandwidth to receiving audio and can use codecs optimized for music, providing wider frequency response and better detail.\n\nDuring a call, the headset must both receive audio and transmit microphone sound. It may therefore switch to a bidirectional hands-free profile such as HFP. Sharing the connection in both directions leaves less bandwidth for playback, and the call mode may use a lower sampling rate, mono audio, and a speech-oriented codec. Those choices prioritize reliable communication, low latency, and intelligible voices rather than musical fidelity.\n\nThe call itself can introduce further limitations. Phone or conferencing networks may compress speech, restrict its frequency range, suppress noise, cancel echoes, or automatically adjust gain. The headset’s microphone processing and the calling application can apply similar processing. Together, these stages may make voices sound thinner, more artificial, or less detailed even though music playback remains excellent.\n\nWireless interference or a weak connection can amplify the difference because real-time calls have less opportunity to buffer or conceal lost data. Thus, reduced clarity during calls can be a normal consequence of different Bluetooth profiles and voice-processing requirements, not necessarily a fault.",
+  "text_sha256": "e29283b1133dba3d608c68c42f2b1db76a1e5e71859b38a24bb23fc3c594953a",
+  "raw_final_sha256": "e29283b1133dba3d608c68c42f2b1db76a1e5e71859b38a24bb23fc3c594953a",
+  "word_count": 219,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4125,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 266,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\c55d8d9f759f0ef19fdc07406a5c19bebe5a5655747d9ccffb1596e7e623807d",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

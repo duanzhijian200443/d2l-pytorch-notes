@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0034",
+  "prompt": "How can a lake freeze at its surface while water beneath the ice remains liquid? Explain why this matters for aquatic life. A response of around 200 words is enough.",
+  "category": "science_explanation",
+  "target_words": 200,
+  "prompt_group": "cp0034",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "2e31a49a456619271a771b82bc40f40394cdcbf662cfa6f584c2b919238faa95",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:51:53.639737+00:00",
+  "ended_at": "2026-11-01T08:52:11.235395+00:00",
+  "prompt_sha256": "277f9da2788781f050b1877bdf63f950a97bb17b9fe54c64ac2443b06259c686",
+  "text": "A lake can freeze at the surface while remaining liquid below because water behaves unusually as it cools. Most substances become steadily denser when cooled, but water reaches its maximum density at about **4°C (39°F)**. As surface water cools toward 4°C, it becomes denser and sinks, mixing the lake. Once it cools below 4°C, however, it becomes less dense and stays near the surface. This upper layer eventually reaches 0°C and freezes.\n\nIce is less dense than liquid water, so it floats. The floating ice layer also acts as insulation, slowing further heat loss from the water beneath it. As a result, deep water can remain liquid at roughly 4°C even when the air above the lake is far below freezing.\n\nThis property is essential for aquatic life. If ice were denser than water, it would sink, exposing more water to the cold. Lakes could then freeze from the bottom upward and might become almost entirely solid during winter. Instead, fish, plants, microorganisms, and other organisms can survive in the liquid water below the ice. Their activity often slows because of the low temperature and reduced light, but the stable underwater environment provides a winter refuge. Dissolved oxygen can become limited in some lakes, yet the insulating ice generally makes year-round aquatic ecosystems possible.",
+  "text_sha256": "4979d5ee075aaec8174aaaea1b683b8f8ff11b24c8dd5d694b01fed5da47cd80",
+  "raw_final_sha256": "4979d5ee075aaec8174aaaea1b683b8f8ff11b24c8dd5d694b01fed5da47cd80",
+  "word_count": 214,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4127,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 286,
+      "reasoning_output_tokens": 15
+    }
+  ],
+  "attempt_path": "collection\\attempts\\2e31a49a456619271a771b82bc40f40394cdcbf662cfa6f584c2b919238faa95",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

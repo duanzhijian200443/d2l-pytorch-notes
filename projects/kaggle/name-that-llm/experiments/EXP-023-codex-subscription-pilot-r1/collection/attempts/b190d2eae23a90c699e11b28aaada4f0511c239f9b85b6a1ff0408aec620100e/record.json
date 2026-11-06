@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0213",
+  "prompt": "Explain the purpose of a software interface that hides complicated internal work behind a small set of actions. A response of around 160 words is enough.",
+  "category": "technology_explanation",
+  "target_words": 160,
+  "prompt_group": "cp0213",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "b190d2eae23a90c699e11b28aaada4f0511c239f9b85b6a1ff0408aec620100e",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:11:12.993574+00:00",
+  "ended_at": "2026-11-01T11:11:35.409977+00:00",
+  "prompt_sha256": "794fd7c6da29543acbf0d456ac6caa964323c9b8ccf8bddb7ea507b9c26900ef",
+  "text": "A software interface hides complicated internal work behind a small, clear set of actions so that people or other programs can use a system without understanding every detail of how it works. This principle is called **abstraction**.\n\nFor example, a payment interface might offer actions such as `pay()`, `refund()`, and `checkStatus()`. Behind those actions, the system may validate information, contact banks, encrypt data, handle failures, and record transactions. The caller only needs to know what each action requires and what result to expect.\n\nThis separation makes software easier to use, test, and maintain. Developers can change the internal implementation without forcing callers to change their code, provided the interface’s contract remains consistent. A narrow interface also limits accidental misuse by exposing only supported operations.\n\nThe goal is not merely to conceal complexity, but to organize it behind a reliable boundary. A good interface makes common tasks straightforward while clearly communicating inputs, outputs, errors, and important limitations.",
+  "text_sha256": "a17c88784ad3d14f4b9a39c87a1371f813050be91603260a710e543e21a468dc",
+  "raw_final_sha256": "a17c88784ad3d14f4b9a39c87a1371f813050be91603260a710e543e21a468dc",
+  "word_count": 156,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4236,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 197,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\b190d2eae23a90c699e11b28aaada4f0511c239f9b85b6a1ff0408aec620100e",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

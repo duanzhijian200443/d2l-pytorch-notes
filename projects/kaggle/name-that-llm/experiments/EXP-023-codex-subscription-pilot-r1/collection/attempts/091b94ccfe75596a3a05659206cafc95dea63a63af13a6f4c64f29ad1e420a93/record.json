@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0202",
+  "prompt": "Explain how to make a weekly grocery list when leftovers and changing plans make a rigid meal schedule impractical. Keep your response near 120 words.",
+  "category": "everyday_advice",
+  "target_words": 120,
+  "prompt_group": "cp0202",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "091b94ccfe75596a3a05659206cafc95dea63a63af13a6f4c64f29ad1e420a93",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:04:08.050985+00:00",
+  "ended_at": "2026-11-01T11:04:29.416145+00:00",
+  "prompt_sha256": "6cae5e358a0c3a6a0beb10a65e4c8bfe2ed497c88546009272b06dfd4d4f89f0",
+  "text": "Build your grocery list around flexible meal options rather than assigning dinners to specific days.\n\n- **Check what you have.** Look through the fridge, freezer, and pantry, especially for leftovers and foods that need using soon.\n- **Choose three or four adaptable meals.** Pick dishes with overlapping ingredients: roasted vegetables can become tacos, grain bowls, or an omelet.\n- **Buy for fewer dinners than seven.** Leave room for leftovers, eating out, and unexpected plans.\n- **Include reliable basics.** Eggs, beans, frozen vegetables, rice, and pasta can fill gaps without spoiling quickly.\n- **Separate essentials from extras.** Prioritize breakfast, lunch, snacks, and ingredients needed to finish meals.\n\nEach day, decide what to cook based on your time and what needs using first. Freeze surplus portions promptly.",
+  "text_sha256": "943c65a866b0e1333d252d7cc968ddc7d5027dc381979152cdce38faf97a8f34",
+  "raw_final_sha256": "943c65a866b0e1333d252d7cc968ddc7d5027dc381979152cdce38faf97a8f34",
+  "word_count": 125,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4236,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 171,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\091b94ccfe75596a3a05659206cafc95dea63a63af13a6f4c64f29ad1e420a93",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

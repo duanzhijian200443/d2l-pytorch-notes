@@ -1,0 +1,12 @@
+{
+  "dataset": "earthmaker/ntl-own-prompt-generations",
+  "version": 1,
+  "url": "https://www.kaggle.com/datasets/earthmaker/ntl-own-prompt-generations/versions/1",
+  "attribution": "Name That LLM own-prompt generations (pilot + v22), Kaggle user earthmaker, October 2026",
+  "publisher_declared_license": "CC BY 4.0",
+  "original_notice": "own-README.md",
+  "original_notice_sha256": "de884bb731f11ebe83208bf11e4fbb178636c801e4dc40e6602e2ad401e99726",
+  "scope": "Publisher declaration retained; model outputs may also be subject to provider terms. No independent blanket rights clearance is asserted.",
+  "identity_limit": "Labels identify requested models as reported by publisher; raw provider logs/serving weights were not independently authenticated.",
+  "excluded_label": "gemini-3.7-flash"
+}

@@ -1,0 +1,103 @@
+{
+  "status": "FROZEN",
+  "observed_at": "2026-11-01T07:41:13.831078+00:00",
+  "protocol_sha256": "d4d2737031fadaa9a20382813ab215a3ee22f680231d017141eeb706117123b2",
+  "payload_sha256": "4157e612da2ad976e797954d518bb5f7166e1213f25914ff7d17dfc459eb84bf",
+  "payload_bytes": 1921549,
+  "source_files": {
+    "src/svc4.py": "80f66aedad27e8017defe31de7f0286c1b54efa5e96ba6e2cb42516a86e73c18",
+    "cloud/svc4-raw-public/runner.py": "d2d916f0eeee28b23911c15ab83e096ea6c7a906f6ba4482674ded92c386871f",
+    "cloud/svc4-raw-public/guard.py": "eaf2c31758045488eb53ba3f9c7f824c848bfe0a33698fab816d96485f9b6d3b",
+    "cloud/svc4-raw-public/prepare_inputs.py": "7f36e7aa306e2d72a56019c22928731cec00b727106e1b16d633c968dccb852b",
+    "cloud/svc4-raw-public/build_payload.py": "33999c83b445e7ac4c1bcb931378380e6c35da3ca5972d05c98f5eb6ac2ee365"
+  },
+  "resource_preflight": {
+    "status": "PASS_ESTIMATE",
+    "method": "token/character ngram count upper bound without vocabulary fitting or classifier training",
+    "cases": [
+      {
+        "fold": 0,
+        "mode": "official-only",
+        "rows": 2159,
+        "nnz_upper_bound": 9285742,
+        "csr32_upper_bytes": 74294576,
+        "working_memory_estimate_bytes": 1715474768
+      },
+      {
+        "fold": 0,
+        "mode": "official-plus-raw",
+        "rows": 7559,
+        "nnz_upper_bound": 31759325,
+        "csr32_upper_bytes": 254104840,
+        "working_memory_estimate_bytes": 2614547688
+      },
+      {
+        "fold": 1,
+        "mode": "official-only",
+        "rows": 2159,
+        "nnz_upper_bound": 9249186,
+        "csr32_upper_bytes": 74002128,
+        "working_memory_estimate_bytes": 1714597424
+      },
+      {
+        "fold": 1,
+        "mode": "official-plus-raw",
+        "rows": 7559,
+        "nnz_upper_bound": 31722769,
+        "csr32_upper_bytes": 253812392,
+        "working_memory_estimate_bytes": 2613670344
+      },
+      {
+        "fold": 2,
+        "mode": "official-only",
+        "rows": 2159,
+        "nnz_upper_bound": 9290797,
+        "csr32_upper_bytes": 74335016,
+        "working_memory_estimate_bytes": 1715596088
+      },
+      {
+        "fold": 2,
+        "mode": "official-plus-raw",
+        "rows": 7559,
+        "nnz_upper_bound": 31764380,
+        "csr32_upper_bytes": 254145280,
+        "working_memory_estimate_bytes": 2614669008
+      },
+      {
+        "fold": 3,
+        "mode": "official-only",
+        "rows": 2159,
+        "nnz_upper_bound": 9291806,
+        "csr32_upper_bytes": 74343088,
+        "working_memory_estimate_bytes": 1715620304
+      },
+      {
+        "fold": 3,
+        "mode": "official-plus-raw",
+        "rows": 7559,
+        "nnz_upper_bound": 31765389,
+        "csr32_upper_bytes": 254153352,
+        "working_memory_estimate_bytes": 2614693224
+      },
+      {
+        "fold": 4,
+        "mode": "official-only",
+        "rows": 2160,
+        "nnz_upper_bound": 9268293,
+        "csr32_upper_bytes": 74154988,
+        "working_memory_estimate_bytes": 1715056016
+      },
+      {
+        "fold": 4,
+        "mode": "official-plus-raw",
+        "rows": 7560,
+        "nnz_upper_bound": 31741876,
+        "csr32_upper_bytes": 253965252,
+        "working_memory_estimate_bytes": 2614128936
+      }
+    ],
+    "rss_limit_bytes": 12884901888,
+    "note": "Not a hard bound on every library allocation; runtime RSS watchdog remains authoritative. No runtime prediction is claimed."
+  },
+  "runtime_training_started": false
+}

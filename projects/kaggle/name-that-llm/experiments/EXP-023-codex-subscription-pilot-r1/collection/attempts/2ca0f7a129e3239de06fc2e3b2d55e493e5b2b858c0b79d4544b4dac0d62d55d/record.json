@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0085",
+  "prompt": "Explain how a museum's choice of objects can shape a visitor's understanding of ordinary life in the past. Use approximately 120 words for the response.",
+  "category": "humanities_history",
+  "target_words": 120,
+  "prompt_group": "cp0085",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "2ca0f7a129e3239de06fc2e3b2d55e493e5b2b858c0b79d4544b4dac0d62d55d",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:24:54.435675+00:00",
+  "ended_at": "2026-11-01T09:25:09.145667+00:00",
+  "prompt_sha256": "dc25efef955858f487dc3f380511055bacee805b03e2f84b5e9c0b98c798d559",
+  "text": "A museum’s choice of objects strongly influences how visitors imagine ordinary life in the past. Displaying tools, cooking pots, clothing, toys, letters, and household furniture can reveal how people worked, ate, dressed, learned, and formed relationships. However, what is omitted matters too. If a museum mainly exhibits expensive possessions, visitors may assume that most people lived like wealthy elites. Including worn, repaired, or inexpensive objects can instead highlight poverty, resourcefulness, and everyday labor. Labels and arrangement also shape meaning by connecting objects to particular groups, places, and experiences. A balanced selection—representing different classes, genders, ages, and communities—helps visitors recognize that daily life was varied rather than uniform. Thus, museum collections do not simply illustrate history; they actively construct interpretations of the past.",
+  "text_sha256": "a2e5b538360ce4123ad1ceefdca47ebb0cbb8438d80d8fb0f5df98eaecedaef7",
+  "raw_final_sha256": "a2e5b538360ce4123ad1ceefdca47ebb0cbb8438d80d8fb0f5df98eaecedaef7",
+  "word_count": 122,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4123,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 186,
+      "reasoning_output_tokens": 20
+    }
+  ],
+  "attempt_path": "collection\\attempts\\2ca0f7a129e3239de06fc2e3b2d55e493e5b2b858c0b79d4544b4dac0d62d55d",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

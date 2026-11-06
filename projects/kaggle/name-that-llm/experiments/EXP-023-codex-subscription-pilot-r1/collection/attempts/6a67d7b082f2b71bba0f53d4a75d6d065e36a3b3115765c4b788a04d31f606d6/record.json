@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0063",
+  "prompt": "Two suppliers offer the same materials: one is cheaper but less predictable about delivery dates. Describe the trade-off a workshop owner should examine. Aim for about 160 words.",
+  "category": "business_decision",
+  "target_words": 160,
+  "prompt_group": "cp0063",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "6a67d7b082f2b71bba0f53d4a75d6d065e36a3b3115765c4b788a04d31f606d6",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:10:53.286387+00:00",
+  "ended_at": "2026-11-01T09:11:16.103845+00:00",
+  "prompt_sha256": "0d62c4b613573514c82f6e366a9c8fe7c4a40a3c3585dc5f4abd6afd0e050195",
+  "text": "A workshop owner should weigh the cheaper supplier’s savings against the costs and risks of uncertain deliveries. A lower material price can improve profit margins, but only if materials arrive in time to keep work moving. Late deliveries may leave employees or machines idle, delay customer orders, trigger rush shipping charges, and damage the workshop’s reputation.\n\nThe owner should compare the total expected cost, not just the quoted price. This includes how often delays occur, how long they last, and whether the workshop can absorb them. Keeping extra stock could reduce disruption, but it ties up cash and requires storage space.\n\nThe more reliable supplier may justify a higher price when deadlines are tight, materials are essential, or customers expect dependable turnaround. The cheaper supplier may suit flexible schedules and nonurgent orders. A mixed approach—using the cheaper supplier for routine stock and the reliable one for time-sensitive needs—could balance savings with continuity, provided both suppliers can accommodate that arrangement.",
+  "text_sha256": "c91ba4c39a6ef69b192380cf4e22537603ca4858cf98075e2df47bbce151a93f",
+  "raw_final_sha256": "c91ba4c39a6ef69b192380cf4e22537603ca4858cf98075e2df47bbce151a93f",
+  "word_count": 159,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4241,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 191,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\6a67d7b082f2b71bba0f53d4a75d6d065e36a3b3115765c4b788a04d31f606d6",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0222",
+  "prompt": "Explain why a historian may use several incomplete sources rather than searching for one supposedly perfect account. Aim for about 120 words.",
+  "category": "humanities_history",
+  "target_words": 120,
+  "prompt_group": "cp0222",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "c4f7f8e944114813a5002041e0dd7bbea33cee7337988921384e6f4c32f56b17",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:16:38.960932+00:00",
+  "ended_at": "2026-11-01T11:16:59.117489+00:00",
+  "prompt_sha256": "b3e925b7ae7645009dc9f145787dd1591a30a76ccb77a7619bba177c1171abdb",
+  "text": "A historian may use several incomplete sources because no single account captures the whole past. Every source reflects its creator’s knowledge, purpose, perspective, and circumstances. Even a detailed eyewitness account may contain mistakes, omissions, or bias. By comparing different sources, historians can check claims, identify contradictions, and fill gaps. For example, official records might explain government decisions, while letters and diaries reveal how ordinary people experienced their effects. Archaeological evidence may confirm or challenge both. Disagreements between sources can also reveal competing interests and beliefs. Rather than assuming that one “perfect” account exists, historians build the best-supported interpretation from varied evidence, while acknowledging uncertainty. This approach produces a more balanced and credible understanding of the past.",
+  "text_sha256": "1fb67bb327a02f2789421640b352f9e21921560c0c3d0a9dbe3f03acff640f60",
+  "raw_final_sha256": "1fb67bb327a02f2789421640b352f9e21921560c0c3d0a9dbe3f03acff640f60",
+  "word_count": 116,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4232,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 148,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\c4f7f8e944114813a5002041e0dd7bbea33cee7337988921384e6f4c32f56b17",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

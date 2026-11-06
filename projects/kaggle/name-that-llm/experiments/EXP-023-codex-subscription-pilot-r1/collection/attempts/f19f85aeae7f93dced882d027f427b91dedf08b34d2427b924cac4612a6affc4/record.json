@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0203",
+  "prompt": "I have several unfinished hobbies and feel guilty whenever I see the supplies. Suggest a way to decide what to keep, pause, or give away. Please answer in roughly 160 words.",
+  "category": "everyday_advice",
+  "target_words": 160,
+  "prompt_group": "cp0203",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "f19f85aeae7f93dced882d027f427b91dedf08b34d2427b924cac4612a6affc4",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:04:29.446206+00:00",
+  "ended_at": "2026-11-01T11:04:48.847273+00:00",
+  "prompt_sha256": "23d575488e2f5b6abc2215d17a9df9d3642d2fa1ff169017583f04f0e491e3cc",
+  "text": "Try a **Keep–Pause–Release** review. Gather each hobby’s supplies—or make a simple list—and ask:\n\n**Keep:** Do I genuinely want to do this within the next three months? Does it fit my current time, space, budget, and energy? If yes, keep only what you need for one small, specific project, and schedule a realistic first session.\n\n**Pause:** Am I still interested, but not in this season of life? Put the supplies in one clearly labeled, limited-size box with a review date six months from now. Store it out of sight so it doesn’t become a daily guilt trigger.\n\n**Give away:** Would I feel more relieved than disappointed if these materials disappeared? Donate, sell, or offer them to a friend, school, library, community center, or hobby group. Set a short deadline so the giveaway itself doesn’t become another unfinished project.\n\nLimit yourself to one or two active hobbies. Remember: supplies are tools, not obligations. Letting go does not mean you failed; it means you are choosing what deserves your attention now.",
+  "text_sha256": "f039d031c085c1b887b4cd65e0e8a4c5d71a6d5e59503973dc4939eaf34dd67c",
+  "raw_final_sha256": "f039d031c085c1b887b4cd65e0e8a4c5d71a6d5e59503973dc4939eaf34dd67c",
+  "word_count": 168,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4130,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 235,
+      "reasoning_output_tokens": 11
+    }
+  ],
+  "attempt_path": "collection\\attempts\\f19f85aeae7f93dced882d027f427b91dedf08b34d2427b924cac4612a6affc4",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

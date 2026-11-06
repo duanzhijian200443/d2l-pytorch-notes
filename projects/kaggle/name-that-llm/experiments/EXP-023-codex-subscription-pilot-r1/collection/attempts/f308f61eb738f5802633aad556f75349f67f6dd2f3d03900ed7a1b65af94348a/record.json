@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0068",
+  "prompt": "A product team receives many enthusiastic comments about a new feature, but few people use it twice. How should the team interpret the evidence? Aim for about 160 words.",
+  "category": "business_decision",
+  "target_words": 160,
+  "prompt_group": "cp0068",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "f308f61eb738f5802633aad556f75349f67f6dd2f3d03900ed7a1b65af94348a",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:13:38.197275+00:00",
+  "ended_at": "2026-11-01T09:13:52.886611+00:00",
+  "prompt_sha256": "483e498fbb527649a46410cd111c09cb718bf652ada497455c2d524e4527de65",
+  "text": "Enthusiastic comments are evidence of **initial appeal**, not necessarily sustained value. The team should treat the pattern as a gap between *stated enthusiasm* and *revealed behavior*: people may find the feature novel, understandable, or socially easy to praise, yet not useful enough to revisit.\n\nRetention is the stronger signal if the product goal is recurring use. Investigate where the second-use journey fails: Does the feature solve an infrequent problem? Is the value clear only after setup? Is it hard to find again, too slow, poorly integrated into existing workflows, or displaced by a simpler alternative?\n\nSegment the evidence rather than averaging it. A small group of repeat users may reveal a high-value use case, while broad one-time use may indicate novelty. Combine quantitative funnel data—activation, time to first value, repeat rate, cohort retention—with follow-up interviews, especially of people who praised it but did not return.\n\nDo not conclude that the feature is bad solely from low repeat use. Conclude that current evidence supports interest, but not yet durable product-market fit or habitual value.",
+  "text_sha256": "2f4d2102c77059536231d248f4aa683b85e8cd718783383bb0c29942f1935772",
+  "raw_final_sha256": "2f4d2102c77059536231d248f4aa683b85e8cd718783383bb0c29942f1935772",
+  "word_count": 173,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4127,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 237,
+      "reasoning_output_tokens": 12
+    }
+  ],
+  "attempt_path": "collection\\attempts\\f308f61eb738f5802633aad556f75349f67f6dd2f3d03900ed7a1b65af94348a",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

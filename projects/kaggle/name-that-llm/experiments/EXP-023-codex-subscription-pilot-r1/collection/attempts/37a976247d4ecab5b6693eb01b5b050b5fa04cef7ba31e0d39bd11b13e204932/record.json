@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0181",
+  "prompt": "Three people arrive at a workshop: Ada arrives before Ben, and Cara arrives after Ada but before Ben. Explain their arrival order and what each clue contributes. A response of around 80 words is enough.",
+  "category": "reasoning_explanation",
+  "target_words": 80,
+  "prompt_group": "cp0181",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "37a976247d4ecab5b6693eb01b5b050b5fa04cef7ba31e0d39bd11b13e204932",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:49:42.696608+00:00",
+  "ended_at": "2026-11-01T10:49:59.920555+00:00",
+  "prompt_sha256": "02d9811770ff76bec5675b1aa51da994061dd1d486ab3caf6d9337dfe3c77115",
+  "text": "The order is **Ada, Cara, then Ben**.\n\n- “Ada arrives before Ben” establishes Ada is earlier than Ben.\n- “Cara arrives after Ada” places Cara later than Ada.\n- “Cara arrives before Ben” places Cara earlier than Ben.\n\nTogether, the latter two clues put Cara between Ada and Ben, yielding the unique sequence: Ada first, Cara second, Ben last.",
+  "text_sha256": "76aa66e3cc5c7e1f18546d4251e59795d269a4d290c6fbedd6939688eb178d79",
+  "raw_final_sha256": "76aa66e3cc5c7e1f18546d4251e59795d269a4d290c6fbedd6939688eb178d79",
+  "word_count": 59,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4134,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 83,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\37a976247d4ecab5b6693eb01b5b050b5fa04cef7ba31e0d39bd11b13e204932",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

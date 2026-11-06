@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0160",
+  "prompt": "Rewrite this announcement so it distinguishes a confirmed change from a proposal: 'The library moves its storytelling hour to Saturday next month. We might also start a craft session afterward if enough volunteers join. The current weekday book exchange continues.' Keep your response near 160 words.",
+  "category": "rewrite_original_material",
+  "target_words": 160,
+  "prompt_group": "cp0160",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "4c7f395f59fc11ced04e290bd7313e14c55ca6a33b0e28b80d6d3b0df04b05c0",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:35:06.950503+00:00",
+  "ended_at": "2026-11-01T10:35:25.564214+00:00",
+  "prompt_sha256": "0acc88c42cf38c2472aad1a0bc35b74ae7094208bc59c6de9b85b609fe1049c4",
+  "text": "**Library Program Update: Confirmed Schedule Change and Proposed Addition**\n\nBeginning next month, the library’s storytelling hour will officially move from its current weekday time to **Saturday**. This schedule change is confirmed, so families and participants should plan to attend the program on Saturdays starting next month. Specific times and dates will be shared through the library calendar and regular notices.\n\nThe library is also considering adding a **craft session immediately after storytelling hour**. This is only a proposal at this stage and has not yet been confirmed. Whether the craft session can begin will depend on having enough volunteers to help prepare materials, guide activities, and assist with cleanup. Anyone interested in volunteering is encouraged to contact the library. A separate announcement will be made if the session receives sufficient support and is approved.\n\nThe existing **weekday book exchange will continue without any changes**. Visitors may keep using that service on its current day and schedule.",
+  "text_sha256": "285cee3026c68e4eb6a799a984e6846ca00c5b3263b99db69a46dfef1ba79cb4",
+  "raw_final_sha256": "285cee3026c68e4eb6a799a984e6846ca00c5b3263b99db69a46dfef1ba79cb4",
+  "word_count": 156,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4146,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 216,
+      "reasoning_output_tokens": 29
+    }
+  ],
+  "attempt_path": "collection\\attempts\\4c7f395f59fc11ced04e290bd7313e14c55ca6a33b0e28b80d6d3b0df04b05c0",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

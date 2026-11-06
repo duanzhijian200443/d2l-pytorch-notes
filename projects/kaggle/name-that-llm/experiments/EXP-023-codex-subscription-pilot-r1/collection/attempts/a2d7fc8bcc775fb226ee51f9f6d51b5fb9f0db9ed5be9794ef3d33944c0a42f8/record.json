@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0172",
+  "prompt": "Compose an email asking a former teammate whether they would be comfortable sharing a few practical tips with a newcomer to the group. A response of around 120 words is enough.",
+  "category": "short_email",
+  "target_words": 120,
+  "prompt_group": "cp0172",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "a2d7fc8bcc775fb226ee51f9f6d51b5fb9f0db9ed5be9794ef3d33944c0a42f8",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:43:37.426786+00:00",
+  "ended_at": "2026-11-01T10:44:02.610038+00:00",
+  "prompt_sha256": "2751ca7860eb119b3b00e80c3b7272b1a285e0ca6be0afffb3b16c4f9a744cfc",
+  "text": "Subject: Quick Request for Advice\n\nHi [Name],\n\nI hope you’re doing well. I’m reaching out because we have a newcomer joining our group, and I was wondering whether you’d be comfortable sharing a few practical tips with them. Your experience and perspective would be especially helpful as they get familiar with the team, our processes, and day-to-day work.\n\nNothing formal is required—perhaps a brief conversation or a few suggestions by email, whichever is easiest for you. Of course, please don’t feel any pressure if your schedule is full or you’d rather not. I thought of you because you always had a practical understanding of how things worked.\n\nThanks for considering it, and I hope all is well.\n\nBest,  \n[Your Name]",
+  "text_sha256": "c6d210cf171be1db2d47a1312b8d581e53793c678c64bd71253bd8c8bb6cbba9",
+  "raw_final_sha256": "c6d210cf171be1db2d47a1312b8d581e53793c678c64bd71253bd8c8bb6cbba9",
+  "word_count": 120,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2592,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 154,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\a2d7fc8bcc775fb226ee51f9f6d51b5fb9f0db9ed5be9794ef3d33944c0a42f8",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

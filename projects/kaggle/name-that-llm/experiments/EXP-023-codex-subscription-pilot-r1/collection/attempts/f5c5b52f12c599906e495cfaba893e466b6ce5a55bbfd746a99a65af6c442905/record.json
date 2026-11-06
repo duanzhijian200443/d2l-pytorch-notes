@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0211",
+  "prompt": "Compare reversible editing of an image with repeatedly overwriting its original file. Please answer in roughly 80 words.",
+  "category": "technology_explanation",
+  "target_words": 80,
+  "prompt_group": "cp0211",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "f5c5b52f12c599906e495cfaba893e466b6ce5a55bbfd746a99a65af6c442905",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:09:27.969937+00:00",
+  "ended_at": "2026-11-01T11:09:42.048616+00:00",
+  "prompt_sha256": "ca8bb716f4de020a51dcc971269def1975324d86c2821d8b78e8fb9190e5025c",
+  "text": "Reversible editing preserves the original image and records changes as adjustable instructions, layers, or masks. You can revisit decisions, alter individual effects, and export different versions without accumulating quality loss. Repeatedly overwriting the original applies changes permanently and may discard pixels, metadata, or edit flexibility. Reopening and resaving can also introduce compression artifacts, especially with lossy formats such as JPEG. Therefore, non-destructive editing is safer and more adaptable, while overwriting is simpler but risks irreversible mistakes and gradual degradation.",
+  "text_sha256": "1f48d5ddfc0d9e0ed9e31fb44dfdb831d035aa01133293033973003e2ee16a52",
+  "raw_final_sha256": "1f48d5ddfc0d9e0ed9e31fb44dfdb831d035aa01133293033973003e2ee16a52",
+  "word_count": 79,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2580,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 107,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\f5c5b52f12c599906e495cfaba893e466b6ce5a55bbfd746a99a65af6c442905",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,7 @@
+Use a meeting only if real-time discussion is necessary. Ask:
+
+- Is there a decision or conflict that needs rapid alignment?
+- Do participants need to co-create, negotiate, or solve an ambiguous problem together?
+- Would a written update, shared document, or asynchronous comments achieve the same result?
+
+If the purpose is status reporting, information sharing, or collecting routine updates, default to asynchronous communication. If a meeting is justified, define a specific outcome, invite only essential contributors, circulate context beforehand, and timebox it. Consider replacing a standing weekly meeting with an optional office hour or a short decision-focused session triggered only when needed. Review periodically: if meetings do not produce decisions, clarity, or meaningful progress, stop or redesign them.

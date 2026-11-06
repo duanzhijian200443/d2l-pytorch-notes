@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0147",
+  "prompt": "Turn these fragments into a useful event reminder: 'Repair afternoon. Sunday, two to five. Community hall. Bring a small broken household item. No guarantee it can be fixed. Volunteers explain what they try. Tea available. No advance booking.' Use approximately 120 words for the response.",
+  "category": "rewrite_original_material",
+  "target_words": 120,
+  "prompt_group": "cp0147",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "b5266c01f1680a077dcc241267ea9c7d321976363749631ca698114bd17abbb7",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:25:28.444236+00:00",
+  "ended_at": "2026-11-01T10:25:47.577199+00:00",
+  "prompt_sha256": "fbfd5a5075518a996eed4e9966bed267890776a2c2ee3c3ab6c45cedb5c4bcda",
+  "text": "**Repair Afternoon – Sunday, 2–5 pm**  \nJoin us at the Community Hall for a friendly repair afternoon. Bring along one small broken household item and volunteers will take a look with you. They’ll explain the approaches they try and, where possible, help investigate what may be wrong.  \n\nPlease note that repairs cannot be guaranteed, but the aim is to learn, share skills, and give useful items another chance. Tea will be available while you wait or chat with others.  \n\nNo advance booking is needed—just drop in any time between 2 and 5 pm.",
+  "text_sha256": "3344cf6af54b6a602093da66bcf245029491c01ca592b2eb46b3258e777dae2c",
+  "raw_final_sha256": "3344cf6af54b6a602093da66bcf245029491c01ca592b2eb46b3258e777dae2c",
+  "word_count": 93,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4151,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 139,
+      "reasoning_output_tokens": 15
+    }
+  ],
+  "attempt_path": "collection\\attempts\\b5266c01f1680a077dcc241267ea9c7d321976363749631ca698114bd17abbb7",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

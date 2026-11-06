@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0219",
+  "prompt": "A conference organizer must choose between more sessions and longer breaks. Explain what kind of participant experience each choice supports. Keep your response near 200 words.",
+  "category": "business_decision",
+  "target_words": 200,
+  "prompt_group": "cp0219",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "b36c31aa3cb31c430290c563219fbc411ed25f4c090e11a29ebcf178f10725c7",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:14:25.755327+00:00",
+  "ended_at": "2026-11-01T11:14:40.195387+00:00",
+  "prompt_sha256": "7bb161834ac46a4e0f7e7ee57e1be12caa104d51270601b1badaaec73f6b62e4",
+  "text": "Choosing more sessions supports an experience centered on variety, discovery, and learning. Participants can explore more topics, hear from a wider range of speakers, and tailor the program to their interests. This format is especially valuable for attendees who want dense content, practical takeaways, or exposure to emerging ideas. It can also create energy and momentum throughout the event. However, a packed schedule may feel rushed, increase decision fatigue, and leave little time to process information or connect meaningfully with others.\n\nChoosing longer breaks supports a more relaxed, social, and reflective experience. Participants have time to meet peers, continue conversations, visit exhibitors, ask speakers follow-up questions, and absorb what they have learned. Longer pauses can make the event feel more human and inclusive, benefiting attendees who value networking, accessibility, or thoughtful discussion over maximum content. The drawback is that fewer sessions may limit topic coverage and make the program feel less comprehensive to participants seeking intensive learning.\n\nThe best choice depends on the conference’s purpose and audience. A technical or training-focused event may favor more sessions, while a community-building, leadership, or relationship-oriented gathering may benefit from longer breaks. A balanced schedule can combine focused content blocks with breaks long enough to support genuine interaction.",
+  "text_sha256": "205eb005e4413f15c5efa48bec8c788240d899894943cb00b526ab3f940da129",
+  "raw_final_sha256": "205eb005e4413f15c5efa48bec8c788240d899894943cb00b526ab3f940da129",
+  "word_count": 204,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2588,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 272,
+      "reasoning_output_tokens": 22
+    }
+  ],
+  "attempt_path": "collection\\attempts\\b36c31aa3cb31c430290c563219fbc411ed25f4c090e11a29ebcf178f10725c7",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

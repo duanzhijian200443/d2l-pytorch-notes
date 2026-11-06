@@ -1,0 +1,5 @@
+A software update that changes a feature alters what the program does or how users interact with it. For example, it might add a search filter, improve notifications, or redesign a menu. Existing saved files can often remain unchanged because the update affects behavior rather than data storage.
+
+An update that changes the format of saved files alters how information is organized or encoded on disk. For example, it might introduce new fields or replace an older file structure. This can create compatibility issues: older versions of the software may be unable to open newly saved files. Such updates may require file conversion, migration tools, or backups.
+
+The key distinction is functionality versus data representation, although a single update can change both.

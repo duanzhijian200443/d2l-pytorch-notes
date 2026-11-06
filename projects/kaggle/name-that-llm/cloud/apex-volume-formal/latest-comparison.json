@@ -1,0 +1,31 @@
+{
+  "observed_at": "2026-11-02T16:27:10.518052+00:00",
+  "competition": "name-that-llm",
+  "metric": "displayed Public LB, not independent statistical evidence",
+  "arms": {
+    "0": {
+      "id": 57903109,
+      "script_version_id": 364820326,
+      "status": "COMPLETE",
+      "public_score": "0.665"
+    },
+    "120": {
+      "id": 57905108,
+      "script_version_id": 364839807,
+      "status": "PENDING",
+      "public_score": null
+    },
+    "240": {
+      "id": 57905119,
+      "script_version_id": 364839816,
+      "status": "COMPLETE",
+      "public_score": "0.665"
+    }
+  },
+  "score_differences": {
+    "120_minus_0": null,
+    "240_minus_0": "0.000",
+    "240_minus_120": null
+  },
+  "used_today": 5
+}

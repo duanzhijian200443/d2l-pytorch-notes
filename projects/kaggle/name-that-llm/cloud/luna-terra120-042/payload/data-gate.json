@@ -1,0 +1,8 @@
+{
+  "status": "PASS_KNOWN_EXACT_FOR_FIXED_OFFICIAL_OOF_ABLATION",
+  "local_review_sha256": "ea949232e8294884c677a54c0bbf18e62b3ba9f839fc29d98cb40f29ed18d471",
+  "candidate_rows": 120,
+  "candidate_groups": 60,
+  "holdout_rows_not_uploaded": 60,
+  "scope": "Known/exact checks for fixed official OOF; semantic independence not certified; EXP027 not evaluated."
+}

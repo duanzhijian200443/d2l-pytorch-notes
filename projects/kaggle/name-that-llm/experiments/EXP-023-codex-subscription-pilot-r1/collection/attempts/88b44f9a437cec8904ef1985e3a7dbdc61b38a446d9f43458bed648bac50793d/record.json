@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0165",
+  "prompt": "Write to a landlord asking permission to place removable shelves in a storage cupboard. Describe the proposal clearly without discussing legal rights or making assumptions about the answer. Please answer in roughly 160 words.",
+  "category": "short_email",
+  "target_words": 160,
+  "prompt_group": "cp0165",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "88b44f9a437cec8904ef1985e3a7dbdc61b38a446d9f43458bed648bac50793d",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:38:18.544080+00:00",
+  "ended_at": "2026-11-01T10:38:38.450721+00:00",
+  "prompt_sha256": "1038511bb2c3d01451a4c6e1fa18a17aeba5cae141d19cc569cc31776fadef23",
+  "text": "Subject: Request to Install Removable Shelves in Storage Cupboard\n\nDear [Landlord’s Name],\n\nI’m writing to ask whether you would be comfortable with my placing removable shelves in the storage cupboard at [property address].\n\nThe proposal is to use a freestanding, adjustable shelving unit that would sit inside the cupboard without being fixed to the walls, floor, or ceiling. It would be used to organise household items and would not require drilling, screws, adhesive, or any other permanent alterations. The unit would be carefully measured to ensure that the cupboard doors and ventilation remain unobstructed.\n\nIf approved, I would take responsibility for installing and removing the shelving carefully, and I would return the cupboard to its original condition when I move out. I can also provide details or a photograph of the proposed unit if helpful.\n\nPlease let me know whether you would be willing to approve this arrangement, or if you have any preferences regarding the type or size of shelving.\n\nKind regards,  \n[Your Name]",
+  "text_sha256": "d819ce280e346f5c211b96911fe2fc23cd20a2ba743263d90aa83d7bc052d827",
+  "raw_final_sha256": "d819ce280e346f5c211b96911fe2fc23cd20a2ba743263d90aa83d7bc052d827",
+  "word_count": 165,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2596,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 216,
+      "reasoning_output_tokens": 11
+    }
+  ],
+  "attempt_path": "collection\\attempts\\88b44f9a437cec8904ef1985e3a7dbdc61b38a446d9f43458bed648bac50793d",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

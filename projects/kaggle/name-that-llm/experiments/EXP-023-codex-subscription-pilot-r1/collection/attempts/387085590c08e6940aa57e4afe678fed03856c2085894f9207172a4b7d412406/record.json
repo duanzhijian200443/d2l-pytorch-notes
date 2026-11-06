@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0193",
+  "prompt": "A club's attendance rose from twenty people to thirty, then fell back to twenty. Explain why the percentage increase and percentage decrease are different. Keep your response near 80 words.",
+  "category": "reasoning_explanation",
+  "target_words": 80,
+  "prompt_group": "cp0193",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "387085590c08e6940aa57e4afe678fed03856c2085894f9207172a4b7d412406",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:58:38.699957+00:00",
+  "ended_at": "2026-11-01T10:59:10.844442+00:00",
+  "prompt_sha256": "7c15c38b7098a2c8e2ace89ac58a39b24e2d0e0bab79f731a7a13e1c656b9010",
+  "text": "The percentage increase and decrease differ because they use different starting amounts. Attendance rose from 20 to 30, a gain of 10 people. Relative to the original 20, that is 10 ÷ 20 × 100 = 50%. When attendance fell from 30 to 20, the loss was also 10 people, but the starting amount was now 30. Thus, the decrease was 10 ÷ 30 × 100 ≈ 33.3%. The same change represents a smaller percentage of a larger starting amount.",
+  "text_sha256": "b05140ea03038e3a7b346be3b1f28e823543b2ab7c18b48b3972f7af23419bc7",
+  "raw_final_sha256": "b05140ea03038e3a7b346be3b1f28e823543b2ab7c18b48b3972f7af23419bc7",
+  "word_count": 80,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4243,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 116,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\387085590c08e6940aa57e4afe678fed03856c2085894f9207172a4b7d412406",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

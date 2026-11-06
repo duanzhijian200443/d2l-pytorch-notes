@@ -1,0 +1,6 @@
+{"type":"thread.started","thread_id":"01a1963e-d701-7c90-bd0c-051da19b187b"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in C:\\Users\\34331\\.codex\\config.toml."}}
+{"type":"item.completed","item":{"id":"item_1","type":"error","message":"Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."}}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"Keep the menu simple and mostly make-ahead: one generous main, a salad, good bread, and an easy dessert. Clear a little space, but don’t try to hide every sign of living. Use warm lighting, background music, and mismatched plates if needed. Set drinks where guests can help themselves. Serve family-style so nobody feels managed. Most importantly, sit down and join them—your relaxed presence will make the evening feel welcoming, not staged."}}
+{"type":"turn.completed","usage":{"input_tokens":2589,"cached_input_tokens":1920,"cache_write_input_tokens":0,"output_tokens":97,"reasoning_output_tokens":0}}

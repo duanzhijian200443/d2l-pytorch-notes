@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "observed_at_utc": "2026-11-01T09:01:36.804530+00:00",
+  "status": "PASS_CORRECTED_PROMPT_UNITS",
+  "change": "Merge one case-equivalent source-body pair for statistical resampling only",
+  "original_groups": 1300,
+  "normalized_groups": 1299,
+  "merged_source_groups": [
+    [
+      "ext-20ab8f2ddfb9a2aa7dd5",
+      "ext-f646bbf21325a84376ad"
+    ]
+  ],
+  "affected_rows": 8,
+  "rows": 5200,
+  "point_estimate_changed": false,
+  "delta_macro_recall": 0.010384615384615381,
+  "original_ci95": [
+    0.006923076923076923,
+    0.014038461538461538
+  ],
+  "corrected_ci95": [
+    0.006735950731331794,
+    0.013856812933025403
+  ],
+  "draws": 2000,
+  "seed": 42,
+  "sampling_unit": "normalized source-body components; stable canonical original group name",
+  "prediction_or_model_bytes_changed": false,
+  "scope": "Four-covered-class source check; no retraining uncertainty or semantic independence guarantee",
+  "inputs": {
+    "data\\public-pools\\enaimaan\\ntl-openai-generated-responses\\v3\\prompts.jsonl": "7a474ee6af8cdeae8e74f62a5f9e3b3ce65bb0eedc4056660925d02542be735b",
+    "experiments\\EXP-026-independent-blend-validation\\evaluation.csv": "72228be3ddaad8feaa1ba232e689537e0cf49ebc72068df4a7e556836f1bdd17",
+    "experiments\\EXP-026-independent-blend-validation\\predictions\\predictions.csv": "95981f14a491d67809b6c34b7283f95ee331f137aab4cad71195e6df104c4ed9",
+    "experiments\\EXP-026-independent-blend-validation\\metrics\\verified.json": "cf1be2a5ca3e4732c8f678fad1f1d72bb08683b2b0ef54cd1f8098473e0e26ec"
+  },
+  "script_sha256": "f33ca0e56f276693b098260017fed27009069f1bd67a37ec755828e99e323cab"
+}

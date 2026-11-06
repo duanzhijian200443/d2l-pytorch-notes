@@ -1,0 +1,12 @@
+{
+  "id": 57903087,
+  "script_version_id": 364819470,
+  "notebook_version": 2,
+  "observed_at": "2026-11-02T09:12:36.013263+00:00",
+  "submitted_at": "2026-11-02T09:12:12.037Z",
+  "status": "PENDING",
+  "public_score": null,
+  "url": "https://www.kaggle.com/code/zhjianduan/name-that-llm-a1-sinkhorn030-049?scriptVersionId=364819470",
+  "description": "EXP055 fixed A1 + Sinkhorn 0.30 / zero Codex rows; notebook v2, script 364819470",
+  "source": "Kaggle official submitted version and submission listing"
+}

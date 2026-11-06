@@ -1,0 +1,54 @@
+{
+  "status": "COMPLETE",
+  "observed_at": "2026-10-31T18:38:36.635006+00:00",
+  "summaries": [
+    {
+      "share": 0.5,
+      "balanced_accuracy": 0.4682426050211286,
+      "accuracy": 0.46832160059281214,
+      "correct": 1264
+    },
+    {
+      "share": 0.25,
+      "balanced_accuracy": 0.45970917225950786,
+      "accuracy": 0.4597999258984809,
+      "correct": 1241
+    },
+    {
+      "share": 0.75,
+      "balanced_accuracy": 0.46491672880934626,
+      "accuracy": 0.4649870322341608,
+      "correct": 1255
+    }
+  ],
+  "rows": 2699,
+  "public_rows": 10073,
+  "folds": 5,
+  "trained_svms": 30,
+  "timings": [
+    {
+      "fold": 0,
+      "total_seconds": 754.6953482449999
+    },
+    {
+      "fold": 1,
+      "total_seconds": 758.302208996
+    },
+    {
+      "fold": 2,
+      "total_seconds": 791.4799390920002
+    },
+    {
+      "fold": 3,
+      "total_seconds": 784.8412990770003
+    },
+    {
+      "fold": 4,
+      "total_seconds": 732.3328507399997
+    }
+  ],
+  "total_seconds": 3822.3623984410006,
+  "scope": "stylegram-only grouped OOF; not leaderboard or full ATLAS20",
+  "convergence_warnings": 0,
+  "gpu_used": false
+}

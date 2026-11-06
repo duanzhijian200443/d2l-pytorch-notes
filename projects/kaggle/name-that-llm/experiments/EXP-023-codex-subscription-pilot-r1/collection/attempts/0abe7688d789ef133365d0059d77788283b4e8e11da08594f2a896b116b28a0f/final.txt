@@ -1,0 +1,3 @@
+A local search index preprocesses documents into a structure that maps terms to relevant content. Queries are fast and responsive, making it ideal for search-as-you-type, especially across many documents. However, it uses extra storage, takes time to build, and must be updated when documents change.
+
+Searching every document from scratch avoids index maintenance and always checks current content, but repeatedly reads and scans the entire collection. This becomes slow and resource-intensive as data grows. For small collections or infrequent searches, scanning may suffice.

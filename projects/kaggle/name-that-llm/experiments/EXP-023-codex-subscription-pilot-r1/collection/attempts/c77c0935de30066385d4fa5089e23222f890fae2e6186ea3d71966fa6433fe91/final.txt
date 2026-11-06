@@ -1,0 +1,7 @@
+There are 15 books altogether: 10 novels plus 5 biographies. Since 5 of the 15 books are biographies, the chance of selecting one is
+
+\[
+\frac{5}{15}=\frac{1}{3}\approx 33.3\%.
+\]
+
+This calculation assumes that “at random” means every book on the shelf has an equal chance of being selected. It also assumes the selection is made once, with no books being added, removed, or specially favored based on appearance, location, or the person’s preferences.

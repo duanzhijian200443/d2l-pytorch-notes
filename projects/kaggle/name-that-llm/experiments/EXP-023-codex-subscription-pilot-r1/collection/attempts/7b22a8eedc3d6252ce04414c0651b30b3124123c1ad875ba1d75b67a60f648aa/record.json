@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0078",
+  "prompt": "How should a project leader communicate a delay when the revised completion date is still uncertain? Aim for about 160 words.",
+  "category": "business_decision",
+  "target_words": 160,
+  "prompt_group": "cp0078",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "7b22a8eedc3d6252ce04414c0651b30b3124123c1ad875ba1d75b67a60f648aa",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:20:42.895655+00:00",
+  "ended_at": "2026-11-01T09:21:01.108037+00:00",
+  "prompt_sha256": "56b0a4015332654c000251cd059c2086082c2c14b6842a660c780b1b7d802138",
+  "text": "Communicate early, clearly, and without false precision. State that the original timeline is no longer reliable, explain the cause at an appropriate level, and distinguish known facts from open uncertainties. Avoid announcing a revised date just to reduce discomfort.\n\nFor example:\n\n> We’re experiencing a delay in the integration phase due to issues identified in testing. The team is actively resolving them, but we do not yet have enough information to provide a credible revised completion date.  \n>   \n> Our immediate focus is confirming the scope of the remaining work, identifying dependencies, and assessing recovery options. We will provide a progress update by [specific date], including what has been resolved, remaining risks, and—if supportable—a revised forecast.  \n>   \n> We understand this affects downstream planning and are working to minimize disruption. In the meantime, please treat the prior completion date as no longer current. If you have decisions or commitments dependent on this delivery, let us know so we can prioritize the relevant impacts.\n\nUse a firm date for the *next update*, even when the final date is uncertain. Own the issue, share the mitigation plan, and keep stakeholders updated at a predictable cadence.",
+  "text_sha256": "355a5311042f33f9b8dc9342aa51af40001e9a812c25c11e68e34b9bb9ef164e",
+  "raw_final_sha256": "355a5311042f33f9b8dc9342aa51af40001e9a812c25c11e68e34b9bb9ef164e",
+  "word_count": 193,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4117,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 237,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\7b22a8eedc3d6252ce04414c0651b30b3124123c1ad875ba1d75b67a60f648aa",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

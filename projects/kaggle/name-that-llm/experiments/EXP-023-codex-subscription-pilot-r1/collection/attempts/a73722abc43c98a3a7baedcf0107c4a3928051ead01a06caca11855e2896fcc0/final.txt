@@ -1,0 +1,3 @@
+A small light source acts almost like a point source. It produces a shadow with a sharp boundary because light rays arrive from nearly one direction. A larger light source sends light toward the object from many slightly different directions. Near the object, these directions have little room to spread apart, so the shadow edge—the transition from full shadow to partial shadow—is relatively narrow and sharp.
+
+Farther from the object, rays from different parts of the light source separate more. Some parts of the source are blocked while others remain visible, creating a wider penumbra, or partial-shadow region. Thus, increasing the source’s apparent size makes shadow edges fuzzier, especially at greater distances.

@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0150",
+  "prompt": "Convert this rambling update into a concise progress report: 'We have nearly all the photographs, except two people have not replied, and the printer needs the final files, but the captions are mostly done, though someone must check the dates before we send anything.' Keep your response near 160 words.",
+  "category": "rewrite_original_material",
+  "target_words": 160,
+  "prompt_group": "cp0150",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "62fc5b78dd87f8b74d4aff41c1bd2ff4f54f8617e0875c9f2d9ead2a9811285e",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:27:08.982161+00:00",
+  "ended_at": "2026-11-01T10:27:28.368213+00:00",
+  "prompt_sha256": "196c10432e1c41c3360953b055abf462d628a54d83d9ea55d86c4802d31c08d6",
+  "text": "## Progress Report\n\nThe photography collection is nearly complete. Images have been received from most participants, but two people have not yet responded. Follow-up is required before the collection can be considered final.\n\nCaption writing is also well advanced, with most captions completed. However, the dates mentioned in the captions still need to be checked for accuracy. This review should be completed before the materials are sent to production.\n\nThe printer is waiting for the final files, so the remaining tasks are to obtain the two outstanding photographs, verify all dates, incorporate any necessary corrections, and prepare the final approved package. Once these items are resolved, the files can be submitted to the printer without delay.",
+  "text_sha256": "2d55c1b33b72609e4843bd2397c800230ad44417dc9cee0c25617758ed1e65b0",
+  "raw_final_sha256": "2d55c1b33b72609e4843bd2397c800230ad44417dc9cee0c25617758ed1e65b0",
+  "word_count": 116,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2618,
+      "cached_input_tokens": 2432,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 162,
+      "reasoning_output_tokens": 22
+    }
+  ],
+  "attempt_path": "collection\\attempts\\62fc5b78dd87f8b74d4aff41c1bd2ff4f54f8617e0875c9f2d9ead2a9811285e",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

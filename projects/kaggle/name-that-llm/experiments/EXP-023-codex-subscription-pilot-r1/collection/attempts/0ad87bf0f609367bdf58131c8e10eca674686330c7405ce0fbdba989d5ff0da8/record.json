@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0091",
+  "prompt": "Why might two cultures divide a day into meaningful periods differently even though both observe the same cycle of light and darkness? A response of around 80 words is enough.",
+  "category": "humanities_history",
+  "target_words": 80,
+  "prompt_group": "cp0091",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "0ad87bf0f609367bdf58131c8e10eca674686330c7405ce0fbdba989d5ff0da8",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:28:23.709709+00:00",
+  "ended_at": "2026-11-01T09:28:36.390631+00:00",
+  "prompt_sha256": "891efb8c7d8f643a1c8da73c1c9a1754f462d68f7c2e09ba056f8f276b242038",
+  "text": "Cultures interpret the same light–dark cycle through different environments, livelihoods, religions, and social customs. A farming society may organize the day around sunrise, heat, animal care, and seasonal labor, while an urban culture may emphasize clock time, work shifts, meals, and nightlife. Latitude also changes how long daylight lasts across seasons. Religious practices can mark periods for prayer or rest. Thus, natural observation provides a shared basis, but cultural needs and meanings determine how the day is divided.",
+  "text_sha256": "ab16628bd1e6ae7c0e1d0065f2f8fbbab8bdb6b33f44da7a39f38fc03e4e159d",
+  "raw_final_sha256": "ab16628bd1e6ae7c0e1d0065f2f8fbbab8bdb6b33f44da7a39f38fc03e4e159d",
+  "word_count": 78,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4126,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 102,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\0ad87bf0f609367bdf58131c8e10eca674686330c7405ce0fbdba989d5ff0da8",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

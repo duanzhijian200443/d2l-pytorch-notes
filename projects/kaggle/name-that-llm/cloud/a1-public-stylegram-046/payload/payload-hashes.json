@@ -1,0 +1,10 @@
+{
+  "a1_stylegram.py": "7af3a26ab544b1fcb67a34ea615a865e35e94af8471cfd4fdcda5c02e98f1f86",
+  "extra-inputs.json": "b7bf1347c6185c14d2480975873989f58115c02de65dc8bbd12ab09697faa687",
+  "input_policy.py": "d4167dbcccef49da7d439e4f459b1e15d17c8960ae6b622235ecee776cd3caf2",
+  "input_preflight.py": "26ee6c2a149a5b0e48f8016cd4427ef1576f02b178de85fab2ba9e5f4dc10d57",
+  "preflight_manifest.json": "de7a305b5d26a5ad0cca0ed41cf31e2af1f85037dd354286aeef77ac67aaabf5",
+  "run_receipts.py": "f5d30d463e857e911cf7db0d6580d64cc723ca339d10f2d5b0234afd23a02525",
+  "runtime_preflight.py": "be6f63cc6d0a49eb62b7190677392ba50edbe1c96df1d8f09fb62dd294b6e42b",
+  "stylegram_core.py": "caa46bd121164aba891c3d78e662540db9294d653db09f53d02833c1b4ab77ef"
+}

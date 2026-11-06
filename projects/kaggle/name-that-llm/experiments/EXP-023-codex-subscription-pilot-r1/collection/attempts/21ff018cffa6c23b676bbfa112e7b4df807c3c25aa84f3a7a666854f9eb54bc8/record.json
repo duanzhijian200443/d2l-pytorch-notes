@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0055",
+  "prompt": "Describe how a queue helps an online service handle more requests than it can process at once. Keep your response near 120 words.",
+  "category": "technology_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0055",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "21ff018cffa6c23b676bbfa112e7b4df807c3c25aa84f3a7a666854f9eb54bc8",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:05:38.835704+00:00",
+  "ended_at": "2026-11-01T09:05:57.037754+00:00",
+  "prompt_sha256": "4237de17d0867b83618049ac27712c45ab0ac44089119b22b916326536f78534",
+  "text": "A queue buffers incoming requests when an online service is temporarily busier than its workers can handle. Instead of rejecting every extra request or overwhelming the application, requests are placed in an ordered backlog. Workers remove jobs from the queue at a controlled rate as capacity becomes available.\n\nFor example, an e-commerce site might queue email confirmations, image processing, or payment follow-up tasks. The customer-facing request can finish quickly, while slower work happens asynchronously.\n\nQueues smooth traffic spikes, protect downstream systems, and allow workers to scale independently. They also support retries when a job fails. However, queues add delay, so services need limits, monitoring, and clear handling for requests that expire or cannot be completed.",
+  "text_sha256": "2a709cda975e28d87186a395018eebc0d002ea81d3386d9dec3cd9f9265ca6eb",
+  "raw_final_sha256": "2a709cda975e28d87186a395018eebc0d002ea81d3386d9dec3cd9f9265ca6eb",
+  "word_count": 115,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4119,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 142,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\21ff018cffa6c23b676bbfa112e7b4df807c3c25aa84f3a7a666854f9eb54bc8",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

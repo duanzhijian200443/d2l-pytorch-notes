@@ -1,0 +1,143 @@
+{
+  "observed_at": "2026-11-02T10:13:57.602875+00:00",
+  "ref": "zhjianduan/ntl-apex-codex120-056",
+  "owned_count": 76,
+  "submission_count": 9,
+  "target_ref_exists": [],
+  "prior_submission_matches": [],
+  "source_sha256": "c6c9dee6bf8194f656aca10b15e599294bee1465603e78bccd4ddcaac9decc56",
+  "existing_source_matches": [],
+  "matches": [],
+  "existing_exp054_history": {
+    "path": "cloud/apex-zero-054/owned-version-source-check.json",
+    "sha256": "faf400a5e98100d82f42585d1464268dc061b98c21b32af11e90655372d87406",
+    "bytes": 12768
+  },
+  "fresh_snapshots": [
+    {
+      "ref": "zhjianduan/ntl-apex-zero-054",
+      "version": 2,
+      "sha256": "ca4c9e18ed32dcd8168b8118b192d39d657803d30dcd89a564b1c2d1d9c846dd"
+    },
+    {
+      "ref": "zhjianduan/ntl-apex-zero-054",
+      "version": 1,
+      "sha256": "ca4c9e18ed32dcd8168b8118b192d39d657803d30dcd89a564b1c2d1d9c846dd"
+    },
+    {
+      "ref": "zhjianduan/ntl-apex-volume-053-style",
+      "version": 1,
+      "sha256": "ca0f88e93afc54e489a1c4a576faefe22db730cdb67b552f8baee09719c13ca2"
+    },
+    {
+      "ref": "zhjianduan/ntl-apex-volume-053-main",
+      "version": 1,
+      "sha256": "e01669439db28fdabf12dcccb362b7b63c8e05ec684c796f3ad7403bb6758811"
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-a1-sinkhorn030-049",
+      "version": 2,
+      "sha256": "e0c72ba2978fdae15bd64ba5cc5250e86fd550971c5380f6d4ebbd6c81798c96"
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-stylegram-volume-052",
+      "version": 2,
+      "sha256": "0532edfbe43f1601c6a53d4603dcfd33f93d7ffd818342fcde1e99d0edeeb77d"
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-a1-codex120-1102",
+      "version": 2,
+      "sha256": "9ba9ab375efad299f8bc568674d30dba276ce72574ee237a784b0a6551a876d6"
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-a1-public-stylegram-046",
+      "version": 2,
+      "sha256": "31183a6e46337fab994b563fd804b359dae67fb410361aa2393c953e639f470a"
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-format120-044",
+      "version": 2,
+      "sha256": "8d7d7b7ab9e20f7d8aa80df76f855fa7476ed83289506ea3b388850aface665b"
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-luna-terra120-042",
+      "version": 2,
+      "sha256": "46ee3e261e2865cdf6674ff9ed7386525d0ce73f0c071162e8bd095192c13494"
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-cache-capture-031",
+      "version": 2,
+      "sha256": "41e634138f9f3e35b73f40be8f5a83b3183dde1ec3c219f0f6d134452e57f748"
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-cache-capture-029",
+      "version": 3,
+      "sha256": "d5ef4c81ab01661ac7a9e887de617ef9e114c7d205850c8bef0a70e50442cac5"
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-cache-preflight-029",
+      "version": 1,
+      "sha256": "fcdaec63cb32f26b823494f609e0400340ba683bab5ee4d489611a6e02dec639"
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-fixed-blend-multiclass-027",
+      "version": 2,
+      "sha256": "2193975c17b62ac73ebca8ac94a59b194b90bd29112fd61503dd4a54d66bc64a"
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-fixed-blend-external-026",
+      "version": 2,
+      "sha256": "193a6ae260e820a9d4e3224251a6354aa6282d19c4a632d2d973f1053ed6289e"
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-svc4-raw-public-cv",
+      "version": 4,
+      "sha256": "24a5d531a844916014a9728dfa10727a5d22cacebac57077320e768b75225732"
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-stylegram-share-cv",
+      "version": 2,
+      "sha256": "cc67dc2720bbb22a84f41326f3c5548aa6fd353e06426135766773c9e54919d3"
+    },
+    {
+      "ref": "zhjianduan/who-are-you",
+      "version": 3,
+      "sha256": "b4a716ba3c1cdc4a5c976a0cb9ff2c863e53ed7e63a8da1becfa2e70d422f5d6"
+    },
+    {
+      "ref": "zhjianduan/0-664-hyperparameter-tuned-who-are-u",
+      "version": 1,
+      "sha256": "cd5c96f4f045928b860fa6c4d008af3d6edcf4c52b101a1bafca9ed20c7d9c9d"
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-atlas20-repro",
+      "version": 3,
+      "sha256": "896f7ffa64a5bdae1d1cf9a0bc10b633dfc08f6cadac2ca6949f49b1a16fd665"
+    },
+    {
+      "ref": "zhjianduan/0-663-0-660-v31-atlas-20",
+      "version": null,
+      "sha256": "9df179d632b8ebebb456cad73a48609e775c3dfb24c431c6b00e1c2f671b75e5"
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-who-am-i",
+      "version": null,
+      "sha256": "c0b89d157017fde8fea4e32af7de95ba60fa680e3d93f98cb3bb68c667d66eb9"
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-who-am-i-v30-repro",
+      "version": 7,
+      "sha256": "4433ac86534ae4111c4d59b567c48270f97173148ee3c056bd4f226033af8977"
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-no-llama-groupcv",
+      "version": 4,
+      "sha256": "4f62f2879ee2a71a888406517d293d9eb005a3b537b4ff601ad587520f23d5a0"
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-fully-reproducible",
+      "version": null,
+      "sha256": "0904a9688adf0b26959255e4fba05e4160df1c8e0726c6eb04f8b533df268bf6"
+    }
+  ]
+}

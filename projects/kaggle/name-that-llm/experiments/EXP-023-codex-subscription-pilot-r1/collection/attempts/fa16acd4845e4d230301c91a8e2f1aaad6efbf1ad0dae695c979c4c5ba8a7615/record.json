@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0112",
+  "prompt": "A village holds a contest for the most useful invention, and the winning entry is made of string and cardboard. Describe the demonstration. Keep your response near 120 words.",
+  "category": "creative_short_fiction",
+  "target_words": 120,
+  "prompt_group": "cp0112",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "fa16acd4845e4d230301c91a8e2f1aaad6efbf1ad0dae695c979c4c5ba8a7615",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:41:15.067357+00:00",
+  "ended_at": "2026-11-01T09:41:29.655990+00:00",
+  "prompt_sha256": "94008f9678c14f38b894e2d1947e7ee3246d3a6f8235dd7129e5ed560d3f8c0a",
+  "text": "In the village square, Mara placed a cardboard box beside the dry public well. From it ran a web of string: one line tied to a rooftop wind vane, another to a row of tin cups, and a third to a cardboard arrow painted blue. When the breeze rose, the vane tugged the first string. Inside the box, cardboard wheels turned, tightening the second line and tipping the cups beneath the communal water tank. Water flowed only while the wind blew, filling each cup equally before the blue arrow signaled the next family’s turn. No fuel, electricity, or guard was needed. Mara then cut one string, showing how easily every part could be repaired. As the cups filled without spilling a drop, the judges declared her humble water-sharing machine the winner.",
+  "text_sha256": "504af02e5f6b85945dd64eafc12982d514e65367749b873c12520d347d487261",
+  "raw_final_sha256": "504af02e5f6b85945dd64eafc12982d514e65367749b873c12520d347d487261",
+  "word_count": 131,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4127,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 185,
+      "reasoning_output_tokens": 24
+    }
+  ],
+  "attempt_path": "collection\\attempts\\fa16acd4845e4d230301c91a8e2f1aaad6efbf1ad0dae695c979c4c5ba8a7615",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

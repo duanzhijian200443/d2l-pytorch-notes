@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0212",
+  "prompt": "Why can a computer with plenty of storage space still struggle to keep several large applications open? Use approximately 120 words for the response.",
+  "category": "technology_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0212",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "405c96e4c2947873f3f5bd7abe5d92a71e42f7e9519be8b9bff63353c0db129b",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:10:18.977346+00:00",
+  "ended_at": "2026-11-01T11:10:35.720806+00:00",
+  "prompt_sha256": "826ffb31c1a445035e86704359dc66ece1e22d61879b289cd44529aad588ed44",
+  "text": "Storage space and working memory serve different purposes. Storage—an SSD or hard drive—holds applications and files long term, even when the computer is turned off. Open applications, however, rely mainly on RAM, which provides much faster temporary access to the data and instructions currently in use.\n\nA computer may therefore have terabytes of free storage but only a small amount of RAM. When several large applications run simultaneously, they can exhaust available RAM. The operating system then moves some data between RAM and a storage-based swap or page file. Because storage is much slower than RAM, applications may freeze, reload, or respond sluggishly. Processor and graphics-card limits can also contribute, especially when the applications perform intensive calculations or handle complex visuals.",
+  "text_sha256": "526d5565735ad56367ff18227f47436f1ec720d205edb2692ef0f13317ee84e5",
+  "raw_final_sha256": "526d5565735ad56367ff18227f47436f1ec720d205edb2692ef0f13317ee84e5",
+  "word_count": 121,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4120,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 150,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\405c96e4c2947873f3f5bd7abe5d92a71e42f7e9519be8b9bff63353c0db129b",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

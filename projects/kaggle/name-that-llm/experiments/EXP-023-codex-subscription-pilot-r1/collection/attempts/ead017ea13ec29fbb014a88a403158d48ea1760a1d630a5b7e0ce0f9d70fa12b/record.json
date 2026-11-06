@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0083",
+  "prompt": "Describe the role of public squares in the social life of a town before electronic communication became common. Keep your response near 160 words.",
+  "category": "humanities_history",
+  "target_words": 160,
+  "prompt_group": "cp0083",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "ead017ea13ec29fbb014a88a403158d48ea1760a1d630a5b7e0ce0f9d70fa12b",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:23:16.931870+00:00",
+  "ended_at": "2026-11-01T09:23:32.125533+00:00",
+  "prompt_sha256": "763fae98269fbecd3b48d3085e2bb8e6d6150f39511f955ba226e0e9ea69dde2",
+  "text": "Before electronic communication became common, public squares were the social heart of a town. They served as places where people met, exchanged news, and maintained relationships. Farmers brought produce to market, merchants displayed their goods, and residents gathered to discuss local events, politics, and community concerns. Because information traveled mainly by word of mouth, the square functioned as an informal communication network: announcements, rumors, celebrations, and warnings could spread quickly through everyday conversation.\n\nSquares also hosted religious ceremonies, festivals, performances, protests, and civic gatherings, giving the community shared experiences and traditions. They offered opportunities for people from different social classes to encounter one another, even if social boundaries remained strong. Travelers and newcomers could learn about the town by observing its busiest public space. In this way, the square was not merely an open area but a marketplace, meeting hall, news center, and stage for public life. Its activity helped create a sense of belonging and connected individual households to the wider community.",
+  "text_sha256": "d65d1bd0115aea6b3cd2e3cf8886ab5349258f13a3ac821bb0d4f189a5c1dbe5",
+  "raw_final_sha256": "d65d1bd0115aea6b3cd2e3cf8886ab5349258f13a3ac821bb0d4f189a5c1dbe5",
+  "word_count": 163,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2585,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 216,
+      "reasoning_output_tokens": 15
+    }
+  ],
+  "attempt_path": "collection\\attempts\\ead017ea13ec29fbb014a88a403158d48ea1760a1d630a5b7e0ce0f9d70fa12b",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

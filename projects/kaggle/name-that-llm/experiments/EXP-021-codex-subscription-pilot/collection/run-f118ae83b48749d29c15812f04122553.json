@@ -1,0 +1,46 @@
+{
+  "status": "STOPPED_FAILURE",
+  "planned_total": 1000,
+  "target_total": 4,
+  "already_saved": 0,
+  "remaining_in_this_run": 4,
+  "workers": 2,
+  "controller_automatic_retries": 0,
+  "cli_internal_retry_policy": "see frozen cli_overrides; not inferred",
+  "observed_at": "2026-11-01T08:20:43.642521+00:00",
+  "run_id": "f118ae83b48749d29c15812f04122553",
+  "controller_pid": 30964,
+  "started_at": "2026-11-01T08:20:43.505380+00:00",
+  "saved_total": 0,
+  "saved_in_target": 0,
+  "launched_this_run": 2,
+  "failed_this_run": 2,
+  "failures": [
+    {
+      "job_key": "97da28f54b5b6a30c56402656d97bbcff1bf9816dbd4b0484719eb8c4e9b71f0",
+      "status": "FAILED",
+      "started_at": "2026-11-01T08:20:43.506175+00:00",
+      "ended_at": "2026-11-01T08:20:43.628866+00:00",
+      "returncode": 1,
+      "reasons": [
+        "EMPTY_FINAL",
+        "NO_TURN_COMPLETED",
+        "PROCESS_FAILED"
+      ]
+    },
+    {
+      "job_key": "0d6d40b5c01e5e87c77efa2afa849b9eabda0581caf4b2aa14a38776e4932a6c",
+      "status": "FAILED",
+      "started_at": "2026-11-01T08:20:43.506565+00:00",
+      "ended_at": "2026-11-01T08:20:43.628774+00:00",
+      "returncode": 1,
+      "reasons": [
+        "EMPTY_FINAL",
+        "NO_TURN_COMPLETED",
+        "PROCESS_FAILED"
+      ]
+    }
+  ],
+  "active": [],
+  "elapsed_seconds": 0.137
+}

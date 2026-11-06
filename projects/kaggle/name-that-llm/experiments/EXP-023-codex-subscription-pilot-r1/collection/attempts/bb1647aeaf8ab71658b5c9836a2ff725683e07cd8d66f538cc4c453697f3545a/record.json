@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0122",
+  "prompt": "Compare the value of learning one craft deeply with trying many crafts casually. Avoid treating either choice as inherently superior. Please answer in roughly 120 words.",
+  "category": "tradeoff_argument",
+  "target_words": 120,
+  "prompt_group": "cp0122",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "bb1647aeaf8ab71658b5c9836a2ff725683e07cd8d66f538cc4c453697f3545a",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:48:11.883340+00:00",
+  "ended_at": "2026-11-01T09:48:32.395020+00:00",
+  "prompt_sha256": "24fb6d49089265ff9f1dca55423b6d56616c22d6c160b9d45b1215bab35535f9",
+  "text": "Learning one craft deeply offers the satisfaction of sustained progress. Repetition sharpens judgment, difficult problems become approachable, and skills can develop into a distinctive personal style. Depth may also support professional opportunities, though it requires patience and can leave less room for other interests.\n\nTrying many crafts casually offers variety, discovery, and the freedom to enjoy making things without pursuing mastery. Different activities can spark unexpected connections and help you learn what you like. The trade-off is that some techniques and rewards remain inaccessible without sustained practice.\n\nNeither approach is inherently better: their value depends on whether you seek expertise, relaxation, exploration, or some combination. You can also move between them, exploring widely before committing—or keeping one serious practice alongside several playful ones.",
+  "text_sha256": "da58ecc82f48b90d824d6f10d891dbe09a814e388af1a75bebb7a725b4ff96f4",
+  "raw_final_sha256": "da58ecc82f48b90d824d6f10d891dbe09a814e388af1a75bebb7a725b4ff96f4",
+  "word_count": 123,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4237,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 149,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\bb1647aeaf8ab71658b5c9836a2ff725683e07cd8d66f538cc4c453697f3545a",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

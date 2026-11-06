@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0228",
+  "prompt": "Describe an evening when a restaurant's power goes out and the owner discovers something useful about the regular customers. Please answer in roughly 160 words.",
+  "category": "creative_short_fiction",
+  "target_words": 160,
+  "prompt_group": "cp0228",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "06aaa5221eb34ee348ac78c2508828b48583a6eb83ae8f086e61a620746ad978",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:19:52.059558+00:00",
+  "ended_at": "2026-11-01T11:20:07.575747+00:00",
+  "prompt_sha256": "58deb5e19a4145bbe9e0c9117dc0e6e6877351c021ad969cbd93dfb9235e00cb",
+  "text": "At seven-thirty, just as the Friday rush began, every light in Mara’s restaurant snapped off. The ovens sighed into silence, the music vanished, and thirty diners lifted glowing phones like startled fireflies.\n\nMara expected complaints. Instead, Mr. Chen, who always ate alone by the window, produced two camping lanterns from his car. The college students at table six arranged candles in empty jam jars. Someone began playing an old piano near the bar, badly but cheerfully.\n\nWith the kitchen disabled, Mara served bread, cheese, cold salads, and the emergency ice cream before it melted. Regulars shared tables with strangers. They traded stories, poured water, carried plates, and even washed dishes by flashlight.\n\nWatching them, Mara realized she had mistaken familiarity for habit. She knew their orders—no onions, extra lemon, sauce on the side—but not their talents, generosity, or affection for the place.\n\nWhen power returned, nobody cheered. They asked Mara to switch the lights off again. From then on, she hosted a monthly candlelit supper, no electricity allowed.",
+  "text_sha256": "304e2a4bfbe5ee76971bde634f4cb8bce04b5a234454e2c9ceb03193747e1ab0",
+  "raw_final_sha256": "304e2a4bfbe5ee76971bde634f4cb8bce04b5a234454e2c9ceb03193747e1ab0",
+  "word_count": 168,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4122,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 237,
+      "reasoning_output_tokens": 12
+    }
+  ],
+  "attempt_path": "collection\\attempts\\06aaa5221eb34ee348ac78c2508828b48583a6eb83ae8f086e61a620746ad978",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

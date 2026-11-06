@@ -1,0 +1,9 @@
+Use a simple prioritization process rather than choosing the loudest request.
+
+1. **Agree on the main goal:** more volunteer sign-ups, donations, or easier access to services.
+2. **Score all ten improvements** on expected benefit, number of people helped, urgency, and developer effort. Include accessibility, security, and maintenance needs—not just visible features.
+3. **Validate assumptions** with brief feedback from volunteers and website users, plus any available analytics.
+4. **Prioritize critical fixes first**, then improvements offering the greatest benefit for the least effort. Consider dependencies that could change the order.
+5. **Choose one small, achievable improvement**, define a success measure, and protect the developer from competing requests.
+
+Keep the remaining items in a transparent backlog. Review priorities after each release, using results and updated effort estimates.

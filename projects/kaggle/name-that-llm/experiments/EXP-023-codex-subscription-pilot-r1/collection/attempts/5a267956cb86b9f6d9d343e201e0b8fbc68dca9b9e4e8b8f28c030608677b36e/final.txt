@@ -1,0 +1,7 @@
+A desktop shortcut is a link to an application, not the application itself. It tells the operating system where to find the program and may include instructions for launching it. Think of it as a signpost: removing the sign does not remove the place it points to.
+
+When you install an application, its files are usually stored in a separate location, such as the Program Files folder on Windows or the Applications folder on macOS. The installer may also create settings, supporting files, and a desktop shortcut for convenient access.
+
+Deleting that shortcut removes only the link from your desktop. The application’s files remain, so you can usually still open it through the Start menu, the Applications folder, or another shortcut.
+
+To uninstall an application, use your operating system’s removal method or the application’s uninstaller. One important exception: if a desktop item is the actual program rather than a shortcut, deleting it can remove the program itself, though associated files might remain.

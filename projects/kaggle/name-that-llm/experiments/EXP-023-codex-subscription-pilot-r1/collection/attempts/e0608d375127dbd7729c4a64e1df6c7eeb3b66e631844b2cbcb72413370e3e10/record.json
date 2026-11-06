@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0080",
+  "prompt": "Compare using one overall customer satisfaction score with collecting a few specific questions about different parts of an experience. Please answer in roughly 120 words.",
+  "category": "business_decision",
+  "target_words": 120,
+  "prompt_group": "cp0080",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "e0608d375127dbd7729c4a64e1df6c7eeb3b66e631844b2cbcb72413370e3e10",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:21:38.666936+00:00",
+  "ended_at": "2026-11-01T09:21:57.480619+00:00",
+  "prompt_sha256": "b29c9dae152212069a66d744810185d1012281e4bef925e00865b440bbbd3196",
+  "text": "An overall customer satisfaction score is simple, fast, and useful for tracking broad sentiment over time. It provides an easy headline metric for comparing customers, products, or periods. However, it lacks detail: a single score cannot explain what caused satisfaction or dissatisfaction.\n\nA few specific questions about different parts of the experience—such as product quality, ease of use, support, speed, and value—require slightly more effort but produce actionable insights. They help identify strengths, diagnose problems, and prioritize improvements. The trade-off is survey length and the risk of response fatigue.\n\nIn practice, the strongest approach often combines both: use one overall satisfaction question as the primary trend measure, followed by a small, carefully chosen set of specific questions and an optional open-text explanation.",
+  "text_sha256": "59cfa74c574b1b469f565f40950dd0e16e46632132d1bd750913b20eff8c0e73",
+  "raw_final_sha256": "59cfa74c574b1b469f565f40950dd0e16e46632132d1bd750913b20eff8c0e73",
+  "word_count": 122,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2586,
+      "cached_input_tokens": 2432,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 172,
+      "reasoning_output_tokens": 15
+    }
+  ],
+  "attempt_path": "collection\\attempts\\e0608d375127dbd7729c4a64e1df6c7eeb3b66e631844b2cbcb72413370e3e10",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

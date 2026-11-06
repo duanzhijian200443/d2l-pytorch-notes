@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0077",
+  "prompt": "A local club needs a new registration form. Describe how to identify essential fields and avoid asking for information merely because it might be useful someday. A response of around 120 words is enough.",
+  "category": "business_decision",
+  "target_words": 120,
+  "prompt_group": "cp0077",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "2ef8b2875c6a7d89a974df5e332b9f3d931500095505f80d8d74da4a2ba9f4cd",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:18:40.146652+00:00",
+  "ended_at": "2026-11-01T09:18:54.327268+00:00",
+  "prompt_sha256": "4dffbbbbd8fd400a2a6ecdfec2d3dc829f3c9489b7f8e730a88a4ad56d7fa5c9",
+  "text": "Identify fields by starting with the form’s purpose: what decision, service, or legal obligation must registration support? List the minimum information needed to complete those tasks, such as a name, reliable contact method, eligibility details, and emergency information only if genuinely relevant. For every proposed field, ask: “How will we use this, who needs it, and what happens if we do not collect it?” Remove fields with no clear answer. Separate required fields from optional ones, explain why sensitive information is requested, and avoid collecting data “just in case.” Consider privacy, accessibility, retention, and security. Test the draft with real club members: if a question causes confusion or rarely affects an outcome, simplify or delete it. Review the form periodically as needs change.",
+  "text_sha256": "79456c1b4005a58e525da5f13258f85d52a2e4824126a42b365212c7cf5c276a",
+  "raw_final_sha256": "79456c1b4005a58e525da5f13258f85d52a2e4824126a42b365212c7cf5c276a",
+  "word_count": 123,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2596,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 156,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\2ef8b2875c6a7d89a974df5e332b9f3d931500095505f80d8d74da4a2ba9f4cd",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

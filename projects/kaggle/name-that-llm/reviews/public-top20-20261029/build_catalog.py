@@ -2,9 +2,12 @@
 from datetime import datetime, timedelta
 import json
 from pathlib import Path
+import sys
 
 ROOT = Path(__file__).resolve().parent
 PROJECT = ROOT.parent.parent
+sys.path.insert(0, str(PROJECT / 'src'))
+from report_links import rebase_local_links
 ui = json.loads((ROOT / 'ui-scores.json').read_text(encoding='utf-8'))
 receipts = {x['ref']: x for x in json.loads((ROOT / 'sources-index.json').read_text(encoding='utf-8'))}
 notes = json.loads((ROOT / 'curated-notes.json').read_text(encoding='utf-8'))
@@ -130,7 +133,12 @@ text += f'''## 5. 已确认的重复与容易误读的地方
 
 当前没有检查这 20 项所有附件的实时可下载性，也没有运行它们。某个页面显示高分、某份代码可下载，以及今天能够重现那个分数，是三个不同的结论。
 '''
-out = PROJECT / '公开高分方案Top20-2026-10-29.md'
+out = PROJECT / 'archive/research-notes/公开高分方案Top20-2026-10-29.md'
+text = '> **历史快照**：本文对应原核查日期。最新资料见 [研究索引](tracking/研究索引.md)，项目进展见 [当前状态](tracking/当前状态.md)。\n\n' + text
+text = rebase_local_links(text, PROJECT, out.parent, {
+    PROJECT / '公开方案与实验记录.md': out.parent / '公开方案与实验记录.md',
+})
+out.parent.mkdir(parents=True, exist_ok=True)
 out.write_text(text, encoding='utf-8')
 (ROOT / 'catalog.json').write_text(json.dumps(registry, ensure_ascii=False, indent=2), encoding='utf-8')
 print(json.dumps({'report': str(out), 'entries': len(registry), 'characters': len(text), 'score_range': [rows[-1]['score'], rows[0]['score']]}, ensure_ascii=False))

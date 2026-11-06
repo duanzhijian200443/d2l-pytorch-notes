@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0015",
+  "prompt": "Propose a way to turn a drawer full of old postcards and ticket stubs into a modest keepsake collection without making it a major craft project. A response of around 120 words is enough.",
+  "category": "everyday_advice",
+  "target_words": 120,
+  "prompt_group": "cp0015",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "e810c3fe8b2f92959c5d6fa3a38c3ce90f2cdd77dd535e64e427f5022c57ba56",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:40:22.434430+00:00",
+  "ended_at": "2026-11-01T08:40:37.610697+00:00",
+  "prompt_sha256": "240a1bb9b73cccf3e0ac670b7599106d46b9702b120395ebde029d0ffd261bff",
+  "text": "Create a small “memory box” rather than a full scrapbook. Sort the postcards and ticket stubs into a few simple groups—by year, trip, place, or person—and keep only the items that spark a clear memory. Slip each group into an archival photo sleeve or a labeled paper envelope. On a small index card, add one or two lines about the occasion, who was there, or why it mattered.\n\nStore the envelopes upright in an acid-free photo box, with dividers for easy browsing. Choose five or six favorites to display in a simple tabletop photo album or rotating frame, swapping them occasionally. This keeps the collection tidy, protected, and meaningful while requiring little more than sorting, labeling, and boxing—no elaborate layouts, adhesives, or decorating.",
+  "text_sha256": "3f8b804b75c1b241ed5b7a3badd3194dd793dc22829ce4db138ed872ed878626",
+  "raw_final_sha256": "3f8b804b75c1b241ed5b7a3badd3194dd793dc22829ce4db138ed872ed878626",
+  "word_count": 123,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4133,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 158,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\e810c3fe8b2f92959c5d6fa3a38c3ce90f2cdd77dd535e64e427f5022c57ba56",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

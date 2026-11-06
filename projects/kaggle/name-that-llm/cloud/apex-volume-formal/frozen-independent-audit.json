@@ -1,0 +1,136 @@
+{
+  "status": "PASS_LOCAL_CANDIDATE_PAIR",
+  "base_sha256": "ca4c9e18ed32dcd8168b8118b192d39d657803d30dcd89a564b1c2d1d9c846dd",
+  "arms": {
+    "120": {
+      "status": "PASS",
+      "source_sha256": "c6c9dee6bf8194f656aca10b15e599294bee1465603e78bccd4ddcaac9decc56",
+      "metadata_sha256": "d87f61378abc03e0c932577ce5f0647690cd1b7905a07c97d096b3636f57030e",
+      "comp_sha256": "063cfb6c104836861fcdd406093b1744b00b46bbcb8ed2a7a1acec380cefd795",
+      "changed_cells": [
+        12,
+        14
+      ],
+      "data": {
+        "rows": 120,
+        "groups": 30,
+        "label_counts": {
+          "gpt-5.6-luna": 30,
+          "gpt-5.6-sol": 30,
+          "gpt-5.6-terra": 30,
+          "gpt-6-astra": 30
+        },
+        "raw_downloaded_original_texts_matched": 120,
+        "holdout_hash_overlap": 0
+      },
+      "training": {
+        "fit_calls": 2,
+        "training_rows_each_svm": 13562,
+        "old_weight_rows_bitwise_equal": 13442,
+        "new_weight_rows_bitwise_equal": 120,
+        "old_shared_globals_unchanged": true,
+        "centred_subset_routed": true,
+        "training_numeric_scope": "executed candidate block and original weight function; instrumented vectorizer and estimators record row order/weight without fitting models",
+        "new_per_class": {
+          "gpt-5.6-luna": {
+            "added_rows": 30,
+            "official_rows": 150,
+            "original_public_rows": 738,
+            "added_per_row_weight": 0.1016260162601626
+          },
+          "gpt-5.6-sol": {
+            "added_rows": 30,
+            "official_rows": 150,
+            "original_public_rows": 738,
+            "added_per_row_weight": 0.1016260162601626
+          },
+          "gpt-5.6-terra": {
+            "added_rows": 30,
+            "official_rows": 150,
+            "original_public_rows": 738,
+            "added_per_row_weight": 0.1016260162601626
+          },
+          "gpt-6-astra": {
+            "added_rows": 30,
+            "official_rows": 150,
+            "original_public_rows": 726,
+            "added_per_row_weight": 0.10330578512396695
+          }
+        }
+      },
+      "guards": {
+        "fast": "PASS_EXPECTED_BEHAVIOR",
+        "hidden_ok": "PASS_EXPECTED_BEHAVIOR",
+        "hidden_child_failed": "PASS_EXPECTED_BEHAVIOR",
+        "hidden_wrong_nonce": "PASS_EXPECTED_BEHAVIOR"
+      }
+    },
+    "240": {
+      "status": "PASS",
+      "source_sha256": "1683f9246149ea3e1c57a44f0a514e886284c8d36f3ddcd6b7ee4fa7046e0861",
+      "metadata_sha256": "6f301d8bef18fd8c8aac8cbbf7e97fd61e3aad9cc9ed6e493d693dc7e6784971",
+      "comp_sha256": "5c8ea0be70cd7231bd23183028a3a8a8bc9cee73c3c461e863ebd9d4e2701b21",
+      "changed_cells": [
+        12,
+        14
+      ],
+      "data": {
+        "rows": 240,
+        "groups": 60,
+        "label_counts": {
+          "gpt-5.6-luna": 60,
+          "gpt-5.6-sol": 60,
+          "gpt-5.6-terra": 60,
+          "gpt-6-astra": 60
+        },
+        "raw_downloaded_original_texts_matched": 240,
+        "holdout_hash_overlap": 0
+      },
+      "training": {
+        "fit_calls": 2,
+        "training_rows_each_svm": 13682,
+        "old_weight_rows_bitwise_equal": 13442,
+        "new_weight_rows_bitwise_equal": 240,
+        "old_shared_globals_unchanged": true,
+        "centred_subset_routed": true,
+        "training_numeric_scope": "executed candidate block and original weight function; instrumented vectorizer and estimators record row order/weight without fitting models",
+        "new_per_class": {
+          "gpt-5.6-luna": {
+            "added_rows": 60,
+            "official_rows": 150,
+            "original_public_rows": 738,
+            "added_per_row_weight": 0.1016260162601626
+          },
+          "gpt-5.6-sol": {
+            "added_rows": 60,
+            "official_rows": 150,
+            "original_public_rows": 738,
+            "added_per_row_weight": 0.1016260162601626
+          },
+          "gpt-5.6-terra": {
+            "added_rows": 60,
+            "official_rows": 150,
+            "original_public_rows": 738,
+            "added_per_row_weight": 0.1016260162601626
+          },
+          "gpt-6-astra": {
+            "added_rows": 60,
+            "official_rows": 150,
+            "original_public_rows": 726,
+            "added_per_row_weight": 0.10330578512396695
+          }
+        }
+      },
+      "guards": {
+        "fast": "PASS_EXPECTED_BEHAVIOR",
+        "hidden_ok": "PASS_EXPECTED_BEHAVIOR",
+        "hidden_child_failed": "PASS_EXPECTED_BEHAVIOR",
+        "hidden_wrong_nonce": "PASS_EXPECTED_BEHAVIOR"
+      }
+    }
+  },
+  "limits": [
+    "Local guard cases use simulated child outputs and real staged source files. Remote FAST, hidden scoring, model convergence and ATLAS coverage require separate evidence.",
+    "Original infer.py retains its documented fallback on runtime errors. Completion of the input preflight alone does not attest hidden inference."
+  ]
+}

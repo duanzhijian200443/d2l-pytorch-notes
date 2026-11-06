@@ -1,0 +1,45 @@
+{
+  "status": "DOWNLOADED",
+  "ref": "zhjianduan/name-that-llm-a1-sinkhorn030-049",
+  "version": 2,
+  "observed_at": "2026-11-02T09:10:41.157334+00:00",
+  "file_filter": "^(submission\\.parquet|submission_receipt\\.json|input_preflight\\.json|availability\\.json|a1_synthetic_parity\\.json|reproduction_environment\\.json|comp-process\\.log|a1_training_receipt\\.json|comp_meta\\.json)$",
+  "sdk_automatic_log_included": true,
+  "files": [
+    {
+      "path": "a1_synthetic_parity.json",
+      "bytes": 550,
+      "sha256": "06ec26c52dd0302209908149f42e19616d5aa35e8ba64d097248d79614aa0757"
+    },
+    {
+      "path": "availability.json",
+      "bytes": 26615,
+      "sha256": "a3bdec419e8f4ae132c7fafacbeb9b4b83d7aed1d81fa156e01d951d0a481ea9"
+    },
+    {
+      "path": "input_preflight.json",
+      "bytes": 1872,
+      "sha256": "ea3c7bc8f8a38650d01a9327fd46974d4a11c696a007b425c6b3365c250c2118"
+    },
+    {
+      "path": "reproduction_environment.json",
+      "bytes": 1043,
+      "sha256": "9a377e53e2465d1d8c1f4c650b45736dd65a85b5684dcf3ccfd74ec4b06000b3"
+    },
+    {
+      "path": "submission.parquet",
+      "bytes": 1682,
+      "sha256": "ef94c7669e36a465bbd3e2dd8cf4905b5e1c2e51e18053a588cb56623086170a"
+    },
+    {
+      "path": "submission_receipt.json",
+      "bytes": 432,
+      "sha256": "78898aa7d511b09d6a3aaa5c05a983aa5f94dce98910ff69ec97a596e3706545"
+    },
+    {
+      "path": "name-that-llm-a1-sinkhorn030-049.log",
+      "bytes": 10616,
+      "sha256": "c0c41347081459975964ffc073cf420c38e27809861184f8b0a1770cbfe0a6d6"
+    }
+  ]
+}

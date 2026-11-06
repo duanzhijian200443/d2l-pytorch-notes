@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0027",
+  "prompt": "Why does fresh snow make an outdoor space seem quieter, and why might this change after the snow becomes icy? Please answer in roughly 120 words.",
+  "category": "science_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0027",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "c2b87bdfab0598aa4dc481ae0147eecc22e895e0abd5ec926f7ed6068b6b25fa",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:47:24.359597+00:00",
+  "ended_at": "2026-11-01T08:47:39.029803+00:00",
+  "prompt_sha256": "1b786339f5f063633808ab7d1693569ef9e1ea980ecc2315096b29bbda3a8123",
+  "text": "Fresh snow makes an outdoor space seem quieter because its loose, porous structure traps air and absorbs sound, especially higher frequencies. Snow also blankets hard surfaces such as roads, roofs, and sidewalks, reducing the reflections that normally carry sound. As a result, footsteps, traffic, and voices may seem muffled and more distant.\n\nAfter snow compacts, melts, or freezes, it can become icy and dense. Ice forms a hard, smooth surface that reflects sound rather than absorbing it. Sounds may then travel farther and seem sharper or more noticeable. However, the exact effect depends on temperature, wind, humidity, and the thickness and texture of the snow or ice.",
+  "text_sha256": "826b891d8dae3438e789deb4a5ab145219aafc25670c4c80cea9b22564bd94f3",
+  "raw_final_sha256": "826b891d8dae3438e789deb4a5ab145219aafc25670c4c80cea9b22564bd94f3",
+  "word_count": 107,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2588,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 165,
+      "reasoning_output_tokens": 27
+    }
+  ],
+  "attempt_path": "collection\\attempts\\c2b87bdfab0598aa4dc481ae0147eecc22e895e0abd5ec926f7ed6068b6b25fa",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

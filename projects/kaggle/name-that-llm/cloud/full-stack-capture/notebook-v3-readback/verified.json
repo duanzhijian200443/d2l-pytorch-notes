@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "observed_at_utc": "2026-11-01T10:44:37.089300+00:00",
+  "source_equal": true,
+  "attachment_count": 31,
+  "kernel_version": 3,
+  "runtime_status": "RUNNING",
+  "hardware_actual_not_yet_observed": true
+}

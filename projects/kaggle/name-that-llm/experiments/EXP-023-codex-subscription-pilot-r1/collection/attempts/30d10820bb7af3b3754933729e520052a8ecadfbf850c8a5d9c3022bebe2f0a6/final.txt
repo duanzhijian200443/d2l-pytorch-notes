@@ -1,0 +1,7 @@
+Label the five people A, B, C, D, and E. Count only handshakes with someone later in the list. A shakes hands with four people; B’s handshake with A is already counted, so B adds three. Similarly, C adds two, D adds one, and E adds none. Thus the total is
+
+\[
+4+3+2+1=10.
+\]
+
+This avoids double-counting because each pair is recorded only once—when considering the person who appears earlier in the list.

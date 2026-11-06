@@ -1,0 +1,9 @@
+After four days, the fast clock will have gained \(2 \times 4 = 8\) minutes. The slow clock will have lost \(1 \times 4 = 4\) minutes.
+
+Their separation is the sum of those deviations: one is 8 minutes ahead of the correct time while the other is 4 minutes behind it. Therefore, their displayed readings differ by:
+
+\[
+8 + 4 = 12 \text{ minutes}.
+\]
+
+So after four days, the clock that gains time will read **12 minutes later** than the clock that loses time.

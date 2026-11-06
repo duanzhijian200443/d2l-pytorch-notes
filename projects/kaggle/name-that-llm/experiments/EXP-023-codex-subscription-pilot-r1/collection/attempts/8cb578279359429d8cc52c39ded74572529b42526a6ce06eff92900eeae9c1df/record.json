@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0021",
+  "prompt": "Why can a metal spoon feel colder than a wooden spoon even when both have been sitting in the same room all night? Explain for a curious teenager. Keep your response near 80 words.",
+  "category": "science_explanation",
+  "target_words": 80,
+  "prompt_group": "cp0021",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "8cb578279359429d8cc52c39ded74572529b42526a6ce06eff92900eeae9c1df",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:44:12.522404+00:00",
+  "ended_at": "2026-11-01T08:44:33.018419+00:00",
+  "prompt_sha256": "4843f1e01ac65abe489ebb396e8ea86d18b0d3b1ae452152dc7b1867cbc6ae90",
+  "text": "Both spoons are at roughly the same room temperature, but your skin senses how quickly it loses heat—not just an object’s temperature. Your hand is warmer than the room, so heat flows from your skin into either spoon. Metal conducts heat well, carrying it away from the contact area quickly, so your skin cools faster. Wood is a poor heat conductor, so heat escapes more slowly. That’s why metal feels colder, even though a thermometer would show nearly identical temperatures.",
+  "text_sha256": "9e0c90b56a250ed857480c24397f5b395ad25d2110f757beffb831b47a5b5f73",
+  "raw_final_sha256": "9e0c90b56a250ed857480c24397f5b395ad25d2110f757beffb831b47a5b5f73",
+  "word_count": 80,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4245,
+      "cached_input_tokens": 2048,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 100,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\8cb578279359429d8cc52c39ded74572529b42526a6ce06eff92900eeae9c1df",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

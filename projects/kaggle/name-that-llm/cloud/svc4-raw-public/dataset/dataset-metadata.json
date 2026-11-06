@@ -1,0 +1,10 @@
+{
+  "id": "zhjianduan/ntl-svc4-raw-public-inputs-v1",
+  "title": "NTL SVC4 Raw Public CV Inputs v1",
+  "licenses": [
+    {
+      "name": "other"
+    }
+  ],
+  "description": "Private CPU experiment payload. Public passage source: prvsiyan/prvsiyans-extended-name-that-llm-dataset V6, passages.csv raw split=new, 5400 unchanged texts, author CC BY 4.0 attribution preserved in attribution.md. No clean/funnel/punctuation filtering. Official texts loaded separately from competition input. Not a competition submission."
+}

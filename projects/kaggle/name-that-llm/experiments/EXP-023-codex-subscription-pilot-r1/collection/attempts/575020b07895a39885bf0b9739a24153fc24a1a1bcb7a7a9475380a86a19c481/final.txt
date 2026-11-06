@@ -1,0 +1,15 @@
+The recipe uses 3 cups of broth for 4 people. To scale it for 6 people, first find the scale factor:
+
+\[
+\frac{6}{4} = 1.5
+\]
+
+This means every ingredient must be multiplied by 1.5. For the broth:
+
+\[
+3 \text{ cups} \times 1.5 = 4.5 \text{ cups}
+\]
+
+Therefore, you need **4.5 cups of broth**, or **4½ cups**, to serve six people.
+
+Another way to see this is that each person’s share requires \(3/4\) cup of broth. Multiplying \(3/4\) cup by 6 people also gives \(18/4\), which equals 4½ cups. Scaling all the other ingredients by the same factor of 1.5 will keep the recipe’s flavors and proportions consistent.

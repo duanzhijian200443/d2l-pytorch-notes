@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0191",
+  "prompt": "Two boxes have the same outside dimensions, but one has much thicker walls. Explain why comparing their external size is insufficient to compare their storage capacity. A response of around 80 words is enough.",
+  "category": "reasoning_explanation",
+  "target_words": 80,
+  "prompt_group": "cp0191",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "d34d8744ef0a4fb799f1149c8603ab8c918af504496b189f62ad131796e582ef",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:56:53.052740+00:00",
+  "ended_at": "2026-11-01T10:57:12.943685+00:00",
+  "prompt_sha256": "43ad69cfb8c2992353b4ee37f4284aa4b63490409c82a897df75ad26342771d1",
+  "text": "External dimensions measure the space occupied by the boxes, not the space available inside them. The box with thicker walls uses more of that volume for material, leaving a smaller internal cavity. Storage capacity depends on the internal dimensions—length, width, and height—so two boxes with identical outside measurements can hold different amounts. The box with thinner walls will generally have greater storage capacity, while the thicker-walled box may be stronger or better insulated.",
+  "text_sha256": "4123c34c4bbb6d6704f34c114a851b8ffa2d66e45011c99fb307ef71817fa797",
+  "raw_final_sha256": "4123c34c4bbb6d6704f34c114a851b8ffa2d66e45011c99fb307ef71817fa797",
+  "word_count": 73,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2597,
+      "cached_input_tokens": 2432,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 92,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\d34d8744ef0a4fb799f1149c8603ab8c918af504496b189f62ad131796e582ef",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

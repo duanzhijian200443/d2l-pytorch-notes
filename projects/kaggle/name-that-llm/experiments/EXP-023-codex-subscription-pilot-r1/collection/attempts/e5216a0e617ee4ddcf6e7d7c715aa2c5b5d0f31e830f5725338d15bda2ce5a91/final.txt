@@ -1,0 +1,9 @@
+A floating piece of ice usually does not make a glass overflow when it melts because it already displaces the same amount of water that it will become.
+
+This follows from **Archimedes’ principle**: a floating object displaces a weight of liquid equal to its own weight. For example, an ice cube weighing 10 grams pushes aside 10 grams of water. Since liquid water has a density of approximately 1 gram per millilitre, the submerged part of the ice occupies about 10 millilitres.
+
+When the ice melts, it becomes 10 grams of liquid water—also about 10 millilitres. That meltwater exactly fills the volume that the submerged ice had displaced, so the water level stays essentially unchanged.
+
+You might wonder about the part of the ice sticking above the surface. Ice is less dense than liquid water, which is why it floats with roughly 9% of its volume above water. As it melts, it contracts: that extra volume disappears rather than adding extra water above the original level.
+
+Thus, even a glass filled to the brim should not overflow simply because its floating ice melts. In practice, temperature changes, surface tension, or movement can cause small differences, but the basic displacement argument remains the same.

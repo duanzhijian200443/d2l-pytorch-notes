@@ -1,0 +1,32 @@
+{
+  "observed_at": "2026-10-31T17:35:09.574Z",
+  "metadata": {
+    "id": 141980643,
+    "ref": "zhjianduan/name-that-llm-stylegram-share-cv",
+    "title": "Name That LLM Stylegram Share CV",
+    "author": "zhjian duan",
+    "slug": "name-that-llm-stylegram-share-cv",
+    "last_run_time": "2026-10-28T17:34:54.776754800Z",
+    "language": "python",
+    "kernel_type": "script",
+    "is_private": true,
+    "enable_gpu": false,
+    "enable_internet": false,
+    "dataset_data_sources": [
+      "zhjianduan/ntl-stylegram-cv-inputs-v1"
+    ],
+    "competition_data_sources": [
+      "name-that-llm"
+    ],
+    "enable_tpu": false,
+    "current_version_number": 2,
+    "docker_image": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "machine_shape": "None"
+  },
+  "blob": {
+    "source": "import hashlib, pathlib, json, runpy, sys, os\nos.environ['OMP_NUM_THREADS']='2'\nos.environ['OPENBLAS_NUM_THREADS']='2'\nos.environ['MKL_NUM_THREADS']='2'\n# Kaggle extracts uploaded ZIP datasets into individual input files.\npaths=[p for p in pathlib.Path('/kaggle/input').rglob('protocol.json') if hashlib.sha256(p.read_bytes()).hexdigest()=='3983ceb881750b9b138ee59a3c03ba1acb2dd0f04c2b56bbe96ec682446ce50c']\nassert len(paths)==1, 'Expected one hash-pinned protocol'\ntarget=paths[0].parent\nprotocol=json.loads(paths[0].read_text())\nfor name,digest in protocol['input_hashes'].items():\n    assert hashlib.sha256((target/name).read_bytes()).hexdigest()==digest, name\nsys.path.insert(0,str(target))\nrunpy.run_path(str(target/'runner.py'),run_name='__main__')\n",
+    "language": "python",
+    "kernel_type": "script",
+    "slug": "name-that-llm-stylegram-share-cv"
+  }
+}

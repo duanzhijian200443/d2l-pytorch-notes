@@ -1,0 +1,7 @@
+The path taken by a river is its **large-scale course** through the landscape—from higher ground toward lower ground, following a channel shaped by terrain, geology, and erosion. It may curve around obstacles, form meanders, and eventually reach a lake, sea, or another river. This describes the overall flow of water, not the exact journey of any one molecule.
+
+An **individual water molecule** follows a much more complicated trajectory. It is carried downstream by the current, but its motion also includes random thermal movement and the effects of turbulence. It may move sideways across the channel, rise toward the surface, sink toward the riverbed, or become temporarily caught in an eddy. In a swirling region, it can even move upstream briefly while the river as a whole continues flowing downstream.
+
+The distinction is therefore one of scale: the river’s course is a relatively stable, visible route, whereas a molecule’s trajectory is irregular, three-dimensional, and constantly changing. Many different molecular trajectories collectively produce the river’s overall flow.
+
+A useful analogy is a crowd walking along a winding street: the street defines the general route, but each person takes a different sequence of steps, weaving, pausing, or shifting sideways along the way.

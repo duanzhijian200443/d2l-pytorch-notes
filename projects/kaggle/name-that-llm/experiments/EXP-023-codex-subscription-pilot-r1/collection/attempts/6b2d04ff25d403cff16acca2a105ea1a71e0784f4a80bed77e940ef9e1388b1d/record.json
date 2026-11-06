@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0044",
+  "prompt": "Explain why a video call can freeze even when a speed test reports a fast internet connection. Aim for about 200 words.",
+  "category": "technology_explanation",
+  "target_words": 200,
+  "prompt_group": "cp0044",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "6b2d04ff25d403cff16acca2a105ea1a71e0784f4a80bed77e940ef9e1388b1d",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:57:49.343860+00:00",
+  "ended_at": "2026-11-01T08:58:16.094789+00:00",
+  "prompt_sha256": "00b70ac1bc4542a7de28d82c2b6dff1da0c649d20e12c86c28535ab4c14ef8a6",
+  "text": "A video call can freeze even when a speed test shows fast internet because speed is only one part of connection quality. Video calls need a stable, low-latency connection with minimal packet loss and jitter. A speed test usually measures peak download and upload throughput to a nearby test server, while a call may travel through a different route to a distant service.\n\nFreezing can result from brief outages, wireless interference, network congestion, or packets arriving late or out of order. If upload capacity is limited, other activities—such as cloud backups, streaming, or large downloads—can crowd out the call. A busy home router, overloaded Wi-Fi channel, VPN, or faulty network hardware can have similar effects.\n\nThe computer itself may also be the bottleneck. High CPU or memory usage, an overloaded browser, outdated drivers, or a camera application competing for resources can interrupt video processing. On managed or corporate networks, firewall rules and traffic shaping may affect real-time communications.\n\nTo troubleshoot, try an Ethernet cable, move closer to the router, pause heavy network activity, disable the VPN temporarily, and close unnecessary applications. Check for packet loss and latency over time rather than relying only on a single speed result. If possible, compare another device or network to determine whether the problem is with the call service, local network, or computer.",
+  "text_sha256": "596f0da0be1143183ac003c35431763d2354901b9a4fb8bbb8fd2db00a35165f",
+  "raw_final_sha256": "596f0da0be1143183ac003c35431763d2354901b9a4fb8bbb8fd2db00a35165f",
+  "word_count": 219,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2583,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 269,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\6b2d04ff25d403cff16acca2a105ea1a71e0784f4a80bed77e940ef9e1388b1d",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

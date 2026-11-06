@@ -1,0 +1,5 @@
+A workshop owner should compare the cheaper supplier’s savings with the operational cost of unreliable deliveries. The lower price may improve margins, but late or inconsistent shipments can interrupt production, delay customer orders, create overtime costs, and damage the workshop’s reputation. The owner should estimate how often delays occur, how long they typically last, and whether materials can be stored in advance without excessive storage or spoilage costs.
+
+The more reliable supplier may charge more, but predictable delivery can support smoother scheduling, lower safety-stock requirements, and better customer service. The decision also depends on how critical the materials are: delays may be manageable for routine, easily substituted items but costly for specialized materials with no immediate alternative.
+
+A sensible approach is to calculate the total landed cost—not just the purchase price—and consider a split strategy. The workshop could buy most materials from the cheaper supplier while maintaining a smaller, dependable supplier relationship as backup. Contracts, delivery guarantees, penalties, or trial orders may also reduce the risk.

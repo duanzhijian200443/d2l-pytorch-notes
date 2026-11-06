@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0034",
+  "prompt": "How can a lake freeze at its surface while water beneath the ice remains liquid? Explain why this matters for aquatic life. A response of around 200 words is enough.",
+  "category": "science_explanation",
+  "target_words": 200,
+  "prompt_group": "cp0034",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "28c9b95fe65d31d04130395786657e7953e823be16b8eda6e62300c102c1433d",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:52:11.247380+00:00",
+  "ended_at": "2026-11-01T08:52:35.675906+00:00",
+  "prompt_sha256": "277f9da2788781f050b1877bdf63f950a97bb17b9fe54c64ac2443b06259c686",
+  "text": "A lake can freeze at the surface while remaining liquid below because **water is densest at about 4°C (39°F)**, rather than at its freezing point.\n\nAs a lake cools in autumn, surface water becomes denser and sinks, bringing warmer water upward to cool in turn. However, once surface water cools below 4°C, it becomes *less* dense and stays near the top. This upper layer can then reach 0°C (32°F) and freeze while deeper water remains warmer.\n\nIce is less dense than liquid water because its molecules form an open crystal structure, so it floats. The floating ice also acts as an **insulating layer**, slowing heat loss from the water below. Snow on top can provide additional insulation. Consequently, many lakes retain liquid water beneath their ice throughout winter, although very shallow lakes can freeze solid.\n\nThis matters enormously for aquatic life. The liquid water provides a refuge where fish, invertebrates, and other organisms can survive, often with reduced activity and metabolism. If ice sank, newly formed ice would accumulate at the bottom, allowing much more of the lake to freeze.\n\nWinter survival is not guaranteed, however: ice limits oxygen exchange with the atmosphere, and snow can block sunlight needed for photosynthesis. Oxygen depletion can therefore threaten aquatic organisms during long winters.",
+  "text_sha256": "a0f1d71cef0a39a9918bbf9448b7085d35fc0e2120790eec6ae76660d25214ef",
+  "raw_final_sha256": "a0f1d71cef0a39a9918bbf9448b7085d35fc0e2120790eec6ae76660d25214ef",
+  "word_count": 211,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4241,
+      "cached_input_tokens": 2048,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 269,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\28c9b95fe65d31d04130395786657e7953e823be16b8eda6e62300c102c1433d",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

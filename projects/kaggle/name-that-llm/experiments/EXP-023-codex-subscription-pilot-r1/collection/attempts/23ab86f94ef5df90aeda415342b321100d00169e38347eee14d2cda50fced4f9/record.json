@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0218",
+  "prompt": "Describe how a small library could test whether a new display actually helps readers discover books, rather than merely attracting glances. Aim for about 160 words.",
+  "category": "business_decision",
+  "target_words": 160,
+  "prompt_group": "cp0218",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "23ab86f94ef5df90aeda415342b321100d00169e38347eee14d2cda50fced4f9",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:14:22.160224+00:00",
+  "ended_at": "2026-11-01T11:14:48.383219+00:00",
+  "prompt_sha256": "39228873ff000adebd201188177df62870e25d1cec49ac783df79f775b0809c7",
+  "text": "A small library could run a simple comparison over four to six weeks. Alternate between the new display and the usual arrangement on comparable days or weeks, keeping opening hours, promotion, and the books offered as consistent as possible. Repeat each condition so one unusually busy week does not determine the result.\n\nDefine “discovery” before starting: a reader finds an unfamiliar title and shows interest by borrowing it, placing a hold, or adding it to a reading list. Count display-book loans and holds, and report these per 100 visitors rather than comparing raw totals. Record browsing or glances separately; these show attention, not necessarily discovery.\n\nInvite a small, systematically selected sample—such as every fifth departing visitor—to answer two anonymous questions: “Did you find a book you hadn’t known about?” and “Where did you find it?”\n\nCompare discovery rates, noting uncertainty and practical costs. More glances alone would not establish success; increased unfamiliar-book discoveries, supported by borrowing or intended reading, would be stronger evidence.",
+  "text_sha256": "2e702b7408e7f71df0149e519fa7f57330badbfddbf340e1b5ec65cc30ba186d",
+  "raw_final_sha256": "2e702b7408e7f71df0149e519fa7f57330badbfddbf340e1b5ec65cc30ba186d",
+  "word_count": 163,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4238,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 206,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\23ab86f94ef5df90aeda415342b321100d00169e38347eee14d2cda50fced4f9",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

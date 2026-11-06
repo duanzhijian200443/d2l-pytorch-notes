@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0061",
+  "prompt": "A small bakery sells out of one item early but has leftovers of several others. Suggest an inexpensive way to investigate demand before changing the whole menu. Use approximately 80 words for the response.",
+  "category": "business_decision",
+  "target_words": 80,
+  "prompt_group": "cp0061",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "52db3627522ee066aec36f81765636425f3564b37e49fd6fb218164280be2384",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:09:15.163796+00:00",
+  "ended_at": "2026-11-01T09:09:41.500533+00:00",
+  "prompt_sha256": "54914e55c14a9c9a7b894d72d852feadeb290e1d153c27d5a003a7ca9c78bb67",
+  "text": "Run a low-cost, two-week demand test rather than redesigning the menu. Make a few extra units of the item that sells out early, while reducing production of the slowest leftovers. Track sell-through time, customer requests after sellout, and waste by item each day. Ask customers a one-question survey at checkout or on social media about preferred products and times. Compare results across weekdays and weekends, then adjust quantities gradually based on evidence.",
+  "text_sha256": "46de38bbcd1e5ef7e66567b7ef64a598aa5efada8d7473f56928ca4f363720b5",
+  "raw_final_sha256": "46de38bbcd1e5ef7e66567b7ef64a598aa5efada8d7473f56928ca4f363720b5",
+  "word_count": 72,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4131,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 93,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\52db3627522ee066aec36f81765636425f3564b37e49fd6fb218164280be2384",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

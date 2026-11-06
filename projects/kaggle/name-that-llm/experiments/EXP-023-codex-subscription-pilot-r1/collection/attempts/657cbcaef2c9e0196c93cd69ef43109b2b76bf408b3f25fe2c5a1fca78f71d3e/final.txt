@@ -1,0 +1,3 @@
+The recipe uses 3 cups of broth for 4 people. To serve 6 people, scale the recipe by \(6 \div 4 = 1.5\). Multiply the broth by the same factor: \(3 \times 1.5 = 4.5\).
+
+So, you need **4½ cups of broth** for six people. This keeps the ratio of broth to all other ingredients the same, so the recipe should have the same flavor and consistency as the original.

@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0115",
+  "prompt": "A hotel guest finds that the view from a room is mostly a brick wall. Turn this disappointment into a small observational story. A response of around 120 words is enough.",
+  "category": "creative_short_fiction",
+  "target_words": 120,
+  "prompt_group": "cp0115",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "d214e14ebd2583dec6cd4237f4cf2b8ec71e3220d25c5b86e7acd2559eea5479",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:43:36.235313+00:00",
+  "ended_at": "2026-11-01T09:44:00.350700+00:00",
+  "prompt_sha256": "c92bb4ebb0b160a7725566487587064c96a634c753b9eec80ac139e1ff72b56b",
+  "text": "The booking had promised a city view. Technically, the bricks belonged to the city.\n\nMartin stood at the window with his suitcase still upright behind him. Across the narrow gap, a wall rose six stories, interrupted by one drainpipe and a weed growing from the mortar.\n\nHe photographed it for a complaint.\n\nThen a sparrow landed on the drainpipe with a length of string. It tried to carry the string into a crack, failed, and tried again from an angle Martin considered plainly worse.\n\n“Other end,” he said.\n\nThe bird ignored him. Eventually, it succeeded.\n\nMartin unpacked. When reception called to ask whether everything was satisfactory, he glanced at the crack.\n\n“The room’s fine,” he said. “Someone next door is still moving in.”",
+  "text_sha256": "b6628ca0e3612dc38ce20594ae0c355ad17c7c2bdb354225483a195debe92b69",
+  "raw_final_sha256": "b6628ca0e3612dc38ce20594ae0c355ad17c7c2bdb354225483a195debe92b69",
+  "word_count": 123,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4242,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 158,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\d214e14ebd2583dec6cd4237f4cf2b8ec71e3220d25c5b86e7acd2559eea5479",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

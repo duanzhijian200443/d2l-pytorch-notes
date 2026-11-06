@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0070",
+  "prompt": "Explain why measuring how many tasks a support team closes can create a misleading picture of service quality. Please answer in roughly 120 words.",
+  "category": "business_decision",
+  "target_words": 120,
+  "prompt_group": "cp0070",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "13ece07588671790a3b72efc2dc2e087021c7b354319239d8d0d102ea323c2cb",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:14:55.521208+00:00",
+  "ended_at": "2026-11-01T09:15:11.814225+00:00",
+  "prompt_sha256": "2ba7077b114ea8e3bca645942c9a0c535635e80c3d6f7b16fc9a4097935d17ca",
+  "text": "Counting closed support tasks rewards throughput, not necessarily good service. A team may close many tickets by choosing easy requests, splitting issues into multiple tasks, using premature “resolved” statuses, or giving quick but incomplete answers. The metric also ignores differences in complexity: solving one critical, technically difficult problem may create more value than closing dozens of routine requests.\n\nHigh closure counts can even hide poor customer outcomes. Tickets may be reopened, customers may need to contact support repeatedly, or unresolved frustration may simply move to another channel. Meanwhile, staff can feel pressured to prioritize speed over empathy, accuracy, and prevention.\n\nA fuller picture combines closure volume with resolution time, reopen and repeat-contact rates, customer satisfaction, first-contact resolution, backlog age, issue severity, and qualitative review of support interactions.",
+  "text_sha256": "25b25bb9ad8ec3d991d01456f0c08663e1c4376301d6c6ef63eeb1bd9e269bdc",
+  "raw_final_sha256": "25b25bb9ad8ec3d991d01456f0c08663e1c4376301d6c6ef63eeb1bd9e269bdc",
+  "word_count": 127,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4120,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 159,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\13ece07588671790a3b72efc2dc2e087021c7b354319239d8d0d102ea323c2cb",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

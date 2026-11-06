@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0161",
+  "prompt": "Write a friendly email to a community choir organizer explaining that you enjoyed the first rehearsal but need to miss the next two. Ask whether returning afterward would be practical. Use approximately 80 words for the response.",
+  "category": "short_email",
+  "target_words": 80,
+  "prompt_group": "cp0161",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "182bf097eb2cad907c62702cf1be091bbe297049adf76dd417aebcb21600b2ff",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:35:25.584069+00:00",
+  "ended_at": "2026-11-01T10:35:43.026369+00:00",
+  "prompt_sha256": "750e2f47dce62fb72bd862c32a401a55db45388d221cc9ad4a3fccbace10ec6a",
+  "text": "Subject: Upcoming Rehearsals\n\nHi [Organizer’s Name],\n\nI really enjoyed the first rehearsal and appreciated how welcoming everyone was. Unfortunately, I need to miss the next two rehearsals due to a prior commitment. Would it be practical for me to return after that, or would I have missed too much? I’m very interested in continuing and would be happy to catch up on anything I miss.\n\nThanks so much for understanding!\n\nBest,  \n[Your Name]",
+  "text_sha256": "22fc06417ff4452e5249890b0c2173ffe41c8d798b033da2cabc0d6493f912ba",
+  "raw_final_sha256": "22fc06417ff4452e5249890b0c2173ffe41c8d798b033da2cabc0d6493f912ba",
+  "word_count": 73,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2599,
+      "cached_input_tokens": 2432,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 98,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\182bf097eb2cad907c62702cf1be091bbe297049adf76dd417aebcb21600b2ff",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

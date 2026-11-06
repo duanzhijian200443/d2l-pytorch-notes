@@ -1,0 +1,146 @@
+[
+  {
+    "source": "arxitekton/ntl-claude-gen-v1",
+    "url": "https://www.kaggle.com/datasets/arxitekton/ntl-claude-gen-v1",
+    "attribution": "arxitekton",
+    "recorded_license_declarations": [
+      "CC BY 4.0"
+    ],
+    "role": "qualified original prompt source",
+    "cached_license_names": [
+      "Attribution 4.0 International (CC BY 4.0)"
+    ],
+    "cached_metadata_sha256": "a40af3348429c8bd53f65593c6ceda806c469b5ad28498698c6711fa898a2a08",
+    "modifications": "Prompt selection and request wrapping; see exact messages and target_words."
+  },
+  {
+    "source": "arxitekton/ntl-claude-gen-v2",
+    "url": "https://www.kaggle.com/datasets/arxitekton/ntl-claude-gen-v2",
+    "attribution": "arxitekton",
+    "recorded_license_declarations": [
+      "CC BY 4.0"
+    ],
+    "role": "qualified original prompt source",
+    "cached_license_names": [
+      "Attribution 4.0 International (CC BY 4.0)"
+    ],
+    "cached_metadata_sha256": "56d57f507856a017161c2657a34718f38ce687fb6694d41d1376a658e31017b8",
+    "modifications": "Prompt selection and request wrapping; see exact messages and target_words."
+  },
+  {
+    "source": "databricks/databricks-dolly-15k",
+    "url": "https://www.kaggle.com/datasets/databricks/databricks-dolly-15k",
+    "attribution": "Databricks, Inc. (2023)",
+    "recorded_license_declarations": [
+      "CC BY-SA 3.0; Databricks, Inc. (2023)"
+    ],
+    "role": "qualified original prompt source",
+    "cached_license_names": [
+      "CC-BY-SA-3.0"
+    ],
+    "cached_metadata_sha256": "30f1a51e79072398e8496f781bdc70375d59e1e2af4baef82bf90a391769833a",
+    "modifications": "Prompt selection and request wrapping; see exact messages and target_words.",
+    "publisher_card": "https://huggingface.co/datasets/databricks/databricks-dolly-15k/blob/main/README.md"
+  },
+  {
+    "source": "dedruck/ntl-proxy-gen",
+    "url": "https://www.kaggle.com/datasets/dedruck/ntl-proxy-gen",
+    "attribution": "dedruck",
+    "recorded_license_declarations": [
+      ""
+    ],
+    "role": "recorded alias; not independent permission"
+  },
+  {
+    "source": "earthmaker/ntl-own-prompt-generations",
+    "url": "https://www.kaggle.com/datasets/earthmaker/ntl-own-prompt-generations",
+    "attribution": "earthmaker",
+    "recorded_license_declarations": [
+      "CC BY 4.0"
+    ],
+    "role": "qualified original prompt source",
+    "cached_license_names": [
+      "Attribution 4.0 International (CC BY 4.0)"
+    ],
+    "cached_metadata_sha256": "5dd4a9e557ed6df1f23aa355bc79aba5fdc1e02c0586a02d0007dd749c9583e3",
+    "modifications": "Prompt selection and request wrapping; see exact messages and target_words."
+  },
+  {
+    "source": "illiadolenko/ntl-prompt-bank-v1",
+    "url": "https://www.kaggle.com/datasets/illiadolenko/ntl-prompt-bank-v1",
+    "attribution": "illiadolenko",
+    "recorded_license_declarations": [
+      "CC BY 4.0 (Seyit upstream)"
+    ],
+    "role": "recorded alias; not independent permission"
+  },
+  {
+    "source": "lucasboesen/ntl-free-proxy-generations",
+    "url": "https://www.kaggle.com/datasets/lucasboesen/ntl-free-proxy-generations",
+    "attribution": "lucasboesen",
+    "recorded_license_declarations": [
+      ""
+    ],
+    "role": "recorded alias; not independent permission"
+  },
+  {
+    "source": "lxdlxdlxd/ntl-synth-generations-v1",
+    "url": "https://www.kaggle.com/datasets/lxdlxdlxd/ntl-synth-generations-v1",
+    "attribution": "lxdlxdlxd",
+    "recorded_license_declarations": [
+      "CC BY 4.0"
+    ],
+    "role": "qualified original prompt source",
+    "cached_license_names": [
+      "Attribution 4.0 International (CC BY 4.0)"
+    ],
+    "cached_metadata_sha256": "82803a2341b3b1fde73d7f42c5d0fc650c8ccfd41f1df31823a226ea4060affc",
+    "modifications": "Prompt selection and request wrapping; see exact messages and target_words."
+  },
+  {
+    "source": "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+    "url": "https://www.kaggle.com/datasets/prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+    "attribution": "prvsiyan",
+    "recorded_license_declarations": [
+      "CC BY 4.0"
+    ],
+    "role": "qualified original prompt source",
+    "cached_license_names": [
+      "Attribution 4.0 International (CC BY 4.0)"
+    ],
+    "cached_metadata_sha256": "c8eabaf3c0b8320821ebabf3fac2d80f8926837ba1ec0aafec1f7cf96f5e0664",
+    "modifications": "Prompt selection and request wrapping; see exact messages and target_words."
+  },
+  {
+    "source": "seyitkaangunes/ntl-extra-api-passages",
+    "url": "https://www.kaggle.com/datasets/seyitkaangunes/ntl-extra-api-passages",
+    "attribution": "seyitkaangunes",
+    "recorded_license_declarations": [
+      "CC BY 4.0"
+    ],
+    "role": "qualified original prompt source",
+    "cached_license_names": [
+      "Attribution 4.0 International (CC BY 4.0)"
+    ],
+    "cached_metadata_sha256": "06a2e1c0565c77478591897f4851b50268d7270ec5859f2ec2c8aeab2e3582cd",
+    "modifications": "Prompt selection and request wrapping; see exact messages and target_words."
+  },
+  {
+    "source": "trnhip/ntl-api-gen",
+    "url": "https://www.kaggle.com/datasets/trnhip/ntl-api-gen",
+    "attribution": "trnhip",
+    "recorded_license_declarations": [
+      ""
+    ],
+    "role": "recorded alias; not independent permission"
+  },
+  {
+    "source": "willrice/name-that-llm-openrouter-harvest",
+    "url": "https://www.kaggle.com/datasets/willrice/name-that-llm-openrouter-harvest",
+    "attribution": "willrice",
+    "recorded_license_declarations": [
+      ""
+    ],
+    "role": "recorded alias; not independent permission"
+  }
+]

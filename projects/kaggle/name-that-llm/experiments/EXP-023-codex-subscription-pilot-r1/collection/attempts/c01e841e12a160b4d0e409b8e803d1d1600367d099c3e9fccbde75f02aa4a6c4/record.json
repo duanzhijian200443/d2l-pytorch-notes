@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0205",
+  "prompt": "Recommend a method for choosing which personal photographs to print when there are thousands of similar pictures on a phone. A response of around 120 words is enough.",
+  "category": "everyday_advice",
+  "target_words": 120,
+  "prompt_group": "cp0205",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "c01e841e12a160b4d0e409b8e803d1d1600367d099c3e9fccbde75f02aa4a6c4",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:05:46.194241+00:00",
+  "ended_at": "2026-11-01T11:06:08.606817+00:00",
+  "prompt_sha256": "14cfbd52ba18b29ef22d6285a852b7afcb24a8d3db668f175e4409ba60a49a4a",
+  "text": "Use a three-pass process:\n\n1. **Set a purpose:** Decide what the prints are for—an album, wall display, gifts, or yearly highlights. This prevents keeping every near-duplicate.\n2. **Fast triage:** In each event or month, flag only images that create an immediate emotional reaction. Ignore technical perfection initially.\n3. **Compare finalists:** For similar shots, keep the one with the best face expressions, clear subject, useful composition, and strongest story. Limit yourself to one or two per moment.\n\nThen review the selected set together: remove repetitions, balance people/places/details, and include a few imperfect but meaningful photos. Aim for a manageable quota, such as 30–50 prints per year. Print small test copies of uncertain favorites before committing to large formats.",
+  "text_sha256": "8fcbf140b3c83f0434b949c98bc20465e85a7d486ce5d3ab81a4b03731cd1383",
+  "raw_final_sha256": "8fcbf140b3c83f0434b949c98bc20465e85a7d486ce5d3ab81a4b03731cd1383",
+  "word_count": 117,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4124,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 164,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\c01e841e12a160b4d0e409b8e803d1d1600367d099c3e9fccbde75f02aa4a6c4",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

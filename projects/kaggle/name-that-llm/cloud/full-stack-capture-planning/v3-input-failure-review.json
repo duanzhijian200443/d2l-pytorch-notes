@@ -1,0 +1,658 @@
+{
+  "schema_version": 1,
+  "reviewed_at_utc": "2026-11-01 10:59:44 UTC",
+  "status": "CONFIRMED_INPUT_POLICY_ERROR_REAL_CAPTURE_NOT_COMPLETED",
+  "experiment_id": "EXP-029",
+  "notebook_version": 3,
+  "scope": "Independent read-only failure localization against the downloaded V3 outputs, V3 embedded payload and complete CPU file manifest.",
+  "conclusion": "The capture controller incorrectly required the absent lora24_public optional branch. The original algorithm explicitly skips an absent marker, so lora24_public and its twin must both be absent on these fixed31 attachments. With at least one eligible comp group and successful remaining model loads, the input-backed comp inventory is20, not22.",
+  "findings": [
+    {
+      "id": "V3-INPUT-01",
+      "severity": "P1",
+      "title": "Optional lora24_public was incorrectly made mandatory",
+      "references": [
+        {
+          "path": "cloud/full-stack-capture/outputs-v3/results/code/runner.py",
+          "line_start": 232,
+          "line_end": 247
+        },
+        {
+          "path": "experiments/EXP-009-baseline-data-lineage/comp_stack.py",
+          "line_start": 731,
+          "line_end": 734
+        },
+        {
+          "path": "experiments/EXP-009-baseline-data-lineage/comp_stack.py",
+          "line_start": 775,
+          "line_end": 781
+        }
+      ],
+      "evidence": "The CPU manifest has zero files matching **/lora24/final/COMPLETE.json. required_optional_inputs asserts every pattern has a hit and fails on this first entry. The original score_lora_checkpoints prints SKIP and continues before loading this checkpoint or calling add_member.",
+      "impact": "V3 exits during payload/input checks before gpu_preflight, setup, comp or main, despite the original algorithm permitting the absent branch. It generates no real model-score cache.",
+      "original_algorithm_action": "Skip lora24_public; skip lora24_public_twin with it. Continue with the remaining checkpoints using unchanged original weights. Do not synthesize a marker, rename another model's files or redistribute the missing weight."
+    },
+    {
+      "id": "V3-INPUT-02",
+      "severity": "P1",
+      "title": "CPU success and the22-member capture plan used different availability rules",
+      "references": [
+        {
+          "path": "cloud/full-stack-capture/preflight_config.json",
+          "field": "required_globs"
+        },
+        {
+          "path": "cloud/full-stack-capture/launch-v1/payload/plan.json",
+          "field": "expected_comp_members"
+        },
+        {
+          "path": "cloud/full-stack-capture/outputs-v3/results/code/runner.py",
+          "line_start": 232,
+          "line_end": 247
+        }
+      ],
+      "evidence": "CPU preflight PASS bound531 files but did not assert this optional marker. The fixed GPU plan still required public and its twin and allowed only Q35 omission. The absence was visible in the CPU manifest before GPU launch.",
+      "impact": "The GPU gate would reject the same immutable inputs deterministically; this is a controller/inventory mismatch, not a model numerical failure or a reason to guess substitute weights.",
+      "recommended_rule": "A shared CPU/GPU availability resolver should evaluate the original source's exact optional-marker rules against the CPU manifest before any GPU request, freeze the resulting allowed omissions and conditional group policy, then revalidate that same resolution on the GPU mounts."
+    }
+  ],
+  "terminal_evidence": {
+    "directory": "cloud/full-stack-capture/outputs-v3/results",
+    "result_status": "ERROR",
+    "result_cause": "CAPTURE_FAILED",
+    "worker_error_cause": "EXECUTION_ERROR",
+    "elapsed_seconds": 41.966066111,
+    "peak_rss_bytes": 113377280,
+    "child_exit": 1,
+    "last_worker_phase": "payload_preflight",
+    "exception": "ValueError: Required original optional input is absent: lora24_public",
+    "exception_site": "runner.py worker line343 -> required_optional_inputs line246",
+    "archive_status": "COMPLETE",
+    "archive_sha256": "ce995f5dcb889bf0663b865ecc7b00c324d841102a297eada101a94f1fb3bced",
+    "stable_output_files_verified": 18,
+    "artifact_manifest_sha256": "0f2ac86ee75ae32342a71af408d9bdb172453844f21c0148fc6661e197ad3969",
+    "evidence_hashes": {
+      "failure.json": "032359c6cdda4a8fcd769d38d9b28c8c59e0f44738c58aca0c6ed388851c97d4",
+      "guard.json": "99b596b689cf253be4e95fd2aa5f3d33b70e24419accba92270912affee7a67d",
+      "result.json": "99b596b689cf253be4e95fd2aa5f3d33b70e24419accba92270912affee7a67d",
+      "state.json": "2b3313993b2a227151ec1a500ef0360e2953b1ba755d9382373b11c382542719",
+      "worker.log": "6291f94af0d6694d573b7a1ec7a718562369d92ea1951451e8dfa4097d17681c",
+      "inputs/plan.json": "31b6ec194a6fd108ecb593480a493e01165e61a835b086965480d96eae9adc27",
+      "inputs/preflight_manifest.json": "de7a305b5d26a5ad0cca0ed41cf31e2af1f85037dd354286aeef77ac67aaabf5",
+      "code/runner.py": "923c05137561bc0571b64975c809ee67b2fce192d7165299c00c63e1de6ceb76",
+      "code/comp_stack.py": "ec1c012c122d591957b5ccc6e00079f95cca8372f327dd4c3b5ac903666909d0"
+    },
+    "model_execution_started": false,
+    "gpu_probe_executed": false,
+    "hardware_or_billed_gpu_seconds_inferred": false,
+    "note": "The terminal duration is supervisor elapsed time, not a measurement of GPU utilization or billed GPU time. The GPU-enabled notebook existed, but this worker failed before its CUDA probe and all model subprocesses."
+  },
+  "v3_payload_binding": {
+    "notebook_path": "cloud\\full-stack-capture\\notebook-v3-readback\\name-that-llm-cache-capture-029.ipynb",
+    "notebook_file_sha256": "d5ef4c81ab01661ac7a9e887de617ef9e114c7d205850c8bef0a70e50442cac5",
+    "cell_source_sha256": "7d8a9a73baef0e12c983dd0580c0f7c51e94ce09834e4eb8f7acd41ea1267ab0",
+    "embedded_files": 14,
+    "bindings": {
+      "runner.py": {
+        "sha256": "923c05137561bc0571b64975c809ee67b2fce192d7165299c00c63e1de6ceb76",
+        "matches_local_launch_payload": true
+      },
+      "comp_stack.py": {
+        "sha256": "ec1c012c122d591957b5ccc6e00079f95cca8372f327dd4c3b5ac903666909d0",
+        "matches_local_launch_payload": true
+      },
+      "plan.json": {
+        "sha256": "31b6ec194a6fd108ecb593480a493e01165e61a835b086965480d96eae9adc27",
+        "matches_local_launch_payload": true
+      },
+      "preflight_manifest.json": {
+        "sha256": "de7a305b5d26a5ad0cca0ed41cf31e2af1f85037dd354286aeef77ac67aaabf5",
+        "matches_local_launch_payload": true
+      }
+    },
+    "score_lora_checkpoints_ast_equal": true
+  },
+  "cpu_input_evidence": {
+    "path": "cloud/full-stack-capture/preflight-output-v1/preflight/preflight_manifest.json",
+    "sha256": "de7a305b5d26a5ad0cca0ed41cf31e2af1f85037dd354286aeef77ac67aaabf5",
+    "status": "PASS",
+    "files": 531,
+    "attachments": 31,
+    "manifest_is_complete_for_audited_mounts": true,
+    "patterns_evaluated_against": "All531 manifest path records, using recursive glob semantics; not a partial file listing.",
+    "full_checkpoint_tensor_contents_loaded_by_this_review": false
+  },
+  "all_runner_required_patterns": {
+    "lora24_public": {
+      "pattern": "**/lora24/final/COMPLETE.json",
+      "count": 0,
+      "paths": []
+    },
+    "lora24_seed7": {
+      "pattern": "**/name-that-llm-train-lora24-s7/lora_out/job_final/COMPLETE.json",
+      "count": 1,
+      "paths": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/COMPLETE.json"
+      ]
+    },
+    "lora24_claude": {
+      "pattern": "**/ntl-qwen3-8b-lora-claude-head/**/final/COMPLETE.json",
+      "count": 1,
+      "paths": [
+        "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/COMPLETE.json"
+      ]
+    },
+    "lora20_q25_instyle": {
+      "pattern": "**/ntl-train-lora-qwen25-instyle/lora_out/job_final/COMPLETE.json",
+      "count": 1,
+      "paths": [
+        "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/COMPLETE.json"
+      ]
+    },
+    "tokattn_deb": {
+      "pattern": "**/tokattn_debl23_final.pt",
+      "count": 1,
+      "paths": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn2/tokattn_debl23_final.pt"
+      ]
+    },
+    "ultrabert": {
+      "pattern": "**/ultrabert-380m-ntl/fold*/config.json",
+      "count": 5,
+      "paths": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold0/config.json",
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold1/config.json",
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold2/config.json",
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold3/config.json",
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold4/config.json"
+      ]
+    },
+    "claude_gate": {
+      "pattern": "**/ntl_extra_passages_claude.csv",
+      "count": 1,
+      "paths": [
+        "/kaggle/input/datasets/seyitkaangunes/ntl-extra-api-passages/ntl_extra_passages_claude.csv"
+      ]
+    },
+    "deberta_backbone": {
+      "pattern": "**/deberta-v3-large/config.json",
+      "count": 1,
+      "paths": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/deberta-v3-large/config.json"
+      ]
+    }
+  },
+  "pattern_assessment": {
+    "missing": [
+      "lora24_public"
+    ],
+    "other_seven_patterns_match": true,
+    "naming_errors_found": [],
+    "explanation": "The public pattern exactly matches the original LORA_RUNS pattern; the defect is forcing its presence, not misspelling it. All seven other runner patterns resolve in this manifest.",
+    "deberta_names": "The comp/attention backbone is deberta-v3-large (hyphens). The main fine-tuned encoder is under deberta_v3_large/encoder (underscores). Both exist and are different consumers; do not rename or substitute them.",
+    "lora_head_names": "The original source expects heads.safetensors for public and Claude, and norms.safetensors for seed7 and Qwen2.5 instyle. The three present checkpoints have their exact required filenames.",
+    "no_substitution": "Other heads.pt or COMPLETE.json files belonging to different model formats are not substitutes for the missing lora24/final checkpoint."
+  },
+  "original_skip_semantics": {
+    "source": "experiments/EXP-009-baseline-data-lineage/comp_stack.py",
+    "source_sha256": "b6b6a7b8adbe50580c2d0de5a41d0764ae752fe729e1471872a9197ac956f222",
+    "lora_runs_lines": [
+      59,
+      65
+    ],
+    "missing_marker_branch_lines": [
+      731,
+      734
+    ],
+    "plain_add_member_line": 775,
+    "conditional_twin_lines": [
+      779,
+      781
+    ],
+    "same_function_ast_in_v3": true,
+    "shared_trunk_note": "The source loads the common trunk before looping over checkpoint entries. Skipping public does not skip the remaining seed7/Claude entries or authorize a different trunk.",
+    "weight_policy": "Keep all remaining original W/LORA_TWIN_W values unchanged; absence follows the original optional branch."
+  },
+  "lora_file_presence": [
+    {
+      "key": "lora24_public",
+      "marker": "**/lora24/final/COMPLETE.json",
+      "trunk": [
+        "qwen3",
+        4096,
+        24
+      ],
+      "pool_layers": [
+        2,
+        4,
+        6,
+        8,
+        12,
+        16,
+        20,
+        24
+      ],
+      "norms_file": "heads.safetensors",
+      "anchor_file": "anchor_features.npz",
+      "hits": [],
+      "roots": []
+    },
+    {
+      "key": "lora24_seed7",
+      "marker": "**/name-that-llm-train-lora24-s7/lora_out/job_final/COMPLETE.json",
+      "trunk": [
+        "qwen3",
+        4096,
+        24
+      ],
+      "pool_layers": [
+        2,
+        4,
+        6,
+        8,
+        12,
+        16,
+        20,
+        24
+      ],
+      "norms_file": "norms.safetensors",
+      "anchor_file": "valid_features.npz",
+      "hits": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/COMPLETE.json"
+      ],
+      "roots": [
+        {
+          "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final",
+          "required_files": {
+            "norms.safetensors": {
+              "present": true,
+              "entry": {
+                "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/norms.safetensors",
+                "bytes": 263384,
+                "sha256": "709a8214889291cc9d779928bbdf3ba4849d97e023c005f6ba11f9b704d75126"
+              }
+            },
+            "readouts.npz": {
+              "present": true,
+              "entry": {
+                "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/readouts.npz",
+                "bytes": 4378243,
+                "sha256": "b8143ad2ee2365cb6923a052aae6e646634703d103cafaa28bb55c6d2754ecad"
+              }
+            },
+            "adapter/adapter_config.json": {
+              "present": true,
+              "entry": {
+                "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/adapter/adapter_config.json",
+                "bytes": 1288,
+                "sha256": "3b786d83737e6890ccb19a2cddbaee5c8b1aae1bc2c13840161970909165711c"
+              }
+            },
+            "adapter/adapter_model.safetensors": {
+              "present": true,
+              "entry": {
+                "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/adapter/adapter_model.safetensors",
+                "bytes": 116434760,
+                "sha256": "a045cbdc521b957736e828a3d8f1eee4a844e5ce1a8c2a17e1b0531f86212682"
+              }
+            },
+            "tokenizer/tokenizer_config.json": {
+              "present": true,
+              "entry": {
+                "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/tokenizer/tokenizer_config.json",
+                "bytes": 693,
+                "sha256": "2e3bd3cb5055f7a903a54e7062b2fd14d21b70f4174c3ffcd9fc81ec50a25631"
+              }
+            }
+          },
+          "optional_anchor": {
+            "name": "valid_features.npz",
+            "present": true
+          },
+          "subtree": [
+            "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/COMPLETE.json",
+            "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/adapter/README.md",
+            "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/adapter/adapter_config.json",
+            "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/adapter/adapter_model.safetensors",
+            "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/norms.safetensors",
+            "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/readouts.npz",
+            "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/tokenizer/chat_template.jinja",
+            "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/tokenizer/tokenizer.json",
+            "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/tokenizer/tokenizer_config.json",
+            "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/valid_features.npz"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "lora24_claude",
+      "marker": "**/ntl-qwen3-8b-lora-claude-head/**/final/COMPLETE.json",
+      "trunk": [
+        "qwen3",
+        4096,
+        24
+      ],
+      "pool_layers": [
+        2,
+        4,
+        6,
+        8,
+        12,
+        16,
+        20,
+        24
+      ],
+      "norms_file": "heads.safetensors",
+      "anchor_file": "anchor_features.npz",
+      "hits": [
+        "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/COMPLETE.json"
+      ],
+      "roots": [
+        {
+          "path": "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final",
+          "required_files": {
+            "heads.safetensors": {
+              "present": true,
+              "entry": {
+                "path": "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/heads.safetensors",
+                "bytes": 263384,
+                "sha256": "79fcbbc4b313450b4580565d5addba4cd769e80f10d5d68a2068e694b50619aa"
+              }
+            },
+            "readouts.npz": {
+              "present": true,
+              "entry": {
+                "path": "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/readouts.npz",
+                "bytes": 4985102,
+                "sha256": "39d8154724339e7b0fcf307267c588852cc4840ade7c4e59d7077a5cd55ea45b"
+              }
+            },
+            "adapter/adapter_config.json": {
+              "present": true,
+              "entry": {
+                "path": "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/adapter/adapter_config.json",
+                "bytes": 1288,
+                "sha256": "e37c54313ad1d0886f0f4562e82e7934cea51b9433f7465fca9df9f765fe6176"
+              }
+            },
+            "adapter/adapter_model.safetensors": {
+              "present": true,
+              "entry": {
+                "path": "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/adapter/adapter_model.safetensors",
+                "bytes": 116434760,
+                "sha256": "9aed9517bf5954c90c14ad22a95af64b90c3ad23407de2910c05bc18c804c505"
+              }
+            },
+            "tokenizer/tokenizer_config.json": {
+              "present": true,
+              "entry": {
+                "path": "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/tokenizer/tokenizer_config.json",
+                "bytes": 693,
+                "sha256": "2e3bd3cb5055f7a903a54e7062b2fd14d21b70f4174c3ffcd9fc81ec50a25631"
+              }
+            }
+          },
+          "optional_anchor": {
+            "name": "anchor_features.npz",
+            "present": true
+          },
+          "subtree": [
+            "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/COMPLETE.json",
+            "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/adapter/README.md",
+            "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/adapter/adapter_config.json",
+            "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/adapter/adapter_model.safetensors",
+            "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/anchor_features.npz",
+            "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/heads.safetensors",
+            "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/readouts.npz",
+            "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/tokenizer/chat_template.jinja",
+            "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/tokenizer/tokenizer.json",
+            "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/tokenizer/tokenizer_config.json"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "lora20_q25_instyle",
+      "marker": "**/ntl-train-lora-qwen25-instyle/lora_out/job_final/COMPLETE.json",
+      "trunk": [
+        "qwen2",
+        3584,
+        20
+      ],
+      "pool_layers": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        16,
+        20
+      ],
+      "norms_file": "norms.safetensors",
+      "anchor_file": "valid_features.npz",
+      "hits": [
+        "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/COMPLETE.json"
+      ],
+      "roots": [
+        {
+          "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final",
+          "required_files": {
+            "norms.safetensors": {
+              "present": true,
+              "entry": {
+                "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/norms.safetensors",
+                "bytes": 230616,
+                "sha256": "29b8845f58771d6a0756cf66e3b303110b53e7e8f5939013706abf93e2db50ec"
+              }
+            },
+            "readouts.npz": {
+              "present": true,
+              "entry": {
+                "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/readouts.npz",
+                "bytes": 3829777,
+                "sha256": "03524ab698015b8ea88c31d067581ce51df6d190750200206aee07220f6e3d6e"
+              }
+            },
+            "adapter/adapter_config.json": {
+              "present": true,
+              "entry": {
+                "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/adapter/adapter_config.json",
+                "bytes": 1284,
+                "sha256": "01f4767094380c58a8092eae287325c7b97f47905132076776d60afbe8e6af8e"
+              }
+            },
+            "adapter/adapter_model.safetensors": {
+              "present": true,
+              "entry": {
+                "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/adapter/adapter_model.safetensors",
+                "bytes": 115378992,
+                "sha256": "509626893eb960bf6ce0fc9075c7a3c196ffa4994aba46dcf44508b8ab8c646b"
+              }
+            },
+            "tokenizer/tokenizer_config.json": {
+              "present": true,
+              "entry": {
+                "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/tokenizer/tokenizer_config.json",
+                "bytes": 696,
+                "sha256": "5f007d04324afa93876e2a484190e868136c69dfe0e1a29a1063eae583df9d32"
+              }
+            }
+          },
+          "optional_anchor": {
+            "name": "valid_features.npz",
+            "present": true
+          },
+          "subtree": [
+            "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/COMPLETE.json",
+            "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/adapter/README.md",
+            "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/adapter/adapter_config.json",
+            "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/adapter/adapter_model.safetensors",
+            "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/norms.safetensors",
+            "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/readouts.npz",
+            "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/tokenizer/chat_template.jinja",
+            "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/tokenizer/tokenizer.json",
+            "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/tokenizer/tokenizer_config.json",
+            "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/valid_features.npz"
+          ]
+        }
+      ]
+    }
+  ],
+  "backbone_file_presence": {
+    "backbone_presence": [
+      {
+        "consumer": "glm9b",
+        "config_matches": [
+          "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/glm4_9b_trunc25/config.json"
+        ],
+        "safetensors_count": 1,
+        "tokenizer_files": [
+          "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/glm4_9b_trunc25/tokenizer.json",
+          "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/glm4_9b_trunc25/tokenizer_config.json"
+        ]
+      },
+      {
+        "consumer": "q3_8b",
+        "config_matches": [
+          "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/config.json"
+        ],
+        "safetensors_count": 5,
+        "tokenizer_files": [
+          "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/tokenizer.json",
+          "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/tokenizer_config.json"
+        ]
+      },
+      {
+        "consumer": "q25_7b",
+        "config_matches": [
+          "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/config.json"
+        ],
+        "safetensors_count": 4,
+        "tokenizer_files": [
+          "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/tokenizer.json",
+          "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/tokenizer_config.json"
+        ]
+      },
+      {
+        "consumer": "q3_4b",
+        "config_matches": [
+          "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/config.json"
+        ],
+        "safetensors_count": 3,
+        "tokenizer_files": [
+          "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/tokenizer.json",
+          "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/tokenizer_config.json"
+        ]
+      },
+      {
+        "consumer": "debv3l",
+        "config_matches": [
+          "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/deberta-v3-large/config.json"
+        ],
+        "safetensors_count": 1,
+        "tokenizer_files": [
+          "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/deberta-v3-large/tokenizer.json",
+          "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/deberta-v3-large/tokenizer_config.json"
+        ]
+      },
+      {
+        "consumer": "electl",
+        "config_matches": [
+          "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/electra-large-discriminator/config.json"
+        ],
+        "safetensors_count": 1,
+        "tokenizer_files": [
+          "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/electra-large-discriminator/tokenizer.json",
+          "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/electra-large-discriminator/tokenizer_config.json"
+        ]
+      },
+      {
+        "consumer": "desk",
+        "config_matches": [
+          "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/desklib-detector/config.json"
+        ],
+        "safetensors_count": 1,
+        "tokenizer_files": [
+          "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/desklib-detector/tokenizer.json",
+          "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/desklib-detector/tokenizer_config.json"
+        ]
+      },
+      {
+        "consumer": "main_deb",
+        "config_matches": [
+          "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/deberta_v3_large/encoder/config.json"
+        ],
+        "safetensors_count": 1,
+        "tokenizer_files": [
+          "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/deberta_v3_large/encoder/tokenizer.json",
+          "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/deberta_v3_large/encoder/tokenizer_config.json"
+        ]
+      }
+    ],
+    "q35_named_paths": [],
+    "q35_head_present": true,
+    "manifest_sha256": "de7a305b5d26a5ad0cca0ed41cf31e2af1f85037dd354286aeef77ac67aaabf5"
+  },
+  "corrected_inventory_if_a_future_run_is_authorized": {
+    "change_applied_now": false,
+    "expected_main_count": 16,
+    "main_inventory_change": "none",
+    "old_comp_target": 22,
+    "new_comp_target_with_eligible_groups": 20,
+    "naturally_absent": [
+      "lora24_public",
+      "lora24_public_twin"
+    ],
+    "previously_known_absent": [
+      "tokattn_q35"
+    ],
+    "expected_comp_order": [
+      "stylegram",
+      "stylometry_lgb",
+      "glm9b_twin",
+      "gauss_glm9b_L8",
+      "q3_8b_twin",
+      "gauss_q3_8b_L22",
+      "q25_7b_twin",
+      "q3_4b_twin",
+      "gauss_q3_4b_L4",
+      "debv3l",
+      "debv3l_twin",
+      "gauss_debv3l_L24",
+      "electl",
+      "desk",
+      "lora24_seed7",
+      "lora24_claude",
+      "lora24_claude_twin",
+      "lora20_q25_instyle",
+      "tokattn_deb",
+      "ultrabert"
+    ],
+    "unconditional_file_supported_count": 10,
+    "conditional_group_contribution_count": 10,
+    "group_requirement": "The nine standard twin/Gaussian contributions and lora24_claude_twin require GROUP_ROWS.any(), computed from comp G_TE with group sizes2..18. If none are eligible, the natural comp contribution count is10, not20; retain the predeclared coverage-unmet policy.",
+    "readout_content_limit": "The three present LoRA directories contain required norm/head, readout, adapter and tokenizer filenames plus their optional anchor files. This is file-availability evidence, not proof that tensor shapes, readout keys or inference will succeed.",
+    "family_gate_limit": "Missing public alone does not force the Claude-LoRA gate off; the present Claude checkpoint may provide its coefficients. This review did not load readout tensors to certify the coefficients."
+  },
+  "shared_preflight_policy_for_later_repair": [
+    "Apply identical recursive-pattern resolution to the full CPU manifest and the GPU mount inventory.",
+    "Separate mandatory model dependencies from original optional checkpoint branches.",
+    "Freeze the absent public parent/twin and Q35 omissions from input evidence before inference, rather than shrinking a plan after inspecting scores.",
+    "Retain every other exact filename and hash; validate the required sibling files for each present LoRA checkpoint.",
+    "Keep group-dependent members conditional on the original G_TE eligibility rule; a desired20-member coverage target still requires at least one eligible group.",
+    "Use the same resolved availability artifact in the capture plan, runtime guard and replay expected inventory. Do not alter frozen EXP-028/029 evidence.",
+    "Do not create stand-in files or trigger another GPU run as part of this audit."
+  ],
+  "review_boundary": {
+    "files_created": [
+      "cloud/full-stack-capture-planning/v3-input-failure-review.json"
+    ],
+    "frozen_files_modified": false,
+    "new_experiment_created": false,
+    "new_gpu_or_remote_run_started": false,
+    "model_or_checkpoint_loaded": false,
+    "real_predictions_inspected": false,
+    "new_capture_completed": false
+  }
+}

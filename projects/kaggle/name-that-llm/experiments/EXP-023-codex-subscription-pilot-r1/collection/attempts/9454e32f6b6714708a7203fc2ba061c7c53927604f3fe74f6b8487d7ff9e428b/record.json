@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0114",
+  "prompt": "Tell a story about an amateur photographer who keeps the only badly blurred picture from an otherwise successful outing. Use approximately 200 words for the response.",
+  "category": "creative_short_fiction",
+  "target_words": 200,
+  "prompt_group": "cp0114",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "9454e32f6b6714708a7203fc2ba061c7c53927604f3fe74f6b8487d7ff9e428b",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:42:53.177922+00:00",
+  "ended_at": "2026-11-01T09:43:22.434418+00:00",
+  "prompt_sha256": "1a7147594cba312fe414f9dcc1d57806db5aa851cf0b9fd3153491fe93bd5cb8",
+  "text": "By sunset, Mara had taken ninety-three photographs of the harbor. Even on her camera’s tiny screen, she could tell they were her best yet: gulls suspended above silver water, fishing nets glowing copper, a boy leaping between two shadows.\n\nAt home, she deleted crooked horizons and duplicate boats. Then she reached the last photograph.\n\nIt was hopeless. The pier slanted sideways. The sunset had become a smear of orange. Across the foreground floated something pale and shapeless.\n\nHer father’s hand.\n\nHe had come along reluctantly, complaining about his knees, carrying the camera bag anyway. While she waited for the light, he bought them paper cups of tea.\n\n“Look at that,” he’d said.\n\nShe turned with the camera still raised. He was pointing toward a seal beside the pilings, grinning with an expression she remembered from childhood. She pressed the shutter as he nudged her shoulder.\n\nNeither his face nor the seal appeared in the photograph.\n\nMara’s finger hovered over Delete.\n\nThen she made a folder called Harbor, selected twelve sharp images, and added the blurred one.\n\nMonths later, when her father asked for a print of the boats, she ordered two photographs.\n\nThe boats went into his hallway.\n\nThe other stayed beside her desk.",
+  "text_sha256": "807b2d8950ca861b79a1a277af5581a67ef1bfc3128d748ac696be7d29c8eefa",
+  "raw_final_sha256": "807b2d8950ca861b79a1a277af5581a67ef1bfc3128d748ac696be7d29c8eefa",
+  "word_count": 204,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4236,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 258,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\9454e32f6b6714708a7203fc2ba061c7c53927604f3fe74f6b8487d7ff9e428b",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

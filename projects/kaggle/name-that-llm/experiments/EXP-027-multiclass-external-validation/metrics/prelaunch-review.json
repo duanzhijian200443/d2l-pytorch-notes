@@ -1,0 +1,18 @@
+{
+  "observed_at_utc": "2026-11-01T09:05:15.264196+00:00",
+  "status": "PASS",
+  "kind": "independent data/controller review before real outputs",
+  "gate_sha256": "cead2f4745a3e4af6a8adffe2361efd725e2710971a12123083b927589f573e5",
+  "evaluation_sha256": "8ec3217f1f469b66170f68f7abdb3ef1973a64e47d983c59b40a4d1ce2094670",
+  "rows": 729,
+  "groups": 56,
+  "classes": 17,
+  "raw_rows": 749,
+  "excluded_identity_rows": 20,
+  "training_response_and_known_body_overlap": 0,
+  "exp026_normalized_body_overlap": 0,
+  "independent_original_group_count_correction_confirmed": true,
+  "checked_against_actual_training_inputs": true,
+  "scope": "known/exact two-member isolation only; publisher official8gram filtering and provider-identity limitations retained",
+  "raw_model_predictions_read": false
+}

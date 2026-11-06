@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0166",
+  "prompt": "Draft a note to a museum volunteer coordinator asking for a quieter assignment during a particularly busy exhibition weekend. Use approximately 80 words for the response.",
+  "category": "short_email",
+  "target_words": 80,
+  "prompt_group": "cp0166",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "57d381a6ee9fb91fb400550f7f5d7275986fa72a7bf97aa2c96c5bb09a578eb0",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:39:27.298358+00:00",
+  "ended_at": "2026-11-01T10:39:48.272747+00:00",
+  "prompt_sha256": "410356d9e800af9f7e571c28ca90077b4f2be91df0c0fd44ca6723a7f58c825c",
+  "text": "Subject: Request for a Quieter Assignment\n\nDear [Coordinator’s Name],\n\nI’m looking forward to volunteering during the upcoming exhibition weekend. Since it is expected to be especially busy, would it be possible to assign me to a quieter role, such as working in the archives, preparing materials, or assisting in a less crowded gallery? I’m happy to help wherever needed, but I would be most effective in a lower-traffic setting. Thank you for considering my request and for coordinating the weekend’s volunteer team.\n\nBest,  \n[Your Name]",
+  "text_sha256": "3601dd4a5c015a9c1c5cacc27164c72c04979054ea59e4bcd21dd87d4496c00e",
+  "raw_final_sha256": "3601dd4a5c015a9c1c5cacc27164c72c04979054ea59e4bcd21dd87d4496c00e",
+  "word_count": 85,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4122,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 126,
+      "reasoning_output_tokens": 11
+    }
+  ],
+  "attempt_path": "collection\\attempts\\57d381a6ee9fb91fb400550f7f5d7275986fa72a7bf97aa2c96c5bb09a578eb0",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0216",
+  "prompt": "A tutoring group has more requests than available volunteer hours. Propose a transparent way to set priorities without promising service to everyone. Use approximately 80 words for the response.",
+  "category": "business_decision",
+  "target_words": 80,
+  "prompt_group": "cp0216",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "d6be01e781b9cc70b6accc12d9f51c06dc080df17ffc2ad374c95768b6cc07bd",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:12:55.970039+00:00",
+  "ended_at": "2026-11-01T11:13:13.856733+00:00",
+  "prompt_sha256": "5c441e6b82ddf89bfab3a2cd3465084542cce11c68440c36ff6b985658894f7e",
+  "text": "Use a published scoring rubric to rank requests by urgency, educational impact, and access to alternatives. For example, prioritize students facing imminent exams, foundational skill gaps, financial barriers, or limited support elsewhere. Reserve a small share of hours for first-time applicants and use a lottery to break equal scores. Reassess the waitlist weekly as circumstances change. Clearly explain the criteria, available capacity, and expected review dates, while stating that placement depends on volunteer availability and cannot be guaranteed.",
+  "text_sha256": "0ee2eb3c20c948722a0cb7e1d39143ba498c128f71f4e7e3d9adc50136753b0e",
+  "raw_final_sha256": "0ee2eb3c20c948722a0cb7e1d39143ba498c128f71f4e7e3d9adc50136753b0e",
+  "word_count": 78,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4127,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 100,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\d6be01e781b9cc70b6accc12d9f51c06dc080df17ffc2ad374c95768b6cc07bd",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

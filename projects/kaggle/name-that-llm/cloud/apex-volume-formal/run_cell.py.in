@@ -1,0 +1,65 @@
+# Complementary stack execution. Preserve the original COMP_SEC timing and hidden/fast condition.
+import time as _t
+_c0 = _t.time()
+import os; os.environ['NTL_DROP_Q35'] = '0'
+import ast as _v_ast, glob as _v_glob, hashlib as _v_hashlib, json as _v_json, pathlib as _v_pathlib
+import re as _v_re, subprocess as _v_subprocess, sys as _v_sys, uuid as _v_uuid
+import numpy as _v_np, pandas as _v_pd
+_v_dir = _v_pathlib.Path('/kaggle/working')
+_v_comp = _v_dir / 'comp_stack.py'
+_v_comp_sha = _v_hashlib.sha256(_v_comp.read_bytes()).hexdigest()
+assert _v_comp_sha == '__COMP_SHA__'
+_v_tree = _v_ast.parse(_v_comp.read_text(encoding='utf-8'))
+_v_env = {'pd': _v_pd, 'glob': _v_glob, 're': _v_re}
+_v_def_names = {'load_extra_passages', '_volume_load', '_volume_check_shared'}
+_v_assign_names = {'LABELS', 'EXTRA_MIN_LABELS', 'EXTRA_SHARE', '_volume_arm', '_volume_rows', '_volume_sha',
+                   '_volume_b64', '_volume_shared_sha'}
+_v_defs = []
+for _v_node in _v_tree.body:
+    if isinstance(_v_node, _v_ast.FunctionDef) and _v_node.name in _v_def_names:
+        _v_defs.append(_v_node)
+    elif isinstance(_v_node, _v_ast.Assign):
+        _v_names = {x.id for target in _v_node.targets for x in _v_ast.walk(target) if isinstance(x, _v_ast.Name)}
+        if _v_names and _v_names <= _v_assign_names:
+            _v_defs.append(_v_node)
+exec(compile(_v_ast.Module(body=_v_defs, type_ignores=[]), '<verified volume inputs>', 'exec'), _v_env)
+_v_added = _v_env['_volume_load']()
+_v_shared = _v_env['load_extra_passages']()
+_v_env['_volume_check_shared'](_v_shared)
+_v_pre = {'status':'PASS','arm':'__ARM__','rows':len(_v_added),'groups':_v_added.prompt_id.nunique(),
+          'source_csv_sha256':_v_env['_volume_sha'],'shared_rows':len(_v_shared),'shared_groups':_v_shared.prompt_id.nunique(),
+          'shared_sha256':_v_env['_volume_shared_sha'],'comp_stack_sha256':_v_comp_sha,
+          'fast_commit':bool(FAST_COMMIT),'competition_rerun_flag_present':'KAGGLE_IS_COMPETITION_RERUN' in os.environ,
+          'fit_count':0}
+assert _v_env['_volume_arm'] == '__ARM__' and _v_pre['rows'] == __ROWS__ and _v_pre['source_csv_sha256'] == '__CSV_SHA__'
+(_v_dir/'volume_preflight.json').write_text(_v_json.dumps(_v_pre,indent=2),encoding='utf-8')
+del _v_shared, _v_added
+if not FAST_COMMIT:
+    _v_nonce = _v_uuid.uuid4().hex
+    _v_meta_path, _v_logit_path = _v_dir/'comp_meta.json', _v_dir/'comp_logit.npy'
+    _v_receipt_path = _v_dir/'stylegram_volume_receipt.json'
+    assert not any(p.exists() for p in (_v_meta_path, _v_logit_path, _v_receipt_path)), 'Stale complementary-stack artifacts'
+    _v_subprocess.run([_v_sys.executable, '-u', str(_v_comp)], cwd=_v_dir,
+                      env=dict(os.environ, NTL_VOLUME_RUN_NONCE=_v_nonce), check=True)
+    _v_r = _v_json.loads(_v_receipt_path.read_text(encoding='utf-8'))
+    _v_ids = _v_pd.read_csv(os.path.join(DATA,'test.csv'))['id'].astype(str).tolist()
+    assert _v_ids and len(set(_v_ids)) == len(_v_ids)
+    assert _v_r['status'] == 'MEMBER_ADDED' and _v_r['run_nonce'] == _v_nonce and _v_r['fit_count'] == 2
+    assert all(_v_r[k] == _v_pre[k] for k in ('arm','rows','groups','source_csv_sha256','shared_rows','shared_groups','shared_sha256'))
+    assert _v_r['test_rows'] == len(_v_ids) and _v_r['output_classes'] == 18 and _v_r['member_weight'] == 1.516
+    assert _v_r['official_rows'] == 2699 and _v_r['full_training_rows'] == 2699 + 10743 + __ROWS__
+    _v_meta = _v_json.loads(_v_meta_path.read_text(encoding='utf-8'))
+    assert _v_meta['labels'] == _v_env['LABELS'] and len(_v_meta['labels']) == 18
+    assert _v_meta['ids'] == _v_ids and _v_meta['family_gates_applied'] is True
+    assert type(_v_meta['seconds']) in (float, int) and _v_np.isfinite(_v_meta['seconds']) and _v_meta['seconds'] >= 0
+    _v_logits = _v_np.load(_v_logit_path, allow_pickle=False)
+    assert _v_logits.shape == (len(_v_ids),18) and _v_np.isfinite(_v_logits).all()
+    _v_P = _v_np.exp(_v_logits-_v_logits.max(1,keepdims=True)); _v_P /= _v_P.sum(1,keepdims=True)
+    assert _v_np.isfinite(_v_P).all() and _v_np.allclose(_v_P.sum(1),1)
+    (_v_dir/'volume_comp_execution.json').write_text(_v_json.dumps({
+        'status':'PASS','arm':_v_r['arm'],'run_nonce':_v_nonce,'test_rows':len(_v_ids),'comp_stack_sha256':_v_comp_sha,
+        'artifact_hashes':{p.name:_v_hashlib.sha256(p.read_bytes()).hexdigest() for p in (_v_meta_path,_v_logit_path,_v_receipt_path)},
+    },indent=2),encoding='utf-8')
+    del _v_logits, _v_P
+COMP_SEC = _t.time() - _c0
+print('comp stack wall time', round(COMP_SEC))

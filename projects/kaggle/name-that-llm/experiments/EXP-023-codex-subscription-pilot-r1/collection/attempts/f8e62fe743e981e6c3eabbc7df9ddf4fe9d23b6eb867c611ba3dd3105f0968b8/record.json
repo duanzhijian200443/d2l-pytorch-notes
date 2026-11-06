@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0229",
+  "prompt": "A person rehearses an apology all morning, then finds that the actual conversation takes a different direction. Write the scene without making either character cruel. Use approximately 200 words for the response.",
+  "category": "creative_short_fiction",
+  "target_words": 200,
+  "prompt_group": "cp0229",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "f8e62fe743e981e6c3eabbc7df9ddf4fe9d23b6eb867c611ba3dd3105f0968b8",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:20:22.910329+00:00",
+  "ended_at": "2026-11-01T11:20:50.509106+00:00",
+  "prompt_sha256": "84a23b03047c36056d9ae8190ee98a86eba51f510b5ecbe9f759bb1e11f7ffa5",
+  "text": "By ten, Mara had apologized to the kettle, the bathroom mirror, and the ficus beside the window.\n\n“I shouldn’t have assumed,” she told the ficus. “I should have asked. And I’m sorry I made you feel like your plans didn’t matter.”\n\nAt noon, she sat across from Eli at the café, hands wrapped around an untouched cup of tea. Her prepared sentences stood in a neat, trembling line behind her teeth.\n\nEli arrived late, breathless, with rain glittering on his coat.\n\n“Mara,” he said, sliding into the chair. “I’m so glad you’re here.”\n\nShe blinked. “You are?”\n\n“I got the job.” His smile appeared, then faltered. “The one in Portland.”\n\nFor a moment, her apology lost its place.\n\n“Oh,” she said.\n\n“I wanted to tell you sooner, but I kept waiting for the right time.” He looked down at the table. “And then we had that fight about the trip, and I thought maybe you’d think I was leaving because of it.”\n\nMara’s rehearsed words rearranged themselves.\n\n“I did think something was wrong,” she said quietly. “But not that.”\n\nEli nodded. “I should have told you.”\n\n“So should I,” Mara said. “About how scared I was.”\n\nThe tea cooled between them while they talked—not fixing everything, exactly, but making room for the things neither had known how to say.",
+  "text_sha256": "bdac44598fb3af1fca9348c86e41f14ff160c97816a1b45878d5188fa25b7908",
+  "raw_final_sha256": "bdac44598fb3af1fca9348c86e41f14ff160c97816a1b45878d5188fa25b7908",
+  "word_count": 219,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4131,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 310,
+      "reasoning_output_tokens": 10
+    }
+  ],
+  "attempt_path": "collection\\attempts\\f8e62fe743e981e6c3eabbc7df9ddf4fe9d23b6eb867c611ba3dd3105f0968b8",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

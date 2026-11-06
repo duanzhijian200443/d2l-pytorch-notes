@@ -1,0 +1,11 @@
+{
+  "approved_at": "2026-11-02T10:14:59.126174+00:00",
+  "approval_scope": "private GPU quick-save and run only; no competition submit",
+  "approval_note": "Parent explicitly released both frozen 056 and 057 private quick-save and GPU run. Competition submit is reserved to parent.",
+  "ref": "zhjianduan/ntl-apex-codex120-056",
+  "source_sha256": "c6c9dee6bf8194f656aca10b15e599294bee1465603e78bccd4ddcaac9decc56",
+  "metadata_sha256": "d87f61378abc03e0c932577ce5f0647690cd1b7905a07c97d096b3636f57030e",
+  "preflight_sha256": "6932c233dc8418db8391a70270cf426fa1eacad55655ccbdc5128222501b46e1",
+  "manifest_sha256": "c29d0802cec274b3db662c315aec52fcbd49c2cdc49621a4bf54bba5c50dbb71",
+  "discovery_sha256": "bed60b3d08393ee8c27cfe78dcdd9f7970bfbf9a3658818947070aa28d33c372"
+}

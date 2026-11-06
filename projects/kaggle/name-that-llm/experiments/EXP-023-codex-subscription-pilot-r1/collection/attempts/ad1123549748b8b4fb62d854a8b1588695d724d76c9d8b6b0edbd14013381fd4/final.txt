@@ -1,0 +1,7 @@
+A map is a selective interpretation because it cannot reproduce every feature of a place exactly as it exists. To make a complex, three-dimensional environment understandable on a flat surface, cartographers must choose what to include, omit, simplify, and emphasize. These choices depend on the map’s purpose and intended audience. A road map highlights routes and settlements, for example, while a geological map focuses on rock formations and may largely ignore buildings or vegetation.
+
+Scale also requires selection. At smaller scales, individual streets, trees, or streams may disappear, and irregular shapes must be generalized. Symbols, colors, labels, boundaries, and map projections further influence how viewers perceive an area. A projection may preserve direction or area, but it cannot preserve every spatial relationship without distortion. Even apparently factual boundaries can reflect political decisions or disputed claims.
+
+Maps also embody the knowledge, values, and power of their makers. Naming practices, centering choices, and categories can privilege certain perspectives while marginalizing others. Historical colonial maps, for instance, often represented land according to imperial interests rather than Indigenous understandings.
+
+Thus, a map is not necessarily inaccurate or deceptive, but it is constructed. It offers a purposeful argument about which aspects of a place matter, translating reality into a limited and meaningful visual form.

@@ -1,0 +1,43 @@
+[{"stream_name":"stdout","time":7.797241679,"data":"PREFLIGHT PASS {\"numpy\": \"2.1.3\", \"pandas\": \"2.3.3\", \"scipy\": \"1.16.3\", \"sklearn\": \"1.6.1\"}\n"}
+,{"stream_name":"stdout","time":7.797286968,"data":"FOLD 0 official-only: fitting four-view features\n"}
+,{"stream_name":"stdout","time":17.219809059,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":17.219854172,"data":"  File \"/kaggle/input/datasets/zhjianduan/ntl-svc4-raw-public-inputs-v1/runner.py\", line 218, in \u003cmodule\u003e\n"}
+,{"stream_name":"stdout","time":17.219860958,"data":"    run()\n"}
+,{"stream_name":"stdout","time":17.219864599,"data":"    ~~~^^\n"}
+,{"stream_name":"stdout","time":17.219867913,"data":"  File \"/kaggle/input/datasets/zhjianduan/ntl-svc4-raw-public-inputs-v1/runner.py\", line 147, in run\n"}
+,{"stream_name":"stdout","time":17.219871828,"data":"    'feature_seconds':feature_seconds,'views':feature_receipt(features)}\n"}
+,{"stream_name":"stdout","time":17.219875313,"data":"                                              ~~~~~~~~~~~~~~~^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":17.219878752,"data":"  File \"/kaggle/input/datasets/zhjianduan/ntl-svc4-raw-public-inputs-v1/runner.py\", line 66, in feature_receipt\n"}
+,{"stream_name":"stdout","time":17.219884119,"data":"    vocabulary = json.dumps(sorted(vectorizer.vocabulary_.items()), ensure_ascii=False, separators=(',', ':')).encode()\n"}
+,{"stream_name":"stdout","time":17.219888465,"data":"                 ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":17.219891815,"data":"  File \"/usr/lib/python3.13/json/__init__.py\", line 242, in dumps\n"}
+,{"stream_name":"stdout","time":17.219895924,"data":"    **kw).encode(obj)\n"}
+,{"stream_name":"stdout","time":17.219899174,"data":"          ~~~~~~^^^^^\n"}
+,{"stream_name":"stdout","time":17.219902846,"data":"  File \"/usr/lib/python3.13/json/encoder.py\", line 202, in encode\n"}
+,{"stream_name":"stdout","time":17.219907147,"data":"    chunks = self.iterencode(o, _one_shot=True)\n"}
+,{"stream_name":"stdout","time":17.219910943,"data":"  File \"/usr/lib/python3.13/json/encoder.py\", line 263, in iterencode\n"}
+,{"stream_name":"stdout","time":17.219915169,"data":"    return _iterencode(o, 0)\n"}
+,{"stream_name":"stdout","time":17.219919064,"data":"  File \"/usr/lib/python3.13/json/encoder.py\", line 182, in default\n"}
+,{"stream_name":"stdout","time":17.219922443,"data":"    raise TypeError(f'Object of type {o.__class__.__name__} '\n"}
+,{"stream_name":"stdout","time":17.219925961,"data":"                    f'is not JSON serializable')\n"}
+,{"stream_name":"stdout","time":17.219929505,"data":"TypeError: Object of type int64 is not JSON serializable\n"}
+,{"stream_name":"stderr","time":17.222036449,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":17.222775254,"data":"  File \"/kaggle/src/script.py\", line 10, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":17.222796459,"data":"    runpy.run_path(str(target/'guard.py'),run_name='__main__')\n"}
+,{"stream_name":"stderr","time":17.222800703,"data":"    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":17.222804713,"data":"  File \"\u003cfrozen runpy\u003e\", line 294, in run_path\n"}
+,{"stream_name":"stderr","time":17.222808964,"data":"  File \"\u003cfrozen runpy\u003e\", line 98, in _run_module_code\n"}
+,{"stream_name":"stderr","time":17.222812461,"data":"  File \"\u003cfrozen runpy\u003e\", line 88, in _run_code\n"}
+,{"stream_name":"stderr","time":17.222816236,"data":"  File \"/kaggle/input/datasets/zhjianduan/ntl-svc4-raw-public-inputs-v1/guard.py\", line 232, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":17.222833377,"data":"    main()\n"}
+,{"stream_name":"stderr","time":17.222837424,"data":"    ~~~~^^\n"}
+,{"stream_name":"stderr","time":17.222841131,"data":"  File \"/kaggle/input/datasets/zhjianduan/ntl-svc4-raw-public-inputs-v1/guard.py\", line 228, in main\n"}
+,{"stream_name":"stderr","time":17.22284546,"data":"    raise RuntimeError(cause or f'CPU experiment failed ({exit_code})')\n"}
+,{"stream_name":"stderr","time":17.222849709,"data":"RuntimeError: CHILD_FAILED\n"}
+,{"stream_name":"stderr","time":19.858416222,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":19.858460892,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":20.234140018,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":20.234170369,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":22.180775516,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":23.446693731,"data":"[NbConvertApp] Writing 276658 bytes to __results__.html\n"}
+]

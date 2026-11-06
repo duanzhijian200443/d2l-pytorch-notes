@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0109",
+  "prompt": "Write about a musician practicing in an empty hall who realizes that a cleaner has been listening every evening. Use approximately 200 words for the response.",
+  "category": "creative_short_fiction",
+  "target_words": 200,
+  "prompt_group": "cp0109",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "313b72af0d27fc0f1d7a6efa6c95672d13d8038d931ab7fca906593e989d0ef3",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:39:38.821262+00:00",
+  "ended_at": "2026-11-01T09:40:09.477810+00:00",
+  "prompt_sha256": "e814055cd64b1f948824dcb517170f5b24acc5ee9c38614a79244149f82b7217",
+  "text": "Every evening, Mara practiced beneath the hall’s unlit chandelier. Without an audience, the room seemed larger, its rows of velvet seats stretching beyond the reach of her small rehearsal lamp.\n\nShe was preparing a Bach suite. For three weeks, the same passage had defeated her. Her bow hurried; her fingers tightened. Each mistake traveled to the balcony and returned.\n\nOn Thursday, she stopped halfway through.\n\n“Again,” someone said.\n\nA cleaner stood beside the rear doors, one hand resting on a mop.\n\nMara lowered her cello. “How long have you been there?”\n\n“Tonight?”\n\nShe smiled despite herself. “Any night.”\n\n“Since you started leaving the side door open.”\n\nHe looked embarrassed, as though listening were something he should have paid for.\n\n“I can work somewhere else.”\n\n“No.” Mara straightened her music. “Does it sound better?”\n\nHe considered this seriously.\n\n“The beginning does. That bit you keep stopping at—I don’t know what comes after.”\n\nFor the first time all week, she laughed.\n\nShe began again. At the difficult passage, her finger slipped. She nearly stopped, then saw him waiting by the doors.\n\nShe played on.\n\nWhen the last note faded, he remained still for a moment before lifting his mop.\n\n“Good,” he said. “Now I’ve heard it.”\n\nThe next evening, Mara opened the side door before unpacking her cello.",
+  "text_sha256": "20b453176c9387176f3974e50e116a05ef277167414c0dcedd6e90e8affba157",
+  "raw_final_sha256": "20b453176c9387176f3974e50e116a05ef277167414c0dcedd6e90e8affba157",
+  "word_count": 216,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4236,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 283,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\313b72af0d27fc0f1d7a6efa6c95672d13d8038d931ab7fca906593e989d0ef3",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

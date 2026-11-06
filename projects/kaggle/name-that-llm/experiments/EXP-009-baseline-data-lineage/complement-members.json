@@ -1,0 +1,607 @@
+{
+  "scope": "Read-only static audit of fixed EXP-004 source; no training or cloud execution. Exact hidden-run optional-member activation requires logs/input tree.",
+  "source": {
+    "path": "reviews/own-scheme-readiness-20261030/baseline-v2.ipynb",
+    "sha256": "6c9145f038ccffbe08dc6da6db3d1dcf3d2e0e7d2286927bfc8800ef5148cfb8",
+    "notebook_cell_index_zero_based": 8,
+    "line_convention": "comp_py_lines are 1-based extracted comp_stack.py lines, notebook cell8 source line minus 1 because %%writefile is removed"
+  },
+  "execution": {
+    "notebook_cell10_lines": [
+      4,
+      6
+    ],
+    "NTL_DROP_Q35": "0",
+    "FAST_COMMIT": "cell2 line15: len(test.csv)<50; comp_stack executed only when false",
+    "SMOKE": "Only when NTL_SMOKE==1; not set by standard runner",
+    "outer_comp_weight": 0.15,
+    "outer_weight_evidence": "notebook cell12 line20; final combination handled by infer.py",
+    "pipe_note": "cell10 uses !python ... | grep -vE Warning|warn and does not explicitly propagate python status; no failure inferred for completed submission"
+  },
+  "external_loader": {
+    "comp_py_lines": [
+      239,
+      260
+    ],
+    "ordered_patterns": [
+      "**/ntl_extra_passages_claude.csv",
+      "**/gen_passages.csv",
+      "**/ntl_generations.csv",
+      "**/ntl_proxy_generations.csv",
+      "**/ntl_generated*.csv",
+      "**/passages_clean.csv"
+    ],
+    "order": "listed pattern order; lexicographically sorted matches within each pattern; first duplicate survives",
+    "steps": [
+      "For ntl_generations.csv keep finish_reason==stop when field exists; for ntl_generated*.csv keep finish==stop when exists",
+      "Rename model or label; retain only prompt_id/model/text, discarding settings, route, source_prompt_id, source etc",
+      "Prefix only passages_clean.csv prompt_id with pv_; other banks keep their strings",
+      "Keep labels among fixed 18",
+      "Strip text, remove whole-text **wrapper** when regex matches, collapse whitespace (no NFKC/casefold)",
+      "Keep whitespace word length 30..300 inclusive",
+      "drop_duplicates(model,text), keeping first",
+      "drop_duplicates(prompt_id,model), keeping first",
+      "Keep prompt groups with >=12 distinct labels"
+    ],
+    "min_labels": 12,
+    "sample_weight_share": 0.5,
+    "risk_notes": [
+      "Same prompt+model repeated with different settings is reduced to first occurrence, so file order affects retained setting",
+      "Only prvs gets namespace prefix. Metadata discarded before filtering, so unknown bank collisions cannot be disambiguated",
+      "train_regen source_prompt_id discarded; adding this loader to a local held-out prompt experiment requires explicit lineage filter",
+      "No explicit external-vs-heldout prompt exclusion; current formal full-train use is not thereby shown invalid"
+    ]
+  },
+  "members": [
+    {
+      "member": "stylegram",
+      "mode": "runtime TF-IDF + two LinearSVC heads",
+      "runtime_fit_data": "official train + filtered EXTRA",
+      "comp_log_probability_weight": 1.516,
+      "comp_py_lines": [
+        239,
+        260,
+        269,
+        274,
+        277,
+        307
+      ],
+      "sample_weights": "For each class with extra rows: official per-row 0.5; external per-row 0.5*n_official_class/n_external_class. Otherwise official weight 1.",
+      "selection": "plain predicts all; centred prediction replaces rows whose inferred style group has 2..18 members. One 1.516 contribution, not two.",
+      "filters": "See external_loader below"
+    },
+    {
+      "member": "stylometry_lgb",
+      "mode": "runtime fit LightGBM",
+      "runtime_fit_data": "official train only",
+      "comp_log_probability_weight": 0.063,
+      "comp_py_lines": [
+        363,
+        368
+      ],
+      "sample_weights": "No explicit sample weights; random_state=0",
+      "checkpoint": "none"
+    },
+    {
+      "member": "debv3l",
+      "mode": "runtime StandardScaler + LogisticRegression on frozen encoder features",
+      "runtime_fit_data": "official train only",
+      "comp_log_probability_weight": 0.05,
+      "comp_py_lines": [
+        56,
+        59,
+        607,
+        617,
+        644,
+        650,
+        700,
+        707
+      ],
+      "sample_weights": "none",
+      "checkpoint": "frozen AutoModel selected by directory name",
+      "C": 0.005,
+      "upstream_training_data": "Not established from this notebook; base/encoder pretraining is not an official-only claim",
+      "test_normalization": "If >=2 test rows, mean/std computed on test batch; else use train scaler"
+    },
+    {
+      "member": "electl",
+      "mode": "runtime StandardScaler + LogisticRegression on frozen encoder features",
+      "runtime_fit_data": "official train only",
+      "comp_log_probability_weight": 0.032,
+      "comp_py_lines": [
+        56,
+        59,
+        607,
+        617,
+        644,
+        650,
+        700,
+        707
+      ],
+      "sample_weights": "none",
+      "checkpoint": "frozen AutoModel selected by directory name",
+      "C": 0.005,
+      "upstream_training_data": "Not established from this notebook; base/encoder pretraining is not an official-only claim",
+      "test_normalization": "If >=2 test rows, mean/std computed on test batch; else use train scaler"
+    },
+    {
+      "member": "desk",
+      "mode": "runtime StandardScaler + LogisticRegression on frozen encoder features",
+      "runtime_fit_data": "official train only",
+      "comp_log_probability_weight": 0.132,
+      "comp_py_lines": [
+        56,
+        59,
+        607,
+        617,
+        644,
+        650,
+        700,
+        707
+      ],
+      "sample_weights": "none",
+      "checkpoint": "frozen AutoModel selected by directory name",
+      "C": 0.005,
+      "upstream_training_data": "Not established from this notebook; base/encoder pretraining is not an official-only claim",
+      "test_normalization": "If >=2 test rows, mean/std computed on test batch; else use train scaler"
+    },
+    {
+      "member": "q3_8b_twin",
+      "mode": "runtime centred StandardScaler + LogisticRegression on frozen features",
+      "runtime_fit_data": "official train only, centred by official prompt_id",
+      "comp_log_probability_weight": 0.3285,
+      "comp_py_lines": [
+        37,
+        53,
+        55,
+        653,
+        658,
+        679,
+        707
+      ],
+      "sample_weights": "none",
+      "apply_to": "only inferred mixed-content/GLM-L24 test groups of size 2..18",
+      "checkpoint": "frozen backbone; its upstream data not audited"
+    },
+    {
+      "member": "q25_7b_twin",
+      "mode": "runtime centred StandardScaler + LogisticRegression on frozen features",
+      "runtime_fit_data": "official train only, centred by official prompt_id",
+      "comp_log_probability_weight": 0.2115,
+      "comp_py_lines": [
+        37,
+        53,
+        55,
+        653,
+        658,
+        679,
+        707
+      ],
+      "sample_weights": "none",
+      "apply_to": "only inferred mixed-content/GLM-L24 test groups of size 2..18",
+      "checkpoint": "frozen backbone; its upstream data not audited"
+    },
+    {
+      "member": "q3_4b_twin",
+      "mode": "runtime centred StandardScaler + LogisticRegression on frozen features",
+      "runtime_fit_data": "official train only, centred by official prompt_id",
+      "comp_log_probability_weight": 0.1245,
+      "comp_py_lines": [
+        37,
+        53,
+        55,
+        653,
+        658,
+        679,
+        707
+      ],
+      "sample_weights": "none",
+      "apply_to": "only inferred mixed-content/GLM-L24 test groups of size 2..18",
+      "checkpoint": "frozen backbone; its upstream data not audited"
+    },
+    {
+      "member": "glm9b_twin",
+      "mode": "runtime centred StandardScaler + LogisticRegression on frozen features",
+      "runtime_fit_data": "official train only, centred by official prompt_id",
+      "comp_log_probability_weight": 0.165,
+      "comp_py_lines": [
+        37,
+        53,
+        55,
+        653,
+        658,
+        679,
+        707
+      ],
+      "sample_weights": "none",
+      "apply_to": "only inferred mixed-content/GLM-L24 test groups of size 2..18",
+      "checkpoint": "frozen backbone; its upstream data not audited"
+    },
+    {
+      "member": "debv3l_twin",
+      "mode": "runtime centred StandardScaler + LogisticRegression on frozen features",
+      "runtime_fit_data": "official train only, centred by official prompt_id",
+      "comp_log_probability_weight": 0.25,
+      "comp_py_lines": [
+        37,
+        53,
+        55,
+        653,
+        658,
+        679,
+        707
+      ],
+      "sample_weights": "none",
+      "apply_to": "only inferred mixed-content/GLM-L24 test groups of size 2..18",
+      "checkpoint": "frozen backbone; its upstream data not audited"
+    },
+    {
+      "member": "gauss_q3_8b_L22",
+      "mode": "runtime Gaussian group head including scaling/wpca/covariances",
+      "runtime_fit_data": "official train features, labels, prompt_id",
+      "comp_log_probability_weight": 0.3285,
+      "comp_py_lines": [
+        44,
+        48,
+        665,
+        672,
+        679,
+        707
+      ],
+      "sample_weights": "none",
+      "apply_to": "only eligible test groups",
+      "backbone": "q3_8b",
+      "feature": "L22_mean",
+      "temperatures": {
+        "T1": 2.351,
+        "Tg": 2.306
+      },
+      "temperature_origin": "Hardcoded values attributed by code comment to authors production fit on 135 training prompts; not re-tuned here",
+      "upstream_training_data": "Base pretraining not established"
+    },
+    {
+      "member": "gauss_glm9b_L8",
+      "mode": "runtime Gaussian group head including scaling/wpca/covariances",
+      "runtime_fit_data": "official train features, labels, prompt_id",
+      "comp_log_probability_weight": 0.165,
+      "comp_py_lines": [
+        44,
+        48,
+        665,
+        672,
+        679,
+        707
+      ],
+      "sample_weights": "none",
+      "apply_to": "only eligible test groups",
+      "backbone": "glm9b",
+      "feature": "L8_mean",
+      "temperatures": {
+        "T1": 2.722,
+        "Tg": 2.596
+      },
+      "temperature_origin": "Hardcoded values attributed by code comment to authors production fit on 135 training prompts; not re-tuned here",
+      "upstream_training_data": "Base pretraining not established"
+    },
+    {
+      "member": "gauss_q3_4b_L4",
+      "mode": "runtime Gaussian group head including scaling/wpca/covariances",
+      "runtime_fit_data": "official train features, labels, prompt_id",
+      "comp_log_probability_weight": 0.1245,
+      "comp_py_lines": [
+        44,
+        48,
+        665,
+        672,
+        679,
+        707
+      ],
+      "sample_weights": "none",
+      "apply_to": "only eligible test groups",
+      "backbone": "q3_4b",
+      "feature": "L4_mean",
+      "temperatures": {
+        "T1": 2.725,
+        "Tg": 2.578
+      },
+      "temperature_origin": "Hardcoded values attributed by code comment to authors production fit on 135 training prompts; not re-tuned here",
+      "upstream_training_data": "Base pretraining not established"
+    },
+    {
+      "member": "gauss_debv3l_L24",
+      "mode": "runtime Gaussian group head including scaling/wpca/covariances",
+      "runtime_fit_data": "official train features, labels, prompt_id",
+      "comp_log_probability_weight": 0.25,
+      "comp_py_lines": [
+        44,
+        48,
+        665,
+        672,
+        679,
+        707
+      ],
+      "sample_weights": "none",
+      "apply_to": "only eligible test groups",
+      "backbone": "debv3l",
+      "feature": "L24_mean",
+      "temperatures": {
+        "T1": 3.112,
+        "Tg": 3.069
+      },
+      "temperature_origin": "Hardcoded values attributed by code comment to authors production fit on 135 training prompts; not re-tuned here",
+      "upstream_training_data": "Base pretraining not established"
+    },
+    {
+      "member": "lora24_public",
+      "mode": "checkpoint inference only",
+      "runtime_fit_data": "No runtime supervised fit; TE inference. TR[:3] only checks feature parity when anchor available.",
+      "comp_log_probability_weight": 0.177,
+      "comp_py_lines": [
+        60,
+        67,
+        711,
+        794
+      ],
+      "checkpoint_marker": "**/lora24/final/COMPLETE.json",
+      "checkpoint_contents": [
+        "adapter",
+        "norms/heads.safetensors",
+        "readouts.npz"
+      ],
+      "upstream_training_data": "Not recoverable from consumer notebook; need each producer training source + version + data manifest",
+      "activation": "Optional: marker absent -> SKIP; exact historical hidden-run activation not established from static source alone"
+    },
+    {
+      "member": "lora24_seed7",
+      "mode": "checkpoint inference only",
+      "runtime_fit_data": "No runtime supervised fit; TE inference. TR[:3] only checks feature parity when anchor available.",
+      "comp_log_probability_weight": 0.113,
+      "comp_py_lines": [
+        60,
+        67,
+        711,
+        794
+      ],
+      "checkpoint_marker": "**/name-that-llm-train-lora24-s7/lora_out/job_final/COMPLETE.json",
+      "checkpoint_contents": [
+        "adapter",
+        "norms/heads.safetensors",
+        "readouts.npz"
+      ],
+      "upstream_training_data": "Not recoverable from consumer notebook; need each producer training source + version + data manifest",
+      "activation": "Optional: marker absent -> SKIP; exact historical hidden-run activation not established from static source alone"
+    },
+    {
+      "member": "lora24_claude",
+      "mode": "checkpoint inference only",
+      "runtime_fit_data": "No runtime supervised fit; TE inference. TR[:3] only checks feature parity when anchor available.",
+      "comp_log_probability_weight": 0.177,
+      "comp_py_lines": [
+        60,
+        67,
+        711,
+        794
+      ],
+      "checkpoint_marker": "**/ntl-qwen3-8b-lora-claude-head/**/final/COMPLETE.json",
+      "checkpoint_contents": [
+        "adapter",
+        "norms/heads.safetensors",
+        "readouts.npz"
+      ],
+      "upstream_training_data": "Not recoverable from consumer notebook; need each producer training source + version + data manifest",
+      "activation": "Optional: marker absent -> SKIP; exact historical hidden-run activation not established from static source alone"
+    },
+    {
+      "member": "lora20_q25_instyle",
+      "mode": "checkpoint inference only",
+      "runtime_fit_data": "No runtime supervised fit; TE inference. TR[:3] only checks feature parity when anchor available.",
+      "comp_log_probability_weight": 0.17,
+      "comp_py_lines": [
+        60,
+        67,
+        711,
+        794
+      ],
+      "checkpoint_marker": "**/ntl-train-lora-qwen25-instyle/lora_out/job_final/COMPLETE.json",
+      "checkpoint_contents": [
+        "adapter",
+        "norms/heads.safetensors",
+        "readouts.npz"
+      ],
+      "upstream_training_data": "Not recoverable from consumer notebook; need each producer training source + version + data manifest",
+      "activation": "Optional: marker absent -> SKIP; exact historical hidden-run activation not established from static source alone"
+    },
+    {
+      "member": "lora24_public_twin",
+      "mode": "checkpoint centred readout inference",
+      "runtime_fit_data": "No runtime fit; centre test features within eligible groups",
+      "comp_log_probability_weight": 0.15,
+      "comp_py_lines": [
+        38,
+        779,
+        781
+      ],
+      "activation": "requires parent checkpoint and eligible groups"
+    },
+    {
+      "member": "lora24_claude_twin",
+      "mode": "checkpoint centred readout inference",
+      "runtime_fit_data": "No runtime fit; centre test features within eligible groups",
+      "comp_log_probability_weight": 0.15,
+      "comp_py_lines": [
+        38,
+        779,
+        781
+      ],
+      "activation": "requires parent checkpoint and eligible groups"
+    },
+    {
+      "member": "tokattn_q35",
+      "mode": "checkpoint inference only",
+      "runtime_fit_data": "TE only; optional TINY in-sample TR[:40] check is not training",
+      "comp_log_probability_weight": 0.153,
+      "comp_py_lines": [
+        68,
+        70,
+        808,
+        857,
+        888,
+        904
+      ],
+      "activation": "Configured on: notebook cell10 sets NTL_DROP_Q35=0. Later requires both tokattn_final.pt and model_type qwen3_5 checkpoint; otherwise OPTIONAL HEAD SKIPPED.",
+      "historical_status": "No Qwen3.5 base in declared model_data_sources; likely skipped for missing backbone, but runtime input tree/log required for definitive historical activation.",
+      "checkpoint": "tokattn_final.pt stores weights and train mu/sd",
+      "upstream_training_data": "Not established from consumer notebook"
+    },
+    {
+      "member": "tokattn_deb",
+      "mode": "checkpoint inference only",
+      "runtime_fit_data": "TE only; optional TINY TR[:40] training-fit parity check",
+      "comp_log_probability_weight": 0.185,
+      "comp_py_lines": [
+        68,
+        808,
+        857,
+        888,
+        904
+      ],
+      "activation": "Requires tokattn_debl23_final.pt and DeBERTa directory; otherwise skipped",
+      "checkpoint": "tokattn_debl23_final.pt stores weights and train mu/sd",
+      "upstream_training_data": "Not established from consumer notebook"
+    },
+    {
+      "member": "ultrabert",
+      "mode": "five checkpoint predictions averaged",
+      "runtime_fit_data": "No runtime supervised fit; TE inference only",
+      "comp_log_probability_weight": 0.095,
+      "comp_py_lines": [
+        860,
+        885,
+        905
+      ],
+      "checkpoint": "five fold directories under ultrabert-380m-ntl",
+      "activation": "Mandatory assert exactly five valid Ultrabert folds",
+      "upstream_training_data": "Not established from consumer notebook; fivefold average is not automatically held-out prediction for official train"
+    }
+  ],
+  "family_gates": [
+    {
+      "gate": "claude",
+      "data": "official Claude rows + raw first matched Seyit CSV",
+      "sample_weights": "all rows equal",
+      "class_weight_balanced": false,
+      "lambda_parameter": 1.5,
+      "maximum_interpolation_strength": 0.45,
+      "comp_py_lines": [
+        312,
+        328
+      ],
+      "application_lines": [
+        913,
+        951
+      ],
+      "application": "Reranks labels only within family, preserving current family log mass. Strength multiplied by clip((0.45-top2margin)/0.45,0,1).",
+      "note": "Claude raw CSV bypasses loader length/finish/group-coverage filtering"
+    },
+    {
+      "gate": "gpt",
+      "data": "official GPT rows + filtered EXTRA GPT rows",
+      "sample_weights": "official=1, extra=0.25",
+      "class_weight_balanced": true,
+      "lambda_parameter": 0.25,
+      "maximum_interpolation_strength": 0.2,
+      "comp_py_lines": [
+        332,
+        336
+      ],
+      "application_lines": [
+        913,
+        951
+      ],
+      "application": "Reranks labels only within family, preserving current family log mass. Strength multiplied by clip((0.45-top2margin)/0.45,0,1).",
+      "note": ""
+    },
+    {
+      "gate": "gemini",
+      "data": "official Gemini rows + filtered EXTRA Gemini rows",
+      "sample_weights": "official=1, extra=0.25",
+      "class_weight_balanced": true,
+      "lambda_parameter": 0.25,
+      "maximum_interpolation_strength": 0.2,
+      "comp_py_lines": [
+        332,
+        336
+      ],
+      "application_lines": [
+        913,
+        951
+      ],
+      "application": "Reranks labels only within family, preserving current family log mass. Strength multiplied by clip((0.45-top2margin)/0.45,0,1).",
+      "note": ""
+    },
+    {
+      "gate": "glm",
+      "data": "official GLM rows + filtered EXTRA GLM rows",
+      "sample_weights": "official=1, extra=0.25",
+      "class_weight_balanced": true,
+      "lambda_parameter": 0.25,
+      "maximum_interpolation_strength": 0.2,
+      "comp_py_lines": [
+        332,
+        336
+      ],
+      "application_lines": [
+        913,
+        951
+      ],
+      "application": "Reranks labels only within family, preserving current family log mass. Strength multiplied by clip((0.45-top2margin)/0.45,0,1).",
+      "note": ""
+    },
+    {
+      "gate": "claude_lora",
+      "data": "checkpoint claude_coef readout on TE",
+      "sample_weights": "no runtime fitting",
+      "class_weight_balanced": null,
+      "lambda_parameter": 1.0,
+      "maximum_interpolation_strength": 0.45,
+      "comp_py_lines": [
+        776,
+        778
+      ],
+      "application_lines": [
+        913,
+        951
+      ],
+      "application": "Reranks labels only within family, preserving current family log mass. Strength multiplied by clip((0.45-top2margin)/0.45,0,1).",
+      "note": "claude_lora scores are overwritten by the last available readouts.npz containing claude_coef, not separately blended"
+    }
+  ],
+  "disabled_plain_heads": {
+    "keys": [
+      "q3_8b",
+      "q25_7b",
+      "q3_4b",
+      "glm9b"
+    ],
+    "comp_weight": 0,
+    "comp_py_lines": [
+      34,
+      652
+    ],
+    "note": "Their plain LR is not fitted. Backbones still run for centred twins, Gaussian views and GLM grouping; zero plain weight does not mean unused backbone."
+  },
+  "checkpoint_resolution": {
+    "comp_py_lines": [
+      534,
+      544
+    ],
+    "rule": "first sorted config.json matching architecture+optional hidden size, or matching directory name; exact resolved bytes require input manifest/log",
+    "risk": "Do not label every selected Qwen model definitively Base versus Instruct solely from function key."
+  },
+  "limitations": [
+    "All runtime-fitted dense heads here use official train only, but this does not establish what pretrained encoders or adapters already saw",
+    "Weights are log-probability multipliers, not percentages; family gate lambdas are not ordinary member blend weights",
+    "LORA checkpoint metadata and producer training manifests are not read by this consumer script",
+    "Optional q35 cannot truthfully be called disabled by NTL_DROP_Q35=1 in this frozen version"
+  ]
+}

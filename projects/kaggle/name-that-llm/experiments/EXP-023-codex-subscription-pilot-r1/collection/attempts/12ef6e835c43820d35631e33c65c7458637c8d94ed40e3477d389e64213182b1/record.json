@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0041",
+  "prompt": "Explain browser caching to someone who wonders why an updated website still looks unchanged on their laptop. Please answer in roughly 80 words.",
+  "category": "technology_explanation",
+  "target_words": 80,
+  "prompt_group": "cp0041",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "12ef6e835c43820d35631e33c65c7458637c8d94ed40e3477d389e64213182b1",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:56:34.668163+00:00",
+  "ended_at": "2026-11-01T08:56:52.153871+00:00",
+  "prompt_sha256": "b3d203b54beca04c6f6ff7c06677a80771c913716d6fcb389e06cfaa4b8f8d10",
+  "text": "Your browser saves copies of website files—like images, styles, and scripts—on your laptop so pages load faster. This is called caching. Sometimes, after a website is updated, the browser reuses older files instead of downloading the new ones, so the site looks unchanged.\n\nTry a hard refresh: Ctrl+Shift+R on Windows or Command+Shift+R on Mac in many browsers. If that doesn’t help, clear that site’s cached data. Sometimes the website’s own servers are caching old content, so the problem isn’t your laptop.",
+  "text_sha256": "dcb756f0d2288a376874222977331781ea5f8496abc26ec4b1ff665ceff633b5",
+  "raw_final_sha256": "dcb756f0d2288a376874222977331781ea5f8496abc26ec4b1ff665ceff633b5",
+  "word_count": 81,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4233,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 116,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\12ef6e835c43820d35631e33c65c7458637c8d94ed40e3477d389e64213182b1",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

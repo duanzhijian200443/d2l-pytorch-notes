@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0205",
+  "prompt": "Recommend a method for choosing which personal photographs to print when there are thousands of similar pictures on a phone. A response of around 120 words is enough.",
+  "category": "everyday_advice",
+  "target_words": 120,
+  "prompt_group": "cp0205",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "c9abce221f1843bb9482fd3bbb86fecef9c54a4ad83a1b1da1c7cfd8c8978441",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:06:08.652767+00:00",
+  "ended_at": "2026-11-01T11:06:38.433457+00:00",
+  "prompt_sha256": "14cfbd52ba18b29ef22d6285a852b7afcb24a8d3db668f175e4409ba60a49a4a",
+  "text": "Use a **three-pass shortlist** rather than judging every photo individually.\n\n1. **Choose a purpose.** Are the prints for an album, a wall, or gifts? Set a limit—say, 30 photos—to make decisions easier.\n2. **Browse by event or month.** Quickly favorite pictures that spark a memory or feeling. Ignore near-duplicates for now, and work in short sessions.\n3. **Pick one from each cluster.** Compare similar shots side by side. Favor meaningful expressions, clear subjects, and pleasing light over technical perfection.\n\nReview the finalists together: include a mix of people, places, everyday moments, and milestones rather than only posed highlights. Check resolution and cropping before ordering. If you’re unsure about print quality, order a small test batch first.",
+  "text_sha256": "74f0f4fea9b55897a8d9529435cb7c77f66331e8a1be5503c5ed738c49b0be0c",
+  "raw_final_sha256": "74f0f4fea9b55897a8d9529435cb7c77f66331e8a1be5503c5ed738c49b0be0c",
+  "word_count": 116,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4238,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 163,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\c9abce221f1843bb9482fd3bbb86fecef9c54a4ad83a1b1da1c7cfd8c8978441",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

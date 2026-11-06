@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0117",
+  "prompt": "Describe a conversation between a retired mapmaker and a teenager who has never used a paper map. Keep your response near 120 words.",
+  "category": "creative_short_fiction",
+  "target_words": 120,
+  "prompt_group": "cp0117",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "3096fb649a7a0c1a95f5627d008b4e76746404a7381c085084050a09e49d908f",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:44:54.633508+00:00",
+  "ended_at": "2026-11-01T09:45:16.947068+00:00",
+  "prompt_sha256": "d82dc907f822db0a653852254977f6dc91170250411de28ba06bf99aa50ac87d",
+  "text": "“Where’s the blue dot?” the teenager asked.\n\n“There isn’t one,” said the retired mapmaker, spreading the paper across the picnic table.\n\n“Then how do you know where you are?”\n\n“You look around.”\n\nShe glanced at the river, the church spire, the road climbing behind them. He watched her turn the map until the shapes agreed.\n\n“Oh,” she said. “I’m the blue dot.”\n\n“More or less.”\n\nShe traced a thin red line with her finger. “Did you draw this?”\n\n“Forty years ago.”\n\n“This road’s gone now.”\n\n“Yes. They flooded the valley.”\n\nHer finger stopped over a tiny square beneath the reservoir’s pale blue ink.\n\n“What was that?”\n\n“My school.”\n\nShe studied the square, then carefully flattened a crease that ran through it.",
+  "text_sha256": "ca40416ff5862c050076d986c81a0fc8a8f7b3bb1d775f7669b3d489e2ee3926",
+  "raw_final_sha256": "ca40416ff5862c050076d986c81a0fc8a8f7b3bb1d775f7669b3d489e2ee3926",
+  "word_count": 121,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4234,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 165,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\3096fb649a7a0c1a95f5627d008b4e76746404a7381c085084050a09e49d908f",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

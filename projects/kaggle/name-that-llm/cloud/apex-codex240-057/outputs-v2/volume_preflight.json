@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "arm": "four240",
+  "rows": 240,
+  "groups": 60,
+  "source_csv_sha256": "694d91e2536db2d77d81f8d8b32a802763a750a2e9643fdb0ba6a10b76755a01",
+  "shared_rows": 10743,
+  "shared_groups": 738,
+  "shared_sha256": "b98c246578afbc38b9bf3c0be1e666a41cc15d051c64d03e875ab0c85da1bd3b",
+  "comp_stack_sha256": "5c8ea0be70cd7231bd23183028a3a8a8bc9cee73c3c461e863ebd9d4e2701b21",
+  "fast_commit": true,
+  "competition_rerun_flag_present": false,
+  "fit_count": 0
+}

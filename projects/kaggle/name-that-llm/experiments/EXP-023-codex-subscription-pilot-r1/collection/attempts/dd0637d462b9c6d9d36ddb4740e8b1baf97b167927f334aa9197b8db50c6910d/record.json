@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0020",
+  "prompt": "A shared calendar has become crowded with vague entries such as 'thing' and 'appointment.' Suggest a few conventions that make it more useful. A response of around 120 words is enough.",
+  "category": "everyday_advice",
+  "target_words": 120,
+  "prompt_group": "cp0020",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "dd0637d462b9c6d9d36ddb4740e8b1baf97b167927f334aa9197b8db50c6910d",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:43:07.858657+00:00",
+  "ended_at": "2026-11-01T08:43:21.030161+00:00",
+  "prompt_sha256": "fca1edefeb3b9c5ec8512f5279ee3c35f5caec6e1e2e7a51bbb118649b3c0765",
+  "text": "Use clear, consistent titles that state **what**, **with whom**, and, when useful, **why**: “Dentist – Dr. Lee,” “Project kickoff – Marketing,” or “Call with Alex – budget review,” rather than “appointment” or “thing.” Include the location or video link in the event details, and add the relevant phone number or agenda when helpful. Use accurate start and end times, realistic travel or preparation buffers, and specify the time zone for remote or traveling participants. Create recurring events for routines instead of manually duplicating them. Agree on labels or prefixes such as `[WORK]`, `[PERSONAL]`, or `[DEADLINE]`, and use consistent color coding. Add reminders appropriate to the event, and promptly update or cancel entries when plans change.",
+  "text_sha256": "3fee8d007811312a1e44bab2570051f58e60d99e0d89801f097c3f4c46c1bd1f",
+  "raw_final_sha256": "3fee8d007811312a1e44bab2570051f58e60d99e0d89801f097c3f4c46c1bd1f",
+  "word_count": 115,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2596,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 163,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\dd0637d462b9c6d9d36ddb4740e8b1baf97b167927f334aa9197b8db50c6910d",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "files": [
+    {
+      "path": "metrics/per_class.csv",
+      "sha256": "4d490d320fd32d0fb1fd9f1d1113799b406a41fa0ae2879bc4c67add62c7cc82",
+      "bytes": 65565
+    },
+    {
+      "path": "metrics/per_class_fold.csv",
+      "sha256": "9f72eeae9bfd79a5821dd95c315b6d0478c82411642147f6f3e13a9b4386f330",
+      "bytes": 245652
+    },
+    {
+      "path": "metrics/per_fold.csv",
+      "sha256": "374bf659d960f5a87259c6dc2c69c119a6299938fa338265447bdc8fa2bc7c5c",
+      "bytes": 46533
+    },
+    {
+      "path": "metrics/per_prompt.csv",
+      "sha256": "aae494336578c377048e641813c9c1f7a064e15daaaaf9476e7f7e6df03e4759",
+      "bytes": 491752
+    },
+    {
+      "path": "metrics/summary.csv",
+      "sha256": "ea6ba1fff087de4ee32ef6c9fa7c58edfdf2bb8022a98b61bae5842774bdf552",
+      "bytes": 24572
+    },
+    {
+      "path": "oof/paired_predictions.csv",
+      "sha256": "18b90968db750dd072260c5776024a1b24bd32a86c7362537070846119ecbb30",
+      "bytes": 1186453
+    },
+    {
+      "path": "metrics/result.json",
+      "sha256": "9eeb5cb07da2cddd5a5aef3c52b7d142c122fff8ee6c5ab5263051c65a6bfebf",
+      "bytes": 46005
+    },
+    {
+      "path": "metrics/input-preflight.json",
+      "sha256": "5e9a0026769675e19c12bab77478566b8ac0661f409d2bb5508f97c449634a9f",
+      "bytes": 836
+    }
+  ]
+}

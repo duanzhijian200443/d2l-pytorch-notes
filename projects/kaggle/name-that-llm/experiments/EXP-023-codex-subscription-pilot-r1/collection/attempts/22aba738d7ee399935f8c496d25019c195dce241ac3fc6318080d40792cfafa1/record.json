@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0071",
+  "prompt": "A museum gift shop can stock either more varieties of postcards or deeper quantities of its most popular designs. Discuss how it could choose. Use approximately 80 words for the response.",
+  "category": "business_decision",
+  "target_words": 80,
+  "prompt_group": "cp0071",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "22aba738d7ee399935f8c496d25019c195dce241ac3fc6318080d40792cfafa1",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:15:44.344476+00:00",
+  "ended_at": "2026-11-01T09:16:03.573042+00:00",
+  "prompt_sha256": "ff78d46c355cebdcd16147935ede5a97dc1790d1508853ee7613c23871b9075b",
+  "text": "The shop should compare sales data, visitor preferences, profit margins, and storage costs. More varieties may appeal to diverse tastes and showcase more of the museum’s collection, but slow-selling designs can tie up money and space. Deeper stocks of popular postcards reduce stockouts and may secure bulk discounts, though limited choice could disappoint visitors. A balanced approach is to maintain strong supplies of bestsellers while testing smaller quantities of new designs, then adjust the mix using sales results and customer feedback.",
+  "text_sha256": "7fd5643f9268efac11954ab359b59d800afa608dd5925641f44443c21397eb2e",
+  "raw_final_sha256": "7fd5643f9268efac11954ab359b59d800afa608dd5925641f44443c21397eb2e",
+  "word_count": 81,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4242,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 101,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\22aba738d7ee399935f8c496d25019c195dce241ac3fc6318080d40792cfafa1",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

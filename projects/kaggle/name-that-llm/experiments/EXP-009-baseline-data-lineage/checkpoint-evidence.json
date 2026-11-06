@@ -1,0 +1,323 @@
+{
+  "observed_at": "2026-10-31T17:12:12.795Z",
+  "task": "Read-only checkpoint training-source lineage and baseline input binding",
+  "mutations": "Only this evidence JSON saved; no weights downloaded; no training, GPU allocation, submission or resource changes",
+  "baseline": {
+    "ref": "zhjianduan/name-that-llm-atlas20-repro",
+    "version": 2,
+    "script_version_id_from_local_record": 363569852,
+    "source": "reviews/own-scheme-readiness-20261030/baseline-v2.ipynb",
+    "source_sha256_from_local_record": "6c9145f038ccffbe08dc6da6db3d1dcf3d2e0e7d2286927bfc8800ef5148cfb8",
+    "live_mcp_lookup": {
+      "tool": "get_notebook_info",
+      "version_label": "v2",
+      "returned_version": 2,
+      "is_private": true,
+      "enable_internet": false,
+      "enable_gpu": true,
+      "dataset_reference_count": 15,
+      "notebook_reference_count": 8,
+      "competition_reference_count": 1,
+      "base_model_reference_count": 7,
+      "dataset_and_notebook_version_numbers_exposed": false,
+      "model_refs_include_version": true,
+      "refs_match_saved_baseline_metadata": true,
+      "live_source_hash_verified": false
+    },
+    "warning": "Embedded notebook kaggle.dataSources retains the removed verified-Llama-cache kernel ID 362275911, lacks a mapped private replacement dataset, and papermill dates are 2026-10-27. Treat embedded attachment IDs/timing as inherited source metadata, not definitive bindings for the 0.662 run. The live outer metadata has the actual private Llama dataset ref but no dataset version numbers."
+  },
+  "reference_lock": {
+    "path": "cloud/who-am-i-v32-colab/input-lock.json",
+    "scope": "V32 reproduction of romantamrazov script 363222852, not EXP-004 ATLAS20",
+    "relevant_pins": {
+      "dhruvtibarewal/nlm-l24-adapters": 7,
+      "dhruvtibarewal/nlm-l24-adapters-v5": 1,
+      "nishantdahal/ntl-two-stage-lora": 1,
+      "nishantdahal/ntl-handwriting-blend": 1,
+      "josephadamski91/ntl-atlas-qwen3-8b-v1": 3,
+      "pjmathematician/ultrabert-380m-ntl": 1,
+      "zbigniewkirchner/ntl-qwen3-8b-lora-claude-head": 1
+    },
+    "limitation": "Pins and EXP-008 public-file hashes can define the current CPU reconstruction, but cannot by themselves fill the historical EXP-004 attachment byte-identity gap."
+  },
+  "checkpoint_lineage": [
+    {
+      "members": [
+        "q14v5",
+        "q8v5",
+        "ll8v5"
+      ],
+      "dataset": "dhruvtibarewal/nlm-l24-adapters-v5",
+      "evidence": "Current title: NTL Two-Stage LoRA24 Adapters (120k pool); description empty",
+      "confidence": "Title-only public-pool evidence. No row IDs, exact pool file/hash, fold split or stage-wise train exclusion established.",
+      "source_refs": [
+        "baseline cell 2 AQ8V5/AQ14V5/ALL8V5",
+        "baseline cell 12 MODELS"
+      ]
+    },
+    {
+      "members": [
+        "n14b",
+        "q25_14",
+        "deb"
+      ],
+      "dataset": "nishantdahal/ntl-handwriting-blend",
+      "evidence": "Author card says every checkpoint trained public passages then official train; pool_v4 has 75783 rows from 25 public datasets; Qwen3-14B additionally saw aswathvanan/ntl-proxy-passages.",
+      "confidence": "Explicit author documentation; checkpoint-by-checkpoint row/hash/fold binding not verified.",
+      "source_refs": [
+        "baseline cell 2 N14B/Q25_14/DEB",
+        "baseline cell 12 MODELS"
+      ]
+    },
+    {
+      "members": [
+        "ATLAS"
+      ],
+      "dataset": "josephadamski91/ntl-atlas-qwen3-8b-v1",
+      "evidence": "Author says 18 source-specific adapters trained on all 2699 official rows for five epochs, frozen Qwen3-8B-Base. Published train SHA is 40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707.",
+      "confidence": "Explicit author documentation with matching official dataset hash; does not mean fold-isolated validation weights."
+    },
+    {
+      "members": [
+        "lora24_claude"
+      ],
+      "dataset": "zbigniewkirchner/ntl-qwen3-8b-lora-claude-head",
+      "evidence": "Author says 18-way heads use official data; auxiliary within-Claude head uses official Claude plus Seyit Extra API Passages. final/ fits all 2699 official rows; fold0 exists separately.",
+      "confidence": "Explicit author documentation; baseline comp_stack selects final/COMPLETE.json, not fold0.",
+      "source_refs": [
+        "baseline cell 8 lines 61-67 LORA_RUNS",
+        "baseline cell 8 score_lora_checkpoints"
+      ]
+    },
+    {
+      "members": [
+        "ultrabert"
+      ],
+      "dataset": "pjmathematician/ultrabert-380m-ntl",
+      "evidence": "Author describes 5 GroupKFold(prompt_id) fine-tunes; baseline averages all 5 fold predictions.",
+      "confidence": "Fold-by-prompt author claim; exact fold manifest/train-file hashes not examined. Averaging all five models on official training rows is not clean OOF."
+    },
+    {
+      "members": [
+        "lora8b_v1",
+        "lora14b_v1"
+      ],
+      "dataset": "nishantdahal/ntl-two-stage-lora",
+      "evidence": "Author says 34940-row public pool for 1 epoch then official training passages for 2 epochs.",
+      "activity": "Resolved in setup but not members of cell 12 main MODELS. Do not count resolved attachment as an active main-ensemble member."
+    },
+    {
+      "members": [
+        "legacy ts_* adapters and heads attachment"
+      ],
+      "dataset": "dhruvtibarewal/nlm-l24-adapters",
+      "evidence": "Author generically claims multiple public sources plus daily Kaggle API generation.",
+      "confidence": "No complete training corpus or fold provenance in current card."
+    },
+    {
+      "members": [
+        "lora24_public",
+        "lora24_seed7",
+        "lora20_q25_instyle",
+        "token-attention heads",
+        "frozen encoder readouts"
+      ],
+      "evidence": "Baseline references matching public kernel outputs or checkpoint markers.",
+      "confidence": "Their complete per-checkpoint corpus, selection and fold lineage remains unverified in this bounded audit. Runtime consumer code does not reconstruct the original training provenance."
+    }
+  ],
+  "current_author_cards": [
+    {
+      "ref": "dhruvtibarewal/nlm-l24-adapters",
+      "url": "https://www.kaggle.com/datasets/dhruvtibarewal/nlm-l24-adapters",
+      "metadata_scope": "current author card; not a version-specific checkpoint training manifest",
+      "metadata": {
+        "dataset_id": 12688517,
+        "dataset_slug": "nlm-l24-adapters",
+        "owner_user": "dhruvtibarewal",
+        "usability_rating": 1,
+        "total_views": 418,
+        "total_votes": 5,
+        "total_downloads": 5360,
+        "title": "Identify the model behind text",
+        "subtitle": "For the name that LLM kaggle featured competition",
+        "description": "Created for name that llm challenge. It is collected from various public sources plus kaggle api following daily limit and keeping to a minimal size needed to handle the model. Please check out the notebook work with public lb 0.611 ",
+        "keywords": [
+          "pre-trained model"
+        ],
+        "licenses": [
+          {
+            "name": "MIT"
+          }
+        ],
+        "expected_update_frequency": "weekly",
+        "user_specified_sources": "Collected from various other piublic datasets in the compeittion plus daily api generation via kaggle api"
+      }
+    },
+    {
+      "ref": "dhruvtibarewal/nlm-l24-adapters-v5",
+      "url": "https://www.kaggle.com/datasets/dhruvtibarewal/nlm-l24-adapters-v5",
+      "metadata_scope": "current author card; not a version-specific checkpoint training manifest",
+      "metadata": {
+        "dataset_id": 12836595,
+        "dataset_slug": "nlm-l24-adapters-v5",
+        "owner_user": "dhruvtibarewal",
+        "usability_rating": 0.4375,
+        "total_views": 164,
+        "total_votes": 2,
+        "total_downloads": 7630,
+        "title": "NTL Two-Stage LoRA24 Adapters (120k pool)",
+        "subtitle": "",
+        "description": "",
+        "keywords": [
+          "pre-trained model"
+        ],
+        "licenses": [
+          {
+            "name": "other"
+          }
+        ],
+        "expected_update_frequency": "not specified"
+      }
+    },
+    {
+      "ref": "nishantdahal/ntl-two-stage-lora",
+      "url": "https://www.kaggle.com/datasets/nishantdahal/ntl-two-stage-lora",
+      "metadata_scope": "current author card; not a version-specific checkpoint training manifest",
+      "metadata": {
+        "dataset_id": 12693662,
+        "dataset_slug": "ntl-two-stage-lora",
+        "owner_user": "nishantdahal",
+        "usability_rating": 0.6470588235294118,
+        "total_views": 877,
+        "total_votes": 6,
+        "total_downloads": 3124,
+        "title": "NTL two-stage LoRA checkpoints and public pool",
+        "subtitle": "Qwen3-8B and 14B LoRA classifiers + 34,940 cleaned public passages",
+        "description": "Inference assets for the notebook \"Two-stage LoRA on the public pool\" (Name That LLM, public LB 0.592).\n\n**Contents**\n- `lora8b_v1/`: LoRA adapter + heads for the first 24 layers of Qwen3-8B-Base (local CV 0.569 alone).\n- `lora14b_v1/`: LoRA adapter + heads for the first 27 layers of Qwen3-14B-Base (local CV 0.569 alone).\n- `pool_v1.parquet`: 34,940 public passages from the 18 competition models, merged and cleaned from the datasets below (single paragraph, 30-300 words, no markdown, deduplicated, train punctuation rules).\n\nEach checkpoint folder has `adapter/` (PEFT LoRA r16/alpha 32), `heads.safetensors` (8 LayerNorms + plain and centred linear heads) and `meta.json` (layers, max length, label order). Training: 1 epoch on the pool, then 2 epochs on the competition's training passages. Details are in the notebook.\n\n**Licence and attribution.** CC BY-SA 4.0, because the pool includes CC BY-SA 4.0 material. The pool is built from these public datasets (CC BY 4.0 unless noted):\nseyitkaangunes/ntl-extra-api-passages, willrice/name-that-llm-openrouter-harvest, lxdlxdlxd/ntl-synth-generations-v1, prvsiyan/prvsiyans-extended-name-that-llm-dataset, prvsiyan/ntl-own-prompt-generations-v1 (CC BY-SA 4.0), alperen5252525/ntl-vertex-gemini-proxy-gpt-generations, haileycheng/name-that-llm-same-prompt-passages, kaplinskiy/ntl-gpt-proxy-passages, lucasboesen/ntl-free-proxy-generations, abdullah1afify/ntl-generations, dophuchung/ntl-proxy-generations, ziyuzhou1207/ntl-zz-proxy-generations, keshavatearth/ntl-gpt-new-prompts-v1, michaelsemenoff/ntl-own-extra-v1. The passages are model outputs generated by those datasets' authors. Base models: Qwen3-8B-Base, Qwen3-14B-Base (Apache 2.0). No competition text is included.\n",
+        "keywords": [
+          "nlp",
+          "text classification"
+        ],
+        "licenses": [
+          {
+            "name": "CC-BY-SA-4.0"
+          }
+        ],
+        "expected_update_frequency": "not specified"
+      }
+    },
+    {
+      "ref": "nishantdahal/ntl-handwriting-blend",
+      "url": "https://www.kaggle.com/datasets/nishantdahal/ntl-handwriting-blend",
+      "metadata_scope": "current author card; not a version-specific checkpoint training manifest",
+      "metadata": {
+        "dataset_id": 12792418,
+        "dataset_slug": "ntl-handwriting-blend",
+        "owner_user": "nishantdahal",
+        "usability_rating": 0.6470588235294118,
+        "total_views": 874,
+        "total_votes": 13,
+        "total_downloads": 4943,
+        "title": "NTL two-stage LoRA part two",
+        "subtitle": "Qwen3-14B and Qwen2.5-14B LoRAs, a DeBERTa and 75,783 public passages",
+        "description": "Inference assets for the notebook \"Two-stage LoRA, part two\" in the Name That LLM competition. Public LB 0.620.\n\n**What is inside**\n\n- `lora_qwen3_14b` holds a LoRA adapter and heads for the first 27 layers of Qwen3-14B-Base. Alone it scores 0.611 balanced accuracy in 5-fold CV split by prompt.\n- `lora_qwen25_14b` holds the same for the first 32 layers of Qwen2.5-14B. Alone it scores 0.569.\n- `deberta_v3_large` holds a fully fine tuned DeBERTa-v3-large encoder and its linear head. Alone it scores 0.546.\n- `pool_v4.parquet` holds 75,783 public passages from the 18 competition models, merged and cleaned from 25 public datasets. One paragraph each, 30 to 300 words, no markdown, no duplicates, nothing identical to a train passage.\n\nEach LoRA folder has `adapter` with the LoRA weights at rank 16 and alpha 32, `heads.safetensors` with 8 LayerNorms and the plain and centred heads, and `meta.json` with the pooled layers, the max length, the end token used in training and the label order. Every checkpoint was trained in two stages, first on public passages and then on the competition's training passages.\n\n**License and credit.** CC BY-SA 4.0, because the pool includes CC BY-SA 4.0 material. The passages are model outputs generated and shared by the authors of these datasets, CC BY 4.0 unless noted. seyitkaangunes/ntl-extra-api-passages, willrice/name-that-llm-openrouter-harvest, lxdlxdlxd/ntl-synth-generations-v1, prvsiyan/prvsiyans-extended-name-that-llm-dataset, alperen5252525/ntl-vertex-gemini-proxy-gpt-generations, haileycheng/name-that-llm-same-prompt-passages, kaplinskiy/ntl-gpt-proxy-passages, lucasboesen/ntl-free-proxy-generations, abdullah1afify/ntl-generations, dophuchung/ntl-proxy-generations, ziyuzhou1207/ntl-zz-proxy-generations, keshavatearth/ntl-gpt-new-prompts-v1, michaelsemenoff/ntl-own-extra-v1, jadkutbi/ntl-own-proxy-generations, pardheev/ntl-proxy-extra-passages, abhinavsaipodugu/ntl-proxy-gpt-gemini-passages, zakirkhanaleemi/name-that-llm-benchmarks-proxy-generations, zbigniewkirchner/ntl-extra-gpt-passages, arxitekton/ntl-claude-gen-v1, arxitekton/ntl-claude-gen-v2, maniceet/name-that-llm-openrouter-openai-generations, dedruck/ntl-proxy-gen, prvsiyan/ntl-own-prompt-generations-v1 under CC BY-SA 4.0, drjcfmd/ntl-generated-v2 under CC BY-SA 4.0, illiadolenko/ntl-generated-corpus-v1 under CC0. The Qwen3-14B LoRA also saw aswathvanan/ntl-proxy-passages, under CC BY-SA 4.0, in stage one. Base models Qwen3-14B-Base and Qwen2.5-14B, Apache 2.0, and DeBERTa-v3-large, MIT. No competition text is included.\n",
+        "keywords": [
+          "nlp",
+          "text classification"
+        ],
+        "licenses": [
+          {
+            "name": "CC-BY-SA-4.0"
+          }
+        ],
+        "expected_update_frequency": "not specified"
+      }
+    },
+    {
+      "ref": "josephadamski91/ntl-atlas-qwen3-8b-v1",
+      "url": "https://www.kaggle.com/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1",
+      "metadata_scope": "current author card; not a version-specific checkpoint training manifest",
+      "metadata": {
+        "dataset_id": 12657014,
+        "dataset_slug": "ntl-atlas-qwen3-8b-v1",
+        "owner_user": "josephadamski91",
+        "usability_rating": 1,
+        "total_views": 424,
+        "total_votes": 5,
+        "total_downloads": 4976,
+        "title": "NTL ATLAS Qwen3 8B v1",
+        "subtitle": "Atlas adapter for LLM competition",
+        "description": "An ATLAS adapter for Name That LLM, trained on the official 2,699 training\nrows for five epochs with frozen Qwen3-8B-Base. The package contains 18\nsource-specific adapters, inference code, configuration, and provenance.\n\n**Licenses:** The adapter weights and package documentation are **CC BY-SA\n4.0**. The bundled Python code is **Apache 2.0**. See `LICENSES.md`,\n`LICENSE-WEIGHTS-CC-BY-SA-4.0.txt`, and `LICENSE-CODE-APACHE-2.0.txt` for the\nscope and full terms. Kaggle's “Other” field refers to this combination.\n\nCredit the adapter to Joseph Adamski (`josephadamski91`) and link to this\ndataset when reusing it. The [ATLAS method](https://arxiv.org/abs/2610.19583)\nis by Minseok Ko and coauthors. The\n[Qwen3-8B-Base model](https://huggingface.co/Qwen/Qwen3-8B-Base) is by the\nQwen Team and is Apache 2.0. The official training data is provided through\n[Name That LLM](https://www.kaggle.com/competitions/name-that-llm) under the\ncompetition's CC BY-SA 4.0 data terms.\n\nThe base model weights and training CSV are obtained separately. Their terms\nand the licenses of third-party dependencies remain applicable. See\n`CREDITS.md` for attribution and provenance.\n",
+        "keywords": [
+          "artificial intelligence"
+        ],
+        "licenses": [
+          {
+            "name": "other"
+          }
+        ],
+        "expected_update_frequency": "never",
+        "user_specified_sources": "Credits\nAdapter: Joseph Adamski (josephadamski91), NTL ATLAS Qwen3 8B v1. Trained for five epochs on the official 2,699-row Name That LLM training set.\n\nBase model: Qwen3-8B-Base, Qwen Team, Apache License 2.0. The base model was frozen during adapter training. The package distributes the learned source-specific adapters and control embeddings; the full base model is obtained separately. Base revision: 49e3418fbbbca6ecbdf9608b4d22e5a407081db4.\n\nTraining data: Name That LLM, provided by Google LLC through Kaggle. The competition rules specify CC BY-SA 4.0 for data access and use. The data was used to train the adapter and is not redistributed in this package. Obtain it from the competition page under its applicable terms. Training CSV SHA256: 40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707.\n\nMethod: Minseok Ko, Hyunseok Lee, Woomin Song, Beomjun Kim, Jinwoo Shin, and Kunwoong Kim, Who's Behind the Text? Robust Model Authorship Attribution,\n\nATLAS is their method. This package implements it in PyTorch for the competition's 18 model labels. It does not distribute the authors' reference code, pretrained adapters, or MAABench data.\nExternal dependencies, including PyTorch, Transformers, NumPy, and Safetensors, are obtained separately and retain their respective licenses."
+      }
+    },
+    {
+      "ref": "pjmathematician/ultrabert-380m-ntl",
+      "url": "https://www.kaggle.com/datasets/pjmathematician/ultrabert-380m-ntl",
+      "metadata_scope": "current author card; not a version-specific checkpoint training manifest",
+      "metadata": {
+        "dataset_id": 12591571,
+        "dataset_slug": "ultrabert-380m-ntl",
+        "owner_user": "pjmathematician",
+        "usability_rating": 0.5625,
+        "total_views": 327,
+        "total_votes": 6,
+        "total_downloads": 6809,
+        "title": "UltraBERT-380M Name That LLM 5-fold",
+        "subtitle": "dmis-lab/UltraBERT-380M fine-tuned, 5 GroupKFold folds + transformers 5 wheels",
+        "description": "5 GroupKFold (by prompt_id) fine-tunes of dmis-lab/UltraBERT-380M (Apache-2.0) for the Name That LLM competition. fp16 safetensors. OOF balanced accuracy 0.408. `wheels/` contains transformers==5.16.1 and deps for offline install.",
+        "licenses": [
+          {
+            "name": "apache-2.0"
+          }
+        ],
+        "expected_update_frequency": "not specified"
+      }
+    },
+    {
+      "ref": "zbigniewkirchner/ntl-qwen3-8b-lora-claude-head",
+      "url": "https://www.kaggle.com/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head",
+      "metadata_scope": "current author card; not a version-specific checkpoint training manifest",
+      "metadata": {
+        "dataset_id": 12641408,
+        "dataset_slug": "ntl-qwen3-8b-lora-claude-head",
+        "owner_user": "zbigniewkirchner",
+        "usability_rating": 0.6875,
+        "total_views": 540,
+        "total_votes": 9,
+        "total_downloads": 1477,
+        "title": "Name That LLM: Qwen3-8B LoRA + Claude Head",
+        "subtitle": "Qwen3-8B LoRA + within-Claude head; fold0 0.493, LB 0.552 in blend",
+        "description": "# Qwen3-8B LoRA for Name That LLM (with an auxiliary within-Claude head)\n\nA LoRA fine-tune of **Qwen3-8B-Base truncated to 24 layers** for the [Name That LLM](https://www.kaggle.com/competitions/name-that-llm) competition. It follows the public lora24 design (mean pools of layers 2/4/6/8/12/16/20/24, per-layer LayerNorm, linear heads, same-prompt triplets, plain + prompt-centered 18-way heads) and adds one thing: a **5-way within-Claude head** trained on the original Claude rows **plus** the free public [Extra API Passages](https://www.kaggle.com/datasets/seyitkaangunes/ntl-extra-api-passages).\n\nThe 18-way heads only ever see original competition data, so the API prompts' topics can't leak into the 18-way decision.\n\n## Held-out results (same 539 validation rows as the public lora24 `outer0` fold)\n\n| Model | balanced accuracy |\n|---|---|\n| public lora24, plain head | 0.4559 |\n| **this LoRA, plain head** | **0.4838** |\n| **this LoRA + Claude-head gate** | **0.4932** |\n\n**Public LB:** added as a third LoRA to the 0.549 LoRA x Adaptive Centering blend together with Claude gates, it scores **0.552**. See [0.552 | Adaptive Centering + Own LoRA + Claude Gates](https://www.kaggle.com/code/zbigniewkirchner/0-552-adaptive-centering-own-lora-claude-gates).\n\nWithin-Claude accuracy on true Claude rows: 0.63 (plain head restricted to Claude) -> **0.69** (Claude head).\n\n## Files\n* `final/`: fit on all 2,699 training rows. **Use this one for inference.** It contains `adapter/` (PEFT), `heads.safetensors` (the 8 LayerNorms), `readouts.npz` (`plain_*`, `center_*`, `claude_*` coefficients), `tokenizer/` and `anchor_features.npz` (features of train rows 0-2, for a parity check).\n* `fold0/`: the validation fit plus `validation_features.npz`.\n\nBase model: attach `qwen-lm/qwen-3/Transformers/8b-base/1`. Inference is a drop-in for the `lora_plain_proba` function of the public LoRA x Adaptive Centering notebooks. Point the glob at this dataset's `final/COMPLETE.json` (e.g. `/kaggle/input/**/ntl-qwen3-8b-lora-claude-head/**/final/COMPLETE.json`), and use `claude_coef`/`claude_intercept` to choose *which* Claude when the blend predicts Claude.\n\nTraining notebook: [ntl lora24 claude aux](https://www.kaggle.com/code/zbigniewkirchner/ntl-lora24-claude-aux). Upvotes appreciated!",
+        "keywords": [
+          "nlp",
+          "transformers",
+          "text classification"
+        ],
+        "licenses": [
+          {
+            "name": "apache-2.0"
+          }
+        ],
+        "expected_update_frequency": "not specified"
+      }
+    }
+  ],
+  "conclusions": [
+    "Public data is already represented both in runtime-fitted classifiers and in pre-trained adapters. The recent 4158/15989 candidates are not automatically new to ATLAS20.",
+    "Dropping a CSV from runtime inputs does not remove that data's influence from checkpoints already trained on it.",
+    "Full-data or all-fold-averaged checkpoints cannot be turned into clean end-to-end OOF by splitting downstream readouts alone.",
+    "Confirm additions at branch/row level; use pipeline-matched CPU ablations first, checkpoint retraining separately only with matched fold lineage."
+  ]
+}
+

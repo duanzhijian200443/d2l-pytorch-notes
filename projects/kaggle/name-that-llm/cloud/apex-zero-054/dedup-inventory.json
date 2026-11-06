@@ -1,0 +1,433 @@
+{
+  "observed_at": "2026-11-02T09:01:17.792493+00:00",
+  "account": "zhjianduan",
+  "owned_count": 74,
+  "owned": [
+    {
+      "ref": "zhjianduan/new-benchmark-task-c615f",
+      "title": "New Benchmark Task c615f",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-faeb5",
+      "title": "New Benchmark Task faeb5",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-8a03f",
+      "title": "New Benchmark Task 8a03f",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-68374",
+      "title": "New Benchmark Task 68374",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-d9be7",
+      "title": "New Benchmark Task d9be7",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-1da1c",
+      "title": "New Benchmark Task 1da1c",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-3313b",
+      "title": "New Benchmark Task 3313b",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-ebf65",
+      "title": "New Benchmark Task ebf65",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-f0152",
+      "title": "New Benchmark Task f0152",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-e3a7f",
+      "title": "New Benchmark Task e3a7f",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-9b5ab",
+      "title": "New Benchmark Task 9b5ab",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-486f1",
+      "title": "New Benchmark Task 486f1",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-61753",
+      "title": "New Benchmark Task 61753",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-c566d",
+      "title": "New Benchmark Task c566d",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-d4595",
+      "title": "New Benchmark Task d4595",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-7a1fb",
+      "title": "New Benchmark Task 7a1fb",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-d7f69",
+      "title": "New Benchmark Task d7f69",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-88dd1",
+      "title": "New Benchmark Task 88dd1",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-84d68",
+      "title": "New Benchmark Task 84d68",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-6337c",
+      "title": "New Benchmark Task 6337c",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-fb456",
+      "title": "New Benchmark Task fb456",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-aee23",
+      "title": "New Benchmark Task aee23",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-f8383",
+      "title": "New Benchmark Task f8383",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-8d62d",
+      "title": "New Benchmark Task 8d62d",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-6ddd3",
+      "title": "New Benchmark Task 6ddd3",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-0e5ea",
+      "title": "New Benchmark Task 0e5ea",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-e6e27",
+      "title": "New Benchmark Task e6e27",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-ba4dc",
+      "title": "New Benchmark Task ba4dc",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-ad05b",
+      "title": "New Benchmark Task ad05b",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-1fc3f",
+      "title": "New Benchmark Task 1fc3f",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-7f42c",
+      "title": "New Benchmark Task 7f42c",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-6a23e",
+      "title": "New Benchmark Task 6a23e",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-64328",
+      "title": "New Benchmark Task 64328",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-70d27",
+      "title": "New Benchmark Task 70d27",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-3d265",
+      "title": "New Benchmark Task 3d265",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-13c6c",
+      "title": "New Benchmark Task 13c6c",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-33aa4",
+      "title": "New Benchmark Task 33aa4",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-53f2d",
+      "title": "New Benchmark Task 53f2d",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-4a3e5",
+      "title": "New Benchmark Task 4a3e5",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/ntl-exp036-private-proxy-preflight",
+      "title": "NTL EXP036 private proxy preflight",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/ntl-apex-volume-053-style",
+      "title": "NTL Apex Volume 053 Style",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/ntl-apex-volume-053-main",
+      "title": "NTL Apex Volume 053 Main",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-stylegram-volume-052",
+      "title": "Name That LLM Stylegram Volume 052",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-a1-codex120-1102",
+      "title": "Name That LLM A1 Codex120 1102",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-a1-public-stylegram-046",
+      "title": "Name That LLM A1 Public Stylegram 046",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-format120-044",
+      "title": "Name That LLM Format120 044",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-luna-terra120-042",
+      "title": "Name That LLM Luna Terra120 042",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-cache-capture-031",
+      "title": "Name That LLM Cache Capture 031",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-cache-capture-029",
+      "title": "Name That LLM Cache Capture 029",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-cache-preflight-029",
+      "title": "Name That LLM Cache Preflight 029",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-fixed-blend-multiclass-027",
+      "title": "Name That LLM Fixed Blend Multiclass 027",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/new-benchmark-task-819f6",
+      "title": "New Benchmark Task 819f6",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-fixed-blend-external-026",
+      "title": "Name That LLM Fixed Blend External 026",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-svc4-raw-public-cv",
+      "title": "Name That LLM SVC4 Raw Public CV",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-stylegram-share-cv",
+      "title": "Name That LLM Stylegram Share CV",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/who-are-you",
+      "title": "Who Are You?",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/0-664-hyperparameter-tuned-who-are-u",
+      "title": "0.664 [Hyperparameter Tuned] | Who are U?",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-atlas20-repro",
+      "title": "Name That LLM ATLAS20 Repro",
+      "version": 0
+    },
+    {
+      "ref": "",
+      "title": "[Private Notebook]",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/0-663-0-660-v31-atlas-20",
+      "title": "0.663 | 0.660 V31 + ATLAS 20%",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/ntl-colab-cli-offline-check",
+      "title": "NTL Colab CLI Offline Check",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-who-am-i",
+      "title": "Name That LLM | Who am I?",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/notebook76a769a2e4",
+      "title": "notebook76a769a2e4",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-who-am-i-v30-repro",
+      "title": "Name That LLM Who Am I V30 Repro",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/notebook706486a85f",
+      "title": "notebook706486a85f",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-no-llama-groupcv",
+      "title": "Name That LLM No Llama GroupCV",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/notebook3049a86db7",
+      "title": "notebook3049a86db7",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/notebook699e5393a2",
+      "title": "notebook699e5393a2",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/name-that-llm-fully-reproducible",
+      "title": "Name That LLM Fully Reproducible",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/notebook01d1fb0a84",
+      "title": "notebook01d1fb0a84",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/notebookd3b6e265f6",
+      "title": "notebookd3b6e265f6",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/notebook2651cdf9f1",
+      "title": "notebook2651cdf9f1",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/01-eda-predicting-electric-vehicle-purchases",
+      "title": "01_EDA_Predicting_Electric_Vehicle_Purchases",
+      "version": 0
+    },
+    {
+      "ref": "zhjianduan/lightgbm-frequency-target-encoding",
+      "title": "LightGBM + Frequency & Target Encoding",
+      "version": 0
+    }
+  ],
+  "competition_submissions": [
+    {
+      "date": "2026-11-02T03:18:07.177Z",
+      "description": "Controlled 046 V2 + EXP040 raw Codex120 train only in Stylegram. Fixed baseline members/weights. pending-handoff-stylegram-add120-20261102T014124Z; script364733823; raw hash cbb0f2227f7748d9172f04d23c1653403103a192dbb7503d897153d24bb00acd.",
+      "fileName": "submission.parquet",
+      "url": "/code/zhjianduan/name-that-llm-a1-codex120-1102?scriptVersionId=364733823"
+    },
+    {
+      "date": "2026-11-01T17:48:25.780Z",
+      "description": "EXP046-A1-v2 public10073 Stylegram only; original ATLAS20 .20 comp .15 Sinkhorn .45",
+      "fileName": "submission.parquet",
+      "publicScore": "0.663",
+      "status": "COMPLETE",
+      "url": "/code/zhjianduan/name-that-llm-a1-public-stylegram-046?scriptVersionId=364624288"
+    },
+    {
+      "date": "2026-10-31T15:42:28.377Z",
+      "description": "",
+      "fileName": "submission.parquet",
+      "publicScore": "0.664",
+      "status": "COMPLETE",
+      "url": "/code/zhjianduan/who-are-you?scriptVersionId=364274017"
+    },
+    {
+      "date": "2026-10-31T08:18:18.780Z",
+      "description": "",
+      "fileName": "submission.parquet",
+      "publicScore": "0.659",
+      "status": "COMPLETE",
+      "url": "/code/zhjianduan/0-664-hyperparameter-tuned-who-are-u?scriptVersionId=364159717"
+    },
+    {
+      "date": "2026-10-29T17:36:23.270Z",
+      "description": "",
+      "fileName": "submission.parquet",
+      "publicScore": "0.662",
+      "status": "COMPLETE",
+      "url": "/code/zhjianduan/name-that-llm-atlas20-repro?scriptVersionId=363569852"
+    },
+    {
+      "date": "2026-10-29T05:14:08.043Z",
+      "description": "",
+      "fileName": "submission.parquet",
+      "publicScore": "0.654",
+      "status": "COMPLETE",
+      "url": "/code/zhjianduan/name-that-llm-who-am-i-v30-repro?scriptVersionId=363200699"
+    },
+    {
+      "date": "2026-10-28T12:46:34.197Z",
+      "description": "No-Llama word+char TF-IDF / LinearSVC baseline; prompt-grouped 5-fold OOF BA 0.3122446; notebook v4",
+      "fileName": "submission.parquet",
+      "publicScore": "0.308",
+      "status": "COMPLETE",
+      "url": "/code/zhjianduan/name-that-llm-no-llama-groupcv?scriptVersionId=363168447"
+    }
+  ]
+}

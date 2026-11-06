@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0025",
+  "prompt": "Why does a soap bubble show changing colors as its surface becomes thinner? Keep the explanation understandable without equations. Aim for about 120 words.",
+  "category": "science_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0025",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "3ddc2c59d37fbc3cb9313fb28110c15e9b07291021d0c227ddd09b764dff5442",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:46:45.013066+00:00",
+  "ended_at": "2026-11-01T08:47:08.926796+00:00",
+  "prompt_sha256": "e62ae447c45c42df35c70d07568e47e675d495f6829e187cbfedaef0e2ecac38",
+  "text": "A soap bubble shows changing colors because light reflects from both the outer and inner surfaces of its thin soap film. These two reflections overlap. Depending on the film’s thickness, some colors reinforce each other and look brighter, while others cancel out and become faint. This effect is called **thin-film interference**.\n\nAs water drains downward and evaporates, the film becomes thinner and uneven. Different areas therefore strengthen different colors, creating swirling bands of pink, green, blue, and gold. The colors also shift with your viewing angle because light travels a different distance through the film.\n\nJust before the bubble bursts, its thinnest patches may look nearly black because the reflections cancel much of the visible light.",
+  "text_sha256": "4926163ad6391219f069a0c4a87ed959d3c9228053015c6379315ef1948f7742",
+  "raw_final_sha256": "4926163ad6391219f069a0c4a87ed959d3c9228053015c6379315ef1948f7742",
+  "word_count": 116,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4235,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 143,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\3ddc2c59d37fbc3cb9313fb28110c15e9b07291021d0c227ddd09b764dff5442",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

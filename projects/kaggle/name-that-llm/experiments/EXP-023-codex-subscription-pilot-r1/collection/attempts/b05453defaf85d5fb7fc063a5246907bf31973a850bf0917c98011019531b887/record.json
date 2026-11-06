@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0009",
+  "prompt": "I often put off a ten-minute household task because I imagine doing the entire room perfectly. Suggest a way to break that pattern. Use approximately 200 words for the response.",
+  "category": "everyday_advice",
+  "target_words": 200,
+  "prompt_group": "cp0009",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "b05453defaf85d5fb7fc063a5246907bf31973a850bf0917c98011019531b887",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:36:49.380045+00:00",
+  "ended_at": "2026-11-01T08:37:14.698517+00:00",
+  "prompt_sha256": "33929cf78448559562a7eef52035fb0b2b288c172806f44bdc480487a53f93fb",
+  "text": "Try a **“small job, closed door” rule**: decide what counts as finished *before* you begin, and explicitly exclude the rest of the room.\n\nWhen you notice yourself imagining a perfect room, say: “That’s a different project. This job is just ten minutes.”\n\nThen:\n\n1. **Name one visible action.** Replace “clean the kitchen” with “wash the dishes currently in the sink.” Avoid goals like “make it look nice,” which have no clear endpoint.\n2. **Write a finish line.** For example: “Done means these dishes are washed—not that the counters, floor, or cupboards are clean.”\n3. **Set a ten-minute timer.** Give yourself permission to stop when it rings, even if the task isn’t complete. The timer limits your commitment; it isn’t a speed test.\n4. **Park extra tasks.** If you spot crumbs or clutter, jot them down rather than switching jobs.\n5. **Actually stop.** Notice what changed, and acknowledge: “I did the task I agreed to do.”\n\nThe important practice is not squeezing more cleaning into ten minutes. It’s learning that starting one task does **not** obligate you to finish everything around it. Keeping that promise to yourself can make the next start feel less costly—and “good enough” more believable.",
+  "text_sha256": "2b43fc050e56364af53dbd9ebc5611d80d675977d0d11367e0edac07bd552a3f",
+  "raw_final_sha256": "2b43fc050e56364af53dbd9ebc5611d80d675977d0d11367e0edac07bd552a3f",
+  "word_count": 198,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4242,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 275,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\b05453defaf85d5fb7fc063a5246907bf31973a850bf0917c98011019531b887",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

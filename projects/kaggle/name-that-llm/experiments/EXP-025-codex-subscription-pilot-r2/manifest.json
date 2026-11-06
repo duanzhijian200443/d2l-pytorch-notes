@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-025",
+  "freeze_status": "FROZEN_FOR_PILOT",
+  "frozen_at": "2026-11-01T08:31:56.695510+00:00",
+  "config": {
+    "path": "experiments/EXP-025-codex-subscription-pilot-r2/config.json",
+    "sha256": "9cbf532b0886904443cc4bac250efd9c60da61b691e5882ab616e737662187fe"
+  },
+  "inputs": [
+    {
+      "path": "experiments/EXP-021-codex-subscription-pilot/prompts.jsonl",
+      "sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0"
+    },
+    {
+      "path": "experiments/EXP-021-codex-subscription-pilot/model-instructions.txt",
+      "sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb"
+    },
+    {
+      "path": "experiments/EXP-023-codex-subscription-pilot-r1/config.json",
+      "sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e"
+    }
+  ],
+  "code": [
+    {
+      "path": "experiments/EXP-025-codex-subscription-pilot-r2/code/codex_collect.py",
+      "sha256": "5c1d5ccd66fec5d4cea4b0e9ea526c9cbfc171f73d7e81e5b23d9188ccda1d24"
+    },
+    {
+      "path": "experiments/EXP-025-codex-subscription-pilot-r2/code/test_codex_collect.py",
+      "sha256": "421b3ca19efabf66530f36e68dd2a07b1f83db9c87dc3a7e3d58b987d0129a0c"
+    },
+    {
+      "path": "experiments/EXP-025-codex-subscription-pilot-r2/run_and_finalize.py",
+      "sha256": "38a3367766948c995cb43b40dffeb370527d7a62c876ed41bd674e59fd86ab16"
+    }
+  ],
+  "runtime": {
+    "cli_version": "0.166.0-alpha.5.1",
+    "executable_sha256": "3097c909fb6d5cd63510d44aceb1d42df9f6e85722a3e447e477def1ecf60e16",
+    "authentication": "ChatGPT subscription; no credentials copied",
+    "model_access": "All four requested model slugs returned successful smoke responses via authenticated CLI; backend snapshot not exposed."
+  },
+  "sampling": {
+    "unique_prompts": 250,
+    "models": 4,
+    "planned_responses": 1000,
+    "split_prompts": {
+      "train": 200,
+      "holdout": 50
+    },
+    "split_responses": {
+      "train": 800,
+      "holdout": 200
+    }
+  },
+  "validation_scope": "Collection integrity only; no training or API equivalence acceptance",
+  "note": "Prompt semantic overlap with inaccessible official prompts not established; preserve raw responses and quarantine source.",
+  "retry_of": "EXP-023",
+  "retry_change": "Bounded local file replacement retries and in-flight result draining; strict terminal finalizer. No sampling changes; skip six verified successful requests."
+}

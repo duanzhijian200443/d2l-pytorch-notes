@@ -1,0 +1,9 @@
+A moving bicycle is often easier to balance because several helpful effects work together—not because of one magical mechanism.
+
+First, when the bicycle begins to lean, the front wheel can be steered slightly toward the lean. This shifts the tires’ contact path underneath the combined center of mass, helping the bike move back toward upright. A rider naturally makes these small steering corrections, often without consciously noticing.
+
+Motion also gives the wheels angular momentum, so changing the direction of a spinning wheel requires some effort. This can make the bike somewhat resistant to sudden tilting or turning. However, wheel gyroscopic effects alone do not explain bicycle stability; specially designed bicycles can remain manageable even with much of this effect reduced.
+
+At higher speeds, steering corrections also have more noticeable consequences, giving the rider time and distance to guide the bike. The frame’s geometry—especially the angled steering axis and front-wheel “trail”—helps the front wheel steer in useful ways.
+
+Near a standstill, these effects are weak, and balance requires frequent, precise corrections, so the bicycle feels much harder to keep upright.

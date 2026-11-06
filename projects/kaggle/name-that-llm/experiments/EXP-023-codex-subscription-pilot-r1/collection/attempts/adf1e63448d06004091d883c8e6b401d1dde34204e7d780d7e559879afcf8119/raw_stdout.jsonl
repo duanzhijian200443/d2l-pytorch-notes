@@ -1,0 +1,6 @@
+{"type":"thread.started","thread_id":"01a196ad-00ae-7ce3-a3a5-0261e6368629"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in C:\\Users\\34331\\.codex\\config.toml."}}
+{"type":"item.completed","item":{"id":"item_1","type":"error","message":"Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."}}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"When the cupboard was opened, a loose shelf tipped forward, causing three folders to fall. No items were reported broken. Following the incident, the remaining folders were moved from the cupboard to a table. A note was then left to advise others not to use the cupboard. The account does not indicate why the shelf was loose or whether it was subsequently repaired. The immediate response was limited to relocating the remaining folders and warning other potential users."}}
+{"type":"turn.completed","usage":{"input_tokens":4266,"cached_input_tokens":3072,"cache_write_input_tokens":0,"output_tokens":91,"reasoning_output_tokens":0}}

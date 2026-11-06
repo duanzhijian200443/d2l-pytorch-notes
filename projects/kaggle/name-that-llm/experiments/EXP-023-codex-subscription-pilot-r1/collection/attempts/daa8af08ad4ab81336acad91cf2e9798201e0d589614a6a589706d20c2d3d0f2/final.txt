@@ -1,0 +1,5 @@
+Start with the outcome, not the calendar: what must the team decide, resolve, or create? A meeting is useful when real-time discussion, negotiation, or shared problem-solving will improve the result. If the goal is simply to share updates or gather routine feedback, use a written update, shared document, or asynchronous thread instead.
+
+Consider the cost: meeting length multiplied by attendees, plus preparation and interrupted focus. Ask whether everyone invited needs to contribute and whether a shorter, less frequent session would work.
+
+If a meeting seems justified, trial it with a clear agenda, necessary participants, and defined decisions or actions. Review after a few weeks: did it unblock work enough to justify the time? Keep, adjust, or cancel it accordingly.

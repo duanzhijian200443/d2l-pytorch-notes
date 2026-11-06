@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0194",
+  "prompt": "Every blue folder is labeled, but some labeled folders are green. Explain which conclusions about an unlabeled folder are justified and which are not. Please answer in roughly 120 words.",
+  "category": "reasoning_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0194",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "a778902f0adef23a6bdb0e932835d5aba4490efb31cb3e59b3d6f74f3179cec6",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:59:18.213876+00:00",
+  "ended_at": "2026-11-01T10:59:38.537537+00:00",
+  "prompt_sha256": "fb8353f3e52a07945bf0a35441b588335780313b6f6249cc93603aedf102b61e",
+  "text": "The only justified conclusion is that an unlabeled folder is **not blue**. “Every blue folder is labeled” means:\n\n**blue → labeled**\n\nIts logically equivalent contrapositive is:\n\n**unlabeled → not blue**\n\nSo, if a folder lacks a label, it cannot be blue.\n\nNothing definite follows about whether the folder is green. The statement “some labeled folders are green” merely says that at least one folder belongs to both categories. It does not say that every green folder is labeled, that every labeled folder is green, or that unlabeled folders cannot be green. Therefore, an unlabeled folder **may be green or may not be green**.\n\nIt is also unjustified to infer that the folder has no other color or property. The premises constrain only the relationship between being blue and being labeled.",
+  "text_sha256": "aff94b9fd22952f896890c302e047a7aa0975c88faf4b843788b01b8cdf27907",
+  "raw_final_sha256": "aff94b9fd22952f896890c302e047a7aa0975c88faf4b843788b01b8cdf27907",
+  "word_count": 130,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4129,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 278,
+      "reasoning_output_tokens": 107
+    }
+  ],
+  "attempt_path": "collection\\attempts\\a778902f0adef23a6bdb0e932835d5aba4490efb31cb3e59b3d6f74f3179cec6",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

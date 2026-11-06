@@ -1,0 +1,24 @@
+{
+  "status": "READY_FOR_SUBMISSION",
+  "ref": "zhjianduan/ntl-apex-codex120-056",
+  "version": 2,
+  "script_version_id": 364839807,
+  "source_sha256": "c6c9dee6bf8194f656aca10b15e599294bee1465603e78bccd4ddcaac9decc56",
+  "submission_sha256": "ef94c7669e36a465bbd3e2dd8cf4905b5e1c2e51e18053a588cb56623086170a",
+  "private": true,
+  "internet": false,
+  "asset_count": 31,
+  "verified_at": "2026-11-02T10:25:23.894247+00:00",
+  "evidence_paths": [
+    "cloud/apex-codex120-056/commit-verification.json",
+    "cloud/apex-codex120-056/materialized-source-check.json",
+    "cloud/apex-codex120-056/readback-v2.json",
+    "cloud/apex-codex120-056/script-identity.json",
+    "cloud/apex-codex120-056/outputs-v2/submission.parquet"
+  ],
+  "arm": "four120",
+  "added_csv_sha256": "a4e86314a77f7ed699dbfb107b32a8263a1ff09fc7c3ec92b98d4028d487005d",
+  "added_rows_verified_in_materialized_source": 120,
+  "hidden_fit_status": "NOT_OBSERVED",
+  "competition_submission_owner": "root"
+}

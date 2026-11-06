@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0132",
+  "prompt": "Should a family holiday repeat a beloved tradition or introduce a new activity each year? Give a nuanced answer. Please answer in roughly 120 words.",
+  "category": "tradeoff_argument",
+  "target_words": 120,
+  "prompt_group": "cp0132",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "21f4b310fdd2c2dae3fd8c878748b12ee43cd99895079207cd54157275c6be5d",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:54:36.926373+00:00",
+  "ended_at": "2026-11-01T09:55:01.553631+00:00",
+  "prompt_sha256": "e2901a17b373b039f0a47067f31f70b9896b76dd5bcf17d999b9af5194cd20c9",
+  "text": "A family holiday need not choose between comforting repetition and fresh experiences. Beloved traditions—a familiar meal, an annual walk, or a favorite game—create continuity and belonging, especially for children and relatives who rarely meet. Yet repeating everything can become an obligation rather than a pleasure, particularly as interests, abilities, and family circumstances change.\n\nA useful balance is to preserve one or two traditions that genuinely matter while leaving room for something new. Let different family members suggest an activity, without requiring everyone to participate. Budget, accessibility, and energy should shape the choice, not pressure to make each year extraordinary. Ultimately, the best holiday is neither the most traditional nor the most adventurous, but one in which people feel connected and considered.",
+  "text_sha256": "7418847383e20414cff4b04b142e3644553a821520bf69cbf4c01c23ea4e579f",
+  "raw_final_sha256": "7418847383e20414cff4b04b142e3644553a821520bf69cbf4c01c23ea4e579f",
+  "word_count": 121,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4236,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 148,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\21f4b310fdd2c2dae3fd8c878748b12ee43cd99895079207cd54157275c6be5d",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

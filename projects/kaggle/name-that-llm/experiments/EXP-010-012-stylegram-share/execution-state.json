@@ -1,0 +1,73 @@
+{
+  "status": "COMPLETE",
+  "observed_at": "2026-11-01T06:44:54.372235+00:00",
+  "notebook_ref": "zhjianduan/name-that-llm-stylegram-share-cv",
+  "version": 2,
+  "kernel_url": "https://www.kaggle.com/code/zhjianduan/name-that-llm-stylegram-share-cv",
+  "gpu": false,
+  "internet": false,
+  "max_cpu_seconds": 7200,
+  "duplicate_run_allowed": false,
+  "infra_attempts": [
+    {
+      "version": 1,
+      "status": "ERROR",
+      "cause": "Kaggle automatically unzipped dataset; missing experiment_payload.zip; StopIteration before any classifier fit",
+      "evidence": "infra-v1/name-that-llm-stylegram-share-cv.log"
+    }
+  ],
+  "result_status": "PASS",
+  "phase": "verified",
+  "live_logs_command": "kaggle kernels logs zhjianduan/name-that-llm-stylegram-share-cv/2 --follow",
+  "live_logs_local_path": "experiments/EXP-010-012-stylegram-share/live-v2-stream.log",
+  "status_source": "Official Kaggle CLI/API fixed V2 COMPLETE + original verifier + independent cache/provenance checks",
+  "shutdown_note": "Remote committed CPU job continues without the local PC. Local log follow/download/verification depend on this PC. Inputs/code are saved remotely; normal job outputs retained by Kaggle. Current runner saves predictions/metrics, not fitted SVM weights.",
+  "observation_history": [
+    {
+      "status": "RUNNING",
+      "observed_at": "2026-10-31T17:46:26.656680+00:00",
+      "phase": "training",
+      "last_verified_log": "2 fold/share pairs complete; partial fold scores only",
+      "completed_fold_shares": [
+        {
+          "fold": 0,
+          "share": 0.5,
+          "rows": 540,
+          "ba": 0.4666666666666667,
+          "plain_ba": 0.4,
+          "centred_rows": 531,
+          "features": 476360,
+          "plain_n_iter": 15,
+          "centred_n_iter": 13,
+          "feature_seconds": 105.191488171,
+          "plain_fit_seconds": 32.96835180800002,
+          "centred_fit_seconds": 181.852969633
+        },
+        {
+          "fold": 0,
+          "share": 0.25,
+          "rows": 540,
+          "ba": 0.461111111111111,
+          "plain_ba": 0.39444444444444443,
+          "centred_rows": 531,
+          "features": 476360,
+          "plain_n_iter": 17,
+          "centred_n_iter": 15,
+          "feature_seconds": 105.191488171,
+          "plain_fit_seconds": 37.76221402500005,
+          "centred_fit_seconds": 200.1472306149999
+        }
+      ],
+      "estimated_total_note": "First fold feature 105s and first share fits 215s; full sweep may take about one hour, estimate only; service CPU timeout remains 7200s",
+      "status_source": "official Kaggle CLI fixed-v2 status; checked for shutdown question"
+    }
+  ],
+  "finished_at": "2026-10-31T18:38:36.635006+00:00",
+  "runtime_seconds": 3822.3623984410006,
+  "result_directory": "experiments/EXP-010-012-stylegram-share/download-v2/results",
+  "verification_path": "experiments/EXP-010-012-stylegram-share/analysis/verified.json",
+  "acceptance_path": "experiments/EXP-010-012-stylegram-share/acceptance-20261101/acceptance-status.json",
+  "reported_script_version_id": 364307522,
+  "reported_script_version_id_source": "DOT archive; fixed V2 confirmed, global ID not exposed by CLI",
+  "no_training_or_submission_during_acceptance": true
+}

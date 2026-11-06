@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0135",
+  "prompt": "Should a beginner photographer use automatic settings for longer or learn manual controls immediately? Explain without prescribing one path for everyone. Aim for about 120 words.",
+  "category": "tradeoff_argument",
+  "target_words": 120,
+  "prompt_group": "cp0135",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "678bd333ebeb1321063d503596677820f9d48a06079ec75b80dfefb223aeaeb6",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:56:11.697109+00:00",
+  "ended_at": "2026-11-01T09:56:35.032298+00:00",
+  "prompt_sha256": "70dccaf9ba6500c389ce728014e04515000256e8a39706622deb300eba7641ff",
+  "text": "Neither approach is universally best. Automatic settings can help beginners focus on composition, timing, and noticing light without being overwhelmed by technical choices. They’re especially useful when photographing unpredictable moments or when you simply want reliable results. However, staying fully automatic too long may hide why some images are too dark, blurry, or overly sharp.\n\nLearning manual controls early can build confidence and intention. Understanding exposure compensation, aperture, shutter speed, and ISO helps you make creative choices and solve problems. But forcing yourself to use full manual immediately can distract from seeing and enjoying photography.\n\nA balanced path often works well: use Auto or semi-automatic modes, then deliberately change one setting at a time. Choose based on your goals, curiosity, and patience—not on the belief that one method proves greater seriousness.",
+  "text_sha256": "b9889f5d2c02209c9349023e70907e2cfc253135a2d1557dca3e662e481e06fd",
+  "raw_final_sha256": "b9889f5d2c02209c9349023e70907e2cfc253135a2d1557dca3e662e481e06fd",
+  "word_count": 131,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2588,
+      "cached_input_tokens": 2432,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 160,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\678bd333ebeb1321063d503596677820f9d48a06079ec75b80dfefb223aeaeb6",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

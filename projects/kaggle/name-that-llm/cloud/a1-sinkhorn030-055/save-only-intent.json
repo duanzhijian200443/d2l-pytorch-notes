@@ -1,0 +1,19 @@
+{
+  "operation": "save-only",
+  "expected_version": 1,
+  "no_run": true,
+  "ref": "zhjianduan/name-that-llm-a1-sinkhorn030-049",
+  "request_count": 1,
+  "local_bindings": {
+    "metadata_sha256": "8c0a1ad41ecda521e57a0072bb68d93bbfa2ce65014a4ee42ffb0d09d679ba6f",
+    "source_bytes_sha256": "35ddcc24900d4bace4b3c4cc167475ad2c119af83a9eb687ef717f7bea1200b5",
+    "source_canonical_json_sha256": "1b521ba027ce4d295df44324aba2a9e8dad9963309c6e423b7c71adfa2b2d50f",
+    "input_count": 32,
+    "ref": "zhjianduan/name-that-llm-a1-sinkhorn030-049",
+    "controller_sha256": "786a59bfccc62c9913e8cdcc2cd59e0cb24e1fa5f53afa92c1eecfa235a44076",
+    "exp055_controller_sha256": "ea224a1f136b714de8dfdb16da6b01d9fc420592408fbbe65021cbb339522ce7"
+  },
+  "observed_at": "2026-11-02T09:01:47.170859+00:00",
+  "machine_shape": "NvidiaTeslaT4",
+  "timeout_seconds": 32400
+}

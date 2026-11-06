@@ -1,0 +1,27 @@
+The candle starts at **20 centimeters** tall and is **14 centimeters** tall after two hours. Therefore, it loses
+
+\[
+20-14=6\text{ centimeters}
+\]
+
+during those two hours. Because the candle is assumed to burn down by the same amount every hour, its hourly decrease is
+
+\[
+6\div 2=3\text{ centimeters per hour}.
+\]
+
+This gives the linear model
+
+\[
+H(t)=20-3t,
+\]
+
+where \(H(t)\) is the candle’s height in centimeters after \(t\) hours.
+
+After five hours, the predicted height is
+
+\[
+H(5)=20-3(5)=20-15=5\text{ centimeters}.
+\]
+
+Thus, **the candle is predicted to be 5 centimeters tall after five hours**. This result is an extrapolation from the observed two-hour change. It depends on the assumption that the candle continues burning at exactly 3 centimeters per hour. In practice, a candle’s burning rate might vary because of its shape, wick, wax, or surrounding air, but under the stated constant-rate assumption, 5 centimeters is the appropriate prediction.

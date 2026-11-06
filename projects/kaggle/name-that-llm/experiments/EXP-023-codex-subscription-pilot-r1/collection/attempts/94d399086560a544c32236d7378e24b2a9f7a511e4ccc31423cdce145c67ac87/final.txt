@@ -1,0 +1,5 @@
+Deleting a desktop shortcut usually does not uninstall an application because the shortcut is only a link or pointer to the program. It contains information such as the application’s file location, icon, and startup options, but it is not the application itself.
+
+The program’s executable files and supporting components are normally stored elsewhere, such as in the “Program Files” folder, an application directory, or a system-managed location. Removing the shortcut only removes one convenient way to launch the program; the application and its associated files remain on the computer. It may still be accessible through the Start menu, Applications folder, search, or by opening its installation directory directly.
+
+To remove an application properly, use the operating system’s uninstall feature or the application’s dedicated uninstaller. This can remove program files, configuration data, libraries, and system settings such as registry entries. There are exceptions: portable applications may consist of a single folder, so deleting that folder can effectively remove them, though personal settings may still remain elsewhere.

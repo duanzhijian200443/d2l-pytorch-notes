@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0157",
+  "prompt": "Rewrite this invitation to sound informal but considerate: 'Attendance is requested at a modest gathering to commemorate completion of the garden shed. Refreshments will be provided. Guests may arrive after four and should not consider bringing a gift obligatory.' Use approximately 120 words for the response.",
+  "category": "rewrite_original_material",
+  "target_words": 120,
+  "prompt_group": "cp0157",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "a68a46e2beb9cb91c6bfe4ae8f1d2a55eeb19869db5f01d37299f20ae423ee36",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:32:58.394697+00:00",
+  "ended_at": "2026-11-01T10:33:16.952581+00:00",
+  "prompt_sha256": "a85eabdfba237762e29d69ad78dbc4a9d1a6df356e86a5157774ed1025070519",
+  "text": "Hi everyone!\n\nWe’d love for you to join us for a relaxed little get-together to celebrate the garden shed finally being finished! It’s nothing formal—just a chance to admire the new addition, spend some time together, and enjoy a few refreshments.\n\nFeel free to drop by anytime after 4:00 p.m. and stay for as long as you like. We’ll have snacks and drinks ready, so all you need to bring is yourself. And please don’t feel you need to bring a gift—the pleasure of your company is more than enough.\n\nWe hope you can make it, but completely understand if you already have plans. Just let us know if you think you’ll be able to come. Looking forward to seeing you!",
+  "text_sha256": "edf44567d7039bff6b34612da64ea6982d1f9635ff1e4549773283dafabd5d06",
+  "raw_final_sha256": "edf44567d7039bff6b34612da64ea6982d1f9635ff1e4549773283dafabd5d06",
+  "word_count": 121,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4147,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 192,
+      "reasoning_output_tokens": 37
+    }
+  ],
+  "attempt_path": "collection\\attempts\\a68a46e2beb9cb91c6bfe4ae8f1d2a55eeb19869db5f01d37299f20ae423ee36",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

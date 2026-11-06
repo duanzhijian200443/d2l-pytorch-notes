@@ -1,0 +1,72 @@
+{
+  "status": "READY_FOR_SUBMISSION",
+  "experiment_id": "EXP-055",
+  "notebook_experiment_id": "EXP-049",
+  "ref": "zhjianduan/name-that-llm-a1-sinkhorn030-049",
+  "version": 2,
+  "script_version_id": 364819470,
+  "source_sha256": "35ddcc24900d4bace4b3c4cc167475ad2c119af83a9eb687ef717f7bea1200b5",
+  "source_canonical_sha256": "1b521ba027ce4d295df44324aba2a9e8dad9963309c6e423b7c71adfa2b2d50f",
+  "metadata_sha256": "8c0a1ad41ecda521e57a0072bb68d93bbfa2ce65014a4ee42ffb0d09d679ba6f",
+  "submission_sha256": "ef94c7669e36a465bbd3e2dd8cf4905b5e1c2e51e18053a588cb56623086170a",
+  "private": true,
+  "internet": false,
+  "asset_count": 32,
+  "verified_at": "2026-11-02T09:10:47.597954+00:00",
+  "verified_gpus": [
+    "Tesla T4, 15360 MiB, 580.178.04",
+    "Tesla T4, 15360 MiB, 580.178.04"
+  ],
+  "rows": 3,
+  "sinkhorn": 0.3,
+  "source_scope": "public quick commit",
+  "evidence": [
+    {
+      "path": "cloud/a1-sinkhorn030-055/readback-v2-20261102T090207715709Z-c04d53/verified.json",
+      "sha256": "e02868b6de861f87fcc1e051faa03c0bfc40176566561f5e40a3878a389589a2"
+    },
+    {
+      "path": "cloud/a1-sinkhorn030-055/outputs-v2-manifest.json",
+      "sha256": "7e6eaf7b5301969836cb61f973a57d253f82509bf2b1449ec5633717df611fc4"
+    },
+    {
+      "path": "cloud/a1-sinkhorn030-055/script-identity.json",
+      "sha256": "be64d96561d82ac61e6dae484d26b99ca8c7f1c0a5cbc4fb0d10c2532cd029a9"
+    },
+    {
+      "path": "cloud/a1-sinkhorn030-055/status-v2-20261102T091026263710Z-2ea9af.json",
+      "sha256": "7dc6a647f3c56314346e8085ce4e75de0d36b091498ee58a6b88b3fe9cf167ea"
+    },
+    {
+      "path": "cloud/a1-sinkhorn030-055/outputs-v2/a1_synthetic_parity.json",
+      "sha256": "06ec26c52dd0302209908149f42e19616d5aa35e8ba64d097248d79614aa0757"
+    },
+    {
+      "path": "cloud/a1-sinkhorn030-055/outputs-v2/availability.json",
+      "sha256": "a3bdec419e8f4ae132c7fafacbeb9b4b83d7aed1d81fa156e01d951d0a481ea9"
+    },
+    {
+      "path": "cloud/a1-sinkhorn030-055/outputs-v2/input_preflight.json",
+      "sha256": "ea3c7bc8f8a38650d01a9327fd46974d4a11c696a007b425c6b3365c250c2118"
+    },
+    {
+      "path": "cloud/a1-sinkhorn030-055/outputs-v2/reproduction_environment.json",
+      "sha256": "9a377e53e2465d1d8c1f4c650b45736dd65a85b5684dcf3ccfd74ec4b06000b3"
+    },
+    {
+      "path": "cloud/a1-sinkhorn030-055/outputs-v2/submission.parquet",
+      "sha256": "ef94c7669e36a465bbd3e2dd8cf4905b5e1c2e51e18053a588cb56623086170a"
+    },
+    {
+      "path": "cloud/a1-sinkhorn030-055/outputs-v2/submission_receipt.json",
+      "sha256": "78898aa7d511b09d6a3aaa5c05a983aa5f94dce98910ff69ec97a596e3706545"
+    }
+  ],
+  "input_hash_policy": {
+    "baseline_noncompetition_files": 528,
+    "baseline_small_files_hashed": 398,
+    "baseline_large_files_size_only": 130,
+    "extra_files_hashed": 5
+  },
+  "hidden_run_status": "NOT_SUBMITTED_BY_THIS_CONTROLLER"
+}

@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0049",
+  "prompt": "How can version control help two writers edit the same technical document? Use a non-programming example and avoid commands. Aim for about 200 words.",
+  "category": "technology_explanation",
+  "target_words": 200,
+  "prompt_group": "cp0049",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "cb641947b6d4fe24e33ba648f69bcc7f70f7381bbac0d153e986a6526f3c3b01",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:01:05.045796+00:00",
+  "ended_at": "2026-11-01T09:01:37.905305+00:00",
+  "prompt_sha256": "ec1cbf47395fc3644fa8dbe2ee2710117be0a4a562a449da7e16d2c319f3a4ba",
+  "text": "Version control can help two writers collaborate on the same technical document by keeping a complete, organized history of their work. For example, imagine two authors preparing a hospital equipment manual. One writer can draft the safety procedures while the other develops the maintenance section. Each person works on a separate version, so unfinished changes do not disrupt the main document.\n\nWhen a writer finishes a meaningful set of edits, they can submit it for review. The other writer can examine the changes, suggest improvements, and approve them before they become part of the shared document. If both writers revise the same paragraph, version control highlights the conflicting passages so they can discuss and combine the best wording rather than accidentally overwriting each other’s work.\n\nIt also provides accountability: every change is associated with a writer and an explanation, making it easy to understand how the document evolved. If a revision introduces an error—such as an incorrect safety warning—the writers can restore an earlier version or compare past drafts to recover the correct text.\n\nThis approach supports parallel work, careful review, transparent communication, and reliable recovery. It is especially useful for technical documents that require accuracy, frequent updates, and contributions from multiple subject-matter experts.",
+  "text_sha256": "bdbeaad03c98424dfb82f6fed9088a5b795be3ca1c0425b04d74809ef5ae1fd3",
+  "raw_final_sha256": "bdbeaad03c98424dfb82f6fed9088a5b795be3ca1c0425b04d74809ef5ae1fd3",
+  "word_count": 204,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2588,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 265,
+      "reasoning_output_tokens": 23
+    }
+  ],
+  "attempt_path": "collection\\attempts\\cb641947b6d4fe24e33ba648f69bcc7f70f7381bbac0d153e986a6526f3c3b01",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

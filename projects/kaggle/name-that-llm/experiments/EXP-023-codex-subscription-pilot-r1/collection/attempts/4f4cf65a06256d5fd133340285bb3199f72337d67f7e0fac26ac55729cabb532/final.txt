@@ -1,0 +1,5 @@
+A flute and a violin can play the same note at the same loudness, yet sound different because they have different **timbres**. The note’s pitch is determined mainly by its fundamental frequency—for example, 440 Hz for the A above middle C. However, each instrument also produces a distinctive mixture of higher frequencies called **harmonics** or overtones.
+
+A flute creates sound from vibrating air inside a tube. Its tone usually contains a strong fundamental and relatively fewer or weaker upper harmonics, giving it a smooth, pure quality. A violin produces sound through vibrating strings transferred through the bridge to its wooden body. This process generates richer, stronger harmonics and resonances, producing a brighter or more complex tone.
+
+The instruments also shape notes differently over time. A violin bow can create a textured attack and sustain the string’s vibration, while a flute note begins with the noise of moving breath. These differences in harmonic content, attack, resonance, and sound evolution allow our ears to identify each instrument despite equal pitch and loudness.

@@ -1,0 +1,342 @@
+{
+  "schema_version": 1,
+  "observed_at_utc": "2026-11-01T09:57:28.454580+00:00",
+  "status": "LOCAL_IMPLEMENTATION_PREPARED_CPU_PREFLIGHT_REQUIRED",
+  "remote_started_by_this_agent": false,
+  "scope": {
+    "experiment": "EXP-029 assigned by root",
+    "panel_rows": 729,
+    "panel_source": "experiments/EXP-029-full-stack-capture/panel/test.csv",
+    "panel_sha256": "8eeec7f64e924f0fd79dca57d324d42d269f400bdfbfff76d60b4c168d9ae6f2",
+    "columns": [
+      "id",
+      "text"
+    ],
+    "classification": "exploratory_external",
+    "truth_sidecar_uploaded": false,
+    "clean_full_stack_oof_claim": false,
+    "historical_hidden_run_byte_identity_claim": false
+  },
+  "freezeKnownLocks": {
+    "usable": true,
+    "outer_metadata": "reviews/own-scheme-readiness-20261030/baseline-v2-metadata.json",
+    "outer_metadata_sha256": "1f12f489864c61d12a3e9b9d4d6f414336bcec37b3602cc35f0d0f1e13c38369",
+    "version_source": "cloud/who-am-i-v30/input-lock.json",
+    "version_source_sha256": "2ac740a0c3c9b5dcc141fb416ccb2e37ad453380ebac4b4b0f51d2a94281c00e",
+    "bindings": [
+      {
+        "kind": "dataset",
+        "ref": "dhruvtibarewal/nlm-l24-adapters",
+        "version": 7
+      },
+      {
+        "kind": "dataset",
+        "ref": "zhjianduan/llama31-8b-base-verified",
+        "version": 1
+      },
+      {
+        "kind": "dataset",
+        "ref": "seyitkaangunes/ntl-extra-api-passages",
+        "version": 2
+      },
+      {
+        "kind": "dataset",
+        "ref": "abdullah1afify/ntl-generations",
+        "version": 2
+      },
+      {
+        "kind": "dataset",
+        "ref": "dophuchung/ntl-proxy-generations",
+        "version": 1
+      },
+      {
+        "kind": "dataset",
+        "ref": "zbigniewkirchner/ntl-qwen3-8b-lora-claude-head",
+        "version": 1
+      },
+      {
+        "kind": "dataset",
+        "ref": "dhruvtibarewal/nlm-matched-clean",
+        "version": 3
+      },
+      {
+        "kind": "dataset",
+        "ref": "dhruvtibarewal/nlm-offline-wheels",
+        "version": 2
+      },
+      {
+        "kind": "dataset",
+        "ref": "josephadamski91/ntl-atlas-qwen3-8b-v1",
+        "version": 3
+      },
+      {
+        "kind": "dataset",
+        "ref": "lucasboesen/ntl-free-proxy-generations",
+        "version": 7
+      },
+      {
+        "kind": "dataset",
+        "ref": "nishantdahal/ntl-two-stage-lora",
+        "version": 1
+      },
+      {
+        "kind": "dataset",
+        "ref": "nishantdahal/ntl-handwriting-blend",
+        "version": 1
+      },
+      {
+        "kind": "dataset",
+        "ref": "dhruvtibarewal/nlm-l24-adapters-v5",
+        "version": 1
+      },
+      {
+        "kind": "dataset",
+        "ref": "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+        "version": 6
+      },
+      {
+        "kind": "dataset",
+        "ref": "pjmathematician/ultrabert-380m-ntl",
+        "version": 1
+      },
+      {
+        "kind": "kernel",
+        "ref": "lucasboesen/name-that-llm-glm4-9b-trunc25",
+        "version": 1
+      },
+      {
+        "kind": "kernel",
+        "ref": "lucasboesen/name-that-llm-extract-encoders2",
+        "version": 1
+      },
+      {
+        "kind": "kernel",
+        "ref": "lucasboesen/name-that-llm-electra-large-weights",
+        "version": 1
+      },
+      {
+        "kind": "kernel",
+        "ref": "lucasboesen/name-that-llm-desklib-weights",
+        "version": 1
+      },
+      {
+        "kind": "kernel",
+        "ref": "lucasboesen/name-that-llm-train-lora24-s7",
+        "version": 1
+      },
+      {
+        "kind": "kernel",
+        "ref": "lucasboesen/name-that-llm-train-tokattn",
+        "version": 1
+      },
+      {
+        "kind": "kernel",
+        "ref": "lucasboesen/name-that-llm-train-tokattn2",
+        "version": 1
+      },
+      {
+        "kind": "kernel",
+        "ref": "vnton37nguyn/ntl-train-lora-qwen25-instyle",
+        "version": 2
+      },
+      {
+        "kind": "model",
+        "ref": "qwen-lm/qwen-3/transformers/14b/1",
+        "version": 1
+      },
+      {
+        "kind": "model",
+        "ref": "qwen-lm/qwen-3/transformers/4b-base/1",
+        "version": 1
+      },
+      {
+        "kind": "model",
+        "ref": "qwen-lm/qwen-3/transformers/14b-base/1",
+        "version": 1
+      },
+      {
+        "kind": "model",
+        "ref": "qwen-lm/qwen-3/transformers/8b-base/1",
+        "version": 1
+      },
+      {
+        "kind": "model",
+        "ref": "qwen-lm/qwen-3/transformers/8b/1",
+        "version": 1
+      },
+      {
+        "kind": "model",
+        "ref": "qwen-lm/qwen2.5/transformers/7b/1",
+        "version": 1
+      },
+      {
+        "kind": "model",
+        "ref": "qwen-lm/qwen2.5/transformers/14b/1",
+        "version": 1
+      },
+      {
+        "kind": "competition",
+        "ref": "name-that-llm",
+        "train_sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707"
+      }
+    ],
+    "warning": "Use dataset pinned_version, not observed version: Abdullah2 not3; Lucas7 not9. Kernel versions explicit; model versions part of ref. These define a new fixed run, not proof of every historical EXP004 hidden input byte.",
+    "large_file_gate": "CPU must fully SHA256 all31 immutable-version attachment files; GPU must use exactly the same bound versions/paths and sizes. Rehash files<=16MiB on GPU; record larger files as CPU-hash/version-bound, not GPU-rehashed.",
+    "reference_small_csv_hashes": {
+      "ntl-generations/ntl_generations.csv": "83003454e3cc0368cae8b05bca243daf036b64a42a792c3f7bfd5fd91b3db378",
+      "ntl-generations/prompts_used.csv": "b42003b1068ba24de1accf33265e208e1a492d1ca8c81eb581d256b54bdefdbc",
+      "ntl-free-proxy-generations/gen_passages.csv": "d037d212e17a7e98465f9c606f4437225fb221939a5f51b0f8150d15c07c68a5"
+    }
+  },
+  "launch_blockers": [
+    "CPU preflight PASS and manifest digest must exist before GPU submission.",
+    "Root must confirm live quota, no overlapping active capture, supported T4x2 selection, exact31 version attachments and current container binding.",
+    "Missing required packages or any positive-weight member asset other than predeclared Q35 blocks this run; no online automatic repair.",
+    "Original31 refs contain no Qwen3.5 backbone; token_attention Q35 is explicitly omitted. The remaining22 comp contributions require actual eligible groups.",
+    "All package/source/input hashes must match; original dynamic globs must resolve only within the fixed attached file inventory."
+  ],
+  "budgets": {
+    "cpu_preflight_wall_seconds": 3600,
+    "gpu_devices": 2,
+    "gpu_model": "NVIDIA Tesla T4",
+    "gpu_work_seconds": 28200,
+    "gpu_platform_wall_seconds": 28800,
+    "finalization_reserve_seconds": 600,
+    "shutdown": "SIGTERM own worker process group, wait10s, SIGKILL group and reap leader; never kill notebook parent/other task",
+    "original_atlas_budget": "max(180,int(8.3*3600-COMP_SEC-600))",
+    "applied_atlas_budget": "min(original,max(0,remaining_global_work_seconds_at_main_launch-120)); abort before main if below180",
+    "clock_policy": "Original infer T0 and budget checks unchanged. Record launch monotonic time, global deadline, original and applied budget. IO/copy/setup count toward global work.",
+    "duration_prediction": null
+  },
+  "hardware_and_dependencies": {
+    "separate_probe_process": true,
+    "reason": "CUDA probe process must exit before comp/main so it does not retain CUDA contexts/VRAM.",
+    "requirements": [
+      "exactly2 CUDA devices, each named T4",
+      "small real CUDA operation on each device",
+      "record total VRAM, CUDA, driver when provided, CPU/RAM and package versions",
+      "q8v5/ll8v5 retain original dp=True memory probe and fallback to split/one copy; no quantization or batch change",
+      "14B bases retain device_map=auto; DeBERTa fp32; original overflow branch retained"
+    ],
+    "packages": [
+      "torch",
+      "transformers",
+      "peft",
+      "accelerate",
+      "safetensors",
+      "numpy",
+      "pandas",
+      "scipy",
+      "scikit-learn",
+      "lightgbm",
+      "pyarrow",
+      "sentencepiece",
+      "psutil"
+    ],
+    "offline_install": "Original cell2 bitsandbytes wheel install only, with added check=True to fail on installation error. Freeze wheel names/hashes and runtime image. Do not apply old Colab pip torch/cu128/cu130 pins or A100 unassign scripts.",
+    "original_outer_container": "gcr.io/kaggle-private-byod/python@sha256:2757e0c7d1e0a9cb43da657b97e223c321a98f5014bdf64f44f2f6b083ad2b2f",
+    "original_inner_metadata_warning": "Notebook embedded isGpuEnabled false, old dataSources and papermill duration are inherited; use outer metadata/actual hardware readback, not them as execution evidence.",
+    "version_policy": "Use CPU non-None observed package versions as requested equality checks; any absent package is reviewed before GPU launch. Record post-setup versions.",
+    "rss_policy": "Do not reuse old CPU12GiB limit or force2threads unexamined. Record process-tree RSS and use an explicit plan rss_limit_bytes if root sets one."
+  },
+  "runtime_sequence": [
+    "Root CPU preflight: hash31 attachments and resolve versions/files; publish the immutable manifest to the inline GPU payload.",
+    "Bootstrap decode allowlisted source+blind-panel ZIP into /kaggle/working/payload; no extra dataset attachment; launch runner.",
+    "Supervisor claims empty /kaggle/working/results and starts isolated worker session with28200s deadline.",
+    "Worker verifies payload and CPU manifest, GPU paths/sizes/small hashes; snapshots plan/code/manifest; stages original-byte official train and blind test into /kaggle/working/panel.",
+    "Check required LoRA/token-attention/UltraBERT/Claude paths and declared Q35 absence; short-lived T4x2 probe checks hardware/packages.",
+    "Run extracted baseline cell2 setup: original discovery and Llama/DeBERTa copies. Export DATA=NTL_CAPTURE_DATA and FAST_COMMIT=False for the new outer runner.",
+    "Run instrumented comp as a checked child without grep pipeline; preserve log, component commit receipt and outputs.",
+    "Evaluate original cell12 MODELS+cmd prefix with measured COMP_SEC; cap only ATLAS CLI budget as above.",
+    "Run instrumented main; all children inherit worker group. Retain native logp, raw margin, gate, ATLAS mask, Sinkhorn and typography caches.",
+    "Verify both cache identities/context/receipts; exact16 main/22 comp and5 gates; independent replay; compare final parquet IDs/argmax. Missing eligible-group contributions or partial ATLAS fails acceptance without discarding files.",
+    "Parent kills residual owned descendants, archives cache/code/input receipts/logs with bounded archive child, writes terminal result/artifacts/guard. Failure never retries."
+  ],
+  "only_runtime_deltas": [
+    "New comp copy changes only non-SMOKE DATA_DIR to pathlib.Path(os.environ[NTL_CAPTURE_DATA]).resolve(strict=True); AST restoration checked.",
+    "setup offline installer check=True, DATA override and FAST_COMMIT=False exported; original discovery/model files unchanged.",
+    "main executable/script path resolves staged copy; ATLAS budget is capped by explicit8h resource boundary.",
+    "Observer statements from frozen EXP028; original algorithms otherwise unchanged."
+  ],
+  "preserved_main_parameters": {
+    "perpassage": 1,
+    "extra_w": 0.5,
+    "tfidf_w": 0.25,
+    "distort_w": 0.1,
+    "svc_w": 1.5,
+    "adapt_w": 1.0,
+    "adapt_thr": 0.15,
+    "sinkhorn": 0.45,
+    "sinkhorn_target_mix": 0.35,
+    "post": 0,
+    "atlas_w": 0.2,
+    "atlas_margin": 0.3,
+    "atlas_bs": 4,
+    "atlas_chunk": 3,
+    "comp_w": 0.15
+  },
+  "paths_and_mount_gaps": [
+    "Include private zhjianduan/llama31-8b-base-verified V1; never restore removed avazaku kernel solely from embedded metadata.",
+    "Llama original four shard sizes plus index/tokenizer/config must exist; original copy target /tmp/llama-3.1/8b must have sufficient disk.",
+    "DeBERTa original copy target /kaggle/working/deberta_v3_large may create a large non-cache output; keep it outside results archive and report separately.",
+    "Original cell2 probes legacy heads/adapters even if current MODELS does not consume them; preserve those prerequisites for unmodified discovery.",
+    "comp uses real DATA_DIR, not NTL_DATA (SMOKE-only); both children must receive the same staged train/test."
+  ],
+  "fail_open_controls": [
+    "Require child exit code0 instead of unchecked comp shell pipeline.",
+    "Require cache commit receipts and expected arrays; no COMP_SKIPPED/ATLAS_SKIPPED interpretation as complete.",
+    "Predeclare Q35 omission only; missing any other LoRA/token head/gate or wrong group coverage fails acceptance.",
+    "Preserve current masks and partial batches on budget exit; no fabricated grouping or placeholder rows.",
+    "Original FAST_COMMIT visible-test shortcut is not used by the new runner."
+  ],
+  "reusable_files": [
+    {
+      "path": "cloud/full-stack-cache/package-manifest.json",
+      "sha256": "7c6c6c25ba06f3d66a43c51768ebc945803484921ee99fba496ded3dcbefabec"
+    },
+    {
+      "path": "cloud/full-stack-cache/instrument.py",
+      "sha256": "1a3a4f2635139828a6cf3dc4d9e142c9ebd7ac4ceac16f53bec7fd6006f7d569"
+    },
+    {
+      "path": "cloud/full-stack-cache/assemble.py",
+      "sha256": "27365dd9ceaf8c7622f5950f64cac70c1717e5ffc26e52479b508cfe6ddc23d3"
+    },
+    {
+      "path": "cloud/full-stack-cache/verify_cache.py",
+      "sha256": "4f0034ee5f33a2809a84c851d8c9b7ad65e80d198094c79e2679e68d08d26688"
+    },
+    {
+      "path": "cloud/svc4-raw-public-r1/guard.py",
+      "sha256": "eaf2c31758045488eb53ba3f9c7f824c848bfe0a33698fab816d96485f9b6d3b"
+    },
+    {
+      "path": "cloud/full-stack-capture/runner.py",
+      "sha256": "923c05137561bc0571b64975c809ee67b2fce192d7165299c00c63e1de6ceb76"
+    },
+    {
+      "path": "cloud/full-stack-capture/build_runtime.py",
+      "sha256": "d022edd5cb18362467010dd9311c596e43b8e0fb66e7b723fdff4f7196e04394"
+    }
+  ],
+  "not_reusable_as_is": [
+    "cloud/who-am-i-v32-colab/cli_gpu_guard.py: A100+Colab unassign-specific",
+    "cloud/svc4-raw-public-r1/guard.py: lifecycle patterns reusable; CPU2threads/12GiB and old result contract are not full-stack defaults"
+  ],
+  "remaining_evidence_boundaries": [
+    "EXP028 parity was synthetic cached math, not real GPU completion.",
+    "729 source passed only lightweight known/exact isolation; full-checkpoint exposure remains incomplete.",
+    "No reliable full-run duration is derived from old3-row FAST_COMMIT output or inherited papermill metadata."
+  ],
+  "local_validation": {
+    "targeted_checks_passed": 12,
+    "real_subprocess_failure_log_checked": true,
+    "group_termination": "POSIX signals mocked on Windows, not a live Linux GPU stop test",
+    "ast_comp_path_only_replacement": true,
+    "generated_command_parameters_checked": true,
+    "gpu_executed": false,
+    "models_executed": false,
+    "runtime_build_executed": false,
+    "EXP028_package_hashes_unchanged": true
+  }
+}

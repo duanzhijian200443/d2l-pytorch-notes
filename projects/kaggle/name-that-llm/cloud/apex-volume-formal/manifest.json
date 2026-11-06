@@ -1,0 +1,94 @@
+{
+  "source_notebook_sha256": "ca4c9e18ed32dcd8168b8118b192d39d657803d30dcd89a564b1c2d1d9c846dd",
+  "source_metadata_sha256": "048535fc89265728c52dbd42089edf8dfebfbcd331b1dcfe26141efdc27f0763",
+  "local_size_cap_bytes": 524288,
+  "scope": "Only Stylegram fits and their execution checks differ from EXP054, with identical input requests.",
+  "build_inputs": {
+    "generate.py": "367ae94e508f40c0ddc2b372fec83e7b459fd90d54292798363cc21daba2847c",
+    "volume_block.py.in": "e9d3aca23d495430e2855301fa87914389c66cc7c912d49cd0e0cb62bc46fa7b",
+    "member_receipt.py.in": "e136b0e4ff9d264f87b9bd4a7e80e469de5c26e1a55f17111639097a694605c4",
+    "run_cell.py.in": "153b2d7741bb3e57a981efc51f9ea9487686afda653e22269b8d08fda455b7cc"
+  },
+  "arms": {
+    "four120": {
+      "arm": "four120",
+      "ref": "zhjianduan/ntl-apex-codex120-056",
+      "kernel_dir": "cloud/apex-codex120-056/kernel",
+      "notebook_sha256": "c6c9dee6bf8194f656aca10b15e599294bee1465603e78bccd4ddcaac9decc56",
+      "notebook_bytes": 212010,
+      "metadata_sha256": "d87f61378abc03e0c932577ce5f0647690cd1b7905a07c97d096b3636f57030e",
+      "comp_stack_sha256": "063cfb6c104836861fcdd406093b1744b00b46bbcb8ed2a7a1acec380cefd795",
+      "comp_stack_bytes": 126175,
+      "added_csv_sha256": "a4e86314a77f7ed699dbfb107b32a8263a1ff09fc7c3ec92b98d4028d487005d",
+      "rows": 120,
+      "groups": 30,
+      "shared_sha256": "b98c246578afbc38b9bf3c0be1e666a41cc15d051c64d03e875ab0c85da1bd3b",
+      "shared_rows": 10743,
+      "shared_groups": 738,
+      "input_count": 31,
+      "competition_input_count": 1,
+      "encoded_payload_bytes": 65664,
+      "changed_cells": [
+        12,
+        14
+      ],
+      "unchanged_module_hashes": {
+        "gauss.py": "908b57113f1a7b8ebdbf204c6be87cbc385f765ba50ac07b4e270c64b7cf1000",
+        "infer.py": "63112c88d43f9d69b3132243315e0db28c40b4bf0f42bac651f73ef07a67f9bb",
+        "sibling_style.py": "8a7f3b3dad7cbe1755b66e8455a157894cac92b8983fc805f5ed6286ea915e66"
+      },
+      "original_comp_stack_sha256": "4a4b800a5380094d78da66d140d224f8a3974d1e3012086783d5bf81b1264514",
+      "unchanged_comp_prefix_sha256": "2a544f9a7b02d327e63fa9ad75fc9123e20d4b0c20dc5ddbf984b37c827c4d95",
+      "unchanged_comp_suffix_sha256": "48c22d33cecb3433b237f621532ccf527c049a3c198d17b58a05f5ac80a274c6",
+      "unchanged_route_sha256": "83d7ecc890e730cd5cfc5e582247b776bcb31f0b4af2511f18a520b93c291fba",
+      "metadata_changes": [
+        "id",
+        "title",
+        "code_file"
+      ],
+      "public_preflight": "volume_preflight.json",
+      "hidden_member_receipt": "stylegram_volume_receipt.json",
+      "hidden_execution_receipt": "volume_comp_execution.json"
+    },
+    "four240": {
+      "arm": "four240",
+      "ref": "zhjianduan/ntl-apex-codex240-057",
+      "kernel_dir": "cloud/apex-codex240-057/kernel",
+      "notebook_sha256": "1683f9246149ea3e1c57a44f0a514e886284c8d36f3ddcd6b7ee4fa7046e0861",
+      "notebook_bytes": 280798,
+      "metadata_sha256": "6f301d8bef18fd8c8aac8cbbf7e97fd61e3aad9cc9ed6e493d693dc7e6784971",
+      "comp_stack_sha256": "5c8ea0be70cd7231bd23183028a3a8a8bc9cee73c3c461e863ebd9d4e2701b21",
+      "comp_stack_bytes": 194426,
+      "added_csv_sha256": "694d91e2536db2d77d81f8d8b32a802763a750a2e9643fdb0ba6a10b76755a01",
+      "rows": 240,
+      "groups": 60,
+      "shared_sha256": "b98c246578afbc38b9bf3c0be1e666a41cc15d051c64d03e875ab0c85da1bd3b",
+      "shared_rows": 10743,
+      "shared_groups": 738,
+      "input_count": 31,
+      "competition_input_count": 1,
+      "encoded_payload_bytes": 130156,
+      "changed_cells": [
+        12,
+        14
+      ],
+      "unchanged_module_hashes": {
+        "gauss.py": "908b57113f1a7b8ebdbf204c6be87cbc385f765ba50ac07b4e270c64b7cf1000",
+        "infer.py": "63112c88d43f9d69b3132243315e0db28c40b4bf0f42bac651f73ef07a67f9bb",
+        "sibling_style.py": "8a7f3b3dad7cbe1755b66e8455a157894cac92b8983fc805f5ed6286ea915e66"
+      },
+      "original_comp_stack_sha256": "4a4b800a5380094d78da66d140d224f8a3974d1e3012086783d5bf81b1264514",
+      "unchanged_comp_prefix_sha256": "2a544f9a7b02d327e63fa9ad75fc9123e20d4b0c20dc5ddbf984b37c827c4d95",
+      "unchanged_comp_suffix_sha256": "48c22d33cecb3433b237f621532ccf527c049a3c198d17b58a05f5ac80a274c6",
+      "unchanged_route_sha256": "83d7ecc890e730cd5cfc5e582247b776bcb31f0b4af2511f18a520b93c291fba",
+      "metadata_changes": [
+        "id",
+        "title",
+        "code_file"
+      ],
+      "public_preflight": "volume_preflight.json",
+      "hidden_member_receipt": "stylegram_volume_receipt.json",
+      "hidden_execution_receipt": "volume_comp_execution.json"
+    }
+  }
+}

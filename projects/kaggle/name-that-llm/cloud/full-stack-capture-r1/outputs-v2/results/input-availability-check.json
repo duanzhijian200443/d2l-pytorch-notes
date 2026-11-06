@@ -1,0 +1,1730 @@
+{
+  "status": "PASS",
+  "availability_sha256": "137b459d46cc8a6bfb60779516d1a04545462d1be9751d88b1432ba52de7061f",
+  "input_policy_sha256": "d4167dbcccef49da7d439e4f459b1e15d17c8960ae6b622235ecee776cd3caf2",
+  "cpu": {
+    "schema_version": 1,
+    "policy_id": "exp031-original-optional-inputs-v1",
+    "status": "RESOLVED_PATH_AVAILABILITY",
+    "source_comp_sha256": "b6b6a7b8adbe50580c2d0de5a41d0764ae752fe729e1471872a9197ac956f222",
+    "expected_comp_members": [
+      "stylegram",
+      "stylometry_lgb",
+      "glm9b_twin",
+      "gauss_glm9b_L8",
+      "q3_8b_twin",
+      "gauss_q3_8b_L22",
+      "q25_7b_twin",
+      "q3_4b_twin",
+      "gauss_q3_4b_L4",
+      "debv3l",
+      "debv3l_twin",
+      "gauss_debv3l_L24",
+      "electl",
+      "desk",
+      "lora24_seed7",
+      "lora24_claude",
+      "lora24_claude_twin",
+      "lora20_q25_instyle",
+      "tokattn_deb",
+      "ultrabert"
+    ],
+    "allowed_omissions": [
+      "lora24_public",
+      "lora24_public_twin",
+      "tokattn_q35"
+    ],
+    "mandatory_globs": {
+      "lora24_seed7": "**/name-that-llm-train-lora24-s7/lora_out/job_final/COMPLETE.json",
+      "lora24_claude": "**/ntl-qwen3-8b-lora-claude-head/**/final/COMPLETE.json",
+      "lora20_q25_instyle": "**/ntl-train-lora-qwen25-instyle/lora_out/job_final/COMPLETE.json",
+      "tokattn_deb": "**/tokattn_debl23_final.pt",
+      "ultrabert": "**/ultrabert-380m-ntl/fold*/config.json",
+      "claude_gate": "**/ntl_extra_passages_claude.csv",
+      "backbone_deberta": "**/deberta-v3-large/config.json",
+      "backbone_electra": "**/electra-large-discriminator/config.json",
+      "backbone_desklib": "**/desklib-detector/config.json",
+      "backbone_glm": "**/glm4_9b_trunc25/config.json",
+      "backbone_qwen3_4b": "**/qwen-3/transformers/4b-base/1/config.json",
+      "backbone_qwen3_8b": "**/qwen-3/transformers/8b-base/1/config.json",
+      "backbone_qwen3_14b": "**/qwen-3/transformers/14b-base/1/config.json",
+      "setup_qwen3_8b_instruct": "**/qwen-3/transformers/8b/1/config.json",
+      "setup_qwen3_14b_instruct": "**/qwen-3/transformers/14b/1/config.json",
+      "backbone_qwen25_7b": "**/qwen2.5/transformers/7b/1/config.json",
+      "backbone_qwen25_14b": "**/qwen2.5/transformers/14b/1/config.json",
+      "backbone_llama": "**/llama31-8b-base-verified/config.json",
+      "main_deberta": "**/deberta_v3_large/encoder/config.json",
+      "main_deberta_meta": "**/deberta_v3_large/meta.json",
+      "main_n14_meta": "**/lora_qwen3_14b/meta.json",
+      "main_q25_meta": "**/lora_qwen25_14b/meta.json",
+      "setup_n8_meta": "**/lora8b_v1/meta.json",
+      "setup_n14_meta": "**/lora14b_v1/meta.json",
+      "setup_heads": "**/heads/q3_8bx.npz",
+      "atlas_bundle": "**/atlas_bundle.json",
+      "matched_public": "**/nlm_matched_clean.parquet",
+      "pool_public": "**/nlm_pool_v5.parquet",
+      "official_train": "**/name-that-llm/train.csv",
+      "head_ts_q3b8": "**/ts_q3b8/heads.pt",
+      "head_ts_q3b8_f0": "**/ts_q3b8_f0/heads.pt",
+      "head_ts_q3b8_f1": "**/ts_q3b8_f1/heads.pt",
+      "head_ts_q3b8_f2": "**/ts_q3b8_f2/heads.pt",
+      "head_ts_q3b8_f3": "**/ts_q3b8_f3/heads.pt",
+      "head_ts_q3b8_f4": "**/ts_q3b8_f4/heads.pt",
+      "head_ts_q3b14": "**/ts_q3b14/heads.pt",
+      "head_ts_q3b14_f0": "**/ts_q3b14_f0/heads.pt",
+      "head_ts_q3b14_f2": "**/ts_q3b14_f2/heads.pt",
+      "head_ts_q3b14_f4": "**/ts_q3b14_f4/heads.pt",
+      "head_ts_q25_7b": "**/ts_q25_7b/heads.pt",
+      "head_ts_llama8": "**/ts_llama8/heads.pt",
+      "head_ts_llama8_f0": "**/ts_llama8_f0/heads.pt",
+      "head_ts_llama8_f2": "**/ts_llama8_f2/heads.pt",
+      "head_ts_llama8_f4": "**/ts_llama8_f4/heads.pt",
+      "head_ts8_s7": "**/ts8_s7/heads.pt",
+      "head_ts8_s7_f0": "**/ts8_s7_f0/heads.pt",
+      "head_ts8_s7_f2": "**/ts8_s7_f2/heads.pt",
+      "head_ts8_s7_f4": "**/ts8_s7_f4/heads.pt",
+      "head_q8v5": "**/q8v5/heads.pt",
+      "head_q8v5_f0": "**/q8v5_f0/heads.pt",
+      "head_q8v5_f1": "**/q8v5_f1/heads.pt",
+      "head_q8v5_f2": "**/q8v5_f2/heads.pt",
+      "head_q8v5_f3": "**/q8v5_f3/heads.pt",
+      "head_q8v5_f4": "**/q8v5_f4/heads.pt",
+      "head_q14v5": "**/q14v5/heads.pt",
+      "head_q14v5_f0": "**/q14v5_f0/heads.pt",
+      "head_q14v5_f1": "**/q14v5_f1/heads.pt",
+      "head_q14v5_f2": "**/q14v5_f2/heads.pt",
+      "head_q14v5_f3": "**/q14v5_f3/heads.pt",
+      "head_q14v5_f4": "**/q14v5_f4/heads.pt",
+      "head_ll8v5": "**/ll8v5/heads.pt",
+      "head_ll8v5_f0": "**/ll8v5_f0/heads.pt",
+      "head_ll8v5_f1": "**/ll8v5_f1/heads.pt",
+      "head_ll8v5_f2": "**/ll8v5_f2/heads.pt",
+      "head_ll8v5_f3": "**/ll8v5_f3/heads.pt",
+      "head_ll8v5_f4": "**/ll8v5_f4/heads.pt"
+    },
+    "resolved_paths": {
+      "lora24_public": [],
+      "lora24_seed7": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/COMPLETE.json"
+      ],
+      "lora24_claude": [
+        "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/COMPLETE.json"
+      ],
+      "lora20_q25_instyle": [
+        "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/COMPLETE.json"
+      ],
+      "tokattn_deb": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn2/tokattn_debl23_final.pt"
+      ],
+      "ultrabert": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold0/config.json",
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold1/config.json",
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold2/config.json",
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold3/config.json",
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold4/config.json"
+      ],
+      "claude_gate": [
+        "/kaggle/input/datasets/seyitkaangunes/ntl-extra-api-passages/ntl_extra_passages_claude.csv"
+      ],
+      "backbone_deberta": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/deberta-v3-large/config.json"
+      ],
+      "backbone_electra": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/electra-large-discriminator/config.json"
+      ],
+      "backbone_desklib": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/desklib-detector/config.json"
+      ],
+      "backbone_glm": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/glm4_9b_trunc25/config.json"
+      ],
+      "backbone_qwen3_4b": [
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/config.json"
+      ],
+      "backbone_qwen3_8b": [
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/config.json"
+      ],
+      "backbone_qwen3_14b": [
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/config.json"
+      ],
+      "setup_qwen3_8b_instruct": [
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b/1/config.json"
+      ],
+      "setup_qwen3_14b_instruct": [
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/config.json"
+      ],
+      "backbone_qwen25_7b": [
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/config.json"
+      ],
+      "backbone_qwen25_14b": [
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/config.json"
+      ],
+      "backbone_llama": [
+        "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/config.json"
+      ],
+      "main_deberta": [
+        "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/deberta_v3_large/encoder/config.json"
+      ],
+      "main_deberta_meta": [
+        "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/deberta_v3_large/meta.json"
+      ],
+      "main_n14_meta": [
+        "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/lora_qwen3_14b/meta.json"
+      ],
+      "main_q25_meta": [
+        "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/lora_qwen25_14b/meta.json"
+      ],
+      "setup_n8_meta": [
+        "/kaggle/input/datasets/nishantdahal/ntl-two-stage-lora/lora8b_v1/meta.json"
+      ],
+      "setup_n14_meta": [
+        "/kaggle/input/datasets/nishantdahal/ntl-two-stage-lora/lora14b_v1/meta.json"
+      ],
+      "setup_heads": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/heads/q3_8bx.npz"
+      ],
+      "atlas_bundle": [
+        "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/atlas_adapter/atlas_adapter/atlas_bundle.json"
+      ],
+      "matched_public": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-matched-clean/nlm_matched_clean.parquet"
+      ],
+      "pool_public": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-matched-clean/nlm_pool_v5.parquet"
+      ],
+      "official_train": [
+        "/kaggle/input/competitions/name-that-llm/train.csv"
+      ],
+      "head_ts_q3b8": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8/heads.pt"
+      ],
+      "head_ts_q3b8_f0": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f0/heads.pt"
+      ],
+      "head_ts_q3b8_f1": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f1/heads.pt"
+      ],
+      "head_ts_q3b8_f2": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f2/heads.pt"
+      ],
+      "head_ts_q3b8_f3": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f3/heads.pt"
+      ],
+      "head_ts_q3b8_f4": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f4/heads.pt"
+      ],
+      "head_ts_q3b14": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14/heads.pt"
+      ],
+      "head_ts_q3b14_f0": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f0/heads.pt"
+      ],
+      "head_ts_q3b14_f2": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f2/heads.pt"
+      ],
+      "head_ts_q3b14_f4": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f4/heads.pt"
+      ],
+      "head_ts_q25_7b": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q25_7b/heads.pt"
+      ],
+      "head_ts_llama8": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8/heads.pt"
+      ],
+      "head_ts_llama8_f0": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f0/heads.pt"
+      ],
+      "head_ts_llama8_f2": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f2/heads.pt"
+      ],
+      "head_ts_llama8_f4": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f4/heads.pt"
+      ],
+      "head_ts8_s7": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7/heads.pt"
+      ],
+      "head_ts8_s7_f0": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f0/heads.pt"
+      ],
+      "head_ts8_s7_f2": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f2/heads.pt"
+      ],
+      "head_ts8_s7_f4": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f4/heads.pt"
+      ],
+      "head_q8v5": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5/heads.pt"
+      ],
+      "head_q8v5_f0": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f0/heads.pt"
+      ],
+      "head_q8v5_f1": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f1/heads.pt"
+      ],
+      "head_q8v5_f2": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f2/heads.pt"
+      ],
+      "head_q8v5_f3": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f3/heads.pt"
+      ],
+      "head_q8v5_f4": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f4/heads.pt"
+      ],
+      "head_q14v5": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5/heads.pt"
+      ],
+      "head_q14v5_f0": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f0/heads.pt"
+      ],
+      "head_q14v5_f1": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f1/heads.pt"
+      ],
+      "head_q14v5_f2": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f2/heads.pt"
+      ],
+      "head_q14v5_f3": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f3/heads.pt"
+      ],
+      "head_q14v5_f4": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f4/heads.pt"
+      ],
+      "head_ll8v5": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5/heads.pt"
+      ],
+      "head_ll8v5_f0": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f0/heads.pt"
+      ],
+      "head_ll8v5_f1": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f1/heads.pt"
+      ],
+      "head_ll8v5_f2": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f2/heads.pt"
+      ],
+      "head_ll8v5_f3": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f3/heads.pt"
+      ],
+      "head_ll8v5_f4": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f4/heads.pt"
+      ],
+      "lora24_seed7/norms.safetensors": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/norms.safetensors"
+      ],
+      "lora24_seed7/readouts.npz": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/readouts.npz"
+      ],
+      "lora24_seed7/adapter/adapter_config.json": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/adapter/adapter_config.json"
+      ],
+      "lora24_seed7/adapter/adapter_model.safetensors": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/adapter/adapter_model.safetensors"
+      ],
+      "lora24_seed7/tokenizer/tokenizer_config.json": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/tokenizer/tokenizer_config.json"
+      ],
+      "lora24_seed7/tokenizer/tokenizer.json": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/tokenizer/tokenizer.json"
+      ],
+      "lora24_seed7/optional_anchor": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/valid_features.npz"
+      ],
+      "lora24_claude/heads.safetensors": [
+        "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/heads.safetensors"
+      ],
+      "lora24_claude/readouts.npz": [
+        "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/readouts.npz"
+      ],
+      "lora24_claude/adapter/adapter_config.json": [
+        "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/adapter/adapter_config.json"
+      ],
+      "lora24_claude/adapter/adapter_model.safetensors": [
+        "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/adapter/adapter_model.safetensors"
+      ],
+      "lora24_claude/tokenizer/tokenizer_config.json": [
+        "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/tokenizer/tokenizer_config.json"
+      ],
+      "lora24_claude/tokenizer/tokenizer.json": [
+        "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/tokenizer/tokenizer.json"
+      ],
+      "lora24_claude/optional_anchor": [
+        "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/anchor_features.npz"
+      ],
+      "lora20_q25_instyle/norms.safetensors": [
+        "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/norms.safetensors"
+      ],
+      "lora20_q25_instyle/readouts.npz": [
+        "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/readouts.npz"
+      ],
+      "lora20_q25_instyle/adapter/adapter_config.json": [
+        "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/adapter/adapter_config.json"
+      ],
+      "lora20_q25_instyle/adapter/adapter_model.safetensors": [
+        "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/adapter/adapter_model.safetensors"
+      ],
+      "lora20_q25_instyle/tokenizer/tokenizer_config.json": [
+        "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/tokenizer/tokenizer_config.json"
+      ],
+      "lora20_q25_instyle/tokenizer/tokenizer.json": [
+        "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/tokenizer/tokenizer.json"
+      ],
+      "lora20_q25_instyle/optional_anchor": [
+        "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/valid_features.npz"
+      ],
+      "ultrabert/fold0/model.safetensors": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold0/model.safetensors"
+      ],
+      "ultrabert/fold0/tokenizer.json": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold0/tokenizer.json"
+      ],
+      "ultrabert/fold0/tokenizer_config.json": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold0/tokenizer_config.json"
+      ],
+      "ultrabert/fold1/model.safetensors": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold1/model.safetensors"
+      ],
+      "ultrabert/fold1/tokenizer.json": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold1/tokenizer.json"
+      ],
+      "ultrabert/fold1/tokenizer_config.json": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold1/tokenizer_config.json"
+      ],
+      "ultrabert/fold2/model.safetensors": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold2/model.safetensors"
+      ],
+      "ultrabert/fold2/tokenizer.json": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold2/tokenizer.json"
+      ],
+      "ultrabert/fold2/tokenizer_config.json": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold2/tokenizer_config.json"
+      ],
+      "ultrabert/fold3/model.safetensors": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold3/model.safetensors"
+      ],
+      "ultrabert/fold3/tokenizer.json": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold3/tokenizer.json"
+      ],
+      "ultrabert/fold3/tokenizer_config.json": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold3/tokenizer_config.json"
+      ],
+      "ultrabert/fold4/model.safetensors": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold4/model.safetensors"
+      ],
+      "ultrabert/fold4/tokenizer.json": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold4/tokenizer.json"
+      ],
+      "ultrabert/fold4/tokenizer_config.json": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold4/tokenizer_config.json"
+      ],
+      "backbone_deberta/weights": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/deberta-v3-large/model.safetensors"
+      ],
+      "backbone_deberta/tokenizer.json": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/deberta-v3-large/tokenizer.json"
+      ],
+      "backbone_deberta/tokenizer_config.json": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/deberta-v3-large/tokenizer_config.json"
+      ],
+      "backbone_electra/weights": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/electra-large-discriminator/model.safetensors"
+      ],
+      "backbone_electra/tokenizer.json": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/electra-large-discriminator/tokenizer.json"
+      ],
+      "backbone_electra/tokenizer_config.json": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/electra-large-discriminator/tokenizer_config.json"
+      ],
+      "backbone_desklib/weights": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/desklib-detector/model.safetensors"
+      ],
+      "backbone_desklib/tokenizer.json": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/desklib-detector/tokenizer.json"
+      ],
+      "backbone_desklib/tokenizer_config.json": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/desklib-detector/tokenizer_config.json"
+      ],
+      "backbone_glm/weights": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/glm4_9b_trunc25/model.safetensors"
+      ],
+      "backbone_glm/tokenizer.json": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/glm4_9b_trunc25/tokenizer.json"
+      ],
+      "backbone_glm/tokenizer_config.json": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/glm4_9b_trunc25/tokenizer_config.json"
+      ],
+      "backbone_qwen3_4b/weights": [
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/model-00001-of-00003.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/model-00002-of-00003.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/model-00003-of-00003.safetensors"
+      ],
+      "backbone_qwen3_4b/tokenizer.json": [
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/tokenizer.json"
+      ],
+      "backbone_qwen3_4b/tokenizer_config.json": [
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/tokenizer_config.json"
+      ],
+      "backbone_qwen3_8b/weights": [
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/model-00001-of-00005.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/model-00002-of-00005.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/model-00003-of-00005.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/model-00004-of-00005.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/model-00005-of-00005.safetensors"
+      ],
+      "backbone_qwen3_8b/tokenizer.json": [
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/tokenizer.json"
+      ],
+      "backbone_qwen3_8b/tokenizer_config.json": [
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/tokenizer_config.json"
+      ],
+      "backbone_qwen3_14b/weights": [
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00001-of-00008.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00002-of-00008.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00003-of-00008.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00004-of-00008.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00005-of-00008.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00006-of-00008.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00007-of-00008.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00008-of-00008.safetensors"
+      ],
+      "backbone_qwen3_14b/tokenizer.json": [
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/tokenizer.json"
+      ],
+      "backbone_qwen3_14b/tokenizer_config.json": [
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/tokenizer_config.json"
+      ],
+      "backbone_qwen25_7b/weights": [
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/model-00001-of-00004.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/model-00002-of-00004.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/model-00003-of-00004.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/model-00004-of-00004.safetensors"
+      ],
+      "backbone_qwen25_7b/tokenizer.json": [
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/tokenizer.json"
+      ],
+      "backbone_qwen25_7b/tokenizer_config.json": [
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/tokenizer_config.json"
+      ],
+      "backbone_qwen25_14b/weights": [
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00001-of-00008.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00002-of-00008.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00003-of-00008.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00004-of-00008.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00005-of-00008.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00006-of-00008.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00007-of-00008.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00008-of-00008.safetensors"
+      ],
+      "backbone_qwen25_14b/tokenizer.json": [
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/tokenizer.json"
+      ],
+      "backbone_qwen25_14b/tokenizer_config.json": [
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/tokenizer_config.json"
+      ],
+      "backbone_llama/weights": [
+        "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/model-00001-of-00004.safetensors",
+        "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/model-00002-of-00004.safetensors",
+        "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/model-00003-of-00004.safetensors",
+        "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/model-00004-of-00004.safetensors"
+      ],
+      "backbone_llama/tokenizer.json": [
+        "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/tokenizer.json"
+      ],
+      "backbone_llama/tokenizer_config.json": [
+        "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/tokenizer_config.json"
+      ],
+      "main_deberta/weights": [
+        "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/deberta_v3_large/encoder/model.safetensors"
+      ],
+      "main_deberta/tokenizer.json": [
+        "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/deberta_v3_large/encoder/tokenizer.json"
+      ],
+      "main_deberta/tokenizer_config.json": [
+        "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/deberta_v3_large/encoder/tokenizer_config.json"
+      ]
+    },
+    "input_file_count": 531,
+    "input_paths_sha256": "74049cb29dc8d6dfec06e20200fff55624528c5229125f0dd7fde0f9b370eb61",
+    "omission_reasons": {
+      "lora24_public": "No original marker; original loop skips this checkpoint",
+      "lora24_public_twin": "Parent checkpoint absent; no twin can contribute",
+      "tokattn_q35": "No Q35 backbone among the frozen inputs; the head alone is insufficient"
+    },
+    "group_coverage": {
+      "source": "comp G_TE / GROUP_ROWS",
+      "eligible_size_min": 2,
+      "eligible_size_max": 18,
+      "requires_at_least_one_eligible_group": true,
+      "if_unsatisfied": "CONDITIONAL_COVERAGE_UNSATISFIED; do not fabricate groups or remove planned keys"
+    },
+    "weights_changed": false,
+    "limits": [
+      "This pure resolver checks paths, not file contents, model_type JSON, tensor compatibility or model execution.",
+      "The caller must also verify the CPU manifest content hashes and actual immutable attachment version bindings.",
+      "The GPU must resolve its actual complete file list and compare to the frozen CPU policy before model work."
+    ]
+  },
+  "gpu_paths": [
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/model.safetensors.index.json",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/model-00001-of-00008.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/config.json",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/model-00003-of-00008.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/model-00002-of-00008.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/merges.txt",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/model-00007-of-00008.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/README.md",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/model-00008-of-00008.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/tokenizer.json",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/vocab.json",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/tokenizer_config.json",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/model-00005-of-00008.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/model-00006-of-00008.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/model-00004-of-00008.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/generation_config.json",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b/1/model.safetensors.index.json",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b/1/config.json",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b/1/merges.txt",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b/1/model-00005-of-00005.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b/1/model-00001-of-00005.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b/1/README.md",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b/1/model-00002-of-00005.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b/1/tokenizer.json",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b/1/vocab.json",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b/1/tokenizer_config.json",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b/1/model-00004-of-00005.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b/1/model-00003-of-00005.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b/1/generation_config.json",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/model.safetensors.index.json",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/config.json",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/merges.txt",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/model-00005-of-00005.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/model-00001-of-00005.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/README.md",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/model-00002-of-00005.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/tokenizer.json",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/vocab.json",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/tokenizer_config.json",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/model-00004-of-00005.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/model-00003-of-00005.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/generation_config.json",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model.safetensors.index.json",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00001-of-00008.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/config.json",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00003-of-00008.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00002-of-00008.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/merges.txt",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00007-of-00008.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/README.md",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00008-of-00008.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/tokenizer.json",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/vocab.json",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/tokenizer_config.json",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00005-of-00008.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00006-of-00008.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00004-of-00008.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/generation_config.json",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/model.safetensors.index.json",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/model-00003-of-00003.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/config.json",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/merges.txt",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/README.md",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/tokenizer.json",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/vocab.json",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/model-00001-of-00003.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/tokenizer_config.json",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/model-00002-of-00003.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/generation_config.json",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model.safetensors.index.json",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00001-of-00008.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/config.json",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00003-of-00008.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00002-of-00008.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/merges.txt",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/LICENSE",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00007-of-00008.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/README.md",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00008-of-00008.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/tokenizer.json",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/vocab.json",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/tokenizer_config.json",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00005-of-00008.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00006-of-00008.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/.gitattributes",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00004-of-00008.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/generation_config.json",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/model.safetensors.index.json",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/model-00003-of-00004.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/config.json",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/merges.txt",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/LICENSE",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/model-00001-of-00004.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/README.md",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/tokenizer.json",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/vocab.json",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/tokenizer_config.json",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/model-00004-of-00004.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/.gitattributes",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/model-00002-of-00004.safetensors",
+    "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/generation_config.json",
+    "/kaggle/input/competitions/name-that-llm/sample_submission.parquet",
+    "/kaggle/input/competitions/name-that-llm/train.csv",
+    "/kaggle/input/competitions/name-that-llm/test.csv",
+    "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/__script__.py",
+    "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/submission.parquet",
+    "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/__results__.html",
+    "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/worker1.log",
+    "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/__script__.ipynb",
+    "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/__output__.json",
+    "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/worker.py",
+    "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/worker0.log",
+    "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/custom.css",
+    "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_2/COMPLETE.json",
+    "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_2/readouts.npz",
+    "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_2/valid_features.npz",
+    "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/COMPLETE.json",
+    "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/readouts.npz",
+    "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/norms.safetensors",
+    "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/valid_features.npz",
+    "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_0/COMPLETE.json",
+    "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_0/readouts.npz",
+    "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_0/valid_features.npz",
+    "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_1/COMPLETE.json",
+    "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_1/readouts.npz",
+    "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_1/valid_features.npz",
+    "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/tokenizer/tokenizer.json",
+    "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/tokenizer/tokenizer_config.json",
+    "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/tokenizer/chat_template.jinja",
+    "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/adapter/adapter_model.safetensors",
+    "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/adapter/adapter_config.json",
+    "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/adapter/README.md",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/submission.parquet",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/__results__.html",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/__notebook__.ipynb",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/__output__.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/custom.css",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn2/tokattn_q8l22_final.pt",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn2/submission.parquet",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn2/__results__.html",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn2/tokattn_debl23_oof.npz",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn2/tokattn_q8l22_oof.npz",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn2/__notebook__.ipynb",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn2/tokattn_debl23_final.pt",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn2/__output__.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn2/custom.css",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/submission.parquet",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/__results__.html",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/__huggingface_repos__.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/__notebook__.ipynb",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/__output__.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/custom.css",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/submission.parquet",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/__results__.html",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/worker1.log",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/__notebook__.ipynb",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/__output__.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/worker.py",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/worker0.log",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/custom.css",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/enc_debv2xl_train.npz",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/submission.parquet",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/enc_debv2xxl_train.npz",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/enc_debv3l2_train.npz",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/__results__.html",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/__huggingface_repos__.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/__notebook__.ipynb",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/__output__.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/enc_electl_train.npz",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/enc_mbertl_train.npz",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/custom.css",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/submission.parquet",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/__results__.html",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/__huggingface_repos__.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/__notebook__.ipynb",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/__output__.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/custom.css",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn/submission.parquet",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn/__results__.html",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn/__notebook__.ipynb",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn/tokattn_final.pt",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn/__output__.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn/tokattn_oof.npz",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn/custom.css",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/desklib-detector/config.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/desklib-detector/tokenizer.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/desklib-detector/tokenizer_config.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/desklib-detector/model.safetensors",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/deberta-v3-large/config.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/deberta-v3-large/tokenizer.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/deberta-v3-large/tokenizer_config.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/deberta-v3-large/model.safetensors",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_2/COMPLETE.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_2/readouts.npz",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_2/valid_features.npz",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/COMPLETE.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/readouts.npz",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/norms.safetensors",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/valid_features.npz",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_3/COMPLETE.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_3/readouts.npz",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_3/valid_features.npz",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_0/COMPLETE.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_0/readouts.npz",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_0/valid_features.npz",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_4/COMPLETE.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_4/readouts.npz",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_4/valid_features.npz",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_1/COMPLETE.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_1/readouts.npz",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_1/valid_features.npz",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/tokenizer/tokenizer.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/tokenizer/tokenizer_config.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/tokenizer/chat_template.jinja",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/adapter/adapter_model.safetensors",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/adapter/adapter_config.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/adapter/README.md",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/electra-large-discriminator/config.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/electra-large-discriminator/tokenizer.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/electra-large-discriminator/tokenizer_config.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/electra-large-discriminator/model.safetensors",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/glm4_9b_trunc25/config.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/glm4_9b_trunc25/tokenizer.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/glm4_9b_trunc25/tokenizer_config.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/glm4_9b_trunc25/chat_template.jinja",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/glm4_9b_trunc25/trunc_info.json",
+    "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/glm4_9b_trunc25/model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-offline-wheels/bitsandbytes-0.50.2-py3-none-manylinux_2_24_x86_64.whl",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-offline-wheels/fla_core-0.5.2-py3-none-any.whl",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-offline-wheels/flash_linear_attention-0.5.2-py3-none-any.whl",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-offline-wheels/peft-0.21.2-py3-none-any.whl",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-matched-clean/nlm_matched_clean.parquet",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-matched-clean/nlm_pool_v2.parquet",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-matched-clean/nlm_pool_v5.parquet",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f0/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f0/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f0/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f1/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f1/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f1/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f2/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f2/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f2/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f3/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f3/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f3/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f4/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f4/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f4/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f0/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f0/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f0/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f1/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f1/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f1/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f2/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f2/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f2/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f3/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f3/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f3/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f4/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f4/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f4/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f0/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f0/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f0/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f1/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f1/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f1/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f2/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f2/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f2/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f3/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f3/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f3/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f4/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f4/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f4/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/heads/q3_14b4x.npz",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/heads/q3_32b4x.npz",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/heads/q3_8bx.npz",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/l24x_q25_7b/README.md",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/l24x_q25_7b/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/l24x_q25_7b/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/l24x_q25_7b/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/l24x_q3b8/README.md",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/l24x_q3b8/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/l24x_q3b8/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/l24x_q3b8/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f0/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f0/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f0/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f1/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f1/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f1/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f2/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f2/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f2/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f3/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f3/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f3/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f4/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f4/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f4/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f0/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f0/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f0/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f1/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f1/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f1/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f2/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f2/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f2/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f3/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f3/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f3/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f4/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f4/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f4/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q25_7b/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q25_7b/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q25_7b/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14/README.md",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f0/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f0/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f0/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f1/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f1/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f1/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f2/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f2/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f2/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f3/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f3/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f3/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f4/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f4/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f4/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8/README.md",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f0/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f0/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f0/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f1/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f1/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f1/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f2/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f2/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f2/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f3/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f3/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f3/heads.pt",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f4/adapter_config.json",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f4/adapter_model.safetensors",
+    "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f4/heads.pt",
+    "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/CREDITS.md",
+    "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/LICENSE-CODE-APACHE-2.0.txt",
+    "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/LICENSE-WEIGHTS-CC-BY-SA-4.0.txt",
+    "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/LICENSES.md",
+    "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/base-fingerprint.json",
+    "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/atlas_adapter/atlas_adapter/adapters.safetensors",
+    "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/atlas_adapter/atlas_adapter/atlas_bundle.json",
+    "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/atlas_adapter/atlas_adapter/checkpoint.json",
+    "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/atlas_adapter/atlas_adapter/inference-source-manifest.json",
+    "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/atlas_adapter/atlas_adapter/training-source-manifest.json",
+    "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/atlas_adapter/atlas_adapter/ntl_atlas/__init__.py",
+    "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/atlas_adapter/atlas_adapter/ntl_atlas/inference.py",
+    "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/atlas_adapter/atlas_adapter/ntl_atlas/model.py",
+    "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/atlas_adapter/atlas_adapter/ntl_rlcd/__init__.py",
+    "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/atlas_adapter/atlas_adapter/ntl_rlcd/data.py",
+    "/kaggle/input/datasets/nishantdahal/ntl-two-stage-lora/pool_v1.parquet",
+    "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/pool_v4.parquet",
+    "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/deberta_v3_large/head.safetensors",
+    "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/deberta_v3_large/meta.json",
+    "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/lora_qwen25_14b/heads.safetensors",
+    "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/lora_qwen25_14b/meta.json",
+    "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/lora_qwen3_14b/heads.safetensors",
+    "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/lora_qwen3_14b/meta.json",
+    "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/lora_qwen3_14b/adapter/adapter_config.json",
+    "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/lora_qwen3_14b/adapter/adapter_model.safetensors",
+    "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/lora_qwen25_14b/adapter/adapter_config.json",
+    "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/lora_qwen25_14b/adapter/adapter_model.safetensors",
+    "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/deberta_v3_large/encoder/config.json",
+    "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/deberta_v3_large/encoder/model.safetensors",
+    "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/deberta_v3_large/encoder/tokenizer.json",
+    "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/deberta_v3_large/encoder/tokenizer_config.json",
+    "/kaggle/input/datasets/nishantdahal/ntl-two-stage-lora/lora14b_v1/heads.safetensors",
+    "/kaggle/input/datasets/nishantdahal/ntl-two-stage-lora/lora14b_v1/meta.json",
+    "/kaggle/input/datasets/nishantdahal/ntl-two-stage-lora/lora8b_v1/heads.safetensors",
+    "/kaggle/input/datasets/nishantdahal/ntl-two-stage-lora/lora8b_v1/meta.json",
+    "/kaggle/input/datasets/nishantdahal/ntl-two-stage-lora/lora8b_v1/adapter/README.md",
+    "/kaggle/input/datasets/nishantdahal/ntl-two-stage-lora/lora8b_v1/adapter/adapter_config.json",
+    "/kaggle/input/datasets/nishantdahal/ntl-two-stage-lora/lora8b_v1/adapter/adapter_model.safetensors",
+    "/kaggle/input/datasets/nishantdahal/ntl-two-stage-lora/lora14b_v1/adapter/README.md",
+    "/kaggle/input/datasets/nishantdahal/ntl-two-stage-lora/lora14b_v1/adapter/adapter_config.json",
+    "/kaggle/input/datasets/nishantdahal/ntl-two-stage-lora/lora14b_v1/adapter/adapter_model.safetensors",
+    "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/COMPLETE.json",
+    "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/anchor_features.npz",
+    "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/heads.safetensors",
+    "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/readouts.npz",
+    "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/fold0/COMPLETE.json",
+    "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/fold0/heads.safetensors",
+    "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/fold0/readouts.npz",
+    "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/fold0/validation_features.npz",
+    "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/fold0/adapter/README.md",
+    "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/fold0/adapter/adapter_config.json",
+    "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/fold0/adapter/adapter_model.safetensors",
+    "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/adapter/README.md",
+    "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/adapter/adapter_config.json",
+    "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/adapter/adapter_model.safetensors",
+    "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/tokenizer/chat_template.jinja",
+    "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/tokenizer/tokenizer.json",
+    "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/tokenizer/tokenizer_config.json",
+    "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/LICENSE",
+    "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/NOTICE",
+    "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/README.md",
+    "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/USE_POLICY.md",
+    "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/config.json",
+    "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/generation_config.json",
+    "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/model-00001-of-00004.safetensors",
+    "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/model-00002-of-00004.safetensors",
+    "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/model-00003-of-00004.safetensors",
+    "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/model-00004-of-00004.safetensors",
+    "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/model.safetensors.index.json",
+    "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/special_tokens_map.json",
+    "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/tokenizer.json",
+    "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/tokenizer_config.json",
+    "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/transfer_manifest.json",
+    "/kaggle/input/datasets/zhjianduan/ntl-generations/README.md",
+    "/kaggle/input/datasets/zhjianduan/ntl-generations/make_tasks.py",
+    "/kaggle/input/datasets/zhjianduan/ntl-generations/ntl_generations.csv",
+    "/kaggle/input/datasets/zhjianduan/ntl-generations/prompts_used.csv",
+    "/kaggle/input/datasets/zhjianduan/ntl-generations/snapshot_provenance.json",
+    "/kaggle/input/datasets/zhjianduan/ntl-free-proxy-generations/README.md",
+    "/kaggle/input/datasets/zhjianduan/ntl-free-proxy-generations/gen_passages.csv",
+    "/kaggle/input/datasets/zhjianduan/ntl-free-proxy-generations/snapshot_provenance.json",
+    "/kaggle/input/datasets/dophuchung/ntl-proxy-generations/README.md",
+    "/kaggle/input/datasets/dophuchung/ntl-proxy-generations/ntl_proxy_generations.csv",
+    "/kaggle/input/datasets/prvsiyan/prvsiyans-extended-name-that-llm-dataset/CHANGELOG.md",
+    "/kaggle/input/datasets/prvsiyan/prvsiyans-extended-name-that-llm-dataset/README.md",
+    "/kaggle/input/datasets/prvsiyan/prvsiyans-extended-name-that-llm-dataset/blocks.csv",
+    "/kaggle/input/datasets/prvsiyan/prvsiyans-extended-name-that-llm-dataset/cover_1200x675.png",
+    "/kaggle/input/datasets/prvsiyan/prvsiyans-extended-name-that-llm-dataset/label_summary.csv",
+    "/kaggle/input/datasets/prvsiyan/prvsiyans-extended-name-that-llm-dataset/make_cover.py",
+    "/kaggle/input/datasets/prvsiyan/prvsiyans-extended-name-that-llm-dataset/passages.csv",
+    "/kaggle/input/datasets/prvsiyan/prvsiyans-extended-name-that-llm-dataset/passages_clean.csv",
+    "/kaggle/input/datasets/prvsiyan/prvsiyans-extended-name-that-llm-dataset/prompts.csv",
+    "/kaggle/input/datasets/prvsiyan/prvsiyans-extended-name-that-llm-dataset/provenance.jsonl",
+    "/kaggle/input/datasets/prvsiyan/prvsiyans-extended-name-that-llm-dataset/provenance_summary.json",
+    "/kaggle/input/datasets/prvsiyan/prvsiyans-extended-name-that-llm-dataset/starter_notebook.ipynb",
+    "/kaggle/input/datasets/prvsiyan/prvsiyans-extended-name-that-llm-dataset/train_vs_dataset_stats.csv",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold0/config.json",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold0/configuration_ultrabert.py",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold0/model.safetensors",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold0/modeling_ultrabert.py",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold0/tokenizer.json",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold0/tokenizer_config.json",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold1/config.json",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold1/configuration_ultrabert.py",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold1/model.safetensors",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold1/modeling_ultrabert.py",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold1/tokenizer.json",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold1/tokenizer_config.json",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold2/config.json",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold2/configuration_ultrabert.py",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold2/model.safetensors",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold2/modeling_ultrabert.py",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold2/tokenizer.json",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold2/tokenizer_config.json",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold3/config.json",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold3/configuration_ultrabert.py",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold3/model.safetensors",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold3/modeling_ultrabert.py",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold3/tokenizer.json",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold3/tokenizer_config.json",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold4/config.json",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold4/configuration_ultrabert.py",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold4/model.safetensors",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold4/modeling_ultrabert.py",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold4/tokenizer.json",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold4/tokenizer_config.json",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/annotated_doc-0.0.5-py3-none-any.whl",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/anyio-4.15.1-py3-none-any.whl",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/certifi-2026.7.22-py3-none-any.whl",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/click-8.5.0-py3-none-any.whl",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/filelock-4.2.0-py3-none-any.whl",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/fsspec-2026.9.0-py3-none-any.whl",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/h11-0.16.0-py3-none-any.whl",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/hf_xet-1.7.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/httpcore-1.0.9-py3-none-any.whl",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/httpx-0.28.1-py3-none-any.whl",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/huggingface_hub-1.33.0-py3-none-any.whl",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/idna-3.20-py3-none-any.whl",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/markdown_it_py-4.2.0-py3-none-any.whl",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/mdurl-0.1.2-py3-none-any.whl",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/packaging-26.3-py3-none-any.whl",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/pygments-2.21.0-py3-none-any.whl",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/regex-2026.9.29-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/rich-15.0.0-py3-none-any.whl",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/shellingham-1.5.4-py2.py3-none-any.whl",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/tokenizers-0.23.3-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/tqdm-4.70.1-py3-none-any.whl",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/transformers-5.16.1-py3-none-any.whl",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/typer-0.27.3-py3-none-any.whl",
+    "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/typing_extensions-4.16.0-py3-none-any.whl",
+    "/kaggle/input/datasets/seyitkaangunes/ntl-extra-api-passages/README.md",
+    "/kaggle/input/datasets/seyitkaangunes/ntl-extra-api-passages/ntl_extra_passages_claude.csv",
+    "/kaggle/input/datasets/seyitkaangunes/ntl-extra-api-passages/prompts.csv"
+  ],
+  "gpu": {
+    "schema_version": 1,
+    "policy_id": "exp031-original-optional-inputs-v1",
+    "status": "RESOLVED_PATH_AVAILABILITY",
+    "source_comp_sha256": "b6b6a7b8adbe50580c2d0de5a41d0764ae752fe729e1471872a9197ac956f222",
+    "expected_comp_members": [
+      "stylegram",
+      "stylometry_lgb",
+      "glm9b_twin",
+      "gauss_glm9b_L8",
+      "q3_8b_twin",
+      "gauss_q3_8b_L22",
+      "q25_7b_twin",
+      "q3_4b_twin",
+      "gauss_q3_4b_L4",
+      "debv3l",
+      "debv3l_twin",
+      "gauss_debv3l_L24",
+      "electl",
+      "desk",
+      "lora24_seed7",
+      "lora24_claude",
+      "lora24_claude_twin",
+      "lora20_q25_instyle",
+      "tokattn_deb",
+      "ultrabert"
+    ],
+    "allowed_omissions": [
+      "lora24_public",
+      "lora24_public_twin",
+      "tokattn_q35"
+    ],
+    "mandatory_globs": {
+      "lora24_seed7": "**/name-that-llm-train-lora24-s7/lora_out/job_final/COMPLETE.json",
+      "lora24_claude": "**/ntl-qwen3-8b-lora-claude-head/**/final/COMPLETE.json",
+      "lora20_q25_instyle": "**/ntl-train-lora-qwen25-instyle/lora_out/job_final/COMPLETE.json",
+      "tokattn_deb": "**/tokattn_debl23_final.pt",
+      "ultrabert": "**/ultrabert-380m-ntl/fold*/config.json",
+      "claude_gate": "**/ntl_extra_passages_claude.csv",
+      "backbone_deberta": "**/deberta-v3-large/config.json",
+      "backbone_electra": "**/electra-large-discriminator/config.json",
+      "backbone_desklib": "**/desklib-detector/config.json",
+      "backbone_glm": "**/glm4_9b_trunc25/config.json",
+      "backbone_qwen3_4b": "**/qwen-3/transformers/4b-base/1/config.json",
+      "backbone_qwen3_8b": "**/qwen-3/transformers/8b-base/1/config.json",
+      "backbone_qwen3_14b": "**/qwen-3/transformers/14b-base/1/config.json",
+      "setup_qwen3_8b_instruct": "**/qwen-3/transformers/8b/1/config.json",
+      "setup_qwen3_14b_instruct": "**/qwen-3/transformers/14b/1/config.json",
+      "backbone_qwen25_7b": "**/qwen2.5/transformers/7b/1/config.json",
+      "backbone_qwen25_14b": "**/qwen2.5/transformers/14b/1/config.json",
+      "backbone_llama": "**/llama31-8b-base-verified/config.json",
+      "main_deberta": "**/deberta_v3_large/encoder/config.json",
+      "main_deberta_meta": "**/deberta_v3_large/meta.json",
+      "main_n14_meta": "**/lora_qwen3_14b/meta.json",
+      "main_q25_meta": "**/lora_qwen25_14b/meta.json",
+      "setup_n8_meta": "**/lora8b_v1/meta.json",
+      "setup_n14_meta": "**/lora14b_v1/meta.json",
+      "setup_heads": "**/heads/q3_8bx.npz",
+      "atlas_bundle": "**/atlas_bundle.json",
+      "matched_public": "**/nlm_matched_clean.parquet",
+      "pool_public": "**/nlm_pool_v5.parquet",
+      "official_train": "**/name-that-llm/train.csv",
+      "head_ts_q3b8": "**/ts_q3b8/heads.pt",
+      "head_ts_q3b8_f0": "**/ts_q3b8_f0/heads.pt",
+      "head_ts_q3b8_f1": "**/ts_q3b8_f1/heads.pt",
+      "head_ts_q3b8_f2": "**/ts_q3b8_f2/heads.pt",
+      "head_ts_q3b8_f3": "**/ts_q3b8_f3/heads.pt",
+      "head_ts_q3b8_f4": "**/ts_q3b8_f4/heads.pt",
+      "head_ts_q3b14": "**/ts_q3b14/heads.pt",
+      "head_ts_q3b14_f0": "**/ts_q3b14_f0/heads.pt",
+      "head_ts_q3b14_f2": "**/ts_q3b14_f2/heads.pt",
+      "head_ts_q3b14_f4": "**/ts_q3b14_f4/heads.pt",
+      "head_ts_q25_7b": "**/ts_q25_7b/heads.pt",
+      "head_ts_llama8": "**/ts_llama8/heads.pt",
+      "head_ts_llama8_f0": "**/ts_llama8_f0/heads.pt",
+      "head_ts_llama8_f2": "**/ts_llama8_f2/heads.pt",
+      "head_ts_llama8_f4": "**/ts_llama8_f4/heads.pt",
+      "head_ts8_s7": "**/ts8_s7/heads.pt",
+      "head_ts8_s7_f0": "**/ts8_s7_f0/heads.pt",
+      "head_ts8_s7_f2": "**/ts8_s7_f2/heads.pt",
+      "head_ts8_s7_f4": "**/ts8_s7_f4/heads.pt",
+      "head_q8v5": "**/q8v5/heads.pt",
+      "head_q8v5_f0": "**/q8v5_f0/heads.pt",
+      "head_q8v5_f1": "**/q8v5_f1/heads.pt",
+      "head_q8v5_f2": "**/q8v5_f2/heads.pt",
+      "head_q8v5_f3": "**/q8v5_f3/heads.pt",
+      "head_q8v5_f4": "**/q8v5_f4/heads.pt",
+      "head_q14v5": "**/q14v5/heads.pt",
+      "head_q14v5_f0": "**/q14v5_f0/heads.pt",
+      "head_q14v5_f1": "**/q14v5_f1/heads.pt",
+      "head_q14v5_f2": "**/q14v5_f2/heads.pt",
+      "head_q14v5_f3": "**/q14v5_f3/heads.pt",
+      "head_q14v5_f4": "**/q14v5_f4/heads.pt",
+      "head_ll8v5": "**/ll8v5/heads.pt",
+      "head_ll8v5_f0": "**/ll8v5_f0/heads.pt",
+      "head_ll8v5_f1": "**/ll8v5_f1/heads.pt",
+      "head_ll8v5_f2": "**/ll8v5_f2/heads.pt",
+      "head_ll8v5_f3": "**/ll8v5_f3/heads.pt",
+      "head_ll8v5_f4": "**/ll8v5_f4/heads.pt"
+    },
+    "resolved_paths": {
+      "lora24_public": [],
+      "lora24_seed7": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/COMPLETE.json"
+      ],
+      "lora24_claude": [
+        "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/COMPLETE.json"
+      ],
+      "lora20_q25_instyle": [
+        "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/COMPLETE.json"
+      ],
+      "tokattn_deb": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn2/tokattn_debl23_final.pt"
+      ],
+      "ultrabert": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold0/config.json",
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold1/config.json",
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold2/config.json",
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold3/config.json",
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold4/config.json"
+      ],
+      "claude_gate": [
+        "/kaggle/input/datasets/seyitkaangunes/ntl-extra-api-passages/ntl_extra_passages_claude.csv"
+      ],
+      "backbone_deberta": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/deberta-v3-large/config.json"
+      ],
+      "backbone_electra": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/electra-large-discriminator/config.json"
+      ],
+      "backbone_desklib": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/desklib-detector/config.json"
+      ],
+      "backbone_glm": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/glm4_9b_trunc25/config.json"
+      ],
+      "backbone_qwen3_4b": [
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/config.json"
+      ],
+      "backbone_qwen3_8b": [
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/config.json"
+      ],
+      "backbone_qwen3_14b": [
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/config.json"
+      ],
+      "setup_qwen3_8b_instruct": [
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b/1/config.json"
+      ],
+      "setup_qwen3_14b_instruct": [
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/config.json"
+      ],
+      "backbone_qwen25_7b": [
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/config.json"
+      ],
+      "backbone_qwen25_14b": [
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/config.json"
+      ],
+      "backbone_llama": [
+        "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/config.json"
+      ],
+      "main_deberta": [
+        "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/deberta_v3_large/encoder/config.json"
+      ],
+      "main_deberta_meta": [
+        "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/deberta_v3_large/meta.json"
+      ],
+      "main_n14_meta": [
+        "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/lora_qwen3_14b/meta.json"
+      ],
+      "main_q25_meta": [
+        "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/lora_qwen25_14b/meta.json"
+      ],
+      "setup_n8_meta": [
+        "/kaggle/input/datasets/nishantdahal/ntl-two-stage-lora/lora8b_v1/meta.json"
+      ],
+      "setup_n14_meta": [
+        "/kaggle/input/datasets/nishantdahal/ntl-two-stage-lora/lora14b_v1/meta.json"
+      ],
+      "setup_heads": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/heads/q3_8bx.npz"
+      ],
+      "atlas_bundle": [
+        "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/atlas_adapter/atlas_adapter/atlas_bundle.json"
+      ],
+      "matched_public": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-matched-clean/nlm_matched_clean.parquet"
+      ],
+      "pool_public": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-matched-clean/nlm_pool_v5.parquet"
+      ],
+      "official_train": [
+        "/kaggle/input/competitions/name-that-llm/train.csv"
+      ],
+      "head_ts_q3b8": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8/heads.pt"
+      ],
+      "head_ts_q3b8_f0": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f0/heads.pt"
+      ],
+      "head_ts_q3b8_f1": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f1/heads.pt"
+      ],
+      "head_ts_q3b8_f2": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f2/heads.pt"
+      ],
+      "head_ts_q3b8_f3": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f3/heads.pt"
+      ],
+      "head_ts_q3b8_f4": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f4/heads.pt"
+      ],
+      "head_ts_q3b14": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14/heads.pt"
+      ],
+      "head_ts_q3b14_f0": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f0/heads.pt"
+      ],
+      "head_ts_q3b14_f2": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f2/heads.pt"
+      ],
+      "head_ts_q3b14_f4": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f4/heads.pt"
+      ],
+      "head_ts_q25_7b": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q25_7b/heads.pt"
+      ],
+      "head_ts_llama8": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8/heads.pt"
+      ],
+      "head_ts_llama8_f0": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f0/heads.pt"
+      ],
+      "head_ts_llama8_f2": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f2/heads.pt"
+      ],
+      "head_ts_llama8_f4": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f4/heads.pt"
+      ],
+      "head_ts8_s7": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7/heads.pt"
+      ],
+      "head_ts8_s7_f0": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f0/heads.pt"
+      ],
+      "head_ts8_s7_f2": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f2/heads.pt"
+      ],
+      "head_ts8_s7_f4": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f4/heads.pt"
+      ],
+      "head_q8v5": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5/heads.pt"
+      ],
+      "head_q8v5_f0": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f0/heads.pt"
+      ],
+      "head_q8v5_f1": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f1/heads.pt"
+      ],
+      "head_q8v5_f2": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f2/heads.pt"
+      ],
+      "head_q8v5_f3": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f3/heads.pt"
+      ],
+      "head_q8v5_f4": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f4/heads.pt"
+      ],
+      "head_q14v5": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5/heads.pt"
+      ],
+      "head_q14v5_f0": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f0/heads.pt"
+      ],
+      "head_q14v5_f1": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f1/heads.pt"
+      ],
+      "head_q14v5_f2": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f2/heads.pt"
+      ],
+      "head_q14v5_f3": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f3/heads.pt"
+      ],
+      "head_q14v5_f4": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f4/heads.pt"
+      ],
+      "head_ll8v5": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5/heads.pt"
+      ],
+      "head_ll8v5_f0": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f0/heads.pt"
+      ],
+      "head_ll8v5_f1": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f1/heads.pt"
+      ],
+      "head_ll8v5_f2": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f2/heads.pt"
+      ],
+      "head_ll8v5_f3": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f3/heads.pt"
+      ],
+      "head_ll8v5_f4": [
+        "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f4/heads.pt"
+      ],
+      "lora24_seed7/norms.safetensors": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/norms.safetensors"
+      ],
+      "lora24_seed7/readouts.npz": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/readouts.npz"
+      ],
+      "lora24_seed7/adapter/adapter_config.json": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/adapter/adapter_config.json"
+      ],
+      "lora24_seed7/adapter/adapter_model.safetensors": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/adapter/adapter_model.safetensors"
+      ],
+      "lora24_seed7/tokenizer/tokenizer_config.json": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/tokenizer/tokenizer_config.json"
+      ],
+      "lora24_seed7/tokenizer/tokenizer.json": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/tokenizer/tokenizer.json"
+      ],
+      "lora24_seed7/optional_anchor": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/valid_features.npz"
+      ],
+      "lora24_claude/heads.safetensors": [
+        "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/heads.safetensors"
+      ],
+      "lora24_claude/readouts.npz": [
+        "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/readouts.npz"
+      ],
+      "lora24_claude/adapter/adapter_config.json": [
+        "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/adapter/adapter_config.json"
+      ],
+      "lora24_claude/adapter/adapter_model.safetensors": [
+        "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/adapter/adapter_model.safetensors"
+      ],
+      "lora24_claude/tokenizer/tokenizer_config.json": [
+        "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/tokenizer/tokenizer_config.json"
+      ],
+      "lora24_claude/tokenizer/tokenizer.json": [
+        "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/tokenizer/tokenizer.json"
+      ],
+      "lora24_claude/optional_anchor": [
+        "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/anchor_features.npz"
+      ],
+      "lora20_q25_instyle/norms.safetensors": [
+        "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/norms.safetensors"
+      ],
+      "lora20_q25_instyle/readouts.npz": [
+        "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/readouts.npz"
+      ],
+      "lora20_q25_instyle/adapter/adapter_config.json": [
+        "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/adapter/adapter_config.json"
+      ],
+      "lora20_q25_instyle/adapter/adapter_model.safetensors": [
+        "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/adapter/adapter_model.safetensors"
+      ],
+      "lora20_q25_instyle/tokenizer/tokenizer_config.json": [
+        "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/tokenizer/tokenizer_config.json"
+      ],
+      "lora20_q25_instyle/tokenizer/tokenizer.json": [
+        "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/tokenizer/tokenizer.json"
+      ],
+      "lora20_q25_instyle/optional_anchor": [
+        "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/valid_features.npz"
+      ],
+      "ultrabert/fold0/model.safetensors": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold0/model.safetensors"
+      ],
+      "ultrabert/fold0/tokenizer.json": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold0/tokenizer.json"
+      ],
+      "ultrabert/fold0/tokenizer_config.json": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold0/tokenizer_config.json"
+      ],
+      "ultrabert/fold1/model.safetensors": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold1/model.safetensors"
+      ],
+      "ultrabert/fold1/tokenizer.json": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold1/tokenizer.json"
+      ],
+      "ultrabert/fold1/tokenizer_config.json": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold1/tokenizer_config.json"
+      ],
+      "ultrabert/fold2/model.safetensors": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold2/model.safetensors"
+      ],
+      "ultrabert/fold2/tokenizer.json": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold2/tokenizer.json"
+      ],
+      "ultrabert/fold2/tokenizer_config.json": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold2/tokenizer_config.json"
+      ],
+      "ultrabert/fold3/model.safetensors": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold3/model.safetensors"
+      ],
+      "ultrabert/fold3/tokenizer.json": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold3/tokenizer.json"
+      ],
+      "ultrabert/fold3/tokenizer_config.json": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold3/tokenizer_config.json"
+      ],
+      "ultrabert/fold4/model.safetensors": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold4/model.safetensors"
+      ],
+      "ultrabert/fold4/tokenizer.json": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold4/tokenizer.json"
+      ],
+      "ultrabert/fold4/tokenizer_config.json": [
+        "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold4/tokenizer_config.json"
+      ],
+      "backbone_deberta/weights": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/deberta-v3-large/model.safetensors"
+      ],
+      "backbone_deberta/tokenizer.json": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/deberta-v3-large/tokenizer.json"
+      ],
+      "backbone_deberta/tokenizer_config.json": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/deberta-v3-large/tokenizer_config.json"
+      ],
+      "backbone_electra/weights": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/electra-large-discriminator/model.safetensors"
+      ],
+      "backbone_electra/tokenizer.json": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/electra-large-discriminator/tokenizer.json"
+      ],
+      "backbone_electra/tokenizer_config.json": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/electra-large-discriminator/tokenizer_config.json"
+      ],
+      "backbone_desklib/weights": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/desklib-detector/model.safetensors"
+      ],
+      "backbone_desklib/tokenizer.json": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/desklib-detector/tokenizer.json"
+      ],
+      "backbone_desklib/tokenizer_config.json": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/desklib-detector/tokenizer_config.json"
+      ],
+      "backbone_glm/weights": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/glm4_9b_trunc25/model.safetensors"
+      ],
+      "backbone_glm/tokenizer.json": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/glm4_9b_trunc25/tokenizer.json"
+      ],
+      "backbone_glm/tokenizer_config.json": [
+        "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/glm4_9b_trunc25/tokenizer_config.json"
+      ],
+      "backbone_qwen3_4b/weights": [
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/model-00001-of-00003.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/model-00002-of-00003.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/model-00003-of-00003.safetensors"
+      ],
+      "backbone_qwen3_4b/tokenizer.json": [
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/tokenizer.json"
+      ],
+      "backbone_qwen3_4b/tokenizer_config.json": [
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/tokenizer_config.json"
+      ],
+      "backbone_qwen3_8b/weights": [
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/model-00001-of-00005.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/model-00002-of-00005.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/model-00003-of-00005.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/model-00004-of-00005.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/model-00005-of-00005.safetensors"
+      ],
+      "backbone_qwen3_8b/tokenizer.json": [
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/tokenizer.json"
+      ],
+      "backbone_qwen3_8b/tokenizer_config.json": [
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/tokenizer_config.json"
+      ],
+      "backbone_qwen3_14b/weights": [
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00001-of-00008.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00002-of-00008.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00003-of-00008.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00004-of-00008.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00005-of-00008.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00006-of-00008.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00007-of-00008.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00008-of-00008.safetensors"
+      ],
+      "backbone_qwen3_14b/tokenizer.json": [
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/tokenizer.json"
+      ],
+      "backbone_qwen3_14b/tokenizer_config.json": [
+        "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/tokenizer_config.json"
+      ],
+      "backbone_qwen25_7b/weights": [
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/model-00001-of-00004.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/model-00002-of-00004.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/model-00003-of-00004.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/model-00004-of-00004.safetensors"
+      ],
+      "backbone_qwen25_7b/tokenizer.json": [
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/tokenizer.json"
+      ],
+      "backbone_qwen25_7b/tokenizer_config.json": [
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/tokenizer_config.json"
+      ],
+      "backbone_qwen25_14b/weights": [
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00001-of-00008.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00002-of-00008.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00003-of-00008.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00004-of-00008.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00005-of-00008.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00006-of-00008.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00007-of-00008.safetensors",
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00008-of-00008.safetensors"
+      ],
+      "backbone_qwen25_14b/tokenizer.json": [
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/tokenizer.json"
+      ],
+      "backbone_qwen25_14b/tokenizer_config.json": [
+        "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/tokenizer_config.json"
+      ],
+      "backbone_llama/weights": [
+        "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/model-00001-of-00004.safetensors",
+        "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/model-00002-of-00004.safetensors",
+        "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/model-00003-of-00004.safetensors",
+        "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/model-00004-of-00004.safetensors"
+      ],
+      "backbone_llama/tokenizer.json": [
+        "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/tokenizer.json"
+      ],
+      "backbone_llama/tokenizer_config.json": [
+        "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/tokenizer_config.json"
+      ],
+      "main_deberta/weights": [
+        "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/deberta_v3_large/encoder/model.safetensors"
+      ],
+      "main_deberta/tokenizer.json": [
+        "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/deberta_v3_large/encoder/tokenizer.json"
+      ],
+      "main_deberta/tokenizer_config.json": [
+        "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/deberta_v3_large/encoder/tokenizer_config.json"
+      ]
+    },
+    "input_file_count": 531,
+    "input_paths_sha256": "74049cb29dc8d6dfec06e20200fff55624528c5229125f0dd7fde0f9b370eb61",
+    "omission_reasons": {
+      "lora24_public": "No original marker; original loop skips this checkpoint",
+      "lora24_public_twin": "Parent checkpoint absent; no twin can contribute",
+      "tokattn_q35": "No Q35 backbone among the frozen inputs; the head alone is insufficient"
+    },
+    "group_coverage": {
+      "source": "comp G_TE / GROUP_ROWS",
+      "eligible_size_min": 2,
+      "eligible_size_max": 18,
+      "requires_at_least_one_eligible_group": true,
+      "if_unsatisfied": "CONDITIONAL_COVERAGE_UNSATISFIED; do not fabricate groups or remove planned keys"
+    },
+    "weights_changed": false,
+    "limits": [
+      "This pure resolver checks paths, not file contents, model_type JSON, tensor compatibility or model execution.",
+      "The caller must also verify the CPU manifest content hashes and actual immutable attachment version bindings.",
+      "The GPU must resolve its actual complete file list and compare to the frozen CPU policy before model work."
+    ]
+  },
+  "config_model_types": [
+    {
+      "path": "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/deberta_v3_large/encoder/config.json",
+      "model_type": "deberta-v2"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold0/config.json",
+      "model_type": "ultrabert"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold1/config.json",
+      "model_type": "ultrabert"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold2/config.json",
+      "model_type": "ultrabert"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold3/config.json",
+      "model_type": "ultrabert"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold4/config.json",
+      "model_type": "ultrabert"
+    },
+    {
+      "path": "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/config.json",
+      "model_type": "llama"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/config.json",
+      "model_type": "qwen3"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/config.json",
+      "model_type": "qwen3"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/config.json",
+      "model_type": "qwen3"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/config.json",
+      "model_type": "qwen3"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b/1/config.json",
+      "model_type": "qwen3"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/config.json",
+      "model_type": "qwen2"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/config.json",
+      "model_type": "qwen2"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/desklib-detector/config.json",
+      "model_type": "deberta-v2"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/electra-large-discriminator/config.json",
+      "model_type": "electra"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/deberta-v3-large/config.json",
+      "model_type": "deberta-v2"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/glm4_9b_trunc25/config.json",
+      "model_type": "glm4"
+    }
+  ]
+}

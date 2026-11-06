@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0035",
+  "prompt": "A shadow has a sharp edge near an object but a fuzzier edge farther away. Explain how the size of the light source affects this. Aim for about 120 words.",
+  "category": "science_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0035",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "b9e229715a4235fcfeca4f050f7d9cdb1142719a2245ff19bc71dd4c8bcf9684",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:52:42.250934+00:00",
+  "ended_at": "2026-11-01T08:53:01.552968+00:00",
+  "prompt_sha256": "e57170b3d13404490cce17d2bd58c273080273def1a46b0246084ca8325d1133",
+  "text": "A shadow’s edge depends on the light source’s apparent size—the angle it spans as seen from the object. A very small, point-like source produces a sharp shadow because light comes from essentially one direction: each spot behind the object either receives light or does not.\n\nAn extended source sends light from several directions. Near the shadow’s boundary, the object blocks some parts of the source but not others, creating a partially lit region called the penumbra. Close to the object, this region is narrow, so the edge looks sharp. Farther from the object, it spreads out, making the edge fuzzier. A larger source produces a wider penumbra; a smaller source produces a narrower, sharper one, with distances held fixed.",
+  "text_sha256": "f17ab3341963be51b2f7d3e10547522e770960b50e9ee82518b2fd1a5279fdc3",
+  "raw_final_sha256": "f17ab3341963be51b2f7d3e10547522e770960b50e9ee82518b2fd1a5279fdc3",
+  "word_count": 119,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4242,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 152,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\b9e229715a4235fcfeca4f050f7d9cdb1142719a2245ff19bc71dd4c8bcf9684",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

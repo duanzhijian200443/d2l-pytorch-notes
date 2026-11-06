@@ -1,0 +1,5 @@
+**Observation:** The display has attracted fewer visitors today than yesterday. Yesterday was warmer, and a school group visited. The layout has also recently changed.
+
+**Inference:** The new layout may have contributed to the lower visitor count, but the available evidence does not establish that people dislike it. Differences in weather and the school-group visit could also explain yesterday’s higher attendance. Other factors, such as the day of the week, timing, or nearby events, may be relevant.
+
+**Recommended response:** We should not move everything back immediately based on one day’s attendance. Instead, we could monitor visitor numbers over a longer period, gather feedback about the new layout, and compare attendance under similar conditions. If the evidence consistently shows that the new layout reduces engagement, we can then decide whether to revise or reverse it.

@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "dataset_ref": "zhjianduan/ntl-stylegram-cv-inputs-v1",
+  "dataset_version": 1,
+  "source": "Fixed V1 Kaggle MCP file inventory and local experiment_payload.zip bytes",
+  "candidate_relative_directories": [
+    "datasets/zhjianduan/ntl-stylegram-cv-inputs-v1",
+    "ntl-stylegram-cv-inputs-v1"
+  ],
+  "files": [
+    {
+      "path": "extra.csv",
+      "bytes": 8672205,
+      "sha256": "1e9125fd49b19084842332ede84ea65bc0174ee1bb28c8d48acc8ddbd5e36c0e"
+    },
+    {
+      "path": "folds.csv",
+      "bytes": 267236,
+      "sha256": "e8ba1e3712852168dc57f56960d4f3e00be612d639ade8a7dcb0f0d8335ce551"
+    },
+    {
+      "path": "protocol.json",
+      "bytes": 1759,
+      "sha256": "3983ceb881750b9b138ee59a3c03ba1acb2dd0f04c2b56bbe96ec682446ce50c"
+    },
+    {
+      "path": "runner.py",
+      "bytes": 9497,
+      "sha256": "74d9aa65c128b6b1490f965002bed56024e9ca08c9bfa62546dc2d70724cb4c4"
+    },
+    {
+      "path": "stylegram_core.py",
+      "bytes": 4061,
+      "sha256": "caa46bd121164aba891c3d78e662540db9294d653db09f53d02833c1b4ab77ef"
+    }
+  ],
+  "roles": {
+    "extra_csv": "A1 Stylegram-only explicit input",
+    "stylegram_core": "Explicit import by verified path",
+    "other_files": "Verify only; never execute legacy CV runner or use folds to select hidden rows"
+  },
+  "forbidden_effects": [
+    "No new matches to original six public-passage globs",
+    "No replacement of original global EXTRA or family gate training inputs"
+  ]
+}

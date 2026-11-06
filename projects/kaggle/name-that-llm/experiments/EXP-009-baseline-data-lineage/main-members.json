@@ -1,0 +1,620 @@
+{
+  "scope": "Read-only source audit of frozen EXP-004 code, not a rerun or hidden-run coverage audit",
+  "source": {
+    "notebook": "reviews/own-scheme-readiness-20261030/baseline-v2.ipynb",
+    "sha256": "6c9145f038ccffbe08dc6da6db3d1dcf3d2e0e7d2286927bfc8800ef5148cfb8",
+    "notebook_cell_indices": "zero-based",
+    "cell_line_numbers": "one-based",
+    "infer_file_sha256_excluding_writefile_magic": "4ffb5ff5427745a4a09aa2ff3bdd2ff39bcb4b3408b2a5fc1dd9fc24349e67da",
+    "source_line_rule": "infer.py physical line = notebook cell 6 line - 1"
+  },
+  "formal_execution": {
+    "FAST_COMMIT": "len(public test.csv) < 50; skips comp/main execution and writes a constant-label placeholder. Hidden scoring branch executes when test rows >=50. No competition-rerun flag checked in this frozen version.",
+    "command_source": {
+      "notebook_cell_index": 12,
+      "start_line": 14,
+      "end_line": 21
+    },
+    "args": {
+      "perpassage": 1,
+      "extra_w": 0.5,
+      "tfidf_w": 0.25,
+      "distort_w": 0.1,
+      "svc_w": 1.5,
+      "adapt_w": 1.0,
+      "adapt_thr": 0.15,
+      "sinkhorn": 0.45,
+      "sinkhorn_target_mix": 0.35,
+      "post": 0,
+      "atlas_w": 0.2,
+      "atlas_margin": 0.3,
+      "atlas_bs": 4,
+      "atlas_chunk": 3,
+      "comp_w": 0.15,
+      "sk_div": "default 1",
+      "sim": "off",
+      "save_lp": "not passed"
+    }
+  },
+  "data_aliases": {
+    "official": "train.csv; all official rows in final inference, held-out prompts removed only in --sim",
+    "matched": "nlm_matched_clean.parquet via --extra",
+    "pool": "nlm_pool_v5.parquet via --pool"
+  },
+  "main_exact_dedup": {
+    "normalization": "NFKC + collapse whitespace + strip; NO casefold/lowercase and NO bold-wrapper stripping",
+    "labels": "accept exact 18-label set; fill missing text with empty string",
+    "precedence": [
+      "official",
+      "matched",
+      "pool"
+    ],
+    "official_rows": "retained, seeds text set; loop does not deduplicate official rows themselves",
+    "external_rows": "first nonempty normalized key not in seen kept; text-only key, not (model,text); labels/weights of earlier source win",
+    "sim_filter": "removes external exact normalized text matches to held-out official responses; does NOT remove same-prompt regenerated external responses",
+    "length_filter": null,
+    "prompt_filter": null,
+    "source": [
+      {
+        "file": "infer.py",
+        "start_line": 135,
+        "end_line": 163,
+        "notebook_cell_index": 6
+      },
+      {
+        "file": "infer.py",
+        "start_line": 190,
+        "end_line": 219,
+        "notebook_cell_index": 6
+      }
+    ]
+  },
+  "members": [
+    {
+      "name": "tfidf",
+      "category": "runtime_fitted_head",
+      "data": [
+        "official",
+        "matched"
+      ],
+      "selection": "main_exact_dedup",
+      "sample_weight": {
+        "official": 1.0,
+        "matched": 0.5
+      },
+      "vectorizer_fit": "official + retained matched; unweighted IDF/vocabulary",
+      "estimator": "LogisticRegression(C=20,max_iter=3000)",
+      "member_log_probability_coefficient": 0.25,
+      "active": true,
+      "source": [
+        {
+          "file": "infer.py",
+          "start_line": 138,
+          "end_line": 177,
+          "notebook_cell_index": 6
+        }
+      ]
+    },
+    {
+      "name": "distort",
+      "category": "runtime_fitted_head",
+      "data": [
+        "official",
+        "matched"
+      ],
+      "selection": "main_exact_dedup",
+      "sample_weight": {
+        "official": 1.0,
+        "matched": 0.5
+      },
+      "vectorizer_fit": "Top-100 frequent words from combined FIT_T; other words masked; TF-IDF fit on all distorted FIT_T without source weighting",
+      "estimator": "LogisticRegression(C=10,max_iter=3000)",
+      "member_log_probability_coefficient": 0.1,
+      "active": true,
+      "source": [
+        {
+          "file": "infer.py",
+          "start_line": 233,
+          "end_line": 243,
+          "notebook_cell_index": 6
+        }
+      ]
+    },
+    {
+      "name": "svc4",
+      "category": "runtime_fitted_head",
+      "data": [
+        "official",
+        "matched",
+        "pool"
+      ],
+      "selection": "official then matched then pool; first nonempty normalized text wins, including cross-source duplicates",
+      "sample_weight": {
+        "official": 1.0,
+        "matched": 0.5,
+        "pool": 0.35
+      },
+      "class_weight": "balanced (additionally applied by LinearSVC)",
+      "vectorizer_fit": "four TF-IDF views fit on all retained rows without source weighting",
+      "view_weights": {
+        "char": 1.0,
+        "word": 0.7,
+        "shape": 0.5,
+        "function": 0.5
+      },
+      "estimator": "LinearSVC(C=0.5,random_state=42,max_iter=5000,class_weight=balanced)",
+      "member_log_probability_coefficient": 1.5,
+      "active": true,
+      "source": [
+        {
+          "file": "infer.py",
+          "start_line": 183,
+          "end_line": 231,
+          "notebook_cell_index": 6
+        }
+      ],
+      "note": "Ordinary four-view SVC, not the complementary stack svc4c/pool-centred member."
+    },
+    {
+      "name": "q14v5",
+      "category": "pretrained_adapter_and_heads",
+      "base": "Qwen3-14B-Base",
+      "adapters": [
+        "q14v5_f0",
+        "q14v5_f1",
+        "q14v5_f2",
+        "q14v5_f3",
+        "q14v5_f4",
+        "q14v5"
+      ],
+      "base_weights_at_runtime": "frozen; precomputed LoRA deltas temporarily merged/unmerged; no gradient training",
+      "head_weights_at_runtime": "loaded plain and centered heads, not fitted on the public CSVs in this run",
+      "upstream_training_corpus": "not established by infer.py; must inspect each adapter training lineage",
+      "sample_weight_at_runtime": null,
+      "member_log_probability_coefficient": 3.0,
+      "adapter_aggregation": "equal arithmetic mean of adapter log-probabilities; five-fold-plus-full models are not clean OOF predictions",
+      "centered_twin": {
+        "active": true,
+        "coefficient": 1.05,
+        "formula": "adapt_w(1.0) * plain coefficient * twin(0.35)",
+        "test_scope": "estimated groups with >=2 test rows; mean-centering inside group"
+      },
+      "gaussian": {
+        "active": true,
+        "coefficient": 0.7,
+        "fitting_data": "official train features+labels+prompt_id only; features extracted with final full-data adapter",
+        "test_scope": "groups of size 2..18; other rows zero contribution",
+        "temperature": 3.0,
+        "fit_cfg": {
+          "red": "wpca",
+          "d": 128,
+          "se_shrink": "lw",
+          "sp_shrink": "lw",
+          "lam_floor": 0.0001,
+          "n_exact": 3,
+          "inj": true,
+          "iters": 5,
+          "repel": true,
+          "sp_scale": 1.0
+        }
+      },
+      "source": [
+        {
+          "file": "infer.py",
+          "start_line": 323,
+          "end_line": 424,
+          "notebook_cell_index": 6
+        },
+        {
+          "file": "infer.py",
+          "start_line": 432,
+          "end_line": 453,
+          "notebook_cell_index": 6
+        }
+      ],
+      "config_source": {
+        "notebook_cell_index": 12,
+        "line": 4
+      },
+      "active": true
+    },
+    {
+      "name": "q8v5",
+      "category": "pretrained_adapter_and_heads",
+      "base": "Qwen3-8B-Base",
+      "adapters": [
+        "q8v5_f0",
+        "q8v5_f1",
+        "q8v5_f2",
+        "q8v5_f3",
+        "q8v5_f4",
+        "q8v5"
+      ],
+      "base_weights_at_runtime": "frozen; precomputed LoRA deltas temporarily merged/unmerged; no gradient training",
+      "head_weights_at_runtime": "loaded plain and centered heads, not fitted on the public CSVs in this run",
+      "upstream_training_corpus": "not established by infer.py; must inspect each adapter training lineage",
+      "sample_weight_at_runtime": null,
+      "member_log_probability_coefficient": 2.0,
+      "adapter_aggregation": "equal arithmetic mean of adapter log-probabilities; five-fold-plus-full models are not clean OOF predictions",
+      "centered_twin": {
+        "active": true,
+        "coefficient": 0.7,
+        "formula": "adapt_w(1.0) * plain coefficient * twin(0.35)",
+        "test_scope": "estimated groups with >=2 test rows; mean-centering inside group"
+      },
+      "gaussian": {
+        "active": true,
+        "coefficient": 0.44,
+        "fitting_data": "official train features+labels+prompt_id only; features extracted with final full-data adapter",
+        "test_scope": "groups of size 2..18; other rows zero contribution",
+        "temperature": 3.0,
+        "fit_cfg": {
+          "red": "wpca",
+          "d": 128,
+          "se_shrink": "lw",
+          "sp_shrink": "lw",
+          "lam_floor": 0.0001,
+          "n_exact": 3,
+          "inj": true,
+          "iters": 5,
+          "repel": true,
+          "sp_scale": 1.0
+        }
+      },
+      "source": [
+        {
+          "file": "infer.py",
+          "start_line": 323,
+          "end_line": 424,
+          "notebook_cell_index": 6
+        },
+        {
+          "file": "infer.py",
+          "start_line": 432,
+          "end_line": 453,
+          "notebook_cell_index": 6
+        }
+      ],
+      "config_source": {
+        "notebook_cell_index": 12,
+        "line": 5
+      },
+      "active": true
+    },
+    {
+      "name": "ll8v5",
+      "category": "pretrained_adapter_and_heads",
+      "base": "Llama-3.1-8B Base",
+      "adapters": [
+        "ll8v5_f0",
+        "ll8v5_f1",
+        "ll8v5_f2",
+        "ll8v5_f3",
+        "ll8v5_f4",
+        "ll8v5"
+      ],
+      "base_weights_at_runtime": "frozen; precomputed LoRA deltas temporarily merged/unmerged; no gradient training",
+      "head_weights_at_runtime": "loaded plain and centered heads, not fitted on the public CSVs in this run",
+      "upstream_training_corpus": "not established by infer.py; must inspect each adapter training lineage",
+      "sample_weight_at_runtime": null,
+      "member_log_probability_coefficient": 1.0,
+      "adapter_aggregation": "equal arithmetic mean of adapter log-probabilities; five-fold-plus-full models are not clean OOF predictions",
+      "centered_twin": {
+        "active": true,
+        "coefficient": 0.35,
+        "formula": "adapt_w(1.0) * plain coefficient * twin(0.35)",
+        "test_scope": "estimated groups with >=2 test rows; mean-centering inside group"
+      },
+      "gaussian": {
+        "active": false,
+        "coefficient": 0,
+        "fitting_data": null,
+        "test_scope": null,
+        "temperature": null,
+        "fit_cfg": null
+      },
+      "source": [
+        {
+          "file": "infer.py",
+          "start_line": 323,
+          "end_line": 424,
+          "notebook_cell_index": 6
+        },
+        {
+          "file": "infer.py",
+          "start_line": 432,
+          "end_line": 453,
+          "notebook_cell_index": 6
+        }
+      ],
+      "config_source": {
+        "notebook_cell_index": 12,
+        "line": 6
+      },
+      "active": true
+    },
+    {
+      "name": "n14b",
+      "category": "pretrained_adapter_and_heads",
+      "base": "Qwen3-14B-Base",
+      "adapters": [
+        "lora_qwen3_14b"
+      ],
+      "base_weights_at_runtime": "frozen; precomputed LoRA deltas temporarily merged/unmerged; no gradient training",
+      "head_weights_at_runtime": "loaded plain and centered heads, not fitted on the public CSVs in this run",
+      "upstream_training_corpus": "not established by infer.py; must inspect each adapter training lineage",
+      "sample_weight_at_runtime": null,
+      "member_log_probability_coefficient": 2.5,
+      "adapter_aggregation": "Single configured adapter; no five-fold-plus-full averaging for this member.",
+      "centered_twin": {
+        "active": true,
+        "coefficient": 0.875,
+        "formula": "adapt_w(1.0) * plain coefficient * twin(0.35)",
+        "test_scope": "estimated groups with >=2 test rows; mean-centering inside group"
+      },
+      "gaussian": {
+        "active": false,
+        "coefficient": 0,
+        "fitting_data": null,
+        "test_scope": null,
+        "temperature": null,
+        "fit_cfg": null
+      },
+      "source": [
+        {
+          "file": "infer.py",
+          "start_line": 323,
+          "end_line": 424,
+          "notebook_cell_index": 6
+        },
+        {
+          "file": "infer.py",
+          "start_line": 432,
+          "end_line": 453,
+          "notebook_cell_index": 6
+        }
+      ],
+      "config_source": {
+        "notebook_cell_index": 12,
+        "line": 7
+      },
+      "active": true
+    },
+    {
+      "name": "q25_14",
+      "category": "pretrained_adapter_and_heads",
+      "base": "Qwen2.5-14B",
+      "adapters": [
+        "lora_qwen25_14b"
+      ],
+      "base_weights_at_runtime": "frozen; precomputed LoRA deltas temporarily merged/unmerged; no gradient training",
+      "head_weights_at_runtime": "loaded plain and centered heads, not fitted on the public CSVs in this run",
+      "upstream_training_corpus": "not established by infer.py; must inspect each adapter training lineage",
+      "sample_weight_at_runtime": null,
+      "member_log_probability_coefficient": 1.0,
+      "adapter_aggregation": "Single configured adapter; no five-fold-plus-full averaging for this member.",
+      "centered_twin": {
+        "active": true,
+        "coefficient": 0.35,
+        "formula": "adapt_w(1.0) * plain coefficient * twin(0.35)",
+        "test_scope": "estimated groups with >=2 test rows; mean-centering inside group"
+      },
+      "gaussian": {
+        "active": false,
+        "coefficient": 0,
+        "fitting_data": null,
+        "test_scope": null,
+        "temperature": null,
+        "fit_cfg": null
+      },
+      "source": [
+        {
+          "file": "infer.py",
+          "start_line": 323,
+          "end_line": 424,
+          "notebook_cell_index": 6
+        },
+        {
+          "file": "infer.py",
+          "start_line": 432,
+          "end_line": 453,
+          "notebook_cell_index": 6
+        }
+      ],
+      "config_source": {
+        "notebook_cell_index": 12,
+        "line": 8
+      },
+      "active": true
+    },
+    {
+      "name": "deb",
+      "category": "pretrained_encoder_and_head",
+      "base": "deberta_v3_large/encoder",
+      "head": "deberta_v3_large/head.safetensors",
+      "runtime_training": false,
+      "upstream_training_corpus": "unknown from infer.py; encoder and head are already fine-tuned",
+      "sample_weight_at_runtime": null,
+      "member_log_probability_coefficient": 1.0,
+      "active": true,
+      "source": [
+        {
+          "file": "infer.py",
+          "start_line": 455,
+          "end_line": 476,
+          "notebook_cell_index": 6
+        }
+      ],
+      "config_source": {
+        "notebook_cell_index": 12,
+        "line": 9
+      }
+    }
+  ],
+  "test_group_recovery": {
+    "data": "test text only, no hidden labels",
+    "estimator": "content-word TF-IDF; capped agglomerative average linkage cap18 threshold0.15",
+    "active_despite_perpassage": true,
+    "reason": "adapt_w=1.0 triggers clustering even with perpassage=1",
+    "value_error_fallback": "singleton groups",
+    "source": [
+      {
+        "file": "infer.py",
+        "start_line": 116,
+        "end_line": 127,
+        "notebook_cell_index": 6
+      }
+    ]
+  },
+  "fusion_sequence": [
+    {
+      "step": 1,
+      "operation": "sum all weighted LP arrays",
+      "source": [
+        {
+          "file": "infer.py",
+          "start_line": 514,
+          "end_line": 514,
+          "notebook_cell_index": 6
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "operation": "divide by number of LP arrays with any nonzero value, then softmax; NOT divide by coefficient sum",
+      "potential_nonzero_arrays": 16,
+      "conditional_count": "3 statistical + 6 neural plain + 5 twins + 2 Gaussians; inactive all-zero twins/Gaussians do not enter count",
+      "source": [
+        {
+          "file": "infer.py",
+          "start_line": 573,
+          "end_line": 575,
+          "notebook_cell_index": 6
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "operation": "P = 0.85 P_main + 0.15 P_comp; renormalize",
+      "component": "comp_logit.npy with matching sample IDs and remapped labels",
+      "on_missing_or_error": "logs COMP SKIPPED; uses main P only",
+      "source": [
+        {
+          "file": "infer.py",
+          "start_line": 560,
+          "end_line": 576,
+          "notebook_cell_index": 6
+        }
+      ]
+    },
+    {
+      "step": 4,
+      "operation": "For successful ATLAS-covered rows only, P = 0.80 P_previous + 0.20 P_ATLAS",
+      "component": "Qwen3-8B base + ATLAS training_config/adapters.safetensors; loaded, not trained at runtime",
+      "row_selection": "top2 probability margin < 0.3 after comp blend for test>=50; shortest-first; budget may stop partway",
+      "budget": "max(180, int(8.3*3600-COMP_SEC-600)); compared to main process elapsed time",
+      "on_missing_or_error": "logs ATLAS SKIPPED or retains completed subset",
+      "source": [
+        {
+          "file": "infer.py",
+          "start_line": 515,
+          "end_line": 558,
+          "notebook_cell_index": 6
+        },
+        {
+          "file": "infer.py",
+          "start_line": 577,
+          "end_line": 591,
+          "notebook_cell_index": 6
+        }
+      ]
+    },
+    {
+      "step": 5,
+      "operation": "Sinkhorn 100 iterations to target 0.65 predicted test marginal + 0.35 smoothed official class prior; combine 0.55 log(P)+0.45 log(Q)",
+      "data": "official labels for class prior and unlabeled test predictions; no public pool here",
+      "source": [
+        {
+          "file": "infer.py",
+          "start_line": 594,
+          "end_line": 606,
+          "notebook_cell_index": 6
+        }
+      ]
+    },
+    {
+      "step": 6,
+      "operation": "Optional hard typography guards / dense Hungarian disabled because --post=0; perpassage argmax used",
+      "source": [
+        {
+          "file": "infer.py",
+          "start_line": 608,
+          "end_line": 620,
+          "notebook_cell_index": 6
+        }
+      ]
+    },
+    {
+      "step": 7,
+      "operation": "For non-sim final inference, fit hierarchical Beta-Bernoulli marker rates on official train; add confidence/length/marker-coverage gated evidence with scale1.5, cap±0.30; overwrite submission",
+      "data": "official train labels/text plus test typography; no public pool",
+      "source": [
+        {
+          "file": "infer.py",
+          "start_line": 635,
+          "end_line": 689,
+          "notebook_cell_index": 6
+        }
+      ]
+    }
+  ],
+  "pre_sinkhorn_effective_probability_mix": {
+    "atlas_covered_if_both_auxiliaries_available": {
+      "main": 0.68,
+      "comp": 0.12,
+      "atlas": 0.2
+    },
+    "atlas_uncovered_if_comp_available": {
+      "main": 0.85,
+      "comp": 0.15
+    },
+    "note": "Only a pre-Sinkhorn algebraic decomposition, not final per-model influence or empirical contribution."
+  },
+  "inactive_in_main": {
+    "functions": [
+      "generic embed+torch_lr runtime head path",
+      "type=head frozen npz head branch",
+      "type=lora simple classifier branch"
+    ],
+    "reason": "MODELS contains only five type=l24 entries and one type=enc entry",
+    "resolved_but_not_used_in_main": [
+      "ts_q3b8",
+      "ts_q3b14",
+      "ts_q25_7b",
+      "ts_llama8",
+      "ts8_s7",
+      "lora8b_v1",
+      "lora14b_v1",
+      "HEADS/*.npz",
+      "Qwen3 instruct I8/I14"
+    ],
+    "source": [
+      {
+        "file": "infer.py",
+        "start_line": 477,
+        "end_line": 504,
+        "notebook_cell_index": 6
+      }
+    ],
+    "note": "Input resolution can still require files. Some assets may be used by comp_stack; not claiming globally unused."
+  },
+  "important_limits": [
+    "Weight origins/training corpora are not inferable from loaded adapter names or heads alone; attaching new CSVs does not retrain these weights.",
+    "Global five-fold-plus-full LoRA log-prob averages cannot be treated as OOF merely by splitting official rows afterwards.",
+    "Gaussian uses official data features from the full-data adapter; runtime fitting only on official rows does not remove upstream exposure.",
+    "Source sample weights are not overall source mixture percentages: source sizes differ and TF-IDF fitting is unweighted.",
+    "COMP and ATLAS nominally enabled but actual hidden-run participation/coverage requires logs, not source inspection alone.",
+    "Comments mentioning 10% ATLAS or Hungarian are stale relative to executed arguments 20% and post=0.",
+    "Changing public pools affects runtime statistical members immediately but not already-trained adapter/encoder/ATLAS weights."
+  ]
+}

@@ -1,0 +1,3 @@
+The display has fewer visitors today than it did yesterday. That is an observation; the claim that people dislike the new layout is an inference we have not yet tested. We also know that yesterday was warmer and a school group visited. Both factors could help explain the difference in visitor numbers, so comparing these two days alone does not establish the layout’s effect.
+
+Rather than moving everything back immediately, we should gather more evidence. We could track attendance across several comparable days, note weather conditions and group visits, and ask visitors for feedback on the layout. If that evidence indicates the new arrangement is discouraging visits or making the display harder to use, we can make targeted changes.

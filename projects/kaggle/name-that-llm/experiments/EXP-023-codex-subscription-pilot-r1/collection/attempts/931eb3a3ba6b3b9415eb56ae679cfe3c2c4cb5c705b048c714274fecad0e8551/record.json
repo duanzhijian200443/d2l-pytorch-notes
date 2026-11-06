@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0047",
+  "prompt": "Describe what happens conceptually when a phone scans a QR code, distinguishing reading the code from opening its destination. Use approximately 120 words for the response.",
+  "category": "technology_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0047",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "931eb3a3ba6b3b9415eb56ae679cfe3c2c4cb5c705b048c714274fecad0e8551",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:00:06.796123+00:00",
+  "ended_at": "2026-11-01T09:00:22.492280+00:00",
+  "prompt_sha256": "f104a9d1514c4b163e79a8a522acd93f3c7c868cb504786bc176b4971f199ef8",
+  "text": "When a phone scans a QR code, its camera first captures the pattern of black and white squares. Software detects the code’s boundaries, corrects for angle or distortion, and decodes the pattern into stored data. This is the **reading** stage: the phone is only extracting information, such as text, contact details, or a web address. Reading a QR code does not itself require visiting a website.\n\nIf the decoded data is a URL, the phone typically displays a notification or preview. When the user taps it—or if an app is configured to proceed automatically—the phone hands the URL to a browser or relevant app. That app then connects to the destination over a network and requests its content. This is the separate **opening** stage, where security and privacy risks may arise.",
+  "text_sha256": "e9c00d0bc9fa6ac190c83b421c45248e72e31c2c2e8e56ec63c9cd41d95aba5c",
+  "raw_final_sha256": "e9c00d0bc9fa6ac190c83b421c45248e72e31c2c2e8e56ec63c9cd41d95aba5c",
+  "word_count": 131,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4124,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 182,
+      "reasoning_output_tokens": 19
+    }
+  ],
+  "attempt_path": "collection\\attempts\\931eb3a3ba6b3b9415eb56ae679cfe3c2c4cb5c705b048c714274fecad0e8551",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

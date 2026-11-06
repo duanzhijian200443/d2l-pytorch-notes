@@ -6,10 +6,13 @@ import hashlib
 import json
 import pathlib
 import re
+import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent
 PROJECT = ROOT.parent.parent
-REPORT = PROJECT / '公开高分方案Top20-2026-10-29.md'
+sys.path.insert(0, str(PROJECT / 'src'))
+from report_links import rebase_local_links
+REPORT = PROJECT / 'archive/research-notes/公开高分方案Top20-2026-10-29.md'
 prefix = 'reviews/public-top20-20261030/'
 scores = json.loads((ROOT / 'ui-scores.json').read_text(encoding='utf-8'))
 index = json.loads((ROOT / 'sources-index.json').read_text(encoding='utf-8'))
@@ -153,13 +156,18 @@ old=old.split('\n',1)[1].lstrip()
 old=old.replace('以上是研究顺序，不是自动执行计划。当前我们自己已经核验的正式高分基线仍为 **V30 / Public LB 0.654**；本次收集的其他分数不加入自己的实验成绩。',
                 '以上是上一轮的研究顺序，不是自动执行计划。**截至 2026-10-29 该轮核查**，自有正式高分基线为 V30 / Public LB 0.654；**2026-10-30 已核实 ATLAS20 / Public LB 0.662，见本文前半部分。** 公开作者的其他分数仍不计入自己的实验成绩。')
 old=re.sub(r'(?m)^(#{2,5}) ',r'#\1 ',old)
-REPORT.write_text('\n'.join(lines)+'\n'+old,encoding='utf-8')
+history_banner = '> **历史快照**：本文对应原核查日期。最新资料见 [研究索引](tracking/研究索引.md)，项目进展见 [当前状态](tracking/当前状态.md)。\n\n'
+report_text = rebase_local_links(history_banner+'\n'.join(lines)+'\n'+old, PROJECT, REPORT.parent, {
+    PROJECT / '公开方案与实验记录.md': REPORT.parent / '公开方案与实验记录.md',
+})
+REPORT.parent.mkdir(parents=True, exist_ok=True)
+REPORT.write_text(report_text,encoding='utf-8')
 
 # Verify rank evidence, preserved history and every relative Markdown link.
 text=REPORT.read_text(encoding='utf-8')
 missing=[]
 for link in re.findall(r'\]\(([^)]+)\)',text):
-    if '://' not in link and not link.startswith('#') and not (PROJECT/link.split('#',1)[0]).exists():missing.append(link)
+    if '://' not in link and not link.startswith('#') and not (REPORT.parent/link.split('#',1)[0]).exists():missing.append(link)
 assert not missing,missing
 assert all(catalog[i]['score']>=catalog[i+1]['score'] for i in range(19))
 assert not re.search(r'(?m)^### 01\. 0\.663', text)  # old detail headings are inside the history appendix

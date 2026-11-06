@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0136",
+  "prompt": "Discuss whether a city walking tour should emphasize celebrated landmarks or overlooked everyday places. Keep your response near 80 words.",
+  "category": "tradeoff_argument",
+  "target_words": 80,
+  "prompt_group": "cp0136",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "ae1943d4cdc65abe1eb0f2b83c6fca668e1186fbd3f0196f244dff42be8d7750",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:57:33.421218+00:00",
+  "ended_at": "2026-11-01T09:57:52.525779+00:00",
+  "prompt_sha256": "818df095f5b59ccce8d458b90ab4c1b35c623dc420b8ec9478c1598bdf7f0c42",
+  "text": "A city walking tour should balance celebrated landmarks with overlooked everyday places, but give the latter more attention. Famous monuments provide historical context and shared reference points, especially for first-time visitors. Yet neighborhood markets, modest cafés, public gardens, and ordinary streets reveal how residents actually live. These places can make a tour feel less like a checklist and more like an encounter with the city’s character. Ideally, landmarks anchor the route, while everyday spaces supply its texture, surprises, and human stories.",
+  "text_sha256": "1e4f1b8c62d4774a2089aa75946f91bd30a044dbc710808058dd9d838c1c29d6",
+  "raw_final_sha256": "1e4f1b8c62d4774a2089aa75946f91bd30a044dbc710808058dd9d838c1c29d6",
+  "word_count": 81,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4230,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 101,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\ae1943d4cdc65abe1eb0f2b83c6fca668e1186fbd3f0196f244dff42be8d7750",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

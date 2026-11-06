@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "run_id": "REQUIRES_NEW_CAPTURE_RUN_ID",
+  "scope": "public_sample_engineering",
+  "required_events": {
+    "main": [
+      "main_members",
+      "comp_status",
+      "main_probability",
+      "pre_atlas",
+      "atlas_requested",
+      "atlas_returned",
+      "pre_sinkhorn",
+      "postprocessing_base",
+      "typography",
+      "component_end"
+    ],
+    "comp": [
+      "member",
+      "style_margin",
+      "style_routed",
+      "comp_before_gates",
+      "component_end"
+    ]
+  },
+  "launch_ready": false,
+  "requires_before_model_launch": [
+    "frozen actual attachment/file hashes",
+    "expected member inventory and declared optional omissions",
+    "selected evaluation input/scope",
+    "CPU/GPU/time budget and current runtime state",
+    "outer notebook writes must precede instrumentation",
+    "explicit removal of FAST_COMMIT placeholder shortcut only for authorized real capture"
+  ],
+  "expected_main_members": null,
+  "expected_comp_members": null
+}

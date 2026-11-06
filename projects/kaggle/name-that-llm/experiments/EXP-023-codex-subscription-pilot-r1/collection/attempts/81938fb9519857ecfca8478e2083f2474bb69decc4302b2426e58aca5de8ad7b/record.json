@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0247",
+  "prompt": "A rectangular table seats one person on each short end and two along each long side. Two such tables are joined at a short end. Explain why the combined seating is less than twice the original seating. Aim for about 120 words.",
+  "category": "reasoning_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0247",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "81938fb9519857ecfca8478e2083f2474bb69decc4302b2426e58aca5de8ad7b",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:31:28.988482+00:00",
+  "ended_at": "2026-11-01T11:31:42.380407+00:00",
+  "prompt_sha256": "6dcd564f2c5599440a21f2a4f2222bf5adc3bb4fe4bb93924c6692e6ca4a3a13",
+  "text": "One rectangular table seats six people: one at each of the two short ends and two along each of the two long sides. If the tables remained separate, they would seat twelve people altogether. However, joining them at a short end makes the two touching ends unavailable for seating. The person at the joined end of the first table and the person at the joined end of the second table both lose their places because those edges are now pressed together inside the combined table. The remaining seats are four along each long side of the enlarged arrangement, plus one at each exposed short end. Thus, the joined tables seat \\(4+4+1+1=10\\) people, which is two fewer than twice the original seating of six.",
+  "text_sha256": "a3f1f5e5886540f66fa05ee225958c612493dce98733e93a323c2800a0bae251",
+  "raw_final_sha256": "a3f1f5e5886540f66fa05ee225958c612493dce98733e93a323c2800a0bae251",
+  "word_count": 123,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4140,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 198,
+      "reasoning_output_tokens": 46
+    }
+  ],
+  "attempt_path": "collection\\attempts\\81938fb9519857ecfca8478e2083f2474bb69decc4302b2426e58aca5de8ad7b",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

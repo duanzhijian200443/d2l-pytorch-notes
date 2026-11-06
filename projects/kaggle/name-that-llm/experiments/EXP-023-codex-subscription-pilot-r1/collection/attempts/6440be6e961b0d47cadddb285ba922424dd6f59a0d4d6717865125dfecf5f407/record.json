@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0022",
+  "prompt": "Explain why a puddle can disappear on a cool day even though the water never gets close to boiling. Please answer in roughly 120 words.",
+  "category": "science_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0022",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "6440be6e961b0d47cadddb285ba922424dd6f59a0d4d6717865125dfecf5f407",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:44:13.281878+00:00",
+  "ended_at": "2026-11-01T08:44:28.057038+00:00",
+  "prompt_sha256": "814ba6dd6dfec3cbb7d1e80e9c0c9571cd8836de159759e2908c192e289f8ac7",
+  "text": "A puddle disappears through **evaporation**, which does not require boiling. In liquid water, molecules are moving at many different speeds. Even on a cool day, some surface molecules have enough energy to escape into the air as water vapor. As these molecules leave, more molecules from below reach the surface and may escape too. Dry air, sunlight, and wind speed the process: dry air can accept more vapor, sunlight supplies energy, and wind carries moist air away. Boiling is different because it happens throughout the liquid when vapor bubbles form, usually near water’s boiling point. Evaporation happens only at the surface and can occur at nearly any temperature, so a puddle may gradually vanish while remaining far below boiling.",
+  "text_sha256": "504bcf5334847a7ca7177c0f8fdcd6292bc1cccfacb2508559a4625ebf191a13",
+  "raw_final_sha256": "504bcf5334847a7ca7177c0f8fdcd6292bc1cccfacb2508559a4625ebf191a13",
+  "word_count": 119,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2587,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 183,
+      "reasoning_output_tokens": 31
+    }
+  ],
+  "attempt_path": "collection\\attempts\\6440be6e961b0d47cadddb285ba922424dd6f59a0d4d6717865125dfecf5f407",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

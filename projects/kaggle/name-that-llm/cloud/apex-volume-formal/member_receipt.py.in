@@ -1,0 +1,19 @@
+# Reached only after both fits, routing, and the author's add_member call succeeded.
+assert np.array_equal(svc_plain.classes_, np.arange(K)) and np.array_equal(svc_centred.classes_, np.arange(K))
+assert P_style.shape == (len(TE), K) and np.isfinite(P_style).all() and np.allclose(P_style.sum(1), 1.)
+_volume_receipt = {
+    'status': 'MEMBER_ADDED', 'arm': _volume_arm, 'run_nonce': os.environ['NTL_VOLUME_RUN_NONCE'],
+    'rows': len(_volume_data), 'groups': _volume_data.prompt_id.nunique(), 'source_csv_sha256': _volume_sha,
+    'shared_rows': len(EX_T), 'shared_groups': EXTRA.prompt_id.nunique(), 'shared_sha256': _volume_shared_sha,
+    'test_rows': len(TE), 'official_rows': len(TR), 'fit_count': 2,
+    'output_classes': K, 'member_weight': W['stylegram'], 'centred_rows': int(rows_style.sum()),
+    'full_training_rows': len(_volume_target), 'plain_n_iter': int(svc_plain.n_iter_), 'centred_n_iter': int(svc_centred.n_iter_),
+    'per_added_class': {
+        label: {'added_rows': int(np.sum(_volume_y == LAB2I[label])), 'official_rows': int(_volume_ntrain[LAB2I[label]]),
+                'original_public_rows': int(_volume_npublic[LAB2I[label]]),
+                'added_per_row_weight': float(EXTRA_SHARE * _volume_ntrain[LAB2I[label]] / _volume_npublic[LAB2I[label]])}
+        for label in sorted(set(_volume_data.model))
+    },
+}
+pathlib.Path('/kaggle/working/stylegram_volume_receipt.json').write_text(json.dumps(_volume_receipt, indent=2), encoding='utf-8')
+del _volume_x

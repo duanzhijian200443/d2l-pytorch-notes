@@ -1,0 +1,17 @@
+Floating ice displaces an amount of water equal to its own weight. This is Archimedes’ principle.
+
+Before melting, the ice pushes aside enough liquid water to support its weight. If the ice has mass \(m\), the displaced water has mass \(m\), so its volume is:
+
+\[
+V_{\text{displaced}}=\frac{m}{\rho_{\text{water}}}
+\]
+
+When the ice melts, it becomes water with the same mass \(m\). The meltwater volume is likewise:
+
+\[
+V_{\text{melted}}=\frac{m}{\rho_{\text{water}}}
+\]
+
+Thus, the water produced by melting occupies exactly the volume that had already been displaced by the floating ice. The water level therefore stays essentially unchanged, so a glass that was not overflowing beforehand will not overflow merely because the floating ice melts.
+
+This assumes the ice is ordinary water ice, it is freely floating, and the glass contains only water and ice. Small real-world effects—such as temperature changes, dissolved air, impurities, or surface-tension effects—can cause tiny deviations, but they are normally negligible.

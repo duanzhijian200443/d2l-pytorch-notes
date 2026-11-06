@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0224",
+  "prompt": "What is the difference between collecting objects as souvenirs and collecting them as historical evidence? Please answer in roughly 200 words.",
+  "category": "humanities_history",
+  "target_words": 200,
+  "prompt_group": "cp0224",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "8d8d68b0efa26298d6b2b95ce2181f82c95b16a4c609dbe3d05d3cd4d054a1d6",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:17:46.385046+00:00",
+  "ended_at": "2026-11-01T11:18:08.536373+00:00",
+  "prompt_sha256": "53d94a688749946b8905391696c7d17b4d60353bca329717cc84f18b57f86c3b",
+  "text": "Collecting objects as souvenirs and collecting them as historical evidence differ mainly in purpose, selection, and interpretation, although the same object can serve both roles.\n\nA souvenir is usually kept for its personal or emotional significance. A ticket, shell, or postcard may remind someone of a journey, an important event, or a relationship. Its value comes primarily from the collector’s experience and the memories attached to it. Souvenir collecting is therefore often selective and subjective: an ordinary object can be precious because of its personal associations.\n\nAn object collected as historical evidence, by contrast, is preserved to help investigate and explain the past. Its significance depends on what it can reveal about people, practices, institutions, or material conditions. Historians and curators examine its provenance—where it came from, who made or used it, and how it survived—and compare it with other sources. They also consider how representative it is and what it cannot tell us.\n\nThe distinction is not absolute. A tourist’s postcard can later provide evidence of changing landscapes, travel habits, or cultural attitudes. Conversely, a historical artifact can carry deep personal meaning. The key difference is whether the object primarily supports remembrance or a critically assessed account of the past.",
+  "text_sha256": "793ac216ce5723b2245e962bcee8d280c56019c5b2bca35b167563034d70752a",
+  "raw_final_sha256": "793ac216ce5723b2245e962bcee8d280c56019c5b2bca35b167563034d70752a",
+  "word_count": 201,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4231,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 246,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\8d8d68b0efa26298d6b2b95ce2181f82c95b16a4c609dbe3d05d3cd4d054a1d6",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,251 @@
+{
+  "schema_version": 1,
+  "observed_at_utc": "2026-11-01T09:54:40.741919+00:00",
+  "status": "REAL_CAPTURE_INPUT_PREPARED_NOT_EXECUTED",
+  "experiment_id": "EXP-029",
+  "recommended_panel": "EXP027 all729 published/admitted texts with blinded IDs",
+  "scope": "exploratory_external",
+  "scientific_independence_from_all_stack_members": false,
+  "prepared_inputs": {
+    "root": "experiments/EXP-029-full-stack-capture",
+    "test": {
+      "path": "panel/test.csv",
+      "columns": [
+        "id",
+        "text"
+      ],
+      "rows": 729,
+      "bytes": 655284,
+      "sha256": "8eeec7f64e924f0fd79dca57d324d42d269f400bdfbfff76d60b4c168d9ae6f2",
+      "ids_unique": true,
+      "text_bytes_unchanged": true,
+      "cloud_input_allowed": true
+    },
+    "labels_sidecar": {
+      "path": "labels-local-only.csv",
+      "columns": [
+        "id",
+        "source_id",
+        "prompt_id",
+        "model",
+        "text_sha256"
+      ],
+      "rows": 729,
+      "bytes": 156374,
+      "sha256": "f5425fbae56355e72537074cf5eef514c0319cd67489fc63c36fe07b2ff2302b",
+      "cloud_upload_allowed": false,
+      "model_process_access_allowed": false
+    },
+    "manifest_sha256": "e06ef79eb05b93f1b9f788272643ec3e0e580706057012f0af9d1a0ef5c00097",
+    "training": {
+      "path": "train.csv",
+      "rows": 2699,
+      "prompt_groups": 150,
+      "classes": 18,
+      "sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+      "instruction": "Copy official train.csv bytes unchanged into the same runtime input directory; this script does not replace training data."
+    },
+    "rows": 729,
+    "true_prompt_groups_for_later_metrics_only": 56,
+    "covered_classes": 17,
+    "prediction_columns": 18,
+    "id_rule": "x27- plus first 24 lowercase hex characters of SHA256(unchanged UTF-8 response text)",
+    "row_order": "ascending opaque id, stable sort; independent of source model/prompt metadata",
+    "all_texts_retained_unchanged": true,
+    "prepare_rerun_byte_identical": true
+  },
+  "panel_comparison": [
+    {
+      "panel": "public3",
+      "rows": 3,
+      "recommended_first_full_capture": false,
+      "value": "Small load/forward/serialization smoke, no labels or meaningful generalization metric.",
+      "cost_and_coverage": "Loading checkpoints and official training-feature extraction remain fixed costs. TINY causes additional train-row self-checks. N<18 bypasses Sinkhorn; grouping often falls back; N<50 requests all3 ATLAS rows. Original FAST_COMMIT skips heavy work unless explicitly bypassed.",
+      "claim": "engineering smoke only"
+    },
+    {
+      "panel": "official2699-as-test",
+      "rows": 2699,
+      "recommended_first_full_capture": false,
+      "value": "Fit reproduction or contaminated/in-sample diagnostic only; full-data/fold-averaged weights already saw these rows.",
+      "cost_and_coverage": "Largest variable inference load of the three choices, in addition to official training features. No clean OOF benefit from the extra cost.",
+      "claim": "in-sample/exposure-contaminated engineering cache only"
+    },
+    {
+      "panel": "EXP027-external729",
+      "rows": 729,
+      "recommended_first_full_capture": true,
+      "value": "Real input distribution with 56 authored tasks and17 covered labels; can exercise N>=50 routing, N>=18 Sinkhorn, grouping and the real output path.",
+      "cost_and_coverage": "Checkpoint loading and official feature extraction still dominate some branches. Requires729 test-side forwards versus3, but only27.01% as many test rows as official2699. Inferred eligible groups and ATLAS request count are outcomes, not guaranteed by true56groups.",
+      "claim": "exploratory external cached inference, not full-stack independent validation or clean OOF"
+    }
+  ],
+  "measured_size_only": {
+    "external729": {
+      "rows": 729,
+      "utf8_text_bytes": 631872,
+      "regex_words_total": 99906,
+      "regex_words_min": 39,
+      "regex_words_median": 120.0,
+      "regex_words_p95": 242.60000000000002,
+      "regex_words_max": 279,
+      "tokenizer_lengths_measured": false
+    },
+    "official2699": {
+      "rows": 2699,
+      "utf8_text_bytes": 2044664,
+      "regex_words_total": 314956,
+      "regex_words_min": 37,
+      "regex_words_median": 103.0,
+      "regex_words_p95": 228.0,
+      "regex_words_max": 279,
+      "tokenizer_lengths_measured": false
+    },
+    "public3": {
+      "rows": 3,
+      "utf8_text_bytes": 2162,
+      "regex_words_total": 310,
+      "regex_words_min": 48,
+      "regex_words_median": 113.0,
+      "regex_words_p95": 145.4,
+      "regex_words_max": 149,
+      "tokenizer_lengths_measured": false
+    },
+    "train_plus_test_rows_ratio_external_vs_public3": 1.2686898593634346,
+    "train_plus_test_rows_ratio_external_vs_official_test": 0.6350500185253798,
+    "warning": "These are input-size ratios, not runtime estimates. Tokenizer truncation, batch/padding, many adapter passes and ATLAS18 source-conditioned scoring remain unmeasured."
+  },
+  "input_replacement_points": [
+    {
+      "source": "experiments/EXP-009-baseline-data-lineage/infer.py",
+      "lines": [
+        19,
+        54,
+        71
+      ],
+      "action": "Pass --data ABS_PANEL_DIR. Copy exact official train.csv bytes into that directory and the prepared two-column panel as test.csv. No infer algorithm edit needed."
+    },
+    {
+      "source": "experiments/EXP-009-baseline-data-lineage/comp_stack.py",
+      "lines": [
+        83,
+        84,
+        85
+      ],
+      "action": "In a NEW generated runtime copy only, replace the one non-SMOKE DATA_DIR assignment with pathlib.Path(os.environ[\"NTL_EVAL_DATA\"]).resolve(strict=True); launch with NTL_EVAL_DATA identical to main --data. Keep train/test reads and all later model/math code unchanged. Fail if env/path or either exact hash is absent.",
+      "reason": "Original non-SMOKE code searches fixed /kaggle/input/competitions/name-that-llm, then /kaggle/input/name-that-llm. NTL_DATA only affects the SMOKE branch and cannot redirect a real comp run."
+    },
+    {
+      "source": "experiments/EXP-009-baseline-data-lineage/cell-2.py",
+      "lines": [
+        13,
+        15
+      ],
+      "action": "If retaining an outer launcher, bind its DATA to the same ABS_PANEL_DIR before FAST_COMMIT/row-count handling; do not reuse the competition public3 DATA binding. A direct generated-script launcher can avoid this notebook branch altogether."
+    },
+    {
+      "source": "experiments/EXP-009-baseline-data-lineage/cell-10.py and cell-12.py",
+      "lines": [
+        5,
+        14,
+        23
+      ],
+      "action": "Launch the new captured comp first, then main with its exact comp_logit/comp_meta and fresh output/cache namespace; ensure real execution, not FAST_COMMIT placeholder. Preserve source member/weight/routing settings and charge comp wall time to the agreed budget."
+    },
+    {
+      "source": "cloud/atlas20-drive/drive_inputs.py",
+      "lines": [
+        74,
+        156,
+        165
+      ],
+      "action": "Existing asset tree remains read-only. Do not overwrite the mounted official competition test.csv or replace a preexisting symlink. Use an isolated panel directory plus the explicit comp DATA_DIR binding above. The asset-preflight test_rows field alone does not certify the selected runtime panel."
+    }
+  ],
+  "new_copy_verification": "Whitelist only the generated-copy DATA_DIR assignment change on top of the frozen observer insertion; stripping observer nodes and reversing that single path adapter must recover the frozen source AST. Do not edit EXP028 files, frozen EXP009 source, model statements, transforms or clocks.",
+  "leakage_and_integrity_controls": [
+    "All729 source IDs contain their true model label. The inference IDs are therefore blinded from text SHA and sorted without model/prompt fields; the original four-column evaluation CSV is not a model input.",
+    "Upload only panel/test.csv from the panel preparation, plus official training and separately approved model/runtime assets. labels-local-only.csv remains local and outside every inference payload/mount. Do not recursively upload the experiment directory.",
+    "Inference test schema is exactly id,text. No source_id, model, prompt_id, class counts or true-group assignment is supplied to prediction feature extraction or routing. Use true source groups only in later local metrics joins.",
+    "Set --sim empty and --fake_test0; remove NTL_SMOKE/NTL_FAKE_TEST and do not rely on NTL_DATA. Never use fake-test sampling from the training pool as a substitute for this panel.",
+    "Keep all18 class columns, original family maps, and prediction/train-derived Sinkhorn target. Never mask Gemini3.7 or use the panel17-label marginal to guide inference.",
+    "Keep original matched/pool/EXTRA training assets and full-model recipe for the first baseline cache. The two lightweight training pools are not a replacement for the original full-stack training inputs.",
+    "Use a fresh immutable run namespace: original generic feature cache names use <member>_real.npy without text/ID identity, so old arrays must not be silently reused for729 reordered texts. Likewise bind comp_logit/meta to the exact same new IDs/text hashes.",
+    "Do not infer independence from opaque IDs. Full-stack checkpoint exposure is incomplete; source publisher official8gram filtering and prior panel inspection remain limitations."
+  ],
+  "fixed_preflight_and_acceptance": [
+    "Before loading models, require original eval SHA8ec3217f... and source gate binding; prepared test SHA8eeec7f64e924f0fd79dca57d324d42d269f400bdfbfff76d60b4c168d9ae6f2,655284bytes,729 unique opaque IDs, no blank texts, exact two columns.",
+    "At both process entrances, verify official train SHA40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707,2699rows/150prompts/18labels, and identical test orderedID+textsha/label-order identity.",
+    "Freeze actual model/tokenizer/adapter asset hashes, environment, seeds, expected activated members and optional-branch policy before inference; required missing models or swallowed COMP/ATLAS failures must not be reported as full completion.",
+    "Freeze baseline weights and post0/perpassage1, including comp.15/ATLAS.20 threshold.3/Sinkhorn.45 target_mix.35. First capture is baseline math only; no new alpha/temperature/marginal search.",
+    "Require each component byte-COMMITTED and matching data identities; read_cache+decode_events+verify_replay must pass independent math including float32 advanced-index reduction behavior. Check saved final output IDs/rows/argmax against the replay separately.",
+    "Require finite729x18 class-score arrays in fixed label order and the declared complete member inventory. Preserve per-member events, raw style/SVC margins, gates, grouping, ATLAS request/return masks and outputs.",
+    "Require every original requested ATLAS row to have completed real probabilities. Budget partials remain saved but are NEEDS_ADDITIONAL_ATLAS_SCORES, not fully accepted cache; no zero-score substitution for future candidate requests.",
+    "After engineering acceptance only, join local sidecar one-to-one for exploratory covered17-class metrics using56 source tasks; keep this distinct from modeled groups, clean OOF, full18class validation and formal submission."
+  ],
+  "budget_plan": {
+    "numeric_runtime_prediction": null,
+    "why": "No real729/full-stack timing has been measured. Three sample rows avoid little of fixed loading/training-feature work and do not provide a representative total runtime estimate.",
+    "execution_rule": "Execution owner freezes authorized hard wall/GPU budget and attempt limit before the one real run. Use original wall-time accounting; observer IO remains charged. Stop/preserve partials at the guard, without relabeling incomplete ATLAS as success.",
+    "baseline_reference": "Original cell12 uses int(8.3*3600-COMP_SEC-600), passed as max(180,ATLAS_BUDGET); this is historical code behavior, not a new budget authorization or completion guarantee."
+  },
+  "evidence": [
+    {
+      "path": "experiments/EXP-029-full-stack-capture/prepare_panel.py",
+      "sha256": "addb1bfe473be60cf54e6cdbc71f76f41ed4a4d3475c9072ff17f8402f62893c",
+      "bytes": 9306,
+      "role": "Reproducible preparation with pinned inputs and no output overwrite"
+    },
+    {
+      "path": "experiments/EXP-029-full-stack-capture/panel-manifest.json",
+      "sha256": "e06ef79eb05b93f1b9f788272643ec3e0e580706057012f0af9d1a0ef5c00097",
+      "bytes": 5019,
+      "role": "Prepared panel and local-only sidecar byte receipts"
+    },
+    {
+      "path": "experiments/EXP-027-multiclass-external-validation/metrics/data-gate.json",
+      "sha256": "cead2f4745a3e4af6a8adffe2361efd725e2710971a12123083b927589f573e5",
+      "bytes": 12265,
+      "role": "Selected729/56/17 source scope"
+    },
+    {
+      "path": "cloud/full-stack-cache/data-scope.json",
+      "sha256": "58a51579ac3680fc63ecc16cf487b0c835a47471011a82b7a46fb722c0e883ba",
+      "bytes": 16909,
+      "role": "Full-stack data-use limits"
+    },
+    {
+      "path": "experiments/EXP-009-baseline-data-lineage/infer.py",
+      "sha256": "022cafd2e6504dd7cf38c8675b9597fb4fbd4c9dd0be69d38918293d9caac9b3",
+      "bytes": 48798,
+      "role": "Main data, group inference and cache behavior"
+    },
+    {
+      "path": "experiments/EXP-009-baseline-data-lineage/comp_stack.py",
+      "sha256": "b6b6a7b8adbe50580c2d0de5a41d0764ae752fe729e1471872a9197ac956f222",
+      "bytes": 54212,
+      "role": "Comp fixed data search and label-blind prediction features"
+    },
+    {
+      "path": "experiments/EXP-009-baseline-data-lineage/cell-2.py",
+      "sha256": "d60fb523134c620e25c41635151ffd42cb745f89ac57df65ee0564f9a1be8e84",
+      "bytes": 3985,
+      "role": "Outer DATA and FAST_COMMIT binding"
+    },
+    {
+      "path": "experiments/EXP-009-baseline-data-lineage/cell-12.py",
+      "sha256": "8605f9c879f616e79398a06339a0e9693d680abe4d21211e616ca747eff095e1",
+      "bytes": 2589,
+      "role": "Frozen launch flags and historical budget accounting"
+    }
+  ],
+  "performed": {
+    "local_panel_preparation": true,
+    "local_id_and_text_integrity_checks": true,
+    "remote_actions": false,
+    "model_loading": false,
+    "training": false,
+    "predictions": false,
+    "frozen_exp028_changed": false
+  }
+}

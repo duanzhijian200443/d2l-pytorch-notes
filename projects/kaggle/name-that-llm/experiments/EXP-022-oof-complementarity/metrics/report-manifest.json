@@ -1,0 +1,20 @@
+{
+  "renderer_sha256": "052284ba33df2f8b8c9c9eda155f27ca00067ec2dabd694ab8836abbea016770",
+  "files": [
+    {
+      "path": "report.md",
+      "sha256": "d551752bcde44f415e5fb5e72f43dd6b2f0afe954f93b21fc028b48ff3040a66",
+      "bytes": 5087
+    },
+    {
+      "path": "metrics/findings.json",
+      "sha256": "e0a7db083705944cfb3680c3432e538037a6efedfadacb54a74050e5508c60d8",
+      "bytes": 5240
+    },
+    {
+      "path": "metrics/dense_class_stability.csv",
+      "sha256": "0fdbd8cb318e7298e8987f995e4c1c14744b5e8981cd278eb182cb49a3855473",
+      "bytes": 4492
+    }
+  ]
+}

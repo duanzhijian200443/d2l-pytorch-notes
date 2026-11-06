@@ -1,0 +1,10 @@
+test_baseline_dedup_keeps_case_and_normalizes_unicode (test_projection.ProjectionChecks.test_baseline_dedup_keeps_case_and_normalizes_unicode) ... ok
+test_executed_source_and_original_function_equivalence (test_projection.ProjectionChecks.test_executed_source_and_original_function_equivalence) ... ok
+test_filter_funnel_and_rows_reconcile (test_projection.ProjectionChecks.test_filter_funnel_and_rows_reconcile) ... ok
+test_old_prvs_rows_are_not_called_new (test_projection.ProjectionChecks.test_old_prvs_rows_are_not_called_new) ... ok
+test_per_class_weight_mass_is_conserved (test_projection.ProjectionChecks.test_per_class_weight_mass_is_conserved) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.129s
+
+OK

@@ -1,0 +1,7 @@
+{
+  "status": "NO_REMOTE_TARGET_AFTER_SAVE_ERROR",
+  "provider_error": "SaveKernel returned non-JSON response; no confirmed version or CPU session. Cause not attested; source size 4522877 bytes.",
+  "inventory_pages": 1,
+  "observed_at": "2026-11-02T07:28:15.455652+00:00",
+  "ref": "zhjianduan/ntl-apex-volume-053-style"
+}

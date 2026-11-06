@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-026",
+  "created_at": "2026-11-01T08:31:35.935155+00:00",
+  "freeze_status": "FROZEN",
+  "note": "External row set accepted and frozen before fitting or scoring; model recipe and alpha fixed.",
+  "config": {
+    "path": "experiments/EXP-026-independent-blend-validation/config.json",
+    "sha256": "c95fe12d0a287525700805e3a0e90c750ecdd6feec2a0f0be79cd8bb97a53c4a"
+  },
+  "config_template": {
+    "path": "configs/independent-blend-validation.json",
+    "sha256": "bf30e05ba5e8fe0f3a5442634a3562c5cce9caa68bc10ecf7e5c1917013fc5e7"
+  },
+  "inputs": [
+    {
+      "path": "cloud/fixed-blend-external/payload/CC-BY-4.0.txt",
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"
+    },
+    {
+      "path": "cloud/fixed-blend-external/payload/CC-BY-SA-3.0.txt",
+      "sha256": "3f941b3b89cf7b8370ceb83cc76d2120d471b58735d8ca60238a751a48d7f72f"
+    },
+    {
+      "path": "cloud/fixed-blend-external/payload/attribution.md",
+      "sha256": "cef18751a1ab0e2ca6eb92964fc18a7d6936a0c681a474d5ed731f02c7495900"
+    },
+    {
+      "path": "cloud/fixed-blend-external/payload/config.json",
+      "sha256": "c95fe12d0a287525700805e3a0e90c750ecdd6feec2a0f0be79cd8bb97a53c4a"
+    },
+    {
+      "path": "cloud/fixed-blend-external/payload/data_gate.json",
+      "sha256": "8b5d203368ccbefc6c0165e3556187514eb117e7aca6e768c05154768091509a"
+    },
+    {
+      "path": "cloud/fixed-blend-external/payload/enai-LICENSE.md",
+      "sha256": "2e59b4158f4f024416630807e7b2d6a8d4ab02616d6b12c6924fca26ec68fa29"
+    },
+    {
+      "path": "cloud/fixed-blend-external/payload/enai-attribution.json",
+      "sha256": "e7ff01517c033779765a1e38eaf9a61a106b40a4a8e1414872a381dfa2b18d87"
+    },
+    {
+      "path": "cloud/fixed-blend-external/payload/evaluation.csv",
+      "sha256": "72228be3ddaad8feaa1ba232e689537e0cf49ebc72068df4a7e556836f1bdd17"
+    },
+    {
+      "path": "cloud/fixed-blend-external/payload/guard.py",
+      "sha256": "eaf2c31758045488eb53ba3f9c7f824c848bfe0a33698fab816d96485f9b6d3b"
+    },
+    {
+      "path": "cloud/fixed-blend-external/payload/margin_blend.py",
+      "sha256": "8c4288447de755d9bd160e5646794b2307f56ae00ae11104d062d9697ef5dc83"
+    },
+    {
+      "path": "cloud/fixed-blend-external/payload/public.csv",
+      "sha256": "0a1e31a0f8b0ece7ca44a961075252fe275107f3710804971838d714a4e77aaa"
+    },
+    {
+      "path": "cloud/fixed-blend-external/payload/runner.py",
+      "sha256": "888b0aa30c0dc982f3efc0f2396e1385b66a66adc82f3f057e6f3675ad85a4ba"
+    },
+    {
+      "path": "cloud/fixed-blend-external/payload/style_extra.csv",
+      "sha256": "1e9125fd49b19084842332ede84ea65bc0174ee1bb28c8d48acc8ddbd5e36c0e"
+    },
+    {
+      "path": "cloud/fixed-blend-external/payload/stylegram_core.py",
+      "sha256": "caa46bd121164aba891c3d78e662540db9294d653db09f53d02833c1b4ab77ef"
+    },
+    {
+      "path": "cloud/fixed-blend-external/payload/svc4.py",
+      "sha256": "80f66aedad27e8017defe31de7f0286c1b54efa5e96ba6e2cb42516a86e73c18"
+    }
+  ],
+  "code": [
+    {
+      "path": "cloud/fixed-blend-external/runner.py",
+      "sha256": "888b0aa30c0dc982f3efc0f2396e1385b66a66adc82f3f057e6f3675ad85a4ba"
+    },
+    {
+      "path": "cloud/fixed-blend-external/build_payload.py",
+      "sha256": "cafaa35746a72b10415e6ac0d9661e0d7f1fb7ba58cd8322dd03377fab23aaa8"
+    },
+    {
+      "path": "experiments/EXP-026-independent-blend-validation/audit_external.py",
+      "sha256": "94ddaee44ea5cdaf52bb356e3951930e538235c600b8aed4e206d610c9eaa22c"
+    }
+  ],
+  "frozen_at": "2026-11-01T08:39:01.117458+00:00",
+  "protocol": {
+    "path": "cloud/fixed-blend-external/payload/protocol.json",
+    "sha256": "8cada9716782903f6e799374c8bfc7aa7f6beb6f39c74cf0e1d941cac68faaa2"
+  }
+}

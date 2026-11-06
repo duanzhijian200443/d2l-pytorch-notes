@@ -1,0 +1,7 @@
+Divide responsibility by assigning three clear, equally valued roles based on each person’s strengths and interests:
+
+1. **Editorial lead:** Plans each issue, gathers story ideas, edits submissions, and ensures the newsletter has a consistent voice.
+2. **Community lead:** Contacts contributors, manages reader feedback, promotes the newsletter, and builds relationships with local groups.
+3. **Production lead:** Handles layout, mailing tools, subscriber lists, publishing, and basic analytics.
+
+For fairness, estimate the time required for each role and redistribute tasks if one becomes significantly heavier. Major decisions—such as budget, publishing frequency, and editorial policies—should be made together. Rotate less desirable duties and consider switching roles every few months so everyone learns the full process. A short weekly check-in and a shared task board will keep work visible, make accountability clear, and prevent one person from quietly carrying too much.

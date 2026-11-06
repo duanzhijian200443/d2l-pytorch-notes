@@ -1,0 +1,66 @@
+{
+  "status": "COMPLETE",
+  "identity_sha256": "39f2278d85393948e50d7b8f0a7c3b2a6f8c9ec73c6946e4bf345cf1a2654a57",
+  "completed_jobs": [
+    {
+      "fold": 0,
+      "arm": "raw120",
+      "path": "jobs/f0-raw120/attempt-0001",
+      "completion_sha256": "4a55025f3a06abb075083595e5dc6a33e060309465285144588736a8a133a8ce"
+    },
+    {
+      "fold": 1,
+      "arm": "raw120",
+      "path": "jobs/f1-raw120/attempt-0001",
+      "completion_sha256": "e00ebe9e3e2d37470682e8e06c5e68b3f2173bf42a76a94cf13fb630c5fceca8"
+    },
+    {
+      "fold": 2,
+      "arm": "raw120",
+      "path": "jobs/f2-raw120/attempt-0001",
+      "completion_sha256": "3c6d226d21464de85e1fc4e1d6e8afb4f0c51ee3bb7d4a7aba6bce344f405a50"
+    },
+    {
+      "fold": 3,
+      "arm": "raw120",
+      "path": "jobs/f3-raw120/attempt-0001",
+      "completion_sha256": "aade58fead1ae301d23cdff757dded05c69934e44ba4d8ec9afae26921d23a25"
+    },
+    {
+      "fold": 4,
+      "arm": "raw120",
+      "path": "jobs/f4-raw120/attempt-0001",
+      "completion_sha256": "22ec920692fd6d22c36abb9aeac0015eda113735fa097774faaab6e7c63a5048"
+    },
+    {
+      "fold": 0,
+      "arm": "clean120",
+      "path": "jobs/f0-clean120/attempt-0001",
+      "completion_sha256": "1aaf18b13c588b2a9175a31d644d907e91492258e332b1c11e8b192b65415b31"
+    },
+    {
+      "fold": 1,
+      "arm": "clean120",
+      "path": "jobs/f1-clean120/attempt-0001",
+      "completion_sha256": "3802a4659ba76695b71c1c64baab30a959b33776cba3f0a6c73ae0fbb7e2a5ff"
+    },
+    {
+      "fold": 2,
+      "arm": "clean120",
+      "path": "jobs/f2-clean120/attempt-0001",
+      "completion_sha256": "11afd764a8cf3927ade006458a92a85d04f96e19fe28ec94e140077dee93c97e"
+    },
+    {
+      "fold": 3,
+      "arm": "clean120",
+      "path": "jobs/f3-clean120/attempt-0001",
+      "completion_sha256": "243f04587bf1855e17fcf26e56df1e1e1a560342a87ddf0626e6f4ed244fc2a9"
+    },
+    {
+      "fold": 4,
+      "arm": "clean120",
+      "path": "jobs/f4-clean120/attempt-0001",
+      "completion_sha256": "5e04187ec8146c5a04cde9e2b0ee3b618ee4029aa3e0270ebe7409cdff86f302"
+    }
+  ]
+}

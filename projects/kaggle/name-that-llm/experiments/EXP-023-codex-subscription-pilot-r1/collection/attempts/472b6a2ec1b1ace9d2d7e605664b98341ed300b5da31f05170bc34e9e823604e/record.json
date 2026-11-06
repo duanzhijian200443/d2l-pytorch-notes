@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0235",
+  "prompt": "Discuss whether a restaurant's short menu is more helpful than a large menu, considering customers with different expectations. Aim for about 120 words.",
+  "category": "tradeoff_argument",
+  "target_words": 120,
+  "prompt_group": "cp0235",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "472b6a2ec1b1ace9d2d7e605664b98341ed300b5da31f05170bc34e9e823604e",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:24:12.043347+00:00",
+  "ended_at": "2026-11-01T11:24:25.033383+00:00",
+  "prompt_sha256": "48eb827a255d13c1089a23e4c548789b5a3cc9bdc1a684cd05112c770fc66dd6",
+  "text": "A restaurant’s short menu can be more helpful because it is easier to read, reduces decision fatigue, and may indicate that the kitchen specializes in fresh, carefully prepared dishes. Customers who value quality, speed, or a simple dining experience may appreciate having fewer, well-chosen options. However, a large menu can better satisfy customers with different expectations. Families, groups, and people with dietary restrictions may need greater variety, while adventurous diners may enjoy exploring unfamiliar cuisines. A long menu can also provide vegetarian, vegan, gluten-free, and child-friendly choices. Therefore, neither size is always better. A concise menu is ideal when the restaurant has a clear specialty, whereas a larger menu is more helpful when it serves diverse customers. Clear descriptions and dietary labels matter as much as menu length.",
+  "text_sha256": "8dbbf9cdf6f1cde833431b66fa07b5dd75bec2b1c8d3d72a516a70cec6092d66",
+  "raw_final_sha256": "8dbbf9cdf6f1cde833431b66fa07b5dd75bec2b1c8d3d72a516a70cec6092d66",
+  "word_count": 128,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2586,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 174,
+      "reasoning_output_tokens": 12
+    }
+  ],
+  "attempt_path": "collection\\attempts\\472b6a2ec1b1ace9d2d7e605664b98341ed300b5da31f05170bc34e9e823604e",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0005",
+  "prompt": "I keep buying notebooks for different projects and then forget which one contains an idea. Recommend a simple paper-based system that is easy to maintain. A response of around 120 words is enough.",
+  "category": "everyday_advice",
+  "target_words": 120,
+  "prompt_group": "cp0005",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "3aeefd7df522f725d82f2d898be957ca9de730c9dae49d8b481ed41ca5c90378",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:34:11.522934+00:00",
+  "ended_at": "2026-11-01T08:34:34.335648+00:00",
+  "prompt_sha256": "7fd766af87fcf498c8e56a6506b7ad7c4dc0ab7d5b3b589ce4cd60238fcfaf8a",
+  "text": "Try **one notebook and a simple index**, rather than a notebook for each project.\n\n- **Use one active notebook.** Put meeting notes, ideas, and project thoughts in date order. No need to reserve sections.\n- **Number pages as you go.** Leave the first four pages blank for an index.\n- **Label each entry.** Add the date and a short project name or “Personal.”\n- **Index only what you’ll want again.** Write entries like “Garden: planting ideas—12, 28.” Skip routine notes.\n- **Review for five minutes weekly.** Add missing index entries and mark actionable ideas with a star.\n\nFor existing notebooks, label their covers and make a single paper directory of important ideas and their locations. Don’t copy everything over—just start the new system today.",
+  "text_sha256": "bb376dd5c085300dba122181ce57755302aa56fde427c4878ddcf742d0452adf",
+  "raw_final_sha256": "bb376dd5c085300dba122181ce57755302aa56fde427c4878ddcf742d0452adf",
+  "word_count": 124,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4245,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 169,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\3aeefd7df522f725d82f2d898be957ca9de730c9dae49d8b481ed41ca5c90378",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0033",
+  "prompt": "Why do some materials spring back after bending while others stay bent? Use everyday objects rather than mathematical formulas. Use approximately 160 words for the response.",
+  "category": "science_explanation",
+  "target_words": 160,
+  "prompt_group": "cp0033",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "903aca0d64ef706fbe86999264ba7980db5d3f9eeddef7ebd287b4dc41e6f7b4",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:51:32.492327+00:00",
+  "ended_at": "2026-11-01T08:51:53.619876+00:00",
+  "prompt_sha256": "1e68c6adbf355418ce600ac60d9a11f0032e24b489184bff6ebf9a455cd5651f",
+  "text": "Materials spring back or stay bent depending on how their internal structure responds to force.\n\nBend a rubber band or gently flex a plastic ruler, and it usually returns to its original shape. This is **elastic deformation**: the material’s tiny building blocks shift or stretch but retain a structure that pulls them back when you let go. In rubber, long, tangled molecules straighten as you stretch them, then curl up again.\n\nNow bend a paper clip firmly. It stays bent because parts of the metal’s internal structure have slipped into new positions. This is **plastic deformation**: releasing the force doesn’t undo that rearrangement.\n\nThe same object can behave both ways. Bend a paper clip just a little, and it springs back; bend it farther, and it keeps the new shape.\n\nTemperature and time matter too. Warm candle wax bends more easily than cold wax, and a plastic shelf may gradually sag under books. Push some materials too far, and they break instead.",
+  "text_sha256": "2be28b0efdeb7a79321870fd7ce39645e805b219fba2adda43e5d2f0fd208466",
+  "raw_final_sha256": "2be28b0efdeb7a79321870fd7ce39645e805b219fba2adda43e5d2f0fd208466",
+  "word_count": 162,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4237,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 198,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\903aca0d64ef706fbe86999264ba7980db5d3f9eeddef7ebd287b4dc41e6f7b4",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

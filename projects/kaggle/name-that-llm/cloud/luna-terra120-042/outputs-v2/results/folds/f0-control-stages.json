@@ -1,0 +1,47 @@
+{
+  "run_id": "exp042-20261101T143057Z",
+  "config_sha256": "0d24a23932524507dca84d04a40de6688c80e4c92eef7bbc89c3f706b799a4a9",
+  "runner_sha256": "de60b60bfd138b834d8723bbd832fd0522453f549c4050256197f6babe4ed45a",
+  "stages": [
+    {
+      "fold": 0,
+      "arm": "control",
+      "stage": "tfidf_fit_transform",
+      "started_at": "2026-11-01T14:33:26.173683+00:00",
+      "status": "COMPLETE",
+      "seconds": 96.444247846
+    },
+    {
+      "fold": 0,
+      "arm": "control",
+      "stage": "plain_fit",
+      "started_at": "2026-11-01T14:35:02.618667+00:00",
+      "status": "COMPLETE",
+      "seconds": 28.85990466999999
+    },
+    {
+      "fold": 0,
+      "arm": "control",
+      "stage": "centred_fit",
+      "started_at": "2026-11-01T14:35:31.480991+00:00",
+      "status": "COMPLETE",
+      "seconds": 162.14162201300002
+    },
+    {
+      "fold": 0,
+      "arm": "control",
+      "stage": "dense_prediction",
+      "started_at": "2026-11-01T14:38:13.628382+00:00",
+      "status": "COMPLETE",
+      "seconds": 0.6782893509999894
+    },
+    {
+      "fold": 0,
+      "arm": "control",
+      "stage": "sparse_prediction",
+      "started_at": "2026-11-01T14:38:14.307410+00:00",
+      "status": "COMPLETE",
+      "seconds": 0.9299830970000471
+    }
+  ]
+}

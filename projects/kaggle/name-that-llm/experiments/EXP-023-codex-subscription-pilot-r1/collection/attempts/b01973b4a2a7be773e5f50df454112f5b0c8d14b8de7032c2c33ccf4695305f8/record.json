@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0008",
+  "prompt": "What would help a beginner enjoy visiting an art museum without feeling obliged to understand every painting or read every label? Please answer in roughly 160 words.",
+  "category": "everyday_advice",
+  "target_words": 160,
+  "prompt_group": "cp0008",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "b01973b4a2a7be773e5f50df454112f5b0c8d14b8de7032c2c33ccf4695305f8",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:35:48.630417+00:00",
+  "ended_at": "2026-11-01T08:36:16.765197+00:00",
+  "prompt_sha256": "09da8b1a8effad73f8be7aaaaf05ef296c0ce374f7c25c47c15e370c99efab18",
+  "text": "Treat an art museum less like a test and more like a place to wander. You do not need to understand every painting, recognize famous artists, or read every label. Start with a short visit—perhaps an hour—and follow whatever catches your eye. Pause when a color, face, texture, or strange detail interests you, even if you cannot explain why.\n\nTry choosing just a few works to spend time with. Ask simple questions: What do I notice first? What mood does this create? What story might be happening? There are no wrong personal reactions. Read a label only when you are curious for more context; it is an optional tool, not an assignment.\n\nYou might also pick a playful theme, such as finding the funniest expression, the best outfit, or one work you would take home. Sit down, sketch, or talk with a friend about what you like and dislike. Leave before you feel exhausted. Enjoyment and curiosity are enough; expertise can come later, if you want it.",
+  "text_sha256": "4ad56de56d1c38ae16bf69e565cfe576763c3d91b9787791ce1be7eced564ab2",
+  "raw_final_sha256": "4ad56de56d1c38ae16bf69e565cfe576763c3d91b9787791ce1be7eced564ab2",
+  "word_count": 167,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4123,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 221,
+      "reasoning_output_tokens": 14
+    }
+  ],
+  "attempt_path": "collection\\attempts\\b01973b4a2a7be773e5f50df454112f5b0c8d14b8de7032c2c33ccf4695305f8",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

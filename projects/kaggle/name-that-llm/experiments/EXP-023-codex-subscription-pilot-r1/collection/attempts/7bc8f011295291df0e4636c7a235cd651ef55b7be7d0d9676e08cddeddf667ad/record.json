@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0001",
+  "prompt": "I share a narrow entryway with two roommates, and shoes keep blocking the door. Suggest a practical arrangement that requires no drilling or new furniture. Aim for about 80 words.",
+  "category": "everyday_advice",
+  "target_words": 80,
+  "prompt_group": "cp0001",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "7bc8f011295291df0e4636c7a235cd651ef55b7be7d0d9676e08cddeddf667ad",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:22:38.441000+00:00",
+  "ended_at": "2026-11-01T08:22:55.025593+00:00",
+  "prompt_sha256": "3f22fd3bf8d0166795d7d0a189901a924937db54aac0d1513660498d7a87cc25",
+  "text": "Set a “landing strip” along one wall: place a washable runner or tray there and assign each roommate one third. Keep only the pair currently in use in that zone; move seasonal or rarely worn shoes to bedrooms. Put a small basket or tote beside the door for slippers, sandals, or loose items. Agree that the doorway itself stays completely clear, and do a quick weekly reset to return stray shoes to owners’ rooms.",
+  "text_sha256": "0a4819249cf5906240b5ccfb1db036c6246e4a1e8e1b7ec19056c6725e0868ff",
+  "raw_final_sha256": "0a4819249cf5906240b5ccfb1db036c6246e4a1e8e1b7ec19056c6725e0868ff",
+  "word_count": 74,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4129,
+      "cached_input_tokens": 1792,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 90,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\7bc8f011295291df0e4636c7a235cd651ef55b7be7d0d9676e08cddeddf667ad",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

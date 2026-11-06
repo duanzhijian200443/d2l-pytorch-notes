@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0225",
+  "prompt": "Discuss why different generations may remember the same public celebration in strikingly different ways. Use approximately 120 words for the response.",
+  "category": "humanities_history",
+  "target_words": 120,
+  "prompt_group": "cp0225",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "6cd0a45c704218f23b0f141c1b4ac4d47dd6040449870359fc0a520dedbc238c",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:17:46.978122+00:00",
+  "ended_at": "2026-11-01T11:18:00.949739+00:00",
+  "prompt_sha256": "0f4f3c1c45af29159e3f99ceff613d3449cb6d9be16df84b64855afd1fa48198",
+  "text": "Different generations may remember the same public celebration differently because memory is shaped by age, experience, and social context. Children often focus on excitement, food, music, or family activities, while adults may remember political tensions, financial costs, or responsibilities. People also interpret events through the values and concerns of their time: an older generation might view a national ceremony as a symbol of unity, whereas younger people may notice issues of inequality or exclusion. Media coverage, photographs, family stories, and later historical interpretations can further reshape memories. Personal circumstances matter too; someone who felt safe and included may recall joy, while another person may remember disruption or discrimination. Thus, a shared event can produce many legitimate, even conflicting, memories.",
+  "text_sha256": "c6a7d0c1a42705f3794d24e05891953202e8751f66361d3e78a0062e7ba7e952",
+  "raw_final_sha256": "c6a7d0c1a42705f3794d24e05891953202e8751f66361d3e78a0062e7ba7e952",
+  "word_count": 119,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2583,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 170,
+      "reasoning_output_tokens": 21
+    }
+  ],
+  "attempt_path": "collection\\attempts\\6cd0a45c704218f23b0f141c1b4ac4d47dd6040449870359fc0a520dedbc238c",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

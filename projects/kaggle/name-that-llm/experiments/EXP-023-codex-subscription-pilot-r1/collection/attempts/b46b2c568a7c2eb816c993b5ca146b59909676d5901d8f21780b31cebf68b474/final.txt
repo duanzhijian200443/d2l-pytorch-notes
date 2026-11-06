@@ -1,0 +1,7 @@
+A flute and a violin can play the same note at the same loudness, yet sound different because they have different **timbres**, or tone colors.
+
+The note’s pitch is mainly determined by its fundamental frequency. For example, both instruments playing A above middle C produce a fundamental near 440 hertz. However, neither produces only that frequency. Each also generates higher-frequency components called overtones, whose relative strengths help create its distinctive sound.
+
+A flute produces sound through vibrations of an air column. Its tone often has a strong fundamental and relatively weak higher harmonics, giving it a smooth, clear quality. A violin’s bowed string produces a richer mixture of harmonics, which the instrument’s wooden body amplifies unevenly, creating a brighter, more complex tone.
+
+Their sounds also develop differently over time: a flute may begin with a breathy onset, while a violin can reveal the bow’s friction against the string. These spectral and temporal differences remain even when pitch and perceived loudness match.

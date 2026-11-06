@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0189",
+  "prompt": "A square garden is expanded by doubling the length of every side. Explain what happens to its perimeter and area, and why the changes differ. Please answer in roughly 120 words.",
+  "category": "reasoning_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0189",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "7e7994d78513973d5d0c65a1e3bdf1a5514a1b9b5559a5f5de35568e510a3946",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:55:08.063079+00:00",
+  "ended_at": "2026-11-01T10:55:30.575118+00:00",
+  "prompt_sha256": "cf391d26e7c8eb95d6887f88050d2a1d809f251eccb0ca572b14b6367f9152cb",
+  "text": "When every side of a square garden is doubled, its perimeter also doubles. The perimeter is the total distance around the garden, calculated as \\(4s\\), where \\(s\\) is the original side length. After doubling, it becomes \\(4(2s)=8s\\), twice the original perimeter.\n\nThe area, however, becomes four times larger. A square’s area is \\(s^2\\). With doubled sides, the new area is \\((2s)^2=4s^2\\). The changes differ because perimeter measures a one-dimensional distance—it depends on one length—while area measures the two-dimensional surface inside the boundary. Doubling both dimensions creates four equal-sized copies of the original square, so the garden can hold four times as much space.",
+  "text_sha256": "8447f635baa25ae84c33abc221341e914e3dff52d5b9dd199dd1e0ebed595123",
+  "raw_final_sha256": "8447f635baa25ae84c33abc221341e914e3dff52d5b9dd199dd1e0ebed595123",
+  "word_count": 103,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2594,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 161,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\7e7994d78513973d5d0c65a1e3bdf1a5514a1b9b5559a5f5de35568e510a3946",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

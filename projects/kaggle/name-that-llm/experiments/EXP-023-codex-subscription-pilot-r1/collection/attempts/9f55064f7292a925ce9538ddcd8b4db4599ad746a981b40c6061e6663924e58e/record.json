@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0001",
+  "prompt": "I share a narrow entryway with two roommates, and shoes keep blocking the door. Suggest a practical arrangement that requires no drilling or new furniture. Aim for about 80 words.",
+  "category": "everyday_advice",
+  "target_words": 80,
+  "prompt_group": "cp0001",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "9f55064f7292a925ce9538ddcd8b4db4599ad746a981b40c6061e6663924e58e",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:22:38.440574+00:00",
+  "ended_at": "2026-11-01T08:22:54.521843+00:00",
+  "prompt_sha256": "3f22fd3bf8d0166795d7d0a189901a924937db54aac0d1513660498d7a87cc25",
+  "text": "Use the existing floor space strategically: designate one slim shoe zone along the wall farthest from the door, keeping a clear path at least shoulder-width wide. Have each roommate place only their everyday pair there; store seasonal or extra shoes inside bedrooms. Arrange shoes toe-to-wall in a single line, or nest pairs heel-to-toe to save space. Add a simple shared rule: shoes come off immediately and get aligned, with the entryway reset nightly. Rotate pairs as needed rather than letting them accumulate.",
+  "text_sha256": "af08afae5a09eee062ac5929a3ce33d86cda992da6e7378047f07be23116abfb",
+  "raw_final_sha256": "af08afae5a09eee062ac5929a3ce33d86cda992da6e7378047f07be23116abfb",
+  "word_count": 82,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2594,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 118,
+      "reasoning_output_tokens": 11
+    }
+  ],
+  "attempt_path": "collection\\attempts\\9f55064f7292a925ce9538ddcd8b4db4599ad746a981b40c6061e6663924e58e",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

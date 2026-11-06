@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0243",
+  "prompt": "Write a courteous reminder that volunteers need to return borrowed name badges and room keys after an event. Aim for about 120 words.",
+  "category": "short_email",
+  "target_words": 120,
+  "prompt_group": "cp0243",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "a1e074a41e252054d600c5781214b0039b922c7b0905bb6f9607d39a8184e14d",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:29:34.379613+00:00",
+  "ended_at": "2026-11-01T11:29:52.425414+00:00",
+  "prompt_sha256": "a9b7593d062c0afb19119b021046719830dbe1dcaa1ed439c6d354be99b9affa",
+  "text": "Dear Volunteers,\n\nThank you for giving your time, energy, and enthusiasm to make our event a success. We truly appreciate your support and everything you did to help things run smoothly.\n\nAs a friendly reminder, please return any borrowed name badges and room keys now that the event has ended. If you still have either item, kindly contact the event coordinator to arrange a convenient return. Please also take a quick look in your bags, pockets, or jackets in case something came home with you by accident.\n\nReturning these items helps us keep our supplies organized and ensures they’re available for future events.\n\nThank you again for your cooperation and generosity. We’re grateful to have you on our volunteer team!",
+  "text_sha256": "68d9b403b38448219e06d5d5b74e8af947ecc105ccdf81073ac9b2787035b00e",
+  "raw_final_sha256": "68d9b403b38448219e06d5d5b74e8af947ecc105ccdf81073ac9b2787035b00e",
+  "word_count": 120,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4233,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 141,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\a1e074a41e252054d600c5781214b0039b922c7b0905bb6f9607d39a8184e14d",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "ref": "zhjianduan/ntl-apex-zero-054",
+  "version": 2,
+  "script_version_id": 364820326,
+  "file_ids": {
+    "comp_stack.py": 364820326,
+    "deberta_v3_large/encoder/config.json": 364820326,
+    "deberta_v3_large/encoder/model.safetensors": 364820326,
+    "deberta_v3_large/encoder/tokenizer.json": 364820326,
+    "deberta_v3_large/encoder/tokenizer_config.json": 364820326,
+    "deberta_v3_large/head.safetensors": 364820326,
+    "deberta_v3_large/meta.json": 364820326,
+    "gauss.py": 364820326,
+    "infer.py": 364820326,
+    "pool_open_safe.parquet": 364820326,
+    "sibling_style.py": 364820326,
+    "submission.parquet": 364820326
+  },
+  "signed_urls_omitted": true,
+  "at": "2026-11-02T09:12:24.288339+00:00"
+}

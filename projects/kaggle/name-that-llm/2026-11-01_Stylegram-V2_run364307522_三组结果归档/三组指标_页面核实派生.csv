@@ -1,0 +1,4 @@
+share,balanced_accuracy,accuracy,correct,rows,version,run_id,source_type
+0.5,0.4682426050211286,0.46832160059281214,1264,2699,2,364307522,verified_final_log_transcription
+0.25,0.45970917225950786,0.4597999258984809,1241,2699,2,364307522,verified_final_log_transcription
+0.75,0.46491672880934626,0.4649870322341608,1255,2699,2,364307522,verified_final_log_transcription

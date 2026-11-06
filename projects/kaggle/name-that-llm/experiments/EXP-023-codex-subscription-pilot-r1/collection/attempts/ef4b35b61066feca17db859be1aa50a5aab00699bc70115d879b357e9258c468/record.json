@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0242",
+  "prompt": "Draft an email to a friend who offered to help you move, explaining that the move is smaller than expected and only an hour of help is needed. A response of around 120 words is enough.",
+  "category": "short_email",
+  "target_words": 120,
+  "prompt_group": "cp0242",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "ef4b35b61066feca17db859be1aa50a5aab00699bc70115d879b357e9258c468",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:28:27.488203+00:00",
+  "ended_at": "2026-11-01T11:28:43.784831+00:00",
+  "prompt_sha256": "c264687c0cd8823d5ed62ab24a1d877a55a9bfa2aedb8c30f770544ae26a9471",
+  "text": "Subject: Moving Help\n\nHi [Friend’s Name],\n\nThanks so much for offering to help me move! The move turned out to be smaller and easier than I expected, so I won’t need a full day of assistance after all. If you’re still available, I could really use your help for about an hour—mostly carrying a few boxes and loading some furniture. Of course, no pressure at all if your schedule has changed. I really appreciate your kindness and willingness to help, and even that one hour would make a big difference. I’ll let you know the exact time and details soon.\n\nThanks again!\n\nBest,  \n[Your Name]",
+  "text_sha256": "7a9f53b7ee60e704b19ca1512d607f8f4344f716f8c7053cefdbc422f802a286",
+  "raw_final_sha256": "7a9f53b7ee60e704b19ca1512d607f8f4344f716f8c7053cefdbc422f802a286",
+  "word_count": 105,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2598,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 134,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\ef4b35b61066feca17db859be1aa50a5aab00699bc70115d879b357e9258c468",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "observed_at": "2026-11-01T06:44:35.538463+00:00",
+  "scope": "fixed V2 source/input/output integrity and Drive backup reconciliation; no training",
+  "notebook_ref": "zhjianduan/name-that-llm-stylegram-share-cv/2",
+  "remote_status": "COMPLETE",
+  "script_version_id_reported_by_dot": 364307522,
+  "script_version_id_note": "Retained DOT archive identifier; official CLI fixed-v2 response does not expose global scriptVersionId.",
+  "source_exact": true,
+  "source_sha256": "7c921b9fd02995374d3873fdb6ed123c73f83261e6b453c69093b7ee8dec89ba",
+  "original_verifier_unchanged": true,
+  "original_verifier_sha256": "ea6fa44926c036da45e694b3b2fe1b64f32ecb0b44200f5496eb9a4c1d907bc2",
+  "input_hashes_verified": true,
+  "counts": {
+    "oof_csv": 3,
+    "oof_npy": 3,
+    "fold_npz": 15,
+    "sparse_npz": 225
+  },
+  "all_download_hashes_verified": 251,
+  "drive_files": [
+    {
+      "name": "oof-share0.25.csv",
+      "drive_file_id": "1sXaSfQGOxTFxMLY_a4BMC3IwxTmj2Ky6",
+      "local_path": "drive/oof-share0.25.csv",
+      "drive_url": "https://drive.google.com/file/d/1sXaSfQGOxTFxMLY_a4BMC3IwxTmj2Ky6/view",
+      "bytes": 145393,
+      "sha256": "e855dcc44ed91a81713198d3763b9b566a0bead5b824bf53e4bd1439c2d98ea6",
+      "kaggle_byte_identical": true
+    },
+    {
+      "name": "oof-share0.5.csv",
+      "drive_file_id": "1utBPkLluYNkY6euco3MhvpnheOV-cDsk",
+      "local_path": "drive/oof-share0.5.csv",
+      "drive_url": "https://drive.google.com/file/d/1utBPkLluYNkY6euco3MhvpnheOV-cDsk/view",
+      "bytes": 145657,
+      "sha256": "5ffdf9ed9085a4a1dd0d11f78113638ae609694e4b389d466d08e9400946aa0e",
+      "kaggle_byte_identical": true
+    },
+    {
+      "name": "oof-share0.75.csv",
+      "drive_file_id": "1bszZ0D9pwziy2FxjCvU8FcsrrzM2le0U",
+      "local_path": "drive/oof-share0.75.csv",
+      "drive_url": "https://drive.google.com/file/d/1bszZ0D9pwziy2FxjCvU8FcsrrzM2le0U/view",
+      "bytes": 145928,
+      "sha256": "8c6e43ef1d0400c5f0d4a87aa0707f9649d4097253d17aa1b0277e6eeceb5cf5",
+      "kaggle_byte_identical": true
+    }
+  ],
+  "dot_csv_analysis_matches": true,
+  "log_fit_complete_records": 15,
+  "log_experiment_complete_records": 1,
+  "baseline_record_unchanged": true,
+  "baseline_record_sha256": "f0cef27c942819d1f3ca828e579e19419752f68024041792613bac508a79b50f",
+  "training_or_submission_performed": false
+}

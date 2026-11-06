@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0058",
+  "prompt": "How does a map application balance storing map information on the device with downloading information during use? A response of around 160 words is enough.",
+  "category": "technology_explanation",
+  "target_words": 160,
+  "prompt_group": "cp0058",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "71d0d8c7870f96d251d836d0fb64cb5c3ece001ac4b46a44e1f97ae8f9d391e2",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:07:27.564066+00:00",
+  "ended_at": "2026-11-01T09:07:43.456307+00:00",
+  "prompt_sha256": "bdc930416610dbced5ff7f003b83dcd165e74aedce4bc60e9df96b01111e64b4",
+  "text": "A map application usually combines **local storage, caching, and on-demand downloading**. Basic information—such as major roads, place names, and recently viewed areas—may be stored on the device so the map opens quickly and still works with a weak connection. Users can often download selected regions for fully offline navigation.\n\nTo limit storage use, apps divide maps into small geographic **tiles** and save only the tiles needed at each zoom level. Vector tiles are especially efficient because they store road and boundary data rather than complete images. Frequently used or recently downloaded tiles remain in a cache, while older ones may be deleted automatically.\n\nDuring use, the app downloads missing tiles and rapidly changing information, such as traffic conditions, road closures, transit times, and business details. It may also preload tiles along a planned route. The balance depends on available storage, network speed, data limits, battery use, and how current the information must be. This hybrid approach provides fast, reliable maps without requiring the entire world map to be stored locally.",
+  "text_sha256": "898dd183de8dd968d0f6ec2e7c1d63bf73dffa92543ade8b68d7db2d9acff738",
+  "raw_final_sha256": "898dd183de8dd968d0f6ec2e7c1d63bf73dffa92543ade8b68d7db2d9acff738",
+  "word_count": 170,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4121,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 238,
+      "reasoning_output_tokens": 27
+    }
+  ],
+  "attempt_path": "collection\\attempts\\71d0d8c7870f96d251d836d0fb64cb5c3ece001ac4b46a44e1f97ae8f9d391e2",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

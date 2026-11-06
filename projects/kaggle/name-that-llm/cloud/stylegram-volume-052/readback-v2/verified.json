@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "ref": "zhjianduan/name-that-llm-stylegram-volume-052",
+  "version": 2,
+  "private": true,
+  "gpu": false,
+  "internet": false,
+  "image": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+  "source_equal": true,
+  "observed_at": "2026-11-02T06:43:18.034783+00:00"
+}

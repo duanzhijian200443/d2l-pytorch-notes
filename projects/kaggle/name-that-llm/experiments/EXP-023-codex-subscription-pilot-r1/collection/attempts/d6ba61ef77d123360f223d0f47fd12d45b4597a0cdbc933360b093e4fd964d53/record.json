@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0199",
+  "prompt": "Two identical clocks begin together. One gains two minutes each day, while the other loses one minute each day. Explain how far apart their readings will be after four days. Please answer in roughly 120 words.",
+  "category": "reasoning_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0199",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "d6ba61ef77d123360f223d0f47fd12d45b4597a0cdbc933360b093e4fd964d53",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:02:01.706306+00:00",
+  "ended_at": "2026-11-01T11:02:15.333156+00:00",
+  "prompt_sha256": "5fabeb72a64e59bdd7c8d5e1976bc0a652270e019aeb2ae7e3fd482f33f582be",
+  "text": "The clocks start synchronized, so their readings initially differ by zero. Each day, the first clock gains 2 minutes relative to real time, while the second loses 1 minute. Therefore, the gap between them increases by:\n\n2 − (−1) = 3 minutes per day.\n\nAfter four days, the total difference is:\n\n4 × 3 = 12 minutes.\n\nThus, the fast clock will read **12 minutes later** than the slow clock. For example, after exactly four real days (96 hours), the gaining clock will show 96 hours and 8 minutes, while the losing clock will show 95 hours and 56 minutes. The difference between those readings is 12 minutes.",
+  "text_sha256": "4d4c3b24ecc2962ceb7bbb3318e440aed2228c36192f1fe27aed5a14b07eb1dc",
+  "raw_final_sha256": "4d4c3b24ecc2962ceb7bbb3318e440aed2228c36192f1fe27aed5a14b07eb1dc",
+  "word_count": 108,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2600,
+      "cached_input_tokens": 2432,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 214,
+      "reasoning_output_tokens": 66
+    }
+  ],
+  "attempt_path": "collection\\attempts\\d6ba61ef77d123360f223d0f47fd12d45b4597a0cdbc933360b093e4fd964d53",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

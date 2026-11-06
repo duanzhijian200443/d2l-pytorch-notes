@@ -1,0 +1,24 @@
+{
+  "checked_at": "2026-11-01T06:42:38.742Z",
+  "google_drive_folder": "https://drive.google.com/drive/folders/1UssxqD1-fDjStFY3bnZDIFlz8BM2X5zB",
+  "files": [
+    {
+      "name": "oof-share0.25.csv",
+      "drive_file_id": "1sXaSfQGOxTFxMLY_a4BMC3IwxTmj2Ky6",
+      "local_path": "drive/oof-share0.25.csv",
+      "drive_url": "https://drive.google.com/file/d/1sXaSfQGOxTFxMLY_a4BMC3IwxTmj2Ky6/view"
+    },
+    {
+      "name": "oof-share0.5.csv",
+      "drive_file_id": "1utBPkLluYNkY6euco3MhvpnheOV-cDsk",
+      "local_path": "drive/oof-share0.5.csv",
+      "drive_url": "https://drive.google.com/file/d/1utBPkLluYNkY6euco3MhvpnheOV-cDsk/view"
+    },
+    {
+      "name": "oof-share0.75.csv",
+      "drive_file_id": "1bszZ0D9pwziy2FxjCvU8FcsrrzM2le0U",
+      "local_path": "drive/oof-share0.75.csv",
+      "drive_url": "https://drive.google.com/file/d/1bszZ0D9pwziy2FxjCvU8FcsrrzM2le0U/view"
+    }
+  ]
+}

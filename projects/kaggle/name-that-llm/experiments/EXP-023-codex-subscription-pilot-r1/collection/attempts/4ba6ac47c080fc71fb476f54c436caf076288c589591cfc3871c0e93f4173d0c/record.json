@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0163",
+  "prompt": "Write a concise email declining an invitation to lead a workshop because the topic is outside your experience. Offer one useful alternative without inventing a named expert. Aim for about 120 words.",
+  "category": "short_email",
+  "target_words": 120,
+  "prompt_group": "cp0163",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "4ba6ac47c080fc71fb476f54c436caf076288c589591cfc3871c0e93f4173d0c",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:37:16.355695+00:00",
+  "ended_at": "2026-11-01T10:37:35.670721+00:00",
+  "prompt_sha256": "10fc785f3f4d4b297e599f930b0fba194231ca71e71e41b58d24144f4022f393",
+  "text": "Subject: Workshop Invitation\n\nDear [Name],\n\nThank you for thinking of me and for the invitation to lead the workshop. I appreciate the opportunity and the confidence behind it.\n\nAfter considering the topic, I’ll need to decline. It falls outside my area of experience, and I would not want to lead a session without being able to offer participants the depth and practical perspective they deserve.\n\nAs an alternative, you might consider inviting someone who works directly in this area to lead the workshop, perhaps through a relevant professional association or local practitioner network.\n\nI’m sorry I can’t help on this occasion, but I hope the workshop is a success and that we may find an opportunity to collaborate on a topic better aligned with my expertise.\n\nBest regards,  \n[Your Name]",
+  "text_sha256": "00c452bbf9206edcdc2eaf9b6dcaeac062d4c5c075fc4c6ed998aeef41fa2a96",
+  "raw_final_sha256": "00c452bbf9206edcdc2eaf9b6dcaeac062d4c5c075fc4c6ed998aeef41fa2a96",
+  "word_count": 130,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4130,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 156,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\4ba6ac47c080fc71fb476f54c436caf076288c589591cfc3871c0e93f4173d0c",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

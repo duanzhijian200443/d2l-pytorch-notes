@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0037",
+  "prompt": "Why does a clear night often become colder than a cloudy night with otherwise similar conditions? Please answer in roughly 120 words.",
+  "category": "science_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0037",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "4baec4463527367d48abddc3ed70d864c73b017940cabdddf15b2ca75e030bad",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:53:59.762706+00:00",
+  "ended_at": "2026-11-01T08:54:21.708217+00:00",
+  "prompt_sha256": "d391c16b6246fdb2b5890f2570a9c959dcc07e96d7a94868c2098e5b67476307",
+  "text": "A clear night often becomes colder because the ground loses heat by emitting infrared radiation. With few clouds overhead, much of that energy escapes to space. As the surface cools, it also cools the air directly above it.\n\nClouds contain water droplets or ice crystals that absorb outgoing infrared radiation and emit infrared radiation themselves, including back toward the ground. This downward radiation reduces the surface’s net heat loss, so temperatures usually fall more slowly beneath cloud cover. Clouds act somewhat like a blanket—not by stopping heat loss completely, but by slowing radiative cooling.\n\nThe difference is especially noticeable on calm, dry nights. Wind, humidity, cloud height, and incoming air masses also influence how cold a night becomes.",
+  "text_sha256": "50cfb643fb4ef01692798291a7aa2a120ecf66ba738a5237142c3195793ddd04",
+  "raw_final_sha256": "50cfb643fb4ef01692798291a7aa2a120ecf66ba738a5237142c3195793ddd04",
+  "word_count": 118,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4232,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 145,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\4baec4463527367d48abddc3ed70d864c73b017940cabdddf15b2ca75e030bad",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

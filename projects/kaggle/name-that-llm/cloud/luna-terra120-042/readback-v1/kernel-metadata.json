@@ -1,0 +1,23 @@
+{
+  "id": "zhjianduan/name-that-llm-luna-terra120-042",
+  "id_no": 142126905,
+  "title": "Name That LLM Luna Terra120 042",
+  "code_file": "name-that-llm-luna-terra120-042.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "keywords": [],
+  "dataset_sources": [
+    "zhjianduan/ntl-stylegram-cv-inputs-v1"
+  ],
+  "kernel_sources": [],
+  "competition_sources": [
+    "name-that-llm"
+  ],
+  "model_sources": [],
+  "docker_image": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+  "machine_shape": "None"
+}

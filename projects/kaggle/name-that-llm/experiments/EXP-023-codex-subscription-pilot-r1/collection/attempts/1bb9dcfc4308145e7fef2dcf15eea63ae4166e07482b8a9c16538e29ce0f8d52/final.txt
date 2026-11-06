@@ -1,0 +1,16 @@
+**Subject: Project Handover – Riverside Initiative**
+
+Hi Jordan,
+
+I’m writing to formally hand over the Riverside Initiative as I transition off the project.
+
+The updated client onboarding workflow is now complete. This includes the revised intake form, approval steps, and supporting guidance for the operations team. The materials have been reviewed internally and are ready for use.
+
+One question remains unresolved: should automated reminder emails be sent after three business days or five? The current draft uses five days, but the final timing should be confirmed with the client before the automation is activated.
+
+All working files are stored in the shared project drive under **Projects > Riverside Initiative > Handover**. The folder contains the latest project plan, editable source documents, meeting notes, and a brief status tracker. Please use the files labeled “Final Working Version” as the starting point for any further changes.
+
+Thanks for your support throughout the project. Please let me know if you need any clarification during the handover.
+
+Best,  
+Alex Morgan

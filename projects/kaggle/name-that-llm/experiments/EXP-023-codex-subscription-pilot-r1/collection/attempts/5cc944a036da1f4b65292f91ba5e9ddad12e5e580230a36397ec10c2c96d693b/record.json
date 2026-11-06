@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0224",
+  "prompt": "What is the difference between collecting objects as souvenirs and collecting them as historical evidence? Please answer in roughly 200 words.",
+  "category": "humanities_history",
+  "target_words": 200,
+  "prompt_group": "cp0224",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "5cc944a036da1f4b65292f91ba5e9ddad12e5e580230a36397ec10c2c96d693b",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:17:31.467291+00:00",
+  "ended_at": "2026-11-01T11:17:46.959218+00:00",
+  "prompt_sha256": "53d94a688749946b8905391696c7d17b4d60353bca329717cc84f18b57f86c3b",
+  "text": "Collecting objects as **souvenirs** is primarily personal and emotional. A souvenir represents an individual’s experience of a place, event, or relationship. Its value often comes from memory, sentiment, or identity rather than rarity or factual significance. A concert ticket, seashell, or postcard may matter because it reminds its owner of a meaningful moment. Context can be informal, and the collector may alter, display, or discard the object freely.\n\nCollecting objects as **historical evidence**, by contrast, treats them as sources of information about the past. The object’s origin, date, maker, use, ownership, and circumstances of acquisition are carefully documented. Preservation matters because physical details—materials, wear, inscriptions, or traces of use—may support historical interpretation. Museums, archives, and researchers also consider authenticity, provenance, representativeness, and ethical or legal issues.\n\nThe same object can serve both purposes. A soldier’s letter, for example, may be a family keepsake while also providing evidence about wartime experiences. The distinction lies less in the object itself than in how it is valued and handled. Souvenir collecting emphasizes personal remembrance; historical collecting emphasizes verifiable context, preservation, and usefulness for understanding broader people, events, and cultures.",
+  "text_sha256": "6d5295da7820828d6131228a20cde18c23c0bc9aa8b7793e8601cdc7c875e1ed",
+  "raw_final_sha256": "6d5295da7820828d6131228a20cde18c23c0bc9aa8b7793e8601cdc7c875e1ed",
+  "word_count": 186,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4117,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 256,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\5cc944a036da1f4b65292f91ba5e9ddad12e5e580230a36397ec10c2c96d693b",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

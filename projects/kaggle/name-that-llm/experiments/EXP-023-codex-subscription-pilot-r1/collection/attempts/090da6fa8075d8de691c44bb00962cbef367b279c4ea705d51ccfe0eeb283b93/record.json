@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0141",
+  "prompt": "Rewrite this note as a clear, friendly notice for apartment residents: 'The hallway painting starts Tuesday. There will be workers. Bikes and boxes are in the way. Move them Monday night. We think the job ends Thursday, but the weather may affect drying.' Preserve the uncertainty. Please answer in roughly 80 words.",
+  "category": "rewrite_original_material",
+  "target_words": 80,
+  "prompt_group": "cp0141",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "090da6fa8075d8de691c44bb00962cbef367b279c4ea705d51ccfe0eeb283b93",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:21:39.404402+00:00",
+  "ended_at": "2026-11-01T10:22:10.158819+00:00",
+  "prompt_sha256": "a64a88a1af6030c420dac17a50abc3142cddbb01d1030e23214b10f9c8855955",
+  "text": "Dear Residents,\n\nHallway painting will begin on Tuesday, and workers will be in the building while the work is underway. Please move all bikes, boxes, and other belongings out of the hallways by Monday night so the crew can work safely and access the areas being painted.\n\nWe expect the painting to be finished by Thursday, but this timing is not guaranteed, as weather conditions may affect drying times.\n\nThank you for your help, patience, and cooperation!",
+  "text_sha256": "c43a660df6a8d719c61450349818c641e9113901d17a051aea05cdf3e54bb68e",
+  "raw_final_sha256": "c43a660df6a8d719c61450349818c641e9113901d17a051aea05cdf3e54bb68e",
+  "word_count": 77,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4271,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 95,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\090da6fa8075d8de691c44bb00962cbef367b279c4ea705d51ccfe0eeb283b93",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

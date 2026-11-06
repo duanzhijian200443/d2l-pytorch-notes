@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0220",
+  "prompt": "Explain how a written definition of 'finished' can prevent misunderstandings in a small collaborative project. Please answer in roughly 120 words.",
+  "category": "business_decision",
+  "target_words": 120,
+  "prompt_group": "cp0220",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "b8cb133a8ef9e44e73c32644527c14e77192d90768da0f1eba648cc0bf580e27",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:15:29.939666+00:00",
+  "ended_at": "2026-11-01T11:15:57.224788+00:00",
+  "prompt_sha256": "f4fa5275e0e3fb2587ef485dff6378f5e077b8708e7eb94dc33c940c9a6d35b5",
+  "text": "A written definition of “finished” gives everyone in a small collaborative project the same expectations. Without one, a designer might consider a page finished when it looks right, while a developer expects working links and the project owner expects approved content. These different assumptions can cause delays, frustration, and unexpected extra work.\n\nThe definition should list clear, observable conditions, such as completing agreed features, checking for errors, receiving approval, and handing over necessary files or instructions. It should also identify who confirms that these conditions are met.\n\nAgreeing on this checklist early makes progress easier to assess and feedback more specific. If expectations change, the team can update the definition together rather than silently moving the goalposts.",
+  "text_sha256": "0fee62bda4afe273fbaa3032ac4c4c42956a26ebffe503a3bb68074e7d06dc35",
+  "raw_final_sha256": "0fee62bda4afe273fbaa3032ac4c4c42956a26ebffe503a3bb68074e7d06dc35",
+  "word_count": 117,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4234,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 142,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\b8cb133a8ef9e44e73c32644527c14e77192d90768da0f1eba648cc0bf580e27",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

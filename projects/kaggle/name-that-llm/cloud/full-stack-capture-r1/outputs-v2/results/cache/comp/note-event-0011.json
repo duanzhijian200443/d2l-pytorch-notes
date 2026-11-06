@@ -1,0 +1,1 @@
+{"event":"member","payload":{"items":[["key",{"kind":"scalar","value":"q3_8b_twin"}],["probability",{"kind":"array","name":"event-0011-array-0001"}],["log_probability",{"kind":"array","name":"event-0011-array-0002"}],["weight",{"kind":"scalar","value":0.3285}],["rows",{"kind":"array","name":"event-0011-array-0003"}]],"kind":"mapping"},"sequence":11}

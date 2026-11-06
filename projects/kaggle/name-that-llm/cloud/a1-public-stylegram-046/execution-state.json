@@ -1,0 +1,40 @@
+{
+  "experiment_id": "EXP-046",
+  "notebook_ref": "zhjianduan/name-that-llm-a1-public-stylegram-046",
+  "save_request_count": 1,
+  "status": "COMPETITION_COMPLETE",
+  "gpu_may_be_active": false,
+  "ack_outcome": "ACKNOWLEDGED",
+  "observed_at": "2026-11-02T03:55:07.208171+00:00",
+  "saved_version": 1,
+  "readback_receipts": {
+    "1": {
+      "path": "readback-v1-20261101T173811034314Z-dbc096\\verified.json",
+      "sha256": "a5f2773f6c7a371da33df3a351767dc30072cfcba777378232898bf54dd59f6a"
+    },
+    "2": {
+      "path": "readback-v2-20261101T174011837673Z-b9ca46\\verified.json",
+      "sha256": "7edbe1c346c4e259abbadeed43f1571561f9cd14112211263575711b40b9881c"
+    }
+  },
+  "run_request_count": 1,
+  "run_version": 2,
+  "last_status": {
+    "version": 2,
+    "status": "COMPLETE",
+    "path": "status-v2-20261101T174719136084Z-d6afb7.json",
+    "observed_at": "2026-11-01T17:47:21.484407+00:00"
+  },
+  "downloaded_version": 2,
+  "outputs_path": "outputs-v2",
+  "outputs_manifest_sha256": "3bceeb7cbffccb2405193ea175e6fe44b47b44a54fc9d160e67bba0c98640f7e",
+  "script_version_id": 364624288,
+  "quick_verification_path": "quick-commit-verification.json",
+  "submission_request_count": 1,
+  "submission_outcome": "ACKNOWLEDGED",
+  "submission_id": 57879463,
+  "competition_rerun_may_be_active": false,
+  "formal_score": 0.663,
+  "submission_status": "COMPLETE",
+  "formal_result_evidence": "tracking/snapshots/20261102T035507208171Z/submissions.json"
+}

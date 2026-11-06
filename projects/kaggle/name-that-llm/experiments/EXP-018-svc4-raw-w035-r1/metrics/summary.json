@@ -1,0 +1,31 @@
+{
+  "verified_at": "2026-11-01T08:06:13.842221+00:00",
+  "summary": {
+    "experiment": "EXP-018",
+    "public_row_weight": 0.35,
+    "balanced_accuracy": 0.40228933631618197,
+    "accuracy": 0.40237124861059653,
+    "correct": 1086,
+    "rows": 2699
+  },
+  "paired_comparison": {
+    "candidate": "EXP-018",
+    "reference": "EXP-017",
+    "contrast": "adding_raw_public_including_feature_fit",
+    "delta_ba": 0.017805120556798393,
+    "ci95_lower": 0.002997557120879269,
+    "ci95_upper": 0.03222222222222223,
+    "bootstrap_draws": 2000,
+    "bootstrap_seed": 42,
+    "fixed_errors": 266,
+    "new_errors": 218,
+    "prediction_disagreements": 1024,
+    "both_wrong": 1395,
+    "positive_folds": 4,
+    "negative_folds": 1,
+    "tied_folds": 0,
+    "multiple_comparison_adjustment": "none"
+  },
+  "full_analysis_path": "cloud/svc4-raw-public-r1/analysis/verified.json",
+  "formal_leaderboard_result": false
+}

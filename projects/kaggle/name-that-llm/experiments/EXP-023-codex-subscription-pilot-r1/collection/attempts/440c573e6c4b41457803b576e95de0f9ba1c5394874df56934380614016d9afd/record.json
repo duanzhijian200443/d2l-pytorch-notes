@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0025",
+  "prompt": "Why does a soap bubble show changing colors as its surface becomes thinner? Keep the explanation understandable without equations. Aim for about 120 words.",
+  "category": "science_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0025",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "440c573e6c4b41457803b576e95de0f9ba1c5394874df56934380614016d9afd",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:46:32.097952+00:00",
+  "ended_at": "2026-11-01T08:46:45.489349+00:00",
+  "prompt_sha256": "e62ae447c45c42df35c70d07568e47e675d495f6829e187cbfedaef0e2ecac38",
+  "text": "A soap bubble’s colors come from **thin-film interference**. When white light hits the bubble, some reflects from the outer surface of the soap film, while some enters the film and reflects from its inner surface. These reflected light waves overlap. Depending on the film’s thickness, certain colors reinforce each other while others cancel out.\n\nAs gravity pulls liquid downward and evaporation removes water, the film becomes thinner at different rates across the bubble. The colors that are reinforced therefore change from place to place and moment to moment, producing shifting rainbow patterns. Just before the bubble bursts, its thinnest areas may appear dark because most visible colors cancel in the reflected light. The changing colors are thus a sensitive display of the bubble’s changing thickness.",
+  "text_sha256": "f27734a3988ba2111397dfc5c936c1d40c7d4cba9bb48525a74e674b02d61f61",
+  "raw_final_sha256": "f27734a3988ba2111397dfc5c936c1d40c7d4cba9bb48525a74e674b02d61f61",
+  "word_count": 125,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4121,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 163,
+      "reasoning_output_tokens": 10
+    }
+  ],
+  "attempt_path": "collection\\attempts\\440c573e6c4b41457803b576e95de0f9ba1c5394874df56934380614016d9afd",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

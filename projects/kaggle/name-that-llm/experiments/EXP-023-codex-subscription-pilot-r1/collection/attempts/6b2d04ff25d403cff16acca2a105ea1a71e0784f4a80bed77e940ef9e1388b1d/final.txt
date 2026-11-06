@@ -1,0 +1,7 @@
+A video call can freeze even when a speed test shows fast internet because speed is only one part of connection quality. Video calls need a stable, low-latency connection with minimal packet loss and jitter. A speed test usually measures peak download and upload throughput to a nearby test server, while a call may travel through a different route to a distant service.
+
+Freezing can result from brief outages, wireless interference, network congestion, or packets arriving late or out of order. If upload capacity is limited, other activities—such as cloud backups, streaming, or large downloads—can crowd out the call. A busy home router, overloaded Wi-Fi channel, VPN, or faulty network hardware can have similar effects.
+
+The computer itself may also be the bottleneck. High CPU or memory usage, an overloaded browser, outdated drivers, or a camera application competing for resources can interrupt video processing. On managed or corporate networks, firewall rules and traffic shaping may affect real-time communications.
+
+To troubleshoot, try an Ethernet cable, move closer to the router, pause heavy network activity, disable the VPN temporarily, and close unnecessary applications. Check for packet loss and latency over time rather than relying only on a single speed result. If possible, compare another device or network to determine whether the problem is with the call service, local network, or computer.

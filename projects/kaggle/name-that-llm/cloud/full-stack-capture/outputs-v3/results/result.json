@@ -1,0 +1,23 @@
+{
+  "status": "ERROR",
+  "cause": "CAPTURE_FAILED",
+  "observed_at": "2026-11-01T10:44:41.541493+00:00",
+  "scope": "exploratory_external",
+  "experiment_id": "EXP-029",
+  "run_id": "exp029-20261101T103239Z",
+  "elapsed_seconds": 41.966066111,
+  "work_budget_seconds": 28200,
+  "platform_wall_seconds": 28800,
+  "peak_rss_bytes": 113377280,
+  "child_exit": 1,
+  "archive": {
+    "status": "COMPLETE",
+    "path": "cache-artifacts.zip",
+    "sha256": "ce995f5dcb889bf0663b865ecc7b00c324d841102a297eada101a94f1fb3bced",
+    "bytes": 347756
+  },
+  "formal_submission_created": false,
+  "automatic_retry": false,
+  "gpu_runtime_release": "platform termination, not Colab unassign",
+  "traceback": "Traceback (most recent call last):\n  File \"/kaggle/working/payload/runner.py\", line 535, in supervise\n    require(child.returncode == 0, 'Worker failed with exit ' + str(child.returncode))\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/payload/runner.py\", line 65, in require\n    raise ValueError(message)\nValueError: Worker failed with exit 1\n"
+}

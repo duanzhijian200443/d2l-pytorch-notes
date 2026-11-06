@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0124",
+  "prompt": "Discuss whether a school art exhibition should group work by age or mix all ages together. A response of around 200 words is enough.",
+  "category": "tradeoff_argument",
+  "target_words": 200,
+  "prompt_group": "cp0124",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "472124908c2114d3965b5eb144678479f84148c7138b5443d4d4b6d276f2f0e2",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:49:02.216300+00:00",
+  "ended_at": "2026-11-01T09:49:24.056999+00:00",
+  "prompt_sha256": "83f44935a73288ae134a294891fbfcaf613cf2e47bfc5c42e40f34046dd622d6",
+  "text": "A school art exhibition can be organized either by age group or by mixing all ages, and each approach has advantages.\n\nGrouping work by age makes it easier to see students’ development. Visitors can compare the different techniques, ideas, and levels of confidence typically found in younger and older pupils. It may also feel fairer to students, since their work is displayed alongside that of peers with similar experience. Teachers can use the arrangement to celebrate progress at each stage of learning.\n\nHowever, mixing all ages can create a more exciting and inclusive exhibition. A young child’s imaginative drawing may sit beside a sophisticated piece by an older student, showing that creativity is not limited by age or technical skill. This arrangement can encourage younger pupils by giving them examples to aspire to, while reminding older students of the freedom and originality often found in early artwork. Families may also enjoy seeing the full range of the school community in one place.\n\nA balanced solution could combine both ideas: display work in mixed-age themes, such as nature, identity, or colour, while clearly labelling each artist’s age or year group. This highlights shared creativity while still allowing visitors to appreciate artistic growth.",
+  "text_sha256": "c3394640bc602860faf95770d265a69e00502c4018971ebb12bd173921e295f4",
+  "raw_final_sha256": "c3394640bc602860faf95770d265a69e00502c4018971ebb12bd173921e295f4",
+  "word_count": 201,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4120,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 234,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\472124908c2114d3965b5eb144678479f84148c7138b5443d4d4b6d276f2f0e2",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

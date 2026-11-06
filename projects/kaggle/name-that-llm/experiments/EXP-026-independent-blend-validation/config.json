@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "model": {
+    "name": "fixed-alpha010-external-validation",
+    "parameters": {
+      "candidate_experiment": "EXP-024",
+      "alpha": 0.1,
+      "normalization": "unchanged per-row population z-score from EXP-024",
+      "reference": "Stylegram share0.5",
+      "complement": "svc4 raw public row weight0.35",
+      "retune": false
+    }
+  },
+  "validation": {
+    "seed": 42,
+    "scope": "external data gate before fixed-candidate validation",
+    "require_no_known_training_prompt_ancestry": true,
+    "require_no_normalized_training_text_overlap": true,
+    "exclude_official_prompt_regeneration": true,
+    "label_coverage_must_be_reported": true,
+    "partial_class_results_are_not_18_class_ba": true,
+    "no_relabeling_existing_oof_as_independent": true
+  },
+  "candidate_sources": [
+    {
+      "source_id": "existing-local-public-pools",
+      "role": "lineage/overlap feasibility audit"
+    },
+    {
+      "source_id": "SRC-062",
+      "ref": "enaimaan/ntl-openai-generated-responses",
+      "version": 3,
+      "role": "possible new external four-class subset; not accepted until byte/provenance/ancestry audit"
+    }
+  ],
+  "environment": {
+    "platform": "private Kaggle CPU after audit",
+    "accelerator": null,
+    "internet": false,
+    "threads": 2,
+    "container": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+    "required_versions": {
+      "numpy": "2.1.3",
+      "pandas": "2.3.3",
+      "scipy": "1.16.3",
+      "sklearn": "1.6.1"
+    }
+  },
+  "budget": {
+    "max_cpu_fit_wall_seconds": 3600,
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0,
+    "work_budget_seconds": 3300,
+    "platform_wall_seconds": 3600,
+    "rss_limit_bytes": 12884901888,
+    "no_automatic_retry": true
+  },
+  "permissions": {
+    "formal_submission": false,
+    "publication": false,
+    "paid_generation": false,
+    "modify_active_other_experiments": false,
+    "change_formal_baseline": false
+  },
+  "training": {
+    "mode": "full official training set plus unchanged member-specific public input; no five-fold model averaging",
+    "official_rows": 2699,
+    "stylegram_extra_rows": 10073,
+    "svc4_public_rows": 5400,
+    "svm_fits": 3,
+    "stylegram": {
+      "C": 0.5,
+      "max_iter": 4000,
+      "dual": true,
+      "random_state": 42,
+      "share": 0.5,
+      "dtype": "float64"
+    },
+    "svc4": {
+      "C": 0.5,
+      "max_iter": 5000,
+      "dual": "auto",
+      "class_weight": "balanced",
+      "random_state": 42,
+      "public_row_weight": 0.35,
+      "dtype": "float32"
+    }
+  },
+  "evaluation": {
+    "source_ref": "enaimaan/ntl-openai-generated-responses",
+    "version": 3,
+    "kind": "new",
+    "source_selection": "Dolly-only complete four-label panels; exclude known training ancestry and normalized prompt/response overlap; data gate must pass first",
+    "labels": [
+      "gpt-5.6-luna",
+      "gpt-5.6-sol",
+      "gpt-5.6-terra",
+      "gpt-6-astra"
+    ],
+    "max_rows": 6000,
+    "inference_batch": "all accepted external rows once; no true prompt IDs or labels used for inference grouping",
+    "output_classes": 18,
+    "metric": "macro recall over four covered true labels with unrestricted 18-way predictions",
+    "claim": "scoped external four-class check, not full 18-class or leaderboard",
+    "alpha": 0.1,
+    "retune": false,
+    "sparse_sweep": false
+  }
+}

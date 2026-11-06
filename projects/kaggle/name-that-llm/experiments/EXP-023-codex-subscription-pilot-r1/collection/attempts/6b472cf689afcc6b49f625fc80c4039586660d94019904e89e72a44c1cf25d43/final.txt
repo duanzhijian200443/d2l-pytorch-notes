@@ -1,0 +1,7 @@
+The plant is showing **positive phototropism**, a growth response that directs shoots toward light. Light-sensitive proteins called **phototropins**, mainly in the shoot tip and young tissues, detect that one side of the plant receives more blue light than the other.
+
+This uneven illumination changes the distribution of the plant hormone **auxin**. More auxin accumulates on the shaded side of the stem. In shoots, auxin stimulates cells to loosen their walls, absorb water, and elongate. Because cells on the shaded side lengthen more than cells on the illuminated side, the stem gradually curves toward the window. This helps the leaves capture more light for photosynthesis.
+
+The bending takes time because it is a **growth process**, not an immediate movement like a muscle contraction. The plant must first detect the direction of the light, transmit chemical signals, redistribute auxin, and activate cellular mechanisms that alter the cell walls. Cells then need to take up water and expand. Small differences in growth accumulate over hours or days until the curve becomes noticeable.
+
+The response occurs most strongly in young, actively growing parts of the shoot. Older, rigid tissues bend much less, so continued turning may also depend on new growth being produced in a light-favorable direction.

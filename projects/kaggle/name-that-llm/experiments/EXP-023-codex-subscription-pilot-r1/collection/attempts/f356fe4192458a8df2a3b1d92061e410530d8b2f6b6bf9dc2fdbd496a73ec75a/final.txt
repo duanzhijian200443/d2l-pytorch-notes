@@ -1,0 +1,10 @@
+Before copying the feature, the team should understand the user need behind it—not just its popularity elsewhere. It should learn:
+
+- Which problems its own users are trying to solve, and how important or frequent those problems are.
+- Whether users currently use workarounds, competing products, or existing features to address them.
+- Which user segments would benefit, and whether those segments align with the product’s strategy.
+- What users value about the competitor’s feature: the outcome, workflow, convenience, or novelty.
+- How the feature might affect usability, trust, privacy, performance, or existing workflows.
+- Whether users would adopt it, return to it, or pay for it.
+
+Interviews, behavioral data, support requests, and small prototypes can test these questions. The goal is not feature parity, but evidence that the feature solves a meaningful problem for this product’s users.

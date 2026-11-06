@@ -1,0 +1,58 @@
+{
+  "status": "COMPLETE",
+  "observed_at": "2026-11-01T07:57:34.667665+00:00",
+  "scope": "isolated svc4 raw-public development OOF, not original matched/pool recipe or full ATLAS20",
+  "trained_svms": 20,
+  "convergence_warnings": 0,
+  "gpu_used": false,
+  "summaries": [
+    {
+      "experiment": "EXP-017",
+      "public_row_weight": null,
+      "balanced_accuracy": 0.3844842157593836,
+      "correct": 1038
+    },
+    {
+      "experiment": "EXP-018",
+      "public_row_weight": 0.35,
+      "balanced_accuracy": 0.40228933631618197,
+      "correct": 1086
+    },
+    {
+      "experiment": "EXP-019",
+      "public_row_weight": 0.175,
+      "balanced_accuracy": 0.39709917971662945,
+      "correct": 1072
+    },
+    {
+      "experiment": "EXP-020",
+      "public_row_weight": 0.7,
+      "balanced_accuracy": 0.39080039771314934,
+      "correct": 1055
+    }
+  ],
+  "fold_timings": [
+    {
+      "fold": 0,
+      "wall_seconds": 110.07646005599997
+    },
+    {
+      "fold": 1,
+      "wall_seconds": 108.156995268
+    },
+    {
+      "fold": 2,
+      "wall_seconds": 107.90768306399997
+    },
+    {
+      "fold": 3,
+      "wall_seconds": 110.063512951
+    },
+    {
+      "fold": 4,
+      "wall_seconds": 109.64605280199999
+    }
+  ],
+  "total_seconds": 546.266347423,
+  "fitted_weights_saved": false
+}

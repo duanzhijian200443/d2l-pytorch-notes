@@ -1,0 +1,5 @@
+A single overall customer satisfaction score is simple, fast, and easy to track over time. It reduces survey fatigue and provides a clear headline metric for leaders. However, it does not explain *why* customers are satisfied or dissatisfied, and different strengths and weaknesses may cancel each other out.
+
+Collecting a few specific ratings—such as satisfaction with product quality, support, speed, and ease of use—requires slightly more effort from customers but produces more actionable insights. It helps teams identify which parts of the experience need improvement and determine what drives overall satisfaction. The trade-off is greater survey length and more complex reporting.
+
+A practical approach is to combine both: ask one overall satisfaction question, followed by a small number of targeted questions about the most important experience dimensions.

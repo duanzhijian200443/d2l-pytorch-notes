@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0158",
+  "prompt": "Improve this description by replacing vague praise with concrete details already present: 'The workshop was amazing. There were six benches, tools hung where everyone could reach them, and scrap wood sorted into bins. It was a really great place to learn.' A response of around 120 words is enough.",
+  "category": "rewrite_original_material",
+  "target_words": 120,
+  "prompt_group": "cp0158",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "a41d288a233afa26a2b7bccbcaa68824f3e2bc94ab9e2dfb75e99c0e5957a633",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:34:04.116721+00:00",
+  "ended_at": "2026-11-01T10:34:32.193628+00:00",
+  "prompt_sha256": "0ac7885b04ae2c637cdc43e1633ef073d49d9ca49768d42c922bc80fc3de2957",
+  "text": "The workshop had six benches, with tools hanging where everyone could reach them and scrap wood sorted into bins. Those details made it a practical place to learn: benches provided work surfaces, tools were accessible rather than tucked away, and leftover wood was organized rather than piled together. Learners could find a piece of scrap without digging through a heap and reach for a tool without asking someone else to retrieve it. The space supported the work through its arrangement—somewhere to work, tools within reach, and materials kept in order.",
+  "text_sha256": "8713b9c99143b9fdc151c4acaa36c7c86116916aabc79deac12b1ee974b31dba",
+  "raw_final_sha256": "8713b9c99143b9fdc151c4acaa36c7c86116916aabc79deac12b1ee974b31dba",
+  "word_count": 90,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4265,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 150,
+      "reasoning_output_tokens": 40
+    }
+  ],
+  "attempt_path": "collection\\attempts\\a41d288a233afa26a2b7bccbcaa68824f3e2bc94ab9e2dfb75e99c0e5957a633",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

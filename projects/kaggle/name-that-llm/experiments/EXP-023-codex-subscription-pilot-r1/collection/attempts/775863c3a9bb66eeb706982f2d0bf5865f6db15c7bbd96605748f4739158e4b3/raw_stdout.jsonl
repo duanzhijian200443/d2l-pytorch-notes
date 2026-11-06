@@ -1,0 +1,6 @@
+{"type":"thread.started","thread_id":"01a196a3-bda3-7000-9916-6732c0f16192"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in C:\\Users\\34331\\.codex\\config.toml."}}
+{"type":"item.completed","item":{"id":"item_1","type":"error","message":"Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."}}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"This notebook is designed for everyday writing, planning, and note-taking. It features durable covers, numbered pages for easy organization, and an internal pocket for storing loose papers or reminders. Whether you’re recording ideas, keeping lists, or managing projects, its practical layout helps keep your notes together and accessible. A reliable choice for work, study, or personal use, it offers useful features in a simple, versatile format."}}
+{"type":"turn.completed","usage":{"input_tokens":2613,"cached_input_tokens":1920,"cache_write_input_tokens":0,"output_tokens":87,"reasoning_output_tokens":0}}

@@ -1,0 +1,5 @@
+A geologist could infer the sequence using two principles: **superposition** and **cross-cutting relationships**. In an undisturbed sequence of sedimentary rocks, the lowest layer formed first, and each overlying layer formed later. This establishes the relative order of deposition.
+
+A crack cutting through several layers must have formed after those layers existed. The rock filling the crack is also younger than the layers it cuts. If magma entered the crack and cooled, it formed an igneous intrusion called a dike.
+
+If an upper layer covers the filled crack without being cut, that layer was deposited afterward. The likely sequence is therefore deposition of the older layers, cracking, filling, and then deposition of any uncut covering layer. These relationships establish relative ages, not exact dates.

@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0188",
+  "prompt": "At a gathering, each of five people shakes hands once with every other person. Explain how to count the handshakes without counting each one twice. Keep your response near 80 words.",
+  "category": "reasoning_explanation",
+  "target_words": 80,
+  "prompt_group": "cp0188",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "30d10820bb7af3b3754933729e520052a8ecadfbf850c8a5d9c3022bebe2f0a6",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:54:51.320992+00:00",
+  "ended_at": "2026-11-01T10:55:06.802515+00:00",
+  "prompt_sha256": "5634e6998e47060e8562aac4f6a5176c455bcaedb1a35ce411a405cac48f8546",
+  "text": "Label the five people A, B, C, D, and E. Count only handshakes with someone later in the list. A shakes hands with four people; B’s handshake with A is already counted, so B adds three. Similarly, C adds two, D adds one, and E adds none. Thus the total is\n\n\\[\n4+3+2+1=10.\n\\]\n\nThis avoids double-counting because each pair is recorded only once—when considering the person who appears earlier in the list.",
+  "text_sha256": "43b093ad1dcbc7b55ac1b683372068776cf93a0d485144f56ebd96b31ddde18e",
+  "raw_final_sha256": "43b093ad1dcbc7b55ac1b683372068776cf93a0d485144f56ebd96b31ddde18e",
+  "word_count": 73,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4131,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 126,
+      "reasoning_output_tokens": 14
+    }
+  ],
+  "attempt_path": "collection\\attempts\\30d10820bb7af3b3754933729e520052a8ecadfbf850c8a5d9c3022bebe2f0a6",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

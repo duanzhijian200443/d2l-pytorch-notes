@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0048",
+  "prompt": "Explain why deleting a shortcut from a computer's desktop usually does not uninstall the application. A response of around 160 words is enough.",
+  "category": "technology_explanation",
+  "target_words": 160,
+  "prompt_group": "cp0048",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "48ce72c0eecd663ca468709c7329021e31b008548b4e780a4554f4007a7ecc5d",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:00:38.838139+00:00",
+  "ended_at": "2026-11-01T09:01:01.773271+00:00",
+  "prompt_sha256": "0c7e481a986ac00b89839f0623f9c7fe871f4eea1e63b4a398cdb1a08000fbba",
+  "text": "A desktop shortcut is usually just a small reference file that points to an application’s real location. It may contain the program’s path, an icon, and startup options, but it normally does not include the application itself.\n\nThe actual application is installed elsewhere, such as the Windows *Program Files* folder, the macOS *Applications* folder, or another chosen directory. It may also have supporting libraries, settings, services, and registry or system entries stored in other locations.\n\nDeleting the shortcut only removes that convenient desktop link, so the program remains installed and can still be opened through the Start menu, Applications folder, search, or its original executable file.\n\nTo remove an application properly, use the operating system’s uninstall process—such as Windows Settings/Control Panel or moving an app to Trash on macOS when appropriate. This helps remove associated files and system registrations safely.",
+  "text_sha256": "3e77dc350d2469963764ee21aa2bf28b51a6db66d88b81b61e34a2e0a89146a8",
+  "raw_final_sha256": "3e77dc350d2469963764ee21aa2bf28b51a6db66d88b81b61e34a2e0a89146a8",
+  "word_count": 140,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4120,
+      "cached_input_tokens": 1792,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 178,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\48ce72c0eecd663ca468709c7329021e31b008548b4e780a4554f4007a7ecc5d",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

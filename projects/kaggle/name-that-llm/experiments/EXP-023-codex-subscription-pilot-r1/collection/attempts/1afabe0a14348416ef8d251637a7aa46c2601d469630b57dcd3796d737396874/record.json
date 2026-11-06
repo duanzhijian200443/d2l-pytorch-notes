@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0124",
+  "prompt": "Discuss whether a school art exhibition should group work by age or mix all ages together. A response of around 200 words is enough.",
+  "category": "tradeoff_argument",
+  "target_words": 200,
+  "prompt_group": "cp0124",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "1afabe0a14348416ef8d251637a7aa46c2601d469630b57dcd3796d737396874",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:49:24.070658+00:00",
+  "ended_at": "2026-11-01T09:50:03.374316+00:00",
+  "prompt_sha256": "83f44935a73288ae134a294891fbfcaf613cf2e47bfc5c42e40f34046dd622d6",
+  "text": "A school art exhibition should celebrate creativity across the whole school, but whether to group work by age or mix all ages depends on what the exhibition aims to achieve.\n\nGrouping artwork by age makes it easier for visitors to appreciate pupils’ development. A six-year-old’s painting can be enjoyed alongside work by children with similar experience, rather than compared directly with a teenager’s detailed portrait. This arrangement also helps parents find their children’s work and allows teachers to highlight skills learned in each year group. However, it can separate the school community and make the exhibition feel like a series of classroom displays.\n\nMixing ages creates a more varied exhibition. Younger pupils may feel proud to see their work beside older students’ pieces, while older pupils might find inspiration in younger children’s imaginative approaches. Organising work around themes, such as nature, identity or dreams, can reveal connections across age groups. The drawback is that visitors may judge all pieces by the same standards, overlooking differences in experience.\n\nIn my view, a mixed exhibition organised by theme is the stronger option. Clear labels showing each artist’s age would provide context without dividing pupils into separate sections. This approach celebrates both individual achievement and a shared school identity.",
+  "text_sha256": "a703cc27ae871e475b6c97342be4f82667f7d8f572a4d83aa873f12e332f1100",
+  "raw_final_sha256": "a703cc27ae871e475b6c97342be4f82667f7d8f572a4d83aa873f12e332f1100",
+  "word_count": 206,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4234,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 242,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\1afabe0a14348416ef8d251637a7aa46c2601d469630b57dcd3796d737396874",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

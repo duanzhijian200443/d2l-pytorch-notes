@@ -1,0 +1,7 @@
+The claim that a good explanation should always avoid technical vocabulary is too absolute. Technical terms can make an explanation more precise, concise, and accurate, especially when addressing readers who already understand the subject. For example, “photosynthesis” is more efficient than repeatedly describing the process by which plants convert light energy into chemical energy.
+
+However, unexplained jargon can exclude readers and create the illusion of understanding. A good explanation should therefore adapt its vocabulary to its audience and purpose. When technical terms are necessary, they should be defined clearly, supported by examples, or followed by a plain-language equivalent. For instance: “The heart’s *myocardium*, or muscular middle layer, contracts to pump blood.”
+
+Avoiding all technical vocabulary can also be misleading. Ordinary words may be ambiguous, while specialized terms often carry carefully established meanings. In medicine, law, science, and engineering, replacing precise terminology with vague language may reduce understanding rather than improve it.
+
+The better principle is not “avoid technical vocabulary,” but “avoid unnecessary or unexplained technical vocabulary.” A strong explanation uses the simplest language that remains accurate, introduces specialized terms only when they add value, and ensures that readers can follow them. Clarity depends less on whether a word is technical than on whether it is appropriate, explained, and used with the audience in mind.

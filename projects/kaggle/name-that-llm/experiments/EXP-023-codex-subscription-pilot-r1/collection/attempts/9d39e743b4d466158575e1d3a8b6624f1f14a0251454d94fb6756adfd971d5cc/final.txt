@@ -1,0 +1,3 @@
+A shadow’s edge depends on the apparent size of the light source. A very small, nearly point-like source produces a sharp shadow because each point is either fully illuminated or fully blocked. An extended source produces both an **umbra**, where all parts of the source are blocked, and a **penumbra**, where only part is blocked.
+
+Close to the object, the penumbra is narrow, so the shadow edge looks sharp. Farther from the object, light rays arriving from different parts of the source spread across a wider region, making the penumbra—and therefore the edge—fuzzier. Increasing the source’s size widens the penumbra and softens the shadow more strongly. Conversely, a smaller or more distant source has a smaller apparent size and creates sharper-edged shadows.

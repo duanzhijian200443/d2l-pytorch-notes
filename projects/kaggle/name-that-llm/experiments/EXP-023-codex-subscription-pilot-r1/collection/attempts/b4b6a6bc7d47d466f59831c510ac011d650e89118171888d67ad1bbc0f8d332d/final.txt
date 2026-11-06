@@ -1,0 +1,9 @@
+Implement a lightweight change-request process that makes small requests visible and consistently evaluated:
+
+1. **Centralize requests:** Require clients to submit every change through one form or shared board, rather than email, chat, or verbal requests.
+2. **Define impact:** Capture the requested change, rationale, priority, deadline, and affected deliverables.
+3. **Estimate before accepting:** Assign a quick estimate for time, cost, dependencies, and schedule impact—even for “tiny” requests.
+4. **Use approval tiers:** Designers may absorb truly minor fixes; anything beyond a defined threshold requires project-lead and client approval.
+5. **Offer explicit options:** Present “approve added time/cost,” “replace another task,” or “defer to the next phase.”
+6. **Batch small changes:** Review minor requests at scheduled checkpoints instead of interrupting active work.
+7. **Track decisions:** Record approvals and update the timeline so scope remains transparent.

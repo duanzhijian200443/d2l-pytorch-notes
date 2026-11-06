@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0055",
+  "prompt": "Describe how a queue helps an online service handle more requests than it can process at once. Keep your response near 120 words.",
+  "category": "technology_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0055",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "e66c7413f5e6e24606696af49e417f366200b2fcff8874ba098c8275aaf29a85",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:05:20.522593+00:00",
+  "ended_at": "2026-11-01T09:05:38.822990+00:00",
+  "prompt_sha256": "4237de17d0867b83618049ac27712c45ab0ac44089119b22b916326536f78534",
+  "text": "A queue lets an online service separate incoming demand from immediate processing capacity. When requests arrive faster than the service can handle them, the system places them in a waiting queue instead of rejecting them or overwhelming its workers. Processors then take requests from the queue at a controlled rate, smoothing sudden traffic spikes and keeping the service responsive. Queues also enable buffering, retries, prioritization, and load balancing across multiple workers. This means the service can accept more requests over time than it can process simultaneously, as long as the queue eventually drains and memory or storage limits are respected. Users may experience some delay, but the system remains stable rather than failing under bursts of heavy demand.",
+  "text_sha256": "ae22a7eae01ca55ff57d1938c6207cf9ebba1926da6cd1f0ffa7acda39dde828",
+  "raw_final_sha256": "ae22a7eae01ca55ff57d1938c6207cf9ebba1926da6cd1f0ffa7acda39dde828",
+  "word_count": 118,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2584,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 138,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\e66c7413f5e6e24606696af49e417f366200b2fcff8874ba098c8275aaf29a85",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

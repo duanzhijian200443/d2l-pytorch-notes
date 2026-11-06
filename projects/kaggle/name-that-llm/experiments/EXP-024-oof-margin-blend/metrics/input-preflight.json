@@ -1,0 +1,92 @@
+{
+  "status": "PASS",
+  "observed_at": "2026-11-01T08:24:30.885546+00:00",
+  "scenarios": 16,
+  "rows": 10949,
+  "parent_acceptance": "EXP-022 PASS",
+  "normalization_endpoints_match_cached_argmax": true,
+  "constant_rows": [
+    {
+      "scenario": "dense",
+      "stylegram_constant_rows": 0,
+      "svc4_constant_rows": 0
+    },
+    {
+      "scenario": "m2-repeat0",
+      "stylegram_constant_rows": 0,
+      "svc4_constant_rows": 0
+    },
+    {
+      "scenario": "m2-repeat1",
+      "stylegram_constant_rows": 0,
+      "svc4_constant_rows": 0
+    },
+    {
+      "scenario": "m2-repeat2",
+      "stylegram_constant_rows": 0,
+      "svc4_constant_rows": 0
+    },
+    {
+      "scenario": "m2-repeat3",
+      "stylegram_constant_rows": 0,
+      "svc4_constant_rows": 0
+    },
+    {
+      "scenario": "m2-repeat4",
+      "stylegram_constant_rows": 0,
+      "svc4_constant_rows": 0
+    },
+    {
+      "scenario": "m3-repeat0",
+      "stylegram_constant_rows": 0,
+      "svc4_constant_rows": 0
+    },
+    {
+      "scenario": "m3-repeat1",
+      "stylegram_constant_rows": 0,
+      "svc4_constant_rows": 0
+    },
+    {
+      "scenario": "m3-repeat2",
+      "stylegram_constant_rows": 0,
+      "svc4_constant_rows": 0
+    },
+    {
+      "scenario": "m3-repeat3",
+      "stylegram_constant_rows": 0,
+      "svc4_constant_rows": 0
+    },
+    {
+      "scenario": "m3-repeat4",
+      "stylegram_constant_rows": 0,
+      "svc4_constant_rows": 0
+    },
+    {
+      "scenario": "m6-repeat0",
+      "stylegram_constant_rows": 0,
+      "svc4_constant_rows": 0
+    },
+    {
+      "scenario": "m6-repeat1",
+      "stylegram_constant_rows": 0,
+      "svc4_constant_rows": 0
+    },
+    {
+      "scenario": "m6-repeat2",
+      "stylegram_constant_rows": 0,
+      "svc4_constant_rows": 0
+    },
+    {
+      "scenario": "m6-repeat3",
+      "stylegram_constant_rows": 0,
+      "svc4_constant_rows": 0
+    },
+    {
+      "scenario": "m6-repeat4",
+      "stylegram_constant_rows": 0,
+      "svc4_constant_rows": 0
+    }
+  ],
+  "inputs": 109,
+  "manifest_sha256": "232d5aa2a6be17150692210e7c2ecb96b55509826853257e06984780446ed953"
+}

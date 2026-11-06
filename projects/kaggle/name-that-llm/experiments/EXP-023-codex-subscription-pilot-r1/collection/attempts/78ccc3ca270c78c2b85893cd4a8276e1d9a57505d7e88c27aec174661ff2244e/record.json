@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0229",
+  "prompt": "A person rehearses an apology all morning, then finds that the actual conversation takes a different direction. Write the scene without making either character cruel. Use approximately 200 words for the response.",
+  "category": "creative_short_fiction",
+  "target_words": 200,
+  "prompt_group": "cp0229",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "78ccc3ca270c78c2b85893cd4a8276e1d9a57505d7e88c27aec174661ff2244e",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:20:42.425777+00:00",
+  "ended_at": "2026-11-01T11:21:19.904682+00:00",
+  "prompt_sha256": "84a23b03047c36056d9ae8190ee98a86eba51f510b5ecbe9f759bb1e11f7ffa5",
+  "text": "By noon, Daniel had apologized to the kettle, the bathroom mirror, and the empty passenger seat.\n\n“I should have asked before telling them.”\n\nNo excuses. He’d crossed those out on the back of an electricity bill.\n\nAt the café, his sister was already pulling the paper sleeve off her cup.\n\n“Before you say anything,” he began, “I know it wasn’t mine to—”\n\n“Do you remember Mum’s green suitcase?”\n\nHe stopped. “The one with the broken wheel?”\n\n“I’ve been looking everywhere. I thought you might have it.”\n\n“It’s in my cupboard.”\n\n“Can I borrow it?”\n\nDaniel folded the bill beneath the table. “You’re going, then?”\n\n“I think so.” She flattened the cardboard sleeve. “I nearly didn’t apply. Then everyone knew, and I hated that. But I also couldn’t keep pretending I didn’t want it.”\n\n“I’m sorry I told them.”\n\n“I know.” She looked up. “Next time, let me have something for a bit before it belongs to the whole family.”\n\n“I will.”\n\nFor a moment neither spoke. Daniel had prepared for anger, forgiveness, several kinds of silence. He hadn’t prepared for the suitcase.\n\n“The wheel catches,” he said.\n\n“I remember.”\n\n“I could fix it before you leave.”\n\n“You could try.”\n\nShe pushed her untouched biscuit across the table. He broke it in two and pushed half back.",
+  "text_sha256": "157138f2fc7d2281abda4a8d35c2e6cbd987971ace64f585542e5c08be905b71",
+  "raw_final_sha256": "157138f2fc7d2281abda4a8d35c2e6cbd987971ace64f585542e5c08be905b71",
+  "word_count": 216,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4245,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 286,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\78ccc3ca270c78c2b85893cd4a8276e1d9a57505d7e88c27aec174661ff2244e",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

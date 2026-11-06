@@ -1,0 +1,5 @@
+Turning a device off and on can fix some problems because it clears temporary state and gives the system a fresh start. While running, software may accumulate errors: a program can get stuck, memory may not be released properly, or components may stop communicating. Restarting ends running processes, clears much of the working memory, and reloads software and drivers into a known starting state.
+
+It can also reestablish connections. For example, a router may reconnect to your internet provider, while a phone may renegotiate its connection to a mobile network. Fully powering off can sometimes reset hardware components that a normal software restart leaves powered.
+
+But restarting usually resets symptoms rather than correcting their underlying cause. It won’t repair damaged hardware, remove every kind of malware, or reliably fix faulty software or incorrect settings. If the problem keeps returning, that’s a reason to investigate updates, logs, connections, or hardware health—not simply keep rebooting. Save your work first, and prefer a normal shutdown over abruptly disconnecting power.

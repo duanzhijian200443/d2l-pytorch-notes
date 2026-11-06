@@ -1,0 +1,59 @@
+{
+  "status": "PASS_LOCAL_PREFLIGHT",
+  "test_count": 4,
+  "observed": {
+    "four120": {
+      "public_cell14": {
+        "status": "PASS",
+        "arm": "four120",
+        "rows": 120,
+        "groups": 30,
+        "source_csv_sha256": "a4e86314a77f7ed699dbfb107b32a8263a1ff09fc7c3ec92b98d4028d487005d",
+        "shared_rows": 10743,
+        "shared_groups": 738,
+        "shared_sha256": "b98c246578afbc38b9bf3c0be1e666a41cc15d051c64d03e875ab0c85da1bd3b",
+        "comp_stack_sha256": "063cfb6c104836861fcdd406093b1744b00b46bbcb8ed2a7a1acec380cefd795",
+        "fast_commit": true,
+        "competition_rerun_flag_present": false,
+        "fit_count": 0
+      },
+      "materialized_module": {
+        "status": "PASS_MATERIALIZED",
+        "arm": "four120",
+        "comp_stack_sha256": "063cfb6c104836861fcdd406093b1744b00b46bbcb8ed2a7a1acec380cefd795",
+        "rows": 120,
+        "groups": 30,
+        "source_csv_sha256": "a4e86314a77f7ed699dbfb107b32a8263a1ff09fc7c3ec92b98d4028d487005d",
+        "shared_sha256_required": "b98c246578afbc38b9bf3c0be1e666a41cc15d051c64d03e875ab0c85da1bd3b"
+      }
+    },
+    "four240": {
+      "public_cell14": {
+        "status": "PASS",
+        "arm": "four240",
+        "rows": 240,
+        "groups": 60,
+        "source_csv_sha256": "694d91e2536db2d77d81f8d8b32a802763a750a2e9643fdb0ba6a10b76755a01",
+        "shared_rows": 10743,
+        "shared_groups": 738,
+        "shared_sha256": "b98c246578afbc38b9bf3c0be1e666a41cc15d051c64d03e875ab0c85da1bd3b",
+        "comp_stack_sha256": "5c8ea0be70cd7231bd23183028a3a8a8bc9cee73c3c461e863ebd9d4e2701b21",
+        "fast_commit": true,
+        "competition_rerun_flag_present": false,
+        "fit_count": 0
+      },
+      "materialized_module": {
+        "status": "PASS_MATERIALIZED",
+        "arm": "four240",
+        "comp_stack_sha256": "5c8ea0be70cd7231bd23183028a3a8a8bc9cee73c3c461e863ebd9d4e2701b21",
+        "rows": 240,
+        "groups": 60,
+        "source_csv_sha256": "694d91e2536db2d77d81f8d8b32a802763a750a2e9643fdb0ba6a10b76755a01",
+        "shared_sha256_required": "b98c246578afbc38b9bf3c0be1e666a41cc15d051c64d03e875ab0c85da1bd3b"
+      }
+    }
+  },
+  "test_script_sha256": "e90983297c47cf7cfc5f44f290f34216d494055f66ac9584fbd538d26e975366",
+  "manifest_sha256": "c29d0802cec274b3db662c315aec52fcbd49c2cdc49621a4bf54bba5c50dbb71",
+  "runtime_scope": "Generated public cell and archived local attachments. Hidden subprocess outcomes simulated for guard checks. No formal model fit."
+}

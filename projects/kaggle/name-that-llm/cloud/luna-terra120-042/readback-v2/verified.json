@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "observed_at": "2026-11-01T14:33:01.166450+00:00",
+  "ref": "zhjianduan/name-that-llm-luna-terra120-042",
+  "version": 2,
+  "source_equal": true,
+  "private": true,
+  "gpu": false,
+  "internet": false,
+  "input_count": 2,
+  "docker_image": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+  "source_sha256": "46ee3e261e2865cdf6674ff9ed7386525d0ce73f0c071162e8bd095192c13494",
+  "metadata_sha256": "63c61d571739e11378ca1ddca1c01580b282a202bc8a64c378f4d2be08e8c0ca"
+}

@@ -1,0 +1,13 @@
+Start with 12 chairs in the first room.
+
+First, 4 chairs are moved to the second room:
+
+12 − 4 = 8
+
+So, after that move, 8 chairs remain in the first room.
+
+Next, 3 chairs are brought back from the second room to the first room:
+
+8 + 3 = 11
+
+Therefore, **11 chairs remain in the first room**.

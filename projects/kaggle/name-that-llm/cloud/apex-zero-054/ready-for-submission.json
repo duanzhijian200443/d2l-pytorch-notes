@@ -1,0 +1,22 @@
+{
+  "status": "READY_FOR_SUBMISSION",
+  "ref": "zhjianduan/ntl-apex-zero-054",
+  "version": 2,
+  "script_version_id": 364820326,
+  "source_sha256": "ca4c9e18ed32dcd8168b8118b192d39d657803d30dcd89a564b1c2d1d9c846dd",
+  "submission_sha256": "ef94c7669e36a465bbd3e2dd8cf4905b5e1c2e51e18053a588cb56623086170a",
+  "private": true,
+  "internet": false,
+  "asset_count": 31,
+  "verified_at": "2026-11-02T09:12:38.117014+00:00",
+  "evidence_paths": [
+    "experiments/EXP-054-apex-zero-formal/metrics/commit-verification.json",
+    "cloud/apex-zero-054/readback-v2.json",
+    "cloud/apex-zero-054/script-identity.json",
+    "cloud/apex-zero-054/outputs-v2/submission.parquet",
+    "cloud/apex-zero-054/outputs-v2/ntl-apex-zero-054.log"
+  ],
+  "attachment_version_limit": "GetKernel readback may omit data/kernel version suffixes. Pinned SDK requests and V13 log counts do not certify every original hidden historical asset hash.",
+  "hidden_run_not_yet_accepted": true,
+  "competition_submission_owner": "root"
+}

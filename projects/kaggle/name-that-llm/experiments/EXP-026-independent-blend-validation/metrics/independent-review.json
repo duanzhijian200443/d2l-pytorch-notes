@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "experiment_id": "EXP-026",
+  "observed_at_utc": "2026-11-01T08:51:18.932221+00:00",
+  "scope": "Independent score-array, 18-way prediction, covered-four-class metric and prompt-bootstrap recomputation from downloaded V2 files; not full artifact/training-weight acceptance",
+  "implementation": "Independent in-memory NumPy/Pandas expressions; production runner and verifier were not imported",
+  "sources": {
+    "cloud/fixed-blend-external/payload/protocol.json": "8cada9716782903f6e799374c8bfc7aa7f6beb6f39c74cf0e1d941cac68faaa2",
+    "cloud/fixed-blend-external/payload/evaluation.csv": "72228be3ddaad8feaa1ba232e689537e0cf49ebc72068df4a7e556836f1bdd17",
+    "cloud/fixed-blend-external/outputs-v2/results/stylegram-scores.npz": "89144a50ae018affd37e1ed8ec3d8e0ec41dd5c06f6dcab10cbb9b5750fc0a4f",
+    "cloud/fixed-blend-external/outputs-v2/results/component-and-blend-scores.npz": "0a9eb3f5ddd086e70c35c0df998afe365eda99f9ad6e192c0ed859de241a59f4",
+    "cloud/fixed-blend-external/outputs-v2/results/predictions.csv": "95981f14a491d67809b6c34b7283f95ee331f137aab4cad71195e6df104c4ed9",
+    "cloud/fixed-blend-external/outputs-v2/results/metrics.json": "f32509ae7e486fe07ad773f94cb5b1eb9ae57834bd7706328eb47d838b71e461",
+    "cloud/fixed-blend-external/outputs-v2/results/result.json": "a2a62fbc561c1206d616929fd04df7a138814c683f16fd63fb311248e9779d23",
+    "cloud/fixed-blend-external/outputs-v2/results/guard.json": "01e9793905e2c8d57b9aa094860e22b7484f5ac2389adc027239f5574b70a86e",
+    "cloud/fixed-blend-external/outputs-v2/results/state.json": "e83d93ed48ba316ad48b8d95f5f03319faa1fcfcbec616d8348f988d10382872"
+  },
+  "evaluation": {
+    "rows": 5200,
+    "prompt_groups": 1300,
+    "covered_labels": [
+      "gpt-5.6-luna",
+      "gpt-5.6-sol",
+      "gpt-5.6-terra",
+      "gpt-6-astra"
+    ],
+    "rows_per_covered_label": 1300,
+    "score_columns": 18,
+    "four_class_prediction_mask_used": false
+  },
+  "normalization": {
+    "dtype": "float64",
+    "population_std_ddof": 0,
+    "rescale_by_row_maxabs": true,
+    "alpha": 0.1,
+    "maximum_blend_absolute_error": 0.0,
+    "blend_matrix_bitwise_equal": true,
+    "blend_argmax_exact": true,
+    "both_component_normalized_endpoints_preserve_argmax": true
+  },
+  "stylegram_route": {
+    "centred_rows": 3659,
+    "plain_rows": 1541,
+    "groups": 640,
+    "eligible_size_mask_checked": true,
+    "plain_fallback_exact": true,
+    "clustering_or_estimator_predictions_reconstructed": false
+  },
+  "metrics": {
+    "stylegram": {
+      "macro_recall": 0.18884615384615383,
+      "accuracy": 0.18884615384615386,
+      "correct": 982,
+      "rows": 5200,
+      "per_class": [
+        {
+          "model": "gpt-5.6-luna",
+          "support": 1300,
+          "correct": 239,
+          "recall": 0.18384615384615385
+        },
+        {
+          "model": "gpt-5.6-sol",
+          "support": 1300,
+          "correct": 115,
+          "recall": 0.08846153846153847
+        },
+        {
+          "model": "gpt-5.6-terra",
+          "support": 1300,
+          "correct": 129,
+          "recall": 0.09923076923076923
+        },
+        {
+          "model": "gpt-6-astra",
+          "support": 1300,
+          "correct": 499,
+          "recall": 0.38384615384615384
+        }
+      ]
+    },
+    "svc4": {
+      "macro_recall": 0.2469230769230769,
+      "accuracy": 0.2469230769230769,
+      "correct": 1284,
+      "rows": 5200,
+      "per_class": [
+        {
+          "model": "gpt-5.6-luna",
+          "support": 1300,
+          "correct": 368,
+          "recall": 0.28307692307692306
+        },
+        {
+          "model": "gpt-5.6-sol",
+          "support": 1300,
+          "correct": 190,
+          "recall": 0.14615384615384616
+        },
+        {
+          "model": "gpt-5.6-terra",
+          "support": 1300,
+          "correct": 306,
+          "recall": 0.2353846153846154
+        },
+        {
+          "model": "gpt-6-astra",
+          "support": 1300,
+          "correct": 420,
+          "recall": 0.3230769230769231
+        }
+      ]
+    },
+    "blend": {
+      "macro_recall": 0.1992307692307692,
+      "accuracy": 0.19923076923076924,
+      "correct": 1036,
+      "rows": 5200,
+      "per_class": [
+        {
+          "model": "gpt-5.6-luna",
+          "support": 1300,
+          "correct": 258,
+          "recall": 0.19846153846153847
+        },
+        {
+          "model": "gpt-5.6-sol",
+          "support": 1300,
+          "correct": 116,
+          "recall": 0.08923076923076922
+        },
+        {
+          "model": "gpt-5.6-terra",
+          "support": 1300,
+          "correct": 143,
+          "recall": 0.11
+        },
+        {
+          "model": "gpt-6-astra",
+          "support": 1300,
+          "correct": 519,
+          "recall": 0.3992307692307692
+        }
+      ]
+    }
+  },
+  "predictions_outside_four_true_labels": {
+    "stylegram": 3052,
+    "svc4": 1747,
+    "blend": 2937
+  },
+  "comparison": {
+    "delta_covered_macro_recall": 0.010384615384615381,
+    "fixed_errors": 73,
+    "new_errors": 19,
+    "net_correct": 54,
+    "prediction_disagreements": 373,
+    "positive_prompt_nets": 71,
+    "negative_prompt_nets": 18,
+    "zero_prompt_nets": 1211,
+    "paired_prompt_ci95": [
+      0.006923076923076923,
+      0.014038461538461538
+    ],
+    "bootstrap_draws": 2000,
+    "bootstrap_seed": 42,
+    "prompt_groups": 1300,
+    "missing_covered_class_draws": 0,
+    "ci_contains_zero": false
+  },
+  "terminal_receipts": {
+    "status": "COMPLETE",
+    "trained_svms": 3,
+    "convergence_warnings": 0,
+    "runner_seconds": 386.083316783,
+    "guard_seconds": 389.755681086,
+    "peak_rss_bytes": 5958111232,
+    "within_3300_work_3600_platform_12gib": true
+  },
+  "limits": [
+    "The result concerns four externally covered GPT labels while all predictions remain 18-way; it does not establish all-18-class or leaderboard performance.",
+    "The interval is conditional on these refitted models and this audited external source, without retraining uncertainty.",
+    "Training weights/membership and the complete 18-artifact inventory are delegated to the full verifier; this independent review checks the listed score/CSV/receipt files only.",
+    "Source independence and provider-label authenticity remain bounded by the accepted data audit."
+  ],
+  "source_hashes_unchanged_during_review": true,
+  "training_or_remote_calls_performed": false
+}

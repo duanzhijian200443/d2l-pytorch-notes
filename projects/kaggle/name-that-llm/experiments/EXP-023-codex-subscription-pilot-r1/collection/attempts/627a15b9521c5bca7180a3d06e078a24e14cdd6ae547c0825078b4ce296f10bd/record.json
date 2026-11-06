@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0193",
+  "prompt": "A club's attendance rose from twenty people to thirty, then fell back to twenty. Explain why the percentage increase and percentage decrease are different. Keep your response near 80 words.",
+  "category": "reasoning_explanation",
+  "target_words": 80,
+  "prompt_group": "cp0193",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "627a15b9521c5bca7180a3d06e078a24e14cdd6ae547c0825078b4ce296f10bd",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:58:21.402863+00:00",
+  "ended_at": "2026-11-01T10:58:38.670574+00:00",
+  "prompt_sha256": "7c15c38b7098a2c8e2ace89ac58a39b24e2d0e0bab79f731a7a13e1c656b9010",
+  "text": "Attendance rose from 20 to 30, a gain of 10. Relative to the original 20, that is a 50% increase. It then fell from 30 to 20, also a change of 10, but now the starting value is 30. Ten is one-third of 30, so the decrease is about 33.3%. Percentages use the current starting amount as their base, so equal numerical changes can have different percentage values.",
+  "text_sha256": "f4ef42be842e54d7a668a1bffb0014ac08e425ea1ec1e39a34a4201f70743358",
+  "raw_final_sha256": "f4ef42be842e54d7a668a1bffb0014ac08e425ea1ec1e39a34a4201f70743358",
+  "word_count": 68,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4129,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 99,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\627a15b9521c5bca7180a3d06e078a24e14cdd6ae547c0825078b4ce296f10bd",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

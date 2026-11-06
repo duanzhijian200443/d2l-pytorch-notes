@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0229",
+  "prompt": "A person rehearses an apology all morning, then finds that the actual conversation takes a different direction. Write the scene without making either character cruel. Use approximately 200 words for the response.",
+  "category": "creative_short_fiction",
+  "target_words": 200,
+  "prompt_group": "cp0229",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "87c26c4505259150fad31d326b04e399c0111ac95f150db21fc3c9dc75d2a6ef",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:20:25.476080+00:00",
+  "ended_at": "2026-11-01T11:20:42.390901+00:00",
+  "prompt_sha256": "84a23b03047c36056d9ae8190ee98a86eba51f510b5ecbe9f759bb1e11f7ffa5",
+  "text": "All morning, Mara practiced beside the humming refrigerator.\n\n“I should have told you sooner,” she whispered, testing each word. “I was afraid you’d be disappointed.”\n\nOn the bus, she revised it. In the elevator, she added, “There’s no excuse.” By the time she reached Daniel’s apartment, the apology had become a small speech, polished smooth by worry.\n\nHe opened the door holding two mugs.\n\n“Before you say anything,” he said, “I owe you an apology.”\n\nMara blinked. “You do?”\n\n“I kept talking about the wedding as if every part of it mattered equally to both of us. When you said you couldn’t make the ceremony, I heard that you didn’t care.” He looked into his mug. “But your new job starts that week. You’ve been trying to get back on your feet for months.”\n\nHer carefully arranged sentences scattered.\n\n“I do care,” she said. “And I should have told you about the date when I applied.”\n\n“You were afraid I’d be disappointed?”\n\nShe almost laughed. “That was going to be my opening line.”\n\nDaniel smiled, tired but genuine. “I was disappointed.”\n\n“I know.”\n\n“But not in you. Just in how things turned out.”\n\nThey stood in the doorway, each waiting for the other to make the hurt simpler.\n\nFinally, Mara took the second mug.\n\n“I can come to the reception,” she said.\n\n“I’d like that,” Daniel replied. “And I’d like to hear the speech you rehearsed.”\n\n“No,” she said, smiling. “This went better.”",
+  "text_sha256": "0ee9cbb5e6bdfbac299f67ccf37731f33a6a178a81de3e5d813252d0e366da25",
+  "raw_final_sha256": "0ee9cbb5e6bdfbac299f67ccf37731f33a6a178a81de3e5d813252d0e366da25",
+  "word_count": 243,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4131,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 338,
+      "reasoning_output_tokens": 14
+    }
+  ],
+  "attempt_path": "collection\\attempts\\87c26c4505259150fad31d326b04e399c0111ac95f150db21fc3c9dc75d2a6ef",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

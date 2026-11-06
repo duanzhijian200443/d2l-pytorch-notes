@@ -1,0 +1,5 @@
+A feature-changing software update alters what the program does or how users interact with it. For example, it might add a new editing tool, improve search, change a menu layout, or fix how a calculation works. Existing saved files may still work normally.
+
+A file-format-changing update alters how the program stores data on disk. New files may include additional fields, use a different structure, or be compressed differently. This can create compatibility issues: older versions may not open the new files, or may lose newer information when saving them again.
+
+Feature updates primarily affect behavior; format updates primarily affect data compatibility. When formats change, software often needs version markers, import/export support, backups, or migration steps.

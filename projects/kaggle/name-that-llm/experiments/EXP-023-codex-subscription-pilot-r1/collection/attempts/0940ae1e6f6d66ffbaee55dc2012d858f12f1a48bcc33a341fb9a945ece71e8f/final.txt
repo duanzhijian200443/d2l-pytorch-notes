@@ -1,0 +1,7 @@
+A moving bicycle is easier to balance mainly because you can steer its wheels back underneath your center of mass. If you begin leaning left, a small left turn moves the tire contact points leftward, helping catch the fall—rather like moving your hand beneath a balancing broom. At very low speed, steering shifts those contact points too slowly, so staying upright requires larger, quicker corrections or special techniques such as a track stand.
+
+The bicycle itself can also help. Its steering geometry and distribution of mass can make the front wheel turn toward a lean, producing some automatic correction. How much this helps depends on the design and speed; not every bicycle is equally self-stable.
+
+Spinning wheels add gyroscopic effects, which influence how leaning and steering interact. But they are neither the whole explanation nor necessary for a bicycle to be self-stable.
+
+So balance comes from interacting factors: forward motion makes steering corrections effective, bicycle design can encourage them, and the rider continually adjusts.

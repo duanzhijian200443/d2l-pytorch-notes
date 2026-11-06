@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "model": {
+    "name": "fixed-standardized-margin-blend",
+    "parameters": {
+      "reference": "Stylegram EXP-010 share0.5",
+      "complement": "svc4 EXP-018 raw_public_row_weight0.35",
+      "normalization": "per-row population z-score across 18 classes; rescale by maxabs before centering to avoid overflow; constant rows zero",
+      "formula": "(1-alpha)*z_stylegram + alpha*z_svc4",
+      "alphas": [
+        0.0,
+        0.05,
+        0.1,
+        0.2
+      ],
+      "primary_alpha": 0.1,
+      "calibrated_probabilities": false
+    }
+  },
+  "parent_analysis": "experiments/EXP-022-oof-complementarity",
+  "validation": {
+    "split_id": "prompt-group-v1",
+    "seed": 42,
+    "sparse_per_prompt": [
+      2,
+      3,
+      6
+    ],
+    "sparse_repeats": 5,
+    "metric": "balanced_accuracy",
+    "bootstrap_draws": 2000,
+    "bootstrap_unit": "prompt",
+    "missing_class_draws": "null interval if any resample lacks a class",
+    "multiple_comparison_adjustment": "none",
+    "role": "development screening on already inspected OOF, not independent holdout or nested validation"
+  },
+  "screening": {
+    "primary_alpha": 0.1,
+    "primary_point_estimate_rule": "dense delta >= -1e-12 and each m=2,3,6 mean delta >= -1e-12, with at least one delta > 1e-12",
+    "rule_role": "descriptive development guardrail, not a statistical equivalence or generalization test",
+    "secondary_alphas": [
+      0.05,
+      0.2
+    ],
+    "automatic_baseline_promotion": false,
+    "expand_grid_after_results": false,
+    "tie_tolerance": 1e-12
+  },
+  "analysis": {
+    "training": false,
+    "label_fitted_calibration": false,
+    "meta_model_training": false,
+    "per_class_or_prompt_size_weights": false,
+    "formal_submission": false,
+    "official_baseline_changed": false
+  },
+  "environment": {
+    "platform": "local Windows CPU",
+    "accelerator": null
+  },
+  "budget": {
+    "wall_seconds": 180,
+    "gpu_seconds": 0,
+    "api_usd": 0,
+    "colab_cu": 0
+  }
+}

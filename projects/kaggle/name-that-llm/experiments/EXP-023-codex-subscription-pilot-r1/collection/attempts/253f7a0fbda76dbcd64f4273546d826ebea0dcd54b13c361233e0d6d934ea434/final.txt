@@ -1,0 +1,3 @@
+One rectangular table seats six people: one at each of its two short ends and two along each of its two long sides. If two tables stood separately, they would seat twelve people altogether.
+
+However, when the tables are joined at a short end, the two ends that touch can no longer be used for seating. There is no space for a person to sit at either of those ends because the other table is in the way. This removes two seats from the total. The combined table therefore seats ten people: eight along the long sides and one at each outer short end. So joining the tables gives ten seats rather than twice the original six, which would be twelve.

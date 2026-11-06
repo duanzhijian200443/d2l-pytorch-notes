@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0133",
+  "prompt": "Compare keeping a shared workplace very tidy with allowing visible works in progress. Use approximately 160 words for the response.",
+  "category": "tradeoff_argument",
+  "target_words": 160,
+  "prompt_group": "cp0133",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "c5dc7f71b6a393c3007271f61fa9c4c688914cc6857f7c78b6c097779cfb057f",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:54:56.554717+00:00",
+  "ended_at": "2026-11-01T09:55:22.788631+00:00",
+  "prompt_sha256": "cee47fd473c14491240af81ebd672176224a5df0a6709f87f16b32ce322da1ac",
+  "text": "A very tidy shared workplace creates calm, clarity, and efficiency. Clear desks and labelled storage make tools easy to find, reduce safety risks, and signal respect for colleagues. Tidiness can also help people focus by limiting visual distraction and making the space feel predictable.\n\nVisible works in progress, however, can support collaboration. Sketches, prototypes, notes, samples, and task boards reveal what is being explored and invite useful conversations. They make ongoing effort tangible, helping teammates understand context, offer feedback, and avoid duplicating work. In creative or technical settings, a completely cleared space may hide important thinking and make experimentation seem less welcome.\n\nThe best approach is usually intentional balance. Shared routes, safety equipment, and common resources should remain orderly and accessible. Meanwhile, designated areas—such as project walls, labelled benches, or temporary trays—can display active work without becoming clutter. This preserves the benefits of cleanliness while allowing work to remain visible, discussable, and genuinely collaborative.",
+  "text_sha256": "21c798cf92a42acd3329e50e6c9291ec13ed6f8b21e8201b916b29541d6ccfe8",
+  "raw_final_sha256": "21c798cf92a42acd3329e50e6c9291ec13ed6f8b21e8201b916b29541d6ccfe8",
+  "word_count": 154,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4116,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 213,
+      "reasoning_output_tokens": 13
+    }
+  ],
+  "attempt_path": "collection\\attempts\\c5dc7f71b6a393c3007271f61fa9c4c688914cc6857f7c78b6c097779cfb057f",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

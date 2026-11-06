@@ -1,0 +1,46 @@
+{
+  "kind": "dataset",
+  "category": "datasets",
+  "title": "Enai V3：9719条OpenAI文本的数据卡与许可边界",
+  "author": "enaimaan",
+  "url": "https://www.kaggle.com/datasets/enaimaan/ntl-openai-generated-responses/versions/3",
+  "observed_at": "2026-11-01T07:34:34Z",
+  "source_version": {
+    "dataset_id": 12956120,
+    "dataset_version_number": 3,
+    "version_created_at": "2026-10-29T23:03:14.417Z",
+    "snapshot_sha256": "3a4e34109298c54a923a0b7a0665aeb1b4dfd63359a91698b3f5ebe3fa763dee"
+  },
+  "public_score": null,
+  "summary": "数据卡称9719条/四模型/2739组；V3文件清单已固定，行内容与生成文本授权仍待审计。",
+  "author_claim": "提供exact messages、prompt ancestry、设置与来源声明；新面板不代表新主题，尚无下游精度收益证明。",
+  "verified": "通过Kaggle MCP读取当前数据卡、metadata和固定V3的10文件清单；未下载或读取行内容、LICENSE.md及SHA256SUMS文件。",
+  "use_for_us": "候选GPT类补充；先统一cv_group别名并核对prompt重叠及生成文本权利状态。",
+  "test_plan": "固定V3文件和哈希，读取LICENSE/attribution及逐行provenance，审计官方prompt关联、模型标识、重复及分组后再比较单来源加入。",
+  "limitations": "数据卡为当前页面声明，不能替代固定文件审计；mixed licenses、response_license未核实；公共可下载不代表可直接合并训练。",
+  "tags": [
+    "data",
+    "provenance",
+    "license",
+    "prompt-group",
+    "openai"
+  ],
+  "related_sources": [
+    "SRC-027",
+    "SRC-061"
+  ],
+  "schema_version": 1,
+  "id": "SRC-062",
+  "artifact_dir": "research/datasets/SRC-062-enaimaan-ntl-openai-generated-responses-v3",
+  "notes_path": "research/datasets/SRC-062-enaimaan-ntl-openai-generated-responses-v3/notes.md",
+  "collection_observation_note": "源码/API时间见回执。浏览器仅记录2026-11-01 UTC采集日期及07:35:57 UTC汇总截至时刻，不将其伪作逐页精确读取时间。",
+  "supersedes": null,
+  "evidence": [
+    "research/datasets/SRC-062-enaimaan-ntl-openai-generated-responses-v3/notes.md",
+    "research/datasets/SRC-062-enaimaan-ntl-openai-generated-responses-v3/snapshots/20261101T073434Z.json"
+  ],
+  "evidence_sha256": {
+    "research/datasets/SRC-062-enaimaan-ntl-openai-generated-responses-v3/notes.md": "c3c0848e9de2946004d5d8d69396c395499b71c761b6e8c323c5b71edb24bf68",
+    "research/datasets/SRC-062-enaimaan-ntl-openai-generated-responses-v3/snapshots/20261101T073434Z.json": "3a4e34109298c54a923a0b7a0665aeb1b4dfd63359a91698b3f5ebe3fa763dee"
+  }
+}

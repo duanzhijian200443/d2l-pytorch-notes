@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0060",
+  "prompt": "Explain what an error log can reveal about a broken application and what it usually cannot establish by itself. Keep your response near 120 words.",
+  "category": "technology_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0060",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "c3284180f060ace4c3153ca5ceecdd409f7abdc9ed2100303648ba3cd30dc2a1",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:08:20.525594+00:00",
+  "ended_at": "2026-11-01T09:08:37.216963+00:00",
+  "prompt_sha256": "f5e792f35dbacbc87316f56897a8e3338eebed8e43b3de09310535a840a6d310",
+  "text": "An error log can reveal what the application observed when something went wrong: timestamps, error messages, stack traces, request or transaction identifiers, affected components, input-related details, and sometimes environmental clues such as resource limits or dependency failures. Patterns across many entries can also suggest frequency, scope, and likely triggers.\n\nHowever, a log usually cannot establish the complete root cause by itself. It may reflect symptoms rather than the originating fault, omit relevant context, contain misleading or stale information, or be incomplete because logging failed. It generally cannot prove user intent, data correctness, security impact, or whether a fix will work without corroborating evidence. Reproducing the issue, examining code and configuration, checking metrics and dependency health, and comparing timelines are often necessary.",
+  "text_sha256": "1911865ed2988e921342a8b34224dff3551abbc6bbaccdb837f8b35ad932219d",
+  "raw_final_sha256": "1911865ed2988e921342a8b34224dff3551abbc6bbaccdb837f8b35ad932219d",
+  "word_count": 121,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2586,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 154,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\c3284180f060ace4c3153ca5ceecdd409f7abdc9ed2100303648ba3cd30dc2a1",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

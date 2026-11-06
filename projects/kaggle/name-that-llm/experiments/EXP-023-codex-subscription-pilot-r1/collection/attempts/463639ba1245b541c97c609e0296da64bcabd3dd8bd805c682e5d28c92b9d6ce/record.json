@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0056",
+  "prompt": "What does it mean for a document to have an accessible reading order, and why does visual placement alone not guarantee it? Please answer in roughly 80 words.",
+  "category": "technology_explanation",
+  "target_words": 80,
+  "prompt_group": "cp0056",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "463639ba1245b541c97c609e0296da64bcabd3dd8bd805c682e5d28c92b9d6ce",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:06:17.476348+00:00",
+  "ended_at": "2026-11-01T09:06:30.060884+00:00",
+  "prompt_sha256": "64e899e98843185f77eb2a218b3e2423fb444483c01d099b044f4492d83218aa",
+  "text": "An accessible reading order is the sequence in which assistive technologies—such as screen readers—present a document’s content. It should follow the intended logical flow: headings, paragraphs, lists, tables, captions, and sidebars in a meaningful order. Visual placement alone is insufficient because a document can look correct on screen while its underlying structure orders elements differently. Screen-reader users navigate the structure, not the page layout, so incorrect tagging or object order can make content confusing or misleading.",
+  "text_sha256": "2175ec5441150b8b5184a27a57600c21f26b1f7fd10179bc0efb213984a7d0e9",
+  "raw_final_sha256": "2175ec5441150b8b5184a27a57600c21f26b1f7fd10179bc0efb213984a7d0e9",
+  "word_count": 76,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4125,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 100,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\463639ba1245b541c97c609e0296da64bcabd3dd8bd805c682e5d28c92b9d6ce",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

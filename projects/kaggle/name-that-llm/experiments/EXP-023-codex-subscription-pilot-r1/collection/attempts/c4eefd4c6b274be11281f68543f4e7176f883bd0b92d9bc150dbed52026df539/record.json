@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0067",
+  "prompt": "Describe a fair way to divide responsibility when three collaborators are launching a small community newsletter. A response of around 120 words is enough.",
+  "category": "business_decision",
+  "target_words": 120,
+  "prompt_group": "cp0067",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "c4eefd4c6b274be11281f68543f4e7176f883bd0b92d9bc150dbed52026df539",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:13:08.810045+00:00",
+  "ended_at": "2026-11-01T09:13:23.926275+00:00",
+  "prompt_sha256": "96da5cadf3b65d933d9e8c4e8475a6ce1a83432fc31117e384445a3cb86b52e4",
+  "text": "Divide responsibility by assigning three clear, equally valued roles based on each person’s strengths and interests:\n\n1. **Editorial lead:** Plans each issue, gathers story ideas, edits submissions, and ensures the newsletter has a consistent voice.\n2. **Community lead:** Contacts contributors, manages reader feedback, promotes the newsletter, and builds relationships with local groups.\n3. **Production lead:** Handles layout, mailing tools, subscriber lists, publishing, and basic analytics.\n\nFor fairness, estimate the time required for each role and redistribute tasks if one becomes significantly heavier. Major decisions—such as budget, publishing frequency, and editorial policies—should be made together. Rotate less desirable duties and consider switching roles every few months so everyone learns the full process. A short weekly check-in and a shared task board will keep work visible, make accountability clear, and prevent one person from quietly carrying too much.",
+  "text_sha256": "79d128689378ff4128e328d5c6eb20440ba043970ca045c5f8d7fb2d689dc5e8",
+  "raw_final_sha256": "79d128689378ff4128e328d5c6eb20440ba043970ca045c5f8d7fb2d689dc5e8",
+  "word_count": 136,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4120,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 193,
+      "reasoning_output_tokens": 12
+    }
+  ],
+  "attempt_path": "collection\\attempts\\c4eefd4c6b274be11281f68543f4e7176f883bd0b92d9bc150dbed52026df539",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

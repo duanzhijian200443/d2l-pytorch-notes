@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0130",
+  "prompt": "Is a visible public deadline helpful for a personal creative project? Explain when accountability can become pressure. Aim for about 120 words.",
+  "category": "tradeoff_argument",
+  "target_words": 120,
+  "prompt_group": "cp0130",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "8c5b08d423c80e199dc25e7fb644bd853dea3697031d3fe19b15c3c176b29d07",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:53:01.305147+00:00",
+  "ended_at": "2026-11-01T09:53:21.712424+00:00",
+  "prompt_sha256": "cb68745e46bde9553a8525d87a8527ffeb24e2984766c53a43ded61809875240",
+  "text": "A visible public deadline can help a personal creative project by creating accountability, momentum, and a clear reason to finish. Telling others you will publish a story, song, or illustration by a certain date can turn a vague intention into a commitment. It may also attract encouragement from friends or an audience.\n\nBut accountability becomes pressure when the deadline matters more than the work itself. If you feel ashamed of revising, resting, changing direction, or missing a date, the project can become stressful rather than motivating. Public promises are most useful when the scope is realistic and the deadline is flexible. Consider sharing a process goal—such as weekly progress—rather than promising a perfect finished result.",
+  "text_sha256": "3dcc62f0286f7eded4d87d40dbb1fbaba20c08fa3af744a48cf7c1e56b7626d0",
+  "raw_final_sha256": "3dcc62f0286f7eded4d87d40dbb1fbaba20c08fa3af744a48cf7c1e56b7626d0",
+  "word_count": 115,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4119,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 140,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\8c5b08d423c80e199dc25e7fb644bd853dea3697031d3fe19b15c3c176b29d07",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

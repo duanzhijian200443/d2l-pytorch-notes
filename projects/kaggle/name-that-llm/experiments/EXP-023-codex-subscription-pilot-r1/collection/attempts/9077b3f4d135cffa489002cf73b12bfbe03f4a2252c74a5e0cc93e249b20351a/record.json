@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0135",
+  "prompt": "Should a beginner photographer use automatic settings for longer or learn manual controls immediately? Explain without prescribing one path for everyone. Aim for about 120 words.",
+  "category": "tradeoff_argument",
+  "target_words": 120,
+  "prompt_group": "cp0135",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "9077b3f4d135cffa489002cf73b12bfbe03f4a2252c74a5e0cc93e249b20351a",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:56:56.656934+00:00",
+  "ended_at": "2026-11-01T09:57:17.976749+00:00",
+  "prompt_sha256": "70dccaf9ba6500c389ce728014e04515000256e8a39706622deb300eba7641ff",
+  "text": "Neither approach is best for every beginner. Automatic settings let you focus on composition, light, timing, and enjoying photography without juggling technical decisions. Staying with auto for a while can make sense if manual controls feel distracting or you mainly want reliable everyday photos.\n\nLearning manual controls early can help if you enjoy experimenting or want specific effects, such as blurred backgrounds or frozen motion. But changing everything at once can be frustrating, and manual mode doesn’t inherently produce better pictures.\n\nA middle ground is aperture or shutter priority: you control one variable while the camera handles others. Let your curiosity and the limitations you encounter guide you. You can learn how exposure works while continuing to use automatic settings whenever they suit the situation.",
+  "text_sha256": "b7f78a497f7b8f7fe079c0fc6967a0496f9faa2793dd1258197db648ac9d001d",
+  "raw_final_sha256": "b7f78a497f7b8f7fe079c0fc6967a0496f9faa2793dd1258197db648ac9d001d",
+  "word_count": 125,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4237,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 144,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\9077b3f4d135cffa489002cf73b12bfbe03f4a2252c74a5e0cc93e249b20351a",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

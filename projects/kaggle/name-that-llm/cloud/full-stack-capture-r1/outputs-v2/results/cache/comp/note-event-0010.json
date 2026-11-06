@@ -1,0 +1,1 @@
+{"event":"member","payload":{"items":[["key",{"kind":"scalar","value":"gauss_glm9b_L8"}],["probability",{"kind":"array","name":"event-0010-array-0001"}],["log_probability",{"kind":"array","name":"event-0010-array-0002"}],["weight",{"kind":"scalar","value":0.165}],["rows",{"kind":"array","name":"event-0010-array-0003"}]],"kind":"mapping"},"sequence":10}

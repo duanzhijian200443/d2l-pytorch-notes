@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0219",
+  "prompt": "A conference organizer must choose between more sessions and longer breaks. Explain what kind of participant experience each choice supports. Keep your response near 200 words.",
+  "category": "business_decision",
+  "target_words": 200,
+  "prompt_group": "cp0219",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "acb5f174f702755cd5119c757c0800ae53ae0a459d90d886c5827a5d824cb4de",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:15:00.052972+00:00",
+  "ended_at": "2026-11-01T11:15:23.117599+00:00",
+  "prompt_sha256": "7bb161834ac46a4e0f7e7ee57e1be12caa104d51270601b1badaaec73f6b62e4",
+  "text": "Choosing **more sessions** supports a participant experience centered on breadth, variety, and structured learning. Attendees can explore more topics, hear from more speakers, and find content closely matched to their interests. This approach can appeal to people seeking practical knowledge, exposure to emerging ideas, or a packed professional-development agenda. However, a dense schedule may create fatigue, increase the pressure to choose between competing sessions, and leave little time to reflect or connect with others. Participants may leave with many new ideas but limited opportunity to process them.\n\nChoosing **longer breaks** supports an experience centered on connection, reflection, and a comfortable pace. Attendees have more time to discuss what they have heard, meet potential collaborators, visit exhibitors, or simply recharge. Longer pauses also make it easier to accommodate mobility needs, meals, prayer, and other personal requirements without missing content. The trade-off is fewer formal learning opportunities, which may disappoint participants who prioritize topic coverage.\n\nNeither choice is inherently better. More sessions emphasize the conference as a rich source of content; longer breaks emphasize it as a setting for relationships and thoughtful engagement. The best balance depends on attendees’ goals and whether the event’s main purpose is knowledge sharing, community building, or both.",
+  "text_sha256": "ce8040a54966ccc6d09110746eeda4cf7861535a010f31fce2f6cb4540aae999",
+  "raw_final_sha256": "ce8040a54966ccc6d09110746eeda4cf7861535a010f31fce2f6cb4540aae999",
+  "word_count": 201,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4237,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 249,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\acb5f174f702755cd5119c757c0800ae53ae0a459d90d886c5827a5d824cb4de",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

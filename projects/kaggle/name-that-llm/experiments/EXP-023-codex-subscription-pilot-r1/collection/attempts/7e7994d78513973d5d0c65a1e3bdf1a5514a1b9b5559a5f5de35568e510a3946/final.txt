@@ -1,0 +1,3 @@
+When every side of a square garden is doubled, its perimeter also doubles. The perimeter is the total distance around the garden, calculated as \(4s\), where \(s\) is the original side length. After doubling, it becomes \(4(2s)=8s\), twice the original perimeter.
+
+The area, however, becomes four times larger. A square’s area is \(s^2\). With doubled sides, the new area is \((2s)^2=4s^2\). The changes differ because perimeter measures a one-dimensional distance—it depends on one length—while area measures the two-dimensional surface inside the boundary. Doubling both dimensions creates four equal-sized copies of the original square, so the garden can hold four times as much space.

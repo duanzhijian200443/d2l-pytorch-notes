@@ -1,0 +1,52 @@
+[{"stream_name":"stderr","time":8.145603172,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.145650322,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.145654521,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.145657119,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.808362182,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.808393788,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.808399076,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.808403035,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":23.058053923,"data":"0\n"}
+,{"stream_name":"stdout","time":32.895767108,"data":"FAST_COMMIT True\n"}
+,{"stream_name":"stdout","time":128.392179008,"data":"/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1\n"}
+,{"stream_name":"stdout","time":128.392230873,"data":"/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1\n"}
+,{"stream_name":"stdout","time":128.392238069,"data":"/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1\n"}
+,{"stream_name":"stdout","time":128.392243997,"data":"/kaggle/input/models/qwen-lm/qwen-3/transformers/8b/1\n"}
+,{"stream_name":"stdout","time":128.392248937,"data":"/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1\n"}
+,{"stream_name":"stdout","time":128.392254348,"data":"['/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f0', '/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f1', '/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f2', '/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f3', '/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f4', '/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8']\n"}
+,{"stream_name":"stdout","time":128.392260778,"data":"['/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f0', '/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f2', '/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f4', '/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14']\n"}
+,{"stream_name":"stdout","time":128.392265706,"data":"['/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q25_7b']\n"}
+,{"stream_name":"stdout","time":128.39227014,"data":"/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/heads\n"}
+,{"stream_name":"stdout","time":128.392277848,"data":"/kaggle/input/datasets/dhruvtibarewal/nlm-matched-clean/nlm_matched_clean.parquet\n"}
+,{"stream_name":"stdout","time":128.392281009,"data":"/kaggle/input/datasets/dhruvtibarewal/nlm-matched-clean/nlm_pool_v5.parquet\n"}
+,{"stream_name":"stdout","time":139.502534415,"data":"nishant /kaggle/input/datasets/nishantdahal/ntl-two-stage-lora/lora8b_v1 24 447 /kaggle/input/datasets/nishantdahal/ntl-two-stage-lora/lora14b_v1 27 447\n"}
+,{"stream_name":"stdout","time":144.460559393,"data":"atlas /kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/atlas_adapter/atlas_adapter\n"}
+,{"stream_name":"stdout","time":144.460596456,"data":"llama source alexchilton/llama-3-1-8b-base /kaggle/input/models/alexchilton/llama-3-1-8b-base/transformers/default/1 {'model-00001-of-00004.safetensors': 4976698672, 'model-00002-of-00004.safetensors': 4999802720, 'model-00003-of-00004.safetensors': 4915916176, 'model-00004-of-00004.safetensors': 1168138808}\n"}
+,{"stream_name":"stdout","time":355.280429309,"data":"llama copied to local disk in 191 s\n"}
+,{"stream_name":"stdout","time":355.280502387,"data":"llama /tmp/llama-3.1/8b ['/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f0', '/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f2', '/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f4', '/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8']\n"}
+,{"stream_name":"stdout","time":375.530714725,"data":"seed7 ['/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f0', '/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f2', '/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f4', '/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7']\n"}
+,{"stream_name":"stdout","time":399.996548209,"data":"part two /kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/lora_qwen3_14b 27 [2, 4, 6, 9, 13, 17, 22, 27] 151643 /kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/lora_qwen25_14b 32 [3, 5, 8, 11, 16, 21, 27, 32] /kaggle/working/deberta_v3_large\n"}
+,{"stream_name":"stdout","time":429.616000095,"data":"q8v5 ['/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f0', '/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f1', '/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f2', '/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f3', '/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f4', '/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5']\n"}
+,{"stream_name":"stdout","time":493.297580587,"data":"v5 ['/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f0', '/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f1', '/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f2', '/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f3', '/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f4', '/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5'] ['/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f0', '/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f1', '/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f2', '/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f3', '/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f4', '/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5']\n"}
+,{"stream_name":"stdout","time":506.842282189,"data":"variant E dropped flag_gemini37_routing_risk 0\n"}
+,{"stream_name":"stdout","time":508.201362241,"data":"variant E svc pool = open safe pool 190588\n"}
+,{"stream_name":"stdout","time":508.215421338,"data":"{'gemini-3.8-flash': 21550, 'gemini-3.6-flash': 16942, 'gpt-5.6-luna': 15869, 'gpt-5.6-terra': 13597, 'gpt-5.6-sol': 12861, 'gpt-5.5': 11755, 'glm-5.3-flash': 11657, 'glm-5.3': 11347, 'gpt-6-astra': 9947, 'claude-fable-5': 9594, 'kimi-k3': 9426, 'gemini-3.1-pro-preview': 9364, 'claude-sonnet-5': 8536, 'claude-opus-4-8': 7507, 'claude-opus-4-6': 6799, 'claude-opus-5': 6288, 'qwen3.8-max': 4271, 'gemini-3.7-flash': 3278}\n"}
+,{"stream_name":"stdout","time":508.249670111,"data":"Writing gauss.py\n"}
+,{"stream_name":"stdout","time":508.282555977,"data":"Writing sibling_style.py\n"}
+,{"stream_name":"stdout","time":508.331712926,"data":"Writing infer.py\n"}
+,{"stream_name":"stdout","time":508.463189539,"data":"Writing comp_stack.py\n"}
+,{"stream_name":"stdout","time":552.238721906,"data":"comp stack wall time 44\n"}
+,{"stream_name":"stdout","time":552.274182657,"data":"RUNNING MAIN INFERENCE\n"}
+,{"stream_name":"stdout","time":552.293594153,"data":"             id    model\n"}
+,{"stream_name":"stdout","time":552.293635391,"data":"0  00353fb1c541  gpt-5.5\n"}
+,{"stream_name":"stdout","time":552.293641694,"data":"1  005f5a9a6139  gpt-5.5\n"}
+,{"stream_name":"stdout","time":552.293676137,"data":"2  0062a53d5487  gpt-5.5\n"}
+,{"stream_name":"stderr","time":556.007591887,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":556.007642924,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":556.337748812,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":556.337782084,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":557.590488285,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":557.689727773,"data":"[NbConvertApp] Writing 320458 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":560.340693066,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":561.843894576,"data":"[NbConvertApp] Writing 1286186 bytes to __results__.html\n"}
+]

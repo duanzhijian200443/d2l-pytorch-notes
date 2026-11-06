@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0204",
+  "prompt": "A person has moved to a new neighborhood and wants to become familiar with it without spending much money. Offer a few approachable first steps. Use approximately 200 words for the response.",
+  "category": "everyday_advice",
+  "target_words": 200,
+  "prompt_group": "cp0204",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "56e5df76ee77aa4b64eca1386719ac0b1c1c77b4f73682110df6e3cac734ce1d",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:05:26.330094+00:00",
+  "ended_at": "2026-11-01T11:05:56.247261+00:00",
+  "prompt_sha256": "4581a36fcfd4ea21071d3ea0f9e9534ffc572a9a139ba392876d94a3f8bb1ca5",
+  "text": "Getting to know a new neighborhood doesn’t have to cost much. Start with a few small outings that help you feel comfortable and connected.\n\n- **Take short walks at different times of day.** Try a new street each time, noticing parks, grocery stores, bus stops, and places that feel welcoming. Stick to well-lit routes after dark, and save useful spots on your phone’s map.\n\n- **Visit the local library.** Besides free books and internet access, libraries often offer community noticeboards, workshops, clubs, and neighborhood information. Ask a librarian what free activities are coming up.\n\n- **Say hello to people you see regularly.** A brief greeting to a neighbor, shopkeeper, or dog walker can gradually lead to friendly conversations. Try asking, “I’m new here—what’s your favorite nearby place?”\n\n- **Look for free community events.** Check municipal websites, community centers, and neighborhood groups for park gatherings, walking clubs, markets, or volunteer opportunities. Browsing a market can be enjoyable without buying anything.\n\n- **Build one simple local routine.** Read in a nearby park, visit the library weekly, or take the same weekend walk. Familiar faces and places can make an unfamiliar area feel like home.\n\nChoose just one or two ideas this week. There’s no rush to learn everything at once.",
+  "text_sha256": "37db5ec209493bd56bd6ff515c99c7d2a3bcfe759c9c466b4ebdf03d2831d4f3",
+  "raw_final_sha256": "37db5ec209493bd56bd6ff515c99c7d2a3bcfe759c9c466b4ebdf03d2831d4f3",
+  "word_count": 208,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4243,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 272,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\56e5df76ee77aa4b64eca1386719ac0b1c1c77b4f73682110df6e3cac734ce1d",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

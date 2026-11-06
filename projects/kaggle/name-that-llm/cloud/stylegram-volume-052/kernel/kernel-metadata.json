@@ -1,0 +1,21 @@
+{
+  "id": "zhjianduan/name-that-llm-stylegram-volume-052",
+  "title": "Name That LLM Stylegram Volume 052",
+  "code_file": "experiment.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "dataset_sources": [
+    "zhjianduan/ntl-stylegram-cv-inputs-v1/1"
+  ],
+  "competition_sources": [
+    "name-that-llm"
+  ],
+  "kernel_sources": [],
+  "model_sources": [],
+  "docker_image_pinning_type": "original",
+  "docker_image": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e"
+}

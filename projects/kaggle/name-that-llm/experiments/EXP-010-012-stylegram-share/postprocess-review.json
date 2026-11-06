@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-10-31 17:37:17 UTC",
+  "status": "PASS",
+  "status_scope": "Postprocessing source review, not verification of completed result artifacts",
+  "rechecked_at": "2026-10-31 17:37:57 UTC",
+  "result_artifacts_verified": false,
+  "scope": "Postprocessing source review and pure-function reference checks; no training or remote operations",
+  "reviewed_file": "experiments/EXP-010-012-stylegram-share/verify_results.py",
+  "reviewed_sha256": "ea6fa44926c036da45e694b3b2fe1b64f32ecb0b44200f5496eb9a4c1d907bc2",
+  "methodology": {
+    "sparse_five_fold_pooling": "PASS: pool scores and IDs across five folds before balanced accuracy, separately for each share/m/repeat",
+    "sparse_selection_checks": {
+      "m_repeat_cases": 15,
+      "all_cases_cover_18_classes": true,
+      "rows_by_m": {
+        "2": 300,
+        "3": 450,
+        "6": 900
+      }
+    },
+    "paired_prompt_bootstrap": "PASS: same resampled prompt indices for candidate and baseline; class recall denominators follow the resampled prompts; conditional on fitted models and development folds",
+    "bootstrap_reference_checks": {
+      "draws_compared_with_direct_prompt_row_replication": 10,
+      "all_passed": true,
+      "total_draws": 2000,
+      "seed": 42,
+      "minimum_class_support_across_draws": 145
+    },
+    "retraining_required": false
+  },
+  "findings": [],
+  "recheck_cases": {
+    "fold_metrics": {"valid": "accepted", "missing": "rejected", "duplicate": "rejected", "wrong_key": "rejected", "wrong_ba": "rejected", "nan_ba": "rejected"},
+    "sparse_blocks": {"valid": "accepted", "wrong_rows": "rejected", "wrong_columns": "rejected", "wrong_true_shape": "rejected", "wrong_true_values": "rejected"}
+  },
+  "resolved_findings": [
+    {
+      "priority": "P2",
+      "file": "verify_results.py",
+      "line_start": 62,
+      "line_end": 69,
+      "title": "Validate each sparse score block against its IDs and label count",
+      "resolution": "Resolved: score shape and true-vector shape checked; labels compared against authoritative sample IDs. Current lines 70-72.",
+      "detail": "Only score finiteness is checked. A block with the wrong number of rows or columns can enter the pooled score matrix; compensating row-count errors across folds can silently misalign scores and truths, while a 17-column block silently omits a class.",
+      "required_change": "Before pooling, assert scores.ndim == 2 and scores.shape == (len(current), len(labels)); assert true.shape == (len(current),) and integer labels are in range."
+    },
+    {
+      "priority": "P2",
+      "file": "verify_results.py",
+      "line_start": 85,
+      "line_end": 94,
+      "title": "Derive or verify fold stability metrics from validated predictions",
+      "resolution": "Resolved: all 15 fold metrics recomputed from checked score blocks, CSV keys and values validated, and recomputed values used for paired stability. Current lines 50-56 and 89-95.",
+      "detail": "fold_metrics.csv is trusted without verifying unique complete (fold, share) keys or checking its BA values. Missing, duplicate, stale, or changed records can produce misleading positive/negative fold counts and deltas while verified.json still reports PASS; missing entries can also emit NaN.",
+      "required_change": "Recompute per-fold BA from the already validated OOF scores, or require all 15 unique expected keys and finite BA values equal to recomputed scores; reject non-finite final values."
+    }
+  ],
+  "limitations": [
+    "Full verify_results.py was not executed because completed result artifacts were not supplied for this review.",
+    "The running Kaggle kernel and remote state were not queried.",
+    "Only matrix_counts and deterministic sampling/reference calculations were executed; no classifier, vectorizer fitting, or model inference was run."
+  ],
+  "writes": [
+    "experiments/EXP-010-012-stylegram-share/postprocess-review.json"
+  ]
+}

@@ -1,0 +1,327 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-027",
+  "observed_at_utc": "2026-11-01T09:01:36.187850+00:00",
+  "status": "PASS_FOR_EXTERNAL_SEVENTEEN_CLASS_CHECK",
+  "source": "earthmaker/ntl-own-prompt-generations",
+  "source_version": 1,
+  "selection_rule": "Keep all published rows except gemini-3.7-flash; resolve each response by exact batch+prompt bank and rendered template; group identical NFKC/casefold/whitespace-normalized task bodies across batches; exclude every row of any group with a training/known-official/EXP026 ancestry, response or body intersection; no score/style/length filtering",
+  "inputs": [
+    {
+      "path": "cloud/svc4-raw-public-r1/payload/protocol.json",
+      "sha256": "9117d147deb4c2ab27a6054655970445095e638bc11a2d506310bf73170f4855",
+      "bytes": 4973
+    },
+    {
+      "path": "cloud/svc4-raw-public-r1/payload/public.csv",
+      "sha256": "0a1e31a0f8b0ece7ca44a961075252fe275107f3710804971838d714a4e77aaa",
+      "bytes": 4711529
+    },
+    {
+      "path": "data/public-pools/earthmaker/ntl-own-prompt-generations/v1/README.md",
+      "sha256": "de884bb731f11ebe83208bf11e4fbb178636c801e4dc40e6602e2ad401e99726",
+      "bytes": 3733
+    },
+    {
+      "path": "data/public-pools/earthmaker/ntl-own-prompt-generations/v1/passages.csv",
+      "sha256": "4df18d70dfe9e7ca2cd43fa2a8ce45ddf814c97d42c0ec89bdf7692fa49f2a25",
+      "bytes": 741816
+    },
+    {
+      "path": "data/public-pools/earthmaker/ntl-own-prompt-generations/v1/prompts_pilot.json",
+      "sha256": "8d39f3367507cb6517836fb5e8e0b2e3e3376a63ce7f65b84f229b769b72a760",
+      "bytes": 2111
+    },
+    {
+      "path": "data/public-pools/earthmaker/ntl-own-prompt-generations/v1/prompts_v22.json",
+      "sha256": "fdc5730dbe6bcc93030ac943fa02a8e7058b52fbaafa14c441055860b62a779b",
+      "bytes": 6420
+    },
+    {
+      "path": "data/public-pools/earthmaker/ntl-own-prompt-generations/v1/templates.json",
+      "sha256": "e7fe7f8befea11f25ceffee78251e959174099443e34db0b826e93f438b36702",
+      "bytes": 549
+    },
+    {
+      "path": "data/public-pools/enaimaan/ntl-openai-generated-responses/v3/prompts.jsonl",
+      "sha256": "7a474ee6af8cdeae8e74f62a5f9e3b3ce65bb0eedc4056660925d02542be735b",
+      "bytes": 9053172
+    },
+    {
+      "path": "data/public-pools/enaimaan/ntl-openai-generated-responses/v3/train.csv",
+      "sha256": "655081a30c30376edba803e48f2031bfc1935d9f0a5e0e4c44fd55dee83acfa3",
+      "bytes": 12286187
+    },
+    {
+      "path": "data/public-pools/prvsiyan/prvsiyans-extended-name-that-llm-dataset/v6/prompts.csv",
+      "sha256": "58dabf5d31bb3fd76ff49dda3c4603970aece7553a5afe78d2e2dc4463b98acd",
+      "bytes": 377389
+    },
+    {
+      "path": "data/public-pools/seyitkaangunes/ntl-extra-api-passages/v2/prompts.csv",
+      "sha256": "25df24d4e4ca0f8242bd365cc9ea8039f0056f3eae78fa3dd186bbae5a608395",
+      "bytes": 266160
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/payload/extra.csv",
+      "sha256": "1e9125fd49b19084842332ede84ea65bc0174ee1bb28c8d48acc8ddbd5e36c0e",
+      "bytes": 8672205
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/payload/protocol.json",
+      "sha256": "3983ceb881750b9b138ee59a3c03ba1acb2dd0f04c2b56bbe96ec682446ce50c",
+      "bytes": 1759
+    },
+    {
+      "path": "experiments/EXP-026-independent-blend-validation/audit_external.py",
+      "sha256": "94ddaee44ea5cdaf52bb356e3951930e538235c600b8aed4e206d610c9eaa22c",
+      "bytes": 23244
+    },
+    {
+      "path": "experiments/EXP-026-independent-blend-validation/evaluation.csv",
+      "sha256": "72228be3ddaad8feaa1ba232e689537e0cf49ebc72068df4a7e556836f1bdd17",
+      "bytes": 4383164
+    },
+    {
+      "path": "experiments/EXP-026-independent-blend-validation/metrics/data-gate.json",
+      "sha256": "8b5d203368ccbefc6c0165e3556187514eb117e7aca6e768c05154768091509a",
+      "bytes": 8949
+    },
+    {
+      "path": "experiments/EXP-027-multiclass-external-validation/audit_external.py",
+      "sha256": "3cb7192de9a4bb12f0ef59dd71714bc7ae86e2ac8833edd302b22ab8f7651af1",
+      "bytes": 24672
+    },
+    {
+      "path": "experiments/EXP-027-multiclass-external-validation/download-manifest.json",
+      "sha256": "28b8328eeb30fe103d919c385b15f09fe26e56e1c8512469675f7746e82a1d47",
+      "bytes": 1880
+    },
+    {
+      "path": "train.csv",
+      "sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+      "bytes": 2139418
+    }
+  ],
+  "rows": 729,
+  "groups": 56,
+  "labels": [
+    "claude-fable-5",
+    "claude-opus-4-6",
+    "claude-opus-4-8",
+    "claude-opus-5",
+    "claude-sonnet-5",
+    "gemini-3.1-pro-preview",
+    "gemini-3.6-flash",
+    "gemini-3.8-flash",
+    "glm-5.3",
+    "glm-5.3-flash",
+    "gpt-5.5",
+    "gpt-5.6-luna",
+    "gpt-5.6-sol",
+    "gpt-5.6-terra",
+    "gpt-6-astra",
+    "kimi-k3",
+    "qwen3.8-max"
+  ],
+  "class_counts": {
+    "claude-fable-5": 19,
+    "claude-opus-4-6": 55,
+    "claude-opus-4-8": 55,
+    "claude-opus-5": 54,
+    "claude-sonnet-5": 52,
+    "gemini-3.1-pro-preview": 54,
+    "gemini-3.6-flash": 51,
+    "gemini-3.8-flash": 54,
+    "glm-5.3": 16,
+    "glm-5.3-flash": 17,
+    "gpt-5.5": 54,
+    "gpt-5.6-luna": 52,
+    "gpt-5.6-sol": 54,
+    "gpt-5.6-terra": 53,
+    "gpt-6-astra": 54,
+    "kimi-k3": 17,
+    "qwen3.8-max": 18
+  },
+  "evaluation": {
+    "path": "experiments/EXP-027-multiclass-external-validation/evaluation.csv",
+    "rows": 729,
+    "groups": 56,
+    "labels": [
+      "claude-fable-5",
+      "claude-opus-4-6",
+      "claude-opus-4-8",
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "gemini-3.1-pro-preview",
+      "gemini-3.6-flash",
+      "gemini-3.8-flash",
+      "glm-5.3",
+      "glm-5.3-flash",
+      "gpt-5.5",
+      "gpt-5.6-luna",
+      "gpt-5.6-sol",
+      "gpt-5.6-terra",
+      "gpt-6-astra",
+      "kimi-k3",
+      "qwen3.8-max"
+    ],
+    "class_counts": {
+      "claude-fable-5": 19,
+      "claude-opus-4-6": 55,
+      "claude-opus-4-8": 55,
+      "claude-opus-5": 54,
+      "claude-sonnet-5": 52,
+      "gemini-3.1-pro-preview": 54,
+      "gemini-3.6-flash": 51,
+      "gemini-3.8-flash": 54,
+      "glm-5.3": 16,
+      "glm-5.3-flash": 17,
+      "gpt-5.5": 54,
+      "gpt-5.6-luna": 52,
+      "gpt-5.6-sol": 54,
+      "gpt-5.6-terra": 53,
+      "gpt-6-astra": 54,
+      "kimi-k3": 17,
+      "qwen3.8-max": 18
+    },
+    "bytes": 721966,
+    "sha256": "8ec3217f1f469b66170f68f7abdb3ef1973a64e47d983c59b40a4d1ce2094670"
+  },
+  "row_audit": {
+    "path": "experiments/EXP-027-multiclass-external-validation/metrics/row-audit.csv",
+    "rows": 749,
+    "sha256": "f491b7a5469bde8cb8754634c20bae2812938c66837a3dae72aabef69d47e609"
+  },
+  "group_audit": {
+    "path": "experiments/EXP-027-multiclass-external-validation/metrics/group-audit.csv",
+    "groups": 56,
+    "sha256": "fc0175794ca7f258648f0df77143642d70a9b7ba32974610f0007b747d084566"
+  },
+  "source_population": {
+    "rows": 749,
+    "batch_prompt_pairs": 56,
+    "normalized_task_bodies": 56,
+    "cross_batch_same_task_groups": 0,
+    "batch_counts": {
+      "v22_20261022": 420,
+      "pilot_20261015": 329
+    },
+    "source_labels": [
+      "claude-fable-5",
+      "claude-opus-4-6",
+      "claude-opus-4-8",
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "gemini-3.1-pro-preview",
+      "gemini-3.6-flash",
+      "gemini-3.7-flash",
+      "gemini-3.8-flash",
+      "glm-5.3",
+      "glm-5.3-flash",
+      "gpt-5.5",
+      "gpt-5.6-luna",
+      "gpt-5.6-sol",
+      "gpt-5.6-terra",
+      "gpt-6-astra",
+      "kimi-k3",
+      "qwen3.8-max"
+    ]
+  },
+  "selection": {
+    "excluded_rows": 20,
+    "excluded_reason_counts_nonexclusive": {
+      "excluded_unverified_gemini_3_7_route": 20
+    },
+    "groups_excluded_for_overlap": 0,
+    "selected_groups_by_class_coverage": {
+      "3": 1,
+      "7": 1,
+      "9": 1,
+      "10": 2,
+      "11": 5,
+      "12": 29,
+      "15": 1,
+      "17": 16
+    },
+    "complete_seventeen_class_groups": 16,
+    "selected_batch_counts": {
+      "v22_20261022": 420,
+      "pilot_20261015": 309
+    },
+    "selected_route_counts": {
+      "kaggle_benchmarks_model_proxy": 642,
+      "openrouter": 87
+    }
+  },
+  "training_exposure": {
+    "official_rows": 2699,
+    "stylegram_extra_rows": 10073,
+    "svc4_public_rows": 5400,
+    "known_public_prompt_ancestors": 763,
+    "known_official_reconstructed_bodies": 150
+  },
+  "exp026_crosscheck": {
+    "rows_checked": 5200,
+    "original_cv_groups": 1300,
+    "publisher_body_hashes": 1300,
+    "normalized_body_hashes_checked": 1299,
+    "normalized_body_groups_merging_original_cv_groups": [
+      {
+        "normalized_body_sha256": "278193a2f88d57a192013b985bdb751804a87edf36771cea60709302c8125968",
+        "original_cv_groups": [
+          "ext-20ab8f2ddfb9a2aa7dd5",
+          "ext-f646bbf21325a84376ad"
+        ]
+      }
+    ],
+    "previous_files_modified": false,
+    "source_ancestor_matches": 0,
+    "response_matches": 0,
+    "task_body_matches": 0
+  },
+  "hash_semantics": {
+    "task_sha256": "NFKC + casefold + collapsed whitespace of the JSON task field; excludes template and target words",
+    "rendered_request_sha256": "same normalization of the exactly reconstructed template.format(words,task); not an archived raw request or serving response",
+    "text_sha256": "SHA-256 of unchanged UTF-8 response text",
+    "canonical_prompt_id": "earthmaker-task: plus the complete task_sha256; no batch-prefix independence assumption"
+  },
+  "upstream_official_eightgram_filter": {
+    "publisher_declared": true,
+    "recomputed_or_reapplied_here": false
+  },
+  "identity_checks": {
+    "requested_slug_label_consistent_rows": 749,
+    "excluded_unverified_model": "gemini-3.7-flash",
+    "excluded_identity_rows": 20,
+    "raw_serving_response_logs_available": false
+  },
+  "previous_attempts": [
+    {
+      "sha256": "2672fcdb598115571c1ce383c1c408fa83b0d2b4c639cdf406dfc2b3c35eadeb",
+      "record": {
+        "schema_version": 1,
+        "experiment_id": "EXP-027",
+        "observed_at_utc": "2026-11-01T08:59:21.962138+00:00",
+        "status": "FAILED_DATA_GATE",
+        "reason": "Incomplete previous source linkage",
+        "evaluation_written": false,
+        "training_performed": false,
+        "scoring_performed": false
+      },
+      "resolution": "Original 1300 publisher groups were verified separately from 1299 normalized bodies; one case-only cross-group pair is preserved in exp026_crosscheck and its merged body is included in all overlap checks."
+    }
+  ],
+  "limits": [
+    "Coverage is 17 admitted labels with unequal counts and incomplete prompt groups; Gemini 3.7 is excluded because the publisher could not verify the proxy serving version. Predictions must still use all 18 original training classes.",
+    "The publisher filtered 31 of 360 pilot responses by official 8-word overlap and 12 of 432 v22 responses by truncation/format/content-overlap checks. The released population is upstream-selected using official text and is not a strictly untouched holdout.",
+    "Isolation here covers actual training response bytes after documented normalization, known source/prompt ancestry, and exact normalized task/request bodies including documented official reconstructions. True organizer prompts are unknown; semantic topic overlap and paraphrases were not exhaustively excluded.",
+    "Request slugs match published labels after the explicit Qwen dated alias; no raw serving-provider response logs are included. This establishes published-request consistency, not independent authentication of weights or settings.",
+    "Pilot's five OpenRouter-only labels have small support. Batch, source route, template and topic distributions differ from official data; no length, style, score or prediction-based selection was performed by this audit.",
+    "No overlap with the accepted EXP-026 rows, declared source ancestors or recovered source bodies was found under these checks. This does not make the two sources identically distributed.",
+    "The full ATLAS20 stack contains other runtime and pretrained members with incomplete training-corpus lineage. Passing this two-member gate does not establish independence from every full-stack member or full-ensemble improvement."
+  ],
+  "predictions_read": false,
+  "training_performed": false,
+  "scoring_performed": false
+}

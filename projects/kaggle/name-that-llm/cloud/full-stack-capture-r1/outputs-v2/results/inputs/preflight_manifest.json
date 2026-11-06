@@ -1,0 +1,2843 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "experiment_id": "EXP-029",
+  "scope": "mounted_input_bytes_only",
+  "attachment_bindings": [
+    {
+      "kind": "competition",
+      "ref": "name-that-llm",
+      "version": null
+    },
+    {
+      "kind": "dataset",
+      "ref": "dhruvtibarewal/nlm-l24-adapters",
+      "version": 7
+    },
+    {
+      "kind": "dataset",
+      "ref": "seyitkaangunes/ntl-extra-api-passages",
+      "version": 2
+    },
+    {
+      "kind": "dataset",
+      "ref": "zhjianduan/ntl-generations",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "dophuchung/ntl-proxy-generations",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "zbigniewkirchner/ntl-qwen3-8b-lora-claude-head",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "dhruvtibarewal/nlm-matched-clean",
+      "version": 3
+    },
+    {
+      "kind": "dataset",
+      "ref": "dhruvtibarewal/nlm-offline-wheels",
+      "version": 2
+    },
+    {
+      "kind": "dataset",
+      "ref": "josephadamski91/ntl-atlas-qwen3-8b-v1",
+      "version": 3
+    },
+    {
+      "kind": "dataset",
+      "ref": "zhjianduan/ntl-free-proxy-generations",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "nishantdahal/ntl-two-stage-lora",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "nishantdahal/ntl-handwriting-blend",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "dhruvtibarewal/nlm-l24-adapters-v5",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+      "version": 6
+    },
+    {
+      "kind": "dataset",
+      "ref": "pjmathematician/ultrabert-380m-ntl",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "zhjianduan/llama31-8b-base-verified",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-glm4-9b-trunc25",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-extract-encoders2",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-electra-large-weights",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-desklib-weights",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-train-lora24-s7",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-train-tokattn",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-train-tokattn2",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "vnton37nguyn/ntl-train-lora-qwen25-instyle",
+      "version": 2
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen-3/Transformers/8b",
+      "version": 1
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen-3/Transformers/4b-base",
+      "version": 1
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen-3/Transformers/8b-base",
+      "version": 1
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen-3/Transformers/14b-base",
+      "version": 1
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen-3/Transformers/14b",
+      "version": 1
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen2.5/Transformers/7b",
+      "version": 1
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen2.5/Transformers/14b",
+      "version": 1
+    }
+  ],
+  "files": [
+    {
+      "path": "/kaggle/input/competitions/name-that-llm/sample_submission.parquet",
+      "bytes": 899,
+      "sha256": "ccf86796b80fd7f83d8463664603fd1208e17559abcf416f198776b819646188"
+    },
+    {
+      "path": "/kaggle/input/competitions/name-that-llm/test.csv",
+      "bytes": 2218,
+      "sha256": "4545aa3a3459f4c0724f97ad5bd06c4caa3506bdfea5fab905e8203184fc0c57"
+    },
+    {
+      "path": "/kaggle/input/competitions/name-that-llm/train.csv",
+      "bytes": 2139418,
+      "sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5/adapter_config.json",
+      "bytes": 1278,
+      "sha256": "894f3bf17bfda87b8a3fa8dad57320f448a79ff51a67ad0800f3ad17b7f8c040"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5/adapter_model.safetensors",
+      "bytes": 125871992,
+      "sha256": "e400fa972113dc70ee91b76fd6fd3a61288cd66c9afb245250ba909a4cfc8f77"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5/heads.pt",
+      "bytes": 4986739,
+      "sha256": "f22d0c240de816b0d5f26ed32bf92e72a49b17a2ab13af2e3c54232fc58616ae"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f0/adapter_config.json",
+      "bytes": 1278,
+      "sha256": "6aa5793567d14360dfba7fd5e065e95831e7fbdaf42f8710fbb192c4db866dfa"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f0/adapter_model.safetensors",
+      "bytes": 125871992,
+      "sha256": "986f84b14855b5f720798b7c6e6c28bf15fc178987482eef11576dc4d69db32e"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f0/heads.pt",
+      "bytes": 4986739,
+      "sha256": "9b3bd8a610fb1a74c02615ae80fe19a4447023436292d583ed1ad7e04ce9180b"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f1/adapter_config.json",
+      "bytes": 1278,
+      "sha256": "6aa5793567d14360dfba7fd5e065e95831e7fbdaf42f8710fbb192c4db866dfa"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f1/adapter_model.safetensors",
+      "bytes": 125871992,
+      "sha256": "9c8dcfc867fadfbc37c73c25bee7b40f76c7f234e36810f2afa353fac6be0d6e"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f1/heads.pt",
+      "bytes": 4986739,
+      "sha256": "8834c527186fd7f3f2b7742289c45d7190fe574bfb876825c250baa273629e1a"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f2/adapter_config.json",
+      "bytes": 1278,
+      "sha256": "6aa5793567d14360dfba7fd5e065e95831e7fbdaf42f8710fbb192c4db866dfa"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f2/adapter_model.safetensors",
+      "bytes": 125871992,
+      "sha256": "8ac8f35d978a19a1b3e6a447093829d8cdb2b62d6eb1af58e4ec2cac0d1dcd90"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f2/heads.pt",
+      "bytes": 4986739,
+      "sha256": "eb159c9fa2485ae82fdac8f4eb111d68ed7dcdb2aa74eb3a7d17e945a48dcf91"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f3/adapter_config.json",
+      "bytes": 1278,
+      "sha256": "6aa5793567d14360dfba7fd5e065e95831e7fbdaf42f8710fbb192c4db866dfa"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f3/adapter_model.safetensors",
+      "bytes": 125871992,
+      "sha256": "879815ff8e9e0a2a4e34af27cdc7874c5a4e3b18d03df261b8e065d6fd9cca1c"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f3/heads.pt",
+      "bytes": 4986739,
+      "sha256": "c6a71b7ddd074cd951146c274835d603665b71b3101192de47f464356828ca39"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f4/adapter_config.json",
+      "bytes": 1278,
+      "sha256": "6aa5793567d14360dfba7fd5e065e95831e7fbdaf42f8710fbb192c4db866dfa"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f4/adapter_model.safetensors",
+      "bytes": 125871992,
+      "sha256": "c2c5d0320187bbc5e21557d1222a21156056bf084e52f091b4075098586b6081"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/ll8v5_f4/heads.pt",
+      "bytes": 4986739,
+      "sha256": "1ac81a3353d8d59b959547411afd34c52fb733cbdfdacda46a2d268ba563265f"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5/adapter_config.json",
+      "bytes": 1272,
+      "sha256": "1f2c044ca59f117a2865ce91478f126d25f974224282b70d320828e8b504173e"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5/adapter_model.safetensors",
+      "bytes": 173456688,
+      "sha256": "7580831f6d7184c9a676ce88c3b69af00e42ffed1e7132fd8812c9ba632616c4"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5/heads.pt",
+      "bytes": 6231923,
+      "sha256": "cafdbade649017d666c2da623adb6539877e1125a996f2736133127ae6121b3d"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f0/adapter_config.json",
+      "bytes": 1272,
+      "sha256": "6503133c61da60deb8cdaf47b9f166c921e1562beb7d2b16ee3f726e87d622e2"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f0/adapter_model.safetensors",
+      "bytes": 173456688,
+      "sha256": "a9bcc25dcdddaa480bdd10fb13aa2092acb5e5abe3c9e4bfdbbfef1496009ad1"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f0/heads.pt",
+      "bytes": 6231923,
+      "sha256": "3d25feb9f749517c2ad7f967bc5821710c1ff328fc43d52e3c7a7d3b3fbaa770"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f1/adapter_config.json",
+      "bytes": 1272,
+      "sha256": "6503133c61da60deb8cdaf47b9f166c921e1562beb7d2b16ee3f726e87d622e2"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f1/adapter_model.safetensors",
+      "bytes": 173456688,
+      "sha256": "d42d72f6dd219c419ea9dea715216bc678ee62af4d5dfb1f1a29cb507a5d6312"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f1/heads.pt",
+      "bytes": 6231923,
+      "sha256": "95ff78ca650e8ba0cb74cc343180d33f13758e904eadf0d1bbb1b32e52bbb7df"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f2/adapter_config.json",
+      "bytes": 1272,
+      "sha256": "6503133c61da60deb8cdaf47b9f166c921e1562beb7d2b16ee3f726e87d622e2"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f2/adapter_model.safetensors",
+      "bytes": 173456688,
+      "sha256": "6475450606202241a252473fbdd8e7b49466636a301462fc4aad252db3e85f4d"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f2/heads.pt",
+      "bytes": 6231923,
+      "sha256": "1d21573d7ca32a011b8c816aff3413198b84e29009d237312eba7688276c3eb1"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f3/adapter_config.json",
+      "bytes": 1272,
+      "sha256": "6503133c61da60deb8cdaf47b9f166c921e1562beb7d2b16ee3f726e87d622e2"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f3/adapter_model.safetensors",
+      "bytes": 173456688,
+      "sha256": "0659f055368dfbbf35d3892ed118302711717b01d3e4e164db150fe675e0248e"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f3/heads.pt",
+      "bytes": 6231923,
+      "sha256": "3b240fdcb324f3d70e1216c00f4b82d8ea1055881b85c688b9a26031b6ad2008"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f4/adapter_config.json",
+      "bytes": 1272,
+      "sha256": "6503133c61da60deb8cdaf47b9f166c921e1562beb7d2b16ee3f726e87d622e2"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f4/adapter_model.safetensors",
+      "bytes": 173456688,
+      "sha256": "7aa86867cbd0d0b7191c90cd111cfc2555c9fcb4e3becc5e24fe8c79c2e4b552"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q14v5_f4/heads.pt",
+      "bytes": 6231923,
+      "sha256": "d1599763e9b650c59358983f9d63ff43dc9db9fe49478f11816c12521d3d187f"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5/adapter_config.json",
+      "bytes": 1271,
+      "sha256": "621136c127ae11004b136582ac899229a191c2d57443b297f7867e88b42d9204"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5/adapter_model.safetensors",
+      "bytes": 116434760,
+      "sha256": "a600e552f40bcda00194f147f957d3bbb04e176b6bccf4a1f7fe39b82c8e8f51"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5/heads.pt",
+      "bytes": 4986739,
+      "sha256": "31868cd0e9618fac506c93a08f118ee00202041d67426890e609d13e2cd33f0a"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f0/adapter_config.json",
+      "bytes": 1271,
+      "sha256": "a513fe6acd70f3c040fabcfe4185748201d08c3c2f615ef83450a8f8e68d7ce9"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f0/adapter_model.safetensors",
+      "bytes": 116434760,
+      "sha256": "d7d7be8ed93b3c30e5d60b0f07570898f9164c67d76c45a6b86548329ea0b804"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f0/heads.pt",
+      "bytes": 4986739,
+      "sha256": "7d5897029e329eaaea05e5fc92812f82bfc361d2b4888cb0fd2cbccc19e65d3c"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f1/adapter_config.json",
+      "bytes": 1271,
+      "sha256": "a513fe6acd70f3c040fabcfe4185748201d08c3c2f615ef83450a8f8e68d7ce9"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f1/adapter_model.safetensors",
+      "bytes": 116434760,
+      "sha256": "af6d1a22dfb4bd2cc43bca70555ecdf6e7fe27332087d49504b461320f59bcfc"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f1/heads.pt",
+      "bytes": 4986739,
+      "sha256": "ebda1b199bf48614c268fa62b1b2bcd1e08315ba5f7a103270d6cec8acc85170"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f2/adapter_config.json",
+      "bytes": 1271,
+      "sha256": "a513fe6acd70f3c040fabcfe4185748201d08c3c2f615ef83450a8f8e68d7ce9"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f2/adapter_model.safetensors",
+      "bytes": 116434760,
+      "sha256": "80bb0f51719036bfd2fb2930226715423c29628105b3e2e75879561c36aa106d"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f2/heads.pt",
+      "bytes": 4986739,
+      "sha256": "e83c982d972ba6207b2a884f1d0feebdcdd609dc78acb66d7e572695c6ab9e76"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f3/adapter_config.json",
+      "bytes": 1271,
+      "sha256": "a513fe6acd70f3c040fabcfe4185748201d08c3c2f615ef83450a8f8e68d7ce9"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f3/adapter_model.safetensors",
+      "bytes": 116434760,
+      "sha256": "0a72aab8432fd5ed7a9507e5e77c60f226dd1b3a7bf2cd4735d08a72bf40d9ee"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f3/heads.pt",
+      "bytes": 4986739,
+      "sha256": "597fd55464ae5c16965e1493c94db879744bdefa56b9e54401ebf0c1b542dd28"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f4/adapter_config.json",
+      "bytes": 1271,
+      "sha256": "a513fe6acd70f3c040fabcfe4185748201d08c3c2f615ef83450a8f8e68d7ce9"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f4/adapter_model.safetensors",
+      "bytes": 116434760,
+      "sha256": "61334f96b8f2415af683cfd35310bf8965cd865d29d903aa97e8dc8f1007886d"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters-v5/q8v5_f4/heads.pt",
+      "bytes": 4986739,
+      "sha256": "cdf6acf7f4b1ec8187d48c31f17dfb8461a85cd34d1e3b8a669a7d7e689afa37"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/heads/q3_14b4x.npz",
+      "bytes": 1639710,
+      "sha256": "0fcd124abe8f138a3ee22e9a66abdd74a0e0d1724a4b5969d8855a7c13bfe2d8"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/heads/q3_32b4x.npz",
+      "bytes": 1230102,
+      "sha256": "4c7a8cd059d1f67b1994ebd9d530926d26d9ce529ab18a61acee4ae28a9bb337"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/heads/q3_8bx.npz",
+      "bytes": 656654,
+      "sha256": "3fb4704639a36e4bf18f552d8add73ad750e5e3bef934fe4de04165ac543007e"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/l24x_q25_7b/README.md",
+      "bytes": 5154,
+      "sha256": "561968722e68faa9a8b32aba62247348494f7ca5a02973a4c88ca24bb75fa98f"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/l24x_q25_7b/adapter_config.json",
+      "bytes": 1268,
+      "sha256": "1681cdb935199c7c7948afdc73740d56cba4a6ba8640affdd8d8dd90cfa88df9"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/l24x_q25_7b/adapter_model.safetensors",
+      "bytes": 138454920,
+      "sha256": "7f5263a6cd3b29d40889806ee1c10097063dc08d5e686cb67327f4a57c282369"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/l24x_q25_7b/heads.pt",
+      "bytes": 4364147,
+      "sha256": "73ddf29fe406830ac50d7063664122ec3ce8237f60766da3d3e6f29d9d3e05d4"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/l24x_q3b8/README.md",
+      "bytes": 5160,
+      "sha256": "daf721a38ca673ab35853f40f64d5313fbfaa459c92a89a300852f32642bb932"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/l24x_q3b8/adapter_config.json",
+      "bytes": 1271,
+      "sha256": "826f80be238e1cae531a1f231dadc878e53626c78d82cf23481f0b18ebc2e257"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/l24x_q3b8/adapter_model.safetensors",
+      "bytes": 116434760,
+      "sha256": "d09672d9784f1e0992facb57365785a4a978c7fe2e33cf9dac25413c9251f9bd"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/l24x_q3b8/heads.pt",
+      "bytes": 4986739,
+      "sha256": "94ad4038b29b5bed238941a6c0769b86bbc8bc02708ae82270aa003391b51f21"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7/adapter_config.json",
+      "bytes": 1271,
+      "sha256": "96c348092cdc305afa76a5e45508c87291195ea29524208a654b2f2a8b68133a"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7/adapter_model.safetensors",
+      "bytes": 116434760,
+      "sha256": "3aee30440d72b255978313a3a3f683832a93c8946fbfbbf6cc3069bd42bfe844"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7/heads.pt",
+      "bytes": 4986739,
+      "sha256": "33968c495e0738de024f0f6f4fa61c6553a9375f3ec26fb072851dc93d5f6c83"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f0/adapter_config.json",
+      "bytes": 1271,
+      "sha256": "2301bb495ae3fce38ad314782563e6fe42404f200c4dd6846f26ecc2c4e1b37a"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f0/adapter_model.safetensors",
+      "bytes": 116434760,
+      "sha256": "c3e9fa5bb6dd0a367c8b7e2abecc1a35fd825787f917b1bb5fd5c8339fa5758f"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f0/heads.pt",
+      "bytes": 4986739,
+      "sha256": "d309d7c6404a109ac8944006269c1110d7cc4c58e23029625c110d5b138511c8"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f1/adapter_config.json",
+      "bytes": 1271,
+      "sha256": "2301bb495ae3fce38ad314782563e6fe42404f200c4dd6846f26ecc2c4e1b37a"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f1/adapter_model.safetensors",
+      "bytes": 116434760,
+      "sha256": "35c45da75d312b542c4cb40e0a4bb0acc416ba9f23dcef61c890e47e6b14bfa1"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f1/heads.pt",
+      "bytes": 4986739,
+      "sha256": "bb57738f1a5d7cf61223a7783132f3afd64d994186b00853939305eecbc9124d"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f2/adapter_config.json",
+      "bytes": 1271,
+      "sha256": "2301bb495ae3fce38ad314782563e6fe42404f200c4dd6846f26ecc2c4e1b37a"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f2/adapter_model.safetensors",
+      "bytes": 116434760,
+      "sha256": "13ff123e79a9e509ef664c2348a31a592e7f0585030501c913971ee5bd404171"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f2/heads.pt",
+      "bytes": 4986739,
+      "sha256": "29cedc668efde5f81022c926361db7f64b00930f9ecbce8e10dc33f45a76dce2"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f3/adapter_config.json",
+      "bytes": 1271,
+      "sha256": "2301bb495ae3fce38ad314782563e6fe42404f200c4dd6846f26ecc2c4e1b37a"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f3/adapter_model.safetensors",
+      "bytes": 116434760,
+      "sha256": "506704aeeed987221b6e3ed9b17ab3dc4c4c086b0f5243f61616d5c699a9ea4b"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f3/heads.pt",
+      "bytes": 4986739,
+      "sha256": "ec5ec1d2653f61dcb1ad5a92f4020c4fd341b363f3e93790b1dc2668990ed503"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f4/adapter_config.json",
+      "bytes": 1271,
+      "sha256": "2301bb495ae3fce38ad314782563e6fe42404f200c4dd6846f26ecc2c4e1b37a"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f4/adapter_model.safetensors",
+      "bytes": 116434760,
+      "sha256": "d72c32b1386cad12742b52ed98683430459ccddd0463d7c19d926eb74523839b"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts8_s7_f4/heads.pt",
+      "bytes": 4986739,
+      "sha256": "99c47ff8309aff853a48a34dd430f5179c203582b4574134cf76d487d7cd3b27"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8/adapter_config.json",
+      "bytes": 1278,
+      "sha256": "7f8dc31eaf78cd12f4f245720e79f7e44052dc14ed3fc1ba80c513f628634e8c"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8/adapter_model.safetensors",
+      "bytes": 125871992,
+      "sha256": "1955c9a5f3247e9180627ce731267b0331e12829fcc3e108403b3b8cc66c340d"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8/heads.pt",
+      "bytes": 4986739,
+      "sha256": "616d6fe1bca2d1eba8548bb25d494362e24c15f1c1faa459bc62a531f8fe6fab"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f0/adapter_config.json",
+      "bytes": 1278,
+      "sha256": "e0e60e69bedd49922a600ccb8d9e016f0ffaa04b74c8746a7fc578f2dadb12a6"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f0/adapter_model.safetensors",
+      "bytes": 125871992,
+      "sha256": "04ce793f9ed234c704e6bdbad84ca8cc9cfde3151a33d7f69d37c7e7e21e5e72"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f0/heads.pt",
+      "bytes": 4986739,
+      "sha256": "34c6185663436777126aedbbcdbcb17791d96d3728004de9f798d4a2e9f90182"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f1/adapter_config.json",
+      "bytes": 1278,
+      "sha256": "e0e60e69bedd49922a600ccb8d9e016f0ffaa04b74c8746a7fc578f2dadb12a6"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f1/adapter_model.safetensors",
+      "bytes": 125871992,
+      "sha256": "ee77d3f6f110d0bfcde7cb80e13b380455cb60dccb38f3d8952182126c4f2408"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f1/heads.pt",
+      "bytes": 4986739,
+      "sha256": "fdb6d6a040648f3ab7df4b84d647cb888e411b885e91f99ecc58ea54391472c2"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f2/adapter_config.json",
+      "bytes": 1278,
+      "sha256": "e0e60e69bedd49922a600ccb8d9e016f0ffaa04b74c8746a7fc578f2dadb12a6"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f2/adapter_model.safetensors",
+      "bytes": 125871992,
+      "sha256": "5f35f8fa50e4749aac5c4d785d501f9cc67bb39475ad177c26ad65e67b35e2da"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f2/heads.pt",
+      "bytes": 4986739,
+      "sha256": "1bda9aa3d65ecffb0b3ffed3541bf3ba80e3740d8fb1361c9de5cae12c7b2ac1"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f3/adapter_config.json",
+      "bytes": 1278,
+      "sha256": "e0e60e69bedd49922a600ccb8d9e016f0ffaa04b74c8746a7fc578f2dadb12a6"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f3/adapter_model.safetensors",
+      "bytes": 125871992,
+      "sha256": "923c883e961f0f12cae968a0d23aca0e716e45211336c13f8598c3b4ca486310"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f3/heads.pt",
+      "bytes": 4986739,
+      "sha256": "a98ed90b505cc6b39faa57ebd5940d61f35303bd3ba225ad83246269d09f9ac7"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f4/adapter_config.json",
+      "bytes": 1278,
+      "sha256": "e0e60e69bedd49922a600ccb8d9e016f0ffaa04b74c8746a7fc578f2dadb12a6"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f4/adapter_model.safetensors",
+      "bytes": 125871992,
+      "sha256": "a235f2fe94acd4678b7b4161fef519d46769c7531a6ae856f0a2040a836ea2bd"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_llama8_f4/heads.pt",
+      "bytes": 4986739,
+      "sha256": "8756767fa46e12db83cc062f0866827caecb40f7dbf2b05f47c148dd421de720"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q25_7b/adapter_config.json",
+      "bytes": 1268,
+      "sha256": "c4880f76aa307b84302e234c0b2e19f4fea0f3e619c433b83459cec67be20c17"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q25_7b/adapter_model.safetensors",
+      "bytes": 138454920,
+      "sha256": "c08160087d3d1c84c83636ec01309964aae7e1403c15b12d244a71b9abaafeed"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q25_7b/heads.pt",
+      "bytes": 4364147,
+      "sha256": "57f6372d3a50e660279db93193f84db1cdfb3ea9a677d7e76a66682fdb5cb261"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14/README.md",
+      "bytes": 5162,
+      "sha256": "3d3278fd9174c7ab13848c09e344076281cc43a9515074b4434478b8cbea7b99"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14/adapter_config.json",
+      "bytes": 1272,
+      "sha256": "c6076fb254d744df1faca6741ecdd3396482deabd69539434ee9d2d3f7bd9784"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14/adapter_model.safetensors",
+      "bytes": 173456688,
+      "sha256": "9127ccee0abc833c36047a08ec48a76eab6fe02c07f23264ad711ae1b5a01220"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14/heads.pt",
+      "bytes": 6231923,
+      "sha256": "36ac37a42fd8421188a66df27445dddb9bdd0e89afd6e66c2bcf04ab42ea8019"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f0/adapter_config.json",
+      "bytes": 1272,
+      "sha256": "6ee21e6bb20338e4759842451b127a0587752c32a01bd7a0bc9d53feb6519b9a"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f0/adapter_model.safetensors",
+      "bytes": 173456688,
+      "sha256": "4a1ddef30cc8a46aeffc3c5a2afab275646ebb1c5ea1df79140eec49fe1d8d84"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f0/heads.pt",
+      "bytes": 6231923,
+      "sha256": "dc257ca035b7bff09e78528610408fd357ab6f01f8f08c4aa890797265feff53"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f1/adapter_config.json",
+      "bytes": 1272,
+      "sha256": "6ee21e6bb20338e4759842451b127a0587752c32a01bd7a0bc9d53feb6519b9a"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f1/adapter_model.safetensors",
+      "bytes": 173456688,
+      "sha256": "35be77db2649d5115265bc5260162318605ccd6f4daa1af9b8c00bbd2ba817bb"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f1/heads.pt",
+      "bytes": 6231923,
+      "sha256": "ba8b65c18f34c146c9db911a0e69aefcb25540d4af94d1c6b5e8a2a419d60f0b"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f2/adapter_config.json",
+      "bytes": 1272,
+      "sha256": "6ee21e6bb20338e4759842451b127a0587752c32a01bd7a0bc9d53feb6519b9a"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f2/adapter_model.safetensors",
+      "bytes": 173456688,
+      "sha256": "95678a0d59281ba5524398d758cc0e3040303112da097c49439e3ffc393065df"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f2/heads.pt",
+      "bytes": 6231923,
+      "sha256": "857060d25184283c7c77253549aa54896e5beae88be8b1b81f07d9f65eb32dab"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f3/adapter_config.json",
+      "bytes": 1272,
+      "sha256": "6ee21e6bb20338e4759842451b127a0587752c32a01bd7a0bc9d53feb6519b9a"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f3/adapter_model.safetensors",
+      "bytes": 173456688,
+      "sha256": "d2fc67163b5cb62a469e4b49bc9199d92cec558ec21e1750651ef10cc00d14ed"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f3/heads.pt",
+      "bytes": 6231923,
+      "sha256": "1c8907c883f56958cd0ef9cab17aeaa9129e003b5507dcef087e2e53d3aa0cb7"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f4/adapter_config.json",
+      "bytes": 1272,
+      "sha256": "6ee21e6bb20338e4759842451b127a0587752c32a01bd7a0bc9d53feb6519b9a"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f4/adapter_model.safetensors",
+      "bytes": 173456688,
+      "sha256": "05277a392c1fb9bdbf682de794010b314adda5fd56dfedbd95365625fd07e043"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b14_f4/heads.pt",
+      "bytes": 6231923,
+      "sha256": "e8b82e3f17a954dbbbf510804870b08aecc9c0b78948589d78dcbe7685846853"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8/README.md",
+      "bytes": 5160,
+      "sha256": "daf721a38ca673ab35853f40f64d5313fbfaa459c92a89a300852f32642bb932"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8/adapter_config.json",
+      "bytes": 1271,
+      "sha256": "6ddbc31ce813bb4a0c0e0c34a40dcb4b06fdb33d09a9d2f0d7bdd3d75d8de184"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8/adapter_model.safetensors",
+      "bytes": 116434760,
+      "sha256": "6c08bd982df17e0213f9e2e4cbdbce1a19c10701e34bcf41313ce64b2f5dd862"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8/heads.pt",
+      "bytes": 4986739,
+      "sha256": "fb580805fd4bf4e6cfed9bcbb690dea45d342f02571366c86694cb2ffe769b2b"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f0/adapter_config.json",
+      "bytes": 1271,
+      "sha256": "df7e953a287b3eb07f79bdbef82fd20b2c13130f482e3e6fc5688d384b8d644a"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f0/adapter_model.safetensors",
+      "bytes": 116434760,
+      "sha256": "282675e9d45dd8d0ffa3a0b9b19a58f91ddfbe5e820021191dbfe185a0cc1e11"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f0/heads.pt",
+      "bytes": 4986739,
+      "sha256": "ef5a9be93112e9d6037ea5c349be28e8f09d2fad4e50ad5253f0cba6312e35de"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f1/adapter_config.json",
+      "bytes": 1271,
+      "sha256": "df7e953a287b3eb07f79bdbef82fd20b2c13130f482e3e6fc5688d384b8d644a"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f1/adapter_model.safetensors",
+      "bytes": 116434760,
+      "sha256": "bd167f1ea7bf69ce80e178586ed5160fdd676a97d98ed54789f9c65223941745"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f1/heads.pt",
+      "bytes": 4986739,
+      "sha256": "22471bf364646996e1cac083a14ee4586bdb7fc5e80772d409adbb8350ffcbbc"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f2/adapter_config.json",
+      "bytes": 1271,
+      "sha256": "df7e953a287b3eb07f79bdbef82fd20b2c13130f482e3e6fc5688d384b8d644a"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f2/adapter_model.safetensors",
+      "bytes": 116434760,
+      "sha256": "fc085382c3998275ee89bd0bf49407cf298de83a32b47ac0635fc913c9527ff8"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f2/heads.pt",
+      "bytes": 4986739,
+      "sha256": "22ac0c33fa628debb8642ebc49a9052f36c2256e818cd91ba084531203bb59f5"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f3/adapter_config.json",
+      "bytes": 1271,
+      "sha256": "df7e953a287b3eb07f79bdbef82fd20b2c13130f482e3e6fc5688d384b8d644a"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f3/adapter_model.safetensors",
+      "bytes": 116434760,
+      "sha256": "9003e2564f38685a85415c15bc8842aba614f4e01b23e93b9920a20c5b4a17fc"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f3/heads.pt",
+      "bytes": 4986739,
+      "sha256": "777b88316156dcd5c03ef8165a17abea6042657d7c2a2840aa1c020623b6423a"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f4/adapter_config.json",
+      "bytes": 1271,
+      "sha256": "df7e953a287b3eb07f79bdbef82fd20b2c13130f482e3e6fc5688d384b8d644a"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f4/adapter_model.safetensors",
+      "bytes": 116434760,
+      "sha256": "52f65458ec479f6e296bdb5508a0398fa7510ecfc91c377f99371519e4e7b125"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-l24-adapters/ts_q3b8_f4/heads.pt",
+      "bytes": 4986739,
+      "sha256": "cfea0585818d5190f029b4b7a0717ebb7e2f124c4a26dbb7f2325aadf6e27272"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-matched-clean/nlm_matched_clean.parquet",
+      "bytes": 11146946,
+      "sha256": "000f8d541f7c4c5942a18c4fcf557aa01756882931307414cf2530ac21980482"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-matched-clean/nlm_pool_v2.parquet",
+      "bytes": 17484290,
+      "sha256": "064ecd0dfa43ac9b0d4a7be9d89264333698ff727a5926f44856de2f7a92350d"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-matched-clean/nlm_pool_v5.parquet",
+      "bytes": 54745036,
+      "sha256": "040afb3609d7f6586d57c89ddb42d9bf4b58cc26426104b57390bdf6312b4650"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-offline-wheels/bitsandbytes-0.50.2-py3-none-manylinux_2_24_x86_64.whl",
+      "bytes": 43139553,
+      "sha256": "55348a9a4a21bfd99cf8c7b32fe67b4030ae5c2a05738e03c1747f65fa6ec283"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-offline-wheels/fla_core-0.5.2-py3-none-any.whl",
+      "bytes": 819225,
+      "sha256": "5e830c85bad3d0d34677f98ac7074d08687a3756f0f0499d95ceb96eb6920761"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-offline-wheels/flash_linear_attention-0.5.2-py3-none-any.whl",
+      "bytes": 399590,
+      "sha256": "dcf405d81f5426393b59037097aa700d0f4a841465d5028d5aa543f4502f2400"
+    },
+    {
+      "path": "/kaggle/input/datasets/dhruvtibarewal/nlm-offline-wheels/peft-0.21.2-py3-none-any.whl",
+      "bytes": 835427,
+      "sha256": "106ab6077ff72c54d21577f9af5970e34bac7582cb14209f7b2b511e322a4eae"
+    },
+    {
+      "path": "/kaggle/input/datasets/dophuchung/ntl-proxy-generations/README.md",
+      "bytes": 2556,
+      "sha256": "592c2d035f7a9fcfad1b127fed01550b9f9fe7f4ab14024d6663bd8fe398fcf7"
+    },
+    {
+      "path": "/kaggle/input/datasets/dophuchung/ntl-proxy-generations/ntl_proxy_generations.csv",
+      "bytes": 889391,
+      "sha256": "593708f7fd55636bd270824c0e129447b2a5808b1e224bb3dbf43bf2383fdf9c"
+    },
+    {
+      "path": "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/CREDITS.md",
+      "bytes": 1533,
+      "sha256": "66e9fc77ed1874e69f602e082f97b5d22609846351ba4c8e6e09cb742a26ff80"
+    },
+    {
+      "path": "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/LICENSE-CODE-APACHE-2.0.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/LICENSE-WEIGHTS-CC-BY-SA-4.0.txt",
+      "bytes": 20138,
+      "sha256": "28a9529c7d0bb4dc51f4bf5c116a3d16ef247a052f7591466768ddf563fd1cf5"
+    },
+    {
+      "path": "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/LICENSES.md",
+      "bytes": 1521,
+      "sha256": "1b520f1993ed870d26430a060774cca74a6b6888feb0ddf82eaf2b049b648f5e"
+    },
+    {
+      "path": "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/atlas_adapter/atlas_adapter/adapters.safetensors",
+      "bytes": 462749776,
+      "sha256": "29e9b32e09679ae4e3b2cdf0729c7011ecee730fdb0f20982593af0b40806106"
+    },
+    {
+      "path": "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/atlas_adapter/atlas_adapter/atlas_bundle.json",
+      "bytes": 3011,
+      "sha256": "48f8d7e82bf0b12f9414a314f695216e31b5f4854b5091248d1015b98d9743de"
+    },
+    {
+      "path": "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/atlas_adapter/atlas_adapter/checkpoint.json",
+      "bytes": 1928,
+      "sha256": "b2e226b926fe660b6bcee42b0437c8dcd01f5bfbb9fd6f5290338faef45c6c36"
+    },
+    {
+      "path": "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/atlas_adapter/atlas_adapter/inference-source-manifest.json",
+      "bytes": 712,
+      "sha256": "1563bf154aad8714b5b0d3575655970abc292fabf08108581a090d97e19c9be2"
+    },
+    {
+      "path": "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/atlas_adapter/atlas_adapter/ntl_atlas/__init__.py",
+      "bytes": 72,
+      "sha256": "b2bff8348b93ca7375c523e83965e24b6af5df06fe3dc2a0940f73332ce1ad87"
+    },
+    {
+      "path": "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/atlas_adapter/atlas_adapter/ntl_atlas/inference.py",
+      "bytes": 1505,
+      "sha256": "8f57242c27e13572a8c5a2fbb8136dce462fb7cd175a52092a5a8c86797e91c7"
+    },
+    {
+      "path": "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/atlas_adapter/atlas_adapter/ntl_atlas/model.py",
+      "bytes": 8502,
+      "sha256": "3fb9394bf8f8535523ba6da4b66b2d24c3fa80a37767219b076422c3adc226fb"
+    },
+    {
+      "path": "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/atlas_adapter/atlas_adapter/ntl_rlcd/__init__.py",
+      "bytes": 83,
+      "sha256": "b53b2efa3d0e4884c17dbbfc51514d8f5b37205ae6d58e354f02e1fbbe78c4bc"
+    },
+    {
+      "path": "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/atlas_adapter/atlas_adapter/ntl_rlcd/data.py",
+      "bytes": 1873,
+      "sha256": "871778752ddde445efc33d310fb96961f87507c3b59a18aff3ea472f3d86972a"
+    },
+    {
+      "path": "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/atlas_adapter/atlas_adapter/training-source-manifest.json",
+      "bytes": 886,
+      "sha256": "9814b711e0c91583d348d9df66285f26c1fc86905f3cd5003b9760ce34162a81"
+    },
+    {
+      "path": "/kaggle/input/datasets/josephadamski91/ntl-atlas-qwen3-8b-v1/base-fingerprint.json",
+      "bytes": 1017,
+      "sha256": "ace9c464f8e7da47b4f7a6e63011326b31e6055d77c4196a88e50114afd132fd"
+    },
+    {
+      "path": "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/deberta_v3_large/encoder/config.json",
+      "bytes": 945,
+      "sha256": "4395706a61da43a4da4d29045ab75101cee662547aa4b34c894420922decf22f"
+    },
+    {
+      "path": "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/deberta_v3_large/encoder/model.safetensors",
+      "bytes": 868069608,
+      "sha256": "0f6215f0175e478e7d2efe4b229169660eddd5b3ded678f401e6b7397717065c"
+    },
+    {
+      "path": "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/deberta_v3_large/encoder/tokenizer.json",
+      "bytes": 8339974,
+      "sha256": "849d4f376376b7023111b5965ebba54a11a552a0798508567087a3a475d148a0"
+    },
+    {
+      "path": "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/deberta_v3_large/encoder/tokenizer_config.json",
+      "bytes": 561,
+      "sha256": "4f753d8c53959b665e2002e56c5bac6533883a79b95a8164b00db7f23c1cd8a3"
+    },
+    {
+      "path": "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/deberta_v3_large/head.safetensors",
+      "bytes": 73936,
+      "sha256": "43db1fbe725abfc2299e6618f2f6b3e7cb7a63e3981cb4325dd6961e6e1afb06"
+    },
+    {
+      "path": "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/deberta_v3_large/meta.json",
+      "bytes": 529,
+      "sha256": "deb3c891d6172018ec06b7b3de33f9a13ac6c44d6bf8a9725b53ce8c7c93a546"
+    },
+    {
+      "path": "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/lora_qwen25_14b/adapter/adapter_config.json",
+      "bytes": 1322,
+      "sha256": "2519871702d5d5668a2a86084188754e4b07893b9aaf9c6c0b1f114ae7e82925"
+    },
+    {
+      "path": "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/lora_qwen25_14b/adapter/adapter_model.safetensors",
+      "bytes": 183558248,
+      "sha256": "f35b5565ee5fef62a3ef274a3def1e7d83453951c6ce6747f40c46243a668e7c"
+    },
+    {
+      "path": "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/lora_qwen25_14b/heads.safetensors",
+      "bytes": 6227664,
+      "sha256": "73762ab515ed984efc9189063ee4efddd1a0b0b2620aab6420b3e56e1a1c752e"
+    },
+    {
+      "path": "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/lora_qwen25_14b/meta.json",
+      "bytes": 1000,
+      "sha256": "1d04028b7fe22beda04f7125d09dd5bc9bee9c8524f721c0aa7bc61379fad6fc"
+    },
+    {
+      "path": "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/lora_qwen3_14b/adapter/adapter_config.json",
+      "bytes": 1380,
+      "sha256": "185ac62fa6bb0ba6b14801d663ee70b3ec3ab2133a57857ff4cae1774dc60047"
+    },
+    {
+      "path": "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/lora_qwen3_14b/adapter/adapter_model.safetensors",
+      "bytes": 173456688,
+      "sha256": "ecd39f9d551b8fe54558957edac0cdc4d216565a5ab738eb8e276283b8e28d03"
+    },
+    {
+      "path": "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/lora_qwen3_14b/heads.safetensors",
+      "bytes": 6227664,
+      "sha256": "e1d9c1ac833a1cc780f1423341bb5299826271f5aeed2c40d3ec193633d45faf"
+    },
+    {
+      "path": "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/lora_qwen3_14b/meta.json",
+      "bytes": 1015,
+      "sha256": "293119872ff3f170ec85e8be02c80916e39048213de31cb45f8b84a2cf74d775"
+    },
+    {
+      "path": "/kaggle/input/datasets/nishantdahal/ntl-handwriting-blend/pool_v4.parquet",
+      "bytes": 35403026,
+      "sha256": "37750e899ff6634c147daa7888bfed048e92d3fb1381fe5d21f93bf72a84e8ec"
+    },
+    {
+      "path": "/kaggle/input/datasets/nishantdahal/ntl-two-stage-lora/lora14b_v1/adapter/README.md",
+      "bytes": 5284,
+      "sha256": "6ef0e2be65afb18c97e1119e72cd97b6478991c86a541b4f417ff32e91f12fd0"
+    },
+    {
+      "path": "/kaggle/input/datasets/nishantdahal/ntl-two-stage-lora/lora14b_v1/adapter/adapter_config.json",
+      "bytes": 1394,
+      "sha256": "28574e93c9fe2fda535f59f5b4723185ad418d39d59a48650c0cd48b7404fce5"
+    },
+    {
+      "path": "/kaggle/input/datasets/nishantdahal/ntl-two-stage-lora/lora14b_v1/adapter/adapter_model.safetensors",
+      "bytes": 173456688,
+      "sha256": "79952085c422373803acc7339544e6775c1d55eaca5ccd82492edd90a975eec1"
+    },
+    {
+      "path": "/kaggle/input/datasets/nishantdahal/ntl-two-stage-lora/lora14b_v1/heads.safetensors",
+      "bytes": 6227664,
+      "sha256": "43edc4e808b9d0114fbdbfe2fdaae307f0f99e07896b1d45e8548aeec310d089"
+    },
+    {
+      "path": "/kaggle/input/datasets/nishantdahal/ntl-two-stage-lora/lora14b_v1/meta.json",
+      "bytes": 931,
+      "sha256": "ef274e94503adb1c5a4910dc3002a4595d63c525dac11d37a973ec2343de0c5e"
+    },
+    {
+      "path": "/kaggle/input/datasets/nishantdahal/ntl-two-stage-lora/lora8b_v1/adapter/README.md",
+      "bytes": 5282,
+      "sha256": "90f9dd13dedf5983ccaafa6e0a3e2a0241776a13a2f1157148c4ab316d8a8198"
+    },
+    {
+      "path": "/kaggle/input/datasets/nishantdahal/ntl-two-stage-lora/lora8b_v1/adapter/adapter_config.json",
+      "bytes": 1393,
+      "sha256": "cd1f40e92124ea643f934c4c3431385b11f37681f5de30a437b8022124c23043"
+    },
+    {
+      "path": "/kaggle/input/datasets/nishantdahal/ntl-two-stage-lora/lora8b_v1/adapter/adapter_model.safetensors",
+      "bytes": 116434760,
+      "sha256": "25d56499c7888dd1e274a92f35efd6acadf06349c928944c8cbee6eb56aabc4d"
+    },
+    {
+      "path": "/kaggle/input/datasets/nishantdahal/ntl-two-stage-lora/lora8b_v1/heads.safetensors",
+      "bytes": 4982480,
+      "sha256": "aedeb224fe743f2a9f1e2f3344208d27e3fdc9f99df5a084f3280baee383a8b4"
+    },
+    {
+      "path": "/kaggle/input/datasets/nishantdahal/ntl-two-stage-lora/lora8b_v1/meta.json",
+      "bytes": 958,
+      "sha256": "d84edb29b2c1c3b555a366dcb43df5661faed3a5b12abaf0f18e96cdf8aa5cda"
+    },
+    {
+      "path": "/kaggle/input/datasets/nishantdahal/ntl-two-stage-lora/pool_v1.parquet",
+      "bytes": 16611425,
+      "sha256": "a24588c1d78660077d53b93af4829206ac8e6d5362639d0f2dfcb0d5177e425d"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold0/config.json",
+      "bytes": 2739,
+      "sha256": "028d1e1b7dc55e67fa4020040e6e91d3b5221357d93da2c4be65035a591f93cd"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold0/configuration_ultrabert.py",
+      "bytes": 2209,
+      "sha256": "823d10bda19f5164da4f79f8f9c01e5ebd7a75569abce78c0a26b7674fc78cd9"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold0/model.safetensors",
+      "bytes": 755137636,
+      "sha256": "d2e10bac853aa0ba1229d3ba468eb5d6615ed30f824133b7a28e9b5d5228b3c6"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold0/modeling_ultrabert.py",
+      "bytes": 30581,
+      "sha256": "bfca1bd08af72cd170e58b5a048c67b52bc9d06a2a42847c7a387751f527f333"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold0/tokenizer.json",
+      "bytes": 3523731,
+      "sha256": "bf8d52e8b4541f991d12210e5c1aef896039ef91d1c352546b5159a0d6cf13e9"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold0/tokenizer_config.json",
+      "bytes": 814,
+      "sha256": "5f4e066c2f4bde1de6d0a82a1bbd6e5c4027ec818f955ccfbc41bd5202454bab"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold1/config.json",
+      "bytes": 2739,
+      "sha256": "028d1e1b7dc55e67fa4020040e6e91d3b5221357d93da2c4be65035a591f93cd"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold1/configuration_ultrabert.py",
+      "bytes": 2209,
+      "sha256": "823d10bda19f5164da4f79f8f9c01e5ebd7a75569abce78c0a26b7674fc78cd9"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold1/model.safetensors",
+      "bytes": 755137636,
+      "sha256": "8f88b29e4f98c5c1556a6da5958aebc3e3d6dd2f9bd382d98ddf8d59f0959009"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold1/modeling_ultrabert.py",
+      "bytes": 30581,
+      "sha256": "bfca1bd08af72cd170e58b5a048c67b52bc9d06a2a42847c7a387751f527f333"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold1/tokenizer.json",
+      "bytes": 3523731,
+      "sha256": "bf8d52e8b4541f991d12210e5c1aef896039ef91d1c352546b5159a0d6cf13e9"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold1/tokenizer_config.json",
+      "bytes": 814,
+      "sha256": "5f4e066c2f4bde1de6d0a82a1bbd6e5c4027ec818f955ccfbc41bd5202454bab"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold2/config.json",
+      "bytes": 2739,
+      "sha256": "028d1e1b7dc55e67fa4020040e6e91d3b5221357d93da2c4be65035a591f93cd"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold2/configuration_ultrabert.py",
+      "bytes": 2209,
+      "sha256": "823d10bda19f5164da4f79f8f9c01e5ebd7a75569abce78c0a26b7674fc78cd9"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold2/model.safetensors",
+      "bytes": 755137636,
+      "sha256": "d8fc6529105893bc601ef3075f9d4c197001a1f71504e9951c2ee9f8db381ff2"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold2/modeling_ultrabert.py",
+      "bytes": 30581,
+      "sha256": "bfca1bd08af72cd170e58b5a048c67b52bc9d06a2a42847c7a387751f527f333"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold2/tokenizer.json",
+      "bytes": 3523731,
+      "sha256": "bf8d52e8b4541f991d12210e5c1aef896039ef91d1c352546b5159a0d6cf13e9"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold2/tokenizer_config.json",
+      "bytes": 814,
+      "sha256": "5f4e066c2f4bde1de6d0a82a1bbd6e5c4027ec818f955ccfbc41bd5202454bab"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold3/config.json",
+      "bytes": 2739,
+      "sha256": "028d1e1b7dc55e67fa4020040e6e91d3b5221357d93da2c4be65035a591f93cd"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold3/configuration_ultrabert.py",
+      "bytes": 2209,
+      "sha256": "823d10bda19f5164da4f79f8f9c01e5ebd7a75569abce78c0a26b7674fc78cd9"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold3/model.safetensors",
+      "bytes": 755137636,
+      "sha256": "91435b5efc25d632324fdc14fa2ecc7ef3e0ae2f288a6de4f476821ea2701462"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold3/modeling_ultrabert.py",
+      "bytes": 30581,
+      "sha256": "bfca1bd08af72cd170e58b5a048c67b52bc9d06a2a42847c7a387751f527f333"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold3/tokenizer.json",
+      "bytes": 3523731,
+      "sha256": "bf8d52e8b4541f991d12210e5c1aef896039ef91d1c352546b5159a0d6cf13e9"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold3/tokenizer_config.json",
+      "bytes": 814,
+      "sha256": "5f4e066c2f4bde1de6d0a82a1bbd6e5c4027ec818f955ccfbc41bd5202454bab"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold4/config.json",
+      "bytes": 2739,
+      "sha256": "028d1e1b7dc55e67fa4020040e6e91d3b5221357d93da2c4be65035a591f93cd"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold4/configuration_ultrabert.py",
+      "bytes": 2209,
+      "sha256": "823d10bda19f5164da4f79f8f9c01e5ebd7a75569abce78c0a26b7674fc78cd9"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold4/model.safetensors",
+      "bytes": 755137636,
+      "sha256": "62313e5d7bb9a431b658fce2e17122caf001d1a431193b4004dd6173a9e6b7ed"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold4/modeling_ultrabert.py",
+      "bytes": 30581,
+      "sha256": "bfca1bd08af72cd170e58b5a048c67b52bc9d06a2a42847c7a387751f527f333"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold4/tokenizer.json",
+      "bytes": 3523731,
+      "sha256": "bf8d52e8b4541f991d12210e5c1aef896039ef91d1c352546b5159a0d6cf13e9"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/fold4/tokenizer_config.json",
+      "bytes": 814,
+      "sha256": "5f4e066c2f4bde1de6d0a82a1bbd6e5c4027ec818f955ccfbc41bd5202454bab"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/annotated_doc-0.0.5-py3-none-any.whl",
+      "bytes": 5302,
+      "sha256": "117bac03a25ede5df5440e855b32d556049ca169ead221505badf432fed4b101"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/anyio-4.15.1-py3-none-any.whl",
+      "bytes": 132079,
+      "sha256": "6152fdbbf9a77fdec97731721bebf7c4c44f7c29b424b0065826173efc7ed101"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/certifi-2026.7.22-py3-none-any.whl",
+      "bytes": 136983,
+      "sha256": "62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/click-8.5.0-py3-none-any.whl",
+      "bytes": 125251,
+      "sha256": "255bc9599cf7748b4b1a446ccc735421bd08a2ae529a8b88597d3de5664ee360"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/filelock-4.2.0-py3-none-any.whl",
+      "bytes": 135032,
+      "sha256": "2ff5690882e8cdb00ef31fb3d01a3094c29f30985426c59495afb1733f3b7238"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/fsspec-2026.9.0-py3-none-any.whl",
+      "bytes": 221738,
+      "sha256": "8dd6e646e99ea382bd85f97a45e6b526a442d79423a7dc673f1e2756d05fcb5f"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/h11-0.16.0-py3-none-any.whl",
+      "bytes": 37515,
+      "sha256": "63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/hf_xet-1.7.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "bytes": 4212180,
+      "sha256": "2814a6e999d13464c4d679b788cc5d784eb5a4edfc638a31f10e9a11ab531ef8"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/httpcore-1.0.9-py3-none-any.whl",
+      "bytes": 78784,
+      "sha256": "2d400746a40668fc9dec9810239072b40b4484b640a8c38fd654a024c7a1bf55"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/httpx-0.28.1-py3-none-any.whl",
+      "bytes": 73517,
+      "sha256": "d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/huggingface_hub-1.33.0-py3-none-any.whl",
+      "bytes": 846435,
+      "sha256": "04e434b06e100eddbce9a6e817d72693a7884b10a79bd67ab48080d5c07eb899"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/idna-3.20-py3-none-any.whl",
+      "bytes": 69583,
+      "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/markdown_it_py-4.2.0-py3-none-any.whl",
+      "bytes": 91687,
+      "sha256": "9f7ebbcd14fe59494226453aed97c1070d83f8d24b6fc3a3bcf9a38092641c4a"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/mdurl-0.1.2-py3-none-any.whl",
+      "bytes": 9979,
+      "sha256": "84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/packaging-26.3-py3-none-any.whl",
+      "bytes": 129956,
+      "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/pygments-2.21.0-py3-none-any.whl",
+      "bytes": 1250147,
+      "sha256": "2363c69b61c4a97c838da3b130dcd6468f4848992b21a82f2a63ec34377137d9"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "bytes": 807870,
+      "sha256": "ba1cc08a7ccde2d2ec775841541641e4548226580ab850948cbfda66a1befcdc"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/regex-2026.9.29-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "bytes": 807783,
+      "sha256": "39ab5894d971f9ac68baa6eca5c50387db579cfcacf36ae8df3feceb1815e6d0"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/rich-15.0.0-py3-none-any.whl",
+      "bytes": 310654,
+      "sha256": "33bd4ef74232fb73fe9279a257718407f169c09b78a87ad3d296f548e27de0bb"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "bytes": 516040,
+      "sha256": "fd6f3f93c9a0a7cc2788ee63fb763353d4bd2e89b0751bc78fcf7dda00bea774"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/shellingham-1.5.4-py2.py3-none-any.whl",
+      "bytes": 9755,
+      "sha256": "7ecfff8f2fd72616f7481040475a65b2bf8af90a56c89140852d1120324e8686"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/tokenizers-0.23.3-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "bytes": 3396193,
+      "sha256": "376851d22bcf9d650a5c3090bb83e6cf9e895fbf0595369fa4cd43c1f69b5f87"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/tqdm-4.70.1-py3-none-any.whl",
+      "bytes": 80199,
+      "sha256": "c293e525e6fef9c20e8728fd4612df02a0aa31bb5fe91ecd93e123b1b7bffa73"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/transformers-5.16.1-py3-none-any.whl",
+      "bytes": 12080592,
+      "sha256": "2f2d5b98a5ad3718713653734298fa620754ed683702a635ebb587df3ed29c7e"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/typer-0.27.3-py3-none-any.whl",
+      "bytes": 123312,
+      "sha256": "e50022f28b82a86313e54501317a1db64bf8f8d036ff8cfe5ca7e47675454aff"
+    },
+    {
+      "path": "/kaggle/input/datasets/pjmathematician/ultrabert-380m-ntl/wheels/typing_extensions-4.16.0-py3-none-any.whl",
+      "bytes": 45571,
+      "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8"
+    },
+    {
+      "path": "/kaggle/input/datasets/prvsiyan/prvsiyans-extended-name-that-llm-dataset/CHANGELOG.md",
+      "bytes": 6128,
+      "sha256": "8332ce97631fa2009cf5f2bea7f7545d088d7e9ae9a718380b1fd9073b157baa"
+    },
+    {
+      "path": "/kaggle/input/datasets/prvsiyan/prvsiyans-extended-name-that-llm-dataset/README.md",
+      "bytes": 33607,
+      "sha256": "b16f53a4d483be0d01c562eee750f21ff185b03e77b923d2e2db047232909b47"
+    },
+    {
+      "path": "/kaggle/input/datasets/prvsiyan/prvsiyans-extended-name-that-llm-dataset/blocks.csv",
+      "bytes": 55028,
+      "sha256": "feeefefe677fb8ea6583890fbd1a9763a6620e5c46b114b294afc651a0bdbd18"
+    },
+    {
+      "path": "/kaggle/input/datasets/prvsiyan/prvsiyans-extended-name-that-llm-dataset/cover_1200x675.png",
+      "bytes": 111668,
+      "sha256": "3ff2643183a5b2542f26b210471d18e17053e2c099e262ab10bad9569e2aebcc"
+    },
+    {
+      "path": "/kaggle/input/datasets/prvsiyan/prvsiyans-extended-name-that-llm-dataset/label_summary.csv",
+      "bytes": 14330,
+      "sha256": "1fc5092a1cc4981c199cb043c8a748395786390df84d56fed7b943f64503f8fc"
+    },
+    {
+      "path": "/kaggle/input/datasets/prvsiyan/prvsiyans-extended-name-that-llm-dataset/make_cover.py",
+      "bytes": 4877,
+      "sha256": "076e281f9b5df0378e13136ddda197ec28ffe73453eb4c62eef0c61a8bdaa946"
+    },
+    {
+      "path": "/kaggle/input/datasets/prvsiyan/prvsiyans-extended-name-that-llm-dataset/passages.csv",
+      "bytes": 18973818,
+      "sha256": "5eb55cedc49936eb48feaa30f8457e16c893c9f561b5830134839d852f16ecde"
+    },
+    {
+      "path": "/kaggle/input/datasets/prvsiyan/prvsiyans-extended-name-that-llm-dataset/passages_clean.csv",
+      "bytes": 7519791,
+      "sha256": "502653b8cc053bc1ef08920d0ddda892e8b656f14229e38e0755d8a2f079eaf9"
+    },
+    {
+      "path": "/kaggle/input/datasets/prvsiyan/prvsiyans-extended-name-that-llm-dataset/prompts.csv",
+      "bytes": 509649,
+      "sha256": "f64919b51642abc8c49073db0029db198e822da0354136e20c63eef310c8045a"
+    },
+    {
+      "path": "/kaggle/input/datasets/prvsiyan/prvsiyans-extended-name-that-llm-dataset/provenance.jsonl",
+      "bytes": 100024884,
+      "sha256": "f2594677a321984a312f27ab93d88874f81435ab407a9b26a57df10fa06b12a7"
+    },
+    {
+      "path": "/kaggle/input/datasets/prvsiyan/prvsiyans-extended-name-that-llm-dataset/provenance_summary.json",
+      "bytes": 23125,
+      "sha256": "34d68d7835805ed4f572bb51f93873e0661541be97af84813a55efda94bc07c0"
+    },
+    {
+      "path": "/kaggle/input/datasets/prvsiyan/prvsiyans-extended-name-that-llm-dataset/starter_notebook.ipynb",
+      "bytes": 8448,
+      "sha256": "c4e952d04b9dd2bb616a257be554630272579b54f3c484eb04a29976bf25b8eb"
+    },
+    {
+      "path": "/kaggle/input/datasets/prvsiyan/prvsiyans-extended-name-that-llm-dataset/train_vs_dataset_stats.csv",
+      "bytes": 4376,
+      "sha256": "4e94fc70cd5675968dd6a40f2f6aa30d19e58652440be0e93b10441d2a3b67a8"
+    },
+    {
+      "path": "/kaggle/input/datasets/seyitkaangunes/ntl-extra-api-passages/README.md",
+      "bytes": 7249,
+      "sha256": "b83824c09eb78ff807764cf876e2b52a90d67b0aefebc5e338f85557aa76eb45"
+    },
+    {
+      "path": "/kaggle/input/datasets/seyitkaangunes/ntl-extra-api-passages/ntl_extra_passages_claude.csv",
+      "bytes": 4387162,
+      "sha256": "710dbe484fda23f0dee9b67c20e5bef9376bf754af05584ad142bc17845cd4b9"
+    },
+    {
+      "path": "/kaggle/input/datasets/seyitkaangunes/ntl-extra-api-passages/prompts.csv",
+      "bytes": 266160,
+      "sha256": "25df24d4e4ca0f8242bd365cc9ea8039f0056f3eae78fa3dd186bbae5a608395"
+    },
+    {
+      "path": "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/COMPLETE.json",
+      "bytes": 44,
+      "sha256": "4a9f1ee827240c221c2e83bc0686df644aa3d16c2cef08e0b5e1e71c463b2a54"
+    },
+    {
+      "path": "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/adapter/README.md",
+      "bytes": 5240,
+      "sha256": "43064eed5a371c72e6afd650a4d8f98837b6026ba9068fbf62ef1887fb70cf55"
+    },
+    {
+      "path": "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/adapter/adapter_config.json",
+      "bytes": 1288,
+      "sha256": "e37c54313ad1d0886f0f4562e82e7934cea51b9433f7465fca9df9f765fe6176"
+    },
+    {
+      "path": "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/adapter/adapter_model.safetensors",
+      "bytes": 116434760,
+      "sha256": "9aed9517bf5954c90c14ad22a95af64b90c3ad23407de2910c05bc18c804c505"
+    },
+    {
+      "path": "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/anchor_features.npz",
+      "bytes": 367141,
+      "sha256": "556cfc1a0a64915e99a8338789badb675496b910546cb2d2fdc8a5a9df69c4df"
+    },
+    {
+      "path": "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/heads.safetensors",
+      "bytes": 263384,
+      "sha256": "79fcbbc4b313450b4580565d5addba4cd769e80f10d5d68a2068e694b50619aa"
+    },
+    {
+      "path": "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/readouts.npz",
+      "bytes": 4985102,
+      "sha256": "39d8154724339e7b0fcf307267c588852cc4840ade7c4e59d7077a5cd55ea45b"
+    },
+    {
+      "path": "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/tokenizer/chat_template.jinja",
+      "bytes": 4116,
+      "sha256": "87a2728cb8dc9fe424d624542f6060ec05a1d285ebbec578bb078900e33396b5"
+    },
+    {
+      "path": "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/tokenizer/tokenizer.json",
+      "bytes": 11422748,
+      "sha256": "b3744d3112b8c3d04760859bfdbf9a7ce00d5539512b5fc5d5bfb3f76eec0d9d"
+    },
+    {
+      "path": "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/final/tokenizer/tokenizer_config.json",
+      "bytes": 693,
+      "sha256": "2e3bd3cb5055f7a903a54e7062b2fd14d21b70f4174c3ffcd9fc81ec50a25631"
+    },
+    {
+      "path": "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/fold0/COMPLETE.json",
+      "bytes": 44,
+      "sha256": "4021a8cd415dcae0a29535745def682ee04c7b65a414f06b8feafa343e8e9430"
+    },
+    {
+      "path": "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/fold0/adapter/README.md",
+      "bytes": 5240,
+      "sha256": "43064eed5a371c72e6afd650a4d8f98837b6026ba9068fbf62ef1887fb70cf55"
+    },
+    {
+      "path": "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/fold0/adapter/adapter_config.json",
+      "bytes": 1288,
+      "sha256": "e37c54313ad1d0886f0f4562e82e7934cea51b9433f7465fca9df9f765fe6176"
+    },
+    {
+      "path": "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/fold0/adapter/adapter_model.safetensors",
+      "bytes": 116434760,
+      "sha256": "0f6687e0dc56faac19e32a900915963f4df3b4f1c033a8c20fe8a15f3df3f196"
+    },
+    {
+      "path": "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/fold0/heads.safetensors",
+      "bytes": 263384,
+      "sha256": "a0bcb7c4b7e85d02e558800d30ea591778b28b0466b0fbd5c8208dc64c665289"
+    },
+    {
+      "path": "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/fold0/readouts.npz",
+      "bytes": 4985541,
+      "sha256": "a075892678de485c8dd2b1988cbbd80642acd900d5891ed32fe51999be2bc6f2"
+    },
+    {
+      "path": "/kaggle/input/datasets/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/fold0/validation_features.npz",
+      "bytes": 65891435,
+      "sha256": "461c2d6a18079693a0f9aa247dfdbb2a8fff840078f6fa5bf5f1f1797e5369b1"
+    },
+    {
+      "path": "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/LICENSE",
+      "bytes": 7627,
+      "sha256": "64e1b2889b7892e6bbe7a7ed5bfe6ff793c61f9d584345f8f41cf9f5cb30a369"
+    },
+    {
+      "path": "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/NOTICE",
+      "bytes": 116,
+      "sha256": "9b4ce1898c6fdbefd6d0ca4d40a55cb994ed86ae3fd56166866b988bee7a6464"
+    },
+    {
+      "path": "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/README.md",
+      "bytes": 40896,
+      "sha256": "bce0f8a6da558802ae8600d7be5e5b6bb981f754772f2e017ee2347225c04fac"
+    },
+    {
+      "path": "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/USE_POLICY.md",
+      "bytes": 4691,
+      "sha256": "a568f2ebc73cec3fd74ba2afd992d4e945a8c7a9d851f9b66163aac834b7b859"
+    },
+    {
+      "path": "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/config.json",
+      "bytes": 826,
+      "sha256": "54acfad3cffe057640904ca8a1e83525e6551c70c7a04c641f5a9eda0bbf64bd"
+    },
+    {
+      "path": "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/generation_config.json",
+      "bytes": 185,
+      "sha256": "e645194d2dd27c86ed34a5a23f306c1a0fd79a42123c26551b7251c700a3379d"
+    },
+    {
+      "path": "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/model-00001-of-00004.safetensors",
+      "bytes": 4976698672,
+      "sha256": "f8b9704ab09cdeb097aa4a0a24bca96f906eec36bad63ab495bc21475058601b"
+    },
+    {
+      "path": "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/model-00002-of-00004.safetensors",
+      "bytes": 4999802720,
+      "sha256": "c28b25e7541751056ee126627e007f8d4288319733285e9f7b17b9ff6eb313f0"
+    },
+    {
+      "path": "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/model-00003-of-00004.safetensors",
+      "bytes": 4915916176,
+      "sha256": "d8e9504dd4e4a146d484c52a97584ec14dac92237c46b064934af67a85e7d383"
+    },
+    {
+      "path": "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/model-00004-of-00004.safetensors",
+      "bytes": 1168138808,
+      "sha256": "e4486f35c040f683f7d790354f66c169c109eb9fa0954a4a35d7c458a108405d"
+    },
+    {
+      "path": "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/model.safetensors.index.json",
+      "bytes": 23950,
+      "sha256": "146776fce3f6db1103aa6f249e65ee5544c5923ce6f971b092eee79aa6e5d37b"
+    },
+    {
+      "path": "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/special_tokens_map.json",
+      "bytes": 73,
+      "sha256": "462d91939dbc37178aa5a3eae7068d1990ccc92e09f288cc71f42cdf139d69cc"
+    },
+    {
+      "path": "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/tokenizer.json",
+      "bytes": 9085658,
+      "sha256": "76e48799b099d43365bd24ccd8ecc5aedac831718da780552f03b0a6eb4412aa"
+    },
+    {
+      "path": "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/tokenizer_config.json",
+      "bytes": 50500,
+      "sha256": "8004530facf809ac432114de2a4dcc65fcb632da5ec16d666091aeb6a2ee444a"
+    },
+    {
+      "path": "/kaggle/input/datasets/zhjianduan/llama31-8b-base-verified/transfer_manifest.json",
+      "bytes": 4879,
+      "sha256": "53674290b9c9dfdd8255b463702f08aaeae48dcde3648a84c7b6fe48bc4ea7ca"
+    },
+    {
+      "path": "/kaggle/input/datasets/zhjianduan/ntl-free-proxy-generations/README.md",
+      "bytes": 4718,
+      "sha256": "141deba51e17556fb943cc4e6d3e8a16b7aefad1e5055e1304d03dabd08ff8b2"
+    },
+    {
+      "path": "/kaggle/input/datasets/zhjianduan/ntl-free-proxy-generations/gen_passages.csv",
+      "bytes": 3835894,
+      "sha256": "d037d212e17a7e98465f9c606f4437225fb221939a5f51b0f8150d15c07c68a5"
+    },
+    {
+      "path": "/kaggle/input/datasets/zhjianduan/ntl-free-proxy-generations/snapshot_provenance.json",
+      "bytes": 631,
+      "sha256": "7b2e426c2ea31cb8cd2306c69bd04d5f5e0c680307a079322aab3898143dee43"
+    },
+    {
+      "path": "/kaggle/input/datasets/zhjianduan/ntl-generations/README.md",
+      "bytes": 2011,
+      "sha256": "14697a7a068fcaa260aa96ea5418624b2c4a19a6bcae89a7e8e21630960344b8"
+    },
+    {
+      "path": "/kaggle/input/datasets/zhjianduan/ntl-generations/make_tasks.py",
+      "bytes": 6160,
+      "sha256": "35ee0cf1a3c3ed6670c704b1d61d132bbfeb0d6f17a93b53bffb3644243419f6"
+    },
+    {
+      "path": "/kaggle/input/datasets/zhjianduan/ntl-generations/ntl_generations.csv",
+      "bytes": 870886,
+      "sha256": "83003454e3cc0368cae8b05bca243daf036b64a42a792c3f7bfd5fd91b3db378"
+    },
+    {
+      "path": "/kaggle/input/datasets/zhjianduan/ntl-generations/prompts_used.csv",
+      "bytes": 32000,
+      "sha256": "b42003b1068ba24de1accf33265e208e1a492d1ca8c81eb581d256b54bdefdbc"
+    },
+    {
+      "path": "/kaggle/input/datasets/zhjianduan/ntl-generations/snapshot_provenance.json",
+      "bytes": 929,
+      "sha256": "4bab52aa99266cfdc42442dbb762316e3cd8ddeeb76f7b1be948482c05ba464d"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/README.md",
+      "bytes": 2854,
+      "sha256": "d921831f61d9ce72f8b8bff40da636ca30a23e7d515520ac533354562094b4de"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/config.json",
+      "bytes": 729,
+      "sha256": "eb65771c8f108f88e4d87f771e1c9d40b7e35bc8070be8c97246c9446ccdf179"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/generation_config.json",
+      "bytes": 138,
+      "sha256": "8c970692323e3ea0e9b8b0a4dca79388d31226e41f83c9fd6014804280ebf6e8"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/merges.txt",
+      "bytes": 1671853,
+      "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00001-of-00008.safetensors",
+      "bytes": 3841788544,
+      "sha256": "fd1c6d2cf56f0a67d4d1491e8fee36cc6e5bfd6a114ab4e61667a63763662b3a"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00002-of-00008.safetensors",
+      "bytes": 3963750816,
+      "sha256": "92dbde5d38ecb4fb25b405d1c4d46907481317be6646e8492a22463b48fd09a5"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00003-of-00008.safetensors",
+      "bytes": 3963750880,
+      "sha256": "60945918edc6fb2eca950ca2d6d350020f31b805d02b7cac53cd1fac96c1a804"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00004-of-00008.safetensors",
+      "bytes": 3963750880,
+      "sha256": "dc3757a85266e177e57719b334052137d881f4d5a586a4a239c5844c00f9fbb5"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00005-of-00008.safetensors",
+      "bytes": 3963750880,
+      "sha256": "10d1be9a383fd3371f00916d26484a263c08649bfc59ba94a7afe78ae86285ce"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00006-of-00008.safetensors",
+      "bytes": 3963750880,
+      "sha256": "c046e2c218ad550b8a535ce001b258913c5d956e243d01c2a67acc8c4bca8294"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00007-of-00008.safetensors",
+      "bytes": 3963750880,
+      "sha256": "27a80e8c324120762187ae76b8cb4983e332b6843645d79137cefe964b19ed2a"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model-00008-of-00008.safetensors",
+      "bytes": 1912371880,
+      "sha256": "73bcc7f129c1884540a8ea079cd5e8b3ec07f4cd66bf1b5a71d3d2c276af160f"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/model.safetensors.index.json",
+      "bytes": 36514,
+      "sha256": "8bb45057e5de5b87096da94fab4492dfa0d7b9fc1b7fe9bc0d91cb9cd6c19bcb"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/tokenizer.json",
+      "bytes": 7031645,
+      "sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/tokenizer_config.json",
+      "bytes": 9675,
+      "sha256": "5a7303fcb1a27ede63134a2cbd61d5282c247ca6d769ce4746d4ffa124aedd63"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b-base/1/vocab.json",
+      "bytes": 2776833,
+      "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/README.md",
+      "bytes": 16554,
+      "sha256": "90450a0d6ec33a7eee298b338daf9e0a46a82254dada6ce74a7f16bd3bec626c"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/config.json",
+      "bytes": 728,
+      "sha256": "e73c3664ca09b10a673fef0c22e8a6b456201d49bd4713c9691f775720e8857a"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/generation_config.json",
+      "bytes": 239,
+      "sha256": "2325da0f15bb848e018c5ae071b7943332e9f871d6b60e2ed22ca97d4cb993d2"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/merges.txt",
+      "bytes": 1671853,
+      "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/model-00001-of-00008.safetensors",
+      "bytes": 3841788544,
+      "sha256": "e942bdbdf08857d16a8fef7d1dae9fceabeb4e84def6043485fe2f6f085dab0e"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/model-00002-of-00008.safetensors",
+      "bytes": 3963750816,
+      "sha256": "f7c9c6eee628f5ad831d2d1d292e120505e5fcadeb38f88b4d3c4cb86306ccf9"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/model-00003-of-00008.safetensors",
+      "bytes": 3963750880,
+      "sha256": "dfb8c5df9404b41ad6ae74e8b6b367135f017b4467b884cf71b17c71954f18a9"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/model-00004-of-00008.safetensors",
+      "bytes": 3963750880,
+      "sha256": "eab286fec759e3e59ab228621aefa0fef14ed56039e06f959e67257d5af7604d"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/model-00005-of-00008.safetensors",
+      "bytes": 3963750880,
+      "sha256": "97f0dc2992e59da95c466eff6f4fd0c8335843bbc36ed5c913a6f5150748c0e6"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/model-00006-of-00008.safetensors",
+      "bytes": 3963750880,
+      "sha256": "9e8e76a013cd5e253865b792991e0b410f869b136b3c500079b531b09198e99e"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/model-00007-of-00008.safetensors",
+      "bytes": 3963750880,
+      "sha256": "0aee70ee6e91dc00d818804fb47f124d13ee4ad5b4a64553e09dbf9391cd5750"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/model-00008-of-00008.safetensors",
+      "bytes": 1912371880,
+      "sha256": "0d6b92296e326d39bbbaeb32c3ec454ac606da843d4c8ffa8edf010b62b8c9e0"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/model.safetensors.index.json",
+      "bytes": 36514,
+      "sha256": "62d7ad35757bae5e7baa452cb1483178b7daa50e869e923226b8da10871f7ebc"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/tokenizer.json",
+      "bytes": 11422654,
+      "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/tokenizer_config.json",
+      "bytes": 9675,
+      "sha256": "5a7303fcb1a27ede63134a2cbd61d5282c247ca6d769ce4746d4ffa124aedd63"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/14b/1/vocab.json",
+      "bytes": 2776833,
+      "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/README.md",
+      "bytes": 2850,
+      "sha256": "d5e2cd84dbd69d03483909c0f90d06502ebe798521b226667a7cacd0af9e120f"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/config.json",
+      "bytes": 727,
+      "sha256": "304b2545a258d35620f1d4bf46940c0471d9baa00715ff8e77f84c2fca5057c1"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/generation_config.json",
+      "bytes": 138,
+      "sha256": "8c970692323e3ea0e9b8b0a4dca79388d31226e41f83c9fd6014804280ebf6e8"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/merges.txt",
+      "bytes": 1671853,
+      "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/model-00001-of-00003.safetensors",
+      "bytes": 3957900840,
+      "sha256": "4c807e2503d68ae373d508689d00a41f4b33f33c2536da97ab81a20caddc1241"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/model-00002-of-00003.safetensors",
+      "bytes": 3987450520,
+      "sha256": "f4707585548b2fc75a6b1d732e8465c62040a8699903c32850781beeb9b27826"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/model-00003-of-00003.safetensors",
+      "bytes": 99630640,
+      "sha256": "c7b1aa8fb672de2e00423c99876926022e50b18d4f0d140670788510a27f9965"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/model.safetensors.index.json",
+      "bytes": 32819,
+      "sha256": "d6c42883a895dfef5b0080ed2116a1bcd764f558406b98923d675978a1abf29c"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/tokenizer.json",
+      "bytes": 7031645,
+      "sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/tokenizer_config.json",
+      "bytes": 9675,
+      "sha256": "5a7303fcb1a27ede63134a2cbd61d5282c247ca6d769ce4746d4ffa124aedd63"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1/vocab.json",
+      "bytes": 2776833,
+      "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/README.md",
+      "bytes": 2851,
+      "sha256": "000b1400aac2dbc0616facf8bdcb226b5666484ebef69d384ea3159be07fc6b8"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/config.json",
+      "bytes": 729,
+      "sha256": "3bd01d7ad7a2e203ecbbe84e24087a51c6d2a108ee4bcc42d0016bf49564983a"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/generation_config.json",
+      "bytes": 138,
+      "sha256": "8c970692323e3ea0e9b8b0a4dca79388d31226e41f83c9fd6014804280ebf6e8"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/merges.txt",
+      "bytes": 1671853,
+      "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/model-00001-of-00005.safetensors",
+      "bytes": 3996250744,
+      "sha256": "9983f1b9ef2f60e7c3730d9bc11ada914e6ec630639b5b020a89bd158cd0446b"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/model-00002-of-00005.safetensors",
+      "bytes": 3993160032,
+      "sha256": "9aa12339835bf7a093d3d0b0a0d2d77f8538301cfc7f8e7ec7a585858ebf7a1f"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/model-00003-of-00005.safetensors",
+      "bytes": 3959604768,
+      "sha256": "c7dd5a191c8da555def0714550375b3c0117751add408fcdda0c2a79ac0186bc"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/model-00004-of-00005.safetensors",
+      "bytes": 3187841392,
+      "sha256": "ad8b708792105133e03fe19e2d56c89c709f677f01285f8b3ede8947d59fd9fe"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/model-00005-of-00005.safetensors",
+      "bytes": 1244659840,
+      "sha256": "fbf24915d47ea030bb68ab0b9488f4515a907185baa6dc26837c9c3f2326a550"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/model.safetensors.index.json",
+      "bytes": 32878,
+      "sha256": "cd39d5e44c5aadfd1954b598883aea1c4a98822a2f7723d214ef2278b7fec2e4"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/tokenizer.json",
+      "bytes": 7031645,
+      "sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/tokenizer_config.json",
+      "bytes": 9675,
+      "sha256": "5a7303fcb1a27ede63134a2cbd61d5282c247ca6d769ce4746d4ffa124aedd63"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1/vocab.json",
+      "bytes": 2776833,
+      "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b/1/README.md",
+      "bytes": 16544,
+      "sha256": "2fff7fc0aacabd3baf967efd5614f6bd0caee390ddd6ae55669a80e82e8bb9ad"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b/1/config.json",
+      "bytes": 728,
+      "sha256": "f7c4eadfbbf522470667b797a3c89be2524832d2d599797248dc304fff447c30"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b/1/generation_config.json",
+      "bytes": 239,
+      "sha256": "2325da0f15bb848e018c5ae071b7943332e9f871d6b60e2ed22ca97d4cb993d2"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b/1/merges.txt",
+      "bytes": 1671853,
+      "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b/1/model-00001-of-00005.safetensors",
+      "bytes": 3996250744,
+      "sha256": "31d6a825ae35f11fb85b195b4c42c146c051e446433125a215336abdf95cbf5f"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b/1/model-00002-of-00005.safetensors",
+      "bytes": 3993160032,
+      "sha256": "5991236cea6fe21f3d43cab0f0e84448734fbbe0789816202989f2ddc9d18282"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b/1/model-00003-of-00005.safetensors",
+      "bytes": 3959604768,
+      "sha256": "c5185c4794be2d8a9784d5753c9922db38df478ce11f9ed0b415b7304d896836"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b/1/model-00004-of-00005.safetensors",
+      "bytes": 3187841392,
+      "sha256": "b5ee7de71fbf17db3d5704e0c8f2bc7d005ca9e1d7ca2aeb19827b0cfcaa917a"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b/1/model-00005-of-00005.safetensors",
+      "bytes": 1244659840,
+      "sha256": "20c2d6366ab85c90786ccdd829cd2b9e7d30ef3b2ebbb998280e7e4014b542ff"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b/1/model.safetensors.index.json",
+      "bytes": 32878,
+      "sha256": "f9fdbcb91c23971c13ec5d5f2573d2349e8f61f2f049371ec699281748fdb1bc"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b/1/tokenizer.json",
+      "bytes": 11422654,
+      "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b/1/tokenizer_config.json",
+      "bytes": 9675,
+      "sha256": "5a7303fcb1a27ede63134a2cbd61d5282c247ca6d769ce4746d4ffa124aedd63"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen-3/transformers/8b/1/vocab.json",
+      "bytes": 2776833,
+      "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/.gitattributes",
+      "bytes": 1519,
+      "sha256": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/LICENSE",
+      "bytes": 11343,
+      "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/README.md",
+      "bytes": 3795,
+      "sha256": "e408f4734c24731ef86d48993c7747147cc578b1fbe50dec4bfdbae7e83147ec"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/config.json",
+      "bytes": 664,
+      "sha256": "fdb89460be9a6383451437cdf632a3e087522efa682265461f33507e7069f026"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/generation_config.json",
+      "bytes": 138,
+      "sha256": "8c970692323e3ea0e9b8b0a4dca79388d31226e41f83c9fd6014804280ebf6e8"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/merges.txt",
+      "bytes": 1671839,
+      "sha256": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00001-of-00008.safetensors",
+      "bytes": 3885134104,
+      "sha256": "e015e2bc9a26b4e46d77913d8c667608ae7e48aa1eca04af5786c2408f4bc0fa"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00002-of-00008.safetensors",
+      "bytes": 3995327992,
+      "sha256": "e7efa1adc8257218813dcb494bb2a3d5775fa268735ab39e5b8119e233c21462"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00003-of-00008.safetensors",
+      "bytes": 3995328064,
+      "sha256": "68127c9bc4fab170f7aaf63d5c7ac9e182afd10b74a1c6bb8025afefc11447cb"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00004-of-00008.safetensors",
+      "bytes": 3995348776,
+      "sha256": "7250708a789da850ff40a4a5be335971dfa0d2bd7cba2e9905916dab06744d75"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00005-of-00008.safetensors",
+      "bytes": 3979614448,
+      "sha256": "c2754167c1cbaf94b9af9c7eb646a2286a596f9ded5e2e3c4c5e6a4464352c9e"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00006-of-00008.safetensors",
+      "bytes": 3995328064,
+      "sha256": "7045cf78c68178b626546982d12b6e9c8e289f1bf1e65c42225ed13e07847180"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00007-of-00008.safetensors",
+      "bytes": 3995328064,
+      "sha256": "4d870a72c656404ee7524163ba996bf55050fff252dfe639a90715a9e2c47dba"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model-00008-of-00008.safetensors",
+      "bytes": 1698724408,
+      "sha256": "9b693615965d8548eab4d1dc6bb578aa063e8656e2b9d25125ad5b8c7f59565f"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/model.safetensors.index.json",
+      "bytes": 47472,
+      "sha256": "7b4b616a213f09ae889be05d1b135198589496e817d793e2605d5c5b1fe3ae5d"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/tokenizer.json",
+      "bytes": 7031645,
+      "sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/tokenizer_config.json",
+      "bytes": 7228,
+      "sha256": "c91efca15ceff6e9ee9424db58a6f59cd41294e550a86cbd07e3c1fb500b34f9"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/14b/1/vocab.json",
+      "bytes": 2776833,
+      "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/.gitattributes",
+      "bytes": 1519,
+      "sha256": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/LICENSE",
+      "bytes": 11343,
+      "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/README.md",
+      "bytes": 3819,
+      "sha256": "8a23291de92bddc940674a5b7088b8443bde94a1df7f1911703d2cd6554c7328"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/config.json",
+      "bytes": 686,
+      "sha256": "267ce68584c5f24c3b267d934db2de68dd21d1ca677fb78ed809eb60067f7642"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/generation_config.json",
+      "bytes": 138,
+      "sha256": "8c970692323e3ea0e9b8b0a4dca79388d31226e41f83c9fd6014804280ebf6e8"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/merges.txt",
+      "bytes": 1671839,
+      "sha256": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/model-00001-of-00004.safetensors",
+      "bytes": 3945441440,
+      "sha256": "b6d4b6e881d17e9235934419b1c17a8bb0f1108579404e0a468a6afdeae6e868"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/model-00002-of-00004.safetensors",
+      "bytes": 3864726352,
+      "sha256": "687e8d08dc82b5f7d69322f1d8691d49b59db9039b07e7ea71010fb6434d5274"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/model-00003-of-00004.safetensors",
+      "bytes": 3864726424,
+      "sha256": "32652eb23537597cca8c7a56ec85b5d5f1c7245b16269a904d57e85aa1aff30e"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/model-00004-of-00004.safetensors",
+      "bytes": 3556377672,
+      "sha256": "b5a2298dddcf228129975a9a271912a9f8dc817957deecde523e3154481ec3fb"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/model.safetensors.index.json",
+      "bytes": 27752,
+      "sha256": "624bf7c47cd12468fdc16e38a47cf4f19e0415b859a223ba3c027eed2f0e1028"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/tokenizer.json",
+      "bytes": 7031645,
+      "sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/tokenizer_config.json",
+      "bytes": 7228,
+      "sha256": "c91efca15ceff6e9ee9424db58a6f59cd41294e550a86cbd07e3c1fb500b34f9"
+    },
+    {
+      "path": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b/1/vocab.json",
+      "bytes": 2776833,
+      "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/__huggingface_repos__.json",
+      "bytes": 322,
+      "sha256": "7ea722feda90889ee7d1cd8a8ea395625c1e78b26a3ea8da3e389113b55f2212"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/__notebook__.ipynb",
+      "bytes": 50103,
+      "sha256": "ff4f3141c7c9083ebb353b56d74e54c5a2169e5af8bdfa63693c294b81338bd7"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/__output__.json",
+      "bytes": 2669,
+      "sha256": "4f506e9e481cc0c8881e84b5c439a84fd3fb2e1691f7c60f4923bd58e3b1e3d3"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/__results__.html",
+      "bytes": 317218,
+      "sha256": "281ff517d885e10372dec51108ac3fe9eb467f975678252a42665093fc5cbae4"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/custom.css",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/desklib-detector/config.json",
+      "bytes": 905,
+      "sha256": "fd728d4c20ca32f0cd98851c8dc1a1c1ba68740dc33a7a6f93b99f053e378833"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/desklib-detector/model.safetensors",
+      "bytes": 1736094384,
+      "sha256": "1f72ca8fd963932d48766cabf0968a1f8827fd0ce15c506f2a451bc737fc832b"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/desklib-detector/tokenizer.json",
+      "bytes": 8339875,
+      "sha256": "2c070ff353c36f85e20919da787a30e1e8e52b626d0e026e044f373378f6d0bf"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/desklib-detector/tokenizer_config.json",
+      "bytes": 532,
+      "sha256": "d8089020d294f20cb21eca751b5f7f68a0b62ea2716a78576cbd587605382432"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-desklib-weights/submission.parquet",
+      "bytes": 1852,
+      "sha256": "d7bc608c0d90c943d76554f65ff1f6579313b81dec7d96ea6c6cdbd3536f49c8"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/__huggingface_repos__.json",
+      "bytes": 393,
+      "sha256": "c7e99ca7ba5ca29662e2f6c76a83059e9b1065552e8c349ab840578e9bc846b0"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/__notebook__.ipynb",
+      "bytes": 120330,
+      "sha256": "4cc8c7a4d8329bfacd9c5e1a33f7dd451629e93f2240401fbe589e430e2511f0"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/__output__.json",
+      "bytes": 5636,
+      "sha256": "aa97e7116239c7f265dab8eee0034c30a7a56132068a24929eb57a8b85026481"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/__results__.html",
+      "bytes": 370811,
+      "sha256": "4ca8fabd8dcdbac4bdb8a182b5595412df44faee29fc1919222be6caeb2a0f17"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/custom.css",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/electra-large-discriminator/config.json",
+      "bytes": 862,
+      "sha256": "01244920f29102fda67359ad1ec89d09c8076378d46acd4517f656debd1e4303"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/electra-large-discriminator/model.safetensors",
+      "bytes": 1336413848,
+      "sha256": "1df33784881b99fa5b028d1ca2e12fbf57d6d0bf5441d092ee970a7941672291"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/electra-large-discriminator/tokenizer.json",
+      "bytes": 711396,
+      "sha256": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/electra-large-discriminator/tokenizer_config.json",
+      "bytes": 351,
+      "sha256": "e1c2a61a99bda00f6c55303a210b30e2f92dcf8b555e215812e2eb583e177ffd"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-electra-large-weights/submission.parquet",
+      "bytes": 1852,
+      "sha256": "d7bc608c0d90c943d76554f65ff1f6579313b81dec7d96ea6c6cdbd3536f49c8"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/__huggingface_repos__.json",
+      "bytes": 1763,
+      "sha256": "c57bebff7dfd9ee98540122b3c7759b4f7c1fa0d89117ecc3fdef8843ce72cf1"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/__notebook__.ipynb",
+      "bytes": 525037,
+      "sha256": "036f65e0b0440e23db6b9d87abdbb068b95e50ee3b3b209f553af3376c64641f"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/__output__.json",
+      "bytes": 18523,
+      "sha256": "2dddeb8db004a637c9026a2cebc21c2079a01425dad50c86ea3cb35d1bcb23c1"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/__results__.html",
+      "bytes": 710415,
+      "sha256": "dc43296ad3ca3d5ccb125ba5256cd50dcdd5adbacd5d36b6a7ddf34237125f1b"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/custom.css",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/deberta-v3-large/config.json",
+      "bytes": 907,
+      "sha256": "9125207e9fc1f5913ca71c99936e671ab44280317133d02f909726a8af0b231f"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/deberta-v3-large/model.safetensors",
+      "bytes": 1736094384,
+      "sha256": "7b9a354dd307222ec95fe05ac7240023a72f2511b43852cc0f17daa64b26ff81"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/deberta-v3-large/tokenizer.json",
+      "bytes": 8339876,
+      "sha256": "e9ddd853a4a31023721c993458663f2019e3154a05dacf0d2b3c217e53d9bdc8"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/deberta-v3-large/tokenizer_config.json",
+      "bytes": 538,
+      "sha256": "0dbe41323167ba5f2e1e876ccd05068318dd2378b922bdfd924a389dba3bcc7a"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/enc_debv2xl_train.npz",
+      "bytes": 82954951,
+      "sha256": "2406a2597281b163df618da9dee524cfc23d91d881c7aaf415882a1aad113664"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/enc_debv2xxl_train.npz",
+      "bytes": 82954951,
+      "sha256": "647b55b00bc72d5b3c952483d4b70a777e2206c13283dc03e733abd11b2c92c7"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/enc_debv3l2_train.npz",
+      "bytes": 99537639,
+      "sha256": "11eed58762ad128f97457dde9cc4ab03c7932e1b4b04845ec6664c834b1b1dda"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/enc_electl_train.npz",
+      "bytes": 55317191,
+      "sha256": "534c7134b747662340c133178e612fc9b470403a5a25558ce41e45d4cd1415f1"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/enc_mbertl_train.npz",
+      "bytes": 55317191,
+      "sha256": "244984df5a0d50ae37e05128ba768845f3d0853a48705d8026b615e554bc3ce3"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-extract-encoders2/submission.parquet",
+      "bytes": 1852,
+      "sha256": "d7bc608c0d90c943d76554f65ff1f6579313b81dec7d96ea6c6cdbd3536f49c8"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/__notebook__.ipynb",
+      "bytes": 64250,
+      "sha256": "5a6f70298fcec83ced49de94b76de32963f78631614e70c471fac1b3aae3ad33"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/__output__.json",
+      "bytes": 8327,
+      "sha256": "2b3b84350d83b640eccd634f261c857713bb8770fb1072c94e22e7f6d0611b19"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/__results__.html",
+      "bytes": 331192,
+      "sha256": "702dba454bc7a9df6915ef1b2399126d91849b11877c2cad60be2ddc3f419487"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/custom.css",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/glm4_9b_trunc25/chat_template.jinja",
+      "bytes": 944,
+      "sha256": "854b703e44ca06bdb196cc471c728d15dbab61e744fe6cdce980086b61646ed1"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/glm4_9b_trunc25/config.json",
+      "bytes": 786,
+      "sha256": "22b5515c8520e7aa3463b0fc07e601e99a11119c736efb754035ea59637fa3ed"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/glm4_9b_trunc25/model.safetensors",
+      "bytes": 11440008912,
+      "sha256": "97f0f7d7e2a4cf8261f611a3314bc2d7a972010fddc1d4dcbab7ffff51342023"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/glm4_9b_trunc25/tokenizer.json",
+      "bytes": 19966496,
+      "sha256": "76ebeac0d8bd7879ead7b43c16b44981f277e47225de2bd7de9ae1a6cc664a8c"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/glm4_9b_trunc25/tokenizer_config.json",
+      "bytes": 396,
+      "sha256": "de548df866322721bf61112987f91e3de68bd9525df6eb1c558985ea79c43269"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/glm4_9b_trunc25/trunc_info.json",
+      "bytes": 73,
+      "sha256": "31cba581f450ea9f43624958ec63ab7b5f5d820fc7c0705c8bf906de533672d4"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-glm4-9b-trunc25/submission.parquet",
+      "bytes": 1852,
+      "sha256": "d7bc608c0d90c943d76554f65ff1f6579313b81dec7d96ea6c6cdbd3536f49c8"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/__notebook__.ipynb",
+      "bytes": 24495,
+      "sha256": "115ba21235d8a084c83b38870e090c016214be92347ff7364a315b21042364f0"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/__output__.json",
+      "bytes": 19711,
+      "sha256": "d7db39bed84ebc7bf45d5a7e0eab3437938fbd437836cec2975040c7677042d5"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/__results__.html",
+      "bytes": 308646,
+      "sha256": "9ad09712cce2f1cd9c6925c367a581917f4fe4fc19508c91fa370377a94ef9c0"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/custom.css",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_0/COMPLETE.json",
+      "bytes": 100,
+      "sha256": "f404e4e588d42a5c0edb0e9d3502ca4f8f35d4b1db8aaf4c4132468c5f26d525"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_0/readouts.npz",
+      "bytes": 4379669,
+      "sha256": "a3036bf8636b14145512510dc07089ef54a8560e3d3b06a08cd09bbba1ece542"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_0/valid_features.npz",
+      "bytes": 32983640,
+      "sha256": "eed6402407e40b43214da188a5ed7118dc3e0ea311858d6b6bb2c065b1ad17a2"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_1/COMPLETE.json",
+      "bytes": 101,
+      "sha256": "4af1d476bea5bc68229b83c9aae0a1f4a05217803beb39086341aff19e0b34e8"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_1/readouts.npz",
+      "bytes": 4379547,
+      "sha256": "3928e35996557b3b0b6b9ffd97568c0befea5ade71ee2c5894327a46a065c12e"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_1/valid_features.npz",
+      "bytes": 32920785,
+      "sha256": "caf0667864ecf2c15c8afb9d38bab3d8672044fb4b3f591fcf1952c9793f9ed6"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_2/COMPLETE.json",
+      "bytes": 101,
+      "sha256": "268e285d6c84b85cde42f8ff103c4b1a3e3f5bea7e64a29b86e4e8bb281607e8"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_2/readouts.npz",
+      "bytes": 4379728,
+      "sha256": "6abf8f0461b02cb82a20d293d24fad2be31ae208e139e724009cd2d6499fe5b4"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_2/valid_features.npz",
+      "bytes": 32987026,
+      "sha256": "2d7c6080d795264ec4a38bc2a5fd83ec3a08799ae46a375c4848730ae71e623b"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_3/COMPLETE.json",
+      "bytes": 86,
+      "sha256": "6fae380abb1b61fd15ccfc3ecc2d84f07b6516008ff01c1e46cfdcd0ef283a9d"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_3/readouts.npz",
+      "bytes": 4380030,
+      "sha256": "030250f73f1612353d33cc3bb9f116f2b850988c4a579fa258905d1a3cc95cf2"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_3/valid_features.npz",
+      "bytes": 32985459,
+      "sha256": "820df2963b5aa3a330aa032cecc44f8ebc00ecb11d6b5553b4737504a932de17"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_4/COMPLETE.json",
+      "bytes": 101,
+      "sha256": "2dd1378a2d78f963145446fb6499a97292fed4b8d0ea3e42957c99572bc2bfaf"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_4/readouts.npz",
+      "bytes": 4380056,
+      "sha256": "e9c83ceaa607d33f7457c2229a4d66b884de8f65e805b9b64e98fd1d596753c9"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_4/valid_features.npz",
+      "bytes": 32983917,
+      "sha256": "30852a27dfe8ff08cace923a11ae8ad4f967db2c7b9e60c0036d0e8a2abf62ab"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/COMPLETE.json",
+      "bytes": 104,
+      "sha256": "e92a525842d44c1d4a7f3c55bbcdfdc46ed96a545b90b80717fc86f6cb22c2d5"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/adapter/README.md",
+      "bytes": 5240,
+      "sha256": "43064eed5a371c72e6afd650a4d8f98837b6026ba9068fbf62ef1887fb70cf55"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/adapter/adapter_config.json",
+      "bytes": 1288,
+      "sha256": "3b786d83737e6890ccb19a2cddbaee5c8b1aae1bc2c13840161970909165711c"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/adapter/adapter_model.safetensors",
+      "bytes": 116434760,
+      "sha256": "a045cbdc521b957736e828a3d8f1eee4a844e5ce1a8c2a17e1b0531f86212682"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/norms.safetensors",
+      "bytes": 263384,
+      "sha256": "709a8214889291cc9d779928bbdf3ba4849d97e023c005f6ba11f9b704d75126"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/readouts.npz",
+      "bytes": 4378243,
+      "sha256": "b8143ad2ee2365cb6923a052aae6e646634703d103cafaa28bb55c6d2754ecad"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/tokenizer/chat_template.jinja",
+      "bytes": 4116,
+      "sha256": "87a2728cb8dc9fe424d624542f6060ec05a1d285ebbec578bb078900e33396b5"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/tokenizer/tokenizer.json",
+      "bytes": 11422748,
+      "sha256": "b3744d3112b8c3d04760859bfdbf9a7ce00d5539512b5fc5d5bfb3f76eec0d9d"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/tokenizer/tokenizer_config.json",
+      "bytes": 693,
+      "sha256": "2e3bd3cb5055f7a903a54e7062b2fd14d21b70f4174c3ffcd9fc81ec50a25631"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/lora_out/job_final/valid_features.npz",
+      "bytes": 183638,
+      "sha256": "7e9b8316f6c984b204b7d451514d6c04f2380165441ba85a4de078cf99472fec"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/submission.parquet",
+      "bytes": 1852,
+      "sha256": "d7bc608c0d90c943d76554f65ff1f6579313b81dec7d96ea6c6cdbd3536f49c8"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/worker.py",
+      "bytes": 7365,
+      "sha256": "38dfb88bd2b88d8f953e151ca2e10b1d46e2235fced05effbf4a6004a9f631ff"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/worker0.log",
+      "bytes": 9884,
+      "sha256": "fd056b047f3da95766e85f529ced2f7cf0af065e0f047905bd56c34e74712331"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-lora24-s7/worker1.log",
+      "bytes": 10190,
+      "sha256": "131dbf52476789caf556708332b4bf7c453327a6551a5b4847eba3dfba6dec08"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn/__notebook__.ipynb",
+      "bytes": 25030,
+      "sha256": "00e0b25e56c8d3b236cfe5f2d256e279a8526667d7fc086e2b0ad443a42074c8"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn/__output__.json",
+      "bytes": 11813,
+      "sha256": "7882e5c5997b8c0f902c0115589b4548420d42e78fa331343db3be6227cdb982"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn/__results__.html",
+      "bytes": 330960,
+      "sha256": "25c6e5173322e1d727a8a15ed8fed6065fafcdbc86a2718947f7d7cae3e1c5ab"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn/custom.css",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn/submission.parquet",
+      "bytes": 1852,
+      "sha256": "d7bc608c0d90c943d76554f65ff1f6579313b81dec7d96ea6c6cdbd3536f49c8"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn/tokattn_final.pt",
+      "bytes": 1095265,
+      "sha256": "f23ce6dd3038b8bdba6bb8b738a67c8324224d92e2f41b4ea472dd57411f17fa"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn/tokattn_oof.npz",
+      "bytes": 259131,
+      "sha256": "bdb4b20de1236edb3618464f464157468a81179d407d577d766c0941c5735077"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn2/__notebook__.ipynb",
+      "bytes": 36079,
+      "sha256": "98c0dcff837b48d8e530c0e770db0331e7475e3d7430b8cefb7ea3268268a6b8"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn2/__output__.json",
+      "bytes": 8174,
+      "sha256": "b2dc43667bfe208fa20993c2169ed2bd050e22c6c9d932853022bceecfb591cb"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn2/__results__.html",
+      "bytes": 341513,
+      "sha256": "55ef5a3cf64d4f156cc961dfefaad35ca32a1102cacc3c0d32315fce882b69fe"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn2/custom.css",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn2/submission.parquet",
+      "bytes": 1852,
+      "sha256": "d7bc608c0d90c943d76554f65ff1f6579313b81dec7d96ea6c6cdbd3536f49c8"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn2/tokattn_debl23_final.pt",
+      "bytes": 284355,
+      "sha256": "ed384fd1af244ad1e9dca42194e423ad7fc2cce7e1926820344bffec6de3c561"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn2/tokattn_debl23_oof.npz",
+      "bytes": 259131,
+      "sha256": "69b97d2e2693c7b646dbdb868c8803d0e4048ff3f62c874cd87be39d70395532"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn2/tokattn_q8l22_final.pt",
+      "bytes": 1095349,
+      "sha256": "1bdabda5600cd27b5908327ee420c98af33305f3a6ecb280efbe46e2ff7f7a0c"
+    },
+    {
+      "path": "/kaggle/input/notebooks/lucasboesen/name-that-llm-train-tokattn2/tokattn_q8l22_oof.npz",
+      "bytes": 259131,
+      "sha256": "3efa2f6c7aa989fbb02a93d7e26fa50c9720d4d81923156297fe9d20d54c37c7"
+    },
+    {
+      "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/__output__.json",
+      "bytes": 17194,
+      "sha256": "5733934e0035c260a9fbcd1b1e021d7fc7da92075076cdc77bb1fca42dbe5d53"
+    },
+    {
+      "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/__results__.html",
+      "bytes": 304784,
+      "sha256": "c7c00ce4af7be9b22313974fb332da99586401b7f4fcf8b57f46b61a05e71bb4"
+    },
+    {
+      "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/__script__.ipynb",
+      "bytes": 15531,
+      "sha256": "3a90bac21bbef19c52dd1a38557c61e647684ebaa076cf0962d0a529dd2321a9"
+    },
+    {
+      "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/__script__.py",
+      "bytes": 14788,
+      "sha256": "bacc544956c4f30b5fd01e19429a5fe37a3e63c46de6b3733100b5370874011b"
+    },
+    {
+      "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/custom.css",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_0/COMPLETE.json",
+      "bytes": 101,
+      "sha256": "89d8f698ab817c01a8ef074edbc09b34ef67ec55a4eb27f0fbc8b791029dfec3"
+    },
+    {
+      "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_0/readouts.npz",
+      "bytes": 3829454,
+      "sha256": "0963dd6ccbcd296cb7ebe3f521533992b5aed27dfdc550d6c25058def14c9c7b"
+    },
+    {
+      "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_0/valid_features.npz",
+      "bytes": 28877070,
+      "sha256": "fec557d298a14f29583da660bbfad13081f4cb51741ed0a289e659f968305fc9"
+    },
+    {
+      "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_1/COMPLETE.json",
+      "bytes": 101,
+      "sha256": "307a496a5b09e38e4b729b89f28ff9e432698b6c21a97d22283a49cf23e482e5"
+    },
+    {
+      "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_1/readouts.npz",
+      "bytes": 3829668,
+      "sha256": "9dfcb93aa0a26e76430d2fec5ff495f27cb5d7fe4c929a241950b987e3de0229"
+    },
+    {
+      "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_1/valid_features.npz",
+      "bytes": 28822901,
+      "sha256": "638e582bb911b5f30ff2c4bcea02bf0d497a4738f0ddfc232499f1bf3c082d00"
+    },
+    {
+      "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_2/COMPLETE.json",
+      "bytes": 101,
+      "sha256": "bba61fc10fa0883bdce1bc40f82d19ce065f81522c0fbe0ec8bb9a85984ca35f"
+    },
+    {
+      "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_2/readouts.npz",
+      "bytes": 3829538,
+      "sha256": "f546ec14f300ec3b0c74afe81b91c5614a348473f5f98121b69bea4655d0bea3"
+    },
+    {
+      "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_2/valid_features.npz",
+      "bytes": 28873751,
+      "sha256": "484905dd3c691310001334fd5ad09b08f062f7d3e6d3d8edb86f0a9b57bf621e"
+    },
+    {
+      "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/COMPLETE.json",
+      "bytes": 88,
+      "sha256": "ed24f3ec9e73878b99ee97730591ad17ebdff69e4f59e3f3dee90ea29d8ded8d"
+    },
+    {
+      "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/adapter/README.md",
+      "bytes": 5232,
+      "sha256": "45259f9ab8838f1f06f0af0d9b68c5cc913863b11ecc81b12ed2912b80224ef1"
+    },
+    {
+      "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/adapter/adapter_config.json",
+      "bytes": 1284,
+      "sha256": "01f4767094380c58a8092eae287325c7b97f47905132076776d60afbe8e6af8e"
+    },
+    {
+      "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/adapter/adapter_model.safetensors",
+      "bytes": 115378992,
+      "sha256": "509626893eb960bf6ce0fc9075c7a3c196ffa4994aba46dcf44508b8ab8c646b"
+    },
+    {
+      "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/norms.safetensors",
+      "bytes": 230616,
+      "sha256": "29b8845f58771d6a0756cf66e3b303110b53e7e8f5939013706abf93e2db50ec"
+    },
+    {
+      "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/readouts.npz",
+      "bytes": 3829777,
+      "sha256": "03524ab698015b8ea88c31d067581ce51df6d190750200206aee07220f6e3d6e"
+    },
+    {
+      "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/tokenizer/chat_template.jinja",
+      "bytes": 2427,
+      "sha256": "44d5f08f3f72b837eaad09f13a54c1f9f4eb58d75240334548b7fd52a5437fa5"
+    },
+    {
+      "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/tokenizer/tokenizer.json",
+      "bytes": 11421990,
+      "sha256": "0bf86e7bd1b719430e67169321519a1ba441a691eb763fd7abb0dc305eb41120"
+    },
+    {
+      "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/tokenizer/tokenizer_config.json",
+      "bytes": 696,
+      "sha256": "5f007d04324afa93876e2a484190e868136c69dfe0e1a29a1063eae583df9d32"
+    },
+    {
+      "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/lora_out/job_final/valid_features.npz",
+      "bytes": 160912,
+      "sha256": "e5b70afe2850986124c8485b2c0ac1d99ceafa7977ff45de67d4a52b9aad23a4"
+    },
+    {
+      "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/submission.parquet",
+      "bytes": 1852,
+      "sha256": "d7bc608c0d90c943d76554f65ff1f6579313b81dec7d96ea6c6cdbd3536f49c8"
+    },
+    {
+      "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/worker.py",
+      "bytes": 10879,
+      "sha256": "305d983656714be99c8cd7fc7795aa8feb6a1459365b0f47c2241af149ca90d4"
+    },
+    {
+      "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/worker0.log",
+      "bytes": 10805,
+      "sha256": "7496fc3ffd79fa0faf71fd9666f760829f3a9ef303e4881ebd2a91aeeda5e207"
+    },
+    {
+      "path": "/kaggle/input/notebooks/vnton37nguyn/ntl-train-lora-qwen25-instyle/worker1.log",
+      "bytes": 10363,
+      "sha256": "d8a5e23b617dd09bf2a684858cc696a46b12348c404ef0eb86ed51b3e14ba0ad"
+    }
+  ],
+  "environment": {
+    "python": "3.13.15",
+    "versions": {
+      "numpy": "2.1.3",
+      "pandas": "2.3.3",
+      "scipy": "1.16.3",
+      "scikit-learn": "1.6.1",
+      "torch": "2.11.0+cu128",
+      "transformers": "5.16.1",
+      "peft": "0.20.0",
+      "pyarrow": "23.0.1",
+      "lightgbm": "4.6.0"
+    },
+    "platform": "Linux-6.18.55+-x86_64-with-glibc2.39"
+  },
+  "bytes_total": 190823294363,
+  "elapsed_seconds": 1118.6381434389998,
+  "verified_at_utc": "2026-11-01T10:31:36.732989+00:00",
+  "preflight_sha256": "364f36ec708ab3c7e800465d02429cb51be7b643279101a677e541f2df1c1887",
+  "config_sha256": "1218d5f2b66ad78484c2278f10cee0bec4e1a7bfef10912cd7d81aebbdd3fe80",
+  "new_model_execution": false,
+  "training_exposure_certified": false,
+  "note": "Version bindings are the preselected request; host must verify saved attachment readback. Hashes bind mounted bytes, not historical score provenance."
+}

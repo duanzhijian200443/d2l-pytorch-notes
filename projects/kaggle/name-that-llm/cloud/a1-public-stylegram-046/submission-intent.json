@@ -1,0 +1,27 @@
+{
+  "status": "REQUEST_INTENT_PERSISTED",
+  "request_count": 1,
+  "observed_at": "2026-11-01T17:48:16.818253+00:00",
+  "request": {
+    "competitionName": "name-that-llm",
+    "kernelOwner": "zhjianduan",
+    "kernelSlug": "name-that-llm-a1-public-stylegram-046",
+    "kernelVersion": 2,
+    "hasKernelVersion": true,
+    "fileName": "submission.parquet",
+    "hasFileName": true,
+    "submissionDescription": "EXP046-A1-v2 public10073 Stylegram only; original ATLAS20 .20 comp .15 Sinkhorn .45",
+    "hasSubmissionDescription": true
+  },
+  "quick_verification_sha256": "9cabe1b05baa2b5f7e81e039ad392684b4fcd6a8355c7b2ffeb28fd78c484ad0",
+  "local_bindings": {
+    "metadata_sha256": "74007dcac3b5e34c7886fb3e946147ddb2335a3e1e64b530a29e646983943c37",
+    "source_bytes_sha256": "cea8f8cbfa382306dbdd7b7361b16d1d68febc09d7ef585dcb01ee1ef9e46625",
+    "source_canonical_json_sha256": "946eb734a262dbe2423260135cffbead0f694feb2fa3dfd661b88f579deca468",
+    "input_count": 32,
+    "ref": "zhjianduan/name-that-llm-a1-public-stylegram-046",
+    "controller_sha256": "786a59bfccc62c9913e8cdcc2cd59e0cb24e1fa5f53afa92c1eecfa235a44076"
+  },
+  "authority": "Explicit user request in this chat to submit EXP045 A1 to Kaggle.",
+  "unknown_response_policy": "Do not resend. Reconcile submission ref or unique description with exact saved version."
+}

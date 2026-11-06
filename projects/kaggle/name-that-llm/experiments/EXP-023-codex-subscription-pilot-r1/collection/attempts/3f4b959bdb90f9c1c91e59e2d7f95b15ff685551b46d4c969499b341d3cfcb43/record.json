@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0073",
+  "prompt": "A neighborhood market is choosing between one large annual event and several smaller gatherings. Compare the operational advantages of each. Aim for about 160 words.",
+  "category": "business_decision",
+  "target_words": 160,
+  "prompt_group": "cp0073",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "3f4b959bdb90f9c1c91e59e2d7f95b15ff685551b46d4c969499b341d3cfcb43",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:16:48.547647+00:00",
+  "ended_at": "2026-11-01T09:17:11.566572+00:00",
+  "prompt_sha256": "9284e1d67eae74be07a6dc06d269e16b27f2673a596e2d4f8c02f5598b61bbe6",
+  "text": "A neighborhood market can benefit from either format, but each offers different operational advantages.\n\n**One large annual event** concentrates planning, staffing, and promotion into a single cycle. Organizers can negotiate bulk rates for equipment, printing, and supplies, while vendors can prepare for one major sales opportunity. A fixed annual date simplifies scheduling and can attract sponsors who prefer a highly visible occasion. It also leaves the market’s team free to focus on routine operations during the rest of the year. However, success depends heavily on weather, turnout, and smooth execution that day.\n\n**Several smaller gatherings** spread workload and financial exposure across the year. Each event needs fewer staff, less equipment, and simpler crowd management. Organizers can test layouts, activities, and vendor combinations, then use feedback to improve subsequent gatherings. Repeated events also help build reliable volunteer routines and vendor relationships. If one gathering performs poorly, others can compensate. This approach offers flexibility, although it requires recurring coordination, promotion, and setup.",
+  "text_sha256": "f0f96451a61d494cb35829e8bc11345e4a2aa607a0061a300bdf871deb69f29b",
+  "raw_final_sha256": "f0f96451a61d494cb35829e8bc11345e4a2aa607a0061a300bdf871deb69f29b",
+  "word_count": 160,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4236,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 202,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\3f4b959bdb90f9c1c91e59e2d7f95b15ff685551b46d4c969499b341d3cfcb43",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

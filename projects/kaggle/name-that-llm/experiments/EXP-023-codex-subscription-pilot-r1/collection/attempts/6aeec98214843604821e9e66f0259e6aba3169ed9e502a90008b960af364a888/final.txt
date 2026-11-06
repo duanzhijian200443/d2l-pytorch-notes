@@ -1,0 +1,7 @@
+The two facts describe only the shelf’s capacity when all boxes are the same size. They do not specify what mixture of large and small boxes is intended. Even assuming capacity depends only on width, one large box uses \(1/8\) of the shelf and one small box uses \(1/12\). Thus a mixed load must satisfy
+
+\[
+\frac{L}{8}+\frac{S}{12}\le 1.
+\]
+
+Many combinations work: four large and six small boxes fill the shelf exactly, while seven large and one small box also fit, leaving a little space. These loads contain different total numbers of boxes. Moreover, real boxes may differ in height, depth, orientation, or packing efficiency, none of which is given. Therefore, the two all-large and all-small capacities alone cannot determine one unique mixed-box capacity.

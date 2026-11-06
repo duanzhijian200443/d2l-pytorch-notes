@@ -1,0 +1,8 @@
+The article’s strongest material is the example, but the amount of background before it makes the main point hard to find. For the next draft, try restructuring around that example:
+
+1. **Move the example into the opening.** Use it to show readers the central problem, then state the article’s main takeaway in one clear sentence.
+2. **Trim and relocate the background.** Keep only what readers need to understand the example and your argument. Introduce that context where it becomes relevant, rather than presenting it all upfront.
+3. **Give each section a clear role.** Check whether it develops the main takeaway. Cut or revise passages that introduce a separate argument, and add transitions that explain how the remaining sections connect.
+4. **Reconnect the ending to the opening.** Return to the example and explain what readers should now understand or do differently, rather than introducing a new theme.
+
+Start by drafting a revised opening and ending; use those to guide what stays in the middle.

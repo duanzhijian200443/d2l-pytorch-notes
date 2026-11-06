@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0026",
+  "prompt": "Describe how tree roots and fungal networks can exchange resources, while distinguishing established mechanisms from exaggerated claims that forests think like people. Keep your response near 80 words.",
+  "category": "science_explanation",
+  "target_words": 80,
+  "prompt_group": "cp0026",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "93e23e6af71647b197531bf4a7dc45dd00342208717c8fe637dda06e57143988",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:47:23.567139+00:00",
+  "ended_at": "2026-11-01T08:47:43.157195+00:00",
+  "prompt_sha256": "2fef5880c0b7245f7f2e7420e8c7e1c9c079f2e7d0c83a10be13d74ea9ed8f74",
+  "text": "Tree roots exchange resources with mycorrhizal fungi: plants supply sugars and fats from photosynthesis, while fungi deliver nutrients, especially phosphorus and nitrogen, and sometimes water. Fungal threads can connect multiple plants, and experiments have detected carbon and nutrient movement between them. However, the amount transferred, pathways involved, and benefits under natural conditions remain debated. Such networks do not establish that trees consciously share, recognize “family,” or think like people. Resource exchange reflects biological processes, not demonstrated forest-wide intelligence or intention.",
+  "text_sha256": "b15d720a80db95e3c0f1296a631b24e1218b6d716e30db08a148d400c3584dec",
+  "raw_final_sha256": "b15d720a80db95e3c0f1296a631b24e1218b6d716e30db08a148d400c3584dec",
+  "word_count": 80,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4239,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 108,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\93e23e6af71647b197531bf4a7dc45dd00342208717c8fe637dda06e57143988",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

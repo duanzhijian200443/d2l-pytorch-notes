@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0096",
+  "prompt": "How can the arrangement of a theatre's audience affect the relationship between performers and spectators? A response of around 80 words is enough.",
+  "category": "humanities_history",
+  "target_words": 80,
+  "prompt_group": "cp0096",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "25290f635aa3ec19af12546caafac16db1dfdf10f125bdc1466c10d1906799c2",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:31:35.183874+00:00",
+  "ended_at": "2026-11-01T09:31:53.088945+00:00",
+  "prompt_sha256": "49acece2138604e474f8ab0296af936599c3229edf4f23fd98ca4d5c303b27b4",
+  "text": "The arrangement of a theatre’s audience shapes intimacy, involvement, and the distance between performers and spectators. A proscenium stage separates them, encouraging audiences to observe a fictional world. Thrust stages and theatre-in-the-round bring spectators closer, creating immediacy and allowing performers and audiences to see one another more directly. Traverse seating places spectators opposite each other, making their reactions part of the experience. Promenade or immersive arrangements can dissolve boundaries further, inviting audiences to move through the performance or participate.",
+  "text_sha256": "1dfe9195f47e4700345c68d689e29d4689a4a9e60d851c50cfeecca2114a986e",
+  "raw_final_sha256": "1dfe9195f47e4700345c68d689e29d4689a4a9e60d851c50cfeecca2114a986e",
+  "word_count": 79,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4234,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 105,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\25290f635aa3ec19af12546caafac16db1dfdf10f125bdc1466c10d1906799c2",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

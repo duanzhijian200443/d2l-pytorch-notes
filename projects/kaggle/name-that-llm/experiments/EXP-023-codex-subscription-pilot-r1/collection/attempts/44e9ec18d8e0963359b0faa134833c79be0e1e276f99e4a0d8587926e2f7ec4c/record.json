@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0115",
+  "prompt": "A hotel guest finds that the view from a room is mostly a brick wall. Turn this disappointment into a small observational story. A response of around 120 words is enough.",
+  "category": "creative_short_fiction",
+  "target_words": 120,
+  "prompt_group": "cp0115",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "44e9ec18d8e0963359b0faa134833c79be0e1e276f99e4a0d8587926e2f7ec4c",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:43:22.447510+00:00",
+  "ended_at": "2026-11-01T09:43:36.222128+00:00",
+  "prompt_sha256": "c92bb4ebb0b160a7725566487587064c96a634c753b9eec80ac139e1ff72b56b",
+  "text": "At first, she thought the curtains were still closed.\n\nThen she saw the brick wall: close enough to count its chipped red faces, interrupted by a single rusted fire escape and a narrow strip of sky. The booking photos had promised “city views,” which was technically true. Somewhere beyond the wall, traffic sighed and a siren faded.\n\nShe made coffee and sat by the window anyway. At nine, a pigeon landed on the fire escape rail. At ten, a man across the alley watered a plant balanced on his sill. By noon, sunlight slid down the bricks, turning them briefly orange.\n\nThe wall had not improved. But the room had acquired a small, stubborn world.",
+  "text_sha256": "399c78c50e461d8f9a18d3c9bcf79ec22560772f424569538389f61a338200cb",
+  "raw_final_sha256": "399c78c50e461d8f9a18d3c9bcf79ec22560772f424569538389f61a338200cb",
+  "word_count": 115,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4128,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 142,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\44e9ec18d8e0963359b0faa134833c79be0e1e276f99e4a0d8587926e2f7ec4c",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

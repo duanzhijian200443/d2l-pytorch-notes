@@ -1,0 +1,55 @@
+[{"stream_name":"stderr","time":7.585144797,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.585212207,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.585217357,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.585220737,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.169001634,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.169033194,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.169036214,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.169038394,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":12.12011767,"data":"{\n"}
+,{"stream_name":"stdout","time":12.12014116,"data":"  \"config\": {\n"}
+,{"stream_name":"stdout","time":12.1201454,"data":"    \"experiment\": \"no-llama-tfidf-groupcv-v1\",\n"}
+,{"stream_name":"stdout","time":12.12014909,"data":"    \"seed\": 42,\n"}
+,{"stream_name":"stdout","time":12.12015246,"data":"    \"n_splits\": 5,\n"}
+,{"stream_name":"stdout","time":12.12015569,"data":"    \"word_ngram_range\": [\n"}
+,{"stream_name":"stdout","time":12.12015979,"data":"      1,\n"}
+,{"stream_name":"stdout","time":12.12016305,"data":"      2\n"}
+,{"stream_name":"stdout","time":12.12016607,"data":"    ],\n"}
+,{"stream_name":"stdout","time":12.12016928,"data":"    \"char_ngram_range\": [\n"}
+,{"stream_name":"stdout","time":12.12017257,"data":"      3,\n"}
+,{"stream_name":"stdout","time":12.1201758,"data":"      5\n"}
+,{"stream_name":"stdout","time":12.1201789,"data":"    ],\n"}
+,{"stream_name":"stdout","time":12.12018199,"data":"    \"word_max_features\": 50000,\n"}
+,{"stream_name":"stdout","time":12.12018524,"data":"    \"char_max_features\": 120000,\n"}
+,{"stream_name":"stdout","time":12.12018851,"data":"    \"min_df\": 2,\n"}
+,{"stream_name":"stdout","time":12.1201917,"data":"    \"C\": 1.0,\n"}
+,{"stream_name":"stdout","time":12.12019491,"data":"    \"class_weight\": \"balanced\",\n"}
+,{"stream_name":"stdout","time":12.12019835,"data":"    \"max_iter\": 12000,\n"}
+,{"stream_name":"stdout","time":12.12020146,"data":"    \"tol\": 0.0001\n"}
+,{"stream_name":"stdout","time":12.1202047,"data":"  },\n"}
+,{"stream_name":"stdout","time":12.12020774,"data":"  \"versions\": {\n"}
+,{"stream_name":"stdout","time":12.12021096,"data":"    \"python\": \"3.13.15\",\n"}
+,{"stream_name":"stdout","time":12.12021413,"data":"    \"numpy\": \"2.1.3\",\n"}
+,{"stream_name":"stdout","time":12.1202175,"data":"    \"pandas\": \"2.3.3\",\n"}
+,{"stream_name":"stdout","time":12.12022059,"data":"    \"scikit_learn\": \"1.6.1\"\n"}
+,{"stream_name":"stdout","time":12.12022393,"data":"  }\n"}
+,{"stream_name":"stdout","time":12.12022705,"data":"}\n"}
+,{"stream_name":"stdout","time":12.266566589,"data":"Exact duplicate training texts: 0\n"}
+,{"stream_name":"stdout","time":19.86859866,"data":"{\"fold\": 0, \"training_rows\": 2159, \"validation_rows\": 540, \"training_prompts\": 120, \"validation_prompts\": 30, \"balanced_accuracy\": 0.3, \"accuracy\": 0.3, \"seconds\": 7.567}\n"}
+,{"stream_name":"stdout","time":27.497962042,"data":"{\"fold\": 1, \"training_rows\": 2159, \"validation_rows\": 540, \"training_prompts\": 120, \"validation_prompts\": 30, \"balanced_accuracy\": 0.3037037037037037, \"accuracy\": 0.3037037037037037, \"seconds\": 7.438}\n"}
+,{"stream_name":"stdout","time":35.176868976,"data":"{\"fold\": 2, \"training_rows\": 2159, \"validation_rows\": 540, \"training_prompts\": 120, \"validation_prompts\": 30, \"balanced_accuracy\": 0.3111111111111111, \"accuracy\": 0.3111111111111111, \"seconds\": 7.587}\n"}
+,{"stream_name":"stdout","time":42.850584601,"data":"{\"fold\": 3, \"training_rows\": 2159, \"validation_rows\": 540, \"training_prompts\": 120, \"validation_prompts\": 30, \"balanced_accuracy\": 0.33888888888888885, \"accuracy\": 0.3388888888888889, \"seconds\": 7.672}\n"}
+,{"stream_name":"stdout","time":50.816967295,"data":"{\"fold\": 4, \"training_rows\": 2160, \"validation_rows\": 539, \"training_prompts\": 120, \"validation_prompts\": 30, \"balanced_accuracy\": 0.3075989782886334, \"accuracy\": 0.3079777365491651, \"seconds\": 7.771}\n"}
+,{"stream_name":"stdout","time":50.823889963,"data":"OOF balanced accuracy: 0.312245\n"}
+,{"stream_name":"stdout","time":60.09252575,"data":"RUN_COMPLETE {\"oof_balanced_accuracy\": 0.3122445935868755, \"submission_rows\": 3, \"seconds\": 47.973}\n"}
+,{"stream_name":"stderr","time":62.771613709,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":62.771645899,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":62.920566993,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":62.920589882,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":63.634014981,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":63.701300005,"data":"[NbConvertApp] Writing 149461 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":65.976262578,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":66.461045033,"data":"[NbConvertApp] Support files will be in __results___files/\n"}
+,{"stream_name":"stderr","time":66.461078053,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":66.461300083,"data":"[NbConvertApp] Writing 350144 bytes to __results__.html\n"}
+]

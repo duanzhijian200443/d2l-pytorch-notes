@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0149",
+  "prompt": "Rewrite the following as a warm thank-you note without exaggeration: 'You watered the plants while I was away. The basil looks better than before. You also noticed the window was leaking. I appreciated the message and the towel you put there.' Aim for about 80 words.",
+  "category": "rewrite_original_material",
+  "target_words": 80,
+  "prompt_group": "cp0149",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "6f43c3f5d85e5634e8598ffcd0efca707caa8eafe2abba57af98772bdd5fc665",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:26:32.884374+00:00",
+  "ended_at": "2026-11-01T10:26:49.754977+00:00",
+  "prompt_sha256": "bbff9904f7410cc29fc2e85249fe02e4c35688a366745c4b7788a26db0402d22",
+  "text": "Thank you for taking care of the plants while I was away. The basil looks healthier than it did before, and I’m grateful that you noticed the window was leaking. Your message was thoughtful, and placing a towel there helped prevent things from getting worse. I really appreciated your attention to these small but important details. It was reassuring to know everything was in good hands while I was gone.",
+  "text_sha256": "e6ac8e8e0e09a6afe2d79b6e74a975959be3a02415ba33c0aa451eae2f79a487",
+  "raw_final_sha256": "e6ac8e8e0e09a6afe2d79b6e74a975959be3a02415ba33c0aa451eae2f79a487",
+  "word_count": 70,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2614,
+      "cached_input_tokens": 2432,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 82,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\6f43c3f5d85e5634e8598ffcd0efca707caa8eafe2abba57af98772bdd5fc665",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

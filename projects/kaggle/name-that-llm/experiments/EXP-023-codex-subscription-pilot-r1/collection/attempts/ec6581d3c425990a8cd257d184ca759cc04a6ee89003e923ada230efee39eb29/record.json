@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0214",
+  "prompt": "A website asks users to confirm a destructive action twice. Discuss when this helps and when repeated confirmation becomes ineffective. Aim for about 200 words.",
+  "category": "technology_explanation",
+  "target_words": 200,
+  "prompt_group": "cp0214",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "ec6581d3c425990a8cd257d184ca759cc04a6ee89003e923ada230efee39eb29",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:11:35.423328+00:00",
+  "ended_at": "2026-11-01T11:11:55.443478+00:00",
+  "prompt_sha256": "9e24f59d2d6a3d3c0b781402ede36f315bd820c138e0017f0ed271d0d4b84abd",
+  "text": "Double confirmation can help when a destructive action is rare, high-impact, and difficult or impossible to reverse—for example, deleting an account, wiping production data, or revoking access for an entire organization. The two steps should serve different purposes: the first explains the consequences, while the second verifies intent through a meaningful action such as typing the resource name, re-entering a password, or selecting whether backups are retained. This gives users time to reconsider and can prevent accidental clicks, misunderstandings, or actions taken from an unattended session.\n\nRepeated confirmation becomes ineffective when both prompts are nearly identical. Users quickly learn to click “Confirm” twice without reading, creating habituation rather than safety. It is especially unhelpful for frequent, low-risk actions, where extra dialogs add friction and encourage users to dismiss warnings automatically. Vague language—such as “Are you sure?”—also fails because it does not clarify what will happen or whether recovery is possible.\n\nGood design should match friction to risk. Use clear, specific wording, visually distinguish destructive controls, and state the scope and permanence of the action. Where possible, prefer safer mechanisms such as undo, soft deletion, delayed execution, backups, or recovery windows. Confirmation dialogs should be the final safeguard, not a substitute for reversible system design.",
+  "text_sha256": "a2795e2b554b8b30c3a6f48045d137c0938abb24b65327b7cff4b0dece954196",
+  "raw_final_sha256": "a2795e2b554b8b30c3a6f48045d137c0938abb24b65327b7cff4b0dece954196",
+  "word_count": 204,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4122,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 277,
+      "reasoning_output_tokens": 14
+    }
+  ],
+  "attempt_path": "collection\\attempts\\ec6581d3c425990a8cd257d184ca759cc04a6ee89003e923ada230efee39eb29",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,7 @@
+A search system may return a relevant document even when it does not contain the exact words typed because modern search goes beyond simple keyword matching. It may recognize synonyms, related concepts, abbreviations, spelling variations, and different forms of the same word. For example, a search for “car repair” might retrieve a page discussing “automobile maintenance,” even though neither exact phrase appears.
+
+Many systems also use linguistic analysis to understand the meaning and intent behind a query. Semantic search models represent words and documents as meanings or concepts, allowing them to identify related content. A document about “reducing household electricity use” may therefore appear for a search about “saving energy at home.”
+
+Search engines can also use contextual signals, such as the user’s location, previous searches, document popularity, freshness, or links from other trusted pages. They may analyze titles, headings, metadata, anchor text, or surrounding content rather than relying only on the visible body text. In addition, spelling correction and query expansion can modify or broaden the original search.
+
+As a result, the returned document may be relevant because it matches the query’s intent, topic, or context—even if it does not contain the exact words entered by the user.

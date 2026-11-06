@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0135",
+  "prompt": "Should a beginner photographer use automatic settings for longer or learn manual controls immediately? Explain without prescribing one path for everyone. Aim for about 120 words.",
+  "category": "tradeoff_argument",
+  "target_words": 120,
+  "prompt_group": "cp0135",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "8416832ec3f506f48c822e8e8b95e682fc8942a3c85baae9ae468b44799cc7da",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:56:37.433319+00:00",
+  "ended_at": "2026-11-01T09:56:56.626391+00:00",
+  "prompt_sha256": "70dccaf9ba6500c389ce728014e04515000256e8a39706622deb300eba7641ff",
+  "text": "Beginners don’t need to choose between staying fully automatic and switching immediately to manual. Automatic or semi-automatic modes can reduce cognitive load, letting you practice composition, timing, light, and interaction with subjects. They’re especially useful when moments happen quickly.\n\nManual controls, however, help explain why photos look the way they do. Learning aperture, shutter speed, and ISO early can build confidence and make difficult lighting more manageable. A gradual approach often works well: use aperture priority to explore depth of field, shutter priority for motion, and manual mode when lighting is consistent or experimentation matters.\n\nThe best pace depends on your goals, patience, and subjects. Someone photographing sports may value responsiveness; someone shooting landscapes may enjoy deliberate manual practice. Progress matters more than mode choice.",
+  "text_sha256": "5afb413ee86988aabfadbe7225c5776fc5adead1821bdb993528a40dd70a483e",
+  "raw_final_sha256": "5afb413ee86988aabfadbe7225c5776fc5adead1821bdb993528a40dd70a483e",
+  "word_count": 125,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4123,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 157,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\8416832ec3f506f48c822e8e8b95e682fc8942a3c85baae9ae468b44799cc7da",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

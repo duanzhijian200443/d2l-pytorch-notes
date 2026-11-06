@@ -1,0 +1,4 @@
+experiment,m,scenario_repeats,mean_ba,scenario_sd_ddof1,min_ba,max_ba,interpretation
+EXP-019,2,5,0.3928534233299343,0.03478449975207977,0.35225442739716756,0.43342090274382644,descriptive sampling variation using the same fitted models/prompts; not independent training repeats or standard error
+EXP-019,3,5,0.3882062259567465,0.02239424563427863,0.35176381752371344,0.41007134523111216,descriptive sampling variation using the same fitted models/prompts; not independent training repeats or standard error
+EXP-019,6,5,0.3880514598276587,0.0061451551833549825,0.3776120267692807,0.3933599802046762,descriptive sampling variation using the same fitted models/prompts; not independent training repeats or standard error

@@ -1,0 +1,328 @@
+{
+  "schema_version": 1,
+  "reviewed_at_utc": "2026-11-01 09:55:17 UTC",
+  "scope": "Read-only review of EXP-028 hooks for a new real EXP-029 capture; not launch approval or model execution proof",
+  "status": "DIRECT_REUSE_REQUIRES_REAL_ENTRYPOINT_AND_BOUND_PREFLIGHT",
+  "findings": [
+    {
+      "id": "HOOK-01",
+      "priority": "P1",
+      "title": "The unmodified real comp loader ignores a custom evaluation directory",
+      "references": [
+        {
+          "path": "experiments/EXP-009-baseline-data-lineage/comp_stack.py",
+          "line_start": 73,
+          "line_end": 88
+        },
+        {
+          "path": "experiments/EXP-009-baseline-data-lineage/infer.py",
+          "line_start": 54,
+          "line_end": 71
+        }
+      ],
+      "trigger": "Point only main --data or NTL_DATA at the 729-row blinded panel with SMOKE disabled.",
+      "effect": "Comp still reads competition train/test. Main and comp rows differ; comp loading may be caught and skipped, and the two caches cannot pass identity validation.",
+      "required_action": "The new EXP-029 runner must bind both real loaders to the same effective panel and original official train, without enabling SMOKE. Keep the EXP-028 sources frozen and document the new adapter's exact delta.",
+      "classification": "Launch wiring blocker; not a defect in observer-only instrumentation."
+    },
+    {
+      "id": "HOOK-02",
+      "priority": "P1",
+      "title": "The historical notebook does not provide a checked real-capture launcher",
+      "references": [
+        {
+          "path": "reviews/own-scheme-readiness-20261030/baseline-v2.ipynb",
+          "cell": 2
+        },
+        {
+          "path": "reviews/own-scheme-readiness-20261030/baseline-v2.ipynb",
+          "cell": 10
+        },
+        {
+          "path": "reviews/own-scheme-readiness-20261030/baseline-v2.ipynb",
+          "cell": 12
+        }
+      ],
+      "trigger": "Reuse the notebook's FAST_COMMIT branch or its '!python comp_stack.py ... | grep ...' command as the capture controller.",
+      "effect": "The public three-row file enables a constant placeholder instead of model execution. The shell pipeline also does not make comp process success a required precondition for main, allowing an expensive main run after comp failure or against a stale raw comp file.",
+      "required_action": "Use an explicit new real-capture entrypoint, checked child exit codes, isolated output paths, and the current comp commit receipt before starting main. Install generated files after all historical writefile cells.",
+      "classification": "Launch wiring blocker."
+    },
+    {
+      "id": "HOOK-03",
+      "priority": "P2",
+      "title": "The default required-events template discards an otherwise inspectable cache when ATLAS raises before returning",
+      "references": [
+        {
+          "path": "cloud/full-stack-cache/capture-context-template.json",
+          "line_start": 5,
+          "line_end": 16
+        },
+        {
+          "path": "src/full_stack_observer.py",
+          "line_start": 120,
+          "line_end": 125
+        },
+        {
+          "path": "experiments/EXP-009-baseline-data-lineage/infer.py",
+          "line_start": 579,
+          "line_end": 592
+        },
+        {
+          "path": "src/full_stack_replay.py",
+          "line_start": 468,
+          "line_end": 470
+        }
+      ],
+      "trigger": "ATLAS raises before its return event, including a zero-row request; the original algorithm catches Exception and completes remaining postprocessing.",
+      "effect": "The template requires atlas_returned, so component_end raises CaptureFailure and no COMMITTED main cache is produced. This fails closed, but differs from the replay layer's intended nonempty partial-coverage result. For an empty request, the current replayer additionally rejects an absent return even though no scores are needed.",
+      "required_action": "Choose the real run's event policy before launch. If partial diagnostic caches should commit, handle missing/nonempty ATLAS returns in a new EXP-029 adapter or copied validator and keep accepted=false/needs-additional. Preserve zero-row empty returns explicitly; do not invent scores or silently relax the frozen EXP-028 helper.",
+      "classification": "Conditional capture policy gap; fail-closed behavior is safe."
+    }
+  ],
+  "hook_assessment": {
+    "first_data_event": "Observer initialization occurs after both scripts have finalized test text and IDs, before model work. It automatically emits data with ID order, fixed labels and exact text fingerprints.",
+    "main": "main_svc4_margin precedes weighted LP; main_members snapshots ordered LP and train targets; comp load/status, pre-ATLAS, request/return, Sinkhorn and typography boundaries have source anchors.",
+    "comp": "Only the two evaluation svc_probs calls use the wrapped style margin. The tiny training self-test calls decision_function directly, so it does not create a misleading evaluation event. Family scores are captured before and after actual gates.",
+    "failure_semantics": "Array/JSON capture errors become SystemExit-derived CaptureFailure and are not swallowed by original optional-model except Exception blocks. An invalid from_env context fails before model work.",
+    "context_validation": "The observer checks scope/run_id/required_events and launch_ready for real scopes. It does not itself validate all checkpoint hashes, environment, budgets or expected inventories; the new real runner must do so before model launch.",
+    "output_integrity": "Component directories are exclusive, arrays are copied without dtype conversion, text inputs are fingerprints only, and external manifest hashes are printed at commit. COMMITTED still proves component bytes only.",
+    "package": "The seven packaged files match their EXP-028 package-manifest hashes. New runner must make observer/cache/gauss modules importable beside each child script."
+  },
+  "inventories": {
+    "source_derivation": "Derived from the original model-spec and add_member branches, not copied from synthetic fixture success.",
+    "main_expected_order": [
+      "tfidf",
+      "svc4",
+      "distort",
+      "q14v5_gauss",
+      "q14v5",
+      "q14v5_twin",
+      "q8v5_gauss",
+      "q8v5",
+      "q8v5_twin",
+      "ll8v5",
+      "ll8v5_twin",
+      "n14b",
+      "n14b_twin",
+      "q25_14",
+      "q25_14_twin",
+      "deb"
+    ],
+    "main_count": 16,
+    "main_conditions": "For the frozen six MODELS, svc_w=1.5, distort_w=.10, adapt_w=1.0. Gaussian keys remain present as zero arrays when no main Gte group has size 2..18; twin keys also remain present and are zero on singletons. TF-IDF retains a zero fallback key after a caught fit exception.",
+    "comp_always_required": [
+      "stylegram",
+      "stylometry_lgb",
+      "debv3l",
+      "electl",
+      "desk",
+      "ultrabert"
+    ],
+    "comp_group_condition": "The following nine contributions appear only if comp GROUP_ROWS.any(), derived from G_TE group size 2..18. This is a different grouping from main Gte and Stylegram G_style.",
+    "comp_group_required_when_eligible": [
+      "glm9b_twin",
+      "gauss_glm9b_L8",
+      "q3_8b_twin",
+      "gauss_q3_8b_L22",
+      "q25_7b_twin",
+      "q3_4b_twin",
+      "gauss_q3_4b_L4",
+      "debv3l_twin",
+      "gauss_debv3l_L24"
+    ],
+    "comp_optional_lora": [
+      {
+        "member": "lora24_public",
+        "condition": "Matching lora24/final/COMPLETE.json attachment exists",
+        "conditional_twin": "lora24_public_twin when GROUP_ROWS.any()"
+      },
+      {
+        "member": "lora24_seed7",
+        "condition": "Matching name-that-llm-train-lora24-s7/lora_out/job_final/COMPLETE.json exists",
+        "conditional_twin": null
+      },
+      {
+        "member": "lora24_claude",
+        "condition": "Matching ntl-qwen3-8b-lora-claude-head/**/final/COMPLETE.json exists",
+        "conditional_twin": "lora24_claude_twin when GROUP_ROWS.any()"
+      },
+      {
+        "member": "lora20_q25_instyle",
+        "condition": "Matching ntl-train-lora-qwen25-instyle/lora_out/job_final/COMPLETE.json exists",
+        "conditional_twin": null
+      }
+    ],
+    "comp_optional_token_attention": [
+      {
+        "member": "tokattn_deb",
+        "condition": "tokattn_debl23_final.pt AND deberta-v3-large backbone are attached"
+      }
+    ],
+    "excluded": [
+      "tokattn_q35 is unavailable for this proposed capture and must be explicitly excluded before launch, not discovered missing after acceptance."
+    ],
+    "maximum_comp_count_without_q35": 22,
+    "maximum_condition": "All four optional LoRA checkpoints and Deb token head attached; at least one eligible comp group. No source basis for a fixed count of 24.",
+    "no_eligible_group_count_if_all_other_optional_present": 11,
+    "group_policy": "Freeze attachment-derived optional presence and the conditional grouping rule before inference. Do not freeze synthetic 23 or unconditionally demand group heads on an all-singleton panel. Any resolved inventory must prove the predeclared G_TE condition rather than deleting missing members retrospectively.",
+    "family_gates": {
+      "always": "gpt, gemini, glm",
+      "conditional": "claude requires API passage attachment; claude_lora requires the matching LoRA head fields. Gate events are not add_member inventory entries."
+    }
+  },
+  "panel_and_io_requirements": [
+    "Use the new blinded 729-row test CSV with only id/text; keep true model and prompt sidecar local and out of the uploaded payload.",
+    "Bind both child readers to the same test bytes and original official training bytes. A metadata label alone does not redirect comp's hardcoded real loader.",
+    "Clear NTL_SMOKE/NTL_FAKE_TEST and main --sim/--fake_test overrides. Set NTL_DROP_Q35 consistently with the frozen exclusion.",
+    "Preserve string IDs through the original pandas readers: prefixed blind IDs avoid numeric or leading-zero coercion. Validate the effective read-back text strings, since default NA parsing can differ from verify_cache keep_default_na=False.",
+    "Do not place the evaluation CSV under names matched by comp's public-training glob patterns; a plain test.csv is not one of those training patterns.",
+    "Keep expected_main_members/expected_comp_members or a predeclared conditional inventory policy in the same context used by both components; verify the context hash and external commit receipts.",
+    "Require a real Parquet engine in the target runtime before heavy work. The EXP-028 parity harness deliberately intercepted to_parquet and did not validate the engine.",
+    "Use fresh run outputs and capture root; gate main on successful comp exit and this run's comp commit. Avoid reusing an old /kaggle/working/comp_logit.npy."
+  ],
+  "environment_assessment": {
+    "historical_notebook_python": "3.13.15 (notebook metadata)",
+    "historical_torch_version": null,
+    "python313_torch211": "The official PyTorch compatibility matrix includes Python 3.13 for PyTorch 2.11. This is pair-level support, not proof of this exact Kaggle image or third-party extension compatibility.",
+    "actual_target_runtime_checked": false,
+    "required_import_preflight": [
+      "numpy",
+      "pandas",
+      "scipy",
+      "sklearn",
+      "torch",
+      "transformers",
+      "peft",
+      "safetensors",
+      "lightgbm",
+      "pyarrow",
+      "tokenizers",
+      "accelerate"
+    ],
+    "additional_requirements": [
+      "ATLAS bundle Python packages and their local config/tokenizer/adapter files",
+      "Optional bitsandbytes wheel must match the target Python/CUDA ABI if installed; never blindly install every discovered wheel",
+      "A pinned image or recorded installed versions including CUDA runtime/driver must accompany the run",
+      "The source's peft.import_utils torchao workaround and Transformers dtype/from_pretrained APIs must be import-tested in that environment"
+    ],
+    "torch_load": "Original main heads.pt and comp token-attention torch.load calls omit weights_only. PyTorch 2.11 defaults to weights_only=True. Tensor/plain-container checkpoints can work; any unsupported pickled globals must be identified from the actual pinned checkpoints before launch. No blanket weights_only=False change is recommended.",
+    "torch_load_references": [
+      {
+        "path": "experiments/EXP-009-baseline-data-lineage/infer.py",
+        "line": 399
+      },
+      {
+        "path": "experiments/EXP-009-baseline-data-lineage/comp_stack.py",
+        "line": 812
+      }
+    ],
+    "no_model_imports_or_checkpoint_loads_in_this_review": true
+  },
+  "official_sources": [
+    {
+      "title": "PyTorch release compatibility matrix",
+      "url": "https://github.com/pytorch/pytorch/blob/main/RELEASE.md",
+      "claim_used": "PyTorch 2.11 supports Python >=3.10 through 3.14; Python 3.13 lies in that range. CUDA wheel variants are version-specific."
+    },
+    {
+      "title": "PyTorch 2.11 torch.load",
+      "url": "https://docs.pytorch.org/docs/2.11/generated/torch.load.html",
+      "claim_used": "weights_only defaults to True; supported checkpoint object types are restricted."
+    },
+    {
+      "title": "Transformers installation",
+      "url": "https://huggingface.co/docs/transformers/main/installation",
+      "claim_used": "The library requires compatible PyTorch/Python and locally cached files for offline operation; current general documentation is not a pin for this experiment."
+    }
+  ],
+  "verification": {
+    "package_hashes_match": true,
+    "package_files": 7,
+    "readonly_generated_core_probes": [
+      {
+        "case": "zero_request_returns_empty",
+        "actual_original_request_lengths": [
+          0
+        ],
+        "events": [
+          "comp_status",
+          "main_probability",
+          "pre_atlas",
+          "atlas_requested",
+          "atlas_returned",
+          "pre_sinkhorn",
+          "sinkhorn_applied"
+        ],
+        "template_missing_at_finish": [],
+        "mathematics_returned_finite": true,
+        "provider_exception_caught": false,
+        "actual_models_loaded": false
+      },
+      {
+        "case": "zero_request_provider_raises",
+        "actual_original_request_lengths": [
+          0
+        ],
+        "events": [
+          "comp_status",
+          "main_probability",
+          "pre_atlas",
+          "atlas_requested",
+          "pre_sinkhorn",
+          "sinkhorn_applied"
+        ],
+        "template_missing_at_finish": [
+          "atlas_returned"
+        ],
+        "mathematics_returned_finite": true,
+        "provider_exception_caught": true,
+        "actual_models_loaded": false
+      },
+      {
+        "case": "positive_request_provider_raises",
+        "actual_original_request_lengths": [
+          60
+        ],
+        "events": [
+          "comp_status",
+          "main_probability",
+          "pre_atlas",
+          "atlas_requested",
+          "pre_sinkhorn",
+          "sinkhorn_applied"
+        ],
+        "template_missing_at_finish": [
+          "atlas_returned"
+        ],
+        "mathematics_returned_finite": true,
+        "provider_exception_caught": true,
+        "actual_models_loaded": false
+      }
+    ]
+  },
+  "frozen_files_sha256": {
+    "experiments/EXP-009-baseline-data-lineage/infer.py": "022cafd2e6504dd7cf38c8675b9597fb4fbd4c9dd0be69d38918293d9caac9b3",
+    "experiments/EXP-009-baseline-data-lineage/comp_stack.py": "b6b6a7b8adbe50580c2d0de5a41d0764ae752fe729e1471872a9197ac956f222",
+    "cloud/full-stack-cache/instrument.py": "1a3a4f2635139828a6cf3dc4d9e142c9ebd7ac4ceac16f53bec7fd6006f7d569",
+    "cloud/full-stack-cache/capture-context-template.json": "5f49205740bfcd6470cd5ae6b16e06d7dcf8e2407e78f5dc1f6ae9bf8b6e32c1",
+    "src/full_stack_cache.py": "ff6b28d7834bdd4bd26bfb1fa69b3b9dc4ccaf194d968cf9b2d8ac4652df85a9",
+    "src/full_stack_observer.py": "ada0dc10ba451308f453dd709540193b04912b95eb585abcbd36c87c0e8db5ca",
+    "src/full_stack_replay.py": "b1bab1993fb17850d8b3cfb26716f47c869dbca5107c3435b859864d2ca99586",
+    "cloud/full-stack-cache/verify_cache.py": "4f0034ee5f33a2809a84c851d8c9b7ad65e80d198094c79e2679e68d08d26688",
+    "cloud/full-stack-cache/assemble.py": "27365dd9ceaf8c7622f5950f64cac70c1717e5ffc26e52479b508cfe6ddc23d3",
+    "cloud/full-stack-cache/package-manifest.json": "7c6c6c25ba06f3d66a43c51768ebc945803484921ee99fba496ded3dcbefabec",
+    "cloud/full-stack-cache/generated/infer.py": "8b97f40e4fedf79c842c886e62419144d2e6d0c2e743779c264f7d3074d5f4f7",
+    "cloud/full-stack-cache/generated/comp_stack.py": "64d061ebe633f2ba328b630041a7ddf1d21f09ac774d7cd818ea629a13bfa194"
+  },
+  "frozen_files_unchanged_at_review_close": true,
+  "changes_made": [
+    "Only cloud/full-stack-capture-planning/capture-review.json was added for this audit."
+  ],
+  "unrun": [
+    "No real 729-row model execution",
+    "No Kaggle launch, remote runtime inspection, installation or checkpoint load",
+    "No real Parquet engine check in the target image",
+    "The new cloud/full-stack-capture runner/build_runtime files were not yet available at this snapshot; a separate dataflow review is pending."
+  ]
+}

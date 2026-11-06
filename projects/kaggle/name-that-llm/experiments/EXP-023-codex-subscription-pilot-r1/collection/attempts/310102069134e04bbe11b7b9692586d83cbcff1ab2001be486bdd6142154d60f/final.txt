@@ -1,0 +1,7 @@
+A project leader should communicate a delay promptly, even when a reliable revised completion date is not yet available. Waiting for certainty can undermine trust and leave stakeholders unable to plan.
+
+Start by clearly stating that the original deadline will not be met. Briefly explain the cause, distinguish confirmed facts from unresolved questions, and acknowledge the impact without blaming others or making excuses.
+
+Avoid replacing the missed deadline with an optimistic guess. Instead, explain what the team is doing to resolve the problem, what determines the remaining timeline, and when stakeholders will receive the next update. If a preliminary range is useful, label it as tentative and state its assumptions.
+
+For example: “We will not meet the planned launch date because integration testing uncovered issues requiring further investigation. We understand this affects your planning. The team is assessing fixes and options to reduce the impact. We cannot yet provide a dependable completion date, but we will share an updated assessment by Friday—even if some uncertainty remains.”

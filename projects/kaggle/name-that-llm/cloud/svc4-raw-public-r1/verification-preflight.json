@@ -1,0 +1,19 @@
+{
+  "observed_at": "2026-11-01T07:50:51.713326+00:00",
+  "status": "PASS_SYNTHETIC_AND_LOCAL_ONLY",
+  "real_result_verified": false,
+  "unittest": "python -B -X utf8 -m unittest discover -s cloud/svc4-raw-public -p test_results.py -v",
+  "tests_passed": 15,
+  "protocol_sha256": "9117d147deb4c2ab27a6054655970445095e638bc11a2d506310bf73170f4855",
+  "checks": [
+    "frozen retry input hashes unchanged",
+    "frozen four config hashes unchanged",
+    "updated local documentation links resolve",
+    "ledger check:20 experiments,62 sources,5 ideas",
+    "canonical ID-based sparse sampling and budget rejection regression tests"
+  ],
+  "files": {
+    "cloud/svc4-raw-public/verify_results.py": "ba2c7141dff75fdc327922487d883aab02d64ca7ef3f91a1ba16f65d2ab2fe22",
+    "cloud/svc4-raw-public/test_results.py": "6c8d8e7ce3e336a61f12049d21a3e81416cecec106c3079dd66e39e1c57a4704"
+  }
+}

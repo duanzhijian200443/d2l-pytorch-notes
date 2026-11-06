@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0235",
+  "prompt": "Discuss whether a restaurant's short menu is more helpful than a large menu, considering customers with different expectations. Aim for about 120 words.",
+  "category": "tradeoff_argument",
+  "target_words": 120,
+  "prompt_group": "cp0235",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "575a03c8a6ddfe90d99fd6718e34e70c7d52624293fa85f4505910c8c25116cb",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:24:15.718084+00:00",
+  "ended_at": "2026-11-01T11:24:33.525200+00:00",
+  "prompt_sha256": "48eb827a255d13c1089a23e4c548789b5a3cc9bdc1a684cd05112c770fc66dd6",
+  "text": "A short menu can be more helpful because it reduces decision fatigue and often signals that the restaurant focuses on a few dishes made well. Customers seeking speed, clarity, or a curated dining experience may appreciate this approach, especially if ingredients are fresh and the staff can explain each item confidently. It can also make ordering easier for first-time visitors.\n\nHowever, a large menu may better serve groups with varied tastes, families with children, or diners with dietary restrictions. These customers may value choice and feel disappointed if a limited menu lacks familiar options. Ultimately, neither format is always superior: a short menu suits customers who want quality and simplicity, while a larger one helps those expecting flexibility and variety.",
+  "text_sha256": "effbfa104d0f1cb779cc2fb1197e1d01018f5deebe63945c9ec299ffa9311d5e",
+  "raw_final_sha256": "effbfa104d0f1cb779cc2fb1197e1d01018f5deebe63945c9ec299ffa9311d5e",
+  "word_count": 120,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4121,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 156,
+      "reasoning_output_tokens": 14
+    }
+  ],
+  "attempt_path": "collection\\attempts\\575a03c8a6ddfe90d99fd6718e34e70c7d52624293fa85f4505910c8c25116cb",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

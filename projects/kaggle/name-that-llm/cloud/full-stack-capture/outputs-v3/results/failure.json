@@ -1,0 +1,6 @@
+{
+  "status": "ERROR",
+  "cause": "EXECUTION_ERROR",
+  "observed_at": "2026-11-01T10:44:41.192149+00:00",
+  "traceback": "Traceback (most recent call last):\n  File \"/kaggle/working/payload/runner.py\", line 636, in main\n    worker(HERE, out)\n    ~~~~~~^^^^^^^^^^^\n  File \"/kaggle/working/payload/runner.py\", line 343, in worker\n    save(out / 'required-input-paths.json', required_optional_inputs())\n                                            ~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/kaggle/working/payload/runner.py\", line 246, in required_optional_inputs\n    require(bool(hits), 'Required original optional input is absent: ' + name)\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/payload/runner.py\", line 65, in require\n    raise ValueError(message)\nValueError: Required original optional input is absent: lora24_public\n"
+}

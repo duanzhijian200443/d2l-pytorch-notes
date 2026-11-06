@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0195",
+  "prompt": "A candle burns down by the same amount each hour. It is twenty centimeters tall initially and fourteen centimeters tall after two hours. Explain the predicted height after five hours under this assumption. Use approximately 160 words for the response.",
+  "category": "reasoning_explanation",
+  "target_words": 160,
+  "prompt_group": "cp0195",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "e58ed7409c8f125623cfa410ada3c75452c8b465bb035b1daa885657c24ce014",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:59:58.913001+00:00",
+  "ended_at": "2026-11-01T11:00:16.031929+00:00",
+  "prompt_sha256": "5e6b0d44c75ec5711a916298abaa1052992e8c01ef98b1e0271df4bdcd0caed0",
+  "text": "The candle starts at **20 centimeters** tall and is **14 centimeters** tall after two hours. Therefore, it loses\n\n\\[\n20-14=6\\text{ centimeters}\n\\]\n\nduring those two hours. Because the candle is assumed to burn down by the same amount every hour, its hourly decrease is\n\n\\[\n6\\div 2=3\\text{ centimeters per hour}.\n\\]\n\nThis gives the linear model\n\n\\[\nH(t)=20-3t,\n\\]\n\nwhere \\(H(t)\\) is the candle’s height in centimeters after \\(t\\) hours.\n\nAfter five hours, the predicted height is\n\n\\[\nH(5)=20-3(5)=20-15=5\\text{ centimeters}.\n\\]\n\nThus, **the candle is predicted to be 5 centimeters tall after five hours**. This result is an extrapolation from the observed two-hour change. It depends on the assumption that the candle continues burning at exactly 3 centimeters per hour. In practice, a candle’s burning rate might vary because of its shape, wick, wax, or surrounding air, but under the stated constant-rate assumption, 5 centimeters is the appropriate prediction.",
+  "text_sha256": "b243fadb7df61373ad9b0b5ab8eb53df60f2b12ed2f6db0dc8964fdabff6a600",
+  "raw_final_sha256": "b243fadb7df61373ad9b0b5ab8eb53df60f2b12ed2f6db0dc8964fdabff6a600",
+  "word_count": 149,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4138,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 287,
+      "reasoning_output_tokens": 40
+    }
+  ],
+  "attempt_path": "collection\\attempts\\e58ed7409c8f125623cfa410ada3c75452c8b465bb035b1daa885657c24ce014",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "zhjianduan/ntl-stylegram-cv-inputs-v1",
+  "title": "NTL Stylegram CV Inputs v1",
+  "licenses": [
+    {
+      "name": "other"
+    }
+  ],
+  "description": "Private experiment inputs. Public generated passages retain upstream licenses and attribution. No redistribution authorization implied. Known official prompt reconstructions excluded. Sources: seyitkaangunes/ntl-extra-api-passages V2; lucasboesen/ntl-free-proxy-generations V7; dophuchung/ntl-proxy-generations V1; prvsiyan/prvsiyans-extended-name-that-llm-dataset V6. Official training text is loaded separately from the competition. The fixed-fold table is private experiment metadata."
+}

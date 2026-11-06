@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-11-01T08:58:56.929067+00:00",
+  "status": "READ_ONLY_INTEGRATION_AUDIT_COMPLETE_NOT_EXECUTED",
+  "experiment": "EXP-027",
+  "training_executed": false,
+  "gpu_started": false,
+  "remote_queried": false,
+  "source_receipts": {
+    "baseline": {
+      "path": "reviews/own-scheme-readiness-20261030/baseline-v2.ipynb",
+      "sha256": "6c9145f038ccffbe08dc6da6db3d1dcf3d2e0e7d2286927bfc8800ef5148cfb8",
+      "lines_1based": null
+    },
+    "main": {
+      "path": "experiments/EXP-009-baseline-data-lineage/infer.py",
+      "sha256": "022cafd2e6504dd7cf38c8675b9597fb4fbd4c9dd0be69d38918293d9caac9b3",
+      "lines_1based": [
+        [
+          183,
+          231
+        ],
+        [
+          395,
+          453
+        ],
+        [
+          560,
+          606
+        ],
+        [
+          627,
+          630
+        ],
+        [
+          635,
+          689
+        ]
+      ]
+    },
+    "complement": {
+      "path": "experiments/EXP-009-baseline-data-lineage/comp_stack.py",
+      "sha256": "b6b6a7b8adbe50580c2d0de5a41d0764ae752fe729e1471872a9197ac956f222",
+      "lines_1based": [
+        [
+          30,
+          39
+        ],
+        [
+          100,
+          114
+        ],
+        [
+          235,
+          307
+        ],
+        [
+          913,
+          955
+        ]
+      ]
+    },
+    "launch": {
+      "path": "experiments/EXP-009-baseline-data-lineage/cell-12.py",
+      "sha256": "8605f9c879f616e79398a06339a0e9693d680abe4d21211e616ca747eff095e1",
+      "lines_1based": null
+    },
+    "lineage": {
+      "path": "experiments/EXP-009-baseline-data-lineage/report.md",
+      "sha256": "67aedb68032a651d9a22ce81f8af7a089c8db6d1f2878c7da8bdf9b26b1ef9ed",
+      "lines_1based": null
+    },
+    "checkpoint_evidence": {
+      "path": "experiments/EXP-009-baseline-data-lineage/checkpoint-evidence.json",
+      "sha256": "34f7b2b53fc0f4a1452cd2be08882b0c83142eb8838ebfc6d4b3993269064e00",
+      "lines_1based": [
+        [
+          43,
+          126
+        ],
+        [
+          317,
+          320
+        ]
+      ]
+    },
+    "legacy_state": {
+      "path": "cloud/who-am-i-v32-colab/execution-state.json",
+      "sha256": "c8b5775a341aeee1f7e80e9a4f5c0f056b7b6bf160433b384b96eb66be4719dc",
+      "lines_1based": null
+    },
+    "drive_input_index": {
+      "path": "cloud/atlas20-drive/drive-inputs.json",
+      "sha256": "5d0aa17129933ba23ae85dca1877914bc7f1e1f17d81ea2514fe291caa07b8d1",
+      "lines_1based": null
+    },
+    "external_lightweight_report": {
+      "path": "experiments/EXP-026-independent-blend-validation/report.md",
+      "sha256": "9ade9ac21b5f17c640a7f65c67d345a955d1784c21c60f5f3e4a7a15330ee7c4",
+      "lines_1based": null,
+      "original_audit_observed_sha256": "55151f1ebb21b3c2e57b7d1bb5bd04eceea62d4074c75e492c5881078285b540",
+      "rechecked_at_utc": "2026-11-01T09:06:27.282585+00:00",
+      "update_note": "EXP026 report now includes normalized prompt-unit correction (1300 to1299); full-stack integration findings unaffected. Original observed report hash retained."
+    }
+  },
+  "baseline_extraction_equality": {
+    "main_cell_index": 6,
+    "complement_cell_index": 8,
+    "equal_after_removing_writefile_line": true
+  },
+  "integration": {
+    "main_svc4": {
+      "data_rows_projection": 123828,
+      "log_coefficient": 1.5,
+      "recipe": "official2699 + matched24443 + retained_pool96686; row weights1/.5/.35; balanced"
+    },
+    "baseline_stylegram": {
+      "public_rows_projection": 10325,
+      "log_coefficient": 1.516,
+      "after_raw_margin_softmax": true,
+      "plain_centred_additions": 1
+    },
+    "candidate": {
+      "style_public_rows": 10073,
+      "svc_public_rows": 5400,
+      "svc_total_rows": 8099,
+      "alpha": 0.1,
+      "meaning": "within per-row-standardized uncalibrated margins, not whole-ensemble weight"
+    },
+    "complement_probability_mix": 0.15,
+    "alpha_zero_preserves_native_stack_scale": false,
+    "post_gate_comp_logit_can_replace_style_contribution_directly": false
+  },
+  "minimum_controls": [
+    {
+      "arm": "A0",
+      "style": "original10325 recipe raw",
+      "purpose": "current input snapshot reference"
+    },
+    {
+      "arm": "A1",
+      "style": "EXP01010073 recipe raw",
+      "purpose": "Stylegram recipe replacement only; original family gates unchanged"
+    },
+    {
+      "arm": "A2",
+      "style": "z(A1 raw)",
+      "purpose": "normalization effect vs A1"
+    },
+    {
+      "arm": "A3",
+      "style": ".9*z(A1 raw)+.1*z(raw8099 svc4)",
+      "purpose": "fixed complement effect vs A2"
+    }
+  ],
+  "all_arms_keep_original_main_svc4": true,
+  "cache_requirement": [
+    "exact ordered IDs and 18 labels",
+    "all active main LP arrays and nonzero-array divisor",
+    "complement pre-gate member contributions and raw gate scores",
+    "stylegram and raw-public svc4 margins",
+    "group assignments",
+    "ATLAS union-request raw outputs with completed mask",
+    "pre/post Sinkhorn and typography scores",
+    "source/model/input fingerprints and environment"
+  ],
+  "local_cache_audit": {
+    "roots": [
+      "experiments",
+      "cloud",
+      "reviews"
+    ],
+    "extensions": [
+      ".npy",
+      ".npz"
+    ],
+    "array_file_counts": {
+      "experiments": 290,
+      "cloud": 31,
+      "reviews": 0
+    },
+    "candidate_full_complement_arrays": [],
+    "finding": "No verified full-stack OOF or four-label external full-member cache found in scanned local arrays and indexed controller metadata. Existing lightweight arrays are not full-stack caches.",
+    "remote_absence_claimed": false,
+    "legacy_run": "V32 local state reports test3 and interrupted GPU release; no final full-stack verification"
+  },
+  "clean_oof_blockers": [
+    "ATLAS trained on all2699 official rows",
+    "n14b/q25_14/deb public then official training",
+    "Claude final includes official training",
+    "l24 consumer averages5fold+full",
+    "UltraBERT consumer averagesall5fold",
+    "Gaussian features from full-data adapter",
+    "remaining checkpoint row/fold provenance incomplete"
+  ],
+  "limits": [
+    "Lineage counts are fixed-file projections, not historical hidden-run observed counts.",
+    "Historical large-input byte/version equivalence remains incomplete.",
+    "External gate currently audits lightweight member inputs, not every full-stack checkpoint.",
+    "Four planned controls are not run; no gain, duration or GPU-speed claim is made."
+  ],
+  "plan_path": "experiments/EXP-027-multiclass-external-validation/integration-plan.md"
+}

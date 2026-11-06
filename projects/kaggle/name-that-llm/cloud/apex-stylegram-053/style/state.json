@@ -1,0 +1,12 @@
+{
+  "status": "COMPLETE",
+  "ref": "zhjianduan/ntl-apex-volume-053-style",
+  "run_requests": 1,
+  "prepared_at": "2026-11-02T07:28:15.550162+00:00",
+  "notebook_sha256": "4d60b81254b5368b7decc8ebc4bef8713da00c276a1314b75c23a3a3434fd0fe",
+  "metadata_sha256": "7f550c5593d881e175b3497272610f3d29302bd695b6471e31be7b7e862aa610",
+  "config_sha256": "0360dc996b9a88b03bdbb4bc183d0e241e2fdf591fa1aa41497829a03e096dec",
+  "observed_at": "2026-11-02T08:20:11.452583+00:00",
+  "version": 1,
+  "readback_verified": true
+}

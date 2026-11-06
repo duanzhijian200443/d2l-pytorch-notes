@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-023",
+  "freeze_status": "FROZEN_FOR_PILOT",
+  "frozen_at": "2026-11-01T08:22:33.301632+00:00",
+  "config": {
+    "path": "experiments/EXP-023-codex-subscription-pilot-r1/config.json",
+    "sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e"
+  },
+  "inputs": [
+    {
+      "path": "experiments/EXP-021-codex-subscription-pilot/prompts.jsonl",
+      "sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0"
+    },
+    {
+      "path": "experiments/EXP-021-codex-subscription-pilot/model-instructions.txt",
+      "sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb"
+    }
+  ],
+  "code": [
+    {
+      "path": "experiments/EXP-023-codex-subscription-pilot-r1/code/codex_collect.py",
+      "sha256": "ff8409a1f8397db4510cf1775d8d27815782d3ed4e2691974b9e285d493e7158"
+    },
+    {
+      "path": "experiments/EXP-023-codex-subscription-pilot-r1/code/test_codex_collect.py",
+      "sha256": "dd4d57e4b8e418a32e557b2e7a113b4f748f362fe5ed11f4eff57feda4784d46"
+    },
+    {
+      "path": "experiments/EXP-023-codex-subscription-pilot-r1/run_and_finalize.py",
+      "sha256": "172fe52ad4707549a272c13e5577bf1fed26bda7468db7a1bf69d20574d88e18"
+    }
+  ],
+  "runtime": {
+    "cli_version": "0.166.0-alpha.5.1",
+    "executable_sha256": "3097c909fb6d5cd63510d44aceb1d42df9f6e85722a3e447e477def1ecf60e16",
+    "authentication": "ChatGPT subscription; no credentials copied",
+    "model_access": "All four requested model slugs returned successful smoke responses via authenticated CLI; backend snapshot not exposed."
+  },
+  "sampling": {
+    "unique_prompts": 250,
+    "models": 4,
+    "planned_responses": 1000,
+    "split_prompts": {
+      "train": 200,
+      "holdout": 50
+    },
+    "split_responses": {
+      "train": 800,
+      "holdout": 200
+    }
+  },
+  "validation_scope": "Collection integrity only; no training or API equivalence acceptance",
+  "note": "Prompt semantic overlap with inaccessible official prompts not established; preserve raw responses and quarantine source.",
+  "retry_of": "EXP-021",
+  "retry_change": "Remove unsupported reserved built-in provider overrides. Reuse frozen prompts and instructions; controller supports input-file reference."
+}

@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-027",
+  "created_at": "2026-11-01T08:54:25.707581+00:00",
+  "freeze_status": "FROZEN",
+  "note": "Accepted imbalanced17-label row set frozen before scoring; EXP-026 training bytes and alpha=.10 unchanged.",
+  "config": {
+    "path": "experiments/EXP-027-multiclass-external-validation/config.json",
+    "sha256": "a362a8783341bdd51b0e38aa591e27c30248bf799a0e8fec14631b4ae74ebf05"
+  },
+  "config_template": {
+    "path": "configs/experiment-defaults.json",
+    "sha256": "35aa4a6789a20062c7b3e53db60ab17a7378ea9fe75e032ca98bf5d3b288e213"
+  },
+  "inputs": [
+    {
+      "path": "cloud/fixed-blend-multiclass/payload/CC-BY-4.0.txt",
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"
+    },
+    {
+      "path": "cloud/fixed-blend-multiclass/payload/attribution.md",
+      "sha256": "4d9f400dadbde253fa03a8272a9a8215c89bb629e0b6c67e4004875ddf6e51c7"
+    },
+    {
+      "path": "cloud/fixed-blend-multiclass/payload/config.json",
+      "sha256": "a362a8783341bdd51b0e38aa591e27c30248bf799a0e8fec14631b4ae74ebf05"
+    },
+    {
+      "path": "cloud/fixed-blend-multiclass/payload/data_gate.json",
+      "sha256": "cead2f4745a3e4af6a8adffe2361efd725e2710971a12123083b927589f573e5"
+    },
+    {
+      "path": "cloud/fixed-blend-multiclass/payload/evaluation.csv",
+      "sha256": "8ec3217f1f469b66170f68f7abdb3ef1973a64e47d983c59b40a4d1ce2094670"
+    },
+    {
+      "path": "cloud/fixed-blend-multiclass/payload/guard.py",
+      "sha256": "eaf2c31758045488eb53ba3f9c7f824c848bfe0a33698fab816d96485f9b6d3b"
+    },
+    {
+      "path": "cloud/fixed-blend-multiclass/payload/margin_blend.py",
+      "sha256": "8c4288447de755d9bd160e5646794b2307f56ae00ae11104d062d9697ef5dc83"
+    },
+    {
+      "path": "cloud/fixed-blend-multiclass/payload/own-README.md",
+      "sha256": "de884bb731f11ebe83208bf11e4fbb178636c801e4dc40e6602e2ad401e99726"
+    },
+    {
+      "path": "cloud/fixed-blend-multiclass/payload/own-attribution.json",
+      "sha256": "145bb04ccc787750ed79758e3adf4d06b982a620f992e2ca8ea310aaedf382fc"
+    },
+    {
+      "path": "cloud/fixed-blend-multiclass/payload/public.csv",
+      "sha256": "0a1e31a0f8b0ece7ca44a961075252fe275107f3710804971838d714a4e77aaa"
+    },
+    {
+      "path": "cloud/fixed-blend-multiclass/payload/runner.py",
+      "sha256": "80ba5cd354fd41ce177d8e3816b8cdb9f031161116febedf70c719641b19b639"
+    },
+    {
+      "path": "cloud/fixed-blend-multiclass/payload/style_extra.csv",
+      "sha256": "1e9125fd49b19084842332ede84ea65bc0174ee1bb28c8d48acc8ddbd5e36c0e"
+    },
+    {
+      "path": "cloud/fixed-blend-multiclass/payload/stylegram_core.py",
+      "sha256": "caa46bd121164aba891c3d78e662540db9294d653db09f53d02833c1b4ab77ef"
+    },
+    {
+      "path": "cloud/fixed-blend-multiclass/payload/svc4.py",
+      "sha256": "80f66aedad27e8017defe31de7f0286c1b54efa5e96ba6e2cb42516a86e73c18"
+    }
+  ],
+  "code": [
+    {
+      "path": "cloud/fixed-blend-multiclass/runner.py",
+      "sha256": "80ba5cd354fd41ce177d8e3816b8cdb9f031161116febedf70c719641b19b639"
+    },
+    {
+      "path": "cloud/fixed-blend-multiclass/build_payload.py",
+      "sha256": "29055275883cc3bedb14d73f9bb3301cdf5958a25a53931cbe63d132b55ec59a"
+    },
+    {
+      "path": "experiments/EXP-027-multiclass-external-validation/audit_external.py",
+      "sha256": "3cb7192de9a4bb12f0ef59dd71714bc7ae86e2ac8833edd302b22ab8f7651af1"
+    }
+  ],
+  "frozen_at": "2026-11-01T09:01:51.895777+00:00",
+  "protocol": {
+    "path": "cloud/fixed-blend-multiclass/payload/protocol.json",
+    "sha256": "c3e2b1aab6744a41dc546281f0eb00d61f0d5e10564415444b4bb4e1267ce886"
+  }
+}

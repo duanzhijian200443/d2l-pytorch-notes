@@ -1,0 +1,5 @@
+stylegram groups: 729 rows | singletons 2  2-3: 12  4-18: 686  >18: 29
+  + stylegram            weight 1.516 on 729 rows  (341s)
+gpt gate: 750 official + 3678 extra rows
+gemini gate: 600 official + 2407 extra rows
+glm gate: 300 official + 506 extra rows

@@ -1,0 +1,5 @@
+A flute and a violin can play the same musical note at the same loudness because they produce the same fundamental frequency, which determines the note’s pitch. However, each instrument also produces additional frequencies called overtones or harmonics. The particular mixture and relative strength of these harmonics gives an instrument its **timbre**, or tone color.
+
+A flute’s sound is relatively pure, with a strong fundamental and fewer prominent higher harmonics. Its tone is created mainly by vibrating air in the tube, with some breath noise adding softness. A violin, by contrast, produces a richer, more complex spectrum. Its vibrating strings transfer energy through the bridge to the wooden body, which emphasizes many harmonics. The bow also creates small variations and frictional noise.
+
+Their sound envelopes differ as well: a violinist can shape the note continuously with bow pressure and vibrato, while a flute’s attack and breath character are different. Thus, equal loudness means equal perceived intensity, not identical frequency content or tone quality.

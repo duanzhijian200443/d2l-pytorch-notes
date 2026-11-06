@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0175",
+  "prompt": "Write an email to participants postponing an outdoor sketching session because the venue is unexpectedly unavailable. Say that a replacement date will follow. Please answer in roughly 160 words.",
+  "category": "short_email",
+  "target_words": 160,
+  "prompt_group": "cp0175",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "57677ba9c8d23e46c8fa465c27563ea8afbfc00c91783fec7b6ada79e8b73b0b",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:45:48.942584+00:00",
+  "ended_at": "2026-11-01T10:46:07.813580+00:00",
+  "prompt_sha256": "66c5773f53de15e7c5dc9336cc0c3535bb2010ff317ef1a6b19320a03e3e1d2f",
+  "text": "**Subject: Outdoor Sketching Session Postponed**\n\nDear participants,\n\nWe’re writing to let you know that our upcoming outdoor sketching session must unfortunately be postponed. The venue has become unexpectedly unavailable, and we’re unable to proceed with the session as planned.\n\nWe sincerely apologize for the short notice and any inconvenience this change may cause. We know many of you were looking forward to spending time outdoors, developing your observational drawing skills, and sharing the experience with fellow participants.\n\nWe are currently working to arrange an alternative date and suitable venue. A replacement date, along with any updated details, will follow as soon as arrangements are confirmed. Please hold off on making any travel plans until you receive our next message.\n\nThank you for your understanding and patience. We hope you’ll be able to join us when the session is rescheduled, and we look forward to sketching together soon.\n\nBest regards,  \n[Your Name]  \n[Organization/Workshop Team]",
+  "text_sha256": "59121be0681d72457c4f1ff183fd84306dac65a919ecfd053aa5cd3e1eaeabb4",
+  "raw_final_sha256": "59121be0681d72457c4f1ff183fd84306dac65a919ecfd053aa5cd3e1eaeabb4",
+  "word_count": 153,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2593,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 194,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\57677ba9c8d23e46c8fa465c27563ea8afbfc00c91783fec7b6ada79e8b73b0b",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

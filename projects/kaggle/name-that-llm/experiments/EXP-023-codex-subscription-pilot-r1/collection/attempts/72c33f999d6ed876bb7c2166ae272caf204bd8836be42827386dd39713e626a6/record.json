@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0045",
+  "prompt": "A digital photograph looks sharp on a phone but blurry when enlarged as a poster. Explain the limitation in plain language. Keep your response near 120 words.",
+  "category": "technology_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0045",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "72c33f999d6ed876bb7c2166ae272caf204bd8836be42827386dd39713e626a6",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:59:07.776076+00:00",
+  "ended_at": "2026-11-01T08:59:27.085107+00:00",
+  "prompt_sha256": "8878c2d36e16b88201369d6b9f0af4c8cff561df5422bef3141edc51a7eeb789",
+  "text": "A digital photograph is made of tiny colored squares called pixels. On a phone’s small screen, those pixels are packed closely together, so your eyes see a smooth, sharp image. When the same photo is enlarged into a poster, the existing pixels must cover a much bigger area. Fine details can look soft, and edges may appear jagged or blocky.\n\nThe main limitation is resolution: the amount of detail captured in the original image. Enlarging a photo does not automatically add real detail. Software can estimate extra pixels to make the enlargement look smoother, but it cannot reliably recover details that were never recorded. A higher-resolution original generally makes a sharper poster, especially when viewed up close.",
+  "text_sha256": "bfef2763fcd76f7662712b2e25454a5df6429a9bedcc10ed210378c45bdd9571",
+  "raw_final_sha256": "bfef2763fcd76f7662712b2e25454a5df6429a9bedcc10ed210378c45bdd9571",
+  "word_count": 117,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4238,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 142,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\72c33f999d6ed876bb7c2166ae272caf204bd8836be42827386dd39713e626a6",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

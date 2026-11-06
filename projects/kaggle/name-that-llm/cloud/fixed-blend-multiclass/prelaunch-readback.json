@@ -1,0 +1,12 @@
+{
+  "previous_run": {
+    "observed_at": "2026-11-01T09:00:43.116Z",
+    "response": {
+      "status": "COMPLETE"
+    }
+  },
+  "new_ref_search": {
+    "observed_at": "2026-11-01T09:00:43.116Z",
+    "response": {}
+  }
+}

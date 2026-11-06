@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0103",
+  "prompt": "A lighthouse keeper receives a postcard addressed to the lighthouse itself. Tell what happens next without using a supernatural threat. Please answer in roughly 160 words.",
+  "category": "creative_short_fiction",
+  "target_words": 160,
+  "prompt_group": "cp0103",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "54174613964ac9bce748087bba700f704a1ddb36faff3d6e4374ce3a24e94807",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:35:56.567122+00:00",
+  "ended_at": "2026-11-01T09:36:24.190052+00:00",
+  "prompt_sha256": "8ceb4c4f88c87e6e49b1a777eefa6836356667eff155dcc50a61c45dc6781ada",
+  "text": "The postcard showed the lighthouse before its windows were replaced, before the breakwater, before anyone thought to paint the door red.\n\nOn the back, in careful capitals, someone had written:\n\nPLEASE KEEP YOUR LIGHT ON NEXT THURSDAY. I AM BRINGING HIM HOME.\n\nMara checked the postmark. A town three hundred miles inland. No signature.\n\nThursday arrived with rain and a minibus.\n\nAn elderly man stepped out holding a biscuit tin. His daughter followed, apologizing before she reached the door.\n\n“He worked here in 1962. He wanted to write ahead.”\n\nThe man ignored them both. He put his palm against the stone.\n\n“Still cold,” he said.\n\nInside, Mara made tea. He opened the tin: brass screws, a payroll slip, and a photograph of two young keepers grinning over a burnt saucepan.\n\n“Your predecessor owes me six shillings.”\n\n“Interest might bankrupt us,” Mara said.\n\nAt dusk, she took him upstairs. He watched the lamp begin its sweep.\n\nHis daughter quietly folded the unused wheelchair back into the bus.",
+  "text_sha256": "9b996827ec62a2b2b7a48d8d6ed268142fe758c174cc8a1c441c605786b70cbb",
+  "raw_final_sha256": "9b996827ec62a2b2b7a48d8d6ed268142fe758c174cc8a1c441c605786b70cbb",
+  "word_count": 166,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4237,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 223,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\54174613964ac9bce748087bba700f704a1ddb36faff3d6e4374ce3a24e94807",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

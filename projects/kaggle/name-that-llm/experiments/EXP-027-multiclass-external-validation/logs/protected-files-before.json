@@ -1,0 +1,11 @@
+{
+  "observed_at": "2026-11-01T08:57:44.648284+00:00",
+  "files": {
+    "reviews/own-scheme-readiness-20261030/baseline-v2.ipynb": "6c9145f038ccffbe08dc6da6db3d1dcf3d2e0e7d2286927bfc8800ef5148cfb8",
+    "experiments/EXP-026-independent-blend-validation/manifest.json": "2ea82b39cd67bd183791d0734edca7beb30ac103e457162f5c39cf9f5fa39536",
+    "cloud/fixed-blend-external/payload/protocol.json": "8cada9716782903f6e799374c8bfc7aa7f6beb6f39c74cf0e1d941cac68faaa2",
+    "src/svc4.py": "80f66aedad27e8017defe31de7f0286c1b54efa5e96ba6e2cb42516a86e73c18",
+    "src/margin_blend.py": "8c4288447de755d9bd160e5646794b2307f56ae00ae11104d062d9697ef5dc83",
+    "experiments/EXP-010-012-stylegram-share/payload/stylegram_core.py": "caa46bd121164aba891c3d78e662540db9294d653db09f53d02833c1b4ab77ef"
+  }
+}

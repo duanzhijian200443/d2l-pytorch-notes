@@ -1,0 +1,449 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-022",
+  "created_at": "2026-11-01T08:13:14.619170+00:00",
+  "freeze_status": "FROZEN",
+  "note": "Read-only cached prediction analysis; input bytes and consumed scenario identity checked before analysis.",
+  "config": {
+    "path": "experiments/EXP-022-oof-complementarity/config.json",
+    "sha256": "9bb778f70d5fcbead4548dd73cdc366d6ea3b7c38c2792d25d2c6ea4931692d8"
+  },
+  "config_template": {
+    "path": "configs/oof-complementarity.json",
+    "sha256": "9bb778f70d5fcbead4548dd73cdc366d6ea3b7c38c2792d25d2c6ea4931692d8"
+  },
+  "inputs": [
+    {
+      "path": "cloud/svc4-raw-public-r1/analysis/verified.json",
+      "sha256": "a1275c89b753acb7ea13ec81e7c6b608ac37a6e7bd5254527163c40a045309b0"
+    },
+    {
+      "path": "cloud/svc4-raw-public-r1/outputs-v4/results/EXP-018/fold0.npz",
+      "sha256": "3a06e4f67adeca3ae359b9317bce5ffb4c69414e5b766e8470424b4adfcd6013"
+    },
+    {
+      "path": "cloud/svc4-raw-public-r1/outputs-v4/results/EXP-018/fold1.npz",
+      "sha256": "c7258848c8749deb4a91da6d2f91e2b69e09c268b75980cb6bf1a09c03e8da58"
+    },
+    {
+      "path": "cloud/svc4-raw-public-r1/outputs-v4/results/EXP-018/fold2.npz",
+      "sha256": "01f1d466f88fbad4a7d497bb91cd95c77f6f396dfdb54696be779d0a370b10da"
+    },
+    {
+      "path": "cloud/svc4-raw-public-r1/outputs-v4/results/EXP-018/fold3.npz",
+      "sha256": "d68b0debd54b2867870fdd5ded419610d17364e5007d0b99ab8f881297c74293"
+    },
+    {
+      "path": "cloud/svc4-raw-public-r1/outputs-v4/results/EXP-018/fold4.npz",
+      "sha256": "2446b23579b9d97f4c5bd02691924cf13cfd33d13b9c334f5b51f43092ccc642"
+    },
+    {
+      "path": "cloud/svc4-raw-public-r1/outputs-v4/results/EXP-018/oof.csv",
+      "sha256": "73ae7f803e52fbef7348b0db42f4eb9cfca5d4252cf1acb799bf2985f44c7f49"
+    },
+    {
+      "path": "cloud/svc4-raw-public-r1/outputs-v4/results/EXP-018/oof_decision.npy",
+      "sha256": "e9ed77f155ab7b465ba4185722b9f229636ca337400cd7c74d7665404f96a93a"
+    },
+    {
+      "path": "cloud/svc4-raw-public-r1/outputs-v4/results/environment.json",
+      "sha256": "c802177e7d24f69ea33a957aeebeafe95242f87d422fab90317f5aef90278e14"
+    },
+    {
+      "path": "cloud/svc4-raw-public-r1/outputs-v4/results/result.json",
+      "sha256": "fae09b2c5ed0546e4f0262999533c06665ed026fb57af88712cb9605b10cac68"
+    },
+    {
+      "path": "cloud/svc4-raw-public-r1/payload/protocol.json",
+      "sha256": "9117d147deb4c2ab27a6054655970445095e638bc11a2d506310bf73170f4855"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/acceptance-20261101/acceptance-status.json",
+      "sha256": "6295fd0b9f93b67bd1c4ecf6102082ffb2f17f08b1d30b02b1ed946b21ec4023"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/acceptance-20261101/download-manifest.json",
+      "sha256": "18ff74fbef79d8082c1b6bdfc4eb3d90a54188fa9fecf25add31e31bbfe31390"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/analysis/verified.json",
+      "sha256": "75950aa76c941b10bc3c823417d5e48d457ded55b556be4d55f03f4ff7005856"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/environment.json",
+      "sha256": "d9e2bdb641c77715f2d694ef191e774f00b248418a9705f13285e0b5045be332"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/fold0-share0.5.npz",
+      "sha256": "5e4f2c63185903c9d16a36ce72c8645d38ef8fc2bf0ce741dfca34b3766d5be8"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/fold1-share0.5.npz",
+      "sha256": "b93912876a12f286fb436bea08d6210ba842ca8058947926246d8454de338584"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/fold2-share0.5.npz",
+      "sha256": "80dced742a8c060a069931c7a6bed2b78ae8d35abf1aed665a30b9884b2cc8bc"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/fold3-share0.5.npz",
+      "sha256": "6b2f94e7d7a2bf6d40b80319c1327fbf7206af25b11d458b07bf2f0c25e2fc54"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/fold4-share0.5.npz",
+      "sha256": "aa8ad7be9aba5590d7a2ab35155ad3a60d65d46a473b57d8c2ed8cdca5260175"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/oof-share0.5.csv",
+      "sha256": "5ffdf9ed9085a4a1dd0d11f78113638ae609694e4b389d466d08e9400946aa0e"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/oof-share0.5.npy",
+      "sha256": "d0215a7bd06d5f7dfbf2119c67db5892eef54e78dae4173225254da664e8baa7"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/result.json",
+      "sha256": "75e94b47519e9941b65c3807d1da828b748d90b27fad560f55f5fd28be33ad06"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f0-a0.5-m2-r0.npz",
+      "sha256": "0810ba840232459e741a2553f277c1da6f086a5709ea57dace462e976076b7fb"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f0-a0.5-m2-r1.npz",
+      "sha256": "5e6bd5c036527e781d13b171cd2e9d114825981039fa9ce4c95dd95e38ab8966"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f0-a0.5-m2-r2.npz",
+      "sha256": "eea0c67c25c136751a39e356b837a46cbc2cef8db87728d5b91d49b54173681a"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f0-a0.5-m2-r3.npz",
+      "sha256": "6baf31fcb4469545dd6c02ae6eee9d8c47a8c8dcdc6ccf1fa227d5ecd89cb162"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f0-a0.5-m2-r4.npz",
+      "sha256": "ab786d93c3bd73d982906b01b4fd0bcf7253e60ab1b6cb6fa3f99c17cbd719bd"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f0-a0.5-m3-r0.npz",
+      "sha256": "a0351005ff1197bea4222d74ef3621dec997c27ba8fc987194dbd41b02521187"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f0-a0.5-m3-r1.npz",
+      "sha256": "1ee3e79b99bddd36a56eba93055128c367a4597ac077e1b0616a458ad17c68f6"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f0-a0.5-m3-r2.npz",
+      "sha256": "2887ecc71e174a8bfc6fa6ddc13d34fa92104739a8ca97204facd2ad545465b6"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f0-a0.5-m3-r3.npz",
+      "sha256": "7dc1495747b9268b425f0af498f6de8fabe1d6b54a8bd821fec7dec4cda169da"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f0-a0.5-m3-r4.npz",
+      "sha256": "bd83a37df39a3ff65ead8a4d7914c78b4defa290c6a30c8d7b0c5d02600399f2"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f0-a0.5-m6-r0.npz",
+      "sha256": "8b334386f5395bac9a136d03bf8f27951865cf6f4d5981ab977441e68282cdbf"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f0-a0.5-m6-r1.npz",
+      "sha256": "d90b744ca01c5813cddfb7d0a7c28260127874869e09e3e86ff2b0f5be8b91ab"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f0-a0.5-m6-r2.npz",
+      "sha256": "f8280fc772bc71c857bea185e8320821dd2c90fdb42cc8895510f788acd7fa7b"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f0-a0.5-m6-r3.npz",
+      "sha256": "88f6b60d5fd34fe151d7c7c45779eba8f428ab635348b5abe90a48ce0a332997"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f0-a0.5-m6-r4.npz",
+      "sha256": "770627c5ecde935d9f75307315ffc158b46b3d827d0015fdd96a74a96c5745e6"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f1-a0.5-m2-r0.npz",
+      "sha256": "ce983ef29147d86a6db61192b55538047d392f0e6a27a0a31a38022812008fcc"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f1-a0.5-m2-r1.npz",
+      "sha256": "b3fa839ffe2e0f60f4805a7666a293f411f9b2350b1d323cc718e9a933f74206"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f1-a0.5-m2-r2.npz",
+      "sha256": "55dc8a757870f320bccf4ad73f3e379b5fc0ae37a76aa3ec100f05bd43bb456c"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f1-a0.5-m2-r3.npz",
+      "sha256": "f1380752bf168e3494c18ea6ce5aa49bcf82b87487acc02f9f2a9d82ea44898f"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f1-a0.5-m2-r4.npz",
+      "sha256": "5b50546aa0af2b1f0d21008be7abda0b10005736d833e9e7d3af79dde96d1ee2"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f1-a0.5-m3-r0.npz",
+      "sha256": "3b129bac6d3d086944d9dd9a0de54fb069b3015a7cf43267fba1670229547482"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f1-a0.5-m3-r1.npz",
+      "sha256": "c49dc641fa63d0a294bf6182584861a5d5c4c0c585a3419d79b337a7e9f3565f"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f1-a0.5-m3-r2.npz",
+      "sha256": "abbf574bfee38f3303b8d09a4299ab1be3ed618b2e27aa276dbaec8f116c7554"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f1-a0.5-m3-r3.npz",
+      "sha256": "602d2b8ece0a5c59a6825703c7922916be494af2122b0b5bf698b84b3d092dff"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f1-a0.5-m3-r4.npz",
+      "sha256": "2c9da092e010d6f2ea1d271145bb7f6642e23889f077b1c1032104d650047e1c"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f1-a0.5-m6-r0.npz",
+      "sha256": "e8cc60e485b949f3d84ae7010c56b64f1eb8a9c5546f6f788eaf2acad7cd6417"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f1-a0.5-m6-r1.npz",
+      "sha256": "3e7cba8293f7db8e5a1bd0020415f961aa6e78285e016225776517366e307f25"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f1-a0.5-m6-r2.npz",
+      "sha256": "53a3d95029c9b1e72df47c0fd16e2fd6b40732799807f1e25c3e9717fe1684d0"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f1-a0.5-m6-r3.npz",
+      "sha256": "fc9ce6bb24c029c6b287a5c3214e0127e8b51735e88d369828659b64f129b168"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f1-a0.5-m6-r4.npz",
+      "sha256": "ff9351b39986519ae0999d6cf0d7a467be7ce1e0123a7a92fbd45dbe56b9d350"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f2-a0.5-m2-r0.npz",
+      "sha256": "5b8bce44e84cc38d84aa787108914a64d98ed3bd9858d50adfafc0bfecd04f69"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f2-a0.5-m2-r1.npz",
+      "sha256": "48c2464d0e365285658a8128e82cc678ca366ebe07c3e4cfbd0d2468927d054c"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f2-a0.5-m2-r2.npz",
+      "sha256": "d2917027b8858049013f9b3b1e720900e7d4ab0b32cf6d33ab96eb6fd1b1c5f4"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f2-a0.5-m2-r3.npz",
+      "sha256": "6e785237d0dca3065de828ad10def2d8cc21dfaa3cd4adf9bdbb53f4a5295d4b"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f2-a0.5-m2-r4.npz",
+      "sha256": "96e73bde4d8faa779aab18830bc23308c24cb9d311eef5c915a2b472365471fd"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f2-a0.5-m3-r0.npz",
+      "sha256": "3fcd58a3a862d5dee8f7b85659f1e8723c15d643cb58a6621c6a7469a62a7f5c"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f2-a0.5-m3-r1.npz",
+      "sha256": "ecd4ba17e900c6e7106eb1c5f47a4534e55dd86c8bf7f64a4037a6af067fdd8b"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f2-a0.5-m3-r2.npz",
+      "sha256": "4dcdb8117e5dede1dc297c25af29870ffca130303e37a560dbd48019a0e477b1"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f2-a0.5-m3-r3.npz",
+      "sha256": "e8eda6c5c54661eeb14ab0615e491cef53357085135d5ac1cc6dcdc0f422b9fe"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f2-a0.5-m3-r4.npz",
+      "sha256": "735ac051359b4412d95301c5883e2c219a7a6ab389cd6c3b9bf756b4b8289ccd"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f2-a0.5-m6-r0.npz",
+      "sha256": "aaadab465bfa17f30163017c3f4da556b5b240b075169c2b2913208a7d8f93cf"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f2-a0.5-m6-r1.npz",
+      "sha256": "bdd3b75b6cf985ceb8e05d8bce61bdf778b2deeeead4b617fcdf0c50d0427900"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f2-a0.5-m6-r2.npz",
+      "sha256": "3e55fea81f9a86061a805911bbbaa7674c14293f3c1e6d9b8175edc42461f5ad"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f2-a0.5-m6-r3.npz",
+      "sha256": "fe0ca0f158e933cf2795d5eca122e7391e65a8e3093ab179e7ecb3c1bf590385"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f2-a0.5-m6-r4.npz",
+      "sha256": "6357a35c99f659eabc83fab4a5d065aefdfe3cd6d218c15c9dc957a884cae601"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f3-a0.5-m2-r0.npz",
+      "sha256": "199e57a673942142250ca6d03f1b2ecd06dac1d160d324c9d49d35a87dc064d1"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f3-a0.5-m2-r1.npz",
+      "sha256": "990e5cbd3a56d3df8f0b2c05a10e649c1bc0cf571f705c802a6efea4cb465855"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f3-a0.5-m2-r2.npz",
+      "sha256": "c71530eadd86201f8ce5431db71bbaeda545688d9d2f981728c397c56cd7fc8b"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f3-a0.5-m2-r3.npz",
+      "sha256": "3318f5e9f23de9adf7022fa36c38c03f2553759b8c551d1886737464602f82ab"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f3-a0.5-m2-r4.npz",
+      "sha256": "94ace885d4c8e56b778a81d58893753de9d74e34d5e8c35231863feaf7a60846"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f3-a0.5-m3-r0.npz",
+      "sha256": "0da2919d7e05d1290ec6cffc3c8f2c3907dc36a3bfdd2c53712fbbafc1a4f8b8"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f3-a0.5-m3-r1.npz",
+      "sha256": "ff7e99aad215344a778c0f8077c8ad392d0262331e77c38e50074b3af363c326"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f3-a0.5-m3-r2.npz",
+      "sha256": "00a07d79877a871bcdd2b941b00619f99f212c53d8ed3b72258162ca94449f05"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f3-a0.5-m3-r3.npz",
+      "sha256": "cc8d541ab7ec784df08364d1d136ec6780a8f10d6f5a92e46c17b23740582e88"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f3-a0.5-m3-r4.npz",
+      "sha256": "e1e7532e7e4e6bf454ccb3bef69adebfff496bc0c3f29e62d983aa9ea86b34eb"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f3-a0.5-m6-r0.npz",
+      "sha256": "7a97f91f4fdd92a0350bf182b522ee20b6c64fd1075fb36634d5769e960345a8"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f3-a0.5-m6-r1.npz",
+      "sha256": "e19c88886a0b7893566fb1c9b8538439d5bcc2976165938a7424b3dd08a6f4f5"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f3-a0.5-m6-r2.npz",
+      "sha256": "95a65792a689351d7b4cc341de62eb04e3c4416bf7cce92e281b51347705cb0a"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f3-a0.5-m6-r3.npz",
+      "sha256": "6f5b8c2be136fac12fd0950a3703b7e567f4641fcafb5ed38c09ef2c3b9433d9"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f3-a0.5-m6-r4.npz",
+      "sha256": "4ad184b091b100c08d3e87a9a523ac4e15730699f37dcb3c86b0158fa6eefbd4"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f4-a0.5-m2-r0.npz",
+      "sha256": "cbff96ac3235730439c4f60311f8226da5dd5bc837d5a7c9f1574551a8f79fc8"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f4-a0.5-m2-r1.npz",
+      "sha256": "823928e383cb6dc21939cd2e01acc4508f57a48deef19684270fb91a682b61a7"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f4-a0.5-m2-r2.npz",
+      "sha256": "cb42167408d094a934f50497e8864a7fa8ef5d18e5f94e4fb3f1a1453a6ae3d5"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f4-a0.5-m2-r3.npz",
+      "sha256": "6536c788eb4f4aab700f406d1e15b850766d31118226ab8392b7131f0f5b2b4d"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f4-a0.5-m2-r4.npz",
+      "sha256": "b2e7b38ef20f8bdc853a4bcca9a88d44a802fec38a88bd13d4f655eac3e895e1"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f4-a0.5-m3-r0.npz",
+      "sha256": "e4f7932a38b0833590e11e677f03599ebfbdf65407bba958767261d8d15e39ed"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f4-a0.5-m3-r1.npz",
+      "sha256": "26c4a98545e4d18f18ab7cca234a9614a15ce0a3537ac9208dfdfe169d25fbbc"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f4-a0.5-m3-r2.npz",
+      "sha256": "bcf283ff4ede0eb2780e2072cb0d05e54b178e37eeb2a2b59060d99e69babb60"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f4-a0.5-m3-r3.npz",
+      "sha256": "c1b190fe5681c7a76704d8f2dc15fd9fd69f26c404c8014787527156d7f8ccec"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f4-a0.5-m3-r4.npz",
+      "sha256": "c741f2fe7a9b1a6e4b6ec705c76952d803192c4ee74b2bf4d685df488cb0a15e"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f4-a0.5-m6-r0.npz",
+      "sha256": "7a4108fdc1c3df342796e6ab295148a078b08bd6a5715ab88af30cc16c63c998"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f4-a0.5-m6-r1.npz",
+      "sha256": "c03da0b60361ee71f3d4fabb9f93d27cf0a045b1cf023daf3fbef6b2f30444c6"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f4-a0.5-m6-r2.npz",
+      "sha256": "83988b83f66fbb720d45277259b208d0efa73e88cc3bcc0cb0067c94865a0ffb"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f4-a0.5-m6-r3.npz",
+      "sha256": "7dff433e56d60ed196b3f8b72000ab0f5a96ebc126dae8aea58787c1f927d2ee"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/download-v2/results/sparse-f4-a0.5-m6-r4.npz",
+      "sha256": "c1bf1c4a4e308c94dff580cdebaa65cdff0f5783743930a2eeb19adb7716357d"
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/payload/protocol.json",
+      "sha256": "3983ceb881750b9b138ee59a3c03ba1acb2dd0f04c2b56bbe96ec682446ce50c"
+    },
+    {
+      "path": "experiments/EXP-022-oof-complementarity/config.json",
+      "sha256": "9bb778f70d5fcbead4548dd73cdc366d6ea3b7c38c2792d25d2c6ea4931692d8"
+    },
+    {
+      "path": "train.csv",
+      "sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707"
+    },
+    {
+      "path": "validation/prompt-group-v1/folds.csv",
+      "sha256": "e8ba1e3712852168dc57f56960d4f3e00be612d639ade8a7dcb0f0d8335ce551"
+    },
+    {
+      "path": "validation/prompt-group-v1/manifest.json",
+      "sha256": "2b05e2bde656d5e773e8d512cba607859e9b9bfe7d9d7dfe9deb00907b4d93c8"
+    }
+  ],
+  "code": [
+    {
+      "path": "experiments/EXP-022-oof-complementarity/analyze.py",
+      "sha256": "1132773f1c0e29acb2db5b5477e0a40d9d1c22d0ba15863db319abd93181e292"
+    },
+    {
+      "path": "src/oof_complementarity.py",
+      "sha256": "9ed2163f44dafd02c4899cd36a621a181527c82b505672a7b81c9fb2766f8eb2"
+    },
+    {
+      "path": "validation/protocol.py",
+      "sha256": "388d5f47f287b3738701f2f7adaa8516e65cea03f36e1a43d9a148b1ea963c26"
+    }
+  ],
+  "frozen_at": "2026-11-01T08:16:02.695121+00:00",
+  "environment": {
+    "python": "3.13.13",
+    "numpy": "2.4.4",
+    "pandas": "3.0.6"
+  }
+}

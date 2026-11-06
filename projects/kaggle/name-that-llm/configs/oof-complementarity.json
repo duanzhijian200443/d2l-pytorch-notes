@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "model": {"name": "cached-oof-complementarity", "parameters": {}},
+  "members": {"stylegram": {"experiment_id": "EXP-010", "public_share": 0.5}, "svc4": {"experiment_id": "EXP-018", "public_row_weight": 0.35}},
+  "validation": {"split_id": "prompt-group-v1", "seed": 42, "metric": "balanced_accuracy", "sparse_per_prompt": [2, 3, 6], "sparse_repeats": 5, "bootstrap_draws": 2000, "bootstrap_unit": "prompt", "comparison": "svc4 minus stylegram", "multiple_comparison_adjustment": "none"},
+  "analysis": {"scope": "descriptive cached OOF error complementarity only", "dimensions": ["scenario", "class", "fold", "prompt", "class_by_fold"], "stylegram_sparse": "use original recomputed scenario caches, never subset dense group-dependent predictions", "svc4_sparse": "subset row-independent OOF by identical selected IDs", "training": false, "fusion": false, "calibration": false, "threshold_tuning": false, "class_specific_routing": false, "official_baseline_changed": false},
+  "environment": {"platform": "local Windows CPU", "accelerator": null},
+  "budget": {"wall_seconds": 180, "gpu_seconds": 0, "api_usd": 0, "colab_cu": 0}
+}

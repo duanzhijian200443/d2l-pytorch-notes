@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0101",
+  "prompt": "Write a short story about a station announcer who finds a timetable listing one train that nobody else remembers. Keep the setting ordinary and end with a small, concrete discovery. Aim for about 80 words.",
+  "category": "creative_short_fiction",
+  "target_words": 80,
+  "prompt_group": "cp0101",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "486daff4c83c0ea5c9ec5985cf059ad86c8d11ae65ce66c1d27847583313d2f8",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:34:45.106450+00:00",
+  "ended_at": "2026-11-01T09:35:04.713227+00:00",
+  "prompt_sha256": "3ee9aace41ae5f0f23a7515448e28a7a59e0473e825123616da937360a368fcd",
+  "text": "Every morning, Ruth announced the same twelve departures. On Tuesday, she found a thirteenth in the timetable: 10:17 to Bell Street.\n\n“Never been a train to Bell Street,” said the ticket clerk. “You can walk there.”\n\nThe driver shook his head. So did the cleaner, who had worked there forty years.\n\nAt 10:17, Ruth made no announcement. She went outside and looked along the platform.\n\nBehind a loose timetable frame, she found a child’s drawing: a train, a house, and the words DAD HOME 10:17.",
+  "text_sha256": "a4cc5e94c9cbcd66b7bb121a3354146c210ca508ea2822b83287532317a64426",
+  "raw_final_sha256": "a4cc5e94c9cbcd66b7bb121a3354146c210ca508ea2822b83287532317a64426",
+  "word_count": 85,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4248,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 123,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\486daff4c83c0ea5c9ec5985cf059ad86c8d11ae65ce66c1d27847583313d2f8",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

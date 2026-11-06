@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0142",
+  "prompt": "Turn these rough observations into a coherent description of a small market: 'Canvas awnings. A woman arranging pears by size. Coffee smell near the entrance. Someone fixing a loose wheel on a stall. The clock over the gate is ten minutes fast.' Do not invent a major event. Use approximately 120 words for the response.",
+  "category": "rewrite_original_material",
+  "target_words": 120,
+  "prompt_group": "cp0142",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "200c367546d9e0ca343cb6f62e5cd53b616905df1534e8030035bf6ab7d5f812",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:22:10.172831+00:00",
+  "ended_at": "2026-11-01T10:22:29.699657+00:00",
+  "prompt_sha256": "458ccb381ab98c2aa12dcce7b39cf9f13e097fb775832a2c49c9ca46e92e8594",
+  "text": "Canvas awnings shade the narrow rows of stalls, softening the morning light over crates of fruit and vegetables. Near the entrance, the warm smell of coffee drifts between shoppers as they pause, browse, and exchange quiet greetings. At one stand, a woman arranges pears into careful groups by size, turning each one before placing it in line. Farther along, someone crouches beside a stall, tightening a loose wheel while the vendor steadies the wooden frame. The work causes little disturbance; people simply step around them and continue through the market. Above the gate, an old clock marks the hour, though regular visitors know it runs ten minutes fast. The whole place feels practical and unhurried, settling into the familiar rhythm of the day.",
+  "text_sha256": "b619933141b058a20b551a7411bd101400db976e474a791801f89e4bc71cec6b",
+  "raw_final_sha256": "b619933141b058a20b551a7411bd101400db976e474a791801f89e4bc71cec6b",
+  "word_count": 123,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4159,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 175,
+      "reasoning_output_tokens": 18
+    }
+  ],
+  "attempt_path": "collection\\attempts\\200c367546d9e0ca343cb6f62e5cd53b616905df1534e8030035bf6ab7d5f812",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

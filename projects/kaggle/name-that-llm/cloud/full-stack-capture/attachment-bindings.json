@@ -1,0 +1,170 @@
+{
+  "bindings": [
+    {
+      "kind": "competition",
+      "ref": "name-that-llm",
+      "version": null
+    },
+    {
+      "kind": "dataset",
+      "ref": "dhruvtibarewal/nlm-l24-adapters",
+      "version": 7
+    },
+    {
+      "kind": "dataset",
+      "ref": "seyitkaangunes/ntl-extra-api-passages",
+      "version": 2
+    },
+    {
+      "kind": "dataset",
+      "ref": "zhjianduan/ntl-generations",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "dophuchung/ntl-proxy-generations",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "zbigniewkirchner/ntl-qwen3-8b-lora-claude-head",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "dhruvtibarewal/nlm-matched-clean",
+      "version": 3
+    },
+    {
+      "kind": "dataset",
+      "ref": "dhruvtibarewal/nlm-offline-wheels",
+      "version": 2
+    },
+    {
+      "kind": "dataset",
+      "ref": "josephadamski91/ntl-atlas-qwen3-8b-v1",
+      "version": 3
+    },
+    {
+      "kind": "dataset",
+      "ref": "zhjianduan/ntl-free-proxy-generations",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "nishantdahal/ntl-two-stage-lora",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "nishantdahal/ntl-handwriting-blend",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "dhruvtibarewal/nlm-l24-adapters-v5",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+      "version": 6
+    },
+    {
+      "kind": "dataset",
+      "ref": "pjmathematician/ultrabert-380m-ntl",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "zhjianduan/llama31-8b-base-verified",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-glm4-9b-trunc25",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-extract-encoders2",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-electra-large-weights",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-desklib-weights",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-train-lora24-s7",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-train-tokattn",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-train-tokattn2",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "vnton37nguyn/ntl-train-lora-qwen25-instyle",
+      "version": 2
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen-3/Transformers/8b",
+      "version": 1
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen-3/Transformers/4b-base",
+      "version": 1
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen-3/Transformers/8b-base",
+      "version": 1
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen-3/Transformers/14b-base",
+      "version": 1
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen-3/Transformers/14b",
+      "version": 1
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen2.5/Transformers/7b",
+      "version": 1
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen2.5/Transformers/14b",
+      "version": 1
+    }
+  ],
+  "selection": "Pinned versions previously resolved for V30, with same model families and sources as EXP004; frozen anew for EXP029, not a claim of exact historical EXP004 input bytes.",
+  "known_csv_clones": [
+    {
+      "original": "abdullah1afify/ntl-generations/2",
+      "snapshot": "zhjianduan/ntl-generations/1"
+    },
+    {
+      "original": "lucasboesen/ntl-free-proxy-generations/7",
+      "snapshot": "zhjianduan/ntl-free-proxy-generations/1"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "status": "PASS_LOCAL_CANDIDATE_PREFLIGHT",
+  "verified_at": "2026-11-02T10:13:48.369678+00:00",
+  "ref": "zhjianduan/ntl-apex-codex240-057",
+  "arm": "four240",
+  "source_sha256": "1683f9246149ea3e1c57a44f0a514e886284c8d36f3ddcd6b7ee4fa7046e0861",
+  "metadata_sha256": "6f301d8bef18fd8c8aac8cbbf7e97fd61e3aad9cc9ed6e493d693dc7e6784971",
+  "manifest_sha256": "c29d0802cec274b3db662c315aec52fcbd49c2cdc49621a4bf54bba5c50dbb71",
+  "baseline_source_sha256": "ca4c9e18ed32dcd8168b8118b192d39d657803d30dcd89a564b1c2d1d9c846dd",
+  "old_module_hashes": {
+    "comp_stack.py": "4a4b800a5380094d78da66d140d224f8a3974d1e3012086783d5bf81b1264514",
+    "gauss.py": "908b57113f1a7b8ebdbf204c6be87cbc385f765ba50ac07b4e270c64b7cf1000",
+    "infer.py": "63112c88d43f9d69b3132243315e0db28c40b4bf0f42bac651f73ef07a67f9bb",
+    "sibling_style.py": "8a7f3b3dad7cbe1755b66e8455a157894cac92b8983fc805f5ed6286ea915e66"
+  },
+  "expected_new_module_hashes": {
+    "comp_stack.py": "5c8ea0be70cd7231bd23183028a3a8a8bc9cee73c3c461e863ebd9d4e2701b21",
+    "gauss.py": "908b57113f1a7b8ebdbf204c6be87cbc385f765ba50ac07b4e270c64b7cf1000",
+    "infer.py": "63112c88d43f9d69b3132243315e0db28c40b4bf0f42bac651f73ef07a67f9bb",
+    "sibling_style.py": "8a7f3b3dad7cbe1755b66e8455a157894cac92b8983fc805f5ed6286ea915e66"
+  },
+  "embedded_training_rows": {
+    "rows": 240,
+    "groups": 60,
+    "csv_sha256": "694d91e2536db2d77d81f8d8b32a802763a750a2e9643fdb0ba6a10b76755a01",
+    "per_label": {
+      "gpt-5.6-luna": 60,
+      "gpt-5.6-sol": 60,
+      "gpt-5.6-terra": 60,
+      "gpt-6-astra": 60
+    },
+    "full_text_hashes_verified": true,
+    "holdout_rows": 0,
+    "scope": "materialized embedded training input; fast commit does not fit Stylegram"
+  },
+  "shared_sha256": "b98c246578afbc38b9bf3c0be1e666a41cc15d051c64d03e875ab0c85da1bd3b",
+  "shared_rows": 10743,
+  "asset_count": 31,
+  "competition_sources": [
+    "name-that-llm"
+  ],
+  "exact_zero_arm_attachment_pins": true,
+  "internet": false,
+  "private": true,
+  "docker_image": "gcr.io/kaggle-private-byod/python@sha256:9a6bcfda6d03b2cd9aa347ee8c1bae62043328ed0f4afe9bda014e4f8bbf9435",
+  "machine_shape": "NvidiaTeslaT4"
+}

@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0004",
+  "prompt": "Describe a sensible way to pack for a three-day trip when the weather may change and everything must fit in one small backpack. Use approximately 200 words for the response.",
+  "category": "everyday_advice",
+  "target_words": 200,
+  "prompt_group": "cp0004",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "c40d09a0a74355cf935451e2fdfe56b9c2f38b11e8a709651a93126273873c7c",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:33:22.740186+00:00",
+  "ended_at": "2026-11-01T08:33:40.832552+00:00",
+  "prompt_sha256": "76a6c6cd2d25f465f7d1ad94f32847a5dd3af039a2ccc255d59207874462e196",
+  "text": "Pack around layers, versatility, and a simple color palette so every item works together. Wear the bulkiest pieces while traveling: comfortable shoes, long trousers, and a light jacket. In the backpack, bring two lightweight tops, one spare pair of trousers or shorts, three sets of underwear and socks, and sleepwear. Choose quick-drying fabrics so you can wash an item in the sink if necessary.\n\nPrepare for changing weather with compact layers rather than heavy clothing. Pack a thin sweater or fleece, a foldable waterproof shell, and a small umbrella if rain is likely. A hat, sunglasses, and a light scarf can provide protection from sun, wind, or cold without taking much space.\n\nKeep toiletries minimal. Use travel-size containers and bring only essentials: toothbrush, toothpaste, deodorant, sunscreen, medications, and a small comb. Place liquids in a sealed pouch. Add a phone charger, power bank, identification, payment cards, and any required tickets or reservations. A reusable water bottle and one compact snack are also useful.\n\nRoll clothing or use one small packing cube to reduce bulk and keep the bag organized. Fill shoes or empty corners with socks and cables. Before leaving, remove duplicate or “just in case” items. Leave a little free space for food, souvenirs, or clothing you take off during the day.",
+  "text_sha256": "8fd7259ab93d34107ebf2e55a3bbaa8f32d94bf60e41775173f276b290caa90f",
+  "raw_final_sha256": "8fd7259ab93d34107ebf2e55a3bbaa8f32d94bf60e41775173f276b290caa90f",
+  "word_count": 213,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4127,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 284,
+      "reasoning_output_tokens": 11
+    }
+  ],
+  "attempt_path": "collection\\attempts\\c40d09a0a74355cf935451e2fdfe56b9c2f38b11e8a709651a93126273873c7c",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,3 @@
+The “exactly six pieces” box contains six pieces—no more and no fewer. The “at least six pieces” box contains six or more pieces. Therefore, the first box cannot contain fewer pieces than the second box. It may contain the same number, six, or it may contain more than six.
+
+However, the label “at least six” does not establish that it contains more; six is still possible. Nor can we infer anything about the pieces’ type, size, quality, weight, arrangement, or value merely from these labels. Even if both boxes contain six pieces, their contents need not otherwise be identical. The only justified quantitative comparison is that the “at least six” box has a count greater than or equal to the “exactly six” box.

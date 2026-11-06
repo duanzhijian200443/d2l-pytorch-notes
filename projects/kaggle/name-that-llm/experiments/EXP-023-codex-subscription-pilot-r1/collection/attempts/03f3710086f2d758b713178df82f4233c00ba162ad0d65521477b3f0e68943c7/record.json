@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0179",
+  "prompt": "Write a friendly email inviting neighbors to exchange spare plant pots. Make clear that people are welcome even if they have nothing to bring. Keep your response near 80 words.",
+  "category": "short_email",
+  "target_words": 80,
+  "prompt_group": "cp0179",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "03f3710086f2d758b713178df82f4233c00ba162ad0d65521477b3f0e68943c7",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:48:48.376823+00:00",
+  "ended_at": "2026-11-01T10:49:07.309307+00:00",
+  "prompt_sha256": "c47bdfa391830beca89da902bbc44267f14efede584fc8a977f8b1ecb0a681b1",
+  "text": "Subject: Neighborhood Plant Pot Swap 🌱\n\nHi neighbors,\n\nHave a few spare plant pots gathering dust? Let’s get together to swap pots, chat about our plants, and meet some friendly faces!\n\nJoin us at [location] on [date] at [time]. Bring any pots you’d like to pass along, or simply come and browse. You’re very welcome even if you have nothing to bring—there’s no need to contribute to take something home.\n\nHope to see you there!\n\nWarmly,\n[Your name]",
+  "text_sha256": "45acbaa73d119bf7a5d2ef4cb5ceeb5c95d0574f64aec6836660f0fc4d416e46",
+  "raw_final_sha256": "45acbaa73d119bf7a5d2ef4cb5ceeb5c95d0574f64aec6836660f0fc4d416e46",
+  "word_count": 78,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4241,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 110,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\03f3710086f2d758b713178df82f4233c00ba162ad0d65521477b3f0e68943c7",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

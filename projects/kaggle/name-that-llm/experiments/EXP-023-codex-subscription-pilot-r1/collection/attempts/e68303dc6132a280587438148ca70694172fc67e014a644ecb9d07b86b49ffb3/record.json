@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0113",
+  "prompt": "Write a scene where a normally impatient person waits willingly for something that is not arriving on a timetable. Please answer in roughly 160 words.",
+  "category": "creative_short_fiction",
+  "target_words": 160,
+  "prompt_group": "cp0113",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "e68303dc6132a280587438148ca70694172fc67e014a644ecb9d07b86b49ffb3",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:41:53.804849+00:00",
+  "ended_at": "2026-11-01T09:42:21.528157+00:00",
+  "prompt_sha256": "cd1469f5bf7eeba99af01e7b80b5b7f5ab85edb6077a682a2296adad093213ee",
+  "text": "Mara hated waiting. She drummed through red lights, abandoned microwaves at thirty seconds, and considered any queue longer than three people a personal insult.\n\nBut tonight she sat quietly on the back steps, wrapped in her father’s old wool coat, watching the dark garden.\n\nThere was no schedule for the fox.\n\nHer neighbor had seen it once near the bins. A rust-red blur, thin as hunger. Mara had left water and scraps beneath the pear tree, then carried out a chair. Midnight passed. Frost silvered the grass. Her phone died unnoticed in her pocket.\n\nShe listened instead: leaves ticking along the wall, a distant train, her own breath slowing.\n\nAt two, something moved behind the shed.\n\nMara did not lean forward. She did not reach for the camera beside her. She scarcely blinked.\n\nThe fox stepped into the moonlight, cautious and bright-eyed, and lowered its head to drink.\n\nFor once, Mara felt no triumph at being rewarded.\n\nOnly gratitude that she had been there when the world chose to arrive.",
+  "text_sha256": "fc269568f10f24f8f0fbe2afa4cf7ed1f037e1b196bca972eb6ef28aad5190b4",
+  "raw_final_sha256": "fc269568f10f24f8f0fbe2afa4cf7ed1f037e1b196bca972eb6ef28aad5190b4",
+  "word_count": 170,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4121,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 228,
+      "reasoning_output_tokens": 11
+    }
+  ],
+  "attempt_path": "collection\\attempts\\e68303dc6132a280587438148ca70694172fc67e014a644ecb9d07b86b49ffb3",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

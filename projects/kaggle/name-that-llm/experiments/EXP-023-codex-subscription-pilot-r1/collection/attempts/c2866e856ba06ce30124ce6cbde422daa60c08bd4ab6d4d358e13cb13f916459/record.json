@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0064",
+  "prompt": "A bookstore wants customers to discover unfamiliar authors without making its shelves difficult to navigate. Propose a modest experiment. Keep your response near 200 words.",
+  "category": "business_decision",
+  "target_words": 200,
+  "prompt_group": "cp0064",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "c2866e856ba06ce30124ce6cbde422daa60c08bd4ab6d4d358e13cb13f916459",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:11:10.700458+00:00",
+  "ended_at": "2026-11-01T09:11:27.191880+00:00",
+  "prompt_sha256": "66a413daf480f73378a891667dff0c09aab42a4ffe076748bf614bd55c4a238b",
+  "text": "Run a six-week “Blind Date with an Author” experiment in one fiction section.\n\nSelect 30–40 books by lesser-known authors, balanced across popular genres and price points. Display them face-out on a clearly labeled endcap near their usual genre shelves—not in a separate area—so customers can still browse normally. Wrap each book or cover it with a reusable sleeve showing only a short teaser: genre, mood, themes, and comparable reading experience, but not the author’s name. Include a QR code linking to a brief sample and author background for customers who want more information before buying.\n\nUse two comparable stores, or alternate weeks in the same store: one with the display and one without it. Track unit sales of featured titles, total genre sales, conversion from QR scans to purchases, and returns. Ask staff to note common customer reactions, and offer a one-question receipt survey: “Did this display help you try someone new?”\n\nSuccess would mean featured titles sell meaningfully better without reducing sales of established authors or creating customer confusion. If results are positive, repeat monthly with a new genre focus and retain the simplest signage and placement rules.",
+  "text_sha256": "eeeb0a0f76e3f754ddba099c72fd2196c96a879e79c9f1a2fb33a8fda39a01f1",
+  "raw_final_sha256": "eeeb0a0f76e3f754ddba099c72fd2196c96a879e79c9f1a2fb33a8fda39a01f1",
+  "word_count": 189,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4123,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 233,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\c2866e856ba06ce30124ce6cbde422daa60c08bd4ab6d4d358e13cb13f916459",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

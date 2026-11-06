@@ -1,0 +1,19 @@
+{
+  "status": "PASS_FINAL_OUTPUT_ROUTES",
+  "public_rows": 3,
+  "arms": {
+    "120": {
+      "public_three_rows": "EXPECTED_PASS",
+      "hidden_three_rows": "EXPECTED_PASS",
+      "hidden_main_failure": "EXPECTED_REJECTION",
+      "hidden_duplicate_ids": "EXPECTED_REJECTION"
+    },
+    "240": {
+      "public_three_rows": "EXPECTED_PASS",
+      "hidden_three_rows": "EXPECTED_PASS",
+      "hidden_main_failure": "EXPECTED_REJECTION",
+      "hidden_duplicate_ids": "EXPECTED_REJECTION"
+    }
+  },
+  "scope": "Real candidate FAST declaration and final writer, real pandas parquet roundtrip. Main child simulated; no hidden model run."
+}

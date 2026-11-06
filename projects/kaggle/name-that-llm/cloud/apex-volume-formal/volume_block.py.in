@@ -1,0 +1,58 @@
+# Added raw responses are private to this Stylegram member.
+_volume_arm = '__ARM__'
+_volume_rows = __ROWS__
+_volume_sha = '__CSV_SHA__'
+_volume_shared_sha = '__SHARED_SHA__'
+_volume_b64 = (__B64__)
+
+
+def _volume_load():
+    import base64, hashlib, io, zlib
+    raw = zlib.decompress(base64.b64decode(_volume_b64, validate=True))
+    assert hashlib.sha256(raw).hexdigest() == _volume_sha
+    frame = pd.read_csv(io.BytesIO(raw), dtype=str, keep_default_na=False)
+    assert len(frame) == _volume_rows and frame.row_id.is_unique and frame.job_key.is_unique
+    assert frame.split.eq('train').all()
+    assert frame.text.map(lambda t: hashlib.sha256(t.encode('utf-8')).hexdigest()).tolist() == frame.text_sha256.tolist()
+    assert frame.text_sha256.is_unique and frame.text.str.len().gt(0).all()
+    classes = {'gpt-5.6-luna', 'gpt-5.6-sol', 'gpt-5.6-terra', 'gpt-6-astra'}
+    assert frame.model.value_counts().to_dict() == dict.fromkeys(classes, _volume_rows // 4)
+    assert frame.prompt_id.nunique() == _volume_rows // 4
+    assert frame.groupby('prompt_id').size().eq(4).all() and frame.groupby('prompt_id').model.nunique().eq(4).all()
+    return frame
+
+
+def _volume_check_shared(frame):
+    import hashlib
+    canonical = frame[['prompt_id', 'model', 'text']].to_csv(index=False, lineterminator='\n').encode('utf-8')
+    assert len(frame) == 10743 and frame.prompt_id.nunique() == 738
+    assert hashlib.sha256(canonical).hexdigest() == _volume_shared_sha
+
+
+_volume_data = _volume_load()
+_volume_check_shared(EXTRA)
+_volume_texts = _volume_data.text.tolist()
+_volume_y = _volume_data.model.map(LAB2I).to_numpy(dtype=int)
+_volume_groups = _volume_data.prompt_id.to_numpy(dtype=object)
+_volume_base_weights = extra_sample_weights()
+_volume_ntrain = np.bincount(y, minlength=K)
+_volume_npublic = np.bincount(EX_Y, minlength=K)
+assert (_volume_npublic[_volume_y] > 0).all()
+_volume_weights = np.r_[_volume_base_weights, EXTRA_SHARE * _volume_ntrain[_volume_y] / _volume_npublic[_volume_y]]
+_volume_target = np.concatenate([y, EX_Y, _volume_y])
+
+grams = StyleGrams().fit(TR + EX_T + _volume_texts)
+X_tr, X_ex, X_te = grams.transform(TR), grams.transform(EX_T), grams.transform(TE)
+_volume_x = grams.transform(_volume_texts)
+
+
+def fit_svc(X, labels, C=0.5, **kw):
+    return LinearSVC(C=C, random_state=42, max_iter=4000).fit(X, labels, **kw)
+
+
+svc_plain = fit_svc(vstack([X_tr, X_ex, _volume_x]).tocsr(), _volume_target, sample_weight=_volume_weights)
+P_style = svc_probs(svc_plain, X_te)
+X_tr_c = sparse_group_centre(X_tr, PROMPT)
+svc_centred = fit_svc(vstack([X_tr_c, sparse_group_centre(X_ex, EX_G, GROUP_MIN, 10 ** 6),
+                              sparse_group_centre(_volume_x, _volume_groups, GROUP_MIN, 10 ** 6)]).tocsr(),
+                      _volume_target, sample_weight=_volume_weights)

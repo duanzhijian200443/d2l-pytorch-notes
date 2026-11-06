@@ -1,0 +1,11 @@
+{
+  "status": "ERROR",
+  "observed_at": "2026-11-01T07:43:02.087345+00:00",
+  "child_exit": 1,
+  "termination_reason": "CHILD_FAILED",
+  "elapsed_seconds": 15.429565984000021,
+  "peak_rss_bytes": 416595968,
+  "wall_seconds": 6900.0,
+  "rss_limit_bytes": 12884901888,
+  "artifacts_verified": false
+}

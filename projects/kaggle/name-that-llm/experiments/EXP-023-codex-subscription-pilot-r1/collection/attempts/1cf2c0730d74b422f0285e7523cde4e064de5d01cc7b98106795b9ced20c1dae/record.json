@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0169",
+  "prompt": "Write to a local club proposing that meeting notes be circulated within two days. Keep the tone cooperative and explain one practical benefit. Keep your response near 80 words.",
+  "category": "short_email",
+  "target_words": 80,
+  "prompt_group": "cp0169",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "1cf2c0730d74b422f0285e7523cde4e064de5d01cc7b98106795b9ced20c1dae",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:41:40.705390+00:00",
+  "ended_at": "2026-11-01T10:41:54.636641+00:00",
+  "prompt_sha256": "df129e9b74c04f131c51efe40dfab699ea8db67484d53fc2fbcf255c6037dbfd",
+  "text": "Subject: Timely Circulation of Meeting Notes\n\nDear Committee Members,\n\nCould we agree to circulate meeting notes within two days of each meeting? This would help everyone confirm decisions and action items while the discussion is still fresh. In particular, members could quickly identify their responsibilities and begin work without waiting for the next update. I appreciate that preparing notes takes time, so a brief summary could be shared first, with any additional details added later. I hope we can adopt this practical approach together.\n\nBest regards,  \n[Your Name]",
+  "text_sha256": "f1502a66fce99694ab6208331b2f909071fb77a958b9ee3f053fcf4847dc9254",
+  "raw_final_sha256": "f1502a66fce99694ab6208331b2f909071fb77a958b9ee3f053fcf4847dc9254",
+  "word_count": 88,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4126,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 109,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\1cf2c0730d74b422f0285e7523cde4e064de5d01cc7b98106795b9ced20c1dae",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

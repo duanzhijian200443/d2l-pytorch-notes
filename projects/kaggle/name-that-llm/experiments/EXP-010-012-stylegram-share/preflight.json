@@ -1,0 +1,61 @@
+{
+  "status": "PASS",
+  "protocol": {
+    "split_id": "prompt-group-v1",
+    "train_sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+    "labels": [
+      "claude-fable-5",
+      "claude-opus-4-6",
+      "claude-opus-4-8",
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "gemini-3.1-pro-preview",
+      "gemini-3.6-flash",
+      "gemini-3.7-flash",
+      "gemini-3.8-flash",
+      "glm-5.3",
+      "glm-5.3-flash",
+      "gpt-5.5",
+      "gpt-5.6-luna",
+      "gpt-5.6-sol",
+      "gpt-5.6-terra",
+      "gpt-6-astra",
+      "kimi-k3",
+      "qwen3.8-max"
+    ],
+    "shares": [
+      0.5,
+      0.25,
+      0.75
+    ],
+    "public_rows": 10073,
+    "removed_known_regen": 252,
+    "public_groups": 694,
+    "folds": 5,
+    "seed": 42,
+    "C": 0.5,
+    "max_iter": 4000,
+    "dual": true,
+    "sparse_per_prompt": [
+      2,
+      3,
+      6
+    ],
+    "sparse_repeats": 5,
+    "dense_primary": true,
+    "source_notebook_sha256": "6c9145f038ccffbe08dc6da6db3d1dcf3d2e0e7d2286927bfc8800ef5148cfb8",
+    "core_source_sha256": "b6b6a7b8adbe50580c2d0de5a41d0764ae752fe729e1471872a9197ac956f222",
+    "input_hashes": {
+      "extra.csv": "1e9125fd49b19084842332ede84ea65bc0174ee1bb28c8d48acc8ddbd5e36c0e",
+      "folds.csv": "e8ba1e3712852168dc57f56960d4f3e00be612d639ade8a7dcb0f0d8335ce551",
+      "runner.py": "74d9aa65c128b6b1490f965002bed56024e9ca08c9bfa62546dc2d70724cb4c4",
+      "stylegram_core.py": "caa46bd121164aba891c3d78e662540db9294d653db09f53d02833c1b4ab77ef"
+    },
+    "scope": "isolated stylegram, not full ensemble; known prompt links isolated; semantic duplicate audit incomplete; validation grouping uses only held-out text",
+    "grouping_note": "Unsupervised validation batch clustering is part of inference; it sees no true labels or prompt IDs",
+    "no_paid_api": true,
+    "no_gpu": true
+  },
+  "payload_sha256": "e44548ad58f3dbeb2ee39a666ee47035c2ca2800d1fb9341e3ad9fbdf6795f3d",
+  "payload_bytes": 3313130
+}

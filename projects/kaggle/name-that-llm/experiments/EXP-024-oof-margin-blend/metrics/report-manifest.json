@@ -1,0 +1,20 @@
+{
+  "renderer_sha256": "2cc853c22e0cf59aa9baa01ad90301b1ac310238ea3d7a0c051afb2a5b5550d0",
+  "files": [
+    {
+      "path": "report.md",
+      "sha256": "c146c0d0c9981ee490d08a21fa6c1a8d4a9d92be9d14e2ce94b5ab759a938d9b",
+      "bytes": 4817
+    },
+    {
+      "path": "metrics/findings.json",
+      "sha256": "68dc607792fd87bf97249b6b8979d0ccec40d55719af99206c4abc07bd66fa66",
+      "bytes": 7997
+    },
+    {
+      "path": "metrics/sparse_summary.csv",
+      "sha256": "51f9e85ca8b53af73a00434300cca8619f9ac82d67f80e35a41e12010458c4ee",
+      "bytes": 1110
+    }
+  ]
+}

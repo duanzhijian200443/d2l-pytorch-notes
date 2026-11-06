@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "model": {"name": "fixed-alpha010-external-validation", "parameters": {"candidate_experiment": "EXP-024", "alpha": 0.10, "normalization": "unchanged per-row population z-score from EXP-024", "reference": "Stylegram share0.5", "complement": "svc4 raw public row weight0.35", "retune": false}},
+  "validation": {"seed": 42, "scope": "external data gate before fixed-candidate validation", "require_no_known_training_prompt_ancestry": true, "require_no_normalized_training_text_overlap": true, "exclude_official_prompt_regeneration": true, "label_coverage_must_be_reported": true, "partial_class_results_are_not_18_class_ba": true, "no_relabeling_existing_oof_as_independent": true},
+  "candidate_sources": [{"source_id": "existing-local-public-pools", "role": "lineage/overlap feasibility audit"}, {"source_id": "SRC-062", "ref": "enaimaan/ntl-openai-generated-responses", "version": 3, "role": "possible new external four-class subset; not accepted until byte/provenance/ancestry audit"}],
+  "environment": {"platform": "local audit; private Kaggle CPU only if data gate passes", "accelerator": null},
+  "budget": {"max_cpu_fit_wall_seconds": 3600, "gpu_seconds": 0, "api_usd": 0, "colab_cu": 0},
+  "permissions": {"formal_submission": false, "publication": false, "paid_generation": false, "modify_active_other_experiments": false, "change_formal_baseline": false}
+}

@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0203",
+  "prompt": "I have several unfinished hobbies and feel guilty whenever I see the supplies. Suggest a way to decide what to keep, pause, or give away. Please answer in roughly 160 words.",
+  "category": "everyday_advice",
+  "target_words": 160,
+  "prompt_group": "cp0203",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "ceb3e4b58de099458c1a247d9c0584bc5162e01e3ac42776b046329413af0908",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:04:27.111431+00:00",
+  "ended_at": "2026-11-01T11:04:44.589079+00:00",
+  "prompt_sha256": "23d575488e2f5b6abc2215d17a9df9d3642d2fa1ff169017583f04f0e491e3cc",
+  "text": "Try a “kind, practical inventory” rather than forcing yourself to finish everything.\n\nSet aside one hour and sort supplies into three groups:\n\n- **Keep:** Projects you genuinely want to return to within the next 6–12 months. Choose based on current interest, not money already spent or who you hoped to become.\n- **Pause:** Things you’re unsure about, seasonal hobbies, or projects needing one missing piece. Put these in a labeled box with a review date six months from now.\n- **Give away:** Supplies for hobbies that feel heavy, obligatory, or untouched for a long time. Donate to a school, community studio, friend, or local creative group.\n\nFor each hobby, ask: *If I had no supplies already, would I choose to start this today?* If not, releasing it may create relief rather than failure.\n\nKeep only a small, visible “next steps” basket for active hobbies. Everything else should be stored out of sight or passed on. Your supplies are not evidence of unfinished obligations; they are resources that can serve you—or someone else—better now.",
+  "text_sha256": "ef4a09cc58abd59f61c9a6656ed5542ab5b2980bc0af92b64d80c3fe5b51c2ec",
+  "raw_final_sha256": "ef4a09cc58abd59f61c9a6656ed5542ab5b2980bc0af92b64d80c3fe5b51c2ec",
+  "word_count": 173,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4130,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 224,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\ceb3e4b58de099458c1a247d9c0584bc5162e01e3ac42776b046329413af0908",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

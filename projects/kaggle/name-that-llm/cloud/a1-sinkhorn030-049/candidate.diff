@@ -1,0 +1,44 @@
+--- EXP046/cell0
++++ EXP049/cell0
+@@ -1,5 +1,7 @@
+-# EXP046: A1 public-data Stylegram + ATLAS20
++# EXP049: A1 public-data Stylegram + ATLAS20, Sinkhorn 0.30
+ 
+ Private controlled submission from own ATLAS20 V2 (EXP004). Only Stylegram is replaced with the frozen official2699 + public10073/share0.5 recipe. Other models, original family-gate data and ensemble settings are preserved. Public quick commits emit a placeholder; competition reruns execute the full model pipeline.
+ 
+ Credits: original ATLAS20/Who am I solution by omerfarukmerey, romantamrazov, dhruvtibarewal, mercurydust and attached model/data contributors; original source comments and attribution retained. Local cached-panel validation is not a leaderboard score.
++
++EXP049 prepared locally; READY_NOT_LAUNCHED. Relative to frozen EXP046 A1, only the main Sinkhorn argument changes 0.45 to 0.30. No self-generated 120-row addition. Runtime receipts identify this candidate; no result is claimed.
+--- EXP046/cell2
++++ EXP049/cell2
+@@ -1,4 +1,4 @@
+-# EXP046: frozen A1 implementation and input checks; no cached validation predictions.
++# EXP049: frozen A1 implementation and input checks; no cached validation predictions.
+ import base64, hashlib, io, json, pathlib, sys, zipfile, os
+ _payload = pathlib.Path('/kaggle/working/ntl_a1_payload')
+ _payload.mkdir(exist_ok=False)
+--- EXP046/cell12
++++ EXP049/cell12
+@@ -14,7 +14,7 @@
+ cmd = [sys.executable, 'infer.py', '--data', str(DATA), '--models', json.dumps(MODELS),
+        '--perpassage', '1', '--extra', str(EXTRA), '--extra_w', '0.5', '--tfidf_w', '0.25',
+        '--distort_w', '0.10', '--svc_w', '1.5', '--pool', str(POOL), '--adapt_w', '1.0',
+-       '--adapt_thr', '0.15', '--sinkhorn', '0.45', '--sinkhorn_target_mix', '0.35', '--post', '0', '--atlas_dir', str(ATLAS),
++       '--adapt_thr', '0.15', '--sinkhorn', '0.30', '--sinkhorn_target_mix', '0.35', '--post', '0', '--atlas_dir', str(ATLAS),
+        '--atlas_base', str(B8), '--atlas_w', '0.20', '--atlas_margin', '0.3',
+        '--atlas_bs', '4', '--atlas_chunk', '3', '--atlas_budget', str(max(180, ATLAS_BUDGET)),
+        '--comp_path', '/kaggle/working/comp_logit.npy', '--comp_w', '0.15',
+@@ -41,11 +41,11 @@
+ _test_final = pd.read_csv(os.path.join(DATA,'test.csv'))
+ assert submission.id.astype(str).tolist() == _test_final.id.astype(str).tolist()
+ assert set(submission.model).issubset(set(_labels))
+-_submission_receipt = {'experiment_id':'EXP-046', 'status':'PASS', 'fast_commit':FAST_COMMIT,
++_submission_receipt = {'experiment_id':'EXP-049', 'status':'PASS', 'fast_commit':FAST_COMMIT,
+     'competition_rerun_flag_present':'KAGGLE_IS_COMPETITION_RERUN' in os.environ,
+     'rows':len(submission), 'columns':list(submission.columns),
+     'prediction_kind':'public_placeholder' if FAST_COMMIT else 'full_hidden_pipeline',
+     'submission_sha256':hashlib.sha256(pathlib.Path('/kaggle/working/submission.parquet').read_bytes()).hexdigest(),
+-    'atlas_w':.20,'comp_w':.15,'sinkhorn':.45,'stylegram_recipe':'official2699+public10073_share0.5_raw_margin'}
++    'atlas_w':.20,'comp_w':.15,'sinkhorn':.30,'stylegram_recipe':'official2699+public10073_share0.5_raw_margin'}
+ pathlib.Path('/kaggle/working/submission_receipt.json').write_text(json.dumps(_submission_receipt,indent=2))
+ print(json.dumps(_submission_receipt))

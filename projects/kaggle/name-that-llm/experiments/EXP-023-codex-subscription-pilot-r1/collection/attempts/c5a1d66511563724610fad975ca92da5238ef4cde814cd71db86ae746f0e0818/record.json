@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0226",
+  "prompt": "A gardener deliberately leaves a small square of soil unplanted. Reveal the reason through a visitor's questions. Aim for about 80 words.",
+  "category": "creative_short_fiction",
+  "target_words": 80,
+  "prompt_group": "cp0226",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "c5a1d66511563724610fad975ca92da5238ef4cde814cd71db86ae746f0e0818",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:18:21.083556+00:00",
+  "ended_at": "2026-11-01T11:18:35.444008+00:00",
+  "prompt_sha256": "8ad9627d9bf5e2f45babef15828e70078d733bd3bcbb58cd34d49993323bb5ef",
+  "text": "“Why leave that little square bare?” the visitor asked.  \n“To let the soil breathe,” said the gardener.  \n“But won’t weeds take over?”  \n“I pull them before they seed.”  \n“Then why not plant flowers?”  \n“Because it marks where the hedgehog sleeps.”  \n“The hedgehog?”  \n“Every evening, she curls beneath the old watering can. If I planted here, I’d disturb her nest.”  \nThe visitor looked closer and saw a tiny trail through the grass. “So it isn’t empty after all.”  \n“No,” said the gardener. “It’s reserved for a guest.”",
+  "text_sha256": "1ec7ba16c7e63d7d6a4a884ebe00c4df54c5d3d7d51fd068775a22b97db02770",
+  "raw_final_sha256": "1ec7ba16c7e63d7d6a4a884ebe00c4df54c5d3d7d51fd068775a22b97db02770",
+  "word_count": 86,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2587,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 163,
+      "reasoning_output_tokens": 30
+    }
+  ],
+  "attempt_path": "collection\\attempts\\c5a1d66511563724610fad975ca92da5238ef4cde814cd71db86ae746f0e0818",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

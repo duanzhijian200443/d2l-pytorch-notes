@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0009",
+  "prompt": "I often put off a ten-minute household task because I imagine doing the entire room perfectly. Suggest a way to break that pattern. Use approximately 200 words for the response.",
+  "category": "everyday_advice",
+  "target_words": 200,
+  "prompt_group": "cp0009",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "e7ae2dff29fa527e5fad4d944db2bb8bb644a0299895ccaddba86bf4cb0d0337",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:36:16.782468+00:00",
+  "ended_at": "2026-11-01T08:36:33.259506+00:00",
+  "prompt_sha256": "33929cf78448559562a7eef52035fb0b2b288c172806f44bdc480487a53f93fb",
+  "text": "Try replacing “clean the entire room” with a deliberately tiny, time-limited mission.\n\nBefore starting, choose one visible target: clear the coffee table, collect laundry, or wash five dishes. Set a timer for ten minutes, and define success as stopping when it rings—not finishing the room. Work quickly, without reorganizing, sorting, or making perfectionist decisions. If something belongs elsewhere, put it in a temporary “relocation basket” rather than interrupting yourself.\n\nYou can also use a “first step only” rule: tell yourself you are merely putting one item away. Once you begin, continuing is optional. Often, momentum carries you further; if it does not, you still completed the agreement you made with yourself.\n\nTo make starting easier, keep a short list of tasks that take ten minutes or less. When you have a little energy, pick the easiest one, not the most important one. The goal is to build trust that household work can be finite and manageable.\n\nAt the end, stop intentionally—even if the room is imperfect—and acknowledge what changed. Repeated small completions weaken the habit of imagining an overwhelming, flawless project and replace it with a reliable “just improve one small area” routine.",
+  "text_sha256": "d40d9e852b7ec890d7597613f1412eabf8f9a85616485f2bd4f23a373eee82c3",
+  "raw_final_sha256": "d40d9e852b7ec890d7597613f1412eabf8f9a85616485f2bd4f23a373eee82c3",
+  "word_count": 193,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2593,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 266,
+      "reasoning_output_tokens": 15
+    }
+  ],
+  "attempt_path": "collection\\attempts\\e7ae2dff29fa527e5fad4d944db2bb8bb644a0299895ccaddba86bf4cb0d0337",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

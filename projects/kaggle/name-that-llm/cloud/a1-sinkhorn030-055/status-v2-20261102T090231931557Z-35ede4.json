@@ -1,0 +1,10 @@
+{
+  "ref": "zhjianduan/name-that-llm-a1-sinkhorn030-049",
+  "version": 2,
+  "observed_at": "2026-11-02T09:02:33.392502+00:00",
+  "request_count": 1,
+  "status": "RUNNING",
+  "response": {
+    "status": "RUNNING"
+  }
+}

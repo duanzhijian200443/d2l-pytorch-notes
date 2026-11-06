@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0069",
+  "prompt": "A repair shop wants to offer both appointments and walk-in service. Suggest a workable policy and explain its main compromise. Keep your response near 200 words.",
+  "category": "business_decision",
+  "target_words": 200,
+  "prompt_group": "cp0069",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "2c3e2ada5fe0b075ef3a1d1b820488d961bd277f5bb81272f1e011b07f5528c1",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:14:28.757944+00:00",
+  "ended_at": "2026-11-01T09:14:55.496992+00:00",
+  "prompt_sha256": "df6bc57eb9218a1aafb4d7202049fc8486dc3e7375ea22d0f51903c7c89e09c1",
+  "text": "A workable policy is to reserve roughly **70% of daily capacity for appointments and 30% for walk-ins**, then adjust that split after a month of tracking demand.\n\nAppointments should receive a guaranteed check-in time and a realistic service window—not a promise that every repair will finish at a fixed hour. Walk-ins should be served in arrival order within their reserved capacity, with an estimated wait provided before customers commit. A brief initial assessment can identify urgent safety issues and jobs requiring parts or specialist work.\n\nTo keep the system flexible:\n\n- Release unused appointment slots to walk-ins shortly before the scheduled time.\n- Allow a clearly stated grace period for late arrivals, after which their slot may be reassigned.\n- Stop accepting same-day walk-ins when remaining capacity is full, offering the next available appointment instead.\n- Keep a small time buffer for repairs that take longer than expected.\n\nThe **main compromise is predictability versus flexibility**. Reserving appointment capacity helps customers plan, but walk-ins may wait even when a technician appears available because that time is committed to an upcoming booking. Reserving walk-in capacity also means fewer advance appointments. Clear explanations, honest wait estimates, and periodic adjustments make that trade-off manageable without promising immediate service to everyone.",
+  "text_sha256": "0508727233f44a46a79c8c2d42c65c58264c01220abb84281f4ff82b343fe804",
+  "raw_final_sha256": "0508727233f44a46a79c8c2d42c65c58264c01220abb84281f4ff82b343fe804",
+  "word_count": 206,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4238,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 250,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\2c3e2ada5fe0b075ef3a1d1b820488d961bd277f5bb81272f1e011b07f5528c1",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

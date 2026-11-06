@@ -1,0 +1,1 @@
+{"event":"main_probability","payload":{"items":[["probability",{"kind":"array","name":"event-0006-array-0001"}],["normalized_logits",{"kind":"array","name":"event-0006-array-0002"}],["divisor",{"kind":"scalar","value":16}]],"kind":"mapping"},"sequence":6}

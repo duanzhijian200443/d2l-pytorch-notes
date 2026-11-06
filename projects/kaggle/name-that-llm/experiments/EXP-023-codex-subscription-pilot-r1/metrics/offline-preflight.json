@@ -1,0 +1,10 @@
+{
+  "observed_at": "2026-11-01T08:22:33.301632+00:00",
+  "passed_tests": 11,
+  "failed_tests": 0,
+  "inference_calls": 0,
+  "prompts": 250,
+  "planned_responses": 1000,
+  "workers": 2,
+  "retry_of": "EXP-021"
+}

@@ -1,0 +1,158 @@
+{
+  "observed_at": "2026-11-01T07:42:51.363226+00:00",
+  "versions": {
+    "numpy": "2.1.3",
+    "pandas": "2.3.3",
+    "scipy": "1.16.3",
+    "sklearn": "1.6.1"
+  },
+  "python": "3.13.15",
+  "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+  "cpu_count": 4,
+  "memory_total_bytes": 33658159104,
+  "gpu_requested": false,
+  "threadpools": [
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 2,
+      "prefix": "libscipy_openblas",
+      "filepath": "/usr/local/lib/python3.13/dist-packages/numpy.libs/libscipy_openblas64_-ff651d7f.so",
+      "version": "0.3.27",
+      "threading_layer": "pthreads",
+      "architecture": "Haswell"
+    },
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 2,
+      "prefix": "libscipy_openblas",
+      "filepath": "/usr/local/lib/python3.13/dist-packages/scipy.libs/libscipy_openblas-b75cc656.so",
+      "version": "0.3.29.dev",
+      "threading_layer": "pthreads",
+      "architecture": "Haswell"
+    },
+    {
+      "user_api": "openmp",
+      "internal_api": "openmp",
+      "num_threads": 2,
+      "prefix": "libgomp",
+      "filepath": "/usr/local/lib/python3.13/dist-packages/scikit_learn.libs/libgomp-a34b3233.so.1.0.0",
+      "version": null
+    }
+  ],
+  "protocol": {
+    "schema_version": 1,
+    "created_at": "2026-11-01T07:41:13.831078+00:00",
+    "scope": "isolated svc4 raw-public development OOF, not original matched/pool recipe or full ATLAS20",
+    "train_sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+    "split_id": "prompt-group-v1",
+    "labels": [
+      "claude-fable-5",
+      "claude-opus-4-6",
+      "claude-opus-4-8",
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "gemini-3.1-pro-preview",
+      "gemini-3.6-flash",
+      "gemini-3.7-flash",
+      "gemini-3.8-flash",
+      "glm-5.3",
+      "glm-5.3-flash",
+      "gpt-5.5",
+      "gpt-5.6-luna",
+      "gpt-5.6-sol",
+      "gpt-5.6-terra",
+      "gpt-6-astra",
+      "kimi-k3",
+      "qwen3.8-max"
+    ],
+    "public_rows": 5400,
+    "public_prompts": 300,
+    "variants": [
+      {
+        "id": "EXP-013",
+        "variant": "official-only",
+        "public_row_weight": null,
+        "directory": "experiments/EXP-013-svc4-official-only",
+        "config_file": "config-EXP-013.json",
+        "config_sha256": "ee332c972526e51ec811769cd9298652fc95ec41808de71462a786fba3d7a2f0"
+      },
+      {
+        "id": "EXP-014",
+        "variant": "raw-w035",
+        "public_row_weight": 0.35,
+        "directory": "experiments/EXP-014-svc4-raw-w035",
+        "config_file": "config-EXP-014.json",
+        "config_sha256": "4355ae3e7085c40b0949743261385935fe9b1f3fc68a854bafb3d10558369c55"
+      },
+      {
+        "id": "EXP-015",
+        "variant": "raw-w0175",
+        "public_row_weight": 0.175,
+        "directory": "experiments/EXP-015-svc4-raw-w0175",
+        "config_file": "config-EXP-015.json",
+        "config_sha256": "7ca017b3c0084d9a874f3c984126736a75af3f984d60ba56dfbb997a58792e3f"
+      },
+      {
+        "id": "EXP-016",
+        "variant": "raw-w070",
+        "public_row_weight": 0.7,
+        "directory": "experiments/EXP-016-svc4-raw-w070",
+        "config_file": "config-EXP-016.json",
+        "config_sha256": "2a9f04dfbbccb74ef115da42616a38d2fb83430f4ba3a758431bc5e0db8f7efe"
+      }
+    ],
+    "required_versions": {
+      "numpy": "2.1.3",
+      "pandas": "2.3.3",
+      "scipy": "1.16.3",
+      "sklearn": "1.6.1"
+    },
+    "source_infer_sha256": "022cafd2e6504dd7cf38c8675b9597fb4fbd4c9dd0be69d38918293d9caac9b3",
+    "input_hashes": {
+      "attribution.md": "e66d75d4142e917acfaf82d1bf4c1406f7d1bc920fadeed3fd3ed162760c4373",
+      "config-EXP-013.json": "ee332c972526e51ec811769cd9298652fc95ec41808de71462a786fba3d7a2f0",
+      "config-EXP-014.json": "4355ae3e7085c40b0949743261385935fe9b1f3fc68a854bafb3d10558369c55",
+      "config-EXP-015.json": "7ca017b3c0084d9a874f3c984126736a75af3f984d60ba56dfbb997a58792e3f",
+      "config-EXP-016.json": "2a9f04dfbbccb74ef115da42616a38d2fb83430f4ba3a758431bc5e0db8f7efe",
+      "folds.csv": "e8ba1e3712852168dc57f56960d4f3e00be612d639ade8a7dcb0f0d8335ce551",
+      "guard.py": "eaf2c31758045488eb53ba3f9c7f824c848bfe0a33698fab816d96485f9b6d3b",
+      "input_audit.json": "eec44c16af52d290d27c01c5909a4ea65a628cfc291cec8e303ff28793ceb440",
+      "public.csv": "0a1e31a0f8b0ece7ca44a961075252fe275107f3710804971838d714a4e77aaa",
+      "runner.py": "d2d916f0eeee28b23911c15ab83e096ea6c7a906f6ba4482674ded92c386871f",
+      "svc4.py": "80f66aedad27e8017defe31de7f0286c1b54efa5e96ba6e2cb42516a86e73c18"
+    },
+    "comparisons": [
+      [
+        "EXP-014",
+        "EXP-013"
+      ],
+      [
+        "EXP-015",
+        "EXP-014"
+      ],
+      [
+        "EXP-016",
+        "EXP-014"
+      ]
+    ],
+    "work_budget_seconds": 6900,
+    "platform_wall_seconds": 7200,
+    "rss_limit_bytes": 12884901888,
+    "gpu": false,
+    "internet": false,
+    "threads": 2,
+    "limits": [
+      "The selected raw/new passages avoid the aggregate pool's label-conditioned punctuation cleaning, but their generation protocol was informed by official train data.",
+      "The pinned prvs README lines 38-39 say target lengths were sampled from the official train word-count distribution and the protocol was adjusted using label/length comparisons with official train. The generator source is not included, so further upstream selection cannot be ruled out independently.",
+      "Request/response logs establish internal consistency, not independent authentication of the underlying provider weights; Kaggle proxy rows echo routing slugs.",
+      "Zero known prompt links, exact response overlap and reconstructed-prompt exact overlap do not prove the absence of semantic or undocumented prompt overlap. The host's original prompts are not available here.",
+      "This is fixed-external-data development OOF preparation, not a strictly untouched holdout, full ATLAS20 OOF, or a leaderboard result.",
+      "5376 of the 5400 selected texts already occur in the EXP-009 current-input main-svc4 projection. This is a source/weight diagnostic, not 5400 novel additions to ATLAS20, and that projection is not historical hidden-run membership evidence."
+    ]
+  },
+  "score_type": "uncalibrated LinearSVC decision_function",
+  "class_weight_semantics": "sklearn 1.6.1 balanced weights from unweighted training class counts",
+  "fitted_weights_saved": false
+}

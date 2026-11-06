@@ -1,0 +1,9 @@
+{
+  "observed_at_utc": "2026-11-01T08:51:45.399562+00:00",
+  "status": "PASS",
+  "tests": 12,
+  "command": "python -B -X utf8 -m unittest discover -s cloud/fixed-blend-external -p test_verify_outputs.py -v",
+  "verifier_sha256": "3df4388d0d85637bcce596f8466fd17938980f3c65000b302a490a8199fd6d1d",
+  "tests_sha256": "9ab11e458a636a3715ba875244a846071e29a6ca7e36a7cd955e6bd126adb22e",
+  "note": "Includes near-tie argmax flip rejection; verifier and tests were corrected before real acceptance; frozen model protocol unchanged."
+}

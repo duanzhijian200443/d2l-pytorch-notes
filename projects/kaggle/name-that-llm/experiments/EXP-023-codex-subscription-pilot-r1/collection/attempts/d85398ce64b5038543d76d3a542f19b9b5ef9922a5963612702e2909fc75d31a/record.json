@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0087",
+  "prompt": "How can a folktale change as people retell it while still being recognized as the same story? Aim for about 120 words.",
+  "category": "humanities_history",
+  "target_words": 120,
+  "prompt_group": "cp0087",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "d85398ce64b5038543d76d3a542f19b9b5ef9922a5963612702e2909fc75d31a",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:25:56.969765+00:00",
+  "ended_at": "2026-11-01T09:26:13.468787+00:00",
+  "prompt_sha256": "214dcc7b01bd132a829edd82c6f1e3d7e18b5fbf5874a981ada222d4110fc93b",
+  "text": "A folktale can change through each retelling because storytellers adapt it to their audience, culture, and time. They may alter the setting, characters, language, humor, or moral. A frightening figure in one region might become a comic trickster in another, while modern versions may replace forests and castles with cities and schools. Details can also be forgotten, exaggerated, or combined with elements from other tales.\n\nYet the story remains recognizable because its core pattern survives. Key events, character roles, conflicts, symbols, or lessons act like a narrative skeleton. For example, Cinderella has many versions, but most feature an oppressed young person, supernatural or unexpected help, a special event, and eventual recognition. The surface changes, while the tale’s central structure and emotional meaning endure.",
+  "text_sha256": "a1f62767bcf1a3469d6e7cc8ae4b1fbef4ef07c328557354ebe27775fdfee60c",
+  "raw_final_sha256": "a1f62767bcf1a3469d6e7cc8ae4b1fbef4ef07c328557354ebe27775fdfee60c",
+  "word_count": 123,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4121,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 160,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\d85398ce64b5038543d76d3a542f19b9b5ef9922a5963612702e2909fc75d31a",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

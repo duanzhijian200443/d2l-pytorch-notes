@@ -1,0 +1,84 @@
+{
+  "status": "PASS_PUBLIC_COMMIT_AND_MATERIALIZED_TRAINING_INPUT",
+  "verified_at": "2026-11-02T10:25:36.540578+00:00",
+  "ref": "zhjianduan/ntl-apex-codex240-057",
+  "version": 2,
+  "script_version_id": 364839816,
+  "source_sha256": "1683f9246149ea3e1c57a44f0a514e886284c8d36f3ddcd6b7ee4fa7046e0861",
+  "embedded_input_rows": {
+    "rows": 240,
+    "groups": 60,
+    "csv_sha256": "694d91e2536db2d77d81f8d8b32a802763a750a2e9643fdb0ba6a10b76755a01",
+    "per_label": {
+      "gpt-5.6-luna": 60,
+      "gpt-5.6-sol": 60,
+      "gpt-5.6-terra": 60,
+      "gpt-6-astra": 60
+    },
+    "full_text_hashes_verified": true,
+    "holdout_rows": 0,
+    "scope": "materialized embedded training input; fast commit does not fit Stylegram"
+  },
+  "expected_shared_sha256": "b98c246578afbc38b9bf3c0be1e666a41cc15d051c64d03e875ab0c85da1bd3b",
+  "expected_shared_rows": 10743,
+  "shared_recomputed_by_this_fast_commit": true,
+  "actual_public_data_preflight": {
+    "status": "PASS",
+    "arm": "four240",
+    "rows": 240,
+    "groups": 60,
+    "source_csv_sha256": "694d91e2536db2d77d81f8d8b32a802763a750a2e9643fdb0ba6a10b76755a01",
+    "shared_rows": 10743,
+    "shared_groups": 738,
+    "shared_sha256": "b98c246578afbc38b9bf3c0be1e666a41cc15d051c64d03e875ab0c85da1bd3b",
+    "comp_stack_sha256": "5c8ea0be70cd7231bd23183028a3a8a8bc9cee73c3c461e863ebd9d4e2701b21",
+    "fast_commit": true,
+    "competition_rerun_flag_present": false,
+    "fit_count": 0
+  },
+  "actual_public_data_preflight_file": {
+    "path": "cloud/apex-codex240-057/outputs-v2/volume_preflight.json",
+    "sha256": "2c821eb9c95924b38ccf339d28688d27e28643e8f4be6e9512ac51a9f1ee129d",
+    "bytes": 474
+  },
+  "stylegram_fit_observed": false,
+  "hidden_execution_observed": false,
+  "module_hashes": {
+    "comp_stack.py": "5c8ea0be70cd7231bd23183028a3a8a8bc9cee73c3c461e863ebd9d4e2701b21",
+    "gauss.py": "908b57113f1a7b8ebdbf204c6be87cbc385f765ba50ac07b4e270c64b7cf1000",
+    "infer.py": "63112c88d43f9d69b3132243315e0db28c40b4bf0f42bac651f73ef07a67f9bb",
+    "sibling_style.py": "8a7f3b3dad7cbe1755b66e8455a157894cac92b8983fc805f5ed6286ea915e66"
+  },
+  "public_ids": [
+    "00353fb1c541",
+    "005f5a9a6139",
+    "0062a53d5487"
+  ],
+  "fast_signals": [
+    "FAST_COMMIT True",
+    "llama source alexchilton/llama-3-1-8b-base",
+    "variant E dropped flag_gemini37_routing_risk 0",
+    "open safe pool 190588"
+  ],
+  "log": {
+    "path": "cloud/apex-codex240-057/outputs-v2/ntl-apex-codex240-057.log",
+    "sha256": "0dad3307925703e3e6826d46de412db4348ad49b693dddf7e9b0c184e54147d3",
+    "bytes": 8905
+  },
+  "submission": {
+    "path": "cloud/apex-codex240-057/outputs-v2/submission.parquet",
+    "sha256": "ef94c7669e36a465bbd3e2dd8cf4905b5e1c2e51e18053a588cb56623086170a",
+    "bytes": 1682
+  },
+  "zero_arm_identical_placeholder_sha256": true,
+  "source_integrity_validation": {
+    "path": "cloud/apex-codex240-057/materialized-source-check.json",
+    "sha256": "bec6ac8372438ae7d281fb7e8c824b19cd81c366270ab229b10147ace91c5986",
+    "bytes": 1668
+  },
+  "readback": {
+    "path": "cloud/apex-codex240-057/readback-v2.json",
+    "sha256": "13a1cd27f93107bccfeb2e9851b79cc31f5b11e23389288d6f35ad292d45579b",
+    "bytes": 3995
+  }
+}

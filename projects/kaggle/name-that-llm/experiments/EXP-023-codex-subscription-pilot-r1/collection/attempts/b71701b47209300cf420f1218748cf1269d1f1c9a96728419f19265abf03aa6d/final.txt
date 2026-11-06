@@ -1,0 +1,1 @@
+The arrival order is **Ada, then Cara, then Ben**. Ada arrives before Ben, so Ada must come earlier than Ben. Cara arrives after Ada but before Ben, placing Cara between them. Therefore, the clues together establish the complete sequence: **Ada → Cara → Ben**.

@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0180",
+  "prompt": "Compose a short message explaining that a shared document is ready for factual corrections, but that major changes to its structure will be considered separately. Please answer in roughly 160 words.",
+  "category": "short_email",
+  "target_words": 160,
+  "prompt_group": "cp0180",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "1dd960dd305a669130913afe66b0f2bcca2b3cb7e54f983eb84fae5c649e559a",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:48:49.757945+00:00",
+  "ended_at": "2026-11-01T10:49:06.548383+00:00",
+  "prompt_sha256": "4c0801d012211cbff3a83302c03d56a89dc6002818702809f2dfe66bf5456bf0",
+  "text": "Hi everyone,\n\nThe shared document is now ready for review. Please feel free to add comments or suggested edits for factual corrections, such as inaccurate details, missing information, unclear wording, or outdated references. Your careful review will help ensure that the content is accurate and reliable.\n\nFor now, please focus on factual accuracy and minor wording adjustments rather than broad revisions. Suggestions involving major changes to the document’s structure, organization, scope, or overall approach will be collected and considered separately after this review period. This will help us keep the current review focused and make it easier to distinguish essential corrections from larger editorial decisions.\n\nThank you for taking the time to review the document and for clearly identifying any issues you find. Please include a brief explanation or supporting source where helpful, especially when proposing a correction that may require verification.",
+  "text_sha256": "7e6dd6fcf7dc396efd008c49bae1b9d62509b201a86c2ece36c40ae97e7d01f8",
+  "raw_final_sha256": "7e6dd6fcf7dc396efd008c49bae1b9d62509b201a86c2ece36c40ae97e7d01f8",
+  "word_count": 142,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2593,
+      "cached_input_tokens": 2432,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 194,
+      "reasoning_output_tokens": 27
+    }
+  ],
+  "attempt_path": "collection\\attempts\\1dd960dd305a669130913afe66b0f2bcca2b3cb7e54f983eb84fae5c649e559a",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

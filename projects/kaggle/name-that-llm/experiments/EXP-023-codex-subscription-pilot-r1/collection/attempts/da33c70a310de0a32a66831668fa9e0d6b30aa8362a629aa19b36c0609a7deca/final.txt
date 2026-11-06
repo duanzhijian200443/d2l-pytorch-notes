@@ -1,0 +1,5 @@
+Turning a device off and on can help because it clears temporary problems in its software and hardware state. Restarting ends stuck processes, frees memory, resets network connections, and reloads system components and drivers. It can also give overheating components time to cool and reestablish communication with peripherals or services that stopped responding.
+
+However, a restart usually treats the symptom rather than the underlying cause. It will not fix damaged hardware, a failing battery, insufficient storage, corrupted files, malware, incompatible software, or a recurring configuration problem. The issue may appear resolved simply because the temporary error has been cleared, then return later.
+
+If restarting helps only briefly, note when the problem occurs and look for patterns. Install relevant updates, check cables and power, remove recently added software or hardware, and consult error messages or diagnostic tools. If the device repeatedly fails, becomes unusually hot, loses data, or shows physical damage, stop relying on restarts and seek technical support.

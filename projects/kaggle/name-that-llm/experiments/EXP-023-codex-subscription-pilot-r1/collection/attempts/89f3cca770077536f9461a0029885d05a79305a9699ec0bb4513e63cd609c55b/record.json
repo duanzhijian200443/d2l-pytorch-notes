@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0199",
+  "prompt": "Two identical clocks begin together. One gains two minutes each day, while the other loses one minute each day. Explain how far apart their readings will be after four days. Please answer in roughly 120 words.",
+  "category": "reasoning_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0199",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "89f3cca770077536f9461a0029885d05a79305a9699ec0bb4513e63cd609c55b",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:02:16.481581+00:00",
+  "ended_at": "2026-11-01T11:02:32.792815+00:00",
+  "prompt_sha256": "5fabeb72a64e59bdd7c8d5e1976bc0a652270e019aeb2ae7e3fd482f33f582be",
+  "text": "The clocks start with identical readings, so their initial difference is zero. Each day, the first clock gains two minutes, meaning it moves two minutes ahead of the correct time. Meanwhile, the second clock loses one minute, so it falls one minute behind the correct time.\n\nTherefore, the distance between their readings increases by three minutes each day: two minutes from the fast clock’s gain plus one minute from the slow clock’s loss.\n\nAfter four days, the fast clock will be eight minutes ahead of the correct time:\n\n\\(2 \\times 4 = 8\\) minutes.\n\nThe slow clock will be four minutes behind:\n\n\\(1 \\times 4 = 4\\) minutes.\n\nThus, their readings will be:\n\n\\(8 + 4 = 12\\) minutes apart.",
+  "text_sha256": "cdd91382b1bbcd5d28d99a46038e9dee88778fb6c0d67b1fdbd6b17c71a36162",
+  "raw_final_sha256": "cdd91382b1bbcd5d28d99a46038e9dee88778fb6c0d67b1fdbd6b17c71a36162",
+  "word_count": 120,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4135,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 203,
+      "reasoning_output_tokens": 39
+    }
+  ],
+  "attempt_path": "collection\\attempts\\89f3cca770077536f9461a0029885d05a79305a9699ec0bb4513e63cd609c55b",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

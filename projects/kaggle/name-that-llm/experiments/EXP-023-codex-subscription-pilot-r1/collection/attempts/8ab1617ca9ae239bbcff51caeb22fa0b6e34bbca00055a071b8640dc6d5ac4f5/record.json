@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0064",
+  "prompt": "A bookstore wants customers to discover unfamiliar authors without making its shelves difficult to navigate. Propose a modest experiment. Keep your response near 200 words.",
+  "category": "business_decision",
+  "target_words": 200,
+  "prompt_group": "cp0064",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "8ab1617ca9ae239bbcff51caeb22fa0b6e34bbca00055a071b8640dc6d5ac4f5",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:11:27.256124+00:00",
+  "ended_at": "2026-11-01T09:11:51.075826+00:00",
+  "prompt_sha256": "66a413daf480f73378a891667dff0c09aab42a4ffe076748bf614bd55c4a238b",
+  "text": "Run a four-week “Try Someone New” experiment on one small display near the fiction shelves, leaving the main shelving system unchanged.\n\nChoose 12 lesser-known authors across three popular genres. Keep their books in their normal locations, but place an extra copy on the display where stock allows. Give each book a short staff-written card describing its appeal—for example, “For readers who enjoy intricate mysteries with a dry sense of humor.” Include the genre and usual shelf location so browsing remains easy.\n\nOffer a simple invitation: “Pick a book by an author you haven’t read.” Avoid discounts initially, so the experiment tests discovery rather than price sensitivity.\n\nFor comparison, record sales of the selected titles during the preceding four weeks, and track a similar group of undisplayed titles during the experiment. Ask purchasers one optional checkout question: “Was this author new to you?” Staff can also tally requests for help locating books and note whether the display obstructs traffic.\n\nTreat the results as directional, not definitive: small samples and staff recommendations can influence sales. Continue or expand only if the display generates more first-time-author purchases without increasing navigation problems. If discovery improves but customers seem confused, simplify the cards or move the display before trying again.",
+  "text_sha256": "ac704808d8fe22be88b710fae94bf774ff856eefff32d605a29537a44669d425",
+  "raw_final_sha256": "ac704808d8fe22be88b710fae94bf774ff856eefff32d605a29537a44669d425",
+  "word_count": 205,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4237,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 248,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\8ab1617ca9ae239bbcff51caeb22fa0b6e34bbca00055a071b8640dc6d5ac4f5",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

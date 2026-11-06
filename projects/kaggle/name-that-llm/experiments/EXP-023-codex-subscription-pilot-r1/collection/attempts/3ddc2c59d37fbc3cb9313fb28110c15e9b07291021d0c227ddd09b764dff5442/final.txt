@@ -1,0 +1,5 @@
+A soap bubble shows changing colors because light reflects from both the outer and inner surfaces of its thin soap film. These two reflections overlap. Depending on the film’s thickness, some colors reinforce each other and look brighter, while others cancel out and become faint. This effect is called **thin-film interference**.
+
+As water drains downward and evaporates, the film becomes thinner and uneven. Different areas therefore strengthen different colors, creating swirling bands of pink, green, blue, and gold. The colors also shift with your viewing angle because light travels a different distance through the film.
+
+Just before the bubble bursts, its thinnest patches may look nearly black because the reflections cancel much of the visible light.

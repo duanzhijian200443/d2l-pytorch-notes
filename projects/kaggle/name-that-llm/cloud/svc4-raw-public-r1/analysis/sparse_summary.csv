@@ -1,0 +1,13 @@
+experiment,m,scenario_repeats,mean_ba,scenario_sd_ddof1,min_ba,max_ba,interpretation
+EXP-017,2,5,0.37495893908235184,0.01946575280874916,0.35019227776580725,0.3957321271526302,descriptive sampling variation using the same fitted models/prompts; not independent training repeats or standard error
+EXP-017,3,5,0.3739172007983471,0.016556709001614482,0.3540422628509304,0.39864622713373576,descriptive sampling variation using the same fitted models/prompts; not independent training repeats or standard error
+EXP-017,6,5,0.3759256625556135,0.008440607400500939,0.36784678811980004,0.38871230646915983,descriptive sampling variation using the same fitted models/prompts; not independent training repeats or standard error
+EXP-018,2,5,0.3997896076613827,0.03715597676193492,0.361817933111344,0.4526094992350545,descriptive sampling variation using the same fitted models/prompts; not independent training repeats or standard error
+EXP-018,3,5,0.39682950415356605,0.022974531804141864,0.37619868042133425,0.4319205627779772,descriptive sampling variation using the same fitted models/prompts; not independent training repeats or standard error
+EXP-018,6,5,0.3962799249776296,0.007879429604664758,0.38501845165142445,0.4058413095405977,descriptive sampling variation using the same fitted models/prompts; not independent training repeats or standard error
+EXP-019,2,5,0.3928534233299343,0.03478449975207977,0.35225442739716756,0.43342090274382644,descriptive sampling variation using the same fitted models/prompts; not independent training repeats or standard error
+EXP-019,3,5,0.3882062259567465,0.02239424563427863,0.35176381752371344,0.41007134523111216,descriptive sampling variation using the same fitted models/prompts; not independent training repeats or standard error
+EXP-019,6,5,0.3880514598276587,0.0061451551833549825,0.3776120267692807,0.3933599802046762,descriptive sampling variation using the same fitted models/prompts; not independent training repeats or standard error
+EXP-020,2,5,0.38892939232652973,0.0425920668244602,0.34809323301970363,0.4537214250438327,descriptive sampling variation using the same fitted models/prompts; not independent training repeats or standard error
+EXP-020,3,5,0.3913237651817379,0.03276935209780572,0.3624557076734174,0.4382397182667023,descriptive sampling variation using the same fitted models/prompts; not independent training repeats or standard error
+EXP-020,6,5,0.3892699344619804,0.008958675548661503,0.3815410687920557,0.40379071436874375,descriptive sampling variation using the same fitted models/prompts; not independent training repeats or standard error

@@ -1,0 +1,186 @@
+{
+  "observed_at_utc": "2026-11-01T09:11:47.723428+00:00",
+  "notebook_ref": "zhjianduan/name-that-llm-fixed-blend-multiclass-027",
+  "version": 2,
+  "cli_command": [
+    "kaggle",
+    "kernels",
+    "output",
+    "zhjianduan/name-that-llm-fixed-blend-multiclass-027/2",
+    "-p",
+    "cloud/fixed-blend-multiclass/outputs-v2",
+    "-q"
+  ],
+  "cli_exit_code": 0,
+  "complete_readback": "cloud/fixed-blend-multiclass/complete-v2-readback.json",
+  "files": [
+    {
+      "source": "cloud/fixed-blend-multiclass/analysis/comparison.csv",
+      "archive": "experiments/EXP-027-multiclass-external-validation/metrics/comparison.csv",
+      "sha256": "c704a7b5ef69eda1aac1a19fe6ed81a4efcbd36463aa925ee1ebbb260cd83247",
+      "bytes": 319
+    },
+    {
+      "source": "cloud/fixed-blend-multiclass/analysis/errors.csv",
+      "archive": "experiments/EXP-027-multiclass-external-validation/metrics/errors.csv",
+      "sha256": "fe563619c063762f005e0b52ef21fc8e5c4dd210c0920afa150ed835e09d1592",
+      "bytes": 6078
+    },
+    {
+      "source": "cloud/fixed-blend-multiclass/analysis/per_class.csv",
+      "archive": "experiments/EXP-027-multiclass-external-validation/metrics/per_class.csv",
+      "sha256": "f1137ac29fb06a14af5cce5239acc5ddf1100d4be0aebdb5be11d27b8df26204",
+      "bytes": 2326
+    },
+    {
+      "source": "cloud/fixed-blend-multiclass/analysis/verified.json",
+      "archive": "experiments/EXP-027-multiclass-external-validation/metrics/verified.json",
+      "sha256": "2254276bd3756ac366b1c99e37fb305f0f708b4fbb0ca80c0ea6be1dce367aa1",
+      "bytes": 23678
+    },
+    {
+      "source": "cloud/fixed-blend-multiclass/outputs-v2/name-that-llm-fixed-blend-multiclass-027.log",
+      "archive": "experiments/EXP-027-multiclass-external-validation/logs/name-that-llm-fixed-blend-multiclass-027.log",
+      "sha256": "7b3550177ca88aada1713a538a190b1fb393155718f52c0dcea23e86d6fa64ad",
+      "bytes": 4490
+    },
+    {
+      "source": "cloud/fixed-blend-multiclass/outputs-v2/results/.run.lock",
+      "archive": "experiments/EXP-027-multiclass-external-validation/logs/.run.lock",
+      "sha256": "fc0b32f40a43ca921d8e3066df82c0d7f052983a5992a2a150dccdfebd89fa19",
+      "bytes": 32
+    },
+    {
+      "source": "cloud/fixed-blend-multiclass/outputs-v2/results/artifacts.json",
+      "archive": "experiments/EXP-027-multiclass-external-validation/metrics/runtime/artifacts.json",
+      "sha256": "242b099fd1d9199c1912e50d47ed3e3d4896d36f3d6d7175a9532a3a1cb203e9",
+      "bytes": 2800
+    },
+    {
+      "source": "cloud/fixed-blend-multiclass/outputs-v2/results/component-and-blend-scores.npz",
+      "archive": "experiments/EXP-027-multiclass-external-validation/predictions/component-and-blend-scores.npz",
+      "sha256": "c861ce20cc83143d2ff6b522f6258fa9bcf132e4d174476d4934ea8b75efadcd",
+      "bytes": 302912
+    },
+    {
+      "source": "cloud/fixed-blend-multiclass/outputs-v2/results/confusion.csv",
+      "archive": "experiments/EXP-027-multiclass-external-validation/predictions/confusion.csv",
+      "sha256": "f08297558631fb076039741e68026c12bba8e919022f3343df760092d8a57f63",
+      "bytes": 33899
+    },
+    {
+      "source": "cloud/fixed-blend-multiclass/outputs-v2/results/environment.json",
+      "archive": "experiments/EXP-027-multiclass-external-validation/metrics/runtime/environment.json",
+      "sha256": "6abe3da7f6b8bb5309ce1511ff8d8c747096d1bc1c097064f8591cb2bbeec396",
+      "bytes": 5985
+    },
+    {
+      "source": "cloud/fixed-blend-multiclass/outputs-v2/results/features-stylegram.json",
+      "archive": "experiments/EXP-027-multiclass-external-validation/metrics/runtime/features-stylegram.json",
+      "sha256": "a1fd0c5974a5e7b97babc9bc69822ebaaf470350b78fc35f1c245d68c1150575",
+      "bytes": 1587
+    },
+    {
+      "source": "cloud/fixed-blend-multiclass/outputs-v2/results/features-svc4.json",
+      "archive": "experiments/EXP-027-multiclass-external-validation/metrics/runtime/features-svc4.json",
+      "sha256": "b897ddfea1c91696c9429aa161c27e6693efdd132c06806fa5f986b5e668ec11",
+      "bytes": 1361
+    },
+    {
+      "source": "cloud/fixed-blend-multiclass/outputs-v2/results/fit-stylegram_centred.json",
+      "archive": "experiments/EXP-027-multiclass-external-validation/metrics/runtime/fit-stylegram_centred.json",
+      "sha256": "914047aa958d292fb5b22689c65a90a9ae302e5bef1503fbe8b09ff1b73733af",
+      "bytes": 1062
+    },
+    {
+      "source": "cloud/fixed-blend-multiclass/outputs-v2/results/fit-stylegram_plain.json",
+      "archive": "experiments/EXP-027-multiclass-external-validation/metrics/runtime/fit-stylegram_plain.json",
+      "sha256": "48c58fee4102a4e75685cc250c43998e99fa59ba32add999ccc2def594338618",
+      "bytes": 1059
+    },
+    {
+      "source": "cloud/fixed-blend-multiclass/outputs-v2/results/fit-svc4.json",
+      "archive": "experiments/EXP-027-multiclass-external-validation/metrics/runtime/fit-svc4.json",
+      "sha256": "441fb237a36fda4f2411075bf4e7ebcb7a899e4ec2e4cdda9c6154a59182ad28",
+      "bytes": 1055
+    },
+    {
+      "source": "cloud/fixed-blend-multiclass/outputs-v2/results/guard.json",
+      "archive": "experiments/EXP-027-multiclass-external-validation/metrics/runtime/guard.json",
+      "sha256": "c3f85b38e2084ef3df642f4302a39e2675b7f3ab20103bc063d9e2b3d918a7a0",
+      "bytes": 292
+    },
+    {
+      "source": "cloud/fixed-blend-multiclass/outputs-v2/results/input_preflight.json",
+      "archive": "experiments/EXP-027-multiclass-external-validation/metrics/runtime/input_preflight.json",
+      "sha256": "6490690e08bd3c40fef51921377c60fa61b6a044151e9af6ac0af0885f3a80d2",
+      "bytes": 1725
+    },
+    {
+      "source": "cloud/fixed-blend-multiclass/outputs-v2/results/metrics.json",
+      "archive": "experiments/EXP-027-multiclass-external-validation/metrics/runtime/metrics.json",
+      "sha256": "7e100ffe6c8f3957adbd420a5cb70d36a0671f9d25e67ab2644b3d35053af6da",
+      "bytes": 10404
+    },
+    {
+      "source": "cloud/fixed-blend-multiclass/outputs-v2/results/predictions.csv",
+      "archive": "experiments/EXP-027-multiclass-external-validation/predictions/predictions.csv",
+      "sha256": "4c384266553fca68605e7141be0096f853b71d83e67b610e3c67e449c19258b0",
+      "bytes": 138320
+    },
+    {
+      "source": "cloud/fixed-blend-multiclass/outputs-v2/results/result.json",
+      "archive": "experiments/EXP-027-multiclass-external-validation/metrics/runtime/result.json",
+      "sha256": "822b1343d7161738197bc4a4bd552fdf4df4c1ffdc07109a6fdff304d8c76f07",
+      "bytes": 17097
+    },
+    {
+      "source": "cloud/fixed-blend-multiclass/outputs-v2/results/state.json",
+      "archive": "experiments/EXP-027-multiclass-external-validation/metrics/runtime/state.json",
+      "sha256": "d06f6f43436805ee6e4145298547130cfa9f5717e904c035e3f322f6b8de9c47",
+      "bytes": 187
+    },
+    {
+      "source": "cloud/fixed-blend-multiclass/outputs-v2/results/stylegram-scores.npz",
+      "archive": "experiments/EXP-027-multiclass-external-validation/predictions/stylegram-scores.npz",
+      "sha256": "9adf8b3e9b7a1ef83cf0404b520a461283acf9757544a5f0780d5105e12c9aa1",
+      "bytes": 201536
+    },
+    {
+      "source": "cloud/fixed-blend-multiclass/outputs-v2/results/training-membership.npz",
+      "archive": "experiments/EXP-027-multiclass-external-validation/metrics/runtime/training-membership.npz",
+      "sha256": "69155fb28d8871d889d5180394bebde3f9864d2b044283dcf229b37977092655",
+      "bytes": 89774
+    },
+    {
+      "source": "cloud/fixed-blend-multiclass/outputs-v2/results/training.log",
+      "archive": "experiments/EXP-027-multiclass-external-validation/logs/training.log",
+      "sha256": "c10fe7dd6bc5f92a855195fbbb5d2e0925a52a4620d17b241328d319ab94cb06",
+      "bytes": 2898
+    },
+    {
+      "source": "cloud/fixed-blend-multiclass/outputs-v2/results/weights-stylegram.json",
+      "archive": "experiments/EXP-027-multiclass-external-validation/metrics/runtime/weights-stylegram.json",
+      "sha256": "78575b049bf13097938e137a008cc47dd99a37e7ad4d3f71fc3bf1e54478274e",
+      "bytes": 2054
+    },
+    {
+      "source": "cloud/fixed-blend-multiclass/outputs-v2/results/weights-stylegram.npz",
+      "archive": "experiments/EXP-027-multiclass-external-validation/metrics/runtime/weights-stylegram.npz",
+      "sha256": "a85f955f8664e6cb5e854c51fb407c071c5a40a56c395233b99c7212121a23b3",
+      "bytes": 4631
+    },
+    {
+      "source": "cloud/fixed-blend-multiclass/outputs-v2/results/weights-svc4.json",
+      "archive": "experiments/EXP-027-multiclass-external-validation/metrics/runtime/weights-svc4.json",
+      "sha256": "eb9f9536e55a80fa60fdbbb4849cadf4ac58ad1acd9dd0d44ce6a86ba0aa5a5b",
+      "bytes": 2371
+    },
+    {
+      "source": "cloud/fixed-blend-multiclass/outputs-v2/results/weights-svc4.npz",
+      "archive": "experiments/EXP-027-multiclass-external-validation/metrics/runtime/weights-svc4.npz",
+      "sha256": "b285fcf27ca1341796054a8b3adbfa03aaf489d8a8ff598b503108e88d3e4c25",
+      "bytes": 3792
+    }
+  ]
+}

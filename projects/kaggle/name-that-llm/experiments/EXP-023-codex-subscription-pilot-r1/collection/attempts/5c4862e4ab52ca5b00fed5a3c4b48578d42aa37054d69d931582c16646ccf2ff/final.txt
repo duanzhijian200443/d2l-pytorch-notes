@@ -1,0 +1,8 @@
+A manager can frame the review around specific decisions rather than asking, “What do you think?” Share the draft with its purpose, constraints, and what is already settled. Then identify the areas where feedback is genuinely needed—for example:
+
+- What major risk or dependency have we missed?
+- Which assumption seems weakest?
+- Is the proposed timeline realistic?
+- What one change would most improve the plan?
+
+Set a deadline and request feedback in a consistent format, such as “concern, evidence, recommendation.” Clarify that comments should focus on material issues, not wording or personal preferences, unless those affect execution. Afterward, summarize the input, explain which changes will be made, and name the decision owner. This creates room for challenge while keeping the discussion focused, comparable, and actionable.

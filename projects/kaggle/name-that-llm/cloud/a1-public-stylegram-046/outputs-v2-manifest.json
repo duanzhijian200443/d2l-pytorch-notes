@@ -1,0 +1,45 @@
+{
+  "status": "DOWNLOADED",
+  "ref": "zhjianduan/name-that-llm-a1-public-stylegram-046",
+  "version": 2,
+  "observed_at": "2026-11-01T17:47:35.440179+00:00",
+  "file_filter": "^(submission\\.parquet|submission_receipt\\.json|input_preflight\\.json|availability\\.json|a1_synthetic_parity\\.json|reproduction_environment\\.json|comp-process\\.log|a1_training_receipt\\.json|comp_meta\\.json)$",
+  "sdk_automatic_log_included": true,
+  "files": [
+    {
+      "path": "a1_synthetic_parity.json",
+      "bytes": 550,
+      "sha256": "06ec26c52dd0302209908149f42e19616d5aa35e8ba64d097248d79614aa0757"
+    },
+    {
+      "path": "availability.json",
+      "bytes": 26615,
+      "sha256": "a3bdec419e8f4ae132c7fafacbeb9b4b83d7aed1d81fa156e01d951d0a481ea9"
+    },
+    {
+      "path": "input_preflight.json",
+      "bytes": 1872,
+      "sha256": "8d15ead4c08cc012150e9d86324e32d466f5c71ffa90bc005f43f9e46a32b318"
+    },
+    {
+      "path": "reproduction_environment.json",
+      "bytes": 1043,
+      "sha256": "786692187d676cd8ca7a367f7898bddfd9d931b7dc8d5b4aac71c6d608329ad7"
+    },
+    {
+      "path": "submission.parquet",
+      "bytes": 1682,
+      "sha256": "ef94c7669e36a465bbd3e2dd8cf4905b5e1c2e51e18053a588cb56623086170a"
+    },
+    {
+      "path": "submission_receipt.json",
+      "bytes": 433,
+      "sha256": "f389aaa7c708f8d94f384223901243ddce68d6ea6b7ba442b3f6b4ac35e69cfc"
+    },
+    {
+      "path": "name-that-llm-a1-public-stylegram-046.log",
+      "bytes": 10601,
+      "sha256": "e9c23452cc4b36e3d0fedfb578acb7ea832dc2e14a02f07227bd5c1a45198520"
+    }
+  ]
+}

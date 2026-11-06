@@ -1,0 +1,5 @@
+Clear nights allow the ground to lose heat efficiently by emitting infrared radiation directly to space. With few clouds overhead, little of that outgoing radiation is absorbed and re-emitted downward, so the surface and the air just above it cool rapidly—especially when winds are light.
+
+Clouds act like an insulating blanket. They absorb some infrared energy emitted by the ground and radiate part of it back downward, reducing the net heat loss. This keeps nighttime temperatures higher than they would be under clear skies.
+
+Other factors still matter: humidity, wind, terrain, soil moisture, and nearby water can alter cooling rates. But under otherwise similar conditions, cloud cover usually limits radiative cooling, while clear skies promote it.

@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0244",
+  "prompt": "Compose an email asking whether a cancelled class will be rescheduled or whether participants should choose another session. Keep your response near 80 words.",
+  "category": "short_email",
+  "target_words": 80,
+  "prompt_group": "cp0244",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "8611f77e80ec266b60f971cbe5ce7fada6baabeeca2e3e1941b3e44b5e3def1d",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:29:52.435446+00:00",
+  "ended_at": "2026-11-01T11:30:04.628426+00:00",
+  "prompt_sha256": "fd911cc3a244a4167ecfbad96095c7f538c01046ace7f92a268fb5727ad93428",
+  "text": "**Subject: Cancelled Class – Rescheduling Information**\n\nDear [Name],\n\nI’m writing to ask about the class scheduled for [date/time], which was recently cancelled. Will the class be rescheduled, or should participants register for another available session instead? If a new date is planned, could you please let us know when it will be announced? Otherwise, I would appreciate guidance on transferring my registration to a different session.\n\nThank you for your help. I look forward to your response.\n\nBest regards,  \n[Your Name]",
+  "text_sha256": "7f2269aed6cf92cb0c9be69b55c494121c4b65a4e7f8356bdb0429134420d428",
+  "raw_final_sha256": "7f2269aed6cf92cb0c9be69b55c494121c4b65a4e7f8356bdb0429134420d428",
+  "word_count": 81,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4121,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 122,
+      "reasoning_output_tokens": 10
+    }
+  ],
+  "attempt_path": "collection\\attempts\\8611f77e80ec266b60f971cbe5ce7fada6baabeeca2e3e1941b3e44b5e3def1d",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

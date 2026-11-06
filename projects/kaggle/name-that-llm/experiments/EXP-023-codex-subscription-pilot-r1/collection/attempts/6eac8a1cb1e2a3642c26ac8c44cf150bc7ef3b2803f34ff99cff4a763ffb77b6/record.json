@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0036",
+  "prompt": "Describe how a simple compost pile transforms vegetable scraps into a different-looking material without suggesting that the scraps vanish. Keep your response near 80 words.",
+  "category": "science_explanation",
+  "target_words": 80,
+  "prompt_group": "cp0036",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "6eac8a1cb1e2a3642c26ac8c44cf150bc7ef3b2803f34ff99cff4a763ffb77b6",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:53:21.140456+00:00",
+  "ended_at": "2026-11-01T08:53:40.951339+00:00",
+  "prompt_sha256": "3845c89a090c1f2367ad5d63f640929d361204b2f91065a59ff19737dfabb5b1",
+  "text": "In a simple compost pile, vegetable scraps gradually break down as bacteria, fungi, worms, and other small organisms feed on them. With enough air and moisture, peels, stems, and leaves soften and lose their recognizable shapes. Over time, their material becomes part of a dark, crumbly mixture with an earthy smell. Some carbon is released as carbon dioxide, and some water evaporates, while other nutrients remain in the compost. The scraps do not vanish; their matter changes form and moves through the environment.",
+  "text_sha256": "3e1464775ae047d6804b7b4e03f30da73f6bdff748c925a5f806b30df541503c",
+  "raw_final_sha256": "3e1464775ae047d6804b7b4e03f30da73f6bdff748c925a5f806b30df541503c",
+  "word_count": 83,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4236,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 107,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\6eac8a1cb1e2a3642c26ac8c44cf150bc7ef3b2803f34ff99cff4a763ffb77b6",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

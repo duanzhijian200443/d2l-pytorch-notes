@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0110",
+  "prompt": "Create a short story in which a delivery cyclist takes the wrong street and accidentally solves a very small neighborhood problem. A response of around 120 words is enough.",
+  "category": "creative_short_fiction",
+  "target_words": 120,
+  "prompt_group": "cp0110",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "bde805f6500f25052fd8ae4ab4435425dc7fc53c471746a87a23927a5fad76c6",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:39:45.298608+00:00",
+  "ended_at": "2026-11-01T09:40:00.207431+00:00",
+  "prompt_sha256": "42850d360ca3ccb1148501e4abe361bfb3d64aca48e264cb0859b8738c78dfa9",
+  "text": "Mina took a wrong turn on her delivery route and found herself pedaling down Juniper Street, a quiet lane she had never seen before. Near the end, Mrs. Alvarez waved frantically from her porch.\n\n“Could you help?” she called. The neighborhood’s little community garden gate had jammed shut, trapping a basket of tomatoes inside.\n\nMina set down the delivery bag, examined the rusty latch, and used the metal tire lever from her repair kit. With one careful twist, the gate sprang open.\n\nMrs. Alvarez cheered and offered her two tomatoes. Mina hurried back to the main road, arriving only three minutes late with the noodles.\n\nThat evening, she noticed Juniper Street added a new sign: **THANK YOU, WRONG TURNER.**",
+  "text_sha256": "2e4dac28c594a0fa2e66e8f7691088e8fcad0d0ec395fdf76a4d8d7f433985bc",
+  "raw_final_sha256": "2e4dac28c594a0fa2e66e8f7691088e8fcad0d0ec395fdf76a4d8d7f433985bc",
+  "word_count": 119,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2590,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 175,
+      "reasoning_output_tokens": 15
+    }
+  ],
+  "attempt_path": "collection\\attempts\\bde805f6500f25052fd8ae4ab4435425dc7fc53c471746a87a23927a5fad76c6",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

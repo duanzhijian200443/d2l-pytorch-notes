@@ -1,0 +1,5 @@
+Doubling each side of a square doubles its perimeter. If the original side length is \(s\), the perimeter is \(4s\). After expansion, each side is \(2s\), so the new perimeter is \(4(2s)=8s\): twice as large.
+
+The area increases by a factor of four. Originally, the area is \(s^2\). The expanded garden has area \((2s)^2=4s^2\), so it is four times the original area.
+
+The changes differ because perimeter measures one-dimensional distance around the garden, so it scales directly with side length. Area measures two-dimensional space inside it, so both the length and width double; multiplying those two factors gives \(2 \times 2 = 4\).

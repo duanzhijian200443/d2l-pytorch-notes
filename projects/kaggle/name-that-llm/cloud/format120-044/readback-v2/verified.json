@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "observed_at": "2026-11-01T16:34:09.125982+00:00",
+  "ref": "zhjianduan/name-that-llm-format120-044",
+  "version": 2,
+  "source_equal": true,
+  "private": true,
+  "gpu": false,
+  "internet": false,
+  "input_count": 2,
+  "container": "gcr.io/kaggle-images/python@sha256:17b2fc7f27c25c6c2fd4230ec8e66097ab2b89fc88e1e4d6f338b72e1ee0bc3e",
+  "source_sha256": "8d7d7b7ab9e20f7d8aa80df76f855fa7476ed83289506ea3b388850aface665b",
+  "metadata_sha256": "1da3e21a6a2d6bfeda66a5a898cc282c2cf0da264eb37d46ff5ad645549b8bc1"
+}

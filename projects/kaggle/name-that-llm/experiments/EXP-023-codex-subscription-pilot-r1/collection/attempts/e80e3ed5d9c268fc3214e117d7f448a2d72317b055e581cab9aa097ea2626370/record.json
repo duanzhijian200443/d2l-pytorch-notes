@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0171",
+  "prompt": "Write a brief message to a cafe owner praising a helpful staff member without using exaggerated marketing language. Use approximately 80 words for the response.",
+  "category": "short_email",
+  "target_words": 80,
+  "prompt_group": "cp0171",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "e80e3ed5d9c268fc3214e117d7f448a2d72317b055e581cab9aa097ea2626370",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:42:46.371627+00:00",
+  "ended_at": "2026-11-01T10:43:05.458004+00:00",
+  "prompt_sha256": "7e06fc2644ab0aabb4a6fd1adcb26fde28fadc6311ac6743f5f3f65d9c039483",
+  "text": "Dear Cafe Owner,\n\nI wanted to compliment one of your staff members for being especially helpful during my visit. They were attentive, patient, and happy to answer my questions without making me feel rushed. Their calm and friendly approach made the experience more comfortable, and they handled everything efficiently. It’s clear they care about providing good service. Please pass along my thanks—I appreciated their effort and hope their work is recognized.\n\nBest regards,  \n[Your Name]",
+  "text_sha256": "6c63647f9742096d79a07cd15d828e17bcf7451991dce3d17a1df4f67a11dc25",
+  "raw_final_sha256": "6c63647f9742096d79a07cd15d828e17bcf7451991dce3d17a1df4f67a11dc25",
+  "word_count": 75,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2586,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 94,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\e80e3ed5d9c268fc3214e117d7f448a2d72317b055e581cab9aa097ea2626370",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0189",
+  "prompt": "A square garden is expanded by doubling the length of every side. Explain what happens to its perimeter and area, and why the changes differ. Please answer in roughly 120 words.",
+  "category": "reasoning_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0189",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "8a231493363031b0e9fd7622356420e9c4b3128bee983a3fe73c6cf3b01965c1",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:55:52.046826+00:00",
+  "ended_at": "2026-11-01T10:56:27.752355+00:00",
+  "prompt_sha256": "cf391d26e7c8eb95d6887f88050d2a1d809f251eccb0ca572b14b6367f9152cb",
+  "text": "When the length of every side of a square garden is doubled, its **perimeter doubles**, while its **area becomes four times as large**.\n\nSuppose the original side length is \\(s\\). Its perimeter is \\(4s\\). After expansion, each side measures \\(2s\\), so the new perimeter is \\(4(2s)=8s\\), twice the original.\n\nThe original area is \\(s^2\\). The expanded area is \\((2s)^2=4s^2\\), four times the original.\n\nThe changes differ because perimeter measures a one-dimensional distance around the boundary, whereas area measures a two-dimensional surface. Doubling both length and width multiplies area by \\(2\\times2=4\\).\n\nFor example, a 3-metre-sided garden has perimeter 12 metres and area 9 square metres. After expansion, these become 24 metres and 36 square metres.",
+  "text_sha256": "47a63902744b3d25851bde1c254ebbc944592ac05dbe88339b7ecd7776e47dee",
+  "raw_final_sha256": "47a63902744b3d25851bde1c254ebbc944592ac05dbe88339b7ecd7776e47dee",
+  "word_count": 114,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4243,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 192,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\8a231493363031b0e9fd7622356420e9c4b3128bee983a3fe73c6cf3b01965c1",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

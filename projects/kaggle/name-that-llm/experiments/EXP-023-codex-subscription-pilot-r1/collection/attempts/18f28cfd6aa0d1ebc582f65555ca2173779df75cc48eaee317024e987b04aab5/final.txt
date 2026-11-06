@@ -1,0 +1,5 @@
+A file’s **name** is the label people use to identify it, such as `report.final.pdf`. It may include descriptive words, dates, or version numbers.
+
+A file’s **extension** is the suffix after the final period, such as `.pdf`, `.jpg`, or `.docx`. Operating systems often use it to decide which application should open the file. Extensions are conventions and can be renamed easily.
+
+A file’s **actual internal format** is the data structure and encoding stored inside the file: for example, a real PDF contains PDF-formatted objects, while a JPEG contains compressed image data. Changing `photo.jpg` to `photo.pdf` changes only its name and extension—not its contents. Programs that inspect file signatures or parse the data can usually determine the true format, even when the extension is misleading.

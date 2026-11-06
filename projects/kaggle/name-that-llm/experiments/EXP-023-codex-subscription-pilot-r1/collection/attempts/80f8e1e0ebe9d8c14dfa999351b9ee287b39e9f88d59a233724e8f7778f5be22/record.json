@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0088",
+  "prompt": "Describe why the invention of printing did not instantly make handwritten books and documents unnecessary. Keep your response near 160 words.",
+  "category": "humanities_history",
+  "target_words": 160,
+  "prompt_group": "cp0088",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "80f8e1e0ebe9d8c14dfa999351b9ee287b39e9f88d59a233724e8f7778f5be22",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:26:27.463683+00:00",
+  "ended_at": "2026-11-01T09:26:47.698480+00:00",
+  "prompt_sha256": "41b3ecdc68cb0e9f4ea32315b4e1e2eaaba9ed53b53344cf639a8e0b01fe153c",
+  "text": "Printing transformed book production, but it did not immediately replace handwriting. Early presses were expensive to establish and required skilled labor, metal type, paper, ink, and dependable markets. Manuscripts could still be cheaper or more practical for short texts, local records, personalized works, and small audiences.\n\nHandwritten documents also offered flexibility. Scribes could add names, corrections, illustrations, musical notation, legal details, or decorative features tailored to a particular patron. Many institutions already relied on established scribal systems, and people trusted familiar manuscript forms.\n\nMoreover, printing spread unevenly. Presses were concentrated in certain towns and regions, while many communities had limited access to printed materials. Literacy was not universal, so demand for mass-produced books developed gradually. Early printed books often imitated manuscripts and were sometimes finished by hand with colored initials or illustrations.\n\nFinally, handwriting remained essential for everyday correspondence, government records, contracts, schoolwork, and private notes. Printing was ideal for reproducing many identical copies; writing remained better for unique, changing, or confidential information.",
+  "text_sha256": "665fa1dcefa3c7f60efdc34f73e9456dc09480d5cce99bea38d8767de687d3d9",
+  "raw_final_sha256": "665fa1dcefa3c7f60efdc34f73e9456dc09480d5cce99bea38d8767de687d3d9",
+  "word_count": 163,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4117,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 246,
+      "reasoning_output_tokens": 30
+    }
+  ],
+  "attempt_path": "collection\\attempts\\80f8e1e0ebe9d8c14dfa999351b9ee287b39e9f88d59a233724e8f7778f5be22",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

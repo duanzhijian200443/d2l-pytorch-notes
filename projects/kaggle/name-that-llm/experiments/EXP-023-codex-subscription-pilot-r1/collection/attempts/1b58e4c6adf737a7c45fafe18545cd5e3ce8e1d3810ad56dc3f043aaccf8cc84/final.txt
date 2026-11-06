@@ -1,0 +1,7 @@
+A plausible reason is that wireless headsets often use different Bluetooth audio modes for music and calls.
+
+For music, the headset may use a high-quality stereo playback profile with relatively high bandwidth and codecs designed for full-range audio. This can preserve bass, treble, stereo separation, and overall detail.
+
+During a call, the connection typically switches to a two-way “hands-free” mode so the headset can send microphone audio back to the phone or computer while receiving the caller’s voice. That mode has more limited bandwidth and must reserve capacity for the microphone uplink, reliability features, and low-latency communication. As a result, the received call audio may be mono, more compressed, or limited to a narrower speech-focused frequency range. Voices can therefore sound flatter, less natural, or less distinct than music.
+
+Call clarity can also be affected by signal strength, interference from nearby wireless devices, network call quality, microphone noise reduction, and software settings. These factors do not necessarily indicate a fault: the headset may be operating normally within the trade-offs of a wireless, bidirectional call connection.

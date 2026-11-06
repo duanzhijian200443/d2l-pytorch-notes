@@ -1,0 +1,3 @@
+Captions and a written transcript both convert a recorded lecture’s speech into text, improving accessibility, searchability, and comprehension. Captions appear on screen in sync with the audio, so they are especially useful for viewers who are deaf or hard of hearing, watching in a noisy setting, or following material in a second language. They can also identify speakers and relevant sounds.
+
+A transcript presents the lecture’s content as a standalone document, usually without moment-by-moment display. It is better for skimming, searching for a topic, quoting material, taking notes, printing, or reviewing without video. Ideally, a lecture provides both: captions support real-time viewing, while a transcript supports flexible study and reference.

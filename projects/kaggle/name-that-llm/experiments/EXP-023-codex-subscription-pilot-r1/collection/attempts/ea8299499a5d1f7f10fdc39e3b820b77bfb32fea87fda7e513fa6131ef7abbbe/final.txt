@@ -1,0 +1,5 @@
+A damp cloth dries faster when spread out because more of its wet fibers are exposed to the surrounding air. Water evaporates from the cloth’s surface: liquid molecules gain enough energy to escape as water vapor. A spread-out cloth has a much larger exposed surface area than a tightly rolled one, so evaporation can occur at many more locations at once.
+
+The surrounding air also plays an important role. As water evaporates, the air immediately next to the cloth becomes humid. If this moist air remains trapped, evaporation slows because it can accept little additional water vapor. A spread-out cloth allows air to circulate around more of its surface, carrying away humid air and replacing it with drier air. This maintains a larger difference in water-vapor concentration between the cloth and the atmosphere, encouraging continued evaporation.
+
+A rolled cloth has less exposed area and holds humid air within its layers, so water escapes more slowly. Moving, warm, or dry air would make either cloth dry faster.

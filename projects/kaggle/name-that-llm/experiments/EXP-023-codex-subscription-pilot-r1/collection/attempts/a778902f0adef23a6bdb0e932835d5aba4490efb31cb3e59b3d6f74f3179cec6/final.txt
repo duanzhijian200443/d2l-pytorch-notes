@@ -1,0 +1,13 @@
+The only justified conclusion is that an unlabeled folder is **not blue**. “Every blue folder is labeled” means:
+
+**blue → labeled**
+
+Its logically equivalent contrapositive is:
+
+**unlabeled → not blue**
+
+So, if a folder lacks a label, it cannot be blue.
+
+Nothing definite follows about whether the folder is green. The statement “some labeled folders are green” merely says that at least one folder belongs to both categories. It does not say that every green folder is labeled, that every labeled folder is green, or that unlabeled folders cannot be green. Therefore, an unlabeled folder **may be green or may not be green**.
+
+It is also unjustified to infer that the folder has no other color or property. The premises constrain only the relationship between being blue and being labeled.

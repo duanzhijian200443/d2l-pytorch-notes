@@ -1,0 +1,9 @@
+The first room starts with **12 chairs**. When **4 chairs are moved to the second room**, subtract 4 from the original number:
+
+**12 − 4 = 8 chairs**
+
+So, immediately after the move, **8 chairs remain in the first room**. Then, **3 chairs are brought back** from the second room. Add those 3 chairs to the 8 already remaining:
+
+**8 + 3 = 11 chairs**
+
+Therefore, **11 chairs remain in the first room** at the end. The intermediate step matters because the three chairs are returned after the first group of four has been removed; they are not subtracted from the original total independently.

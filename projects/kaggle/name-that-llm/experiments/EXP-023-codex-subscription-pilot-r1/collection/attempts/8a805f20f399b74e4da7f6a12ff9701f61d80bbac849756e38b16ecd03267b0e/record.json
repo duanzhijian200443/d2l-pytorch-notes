@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0208",
+  "prompt": "A damp cloth dries faster when spread out than when rolled tightly. Explain the relevant role of exposed surface area and surrounding air. Use approximately 160 words for the response.",
+  "category": "science_explanation",
+  "target_words": 160,
+  "prompt_group": "cp0208",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "8a805f20f399b74e4da7f6a12ff9701f61d80bbac849756e38b16ecd03267b0e",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:07:48.490050+00:00",
+  "ended_at": "2026-11-01T11:08:05.183552+00:00",
+  "prompt_sha256": "4688c67cd3830d60ff873fdbe79022303d73d6fa0275d43f2477c42a94267d6a",
+  "text": "A damp cloth dries faster when spread out because a larger surface area is exposed to the surrounding air. Water evaporates only from surfaces where water molecules can escape into the air. Spreading the cloth exposes more wet fibers, so more water molecules can evaporate at the same time.\n\nThe surrounding air also plays an important role. Air next to the cloth gradually becomes humid as it receives water vapor. If this moist air remains trapped near the fabric, evaporation slows because the air cannot easily accept more vapor. When the cloth is spread out, air can circulate over both sides, carrying humid air away and replacing it with drier air. Warm or moving air increases this effect and speeds drying further.\n\nWhen the cloth is rolled tightly, much of its wet surface is hidden inside the roll. Airflow between the layers is restricted, and humid air becomes trapped there. Therefore, less water is exposed, evaporation occurs more slowly, and the cloth takes longer to dry.",
+  "text_sha256": "2363c59dcb4bc74728b683ffc16bb5706d2209d4750fc7b24345f150d386da94",
+  "raw_final_sha256": "2363c59dcb4bc74728b683ffc16bb5706d2209d4750fc7b24345f150d386da94",
+  "word_count": 166,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4127,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 213,
+      "reasoning_output_tokens": 16
+    }
+  ],
+  "attempt_path": "collection\\attempts\\8a805f20f399b74e4da7f6a12ff9701f61d80bbac849756e38b16ecd03267b0e",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

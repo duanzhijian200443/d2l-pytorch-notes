@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0010",
+  "prompt": "A neighbor has returned a borrowed tool late twice, but is otherwise friendly. Suggest a courteous boundary for future borrowing. A response of around 120 words is enough.",
+  "category": "everyday_advice",
+  "target_words": 120,
+  "prompt_group": "cp0010",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "3b2a0bb619cde7d396ddace7d0124003a7e54a109c735ec36b8e51f438f198e0",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:37:14.731027+00:00",
+  "ended_at": "2026-11-01T08:37:31.215928+00:00",
+  "prompt_sha256": "65475a292f69ff6b6278f0a43669bd7dbf0745c59b3374a928a1f5d92c2dda4e",
+  "text": "You could say:\n\n“Hey, I’m always happy to help when I can, and I appreciate that you’ve taken care of my tools. Since the last couple were returned later than we agreed, I need to be a little more careful about lending them out. Going forward, could we agree on a specific return day before you borrow something? If you realize you’ll need it longer, just check with me before that day, since I may have plans to use it. If timely returns keep being difficult, I’ll need to pause lending tools, but there are no hard feelings—I just need to know they’ll be available when I need them.”\n\nThis stays friendly, identifies the issue without sounding accusatory, and makes the consequence clear.",
+  "text_sha256": "1286698bfe6f8b6a09e68eb8324229feb621459441df42982046c038afa32b1d",
+  "raw_final_sha256": "1286698bfe6f8b6a09e68eb8324229feb621459441df42982046c038afa32b1d",
+  "word_count": 123,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4126,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 169,
+      "reasoning_output_tokens": 15
+    }
+  ],
+  "attempt_path": "collection\\attempts\\3b2a0bb619cde7d396ddace7d0124003a7e54a109c735ec36b8e51f438f198e0",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

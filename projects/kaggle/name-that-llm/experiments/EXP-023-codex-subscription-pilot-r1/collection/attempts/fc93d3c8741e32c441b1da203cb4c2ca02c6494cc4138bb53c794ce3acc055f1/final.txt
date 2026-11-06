@@ -1,0 +1,15 @@
+A speed test mainly measures **bandwidth**—how much data your connection can move per second. A video call also depends on whether that data arrives consistently and on time. Think of bandwidth as the width of a road: a wide road can still have traffic jams.
+
+Several problems can freeze a call despite a fast speed-test result:
+
+- **Latency:** Data takes too long to reach the other person, creating delays.
+- **Jitter:** Delivery times vary. Video calls can smooth out small variations, but larger ones can cause stuttering or freezes.
+- **Packet loss:** Some pieces of audio or video never arrive. The app may reduce quality or pause while it recovers.
+- **Upload limits:** Your outgoing video uses upload capacity, which may be much lower than the download speed highlighted by the test.
+- **Congestion and Wi-Fi interference:** Other devices, cloud backups, weak signals, or crowded wireless channels can briefly disrupt traffic.
+
+A speed test is also only a snapshot, often using a nearby server. Your call may travel along a different, more congested route.
+
+Finally, the connection may not be the culprit: an overloaded computer or a problem with the calling service can freeze video too.
+
+Try Ethernet, pause uploads, close demanding apps, and check latency and packet loss—not just download speed.

@@ -1,0 +1,5 @@
+A sealed bag of chips can puff up in the mountains because the air pressure outside the bag decreases as altitude increases. At sea level, the air inside the bag and the air outside it are at roughly similar pressures. The bag is sealed, so no significant amount of air enters or leaves during the trip.
+
+As you climb, the atmosphere becomes less dense and pushes less strongly on the bag’s exterior. The air trapped inside still has nearly the same pressure it had when the bag was packaged. With less outside pressure compressing it, that trapped gas expands, stretching the flexible plastic bag outward.
+
+This behavior follows the gas-law idea that a gas tends to occupy more volume when the surrounding pressure falls, assuming temperature and the amount of gas stay about the same. Temperature can also affect the result: warming the bag may make it expand a little more, while cooling may reduce the puffiness. The bag looks fuller not because air was added, but because the same trapped air occupies a larger volume.

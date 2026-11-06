@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0108",
+  "prompt": "A child leaves a note inside a library book and receives a reply years later. Write the reunion with restraint rather than a dramatic twist. Please answer in roughly 160 words.",
+  "category": "creative_short_fiction",
+  "target_words": 160,
+  "prompt_group": "cp0108",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "04af1b2964b56e8c4d4bf54e0a35f0ca98817a735a3e2505557065ae5556d409",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:38:26.295725+00:00",
+  "ended_at": "2026-11-01T09:38:41.696261+00:00",
+  "prompt_sha256": "d0674eb8c5f4531671cb9b2b8e7628b9383c7ca6771b5255de58c04fdd6cc8de",
+  "text": "The note had been folded into the back of a library book, between the last page and the card pocket.\n\n*If you find this, write back. I am lonely.*\n\nThe child had signed only a first name.\n\nYears later, the book was returned. A reply waited in the same place, written in careful blue ink.\n\n*I found it. I was lonely too. I hope you are all right.*\n\nShe read it at the library table where she had once done her homework. Outside, buses moved through the rain. The children’s room had been repainted, and the librarian who used to stamp due dates was gone.\n\nShe wrote back, though she no longer knew where to send the letter.\n\n*I am mostly all right. I kept the book longer than I should have.*\n\nA week later, someone sat across from her. They recognized each other by the book, then by the handwriting.\n\nThey spoke about small things: work, parents, the city’s changes. Before leaving, he asked whether she still felt lonely.\n\n“Sometimes,” she said.\n\n“Me too.”\n\nThey returned the book together.",
+  "text_sha256": "d419a692f3acd32a51d1b5c6210f0515b2e428c23c7c75bcfb7e1d44d530819e",
+  "raw_final_sha256": "d419a692f3acd32a51d1b5c6210f0515b2e428c23c7c75bcfb7e1d44d530819e",
+  "word_count": 180,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2593,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 247,
+      "reasoning_output_tokens": 17
+    }
+  ],
+  "attempt_path": "collection\\attempts\\04af1b2964b56e8c4d4bf54e0a35f0ca98817a735a3e2505557065ae5556d409",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

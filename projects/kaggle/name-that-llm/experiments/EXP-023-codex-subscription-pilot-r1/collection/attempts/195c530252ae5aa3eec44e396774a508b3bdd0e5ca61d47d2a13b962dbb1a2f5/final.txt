@@ -1,0 +1,5 @@
+Assuming the labels are accurate, the box marked “at least six pieces” contains six or more pieces, while the box marked “exactly six pieces” contains six—no more and no fewer.
+
+Therefore, the first box cannot contain fewer pieces than the second. It may contain the same number, if it holds six, or more, if it holds seven or above. You cannot conclude that it definitely contains more simply because its label allows that possibility. Nor can you determine its precise count or any upper limit from the label alone.
+
+These statements concern only the number of pieces. They reveal nothing about the pieces’ size, weight, quality, or value, so neither box necessarily contains more material or offers better value.

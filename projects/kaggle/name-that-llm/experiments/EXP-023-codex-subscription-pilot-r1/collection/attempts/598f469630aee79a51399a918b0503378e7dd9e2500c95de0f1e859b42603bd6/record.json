@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0210",
+  "prompt": "Explain why measuring the temperature of one sunlit sidewalk patch does not tell us the air temperature of an entire neighborhood. Aim for about 120 words.",
+  "category": "science_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0210",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "598f469630aee79a51399a918b0503378e7dd9e2500c95de0f1e859b42603bd6",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:08:54.984576+00:00",
+  "ended_at": "2026-11-01T11:09:11.904836+00:00",
+  "prompt_sha256": "a09139ea520948d98cc8460f55bcf4eed109dc4cb17e0f7ad0391642fa6e2edb",
+  "text": "A sunlit sidewalk patch measures the temperature of that surface, not directly the temperature of the surrounding air. Pavement absorbs solar radiation and can become much hotter than the air, especially if it is dark, dry, or made of heat-absorbing materials. Its temperature also depends on shade, recent weather, moisture, nearby buildings, traffic, and wind. Air temperature varies less dramatically but can still differ across a neighborhood because of trees, parks, rooftops, walls, elevation, and ventilation. A thermometer touching the sidewalk is therefore strongly influenced by the sidewalk’s local energy balance. To estimate neighborhood-wide air temperature, measurements should be taken in shaded, ventilated locations at standard height, ideally at several sites and times, rather than relying on one sun-exposed surface.",
+  "text_sha256": "7a2e0974968b1678ef837d4a5c117f05c03081860cbada84f0dbb475e583229b",
+  "raw_final_sha256": "7a2e0974968b1678ef837d4a5c117f05c03081860cbada84f0dbb475e583229b",
+  "word_count": 120,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2588,
+      "cached_input_tokens": 2432,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 203,
+      "reasoning_output_tokens": 42
+    }
+  ],
+  "attempt_path": "collection\\attempts\\598f469630aee79a51399a918b0503378e7dd9e2500c95de0f1e859b42603bd6",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

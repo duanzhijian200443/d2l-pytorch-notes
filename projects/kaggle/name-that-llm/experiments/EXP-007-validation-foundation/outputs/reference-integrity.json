@@ -1,0 +1,55 @@
+{
+  "experiment": "EXP-001",
+  "notebook_ref": "zhjianduan/name-that-llm-no-llama-groupcv",
+  "notebook_version": 4,
+  "script_version_id": 363168447,
+  "artifact_sha256": {
+    "class_metrics.csv": "55e76f98f7075f2655a7caf89cf84397347145b12c171739f06c1fd24697de25",
+    "class_recall.png": "a41a94748147f24f494dd519be863064369736758667478b6030652f9b90d722",
+    "confusion_matrix.csv": "50a7ff0ae263098865f98f3c32598ade59bea9aeb8d70ddc7ff3f8f969d178b5",
+    "fold_metrics.csv": "80960c128283584f70a4d9910f5cdc57d5353980da30e906eaccf89aa1461c56",
+    "folds.json": "b8fecd089e9e06669f52ee7f0006ed3e1ed5a223396fa18cfe2ac8f6a1b0be63",
+    "kernel-metadata.json": "515a27c923275e79e37377970bf9865e167adb741f7f71419efb30bbbc5c2cff",
+    "metrics.json": "6c1c708575d2672310115662622addd6a2840edcfedb4da7db388294a4985a59",
+    "name-that-llm-no-llama-groupcv.ipynb": "4f62f2879ee2a71a888406517d293d9eb005a3b537b4ff601ad587520f23d5a0",
+    "name-that-llm-no-llama-groupcv.log": "441855ba4f150a62933e3e157789b9c0acd4cac81552d5de8501a8d756f9986f",
+    "oof_decision_scores.npy": "01561ccea1ae50351b4c1956712251b635cbc4d017ccde78633e1a0a8520136b",
+    "oof_predictions.csv": "47e0f853b532734a87528eb9c2acc9ad2cd54753ca3a3f5f52527ec26870a8e2",
+    "oof_predictions.parquet": "a3e04778446fd43d4aa8f58de33c8cc745ef34e6a257dc205c2c716b4dcb01df",
+    "submission.parquet": "8ec476c35b6824a1dbb7745ec4bc2308cd40d2d4d758e82ef4e69042159dbed3",
+    "test_decision_scores.npy": "750c74d2fb2fb32da64b83b0c27400f63b1241800c666b2b1732e7d5383fe0ab"
+  },
+  "score_type": "LinearSVC decision_function; not calibrated probabilities",
+  "score_rows": "oof_predictions.csv in original train.csv order",
+  "score_labels": [
+    "claude-fable-5",
+    "claude-opus-4-6",
+    "claude-opus-4-8",
+    "claude-opus-5",
+    "claude-sonnet-5",
+    "gemini-3.1-pro-preview",
+    "gemini-3.6-flash",
+    "gemini-3.7-flash",
+    "gemini-3.8-flash",
+    "glm-5.3",
+    "glm-5.3-flash",
+    "gpt-5.5",
+    "gpt-5.6-luna",
+    "gpt-5.6-sol",
+    "gpt-5.6-terra",
+    "gpt-6-astra",
+    "kimi-k3",
+    "qwen3.8-max"
+  ],
+  "source_review": {
+    "notebook_sha256": "4f62f2879ee2a71a888406517d293d9eb005a3b537b4ff601ad587520f23d5a0",
+    "findings": [
+      "code cell 6 defines a new TF-IDF + LinearSVC Pipeline",
+      "code cell 8 fits a fresh Pipeline only on each fold's fit_idx",
+      "code cell 8 uses held-out rows only with decision_function",
+      "code cell 12 full-data fitting is after OOF and only creates public example predictions"
+    ],
+    "cell_numbering": "zero based",
+    "scope": "Source and saved-artifact audit; no retraining"
+  }
+}

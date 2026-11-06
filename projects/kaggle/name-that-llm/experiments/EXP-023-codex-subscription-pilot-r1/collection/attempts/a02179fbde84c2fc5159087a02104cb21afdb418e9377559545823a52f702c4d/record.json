@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0118",
+  "prompt": "A concert is delayed because one chair is missing. Write a story where finding that chair matters for an unexpected but realistic reason. Please answer in roughly 160 words.",
+  "category": "creative_short_fiction",
+  "target_words": 160,
+  "prompt_group": "cp0118",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "a02179fbde84c2fc5159087a02104cb21afdb418e9377559545823a52f702c4d",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:44:57.665416+00:00",
+  "ended_at": "2026-11-01T09:45:12.756354+00:00",
+  "prompt_sha256": "63ac9422b90d2da2bbe377c40c81cc76d5ee79d734b787ddd6ee6d0b19a29098",
+  "text": "The orchestra was ready, the audience was quiet, and the conductor had raised his baton when the concert manager stopped him.\n\n“One chair is missing.”\n\nIt seemed ridiculous. The musicians could easily share a little space, but the manager insisted they search. The absent chair belonged at the back of the second violin section, beside seventeen-year-old Lina, who had been nervous all afternoon.\n\nAt last, a stagehand found it in the loading corridor. Its seat was cracked, and beneath the cushion lay a small metal box.\n\nLina recognized it immediately. Her late grandfather, a retired violinist, had hidden the box there years ago. Inside was a letter addressed to her, explaining that the chair had once belonged to him and that he had donated it after surviving an accident that ended his career.\n\nHe had written, “If you ever sit here, play for the people who can no longer.”\n\nLina wiped her eyes. When the concert began, she played the opening passage alone—and beautifully. The missing chair had delayed the music, but it had also given her the reason to play.",
+  "text_sha256": "7dc87f701e675d9c1ad1cac8cd1f285b1f3afdfdc74a61a47a0845ebf884fe8f",
+  "raw_final_sha256": "7dc87f701e675d9c1ad1cac8cd1f285b1f3afdfdc74a61a47a0845ebf884fe8f",
+  "word_count": 181,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2591,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 237,
+      "reasoning_output_tokens": 14
+    }
+  ],
+  "attempt_path": "collection\\attempts\\a02179fbde84c2fc5159087a02104cb21afdb418e9377559545823a52f702c4d",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

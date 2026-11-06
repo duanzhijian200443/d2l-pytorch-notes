@@ -1,0 +1,13 @@
+{
+  "observed_at": "2026-10-31T17:33:30.948167+00:00",
+  "review_model": "gpt-6-astra",
+  "review_effort": "max",
+  "code_review": "PASS for first run; no classifier trained during review",
+  "weight_cases": 15,
+  "sparse_selection_cases": 75,
+  "sparse_aggregation_rule": "Concatenate five fold NPZs per share/m/repeat, then compute 18-class BA; never average fold BAs when classes are absent",
+  "resume_implemented": false,
+  "dependency_versions": "Recorded at execution; shared by all variants, not pinned across future runs",
+  "runner_sha256": "74d9aa65c128b6b1490f965002bed56024e9ca08c9bfa62546dc2d70724cb4c4",
+  "input_preflight": "Known 252 regen excluded, 10073 rows/694 groups retained; all EXP008 risk flags absent; canonical group mapping one-to-one"
+}

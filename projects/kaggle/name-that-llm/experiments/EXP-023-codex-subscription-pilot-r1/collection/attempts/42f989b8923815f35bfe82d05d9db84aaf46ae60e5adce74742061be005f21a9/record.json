@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0195",
+  "prompt": "A candle burns down by the same amount each hour. It is twenty centimeters tall initially and fourteen centimeters tall after two hours. Explain the predicted height after five hours under this assumption. Use approximately 160 words for the response.",
+  "category": "reasoning_explanation",
+  "target_words": 160,
+  "prompt_group": "cp0195",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "42f989b8923815f35bfe82d05d9db84aaf46ae60e5adce74742061be005f21a9",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:00:06.287597+00:00",
+  "ended_at": "2026-11-01T11:00:28.420468+00:00",
+  "prompt_sha256": "5e6b0d44c75ec5711a916298abaa1052992e8c01ef98b1e0271df4bdcd0caed0",
+  "text": "The candle is predicted to be **5 centimeters tall after five hours**, assuming it continues to burn down by the same amount each hour.\n\nTo find the hourly decrease, compare its initial height with its height after two hours. It starts at 20 centimeters and falls to 14 centimeters, so it loses:\n\n20 − 14 = 6 centimeters.\n\nThat loss happens over two hours. Dividing by two gives a constant burning rate of:\n\n6 ÷ 2 = 3 centimeters per hour.\n\nOver five hours, the candle would therefore lose a total of:\n\n3 × 5 = 15 centimeters.\n\nSubtracting this loss from its original height gives:\n\n20 − 15 = **5 centimeters**.\n\nWe can describe the same relationship with the equation **h = 20 − 3t**, where *h* is the height in centimeters and *t* is the time in hours since the candle was first lit. This prediction depends on the stated assumption that the rate stays constant throughout all five hours.",
+  "text_sha256": "e7a4d651e09222930421e3086761cac8b7804c808ab8bd46ff05055b41abaaed",
+  "raw_final_sha256": "e7a4d651e09222930421e3086761cac8b7804c808ab8bd46ff05055b41abaaed",
+  "word_count": 162,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4252,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 207,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\42f989b8923815f35bfe82d05d9db84aaf46ae60e5adce74742061be005f21a9",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

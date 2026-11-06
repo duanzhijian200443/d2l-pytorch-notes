@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0118",
+  "prompt": "A concert is delayed because one chair is missing. Write a story where finding that chair matters for an unexpected but realistic reason. Please answer in roughly 160 words.",
+  "category": "creative_short_fiction",
+  "target_words": 160,
+  "prompt_group": "cp0118",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "3d407f646c33200a1c130569de08e831b337e04766e4b38c8c474fb0f55154b9",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:45:16.963478+00:00",
+  "ended_at": "2026-11-01T09:45:37.785199+00:00",
+  "prompt_sha256": "63ac9422b90d2da2bbe377c40c81cc76d5ee79d734b787ddd6ee6d0b19a29098",
+  "text": "The audience blamed the missing chair on poor planning. Musicians waited beneath the stage lights while ushers searched closets, dressing rooms, even the loading dock.\n\n“It’s only one chair,” someone shouted.\n\nBut conductor Elena Ruiz would not begin without it.\n\nAt last, a teenage stagehand found the chair in the lobby, occupied by an elderly man staring at the floor. He wore a faded suit and clutched an unopened ticket.\n\nElena hurried over—and stopped.\n\n“Mr. Bell?”\n\nYears earlier, Samuel Bell had taught music at the town’s public school. He had lent Elena her first violin when her family couldn’t afford one. After his wife died, he stopped attending concerts. Tonight, he had come alone, then felt dizzy and sat in the nearest chair. Embarrassed, he hadn’t asked for help.\n\nThe missing chair brought the paramedics, who discovered an irregular heartbeat before it became dangerous.\n\nThe concert began forty minutes late. Samuel listened from the front row, under observation, while Elena dedicated the opening piece to “the teacher who made sure I had a place in music.”",
+  "text_sha256": "9e7b79ee10758d26e530f17197295655a5dfa9f767f9a2d1ccc5303db413bd21",
+  "raw_final_sha256": "9e7b79ee10758d26e530f17197295655a5dfa9f767f9a2d1ccc5303db413bd21",
+  "word_count": 176,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4126,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 246,
+      "reasoning_output_tokens": 18
+    }
+  ],
+  "attempt_path": "collection\\attempts\\3d407f646c33200a1c130569de08e831b337e04766e4b38c8c474fb0f55154b9",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

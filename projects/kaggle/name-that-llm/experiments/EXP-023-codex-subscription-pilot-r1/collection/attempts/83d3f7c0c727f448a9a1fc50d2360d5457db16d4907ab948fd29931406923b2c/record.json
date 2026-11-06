@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0005",
+  "prompt": "I keep buying notebooks for different projects and then forget which one contains an idea. Recommend a simple paper-based system that is easy to maintain. A response of around 120 words is enough.",
+  "category": "everyday_advice",
+  "target_words": 120,
+  "prompt_group": "cp0005",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "83d3f7c0c727f448a9a1fc50d2360d5457db16d4907ab948fd29931406923b2c",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:33:40.843850+00:00",
+  "ended_at": "2026-11-01T08:33:55.519917+00:00",
+  "prompt_sha256": "7fd766af87fcf498c8e56a6506b7ad7c4dc0ab7d5b3b589ce4cd60238fcfaf8a",
+  "text": "Use a simple **index-and-inbox notebook system**:\n\n1. Keep one small “inbox” notebook with you. Capture every idea there, one per page or numbered entry. Don’t worry about organizing immediately.\n2. Number each entry and write the date plus a short title at the top.\n3. Keep a master index in the front or on a separate card:  \n   **“Website idea — Inbox 3, p. 12”**  \n   **“Garden project — Project notebook B, p. 7”**\n4. Once a week, review the inbox. Cross-reference worthwhile ideas in the index and move them into the appropriate project notebook.\n5. Label project notebooks clearly on the cover and spine, using consistent names.\n6. Never rewrite everything—only record the idea’s location and a brief summary.\n\nThis preserves the pleasure of separate notebooks while giving you one reliable place to search first.",
+  "text_sha256": "54061171a1825315d4543888febfacddf34b7537791d1c5d6fef1af66f22a5b5",
+  "raw_final_sha256": "54061171a1825315d4543888febfacddf34b7537791d1c5d6fef1af66f22a5b5",
+  "word_count": 134,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2596,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 203,
+      "reasoning_output_tokens": 11
+    }
+  ],
+  "attempt_path": "collection\\attempts\\83d3f7c0c727f448a9a1fc50d2360d5457db16d4907ab948fd29931406923b2c",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

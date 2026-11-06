@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0069",
+  "prompt": "A repair shop wants to offer both appointments and walk-in service. Suggest a workable policy and explain its main compromise. Keep your response near 200 words.",
+  "category": "business_decision",
+  "target_words": 200,
+  "prompt_group": "cp0069",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "8e41738c881082246b06154b791849e16555d64ad934a7dcc12763e7682b8a3e",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:14:10.429269+00:00",
+  "ended_at": "2026-11-01T09:14:32.652106+00:00",
+  "prompt_sha256": "df6bc57eb9218a1aafb4d7202049fc8486dc3e7375ea22d0f51903c7c89e09c1",
+  "text": "A workable policy is to reserve most capacity for appointments while keeping a controlled portion available for walk-ins.\n\nFor example, schedule appointments in 60–75% of daily labor hours, leaving 25–40% as flexible capacity. Use appointment slots for predictable work such as maintenance, inspections, and repairs requiring ordered parts. Accept walk-ins on a first-come, first-served basis, but triage them immediately: safety-critical issues, vehicles that cannot be driven, and very short jobs receive priority; larger non-urgent jobs are either added to the queue or offered the next appointment.\n\nSet clear customer expectations. Appointments receive a target start time and estimated completion window, though emergency repairs may occasionally cause delays. Walk-ins receive an initial inspection and an honest estimated wait; if the shop is full, staff can book them into the next opening rather than promising same-day service. The shop should review demand weekly and adjust the reserved walk-in capacity by day and season.\n\nThe main compromise is efficiency versus accessibility. A fully booked appointment schedule maximizes predictable labor use, but leaves no room for urgent walk-ins. Reserving flexible capacity improves convenience and captures unplanned business, but sometimes leaves technicians temporarily underutilized or makes appointment timing less precise.",
+  "text_sha256": "8f56bf30d36fdeb60ee8f10632caa791309f13f6438d89b5dea7db3da74a7851",
+  "raw_final_sha256": "8f56bf30d36fdeb60ee8f10632caa791309f13f6438d89b5dea7db3da74a7851",
+  "word_count": 195,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4124,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 268,
+      "reasoning_output_tokens": 13
+    }
+  ],
+  "attempt_path": "collection\\attempts\\8e41738c881082246b06154b791849e16555d64ad934a7dcc12763e7682b8a3e",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

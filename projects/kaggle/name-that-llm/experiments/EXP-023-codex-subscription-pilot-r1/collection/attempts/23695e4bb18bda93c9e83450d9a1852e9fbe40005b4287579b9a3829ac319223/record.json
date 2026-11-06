@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0168",
+  "prompt": "Compose a polite message to a workshop instructor explaining that the materials list uses unfamiliar terms. Ask for clarification on two examples: a cutting mat and a bone folder. Aim for about 120 words.",
+  "category": "short_email",
+  "target_words": 120,
+  "prompt_group": "cp0168",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "23695e4bb18bda93c9e83450d9a1852e9fbe40005b4287579b9a3829ac319223",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:40:41.380355+00:00",
+  "ended_at": "2026-11-01T10:40:55.812222+00:00",
+  "prompt_sha256": "e3bb1434f5909c3269f9c581d39787b575ff24889dc39c05e198ebce8f776590",
+  "text": "Dear Instructor,\n\nThank you for sharing the materials list for the workshop. I’m looking forward to participating, but I noticed that some of the terms are unfamiliar to me. Could you please clarify what type or size of cutting mat we should bring? I’m also unsure what a bone folder is and whether there is a particular kind or brand you recommend. If possible, a brief description or example photo would be very helpful, especially for participants who are new to these tools. I want to make sure I purchase or prepare the correct materials before the workshop. Thank you for your time and guidance—I appreciate your help and look forward to learning from you.\n\nBest regards,  \n[Your Name]",
+  "text_sha256": "bea59adac698708c5ebe6d43db3b616747458c6389055bee73166172322b47ca",
+  "raw_final_sha256": "bea59adac698708c5ebe6d43db3b616747458c6389055bee73166172322b47ca",
+  "word_count": 119,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2597,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 141,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\23695e4bb18bda93c9e83450d9a1852e9fbe40005b4287579b9a3829ac319223",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

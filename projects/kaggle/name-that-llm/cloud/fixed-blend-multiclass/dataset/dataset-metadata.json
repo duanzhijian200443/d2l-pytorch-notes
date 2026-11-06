@@ -1,0 +1,10 @@
+{
+  "id": "zhjianduan/ntl-fixed-blend-multiclass-inputs-027",
+  "title": "NTL Fixed Blend Multiclass Inputs 027",
+  "licenses": [
+    {
+      "name": "other"
+    }
+  ],
+  "description": "Private fixed alpha0.10 seventeen-label external check. Original Earthmaker notice and license scope retained; unchanged training inputs; no competition submission."
+}

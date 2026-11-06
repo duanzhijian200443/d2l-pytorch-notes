@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0203",
+  "prompt": "I have several unfinished hobbies and feel guilty whenever I see the supplies. Suggest a way to decide what to keep, pause, or give away. Please answer in roughly 160 words.",
+  "category": "everyday_advice",
+  "target_words": 160,
+  "prompt_group": "cp0203",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "02ef5a09378be3d334316f55c75026b4bb1d95658fe869429db610ec3d59dfef",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:04:10.933355+00:00",
+  "ended_at": "2026-11-01T11:04:27.090745+00:00",
+  "prompt_sha256": "23d575488e2f5b6abc2215d17a9df9d3642d2fa1ff169017583f04f0e491e3cc",
+  "text": "Try a **three-bucket reset**:\n\n1. **Keep:** Keep supplies for hobbies you genuinely want to resume within the next six months. Choose one or two “active” hobbies, and store their materials together in an accessible place. Define a tiny next step—such as 20 minutes this weekend—so keeping them supports action rather than guilt.\n\n2. **Pause:** Put uncertain hobbies in a labeled box with a review date, perhaps three or six months away. Include a note explaining why the hobby appealed to you and what would make restarting easier. Store the box out of sight. If you never think about it by the review date, that is useful information.\n\n3. **Give away:** Donate, sell, or recycle supplies connected to hobbies you no longer enjoy, pursued only from obligation, or realistically cannot fit into your life. Keep a small, meaningful sample if sentiment matters—but not an entire inventory.\n\nJudge each hobby by **current curiosity, available time, storage cost, and replacement difficulty**, not by money already spent. Your supplies are resources, not promises.",
+  "text_sha256": "f7ae6357d1c3fdca03f3613d1763613f36900a9b115808d26d51275ccc525adb",
+  "raw_final_sha256": "f7ae6357d1c3fdca03f3613d1763613f36900a9b115808d26d51275ccc525adb",
+  "word_count": 169,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2595,
+      "cached_input_tokens": 2432,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 220,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\02ef5a09378be3d334316f55c75026b4bb1d95658fe869429db610ec3d59dfef",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

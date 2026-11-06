@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0023",
+  "prompt": "How does a bicycle remain easier to balance while moving than when nearly stationary? Give an accessible explanation without claiming that one effect explains everything. Use approximately 160 words for the response.",
+  "category": "science_explanation",
+  "target_words": 160,
+  "prompt_group": "cp0023",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "24b0a6339d2b5ed1af226e735c773c91a14f827636077db796155b1298ab7808",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:44:49.925821+00:00",
+  "ended_at": "2026-11-01T08:45:06.207026+00:00",
+  "prompt_sha256": "3c28abd787a881ca5feb99233058509b514fdf309163d2818487a80c93a4b863",
+  "text": "A moving bicycle is often easier to balance because several helpful effects work together—not because of one magical mechanism.\n\nFirst, when the bicycle begins to lean, the front wheel can be steered slightly toward the lean. This shifts the tires’ contact path underneath the combined center of mass, helping the bike move back toward upright. A rider naturally makes these small steering corrections, often without consciously noticing.\n\nMotion also gives the wheels angular momentum, so changing the direction of a spinning wheel requires some effort. This can make the bike somewhat resistant to sudden tilting or turning. However, wheel gyroscopic effects alone do not explain bicycle stability; specially designed bicycles can remain manageable even with much of this effect reduced.\n\nAt higher speeds, steering corrections also have more noticeable consequences, giving the rider time and distance to guide the bike. The frame’s geometry—especially the angled steering axis and front-wheel “trail”—helps the front wheel steer in useful ways.\n\nNear a standstill, these effects are weak, and balance requires frequent, precise corrections, so the bicycle feels much harder to keep upright.",
+  "text_sha256": "05ecf098194d70fb19c8a74bb0be74b9baa5e60e73026dae15e49abc862b5683",
+  "raw_final_sha256": "05ecf098194d70fb19c8a74bb0be74b9baa5e60e73026dae15e49abc862b5683",
+  "word_count": 179,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2594,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 245,
+      "reasoning_output_tokens": 24
+    }
+  ],
+  "attempt_path": "collection\\attempts\\24b0a6339d2b5ed1af226e735c773c91a14f827636077db796155b1298ab7808",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

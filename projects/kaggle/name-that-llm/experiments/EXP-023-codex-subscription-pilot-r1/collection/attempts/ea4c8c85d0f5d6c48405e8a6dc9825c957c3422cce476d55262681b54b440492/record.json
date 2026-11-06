@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0114",
+  "prompt": "Tell a story about an amateur photographer who keeps the only badly blurred picture from an otherwise successful outing. Use approximately 200 words for the response.",
+  "category": "creative_short_fiction",
+  "target_words": 200,
+  "prompt_group": "cp0114",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "ea4c8c85d0f5d6c48405e8a6dc9825c957c3422cce476d55262681b54b440492",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:42:33.307228+00:00",
+  "ended_at": "2026-11-01T09:43:06.580083+00:00",
+  "prompt_sha256": "1a7147594cba312fe414f9dcc1d57806db5aa851cf0b9fd3153491fe93bd5cb8",
+  "text": "Mara returned from the marsh with a memory card full of victories: a heron rising blue-gray from reeds, dragonflies balanced on cattails, sunset spilling copper across the water. At home, she edited until midnight, pleased with every frame.\n\nThen she found the blur.\n\nIt was only a smear of gold and green, tilted wildly, with a dark shape near the center. Mara remembered the moment: she had heard wings behind her, spun too quickly, and pressed the shutter as a fox leapt across the path. Her camera had focused on nothing.\n\nShe almost deleted it.\n\nInstead, she kept it.\n\nMonths later, visitors praised her sharp heron and brilliant sunset. Mara thanked them, but her favorite photograph remained the useless one. It held the surprise she had felt—the thump of paws, the rush of wings, the sudden certainty that the marsh was alive beyond her ability to capture it.\n\nThe blur reminded her that photography was not possession. Sometimes it was simply proof that she had been startled into paying attention.",
+  "text_sha256": "f84d3bdf4c27e936b80783ffe902fde4eb6c1015dbecca1e3a5a5cf1dc2ea2e3",
+  "raw_final_sha256": "f84d3bdf4c27e936b80783ffe902fde4eb6c1015dbecca1e3a5a5cf1dc2ea2e3",
+  "word_count": 170,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4122,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 211,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\ea4c8c85d0f5d6c48405e8a6dc9825c957c3422cce476d55262681b54b440492",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

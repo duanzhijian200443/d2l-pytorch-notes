@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0156",
+  "prompt": "Turn this list into a balanced recommendation for a neighborhood reading room: 'Open late twice a week. Quiet corner needed. A noticeboard might help. Too few volunteers for every evening. Trial for one month before deciding.' Please answer in roughly 80 words.",
+  "category": "rewrite_original_material",
+  "target_words": 80,
+  "prompt_group": "cp0156",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "a4f73c57cbbf9f2365bedecab741442dfe9807088837d60a3790b26be54dd8a8",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:31:40.972606+00:00",
+  "ended_at": "2026-11-01T10:31:58.188937+00:00",
+  "prompt_sha256": "35aaf75af4789539e16bf2d22bf4150c3a481ebfa66fe4930caefa5f907ac171",
+  "text": "Recommend a one-month trial extending opening hours twice a week, rather than committing to every evening, given limited volunteer capacity. Create a clearly designated quiet corner to support focused reading, and add a noticeboard for announcements, events, and volunteer coordination. During the trial, track attendance, volunteer workload, and community feedback. At the end of the month, review the evidence with residents and decide whether to continue, adjust the schedule, or expand the service.",
+  "text_sha256": "806fff1e8434630aa78a86621de9e10a1e6b41e9eedb80f32f2ce44d35f94cc2",
+  "raw_final_sha256": "806fff1e8434630aa78a86621de9e10a1e6b41e9eedb80f32f2ce44d35f94cc2",
+  "word_count": 73,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2610,
+      "cached_input_tokens": 2432,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 94,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\a4f73c57cbbf9f2365bedecab741442dfe9807088837d60a3790b26be54dd8a8",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

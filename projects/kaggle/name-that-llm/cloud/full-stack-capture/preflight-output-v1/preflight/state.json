@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-029",
+  "stage": "CPU_PREFLIGHT_COMPLETE",
+  "started_at_utc": "2026-11-01T10:12:58.095237+00:00",
+  "new_model_execution": false,
+  "gpu_requested": false,
+  "files_completed": 531,
+  "bytes_completed": 190823294363,
+  "files_total": 531,
+  "bytes_total": 190823294363,
+  "elapsed_seconds": 1118.644623853,
+  "status": "PASS"
+}

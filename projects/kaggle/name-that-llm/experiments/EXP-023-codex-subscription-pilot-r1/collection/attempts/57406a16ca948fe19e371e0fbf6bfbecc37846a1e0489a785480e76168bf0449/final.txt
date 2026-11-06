@@ -1,0 +1,9 @@
+The claim that a good explanation should always avoid technical vocabulary is too absolute. Good explanations make ideas understandable, but what counts as understandable depends on the audience, purpose, and context.
+
+For beginners, unexplained jargon can create unnecessary barriers. Explaining inflation as “a general rise in prices” is usually more helpful than starting with specialist terminology. Technical language can also give an impression of expertise while concealing weak reasoning. In these cases, plain language improves clarity and accessibility.
+
+However, technical vocabulary often provides precision and efficiency. Among doctors, engineers, or lawyers, established terms communicate distinctions that everyday language may blur. Avoiding those terms entirely can make an explanation longer, less accurate, or even misleading. Moreover, when the aim is to teach a subject, learning its vocabulary is part of developing understanding.
+
+The better principle is therefore not to eliminate technical language, but to use it deliberately. An effective explanation introduces unfamiliar terms when they are useful, defines them clearly, and connects them to examples or familiar ideas. It also avoids assuming more background knowledge than the audience possesses.
+
+Ultimately, a good explanation should avoid unnecessary difficulty, not technical vocabulary itself. Its success depends on whether the intended audience gains an accurate understanding.

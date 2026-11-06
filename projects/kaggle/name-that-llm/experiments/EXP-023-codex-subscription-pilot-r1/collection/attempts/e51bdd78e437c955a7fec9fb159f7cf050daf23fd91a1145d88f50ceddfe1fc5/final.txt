@@ -1,0 +1,5 @@
+A queue lets an online service accept requests without processing them all immediately. Incoming requests wait in a buffer, while workers take them out at a rate the system can safely handle. This smooths traffic spikes and prevents sudden demand from overwhelming databases, CPUs, or external services.
+
+Queues also separate request intake from processing, so the service can add workers independently as demand grows. If a worker fails, a queued task can often be retried instead of lost.
+
+However, a queue does not create unlimited capacity. If requests keep arriving faster than workers can finish them, the backlog and waiting time grow. Services therefore need queue limits, monitoring, and overload policies, such as rejecting excess requests or prioritizing important work.

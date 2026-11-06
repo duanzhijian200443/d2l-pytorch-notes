@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0088",
+  "prompt": "Describe why the invention of printing did not instantly make handwritten books and documents unnecessary. Keep your response near 160 words.",
+  "category": "humanities_history",
+  "target_words": 160,
+  "prompt_group": "cp0088",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "2e9f32945d5be33e9cc5fe02cd3c4642be7c2bf1b37a5ea14ba0c771b3e036c7",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:26:28.342199+00:00",
+  "ended_at": "2026-11-01T09:26:41.751445+00:00",
+  "prompt_sha256": "41b3ecdc68cb0e9f4ea32315b4e1e2eaaba9ed53b53344cf639a8e0b01fe153c",
+  "text": "The invention of printing did not immediately make handwritten books and documents unnecessary because early printing had practical and economic limits. Printing presses were expensive to build and operate, so they were mainly useful for producing many identical copies of popular works. A single letter, legal agreement, account book, lecture note, or locally needed text was still quicker and cheaper to write by hand.\n\nPrinting also spread gradually. Presses, skilled printers, metal type, paper, and distribution networks were not available everywhere. Meanwhile, scribes and clerks remained essential in governments, churches, universities, and businesses. Many readers also valued illuminated manuscripts, personalized texts, and handwritten annotations that printed books could not easily reproduce.\n\nIn addition, printing did not replace the everyday need to record new information. People still had to draft documents, keep records, copy restricted material, and communicate privately. For centuries, print and handwriting therefore served different but overlapping purposes: print efficiently multiplied standardized texts, while handwriting remained flexible, personal, and well suited to unique documents.",
+  "text_sha256": "3702629be6b108f6ec5cd9b313d28090a8caa97cd4a97fcd100eecd472c509d6",
+  "raw_final_sha256": "3702629be6b108f6ec5cd9b313d28090a8caa97cd4a97fcd100eecd472c509d6",
+  "word_count": 165,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4117,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 226,
+      "reasoning_output_tokens": 18
+    }
+  ],
+  "attempt_path": "collection\\attempts\\2e9f32945d5be33e9cc5fe02cd3c4642be7c2bf1b37a5ea14ba0c771b3e036c7",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,187 @@
+{
+  "archived_at_utc": "2026-11-01T08:51:45.399562+00:00",
+  "experiment": "EXP-026",
+  "notebook_ref": "zhjianduan/name-that-llm-fixed-blend-external-026",
+  "version": 2,
+  "cli_download_exit_code": 0,
+  "download_command": [
+    "kaggle",
+    "kernels",
+    "output",
+    "zhjianduan/name-that-llm-fixed-blend-external-026/2",
+    "-p",
+    "cloud/fixed-blend-external/outputs-v2",
+    "-q"
+  ],
+  "complete_readback": "cloud/fixed-blend-external/complete-v2-readback.json",
+  "files": [
+    {
+      "source": "cloud/fixed-blend-external/analysis/comparison.csv",
+      "archive": "experiments/EXP-026-independent-blend-validation/metrics/comparison.csv",
+      "sha256": "f1a6106b971845c7da2ae9d23680eb9fa27192ce3a46db4bc9279f87931873fa",
+      "bytes": 317
+    },
+    {
+      "source": "cloud/fixed-blend-external/analysis/errors.csv",
+      "archive": "experiments/EXP-026-independent-blend-validation/metrics/errors.csv",
+      "sha256": "a96abe4b43e2ec6ea554fe9a572fa539414f46fa82f81716ddfab98747933301",
+      "bytes": 50405
+    },
+    {
+      "source": "cloud/fixed-blend-external/analysis/per_class.csv",
+      "archive": "experiments/EXP-026-independent-blend-validation/metrics/per_class.csv",
+      "sha256": "e334f2dcd621bdae3f768d83be3a4416e7153ab827e20e11bd5c1a469f1f524c",
+      "bytes": 603
+    },
+    {
+      "source": "cloud/fixed-blend-external/analysis/verified.json",
+      "archive": "experiments/EXP-026-independent-blend-validation/metrics/verified.json",
+      "sha256": "cf1be2a5ca3e4732c8f678fad1f1d72bb08683b2b0ef54cd1f8098473e0e26ec",
+      "bytes": 16477
+    },
+    {
+      "source": "cloud/fixed-blend-external/outputs-v2/name-that-llm-fixed-blend-external-026.log",
+      "archive": "experiments/EXP-026-independent-blend-validation/logs/name-that-llm-fixed-blend-external-026.log",
+      "sha256": "8b5182cfb25261b46cd25f04a2dd6ccbe7f220fe7da67e3f9cdcbff266cbdf3f",
+      "bytes": 4489
+    },
+    {
+      "source": "cloud/fixed-blend-external/outputs-v2/results/.run.lock",
+      "archive": "experiments/EXP-026-independent-blend-validation/logs/.run.lock",
+      "sha256": "e52c4aef5879fbc8790b189f44229b641a55c8600bdfcfd23906f301f7ef5d33",
+      "bytes": 32
+    },
+    {
+      "source": "cloud/fixed-blend-external/outputs-v2/results/artifacts.json",
+      "archive": "experiments/EXP-026-independent-blend-validation/metrics/runtime/artifacts.json",
+      "sha256": "2fd3d42c34ab7c8d4655e281e7769937c4da58266800c844c3b61dd662d54691",
+      "bytes": 2798
+    },
+    {
+      "source": "cloud/fixed-blend-external/outputs-v2/results/component-and-blend-scores.npz",
+      "archive": "experiments/EXP-026-independent-blend-validation/predictions/component-and-blend-scores.npz",
+      "sha256": "0a9eb3f5ddd086e70c35c0df998afe365eda99f9ad6e192c0ed859de241a59f4",
+      "bytes": 2231399
+    },
+    {
+      "source": "cloud/fixed-blend-external/outputs-v2/results/confusion.csv",
+      "archive": "experiments/EXP-026-independent-blend-validation/predictions/confusion.csv",
+      "sha256": "544c24e5df19678ee3e3d90e8575d212a2ce73bf9cd9658a8e53b178fa4b213d",
+      "bytes": 8003
+    },
+    {
+      "source": "cloud/fixed-blend-external/outputs-v2/results/environment.json",
+      "archive": "experiments/EXP-026-independent-blend-validation/metrics/runtime/environment.json",
+      "sha256": "7b7dfa6b7686fab73d00fbceb407401193afa6d4fed65bac3ef39d1bb50cc0d0",
+      "bytes": 5011
+    },
+    {
+      "source": "cloud/fixed-blend-external/outputs-v2/results/features-stylegram.json",
+      "archive": "experiments/EXP-026-independent-blend-validation/metrics/runtime/features-stylegram.json",
+      "sha256": "2a8f76eb7058ece423666609a6347587b3edaf3a904c0d38ea029fda39ffe58d",
+      "bytes": 1586
+    },
+    {
+      "source": "cloud/fixed-blend-external/outputs-v2/results/features-svc4.json",
+      "archive": "experiments/EXP-026-independent-blend-validation/metrics/runtime/features-svc4.json",
+      "sha256": "0d529903bdc3fd9a162c4ed93fdda7f7f5adde88b96aa72a4131088a5b9acba7",
+      "bytes": 1356
+    },
+    {
+      "source": "cloud/fixed-blend-external/outputs-v2/results/fit-stylegram_centred.json",
+      "archive": "experiments/EXP-026-independent-blend-validation/metrics/runtime/fit-stylegram_centred.json",
+      "sha256": "4a4d143641662a89c030e0c6cc758c49a3113ae0dcdabe250942d305d222af2b",
+      "bytes": 1062
+    },
+    {
+      "source": "cloud/fixed-blend-external/outputs-v2/results/fit-stylegram_plain.json",
+      "archive": "experiments/EXP-026-independent-blend-validation/metrics/runtime/fit-stylegram_plain.json",
+      "sha256": "9e2f9eeaad04a4c95f034be621770614eed246753b799b7c89cc59e9d6f71329",
+      "bytes": 1060
+    },
+    {
+      "source": "cloud/fixed-blend-external/outputs-v2/results/fit-svc4.json",
+      "archive": "experiments/EXP-026-independent-blend-validation/metrics/runtime/fit-svc4.json",
+      "sha256": "06af65aac8c96c77589c509b20a93d7428a790ec6f5e006c83171360fd323176",
+      "bytes": 1054
+    },
+    {
+      "source": "cloud/fixed-blend-external/outputs-v2/results/guard.json",
+      "archive": "experiments/EXP-026-independent-blend-validation/metrics/runtime/guard.json",
+      "sha256": "01e9793905e2c8d57b9aa094860e22b7484f5ac2389adc027239f5574b70a86e",
+      "bytes": 287
+    },
+    {
+      "source": "cloud/fixed-blend-external/outputs-v2/results/input_preflight.json",
+      "archive": "experiments/EXP-026-independent-blend-validation/metrics/runtime/input_preflight.json",
+      "sha256": "ed548082edb341d25fa78ecbab78843ea584e115e291cda4526bcaaed9e28e70",
+      "bytes": 998
+    },
+    {
+      "source": "cloud/fixed-blend-external/outputs-v2/results/metrics.json",
+      "archive": "experiments/EXP-026-independent-blend-validation/metrics/runtime/metrics.json",
+      "sha256": "f32509ae7e486fe07ad773f94cb5b1eb9ae57834bd7706328eb47d838b71e461",
+      "bytes": 3793
+    },
+    {
+      "source": "cloud/fixed-blend-external/outputs-v2/results/predictions.csv",
+      "archive": "experiments/EXP-026-independent-blend-validation/predictions/predictions.csv",
+      "sha256": "95981f14a491d67809b6c34b7283f95ee331f137aab4cad71195e6df104c4ed9",
+      "bytes": 718294
+    },
+    {
+      "source": "cloud/fixed-blend-external/outputs-v2/results/result.json",
+      "archive": "experiments/EXP-026-independent-blend-validation/metrics/runtime/result.json",
+      "sha256": "a2a62fbc561c1206d616929fd04df7a138814c683f16fd63fb311248e9779d23",
+      "bytes": 9545
+    },
+    {
+      "source": "cloud/fixed-blend-external/outputs-v2/results/state.json",
+      "archive": "experiments/EXP-026-independent-blend-validation/metrics/runtime/state.json",
+      "sha256": "e83d93ed48ba316ad48b8d95f5f03319faa1fcfcbec616d8348f988d10382872",
+      "bytes": 187
+    },
+    {
+      "source": "cloud/fixed-blend-external/outputs-v2/results/stylegram-scores.npz",
+      "archive": "experiments/EXP-026-independent-blend-validation/predictions/stylegram-scores.npz",
+      "sha256": "89144a50ae018affd37e1ed8ec3d8e0ec41dd5c06f6dcab10cbb9b5750fc0a4f",
+      "bytes": 1511210
+    },
+    {
+      "source": "cloud/fixed-blend-external/outputs-v2/results/training-membership.npz",
+      "archive": "experiments/EXP-026-independent-blend-validation/metrics/runtime/training-membership.npz",
+      "sha256": "69155fb28d8871d889d5180394bebde3f9864d2b044283dcf229b37977092655",
+      "bytes": 89774
+    },
+    {
+      "source": "cloud/fixed-blend-external/outputs-v2/results/training.log",
+      "archive": "experiments/EXP-026-independent-blend-validation/logs/training.log",
+      "sha256": "ac6b75cadb2423b47a627d798213c28095085891d3351bd4987e3af86534109a",
+      "bytes": 2900
+    },
+    {
+      "source": "cloud/fixed-blend-external/outputs-v2/results/weights-stylegram.json",
+      "archive": "experiments/EXP-026-independent-blend-validation/metrics/runtime/weights-stylegram.json",
+      "sha256": "78575b049bf13097938e137a008cc47dd99a37e7ad4d3f71fc3bf1e54478274e",
+      "bytes": 2054
+    },
+    {
+      "source": "cloud/fixed-blend-external/outputs-v2/results/weights-stylegram.npz",
+      "archive": "experiments/EXP-026-independent-blend-validation/metrics/runtime/weights-stylegram.npz",
+      "sha256": "a85f955f8664e6cb5e854c51fb407c071c5a40a56c395233b99c7212121a23b3",
+      "bytes": 4631
+    },
+    {
+      "source": "cloud/fixed-blend-external/outputs-v2/results/weights-svc4.json",
+      "archive": "experiments/EXP-026-independent-blend-validation/metrics/runtime/weights-svc4.json",
+      "sha256": "eb9f9536e55a80fa60fdbbb4849cadf4ac58ad1acd9dd0d44ce6a86ba0aa5a5b",
+      "bytes": 2371
+    },
+    {
+      "source": "cloud/fixed-blend-external/outputs-v2/results/weights-svc4.npz",
+      "archive": "experiments/EXP-026-independent-blend-validation/metrics/runtime/weights-svc4.npz",
+      "sha256": "b285fcf27ca1341796054a8b3adbfa03aaf489d8a8ff598b503108e88d3e4c25",
+      "bytes": 3792
+    }
+  ]
+}

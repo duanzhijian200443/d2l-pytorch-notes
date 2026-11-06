@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0230",
+  "prompt": "Tell a gentle story about a handmade sign that becomes famous locally because of a harmless spelling mistake. A response of around 120 words is enough.",
+  "category": "creative_short_fiction",
+  "target_words": 120,
+  "prompt_group": "cp0230",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "fbb6d18737fb7652b3b908ca5018f78734f669e72a5b1db6d9b88575605076f4",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:20:50.528870+00:00",
+  "ended_at": "2026-11-01T11:21:03.841310+00:00",
+  "prompt_sha256": "3fa08035bc1512adb9600ea5028fb18b08bbdba75fd17dd59e2e9778db59d3be",
+  "text": "Every morning, Mrs. Lin placed her handmade sign outside the village garden:\n\n**FRESH TOMATOES — TWO DOLLERS A BASKET**\n\nShe had meant to write “dollars,” but no one minded. Children giggled, neighbors smiled, and customers began stopping to take pictures. Soon, the crooked red letters were known all around town. Visitors asked where they could find “the two-doller tomatoes,” and Mrs. Lin’s little stand became the busiest spot on Maple Road.\n\nA local newspaper printed the sign’s picture, calling it “the friendliest mistake in town.” Mrs. Lin never corrected it. Instead, she painted a second sign beneath it:\n\n**THANK YOU FOR NOTICING.**\n\nYears later, the tomatoes were gone, but the famous sign still hung in the garden shed, bright, cheerful, and lovingly misspelled.",
+  "text_sha256": "7a51e187ab0681023a9c6e0f4295e5e70ac0649594419094d426c9d9b346c2ab",
+  "raw_final_sha256": "7a51e187ab0681023a9c6e0f4295e5e70ac0649594419094d426c9d9b346c2ab",
+  "word_count": 123,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2587,
+      "cached_input_tokens": 2432,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 195,
+      "reasoning_output_tokens": 15
+    }
+  ],
+  "attempt_path": "collection\\attempts\\fbb6d18737fb7652b3b908ca5018f78734f669e72a5b1db6d9b88575605076f4",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

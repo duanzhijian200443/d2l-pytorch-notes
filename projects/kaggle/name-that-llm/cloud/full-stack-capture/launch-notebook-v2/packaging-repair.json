@@ -1,0 +1,8 @@
+{
+  "change": "Outer upload format only: raw Python script to one-code-cell nbformat4 notebook",
+  "model_code_or_data_changed": false,
+  "original_script_sha256": "fb36ae0f8a96213b5fe6e6b51aefd615309adc451c7406e7813fbaaac704f84d",
+  "normalized_code_sha256": "7d8a9a73baef0e12c983dd0580c0f7c51e94ce09834e4eb8f7acd41ea1267ab0",
+  "notebook_sha256": "bc513c1061a1f5451bebd7c5513f9cd0519abee609c10c7af875a5bbcf06cbbf",
+  "payload_zip_sha256": "714b454e851fa3727317f40a3a9b74d986626bca048d38cc94d1863e04a86c93"
+}

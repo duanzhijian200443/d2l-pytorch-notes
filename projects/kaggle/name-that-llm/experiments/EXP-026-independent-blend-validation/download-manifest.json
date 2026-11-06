@@ -1,0 +1,75 @@
+{
+  "observed_at": "2026-11-01T08:32:02.884981+00:00",
+  "dataset": {
+    "ref": "enaimaan/ntl-openai-generated-responses",
+    "version": 3,
+    "files": [
+      {
+        "name": "CC-BY-4.0.txt",
+        "bytes": 18657,
+        "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+        "local_path": "data/public-pools/enaimaan/ntl-openai-generated-responses/v3/CC-BY-4.0.txt"
+      },
+      {
+        "name": "CC-BY-SA-3.0.txt",
+        "bytes": 22240,
+        "sha256": "3f941b3b89cf7b8370ceb83cc76d2120d471b58735d8ca60238a751a48d7f72f",
+        "local_path": "data/public-pools/enaimaan/ntl-openai-generated-responses/v3/CC-BY-SA-3.0.txt"
+      },
+      {
+        "name": "LICENSE.md",
+        "bytes": 1818,
+        "sha256": "2e59b4158f4f024416630807e7b2d6a8d4ab02616d6b12c6924fca26ec68fa29",
+        "local_path": "data/public-pools/enaimaan/ntl-openai-generated-responses/v3/LICENSE.md"
+      },
+      {
+        "name": "README.md",
+        "bytes": 4735,
+        "sha256": "8b95cf141a91593856b83b2bec5968e8f5a85e001cddc508176d34b742aa02c7",
+        "local_path": "data/public-pools/enaimaan/ntl-openai-generated-responses/v3/README.md"
+      },
+      {
+        "name": "SHA256SUMS",
+        "bytes": 722,
+        "sha256": "7e96214635b4b30a5976b39122eb22a01954f4ccc0a75bfb3ef147167f4f3110",
+        "local_path": "data/public-pools/enaimaan/ntl-openai-generated-responses/v3/SHA256SUMS"
+      },
+      {
+        "name": "attribution.json",
+        "bytes": 5547,
+        "sha256": "e7ff01517c033779765a1e38eaf9a61a106b40a4a8e1414872a381dfa2b18d87",
+        "local_path": "data/public-pools/enaimaan/ntl-openai-generated-responses/v3/attribution.json"
+      },
+      {
+        "name": "lineage-aliases.json",
+        "bytes": 56923,
+        "sha256": "9be25ee20aa63d1d474d6cd34248eae642d82e823214a6b0a9fb725a7e88f63d",
+        "local_path": "data/public-pools/enaimaan/ntl-openai-generated-responses/v3/lineage-aliases.json"
+      },
+      {
+        "name": "prompts.jsonl",
+        "bytes": 9053172,
+        "sha256": "7a474ee6af8cdeae8e74f62a5f9e3b3ce65bb0eedc4056660925d02542be735b",
+        "local_path": "data/public-pools/enaimaan/ntl-openai-generated-responses/v3/prompts.jsonl"
+      },
+      {
+        "name": "train.csv",
+        "bytes": 12286187,
+        "sha256": "655081a30c30376edba803e48f2031bfc1935d9f0a5e0e4c44fd55dee83acfa3",
+        "local_path": "data/public-pools/enaimaan/ntl-openai-generated-responses/v3/train.csv"
+      },
+      {
+        "name": "train.parquet",
+        "bytes": 5555757,
+        "sha256": "c32483bc5bd17f926313c17e382efb6bfe3001737f7f45632cf884f56a6dbe68",
+        "local_path": "data/public-pools/enaimaan/ntl-openai-generated-responses/v3/train.parquet"
+      }
+    ],
+    "status": "READY"
+  },
+  "publisher_sha256sums": "PASS for all 9 covered files",
+  "downloader_source": "experiments/EXP-008-public-pool-audit/download_inputs.py",
+  "downloader_sha256": "0d8576dd8043909fc916b0614c74422ceaf95cd3a1788eb5bb28ee292aa4cd0e",
+  "data_gate": "PENDING",
+  "scoring_performed": false
+}

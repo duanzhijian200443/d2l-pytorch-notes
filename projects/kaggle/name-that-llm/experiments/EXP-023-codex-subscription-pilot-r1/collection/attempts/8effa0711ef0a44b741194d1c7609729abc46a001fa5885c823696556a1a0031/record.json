@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0187",
+  "prompt": "A recipe serves four people and uses three cups of broth. Explain how much broth is needed for six people if every ingredient is scaled in the same proportion. Aim for about 120 words.",
+  "category": "reasoning_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0187",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "8effa0711ef0a44b741194d1c7609729abc46a001fa5885c823696556a1a0031",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:54:01.081699+00:00",
+  "ended_at": "2026-11-01T10:54:15.892500+00:00",
+  "prompt_sha256": "94c5be9b815e5363583a9f190190149c145ad1a97b5b4ec0500ffb1cb8af4aca",
+  "text": "To scale the recipe from four people to six, multiply every ingredient by the same factor. The scaling factor is \\(6 \\div 4 = 1.5\\). Therefore, multiply the three cups of broth by 1.5:\n\n\\[\n3 \\times 1.5 = 4.5\n\\]\n\nYou will need **4.5 cups of broth**, or **4½ cups**. This preserves the original proportion of broth to servings: the recipe uses \\(3 \\div 4 = 0.75\\) cup per person, and \\(0.75 \\times 6 = 4.5\\) cups. In practical cooking terms, you can measure four cups plus one-half cup. The same 1.5 multiplier should be applied to all the other ingredients so the flavor and consistency remain balanced for six people.",
+  "text_sha256": "d811150bce8d38b2b1dc7f1e8f0adcc11f0d660c7396304a8cabc4f4a516dc81",
+  "raw_final_sha256": "d811150bce8d38b2b1dc7f1e8f0adcc11f0d660c7396304a8cabc4f4a516dc81",
+  "word_count": 112,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2596,
+      "cached_input_tokens": 2432,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 177,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\8effa0711ef0a44b741194d1c7609729abc46a001fa5885c823696556a1a0031",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

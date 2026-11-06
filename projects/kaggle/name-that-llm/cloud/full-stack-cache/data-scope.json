@@ -1,0 +1,323 @@
+{
+  "schema_version": 1,
+  "observed_at_utc": "2026-11-01T09:32:43.578474+00:00",
+  "status": "SCOPE_DEFINED_ENGINEERING_CACHE_ALLOWED_CLEAN_VALIDATION_NOT_CERTIFIED",
+  "scope": "Local evidence review only; no new experiment, weight download, remote query, training or prediction execution.",
+  "decisions": {
+    "engineering_cache_may_proceed": true,
+    "actual_cache_acceptance": "NOT_PERFORMED_BY_THIS_AUDIT",
+    "official_full_stack_clean_oof": false,
+    "external_full_stack_independence_certified": false,
+    "all_member_exposure_completable_from_current_records": false,
+    "historical_exp004_all_input_bytes_bound": false
+  },
+  "data_uses": {
+    "public_three_row_smoke": {
+      "input": "test.csv",
+      "rows": 3,
+      "labels_available": false,
+      "permitted_claim": "Real forward/cache/load/replay engineering smoke for the recorded active members and inputs.",
+      "required": "Explicitly execute the real stack rather than frozen FAST_COMMIT len(test)<50 constant placeholder; bind actual checkpoint hashes, IDs and all18 score columns, finite arrays and per-member activation.",
+      "limits": "Cannot estimate accuracy, prove external independence, exercise every group-dependent/routed path, or establish full hidden-distribution parity. Optional skipped members and conditional ATLAS coverage must be explicit."
+    },
+    "official_2699_cache": {
+      "input": "train.csv",
+      "rows": 2699,
+      "prompt_groups": 150,
+      "classes": 18,
+      "permitted_claim": "In-sample or exposure-contaminated engineering/diagnostic cache from recorded full-data/all-fold weights.",
+      "forbidden_claims": [
+        "clean OOF",
+        "held-out official validation",
+        "independent gain estimate"
+      ],
+      "reason": "ATLAS and multiple final checkpoints fit official rows; fivefold-plus-full/all-fold averaging is not row-held-out; fitting downstream heads on a fold does not undo upstream exposure."
+    },
+    "external_panels": [
+      {
+        "experiment": "EXP-026",
+        "input": "experiments/EXP-026-independent-blend-validation/evaluation.csv",
+        "rows": 5200,
+        "source_prompt_groups": 1300,
+        "statistical_prompt_groups": 1299,
+        "covered_labels": 4,
+        "scope": "EXPLORATORY_FULL_STACK_EXTERNAL_PANEL",
+        "claim_independent_of_all_members": false,
+        "claim_fresh_confirmation": false,
+        "reason": "Existing gate covers the specified Stylegram10073 and svc4 raw5400 fitting pools plus official known/exact exposure, not all original stack members; panel results have already been inspected."
+      },
+      {
+        "experiment": "EXP-027",
+        "input": "experiments/EXP-027-multiclass-external-validation/evaluation.csv",
+        "rows": 729,
+        "source_prompt_groups": 56,
+        "statistical_prompt_groups": 56,
+        "covered_labels": 17,
+        "scope": "EXPLORATORY_FULL_STACK_EXTERNAL_PANEL",
+        "claim_independent_of_all_members": false,
+        "claim_fresh_confirmation": false,
+        "reason": "Existing gate covers the specified Stylegram10073 and svc4 raw5400 fitting pools plus official known/exact exposure, not all original stack members; panel results have already been inspected."
+      }
+    ],
+    "external_metric_rules": [
+      "Use all18 output columns for argmax; covered-class macro recall only (4 or17 classes), never call it official18-class BA.",
+      "EXP026 resampling unit is1299 normalized source-body groups, not1300 publisher IDs. EXP027 uses56 task-body groups with unequal class support.",
+      "Keep original texts and input hashes. True model/prompt labels are metric metadata, not feature/routing inputs. No retuning on these already-inspected panels may be presented as fresh confirmation.",
+      "EXP027 publisher filtered against official8grams; true official prompts and semantic overlap remain unresolved."
+    ]
+  },
+  "member_exposure": [
+    {
+      "members": [
+        "tfidf",
+        "distort",
+        "svc4"
+      ],
+      "known_exposure": "Official plus matched; svc4 also pool. Runtime selection is reconstructible from frozen code and actual resolved files.",
+      "gap": "Original matched/pool prompt ancestry and label-dependent upstream cleaning are incomplete; current projection includes 121 official-prompt reconstructions. Historical attachment-byte binding remains incomplete.",
+      "completion_from_current_records": "RUNTIME_RECIPE_ONLY",
+      "next_evidence": "At cache execution save resolved source versions/hashes and retained row IDs; do not label an official-row refit cache OOF."
+    },
+    {
+      "members": [
+        "q14v5",
+        "q8v5",
+        "ll8v5"
+      ],
+      "known_exposure": "Dataset title says 120k public pool; consumer averages five fold adapters plus full-data adapter and adds centered twins. q14/q8 Gaussian heads fit official features from full adapter.",
+      "gap": "No exact pool/stage membership, prompt exclusions or fold manifests bound to each checkpoint.",
+      "completion_from_current_records": "NO",
+      "next_evidence": "Producer stage-wise row/prompt manifests, fold ownership and adapter/head hashes; a downstream readout split cannot repair upstream exposure."
+    },
+    {
+      "members": [
+        "n14b",
+        "q25_14",
+        "deb"
+      ],
+      "known_exposure": "Author documents 75783-row public pool followed by official training; n14b also saw aswathvanan/ntl-proxy-passages.",
+      "gap": "Source list is available; exact per-checkpoint row/prompt/fold membership and byte binding are not.",
+      "completion_from_current_records": "PARTIAL_SOURCE_LIST_ONLY",
+      "next_evidence": "Pool_v4 and extra-source row lineage plus producer training manifests for each exact checkpoint."
+    },
+    {
+      "members": [
+        "ATLAS"
+      ],
+      "known_exposure": "Author documents 18 adapters trained on all 2699 official rows for five epochs; published train SHA matches.",
+      "gap": "No official-fold-isolated replacement set or complete historical routing/weight identity proof.",
+      "completion_from_current_records": "OFFICIAL_FULL_TRAIN_DOCUMENTED",
+      "next_evidence": "Pin actual adapter/base hashes for engineering; clean official validation requires new fold-specific assets with exclusions through every supervised stage."
+    },
+    {
+      "members": [
+        "stylegram",
+        "stylometry_lgb",
+        "gate_claude",
+        "gate_gpt",
+        "gate_gemini",
+        "gate_glm"
+      ],
+      "known_exposure": "Original runtime Stylegram uses official plus filtered EXTRA (10325 in current projection); family gates include official plus public rows, Claude uses raw Seyit. Stylometry uses official.",
+      "gap": "Two-member gate uses Stylegram10073, not original10325 or family-gate pools. Original comp includes 252 known official-prompt regenerations.",
+      "completion_from_current_records": "RUNTIME_SELECTION_RECONSTRUCTIBLE",
+      "next_evidence": "Save actual runtime membership and compare panel ancestors/bodies for original branch inputs; do not inherit the candidate two-member gate unchanged."
+    },
+    {
+      "members": [
+        "debv3l",
+        "electl",
+        "desk",
+        "q3_8b_twin",
+        "q25_7b_twin",
+        "q3_4b_twin",
+        "glm9b_twin",
+        "debv3l_twin",
+        "gauss_q3_8b_L22",
+        "gauss_glm9b_L8",
+        "gauss_q3_4b_L4",
+        "gauss_debv3l_L24"
+      ],
+      "known_exposure": "Runtime scalers/LR/Gaussian heads fit official labels and, where used, official prompt groups.",
+      "gap": "Frozen backbone resolution by config/name is not a full training-history claim; exact encoder identity and any upstream competition fine-tuning need binding.",
+      "completion_from_current_records": "RUNTIME_FIT_SCOPE_ONLY",
+      "next_evidence": "Pin actual base/encoder revision and producer status; fold-fit all transforms/readouts only if pursuing clean official OOF."
+    },
+    {
+      "members": [
+        "lora24_public",
+        "lora24_public_twin",
+        "lora24_seed7",
+        "lora20_q25_instyle"
+      ],
+      "known_exposure": "Consumer resolves final COMPLETE markers and readouts; their availability does not expose training row membership.",
+      "gap": "Complete producer corpus, selection, checkpoint and fold lineage absent in bounded evidence.",
+      "completion_from_current_records": "NO",
+      "next_evidence": "Read existing producer manifests/metadata if present in mounted assets; without stage-wise membership retain UNKNOWN, without blocking engineering cache."
+    },
+    {
+      "members": [
+        "lora24_claude",
+        "lora24_claude_twin",
+        "gate_claude_lora"
+      ],
+      "known_exposure": "Author: final fits all2699 official rows; auxiliary Claude head also sees Seyit. Consumer selects final, not separate fold0.",
+      "gap": "Precise public membership and full fold-specific asset set missing; later available Claude readout may overwrite gate scores.",
+      "completion_from_current_records": "OFFICIAL_FULL_TRAIN_AND_PUBLIC_SOURCE_DOCUMENTED",
+      "next_evidence": "Bind selected final/readout hash and public rows; never use final as official OOF."
+    },
+    {
+      "members": [
+        "tokattn_q35",
+        "tokattn_deb"
+      ],
+      "known_exposure": "Published checkpoint includes head and training normalization; no runtime supervised fit.",
+      "gap": "Training row/prompt/fold manifest unknown; q35 needs matching Qwen3.5 backbone and can be skipped.",
+      "completion_from_current_records": "NO",
+      "next_evidence": "Producer manifest plus selected checkpoint/normalization hash; record activation exactly, never treat declared attachment as proof of activation."
+    },
+    {
+      "members": [
+        "ultrabert"
+      ],
+      "known_exposure": "Author reports five prompt-GroupKFold models; consumer averages all five.",
+      "gap": "Exact folds not verified; all-fold average includes models trained on each official row.",
+      "completion_from_current_records": "FOLD_METHOD_CLAIM_ONLY",
+      "next_evidence": "For clean OOF obtain exact fold membership and use only each row's excluded-fold model; full-stack remaining blockers still apply."
+    }
+  ],
+  "asset_evidence": {
+    "drive_input_groups": 31,
+    "required_file_rules": 160,
+    "runtime_available_now": "NOT_REQUERIED",
+    "meaning": "Existing references/paths and some verified identity receipts support reuse. A COMPLETE marker, directory inventory, parameter file or base-shard hash is not a training-row manifest. Current cache is a pinned snapshot reproduction until every historical EXP004 input byte is bound.",
+    "inactive_main_attachments": [
+      "lora8b_v1",
+      "lora14b_v1"
+    ],
+    "inactive_note": "Resolved two-stage-v1 attachment is not in frozen main MODELS; do not count it as a separate active prediction member."
+  },
+  "minimum_next_step": [
+    "Freeze an explicit actual asset/member snapshot; missing claimed-required members fail engineering completeness, while optional branch activation is reported under its own scope.",
+    "Accept public3 real forward/cache replay separately from validation status; cache source text/ID hash, labels18, selected checkpoint hashes, branch scores, routing and transformation metadata.",
+    "If external predictions are cached, mark EXP026 and EXP027 exploratory; do not await impossible complete pretraining lineage to test serialization/replay.",
+    "Clean full-stack OOF remains a separate project requiring fold-specific assets and preprocessing with stage-wise prompt exclusion. Existing full/fold-averaged assets cannot acquire that status by relabeling cached arrays."
+  ],
+  "evidence": [
+    {
+      "path": "experiments/EXP-009-baseline-data-lineage/checkpoint-evidence.json",
+      "bytes": 22667,
+      "sha256": "34f7b2b53fc0f4a1452cd2be08882b0c83142eb8838ebfc6d4b3993269064e00",
+      "role": "Per-family author-card claims and missing checkpoint training lineage; observed 2026-10-31, not a new remote verification"
+    },
+    {
+      "path": "experiments/EXP-009-baseline-data-lineage/main-members.json",
+      "bytes": 21249,
+      "sha256": "12e134641edd6fe7e451226237a04ecf9660a7118ff3018eecbcddf5c86e2763",
+      "role": "Frozen main member inventory, official fitting and FAST_COMMIT shortcut"
+    },
+    {
+      "path": "experiments/EXP-009-baseline-data-lineage/complement-members.json",
+      "bytes": 22637,
+      "sha256": "5354dc31a69cc28b2b68d460186665b34157cdc78d17c5fe2151e463109bd868",
+      "role": "Frozen complementary members, gates, optional activation and fitting inputs"
+    },
+    {
+      "path": "experiments/EXP-009-baseline-data-lineage/report.md",
+      "bytes": 14572,
+      "sha256": "67aedb68032a651d9a22ce81f8af7a089c8db6d1f2878c7da8bdf9b26b1ef9ed",
+      "role": "Current-file projection, including official reconstructed-prompt contamination and historical binding limits"
+    },
+    {
+      "path": "reviews/own-scheme-readiness-20261030/baseline-v2.ipynb",
+      "bytes": 140355,
+      "sha256": "6c9145f038ccffbe08dc6da6db3d1dcf3d2e0e7d2286927bfc8800ef5148cfb8",
+      "role": "Hash-bound EXP004 consumer source; not complete historical input-byte proof"
+    },
+    {
+      "path": "tracking/records/experiments/EXP-004.json",
+      "bytes": 2650,
+      "sha256": "f0cef27c942819d1f3ca828e579e19419752f68024041792613bac508a79b50f",
+      "role": "Formal historical baseline binding and absent clean OOF"
+    },
+    {
+      "path": "cloud/atlas20-drive/drive-inputs.json",
+      "bytes": 37134,
+      "sha256": "5d0aa17129933ba23ae85dca1877914bc7f1e1f17d81ea2514fe291caa07b8d1",
+      "role": "31 version/path asset references and 160 file rules; not training membership"
+    },
+    {
+      "path": "reviews/atlas20-drive-20261101/drive-directory-evidence.json",
+      "bytes": 112650,
+      "sha256": "3905da7a391ab0be1172de10ecd5a7ac912bd80d86f5c1a8dbc01a9e9b670986",
+      "role": "Recorded Drive directory metadata; no current remote availability claim"
+    },
+    {
+      "path": "reviews/atlas20-drive-20261101/adaptation-validation.json",
+      "bytes": 1739,
+      "sha256": "bcc1c280a604dc167830e21a4a45a47e74b4a9ea81c85b90b0c7e0ccfcf06705",
+      "role": "Local adapter validation; full inference and remote preflight not executed by that task"
+    },
+    {
+      "path": "cloud/llama31-drive-transfer/kaggle-verified-manifest.json",
+      "bytes": 4879,
+      "sha256": "53674290b9c9dfdd8255b463702f08aaeae48dcde3648a84c7b6fe48bc4ea7ca",
+      "role": "Verified Llama base shard identity; says nothing about downstream adapter training exposure"
+    },
+    {
+      "path": "experiments/EXP-026-independent-blend-validation/metrics/data-gate.json",
+      "bytes": 8949,
+      "sha256": "8b5d203368ccbefc6c0165e3556187514eb117e7aca6e768c05154768091509a",
+      "role": "Four-class two-member known/exact gate"
+    },
+    {
+      "path": "experiments/EXP-026-independent-blend-validation/metrics/prompt-unit-correction.json",
+      "bytes": 1680,
+      "sha256": "58308a0e87f9c03062ea0c380e16e23a60627e8e40edad0e6e84c262d27207ab",
+      "role": "5200 rows, 1300 source groups merged into 1299 normalized task units"
+    },
+    {
+      "path": "experiments/EXP-027-multiclass-external-validation/metrics/data-gate.json",
+      "bytes": 12265,
+      "sha256": "cead2f4745a3e4af6a8adffe2361efd725e2710971a12123083b927589f573e5",
+      "role": "17-class two-member known/exact gate; official-8gram upstream selection"
+    },
+    {
+      "path": "experiments/EXP-027-multiclass-external-validation/metrics/integration-readiness.json",
+      "bytes": 6736,
+      "sha256": "93ea7c496603914c25e0b2851691dddb4568781e3991781c03e469ea6a135c79",
+      "role": "Recorded current integration/cache gaps; not evidence of a completed full-stack cache"
+    },
+    {
+      "path": "train.csv",
+      "bytes": 2139418,
+      "sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+      "role": "Official training population"
+    },
+    {
+      "path": "test.csv",
+      "bytes": 2218,
+      "sha256": "4545aa3a3459f4c0724f97ad5bd06c4caa3506bdfea5fab905e8203184fc0c57",
+      "role": "Three public unlabeled engineering examples"
+    },
+    {
+      "path": "experiments/EXP-026-independent-blend-validation/evaluation.csv",
+      "bytes": 4383164,
+      "sha256": "72228be3ddaad8feaa1ba232e689537e0cf49ebc72068df4a7e556836f1bdd17",
+      "role": "Frozen external four-class panel"
+    },
+    {
+      "path": "experiments/EXP-027-multiclass-external-validation/evaluation.csv",
+      "bytes": 721966,
+      "sha256": "8ec3217f1f469b66170f68f7abdb3ef1973a64e47d983c59b40a4d1ce2094670",
+      "role": "Frozen external 17-class panel"
+    }
+  ],
+  "actions": {
+    "weights_downloaded": false,
+    "training_performed": false,
+    "predictions_generated": false,
+    "remote_assets_queried": false,
+    "other_experiments_modified": false
+  }
+}

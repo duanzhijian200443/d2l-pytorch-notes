@@ -1,0 +1,12 @@
+{
+  "id": 57879463,
+  "status": "SUBMITTED_STATUS_NOT_YET_RETURNED",
+  "script_version_id": 364624288,
+  "notebook_version": 2,
+  "public_score": null,
+  "submitted_at": "2026-11-01T17:48:25.780Z",
+  "observed_at": "2026-11-01T17:48:40Z",
+  "url": "https://www.kaggle.com/code/zhjianduan/name-that-llm-a1-public-stylegram-046?scriptVersionId=364624288",
+  "request_count": 1,
+  "status_note": "Kaggle acknowledged ref and lists the exact saved version; status and score fields were not yet returned."
+}

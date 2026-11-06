@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0031",
+  "prompt": "Why can a spinning ice skater turn faster by pulling their arms inward? Explain what stays the same and what changes. Keep your response near 80 words.",
+  "category": "science_explanation",
+  "target_words": 80,
+  "prompt_group": "cp0031",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "4dcdbe7a9ab3624a611c5dbfe216280bf1b81d2026edda7e09a9b35513562068",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:50:23.720969+00:00",
+  "ended_at": "2026-11-01T08:50:40.112411+00:00",
+  "prompt_sha256": "500983f8fcde730f0e14194acc8ac1c4fb1f4c48bcac9a567cb02993fc390a39",
+  "text": "A spinning ice skater turns faster by pulling their arms inward because their **angular momentum stays approximately constant**, as long as external twisting forces (torques) are negligible. Bringing their arms closer to the rotation axis reduces their **moment of inertia**, a measure of how mass is distributed around that axis. Their angular speed therefore increases to conserve angular momentum. Their rotational kinetic energy also increases: the extra energy comes from the work their muscles do while pulling their arms inward.",
+  "text_sha256": "2e2c9280c555ac6e63c3b766cdcc1e25146a81c6fa9d3715b5ae9d73b0fcda08",
+  "raw_final_sha256": "2e2c9280c555ac6e63c3b766cdcc1e25146a81c6fa9d3715b5ae9d73b0fcda08",
+  "word_count": 80,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4239,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 97,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\4dcdbe7a9ab3624a611c5dbfe216280bf1b81d2026edda7e09a9b35513562068",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

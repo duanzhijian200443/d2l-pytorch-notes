@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0070",
+  "prompt": "Explain why measuring how many tasks a support team closes can create a misleading picture of service quality. Please answer in roughly 120 words.",
+  "category": "business_decision",
+  "target_words": 120,
+  "prompt_group": "cp0070",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "6ad9755fc2e2671e96ce3546dde5bff0b6568fe8f4245a1b94ddfcd7eb1220ee",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:15:11.825568+00:00",
+  "ended_at": "2026-11-01T09:15:33.044096+00:00",
+  "prompt_sha256": "2ba7077b114ea8e3bca645942c9a0c535635e80c3d6f7b16fc9a4097935d17ca",
+  "text": "Counting closed tasks measures throughput, not necessarily service quality. A team can close many tickets by prioritizing easy requests, rushing responses, or marking issues resolved before customers are satisfied. Complex cases may remain open longer even when staff provide excellent support, so raw totals can penalize the people doing the hardest work.\n\nClosure counts also overlook whether solutions last, customers need to contact support again, or responses are clear and empathetic. A rising total might even reflect more product problems rather than better service. When targets reward closures alone, staff may focus on improving the number instead of helping customers. A fuller assessment combines closure volume with resolution quality, repeat contacts, customer feedback, response times, and case complexity.",
+  "text_sha256": "e4ebb2b1e67a50495edb3ee81e4e02de6500b2122072032c40cb28c9a578964b",
+  "raw_final_sha256": "e4ebb2b1e67a50495edb3ee81e4e02de6500b2122072032c40cb28c9a578964b",
+  "word_count": 118,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4234,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 143,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\6ad9755fc2e2671e96ce3546dde5bff0b6568fe8f4245a1b94ddfcd7eb1220ee",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

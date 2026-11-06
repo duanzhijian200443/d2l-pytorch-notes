@@ -1,0 +1,10 @@
+{
+  "status": "COMPLETE",
+  "source_sha256": "ca4c9e18ed32dcd8168b8118b192d39d657803d30dcd89a564b1c2d1d9c846dd",
+  "pool_rows": 190588,
+  "fit_log": "svc4 fit rows=200478 source_weighted; external clean=24443",
+  "coefficient": 12.0,
+  "format": "weighted log probability, source dtype",
+  "score_sha256": "b01c35ffae84e09271b73d22ee8a12ef6792d0f6d097c0f0648fd73bc0b6920f",
+  "role": "common main branch on exposed diagnostic panel"
+}

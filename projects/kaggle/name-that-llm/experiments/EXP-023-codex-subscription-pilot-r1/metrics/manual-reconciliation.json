@@ -1,0 +1,10 @@
+{
+  "observed_at": "2026-11-01T08:28:49.790699+00:00",
+  "reason": "Controller stopped on Windows state.json replace PermissionError after successfully completed in-flight requests.",
+  "verified_successful_records": 6,
+  "recovered_record_keys": [
+    "95981d33b8fc954da814ad2a38f77cc593894f0e9bc413e9d1255babcc523c7b",
+    "ed627035f7caeeb3768f5eee475624a291a44f3c4716b85f78011bb98d92903e"
+  ],
+  "model_requests_replayed": 0
+}

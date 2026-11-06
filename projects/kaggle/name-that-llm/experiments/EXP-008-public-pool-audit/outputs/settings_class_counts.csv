@@ -1,0 +1,806 @@
+table,setting,model,rows
+abdullah-v2,default,gemini-3.1-pro-preview,120
+abdullah-v2,default,gemini-3.6-flash,64
+abdullah-v2,default,gemini-3.8-flash,70
+abdullah-v2,default,gpt-5.5,101
+abdullah-v2,default,gpt-5.6-luna,120
+abdullah-v2,default,gpt-5.6-sol,104
+abdullah-v2,default,gpt-5.6-terra,120
+abdullah-v2,default,gpt-6-astra,144
+abdullah-v2,low,gemini-3.1-pro-preview,20
+abdullah-v2,low,gemini-3.6-flash,20
+abdullah-v2,low,gemini-3.8-flash,20
+abdullah-v2,low,gpt-5.5,1
+abdullah-v2,low,gpt-5.6-luna,20
+abdullah-v2,low,gpt-5.6-sol,2
+abdullah-v2,low,gpt-5.6-terra,20
+abdullah-v2,low,gpt-6-astra,1
+abdullah-v2,none,gemini-3.6-flash,20
+abdullah-v2,none,gemini-3.8-flash,20
+abdullah-v2,none,gpt-5.5,1
+abdullah-v2,none,gpt-5.6-luna,20
+abdullah-v2,none,gpt-5.6-sol,5
+abdullah-v2,none,gpt-5.6-terra,20
+dophuchung-v1,default,gemini-3.6-flash,80
+dophuchung-v1,default,gemini-3.8-flash,80
+dophuchung-v1,default,gpt-5.5,30
+dophuchung-v1,default,gpt-5.6-luna,30
+dophuchung-v1,default,gpt-5.6-sol,30
+dophuchung-v1,default,gpt-5.6-terra,30
+dophuchung-v1,default,gpt-6-astra,10
+dophuchung-v1,high,gemini-3.6-flash,30
+dophuchung-v1,high,gemini-3.8-flash,30
+dophuchung-v1,low,gemini-3.6-flash,30
+dophuchung-v1,low,gemini-3.8-flash,30
+dophuchung-v1,low,gpt-5.5,80
+dophuchung-v1,low,gpt-5.6-luna,80
+dophuchung-v1,low,gpt-5.6-sol,80
+dophuchung-v1,low,gpt-5.6-terra,80
+dophuchung-v1,low,gpt-6-astra,59
+dophuchung-v1,medium,gemini-3.6-flash,30
+dophuchung-v1,medium,gemini-3.8-flash,30
+dophuchung-v1,none,gemini-3.6-flash,30
+dophuchung-v1,none,gemini-3.8-flash,30
+dophuchung-v1,none,gpt-5.5,30
+dophuchung-v1,none,gpt-5.6-luna,30
+dophuchung-v1,none,gpt-5.6-sol,30
+dophuchung-v1,none,gpt-5.6-terra,30
+lucas-v7,low,gemini-3.1-pro-preview,687
+lucas-v7,low,gemini-3.6-flash,813
+lucas-v7,low,gemini-3.8-flash,438
+lucas-v7,low,gpt-5.5,472
+lucas-v7,low,gpt-5.6-luna,472
+lucas-v7,low,gpt-5.6-sol,442
+lucas-v7,low,gpt-5.6-terra,472
+lucas-v7,low,gpt-6-astra,459
+matched-v3,,claude-fable-5,1627
+matched-v3,,claude-opus-4-6,1918
+matched-v3,,claude-opus-4-8,1924
+matched-v3,,claude-opus-5,1770
+matched-v3,,claude-sonnet-5,1927
+matched-v3,,gemini-3.1-pro-preview,1211
+matched-v3,,gemini-3.6-flash,1727
+matched-v3,,gemini-3.7-flash,1127
+matched-v3,,gemini-3.8-flash,1855
+matched-v3,,glm-5.3,709
+matched-v3,,glm-5.3-flash,713
+matched-v3,,gpt-5.5,1261
+matched-v3,,gpt-5.6-luna,1475
+matched-v3,,gpt-5.6-sol,1382
+matched-v3,,gpt-5.6-terra,1478
+matched-v3,,gpt-6-astra,1003
+matched-v3,,kimi-k3,673
+matched-v3,,qwen3.8-max,663
+pool-v2,,claude-fable-5,1608
+pool-v2,,claude-opus-4-6,1894
+pool-v2,,claude-opus-4-8,1916
+pool-v2,,claude-opus-5,1763
+pool-v2,,claude-sonnet-5,1902
+pool-v2,,gemini-3.1-pro-preview,1091
+pool-v2,,gemini-3.6-flash,2372
+pool-v2,,gemini-3.7-flash,2143
+pool-v2,,gemini-3.8-flash,2847
+pool-v2,,glm-5.3,1950
+pool-v2,,glm-5.3-flash,1984
+pool-v2,,gpt-5.5,2456
+pool-v2,,gpt-5.6-luna,2595
+pool-v2,,gpt-5.6-sol,2591
+pool-v2,,gpt-5.6-terra,2690
+pool-v2,,gpt-6-astra,2173
+pool-v2,,kimi-k3,1906
+pool-v2,,qwen3.8-max,1371
+pool-v5,,claude-fable-5,6716
+pool-v5,,claude-opus-4-6,4107
+pool-v5,,claude-opus-4-8,4677
+pool-v5,,claude-opus-5,3123
+pool-v5,,claude-sonnet-5,5026
+pool-v5,,gemini-3.1-pro-preview,3677
+pool-v5,,gemini-3.6-flash,6521
+pool-v5,,gemini-3.7-flash,4797
+pool-v5,,gemini-3.8-flash,9088
+pool-v5,,glm-5.3,8046
+pool-v5,,glm-5.3-flash,9466
+pool-v5,,gpt-5.5,7958
+pool-v5,,gpt-5.6-luna,11022
+pool-v5,,gpt-5.6-sol,9032
+pool-v5,,gpt-5.6-terra,9318
+pool-v5,,gpt-6-astra,6644
+pool-v5,,kimi-k3,6588
+pool-v5,,qwen3.8-max,4093
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: no thinking block, thinking_tokens=0",claude-fable-5,5
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=100",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=102",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=103",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=104",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=106",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=109",claude-fable-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=116",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=120",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=121",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=123",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=124",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=141",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=144",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=145",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=147",claude-fable-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=15",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=151",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=153",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=16",claude-fable-5,3
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=17",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=177",claude-fable-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=18",claude-fable-5,3
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=19",claude-fable-5,6
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=20",claude-fable-5,17
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=21",claude-fable-5,3
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=22",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=23",claude-fable-5,11
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=24",claude-fable-5,6
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=25",claude-fable-5,16
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=26",claude-fable-5,4
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=27",claude-fable-5,4
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=28",claude-fable-5,7
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=29",claude-fable-5,6
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=30",claude-fable-5,9
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=31",claude-fable-5,5
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=32",claude-fable-5,6
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=33",claude-fable-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=335",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=34",claude-fable-5,5
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=35",claude-fable-5,6
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=36",claude-fable-5,4
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=37",claude-fable-5,4
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=38",claude-fable-5,4
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=39",claude-fable-5,5
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=40",claude-fable-5,5
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=42",claude-fable-5,3
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=43",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=44",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=45",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=46",claude-fable-5,4
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=47",claude-fable-5,4
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=48",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=49",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=50",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=53",claude-fable-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=54",claude-fable-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=55",claude-fable-5,3
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=56",claude-fable-5,3
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=57",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=59",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=60",claude-fable-5,4
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=61",claude-fable-5,3
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=62",claude-fable-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=63",claude-fable-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=636",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=64",claude-fable-5,4
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=66",claude-fable-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=68",claude-fable-5,4
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=69",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=70",claude-fable-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=71",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=73",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=74",claude-fable-5,4
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=77",claude-fable-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=82",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=84",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=88",claude-fable-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=89",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=92",claude-fable-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=93",claude-fable-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=98",claude-fable-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=99",claude-fable-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-4-6: no thinking (model default); observed: no thinking block, thinking_tokens=None",claude-opus-4-6,245
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-4-8: no thinking (model default); observed: no thinking block, thinking_tokens=0",claude-opus-4-8,245
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=100",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=104",claude-opus-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=105",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=106",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=1064",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=109",claude-opus-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=110",claude-opus-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=112",claude-opus-5,3
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=113",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=115",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=116",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=117",claude-opus-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=119",claude-opus-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=122",claude-opus-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=125",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=126",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=128",claude-opus-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=130",claude-opus-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=131",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=132",claude-opus-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=133",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=135",claude-opus-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=136",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=1398",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=140",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=142",claude-opus-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=143",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=144",claude-opus-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=150",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=151",claude-opus-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=156",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=158",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=160",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=163",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=165",claude-opus-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=167",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=168",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=174",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=175",claude-opus-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=176",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=18",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=180",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=182",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=186",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=187",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=188",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=1887",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=189",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=19",claude-opus-5,5
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=192",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=195",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=197",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=20",claude-opus-5,4
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=201",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=202",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=204",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=207",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=208",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=21",claude-opus-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=211",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=213",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=214",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=215",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=216",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=220",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=221",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=226",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=23",claude-opus-5,3
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=231",claude-opus-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=24",claude-opus-5,3
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=240",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=241",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=242",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=243",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=245",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=246",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=25",claude-opus-5,7
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=252",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=259",claude-opus-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=26",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=267",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=268",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=27",claude-opus-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=273",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=278",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=28",claude-opus-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=284",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=289",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=29",claude-opus-5,3
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=292",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=30",claude-opus-5,3
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=31",claude-opus-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=32",claude-opus-5,4
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=322",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=327",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=33",claude-opus-5,6
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=334",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=34",claude-opus-5,6
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=340",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=345",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=346",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=349",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=35",claude-opus-5,4
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=359",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=36",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=361",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=362",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=366",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=371",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=38",claude-opus-5,4
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=384",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=387",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=388",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=39",claude-opus-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=398",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=40",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=41",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=42",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=421",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=43",claude-opus-5,3
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=431",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=44",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=45",claude-opus-5,3
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=47",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=481",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=49",claude-opus-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=50",claude-opus-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=51",claude-opus-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=512",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=52",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=53",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=531",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=534",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=54",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=56",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=562",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=58",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=585",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=598",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=61",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=62",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=63",claude-opus-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=64",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=646",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=66",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=67",claude-opus-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=68",claude-opus-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=689",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=69",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=699",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=71",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=717",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=736",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=75",claude-opus-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=76",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=79",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=815",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=84",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=848",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=85",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=87",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=89",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=91",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=92",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=93",claude-opus-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=94",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=96",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=98",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=99",claude-opus-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-sonnet-5: adaptive thinking (model default, effort high); observed: no thinking block, thinking_tokens=0",claude-sonnet-5,241
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-sonnet-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=31",claude-sonnet-5,1
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-sonnet-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=32",claude-sonnet-5,2
+prvs-clean-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-sonnet-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=37",claude-sonnet-5,1
+prvs-clean-v6,api_default: no reasoning_effort sent (GPT-5.x / 6 default effort medium),gpt-5.5,150
+prvs-clean-v6,api_default: no reasoning_effort sent (GPT-5.x / 6 default effort medium),gpt-5.6-luna,150
+prvs-clean-v6,api_default: no reasoning_effort sent (GPT-5.x / 6 default effort medium),gpt-5.6-sol,150
+prvs-clean-v6,api_default: no reasoning_effort sent (GPT-5.x / 6 default effort medium),gpt-5.6-terra,150
+prvs-clean-v6,api_default: no reasoning_effort sent (GPT-5.x / 6 default effort medium),gpt-6-astra,150
+prvs-clean-v6,api_default: no thinking_config sent (Gemini 3 default thinking),gemini-3.1-pro-preview,164
+prvs-clean-v6,api_default: no thinking_config sent (Gemini 3 default thinking),gemini-3.6-flash,165
+prvs-clean-v6,api_default: no thinking_config sent (Gemini 3 default thinking),gemini-3.7-flash,245
+prvs-clean-v6,api_default: no thinking_config sent (Gemini 3 default thinking),gemini-3.8-flash,165
+prvs-clean-v6,"not sent (provider default thinking: Gemini and gpt-5.x/6 think by default, Claude Sonnet 5 / Opus 4.x do not, Opus 5 adaptive)",claude-opus-4-6,43
+prvs-clean-v6,"not sent (provider default thinking: Gemini and gpt-5.x/6 think by default, Claude Sonnet 5 / Opus 4.x do not, Opus 5 adaptive)",claude-opus-4-8,43
+prvs-clean-v6,"not sent (provider default thinking: Gemini and gpt-5.x/6 think by default, Claude Sonnet 5 / Opus 4.x do not, Opus 5 adaptive)",claude-opus-5,43
+prvs-clean-v6,"not sent (provider default thinking: Gemini and gpt-5.x/6 think by default, Claude Sonnet 5 / Opus 4.x do not, Opus 5 adaptive)",claude-sonnet-5,43
+prvs-clean-v6,"not sent (provider default thinking: Gemini and gpt-5.x/6 think by default, Claude Sonnet 5 / Opus 4.x do not, Opus 5 adaptive)",gemini-3.1-pro-preview,43
+prvs-clean-v6,"not sent (provider default thinking: Gemini and gpt-5.x/6 think by default, Claude Sonnet 5 / Opus 4.x do not, Opus 5 adaptive)",gemini-3.6-flash,43
+prvs-clean-v6,"not sent (provider default thinking: Gemini and gpt-5.x/6 think by default, Claude Sonnet 5 / Opus 4.x do not, Opus 5 adaptive)",gemini-3.8-flash,43
+prvs-clean-v6,"not sent (provider default thinking: Gemini and gpt-5.x/6 think by default, Claude Sonnet 5 / Opus 4.x do not, Opus 5 adaptive)",gpt-5.5,43
+prvs-clean-v6,"not sent (provider default thinking: Gemini and gpt-5.x/6 think by default, Claude Sonnet 5 / Opus 4.x do not, Opus 5 adaptive)",gpt-5.6-luna,43
+prvs-clean-v6,"not sent (provider default thinking: Gemini and gpt-5.x/6 think by default, Claude Sonnet 5 / Opus 4.x do not, Opus 5 adaptive)",gpt-5.6-sol,43
+prvs-clean-v6,"not sent (provider default thinking: Gemini and gpt-5.x/6 think by default, Claude Sonnet 5 / Opus 4.x do not, Opus 5 adaptive)",gpt-5.6-terra,43
+prvs-clean-v6,"not sent (provider default thinking: Gemini and gpt-5.x/6 think by default, Claude Sonnet 5 / Opus 4.x do not, Opus 5 adaptive)",gpt-6-astra,43
+prvs-clean-v6,"provider_default: no reasoning params sent; provider pinned to alibaba (order+only, allow_fallbacks=false)",qwen3.8-max,245
+prvs-clean-v6,"provider_default: no reasoning params sent; provider pinned to google-ai-studio (order+only, allow_fallbacks=false)",gemini-3.1-pro-preview,14
+prvs-clean-v6,"provider_default: no reasoning params sent; provider pinned to google-ai-studio (order+only, allow_fallbacks=false)",gemini-3.6-flash,14
+prvs-clean-v6,"provider_default: no reasoning params sent; provider pinned to google-ai-studio (order+only, allow_fallbacks=false)",gemini-3.8-flash,14
+prvs-clean-v6,"provider_default: no reasoning params sent; provider pinned to moonshotai (order+only, allow_fallbacks=false)",kimi-k3,231
+prvs-clean-v6,"provider_default: no reasoning params sent; provider pinned to z-ai (order+only, allow_fallbacks=false)",glm-5.3,245
+prvs-clean-v6,"provider_default: no reasoning params sent; provider pinned to z-ai (order+only, allow_fallbacks=false)",glm-5.3-flash,245
+prvs-clean-v6,proxy_default: nothing sent (Kaggle @default slug / provider default thinking),gemini-3.1-pro-preview,67
+prvs-clean-v6,proxy_default: nothing sent (Kaggle @default slug / provider default thinking),gemini-3.6-flash,66
+prvs-clean-v6,proxy_default: nothing sent (Kaggle @default slug / provider default thinking),gemini-3.8-flash,66
+prvs-clean-v6,proxy_default: nothing sent (Kaggle @default slug / provider default thinking),gpt-5.5,95
+prvs-clean-v6,proxy_default: nothing sent (Kaggle @default slug / provider default thinking),gpt-5.6-luna,95
+prvs-clean-v6,proxy_default: nothing sent (Kaggle @default slug / provider default thinking),gpt-5.6-sol,95
+prvs-clean-v6,proxy_default: nothing sent (Kaggle @default slug / provider default thinking),gpt-5.6-terra,95
+prvs-clean-v6,proxy_default: nothing sent (Kaggle @default slug / provider default thinking),gpt-6-astra,95
+prvs-clean-v6,"variant: sent {""reasoning"": {""enabled"": false}}; provider pinned to alibaba (order+only, allow_fallbacks=false)",kimi-k3,14
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: no thinking block, thinking_tokens=0",claude-fable-5,5
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=10",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=100",claude-fable-5,3
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=101",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=102",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=103",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=104",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=106",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=109",claude-fable-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=114",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=116",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=119",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=12",claude-fable-5,6
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=120",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=121",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=122",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=123",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=124",claude-fable-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=13",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=141",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=144",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=145",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=147",claude-fable-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=15",claude-fable-5,5
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=151",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=153",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=16",claude-fable-5,7
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=17",claude-fable-5,8
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=177",claude-fable-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=18",claude-fable-5,5
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=19",claude-fable-5,11
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=20",claude-fable-5,23
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=21",claude-fable-5,8
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=22",claude-fable-5,4
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=221",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=23",claude-fable-5,20
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=24",claude-fable-5,16
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=25",claude-fable-5,28
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=26",claude-fable-5,8
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=27",claude-fable-5,9
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=28",claude-fable-5,13
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=29",claude-fable-5,15
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=30",claude-fable-5,19
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=31",claude-fable-5,11
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=32",claude-fable-5,11
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=33",claude-fable-5,8
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=335",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=34",claude-fable-5,10
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=35",claude-fable-5,10
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=36",claude-fable-5,10
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=37",claude-fable-5,7
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=38",claude-fable-5,7
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=39",claude-fable-5,8
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=40",claude-fable-5,6
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=41",claude-fable-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=42",claude-fable-5,4
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=43",claude-fable-5,4
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=44",claude-fable-5,6
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=45",claude-fable-5,4
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=46",claude-fable-5,5
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=47",claude-fable-5,7
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=48",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=49",claude-fable-5,3
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=50",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=51",claude-fable-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=52",claude-fable-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=53",claude-fable-5,3
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=54",claude-fable-5,3
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=55",claude-fable-5,6
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=56",claude-fable-5,3
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=57",claude-fable-5,3
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=58",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=59",claude-fable-5,4
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=60",claude-fable-5,4
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=61",claude-fable-5,4
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=62",claude-fable-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=63",claude-fable-5,3
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=636",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=64",claude-fable-5,5
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=66",claude-fable-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=67",claude-fable-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=68",claude-fable-5,5
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=69",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=70",claude-fable-5,3
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=71",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=72",claude-fable-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=73",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=74",claude-fable-5,5
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=75",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=77",claude-fable-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=79",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=80",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=81",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=82",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=84",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=87",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=88",claude-fable-5,3
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=89",claude-fable-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=9",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=91",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=92",claude-fable-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=93",claude-fable-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=94",claude-fable-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=98",claude-fable-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-fable-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=99",claude-fable-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-4-6: no thinking (model default); observed: no thinking block, thinking_tokens=None",claude-opus-4-6,460
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-4-8: no thinking (model default); observed: no thinking block, thinking_tokens=0",claude-opus-4-8,460
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: no thinking block, thinking_tokens=0",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=10",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=100",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=1033",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=104",claude-opus-5,3
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=105",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=106",claude-opus-5,3
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=1064",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=108",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=1086",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=109",claude-opus-5,3
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=110",claude-opus-5,3
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=112",claude-opus-5,4
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=113",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=114",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=115",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=116",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=117",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=119",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=12",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=120",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=122",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=123",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=124",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=125",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=126",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=128",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=130",claude-opus-5,3
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=131",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=132",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=133",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=134",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=135",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=136",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=137",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=139",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=1398",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=14",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=140",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=142",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=143",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=144",claude-opus-5,3
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=145",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=146",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=147",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=148",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=150",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=151",claude-opus-5,4
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=152",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=155",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=156",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=158",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=16",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=160",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=162",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=163",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=165",claude-opus-5,3
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=167",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=168",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=17",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=171",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=174",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=175",claude-opus-5,3
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=176",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=18",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=180",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=182",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=186",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=187",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=188",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=1887",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=189",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=19",claude-opus-5,5
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=192",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=193",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=195",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=197",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=20",claude-opus-5,6
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=201",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=202",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=203",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=204",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=207",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=208",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=21",claude-opus-5,4
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=211",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=213",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=214",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=215",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=216",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=218",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=22",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=220",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=221",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=226",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=23",claude-opus-5,5
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=231",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=233",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=238",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=24",claude-opus-5,5
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=240",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=241",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=242",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=243",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=245",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=246",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=25",claude-opus-5,11
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=252",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=258",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=259",claude-opus-5,3
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=26",claude-opus-5,7
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=264",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=267",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=268",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=27",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=273",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=278",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=28",claude-opus-5,5
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=284",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=289",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=29",claude-opus-5,4
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=292",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=297",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=30",claude-opus-5,6
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=31",claude-opus-5,6
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=32",claude-opus-5,5
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=322",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=324",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=327",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=33",claude-opus-5,8
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=333",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=334",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=34",claude-opus-5,10
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=340",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=342",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=345",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=346",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=349",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=35",claude-opus-5,9
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=359",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=36",claude-opus-5,5
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=361",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=362",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=366",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=37",claude-opus-5,6
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=371",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=38",claude-opus-5,5
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=380",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=384",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=386",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=387",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=388",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=39",claude-opus-5,3
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=390",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=395",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=398",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=399",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=40",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=400",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=41",claude-opus-5,5
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=411",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=42",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=420",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=421",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=426",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=43",claude-opus-5,3
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=431",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=438",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=44",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=45",claude-opus-5,5
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=456",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=46",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=47",claude-opus-5,3
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=48",claude-opus-5,3
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=481",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=486",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=49",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=493",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=50",claude-opus-5,5
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=502",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=51",claude-opus-5,3
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=512",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=52",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=53",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=531",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=534",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=538",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=54",claude-opus-5,3
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=55",claude-opus-5,3
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=552",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=56",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=562",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=57",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=578",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=58",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=585",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=598",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=61",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=62",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=63",claude-opus-5,3
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=631",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=64",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=646",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=647",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=65",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=66",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=67",claude-opus-5,4
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=68",claude-opus-5,3
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=689",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=69",claude-opus-5,3
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=696",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=698",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=699",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=70",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=707",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=71",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=717",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=719",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=72",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=734",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=736",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=74",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=75",claude-opus-5,3
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=76",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=763",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=77",claude-opus-5,3
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=78",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=79",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=81",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=815",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=84",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=848",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=85",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=86",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=87",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=89",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=91",claude-opus-5,4
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=92",claude-opus-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=93",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=94",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=96",claude-opus-5,4
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=97",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=98",claude-opus-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-opus-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=99",claude-opus-5,3
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-sonnet-5: adaptive thinking (model default, effort high); observed: no thinking block, thinking_tokens=0",claude-sonnet-5,449
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-sonnet-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=194",claude-sonnet-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-sonnet-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=20",claude-sonnet-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-sonnet-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=30",claude-sonnet-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-sonnet-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=31",claude-sonnet-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-sonnet-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=32",claude-sonnet-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-sonnet-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=33",claude-sonnet-5,2
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-sonnet-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=35",claude-sonnet-5,1
+prvs-raw-v6,"api_default: no `thinking` param sent -> documented effective setting for claude-sonnet-5: adaptive thinking (model default, effort high); observed: thinking block(s) present, thinking_tokens=37",claude-sonnet-5,1
+prvs-raw-v6,api_default: no reasoning_effort sent (GPT-5.x / 6 default effort medium),gpt-5.5,205
+prvs-raw-v6,api_default: no reasoning_effort sent (GPT-5.x / 6 default effort medium),gpt-5.6-luna,205
+prvs-raw-v6,api_default: no reasoning_effort sent (GPT-5.x / 6 default effort medium),gpt-5.6-sol,205
+prvs-raw-v6,api_default: no reasoning_effort sent (GPT-5.x / 6 default effort medium),gpt-5.6-terra,205
+prvs-raw-v6,api_default: no reasoning_effort sent (GPT-5.x / 6 default effort medium),gpt-6-astra,205
+prvs-raw-v6,api_default: no thinking_config sent (Gemini 3 default thinking),gemini-3.1-pro-preview,215
+prvs-raw-v6,api_default: no thinking_config sent (Gemini 3 default thinking),gemini-3.6-flash,216
+prvs-raw-v6,api_default: no thinking_config sent (Gemini 3 default thinking),gemini-3.7-flash,450
+prvs-raw-v6,api_default: no thinking_config sent (Gemini 3 default thinking),gemini-3.8-flash,216
+prvs-raw-v6,"not sent (provider default thinking: Gemini and gpt-5.x/6 think by default, Claude Sonnet 5 / Opus 4.x do not, Opus 5 adaptive)",claude-opus-4-6,60
+prvs-raw-v6,"not sent (provider default thinking: Gemini and gpt-5.x/6 think by default, Claude Sonnet 5 / Opus 4.x do not, Opus 5 adaptive)",claude-opus-4-8,60
+prvs-raw-v6,"not sent (provider default thinking: Gemini and gpt-5.x/6 think by default, Claude Sonnet 5 / Opus 4.x do not, Opus 5 adaptive)",claude-opus-5,60
+prvs-raw-v6,"not sent (provider default thinking: Gemini and gpt-5.x/6 think by default, Claude Sonnet 5 / Opus 4.x do not, Opus 5 adaptive)",claude-sonnet-5,60
+prvs-raw-v6,"not sent (provider default thinking: Gemini and gpt-5.x/6 think by default, Claude Sonnet 5 / Opus 4.x do not, Opus 5 adaptive)",gemini-3.1-pro-preview,60
+prvs-raw-v6,"not sent (provider default thinking: Gemini and gpt-5.x/6 think by default, Claude Sonnet 5 / Opus 4.x do not, Opus 5 adaptive)",gemini-3.6-flash,60
+prvs-raw-v6,"not sent (provider default thinking: Gemini and gpt-5.x/6 think by default, Claude Sonnet 5 / Opus 4.x do not, Opus 5 adaptive)",gemini-3.8-flash,60
+prvs-raw-v6,"not sent (provider default thinking: Gemini and gpt-5.x/6 think by default, Claude Sonnet 5 / Opus 4.x do not, Opus 5 adaptive)",gpt-5.5,60
+prvs-raw-v6,"not sent (provider default thinking: Gemini and gpt-5.x/6 think by default, Claude Sonnet 5 / Opus 4.x do not, Opus 5 adaptive)",gpt-5.6-luna,60
+prvs-raw-v6,"not sent (provider default thinking: Gemini and gpt-5.x/6 think by default, Claude Sonnet 5 / Opus 4.x do not, Opus 5 adaptive)",gpt-5.6-sol,60
+prvs-raw-v6,"not sent (provider default thinking: Gemini and gpt-5.x/6 think by default, Claude Sonnet 5 / Opus 4.x do not, Opus 5 adaptive)",gpt-5.6-terra,60
+prvs-raw-v6,"not sent (provider default thinking: Gemini and gpt-5.x/6 think by default, Claude Sonnet 5 / Opus 4.x do not, Opus 5 adaptive)",gpt-6-astra,60
+prvs-raw-v6,"provider_default: no reasoning params sent; provider pinned to alibaba (order+only, allow_fallbacks=false)",qwen3.8-max,460
+prvs-raw-v6,"provider_default: no reasoning params sent; provider pinned to google-ai-studio (order+only, allow_fallbacks=false)",gemini-3.1-pro-preview,26
+prvs-raw-v6,"provider_default: no reasoning params sent; provider pinned to google-ai-studio (order+only, allow_fallbacks=false)",gemini-3.6-flash,26
+prvs-raw-v6,"provider_default: no reasoning params sent; provider pinned to google-ai-studio (order+only, allow_fallbacks=false)",gemini-3.8-flash,26
+prvs-raw-v6,"provider_default: no reasoning params sent; provider pinned to moonshotai (order+only, allow_fallbacks=false)",kimi-k3,310
+prvs-raw-v6,"provider_default: no reasoning params sent; provider pinned to z-ai (order+only, allow_fallbacks=false)",glm-5.3,460
+prvs-raw-v6,"provider_default: no reasoning params sent; provider pinned to z-ai (order+only, allow_fallbacks=false)",glm-5.3-flash,460
+prvs-raw-v6,proxy_default: nothing sent (Kaggle @default slug / provider default thinking),gemini-3.1-pro-preview,219
+prvs-raw-v6,proxy_default: nothing sent (Kaggle @default slug / provider default thinking),gemini-3.6-flash,218
+prvs-raw-v6,proxy_default: nothing sent (Kaggle @default slug / provider default thinking),gemini-3.8-flash,218
+prvs-raw-v6,proxy_default: nothing sent (Kaggle @default slug / provider default thinking),gpt-5.5,255
+prvs-raw-v6,proxy_default: nothing sent (Kaggle @default slug / provider default thinking),gpt-5.6-luna,255
+prvs-raw-v6,proxy_default: nothing sent (Kaggle @default slug / provider default thinking),gpt-5.6-sol,255
+prvs-raw-v6,proxy_default: nothing sent (Kaggle @default slug / provider default thinking),gpt-5.6-terra,255
+prvs-raw-v6,proxy_default: nothing sent (Kaggle @default slug / provider default thinking),gpt-6-astra,255
+prvs-raw-v6,"variant: sent {""reasoning"": {""enabled"": false}}; provider pinned to alibaba (order+only, allow_fallbacks=false)",kimi-k3,450
+seyit-v2,,claude-fable-5,998
+seyit-v2,,claude-opus-4-6,1000
+seyit-v2,,claude-opus-4-8,1000
+seyit-v2,,claude-opus-5,1000
+seyit-v2,,claude-sonnet-5,1000

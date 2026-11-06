@@ -1,0 +1,9 @@
+A speed test measures how quickly your connection transfers data to a nearby test server under ideal, short-term conditions. A video call depends on several additional factors, so it can freeze even when the reported download and upload speeds are high.
+
+One common cause is **latency**—the time data takes to travel between you and the other participants. High or fluctuating latency can delay audio and video. **Packet loss** is another issue: if some data packets never arrive, the app must recover or retransmit them, causing freezes and distortion. **Jitter**, or inconsistent packet arrival times, can also disrupt real-time communication.
+
+Speed tests often use multiple simultaneous connections and choose a nearby server, while a call may travel through distant or congested networks. Your connection might also become unstable because of weak Wi-Fi, interference, an overloaded router, or other devices uploading files, streaming, or backing up data. Upload performance matters especially because your camera feed must continuously leave your device.
+
+The problem may also be outside your home: the video platform’s servers, your employer’s VPN, or the other participant’s connection could be struggling. Finally, an overloaded computer, outdated software, or insufficient memory can make the video appear frozen even when the network is fine.
+
+In short, bandwidth is only one part of call quality; stability, latency, packet delivery, hardware, and routing matter too.

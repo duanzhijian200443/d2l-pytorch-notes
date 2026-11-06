@@ -1,0 +1,20 @@
+Choosing Alex and Bea represents the same pair as choosing Bea and Alex because a committee is an unordered selection. The order in which the two representatives are named or chosen does not change who serves on the committee. In both cases, the selected members are Alex and Bea.
+
+Therefore, we should not count “Alex then Bea” and “Bea then Alex” as two different outcomes. Instead, we count each unique combination of two people exactly once.
+
+For four people—Alex, Bea, and two others, whom we can call Chris and Dana—the possible pairs are:
+
+1. Alex and Bea  
+2. Alex and Chris  
+3. Alex and Dana  
+4. Bea and Chris  
+5. Bea and Dana  
+6. Chris and Dana  
+
+This can also be calculated using the combination formula:
+
+\[
+\binom{4}{2}=\frac{4!}{2!(4-2)!}=\frac{4\cdot3}{2}=6.
+\]
+
+Thus, the committee can choose **6 possible pairs**.

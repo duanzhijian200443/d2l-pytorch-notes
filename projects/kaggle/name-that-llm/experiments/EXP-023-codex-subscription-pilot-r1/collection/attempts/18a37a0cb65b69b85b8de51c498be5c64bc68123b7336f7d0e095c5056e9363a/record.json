@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0077",
+  "prompt": "A local club needs a new registration form. Describe how to identify essential fields and avoid asking for information merely because it might be useful someday. A response of around 120 words is enough.",
+  "category": "business_decision",
+  "target_words": 120,
+  "prompt_group": "cp0077",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "18a37a0cb65b69b85b8de51c498be5c64bc68123b7336f7d0e095c5056e9363a",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:18:54.390921+00:00",
+  "ended_at": "2026-11-01T09:20:28.481123+00:00",
+  "prompt_sha256": "4dffbbbbd8fd400a2a6ecdfec2d3dc829f3c9489b7f8e730a88a4ad56d7fa5c9",
+  "text": "Start with the club’s immediate purpose: enrolling members and enabling participation. Ask only what is required to process registration, communicate essential details, and meet genuine legal or safety obligations. Typical fields might include name, preferred contact method, age or guardian details only where activities require them, relevant membership choices, and consent for necessary policies.\n\nFor every proposed field, ask: “What specific decision or action will this information support now?” If there is no clear answer, omit it. Avoid collecting optional demographics, extensive personal history, or marketing preferences by default. If genuinely helpful extras are offered, make them clearly optional, explain the benefit, and provide a “prefer not to say” choice. Review the form regularly and remove fields that are not being used.",
+  "text_sha256": "4f22103d43d6ff44403eb749f14b7df63c2ffeaf7630601cbb6f0494662c9738",
+  "raw_final_sha256": "4f22103d43d6ff44403eb749f14b7df63c2ffeaf7630601cbb6f0494662c9738",
+  "word_count": 122,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4131,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 153,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\18a37a0cb65b69b85b8de51c498be5c64bc68123b7336f7d0e095c5056e9363a",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

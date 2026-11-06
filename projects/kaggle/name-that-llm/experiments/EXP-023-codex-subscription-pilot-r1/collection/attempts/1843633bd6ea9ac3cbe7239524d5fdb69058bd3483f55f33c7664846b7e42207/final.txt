@@ -1,0 +1,7 @@
+The team should treat the enthusiastic comments as evidence of initial appeal, not proof of lasting value. People may genuinely like the idea, enjoy a demo, or want to be encouraging without finding the feature useful enough to revisit. Low repeat usage is stronger evidence against sustained adoption—provided the feature is intended for frequent use.
+
+Before concluding that it has failed, the team should check whether users had a reason and opportunity to return. An occasional-use feature should not be judged by daily retention. They should also examine whether onboarding problems, poor discoverability, bugs, or workflow friction prevent repeat use.
+
+Next, compare behavior across user segments and interview both returning users and people who tried it once. Ask about concrete situations: what they hoped to accomplish, what happened, and what they used instead.
+
+The appropriate conclusion is provisional: the feature attracts interest, but recurring value remains unproven. Prioritize experiments that test repeat usefulness rather than collecting more praise.

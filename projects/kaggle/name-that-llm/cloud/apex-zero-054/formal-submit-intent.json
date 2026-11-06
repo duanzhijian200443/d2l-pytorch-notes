@@ -1,0 +1,29 @@
+{
+  "status": "INTENT",
+  "created_at": "2026-11-02T09:12:47.809202+00:00",
+  "experiment": "EXP-054",
+  "request": {
+    "competitionName": "name-that-llm",
+    "kernelOwner": "zhjianduan",
+    "kernelSlug": "ntl-apex-zero-054",
+    "hasKernelVersion": true,
+    "kernelVersion": 2,
+    "hasFileName": true,
+    "fileName": "submission.parquet",
+    "hasSubmissionDescription": true,
+    "submissionDescription": "EXP054 Apex V1 original / zero Codex rows; notebook v2, script 364820326"
+  },
+  "ready_sha256": "9bdf6e2e9e425559892f9d5d3d76f901c7bd116827ee020a422f98700a4a401d",
+  "script_version_id": 364820326,
+  "submission_ids_observed_before": [
+    57903087,
+    57893384,
+    57879463,
+    57843313,
+    57832487,
+    57778357,
+    57759707,
+    57736953
+  ],
+  "authorization": "Submit first two choices, hold slots 3 and 4"
+}

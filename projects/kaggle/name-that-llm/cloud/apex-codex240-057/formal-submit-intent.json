@@ -1,0 +1,20 @@
+{
+  "created_at": "2026-11-02T10:25:51.119109+00:00",
+  "ref": "zhjianduan/ntl-apex-codex240-057",
+  "version": 2,
+  "script_version_id": 364839816,
+  "ready_sha256": "6b3bfafa4195e2333e874fc67af4311b4ecccc9dcd45e83fa7cc1a3cafe89e29",
+  "description": "EXP057 Apex V1; Stylegram only + four-model raw 240; paired against 57903109; script 364839816",
+  "submission_ids_before": [
+    57905108,
+    57903109,
+    57903087,
+    57893384,
+    57879463,
+    57843313,
+    57832487,
+    57778357,
+    57759707,
+    57736953
+  ]
+}

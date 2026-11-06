@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0189",
+  "prompt": "A square garden is expanded by doubling the length of every side. Explain what happens to its perimeter and area, and why the changes differ. Please answer in roughly 120 words.",
+  "category": "reasoning_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0189",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "03ce84c71be827bc926aa1ff05ae5540d2542a3c4afde72c04cc94d580c4663e",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:55:30.589526+00:00",
+  "ended_at": "2026-11-01T10:55:52.027668+00:00",
+  "prompt_sha256": "cf391d26e7c8eb95d6887f88050d2a1d809f251eccb0ca572b14b6367f9152cb",
+  "text": "Doubling each side of a square doubles its perimeter. If the original side length is \\(s\\), the perimeter is \\(4s\\). After expansion, each side is \\(2s\\), so the new perimeter is \\(4(2s)=8s\\): twice as large.\n\nThe area increases by a factor of four. Originally, the area is \\(s^2\\). The expanded garden has area \\((2s)^2=4s^2\\), so it is four times the original area.\n\nThe changes differ because perimeter measures one-dimensional distance around the garden, so it scales directly with side length. Area measures two-dimensional space inside it, so both the length and width double; multiplying those two factors gives \\(2 \\times 2 = 4\\).",
+  "text_sha256": "81fb53a574f35f04e9d7c3f5b763f59b7d0b5a51a80c06115906f93b4009d869",
+  "raw_final_sha256": "81fb53a574f35f04e9d7c3f5b763f59b7d0b5a51a80c06115906f93b4009d869",
+  "word_count": 103,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4129,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 163,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\03ce84c71be827bc926aa1ff05ae5540d2542a3c4afde72c04cc94d580c4663e",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0065",
+  "prompt": "How should a volunteer organization decide which of ten useful website improvements to tackle first with only one available developer? Please answer in roughly 120 words.",
+  "category": "business_decision",
+  "target_words": 120,
+  "prompt_group": "cp0065",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "cf6a8d0caecaf919b5298c3dfc1afedf03d4e304d0241512cc367a14c0301703",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:11:32.124370+00:00",
+  "ended_at": "2026-11-01T09:11:48.120985+00:00",
+  "prompt_sha256": "88d96a1ff706dec2d1486d923cbdcf5cf4401e317486f86f48f9d130101c0a6a",
+  "text": "Rank the improvements by **impact, urgency, effort, and risk**. First, clarify the organization’s goals—such as serving more people, reducing staff workload, improving accessibility, or increasing donations. Estimate each idea’s expected benefit and development effort, then prioritize “high impact, low effort” items. Give extra weight to legal, security, accessibility, and reliability fixes, especially if they prevent harm or exclusion. Consider dependencies: foundational work may need to precede visible features. Ask volunteers and users for input, using a simple scorecard rather than trying to satisfy everyone. Choose one small, valuable improvement to deliver quickly, measure its results, and adjust the ranking as you learn. Reserve some capacity for maintenance and unexpected problems, and communicate the roadmap transparently so stakeholders understand why certain items come first.",
+  "text_sha256": "fb7671411783facee40bf31dd8a0967ed859978a448b9d91d3929fc9aa46338c",
+  "raw_final_sha256": "fb7671411783facee40bf31dd8a0967ed859978a448b9d91d3929fc9aa46338c",
+  "word_count": 123,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2587,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 165,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\cf6a8d0caecaf919b5298c3dfc1afedf03d4e304d0241512cc367a14c0301703",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,5 @@
+The evidence suggests a gap between **expressed enthusiasm and sustained value**. Positive comments show that the feature is appealing, understandable, or socially desirable enough to praise. They do not prove that it solves a recurring problem. Low repeat usage is stronger behavioral evidence that users may not find the feature useful after the initial novelty wears off—or that friction, poor timing, weak reminders, or limited use cases prevent return.
+
+The team should not conclude immediately that the feature is worthless. Instead, segment the data: Who returns, what problem are they solving, and how does their context differ from that of one-time users? Examine retention by cohort, usage frequency appropriate to the feature, completion rates, and downstream outcomes. Then interview both repeat and non-repeat users about specific occasions rather than asking whether they “like” it.
+
+Treat comments as evidence of initial appeal and usage as evidence of realized value. The key question is not “Do users like this?” but “Does it reliably change behavior or outcomes enough to become part of their routine?”

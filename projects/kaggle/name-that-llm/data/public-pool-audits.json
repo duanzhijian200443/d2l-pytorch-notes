@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "latest_audit": "EXP-008",
+  "observed_at": "2026-10-31T16:57:27.086868+00:00",
+  "report": "experiments/EXP-008-public-pool-audit/report.md",
+  "scope": "Six fixed-version sources. This is the latest row audit; source-inventory.json remains the EXP-007 registration snapshot.",
+  "tables": [
+    {
+      "table": "seyit-v2",
+      "ref": "seyitkaangunes/ntl-extra-api-passages",
+      "version": 2,
+      "file": "ntl_extra_passages_claude.csv",
+      "sha256": "710dbe484fda23f0dee9b67c20e5bef9376bf754af05584ad142bc17845cd4b9",
+      "rows": 4998,
+      "classes": 5,
+      "known_official_prompt_linked_rows": 0,
+      "initial_candidate_rows": 4998,
+      "assessment": "Claude 5 类；作者声明官方 API，缺逐行原始响应日志"
+    },
+    {
+      "table": "abdullah-v2",
+      "ref": "abdullah1afify/ntl-generations",
+      "version": 2,
+      "file": "ntl_generations.csv",
+      "sha256": "83003454e3cc0368cae8b05bca243daf036b64a42a792c3f7bfd5fd91b3db378",
+      "rows": 1033,
+      "classes": 8,
+      "known_official_prompt_linked_rows": 0,
+      "initial_candidate_rows": 1033,
+      "assessment": "8 类；有 proxy 返回标识；297 条 finish_reason 缺失，设置混合"
+    },
+    {
+      "table": "dophuchung-v1",
+      "ref": "dophuchung/ntl-proxy-generations",
+      "version": 1,
+      "file": "ntl_proxy_generations.csv",
+      "sha256": "593708f7fd55636bd270824c0e129447b2a5808b1e224bb3dbf43bf2383fdf9c",
+      "rows": 1029,
+      "classes": 7,
+      "known_official_prompt_linked_rows": 0,
+      "initial_candidate_rows": 1029,
+      "assessment": "7 类；有 proxy 返回标识；包含 reasoning 设置扫描"
+    },
+    {
+      "table": "lucas-v7",
+      "ref": "lucasboesen/ntl-free-proxy-generations",
+      "version": 7,
+      "file": "gen_passages.csv",
+      "sha256": "d037d212e17a7e98465f9c606f4437225fb221939a5f51b0f8150d15c07c68a5",
+      "rows": 4255,
+      "classes": 8,
+      "known_official_prompt_linked_rows": 0,
+      "initial_candidate_rows": 4255,
+      "assessment": "8 类；记录调用 slug；v2 prompt bank 主要补缺类，单表组不完整"
+    },
+    {
+      "table": "prvs-raw-v6",
+      "ref": "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+      "version": 6,
+      "file": "passages.csv",
+      "sha256": "2490c3b12f1f063a53abcbc79e741e0a0f62bbe4dc34df0871677ffe8d75b67e",
+      "rows": 9290,
+      "classes": 18,
+      "known_official_prompt_linked_rows": 2700,
+      "initial_candidate_rows": 0,
+      "assessment": "全量带溯源；含 2,700 条 train_regen；不能整表加入每折"
+    },
+    {
+      "table": "prvs-clean-v6",
+      "ref": "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+      "version": 6,
+      "file": "passages_clean.csv",
+      "sha256": "6ec42c0bb360d6eaf7ed657b943881bd988358eee49b06abca88b0e6c101d567",
+      "rows": 4926,
+      "classes": 18,
+      "known_official_prompt_linked_rows": 252,
+      "initial_candidate_rows": 4674,
+      "assessment": "clean 仍含 252 条 train_regen；初试只用 new + proxy_v1"
+    },
+    {
+      "table": "matched-v3",
+      "ref": "dhruvtibarewal/nlm-matched-clean",
+      "version": 3,
+      "file": "nlm_matched_clean.parquet",
+      "sha256": "000f8d541f7c4c5942a18c4fcf557aa01756882931307414cf2530ac21980482",
+      "rows": 24443,
+      "classes": 18,
+      "known_official_prompt_linked_rows": 0,
+      "initial_candidate_rows": 0,
+      "assessment": "只有 text/model；原 prompt 与来源列丢失，暂不作首轮验证训练池"
+    },
+    {
+      "table": "pool-v2",
+      "ref": "dhruvtibarewal/nlm-matched-clean",
+      "version": 3,
+      "file": "nlm_pool_v2.parquet",
+      "sha256": "064ecd0dfa43ac9b0d4a7be9d89264333698ff727a5926f44856de2f7a92350d",
+      "rows": 37252,
+      "classes": 18,
+      "known_official_prompt_linked_rows": 0,
+      "initial_candidate_rows": 0,
+      "assessment": "23 个 src；5,273 条 prompt_key 空缺；仅作单独汇总池对照"
+    },
+    {
+      "table": "pool-v5",
+      "ref": "dhruvtibarewal/nlm-matched-clean",
+      "version": 3,
+      "file": "nlm_pool_v5.parquet",
+      "sha256": "040afb3609d7f6586d57c89ddb42d9bf4b58cc26426104b57390bdf6312b4650",
+      "rows": 119899,
+      "classes": 18,
+      "known_official_prompt_linked_rows": 121,
+      "initial_candidate_rows": 0,
+      "assessment": "46 个 src；至少 121 条关联官方 prompt；先追溯，再作单独对照"
+    }
+  ],
+  "summary": {
+    "physical_rows_across_nine_views": 207125,
+    "unique_normalized_texts": 125411,
+    "extra_occurrences_across_views": 81714,
+    "cross_table_text_clusters": 40438,
+    "conflicting_label_clusters": 0,
+    "initial_candidate_unique_rows": 15989,
+    "candidate_class_counts": {
+      "gemini-3.6-flash": 1391,
+      "claude-opus-4-6": 1274,
+      "claude-opus-4-8": 1274,
+      "claude-opus-5": 1274,
+      "claude-sonnet-5": 1274,
+      "claude-fable-5": 1229,
+      "gemini-3.1-pro-preview": 1101,
+      "gpt-5.6-luna": 1046,
+      "gpt-5.6-terra": 1046,
+      "gemini-3.8-flash": 1022,
+      "gpt-5.5": 989,
+      "gpt-5.6-sol": 967,
+      "gpt-6-astra": 947,
+      "gemini-3.7-flash": 231,
+      "glm-5.3": 231,
+      "glm-5.3-flash": 231,
+      "kimi-k3": 231,
+      "qwen3.8-max": 231
+    },
+    "near_screen": {
+      "method": "All external unique texts vs official train+public test; at least 3 distinct shared 8-word shingles, then char5 TF cosine >=0.90",
+      "shared_shingle_candidate_pairs": 324,
+      "shared_shingle_unique_external_texts": 179,
+      "high_similarity_pairs": 0,
+      "scope": "Not exhaustive cosine or semantic search; unflagged does not prove no overlap"
+    },
+    "experiment": "EXP-008",
+    "observed_at": "2026-10-31T16:57:27.086868+00:00",
+    "status": "COMPLETE",
+    "tables": 9,
+    "datasets": 6,
+    "run_seconds": 26.64,
+    "analysis_sha256": "d4e88a90995b74ad0d518d8bdb476b6db62a7b6d963ac6664fd5ee4bc58c291e",
+    "download_manifest_sha256": "5f2da21401efada94e636fd2fb843013c7eff6ae1ed2d07a5a2771c3ed071cfa",
+    "versions": {
+      "python": "3.13.13",
+      "pandas": "3.0.6",
+      "pyarrow": "23.0.1"
+    },
+    "cost": {
+      "gpu_seconds": 0,
+      "api_usd": 0,
+      "colab_cu": 0
+    },
+    "scope": "Data audit and conservative candidate index only; no training, scoring, redistribution or model identity authentication",
+    "limitations": [
+      "Only six pinned datasets; aggregate pool contains other upstream sources not independently downloaded",
+      "Normalized exact duplicates are exhaustive across these tables; semantic duplicates and undocumented prompt reuse can remain",
+      "Proxy routing identifiers cannot prove backend model version",
+      "Aggregated pools may have been selected with full official-label statistics; do not call their downstream CV strictly untouched",
+      "An empty prompt key is unknown, not a single real shared prompt",
+      "Candidate index is for a controlled ablation, not a claim of accuracy improvement"
+    ]
+  },
+  "baseline_usage_audit": {
+    "experiment": "EXP-009",
+    "report": "experiments/EXP-009-baseline-data-lineage/report.md",
+    "candidate_used_in_audited_runtime_branches": 14604,
+    "candidate_not_in_audited_runtime_branches": 1385,
+    "prvs_new_already_used": 4158,
+    "scope": "current pinned data projection; checkpoint exposure and historical byte identity incomplete"
+  }
+}

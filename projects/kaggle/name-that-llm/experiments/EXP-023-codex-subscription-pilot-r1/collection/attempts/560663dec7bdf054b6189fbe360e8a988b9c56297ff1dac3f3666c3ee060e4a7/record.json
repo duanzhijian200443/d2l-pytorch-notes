@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0090",
+  "prompt": "Explain how the spread of reliable postal services changed the possibilities of maintaining relationships over distance. Use approximately 120 words for the response.",
+  "category": "humanities_history",
+  "target_words": 120,
+  "prompt_group": "cp0090",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "560663dec7bdf054b6189fbe360e8a988b9c56297ff1dac3f3666c3ee060e4a7",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:27:30.216904+00:00",
+  "ended_at": "2026-11-01T09:27:43.902332+00:00",
+  "prompt_sha256": "2f66b2aedfeec0b48a11544dba2d5f5bb74fe21d3ea72302b3a5daed57cd7b78",
+  "text": "The spread of reliable postal services transformed relationships across distance by making regular communication possible. Before dependable mail networks, long-distance contact was slow, uncertain, and often limited to travelers or merchants. Improved roads, scheduled mail routes, and affordable postage allowed families, friends, and romantic partners to exchange letters with greater confidence. People could share news, emotions, advice, and personal experiences even when separated by hundreds or thousands of miles. This helped migrants maintain ties with relatives at home and enabled businesses, political groups, and communities to coordinate more effectively. Although letters still took days or weeks to arrive, the postal system created an ongoing sense of connection. Distance became less socially isolating, because relationships could be sustained through repeated, meaningful correspondence.",
+  "text_sha256": "5274333ece66cd7ae8af7e68f6b8f087c80c748ad235ba05ab6ca5dca813e20f",
+  "raw_final_sha256": "5274333ece66cd7ae8af7e68f6b8f087c80c748ad235ba05ab6ca5dca813e20f",
+  "word_count": 121,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2584,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 173,
+      "reasoning_output_tokens": 22
+    }
+  ],
+  "attempt_path": "collection\\attempts\\560663dec7bdf054b6189fbe360e8a988b9c56297ff1dac3f3666c3ee060e4a7",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

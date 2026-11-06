@@ -1,0 +1,263 @@
+{
+  "status": "PASS",
+  "ref": "zhjianduan/name-that-llm-a1-public-stylegram-046",
+  "version": 1,
+  "observed_at": "2026-11-01T17:38:13.969755+00:00",
+  "local_bindings": {
+    "metadata_sha256": "74007dcac3b5e34c7886fb3e946147ddb2335a3e1e64b530a29e646983943c37",
+    "source_bytes_sha256": "cea8f8cbfa382306dbdd7b7361b16d1d68febc09d7ef585dcb01ee1ef9e46625",
+    "source_canonical_json_sha256": "946eb734a262dbe2423260135cffbead0f694feb2fa3dfd661b88f579deca468",
+    "input_count": 32,
+    "ref": "zhjianduan/name-that-llm-a1-public-stylegram-046",
+    "controller_sha256": "786a59bfccc62c9913e8cdcc2cd59e0cb24e1fa5f53afa92c1eecfa235a44076"
+  },
+  "metadata_sha256": "623caa24640aae98928daa59197cc167c19e9426764db7fa23bf4dc2ecbb64f8",
+  "checks": {
+    "title": {
+      "expected": "Name That LLM A1 Public Stylegram 046",
+      "actual": "Name That LLM A1 Public Stylegram 046",
+      "match": true
+    },
+    "language": {
+      "expected": "python",
+      "actual": "python",
+      "match": true
+    },
+    "kernel_type": {
+      "expected": "notebook",
+      "actual": "notebook",
+      "match": true
+    },
+    "is_private": {
+      "expected": true,
+      "actual": true,
+      "match": true
+    },
+    "enable_gpu": {
+      "expected": true,
+      "actual": true,
+      "match": true
+    },
+    "enable_tpu": {
+      "expected": false,
+      "actual": false,
+      "match": true
+    },
+    "enable_internet": {
+      "expected": false,
+      "actual": false,
+      "match": true
+    },
+    "docker_image": {
+      "expected": "gcr.io/kaggle-private-byod/python@sha256:2757e0c7d1e0a9cb43da657b97e223c321a98f5014bdf64f44f2f6b083ad2b2f",
+      "actual": "gcr.io/kaggle-private-byod/python@sha256:2757e0c7d1e0a9cb43da657b97e223c321a98f5014bdf64f44f2f6b083ad2b2f",
+      "match": true
+    },
+    "machine_shape": {
+      "expected": "NvidiaTeslaT4",
+      "actual": "NvidiaTeslaT4",
+      "match": true
+    }
+  },
+  "input_bindings": [
+    {
+      "kind": "dataset_sources",
+      "requested": "dhruvtibarewal/nlm-l24-adapters/7",
+      "saved": "dhruvtibarewal/nlm-l24-adapters",
+      "version_binding_source": "original pinned save request; SDK pull metadata omits version; remote bytes not certified here"
+    },
+    {
+      "kind": "dataset_sources",
+      "requested": "zhjianduan/llama31-8b-base-verified/1",
+      "saved": "zhjianduan/llama31-8b-base-verified",
+      "version_binding_source": "original pinned save request; SDK pull metadata omits version; remote bytes not certified here"
+    },
+    {
+      "kind": "dataset_sources",
+      "requested": "seyitkaangunes/ntl-extra-api-passages/2",
+      "saved": "seyitkaangunes/ntl-extra-api-passages",
+      "version_binding_source": "original pinned save request; SDK pull metadata omits version; remote bytes not certified here"
+    },
+    {
+      "kind": "dataset_sources",
+      "requested": "dophuchung/ntl-proxy-generations/1",
+      "saved": "dophuchung/ntl-proxy-generations",
+      "version_binding_source": "original pinned save request; SDK pull metadata omits version; remote bytes not certified here"
+    },
+    {
+      "kind": "dataset_sources",
+      "requested": "zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/1",
+      "saved": "zbigniewkirchner/ntl-qwen3-8b-lora-claude-head",
+      "version_binding_source": "original pinned save request; SDK pull metadata omits version; remote bytes not certified here"
+    },
+    {
+      "kind": "dataset_sources",
+      "requested": "dhruvtibarewal/nlm-matched-clean/3",
+      "saved": "dhruvtibarewal/nlm-matched-clean",
+      "version_binding_source": "original pinned save request; SDK pull metadata omits version; remote bytes not certified here"
+    },
+    {
+      "kind": "dataset_sources",
+      "requested": "dhruvtibarewal/nlm-offline-wheels/2",
+      "saved": "dhruvtibarewal/nlm-offline-wheels",
+      "version_binding_source": "original pinned save request; SDK pull metadata omits version; remote bytes not certified here"
+    },
+    {
+      "kind": "dataset_sources",
+      "requested": "josephadamski91/ntl-atlas-qwen3-8b-v1/3",
+      "saved": "josephadamski91/ntl-atlas-qwen3-8b-v1",
+      "version_binding_source": "original pinned save request; SDK pull metadata omits version; remote bytes not certified here"
+    },
+    {
+      "kind": "dataset_sources",
+      "requested": "zhjianduan/ntl-stylegram-cv-inputs-v1/1",
+      "saved": "zhjianduan/ntl-stylegram-cv-inputs-v1",
+      "version_binding_source": "original pinned save request; SDK pull metadata omits version; remote bytes not certified here"
+    },
+    {
+      "kind": "dataset_sources",
+      "requested": "nishantdahal/ntl-two-stage-lora/1",
+      "saved": "nishantdahal/ntl-two-stage-lora",
+      "version_binding_source": "original pinned save request; SDK pull metadata omits version; remote bytes not certified here"
+    },
+    {
+      "kind": "dataset_sources",
+      "requested": "nishantdahal/ntl-handwriting-blend/1",
+      "saved": "nishantdahal/ntl-handwriting-blend",
+      "version_binding_source": "original pinned save request; SDK pull metadata omits version; remote bytes not certified here"
+    },
+    {
+      "kind": "dataset_sources",
+      "requested": "dhruvtibarewal/nlm-l24-adapters-v5/1",
+      "saved": "dhruvtibarewal/nlm-l24-adapters-v5",
+      "version_binding_source": "original pinned save request; SDK pull metadata omits version; remote bytes not certified here"
+    },
+    {
+      "kind": "dataset_sources",
+      "requested": "prvsiyan/prvsiyans-extended-name-that-llm-dataset/6",
+      "saved": "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+      "version_binding_source": "original pinned save request; SDK pull metadata omits version; remote bytes not certified here"
+    },
+    {
+      "kind": "dataset_sources",
+      "requested": "pjmathematician/ultrabert-380m-ntl/1",
+      "saved": "pjmathematician/ultrabert-380m-ntl",
+      "version_binding_source": "original pinned save request; SDK pull metadata omits version; remote bytes not certified here"
+    },
+    {
+      "kind": "dataset_sources",
+      "requested": "zhjianduan/ntl-free-proxy-generations/1",
+      "saved": "zhjianduan/ntl-free-proxy-generations",
+      "version_binding_source": "original pinned save request; SDK pull metadata omits version; remote bytes not certified here"
+    },
+    {
+      "kind": "dataset_sources",
+      "requested": "zhjianduan/ntl-generations/1",
+      "saved": "zhjianduan/ntl-generations",
+      "version_binding_source": "original pinned save request; SDK pull metadata omits version; remote bytes not certified here"
+    },
+    {
+      "kind": "kernel_sources",
+      "requested": "lucasboesen/name-that-llm-glm4-9b-trunc25/1",
+      "saved": "lucasboesen/name-that-llm-glm4-9b-trunc25",
+      "version_binding_source": "original pinned save request; SDK pull metadata omits version; remote bytes not certified here"
+    },
+    {
+      "kind": "kernel_sources",
+      "requested": "lucasboesen/name-that-llm-extract-encoders2/1",
+      "saved": "lucasboesen/name-that-llm-extract-encoders2",
+      "version_binding_source": "original pinned save request; SDK pull metadata omits version; remote bytes not certified here"
+    },
+    {
+      "kind": "kernel_sources",
+      "requested": "lucasboesen/name-that-llm-electra-large-weights/1",
+      "saved": "lucasboesen/name-that-llm-electra-large-weights",
+      "version_binding_source": "original pinned save request; SDK pull metadata omits version; remote bytes not certified here"
+    },
+    {
+      "kind": "kernel_sources",
+      "requested": "lucasboesen/name-that-llm-desklib-weights/1",
+      "saved": "lucasboesen/name-that-llm-desklib-weights",
+      "version_binding_source": "original pinned save request; SDK pull metadata omits version; remote bytes not certified here"
+    },
+    {
+      "kind": "kernel_sources",
+      "requested": "lucasboesen/name-that-llm-train-lora24-s7/1",
+      "saved": "lucasboesen/name-that-llm-train-lora24-s7",
+      "version_binding_source": "original pinned save request; SDK pull metadata omits version; remote bytes not certified here"
+    },
+    {
+      "kind": "kernel_sources",
+      "requested": "lucasboesen/name-that-llm-train-tokattn/1",
+      "saved": "lucasboesen/name-that-llm-train-tokattn",
+      "version_binding_source": "original pinned save request; SDK pull metadata omits version; remote bytes not certified here"
+    },
+    {
+      "kind": "kernel_sources",
+      "requested": "lucasboesen/name-that-llm-train-tokattn2/1",
+      "saved": "lucasboesen/name-that-llm-train-tokattn2",
+      "version_binding_source": "original pinned save request; SDK pull metadata omits version; remote bytes not certified here"
+    },
+    {
+      "kind": "kernel_sources",
+      "requested": "vnton37nguyn/ntl-train-lora-qwen25-instyle/2",
+      "saved": "vnton37nguyn/ntl-train-lora-qwen25-instyle",
+      "version_binding_source": "original pinned save request; SDK pull metadata omits version; remote bytes not certified here"
+    },
+    {
+      "kind": "model_sources",
+      "requested": "qwen-lm/qwen-3/Transformers/14b/1",
+      "saved": "qwen-lm/qwen-3/Transformers/14b/1",
+      "version_binding_source": "saved metadata exact reference"
+    },
+    {
+      "kind": "model_sources",
+      "requested": "qwen-lm/qwen-3/Transformers/8b/1",
+      "saved": "qwen-lm/qwen-3/Transformers/8b/1",
+      "version_binding_source": "saved metadata exact reference"
+    },
+    {
+      "kind": "model_sources",
+      "requested": "qwen-lm/qwen-3/Transformers/14b-base/1",
+      "saved": "qwen-lm/qwen-3/Transformers/14b-base/1",
+      "version_binding_source": "saved metadata exact reference"
+    },
+    {
+      "kind": "model_sources",
+      "requested": "qwen-lm/qwen-3/Transformers/8b-base/1",
+      "saved": "qwen-lm/qwen-3/Transformers/8b-base/1",
+      "version_binding_source": "saved metadata exact reference"
+    },
+    {
+      "kind": "model_sources",
+      "requested": "qwen-lm/qwen-3/Transformers/4b-base/1",
+      "saved": "qwen-lm/qwen-3/Transformers/4b-base/1",
+      "version_binding_source": "saved metadata exact reference"
+    },
+    {
+      "kind": "model_sources",
+      "requested": "qwen-lm/qwen2.5/Transformers/7b/1",
+      "saved": "qwen-lm/qwen2.5/Transformers/7b/1",
+      "version_binding_source": "saved metadata exact reference"
+    },
+    {
+      "kind": "model_sources",
+      "requested": "qwen-lm/qwen2.5/Transformers/14b/1",
+      "saved": "qwen-lm/qwen2.5/Transformers/14b/1",
+      "version_binding_source": "saved metadata exact reference"
+    },
+    {
+      "kind": "competition_sources",
+      "requested": "name-that-llm",
+      "saved": "name-that-llm",
+      "version_binding_source": "saved metadata exact reference"
+    }
+  ],
+  "input_count": 32,
+  "source_canonical_json_sha256": "946eb734a262dbe2423260135cffbead0f694feb2fa3dfd661b88f579deca468",
+  "source_bytes_sha256": "31183a6e46337fab994b563fd804b359dae67fb410361aa2393c953e639f470a",
+  "image_field_verified": true,
+  "machine_shape_field_verified": true,
+  "gpu_count_limit": "NvidiaTeslaT4 is the requested T4x2 shape; physical GPU count requires runtime receipt.",
+  "pinning_limit": "SDK pull omits docker_image_pinning_type; local request is original and actual returned image digest matches."
+}

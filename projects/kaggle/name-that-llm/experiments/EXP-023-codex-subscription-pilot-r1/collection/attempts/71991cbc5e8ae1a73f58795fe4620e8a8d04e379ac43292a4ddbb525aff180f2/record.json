@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0050",
+  "prompt": "Describe the trade-off between compressing a photograph into a smaller file and preserving subtle image detail. Keep your response near 120 words.",
+  "category": "technology_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0050",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "71991cbc5e8ae1a73f58795fe4620e8a8d04e379ac43292a4ddbb525aff180f2",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:02:40.790287+00:00",
+  "ended_at": "2026-11-01T09:03:02.892162+00:00",
+  "prompt_sha256": "763564f27c0ae4a3f168e68b8c493a9bfadfbdafeae1af65a1fe151556b5bc31",
+  "text": "Compressing a photograph reduces its file size, making it faster to upload, easier to share, and cheaper to store. The trade-off depends on the compression method. Lossless compression preserves every pixel but usually offers smaller savings. Lossy compression, used by formats such as JPEG, achieves much smaller files by discarding information considered less noticeable.\n\nAs compression increases, subtle textures—like hair, foliage, or fabric—may become blurred or disappear. Smooth gradients can develop visible bands, and sharp edges may show halos or blocky artifacts. These changes can be hard to notice on a small screen but obvious when zooming in, editing, or printing. The best balance depends on how the photograph will be viewed and how much detail matters.",
+  "text_sha256": "cf3a78683b7c0b7b7f3123555307a4bbbab0326d0a74232e96fc962c92bc9fb2",
+  "raw_final_sha256": "cf3a78683b7c0b7b7f3123555307a4bbbab0326d0a74232e96fc962c92bc9fb2",
+  "word_count": 117,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4234,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 151,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\71991cbc5e8ae1a73f58795fe4620e8a8d04e379ac43292a4ddbb525aff180f2",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

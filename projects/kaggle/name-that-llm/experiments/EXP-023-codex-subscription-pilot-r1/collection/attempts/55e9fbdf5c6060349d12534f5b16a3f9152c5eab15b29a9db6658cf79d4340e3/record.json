@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0076",
+  "prompt": "Explain why a pilot project that succeeds with an enthusiastic volunteer team may struggle when rolled out to everyone. Use approximately 80 words for the response.",
+  "category": "business_decision",
+  "target_words": 80,
+  "prompt_group": "cp0076",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "55e9fbdf5c6060349d12534f5b16a3f9152c5eab15b29a9db6658cf79d4340e3",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:18:11.450706+00:00",
+  "ended_at": "2026-11-01T09:18:25.841360+00:00",
+  "prompt_sha256": "6fb58f1fbabb3a718928c7b906231ba4ff5ca3f323797ad342bffbb914455122",
+  "text": "A pilot led by enthusiastic volunteers often benefits from unusually high motivation, extra effort, and willingness to tolerate imperfections. Participants may also have been selected because they already understood or supported the project. A full rollout reaches people with different skills, priorities, incentives, and levels of resistance. Training, support, infrastructure, and costs may not scale smoothly, while procedures that worked informally in a small group can become cumbersome. Success therefore requires testing under realistic conditions, adapting implementation, and securing broad organizational commitment.",
+  "text_sha256": "5880a6e4b1e39ee4843c53e275c188f6e6836e982f1e452502f1fa344da500df",
+  "raw_final_sha256": "5880a6e4b1e39ee4843c53e275c188f6e6836e982f1e452502f1fa344da500df",
+  "word_count": 82,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2587,
+      "cached_input_tokens": 2432,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 103,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\55e9fbdf5c6060349d12534f5b16a3f9152c5eab15b29a9db6658cf79d4340e3",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

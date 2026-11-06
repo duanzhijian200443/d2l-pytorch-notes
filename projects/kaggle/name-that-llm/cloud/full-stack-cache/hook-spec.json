@@ -1,0 +1,613 @@
+{
+  "schema_version": 1,
+  "status": "HOOK_IMPLEMENTATION_AST_VERIFIED_NOT_EXECUTED",
+  "observed_at_utc": "2026-11-01T09:39:42.712697+00:00",
+  "scope": "Record-only copies of fixed EXP004/009 source; no new experiment, model run, request expansion, data-path change or scientific validation claim.",
+  "source_bindings": {
+    "baseline": {
+      "path": "reviews/own-scheme-readiness-20261030/baseline-v2.ipynb",
+      "sha256": "6c9145f038ccffbe08dc6da6db3d1dcf3d2e0e7d2286927bfc8800ef5148cfb8"
+    },
+    "integration_plan": {
+      "path": "experiments/EXP-027-multiclass-external-validation/integration-plan.md",
+      "sha256": "d1ddad5258c6f5c041df028ae2cd16fc4e7215fde0fb68973c0876b7364e2ee0"
+    },
+    "integration_readiness": {
+      "path": "experiments/EXP-027-multiclass-external-validation/metrics/integration-readiness.json",
+      "sha256": "93ea7c496603914c25e0b2851691dddb4568781e3991781c03e469ea6a135c79"
+    },
+    "instrument": {
+      "path": "cloud/full-stack-cache/instrument.py",
+      "sha256": "1a3a4f2635139828a6cf3dc4d9e142c9ebd7ac4ceac16f53bec7fd6006f7d569"
+    },
+    "components": {
+      "main": {
+        "component": "main",
+        "source_filename": "infer.py",
+        "source_sha256": "022cafd2e6504dd7cf38c8675b9597fb4fbd4c9dd0be69d38918293d9caac9b3",
+        "generated_sha256": "8b97f40e4fedf79c842c886e62419144d2e6d0c2e743779c264f7d3074d5f4f7",
+        "algorithm_ast_equal_after_removing_observers": true,
+        "algorithm_ast_sha256": "9d685f1abeadac702639cfd034ccc16b7ea9a7bfe0f643bc9e9971fb9759f758",
+        "original_script_executed": false,
+        "clock_or_data_paths_changed": false
+      },
+      "comp": {
+        "component": "comp",
+        "source_filename": "comp_stack.py",
+        "source_sha256": "b6b6a7b8adbe50580c2d0de5a41d0764ae752fe729e1471872a9197ac956f222",
+        "generated_sha256": "64d061ebe633f2ba328b630041a7ddf1d21f09ac774d7cd818ea629a13bfa194",
+        "algorithm_ast_equal_after_removing_observers": true,
+        "algorithm_ast_sha256": "0e68244874253d0c93c978de865cf67c02caec66f9a84c3cefea64035c12ade4",
+        "original_script_executed": false,
+        "clock_or_data_paths_changed": false
+      }
+    }
+  },
+  "observer_api": {
+    "import": "from full_stack_observer import FullStackObserver as _cache_observer",
+    "initialize": "FullStackObserver.from_env(component, ids, texts, labels, metadata)",
+    "record": "_cache.capture(event_name, **named_arrays_or_metadata)",
+    "identity": "_cache.return_array(event_name, value) must record and return the exact original value object without mutation",
+    "disabled": "No NTL_CACHE_EXPORT means NullObserver; no cache IO. Observer module must still be staged.",
+    "capture_error": "CaptureFailure(SystemExit) or equivalent non-Exception failure must escape original optional-component except Exception blocks; never turn a writer failure into COMP/ATLAS SKIPPED.",
+    "context": "Controller must freeze run_id, input/model/runtime/source fingerprints, exact scope, requested member/gate set and conditional required events before inference."
+  },
+  "identity_contract": {
+    "labels": [
+      "claude-fable-5",
+      "claude-opus-4-6",
+      "claude-opus-4-8",
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "gemini-3.1-pro-preview",
+      "gemini-3.6-flash",
+      "gemini-3.7-flash",
+      "gemini-3.8-flash",
+      "glm-5.3",
+      "glm-5.3-flash",
+      "gpt-5.5",
+      "gpt-5.6-luna",
+      "gpt-5.6-sol",
+      "gpt-5.6-terra",
+      "gpt-6-astra",
+      "kimi-k3",
+      "qwen3.8-max"
+    ],
+    "columns": 18,
+    "header_required": [
+      "actual ordered IDs",
+      "SHA256 of each exact effective UTF-8 input text after original fillna/astype handling",
+      "ordered batch signature",
+      "labels in exact column order",
+      "run_id",
+      "component",
+      "context/source/observer/writer hashes"
+    ],
+    "text_policy": "Hashes only in identity metadata; no eval truth or true prompt IDs enter inference. Use exact-text hashes, not normalized text hashes as an equivalence substitute.",
+    "cross_component": "Main and comp must have identical ordered IDs/text hashes/label order and same run context; main comp_loaded must bind the actual comp file hash and float32 serialization to that comp component.",
+    "provenance": "Freeze and verify resolved train/test/public files, glob order/selected checkpoint paths, all consumed weights/readouts/tokenizer/config bytes and dependency versions outside the algorithm. ID equality alone is insufficient.",
+    "reuse_scope": "Same ordered full batch only. Content grouping, centred heads, comp test-side standardisation, ATLAS routing and Sinkhorn are batch-dependent; taking arbitrary subsets of stored final scores is not rerunning the pipeline."
+  },
+  "hooks": {
+    "main": [
+      {
+        "event": "from_env",
+        "source_line": 74,
+        "source_end_line": 74,
+        "ast_node": "Expr",
+        "placement": "after",
+        "anchor_ast_sha256": "030fd2659d162ac2868f16949756e9f347f9e235adba7023850478b46153cbb2",
+        "fields": {
+          "component": "'main'",
+          "ids": "test['id'].astype(str).tolist()",
+          "texts": "test['text'].tolist()",
+          "labels": "LABELS",
+          "metadata": "{'source_sha256': '022cafd2e6504dd7cf38c8675b9597fb4fbd4c9dd0be69d38918293d9caac9b3', 'args': vars(a), 'data_dir': a.data, 'sim': a.sim, 'fake_test': a.fake_test, 'train_rows': len(train)}"
+        }
+      },
+      {
+        "event": "main_svc4_margin",
+        "source_line": 230,
+        "source_end_line": 230,
+        "ast_node": "Assign",
+        "placement": "after",
+        "anchor_ast_sha256": "56f4a953a769e900a7537ba891e8541bcbad4d2357a9617c66602f4fbe0d472f",
+        "fields": {
+          "margins": "_d",
+          "classes": "_svc.classes_"
+        }
+      },
+      {
+        "event": "main_members",
+        "source_line": 514,
+        "source_end_line": 514,
+        "ast_node": "Assign",
+        "placement": "after",
+        "anchor_ast_sha256": "df9d00836c87a63d29dde63b161ce20967357e4f95754f4c90b0a90f89ec6258",
+        "fields": {
+          "members": "LP",
+          "total": "tot",
+          "specs": "specs",
+          "args": "vars(a)",
+          "groups": "Gte",
+          "train_targets": "y"
+        }
+      },
+      {
+        "event": "atlas_batch",
+        "source_line": 546,
+        "source_end_line": 546,
+        "ast_node": "Assign",
+        "placement": "after",
+        "anchor_ast_sha256": "fdcd464585d2681361247b88a85f250d27cb11c3ea86aa7dedb439a12d7da6ea",
+        "fields": {
+          "bundle": "bundle",
+          "requested_rows": "rows",
+          "local_rows": "_idx",
+          "global_rows": "rows[_idx]",
+          "probability_native": "_batch",
+          "native_labels": "_alab",
+          "completed_mask": "scored"
+        }
+      },
+      {
+        "event": "comp_loaded",
+        "source_line": 567,
+        "source_end_line": 567,
+        "ast_node": "Expr",
+        "placement": "after",
+        "anchor_ast_sha256": "5a2da358d9561a9c2ee579be6b8afe7112465bb9657cdfa2a298710bb3a1a055",
+        "fields": {
+          "logit": "_cl",
+          "probability": "COMP_P",
+          "comp_meta": "_cm",
+          "path": "a.comp_path"
+        }
+      },
+      {
+        "event": "comp_status",
+        "source_line": 561,
+        "source_end_line": 570,
+        "ast_node": "If",
+        "placement": "after",
+        "anchor_ast_sha256": "1222aa9ec294a1fc16bfc4fb0f81ac7f7b8153785d7116c60698b65c98064edc",
+        "fields": {
+          "probability": "COMP_P",
+          "requested_weight": "a.comp_w",
+          "path": "a.comp_path"
+        }
+      },
+      {
+        "event": "main_probability",
+        "source_line": 575,
+        "source_end_line": 575,
+        "ast_node": "AugAssign",
+        "placement": "after",
+        "anchor_ast_sha256": "74ac3673398a6a569e2daff51a6de94c2349781319844a672ea11796dc566d56",
+        "fields": {
+          "probability": "P",
+          "normalized_logits": "lpn",
+          "divisor": "wsum"
+        }
+      },
+      {
+        "event": "pre_atlas",
+        "source_line": 576,
+        "source_end_line": 576,
+        "ast_node": "If",
+        "placement": "after",
+        "anchor_ast_sha256": "a2616c501ad0ffd31e44c0390fcc9183079f60f536ffa9fe4f8e2fc19b561a62",
+        "fields": {
+          "probability": "P"
+        }
+      },
+      {
+        "event": "atlas_requested",
+        "source_line": 579,
+        "source_end_line": 579,
+        "ast_node": "Assign",
+        "placement": "after",
+        "anchor_ast_sha256": "d2118a3784595879eaded7f6d50769c212613515b10ffea1635911f935a310d3",
+        "fields": {
+          "rows": "rows",
+          "margin": "_margin",
+          "probability": "P",
+          "bundles": "_bundles",
+          "weights": "_aw",
+          "budget": "a.atlas_budget",
+          "probe": "a.atlas_probe"
+        }
+      },
+      {
+        "event": "atlas_returned",
+        "source_line": 585,
+        "source_end_line": 585,
+        "ast_node": "Assign",
+        "placement": "after",
+        "anchor_ast_sha256": "49c9139e299799be41ab9cdc5d621f4e0ef67eeaa731473f584b11ff4dd57a45",
+        "fields": {
+          "bundle": "_bd",
+          "weight": "_w",
+          "requested_rows": "rows",
+          "probabilities": "A_",
+          "completed_mask": "scored",
+          "completed_rows": "completed_rows"
+        }
+      },
+      {
+        "event": "pre_sinkhorn",
+        "source_line": 592,
+        "source_end_line": 592,
+        "ast_node": "Assign",
+        "placement": "after",
+        "anchor_ast_sha256": "2015f7d8cb8f90040c9fc36f55d617374ba947bbdc261ee23c0ae8c397f38447",
+        "fields": {
+          "probability": "P"
+        }
+      },
+      {
+        "event": "sinkhorn_applied",
+        "source_line": 606,
+        "source_end_line": 606,
+        "ast_node": "Assign",
+        "placement": "after",
+        "anchor_ast_sha256": "ec9365601fdb588dacbd70022b209f1a04c457d52aa01c2259430461cbd5b0cb",
+        "fields": {
+          "probability": "P",
+          "balanced_probability": "Q",
+          "logits": "tot",
+          "predicted_marginal": "_pred_marg",
+          "train_prior": "_train_prior",
+          "target": "_target",
+          "target_mix": "_rho",
+          "weight": "a.sinkhorn"
+        }
+      },
+      {
+        "event": "postprocessing_base",
+        "source_line": 607,
+        "source_end_line": 607,
+        "ast_node": "Assign",
+        "placement": "after",
+        "anchor_ast_sha256": "e64b052be8552ede5cead4f36690c84313a636385ac0aa0665eb2bf7148c25ae",
+        "fields": {
+          "logits": "_v38_before_hard",
+          "post": "a.post",
+          "sim": "a.sim"
+        }
+      },
+      {
+        "event": "typography",
+        "source_line": 672,
+        "source_end_line": 672,
+        "ast_node": "Assign",
+        "placement": "after",
+        "anchor_ast_sha256": "a46224b75fd905dde2b015c8f31463d1d4f99d9dcebef006a34370d7a8e624e8",
+        "fields": {
+          "evidence": "_evidence",
+          "confidence_gate": "_confidence_gate",
+          "length_gate": "_length_gate",
+          "coverage_gate": "_coverage_gate",
+          "gate": "_gate",
+          "logits_before": "_raw",
+          "logits_after": "_safe_logits",
+          "marks": "_marks",
+          "word_count": "_word_count",
+          "active_markers": "_active_markers",
+          "train_rows": "len(train)",
+          "train_class_counts": "_freq",
+          "train_marker_hits": "_hits",
+          "test_marker_matrix": "_Xte",
+          "kappa": "_kappa",
+          "feature_weights": "_fw",
+          "rates": "_rate",
+          "global_rate": "_global_rate"
+        }
+      },
+      {
+        "event": "component_end",
+        "source_line": null,
+        "source_end_line": null,
+        "ast_node": "Module",
+        "placement": "module_end",
+        "anchor_ast_sha256": null,
+        "fields": {
+          "output_path": "a.out",
+          "typography_applied": "not bool(a.sim)"
+        }
+      }
+    ],
+    "comp": [
+      {
+        "event": "from_env",
+        "source_line": 95,
+        "source_end_line": 95,
+        "ast_node": "Expr",
+        "placement": "after",
+        "anchor_ast_sha256": "1374dc040dcb24ef3d3cc12380eb916f754663fc281b15202e4d4c93bd59d535",
+        "fields": {
+          "component": "'comp'",
+          "ids": "test['id'].astype(str).tolist()",
+          "texts": "test['text'].tolist()",
+          "labels": "LABELS",
+          "metadata": "{'source_sha256': 'b6b6a7b8adbe50580c2d0de5a41d0764ae752fe729e1471872a9197ac956f222', 'smoke': SMOKE, 'tiny': TINY, 'fake_test': os.environ.get('NTL_FAKE_TEST'), 'drop_q35': os.environ.get('NTL_DROP_Q35'), 'data_dir': os.environ.get('NTL_DATA') if SMOKE else str(DATA_DIR), 'train_rows': len(train)}"
+        }
+      },
+      {
+        "event": "member",
+        "source_line": 103,
+        "source_end_line": 103,
+        "ast_node": "Assign",
+        "placement": "after",
+        "anchor_ast_sha256": "6477d6421ff36547afda6d9c025ba62d40ad60ee81d17d23a89f6c5b960e714d",
+        "fields": {
+          "key": "key",
+          "probability": "prob",
+          "log_probability": "lp",
+          "weight": "w",
+          "rows": "rows"
+        }
+      },
+      {
+        "event": "style_margin_context",
+        "source_line": 289,
+        "source_end_line": 289,
+        "ast_node": "Assign",
+        "placement": "before",
+        "anchor_ast_sha256": "9f320e7adeeab4f2d673094e72b4dd0d1557150d01d1d1e38686d3c363021fbb",
+        "fields": {
+          "role": "'plain'",
+          "rows": "np.arange(len(TE))",
+          "classes": "svc_plain.classes_",
+          "evaluation": "True"
+        }
+      },
+      {
+        "event": "style_margin_context",
+        "source_line": 302,
+        "source_end_line": 302,
+        "ast_node": "Assign",
+        "placement": "before",
+        "anchor_ast_sha256": "0b8c1fcdf008c22dfd7b39417c541910b67337ed12cd23a9b314bbe5003547a9",
+        "fields": {
+          "role": "'centred'",
+          "rows": "np.flatnonzero(rows_style)",
+          "classes": "svc_centred.classes_",
+          "evaluation": "True"
+        }
+      },
+      {
+        "event": "style_routed",
+        "source_line": 307,
+        "source_end_line": 307,
+        "ast_node": "Expr",
+        "placement": "before",
+        "anchor_ast_sha256": "c5db8ed04226dcc3ad69e7075c0ec8de3df156e0790de293969b17d417b06424",
+        "fields": {
+          "probability": "P_style",
+          "groups": "G_style",
+          "mask": "rows_style"
+        }
+      },
+      {
+        "event": "comp_before_gates",
+        "source_line": 947,
+        "source_end_line": 951,
+        "ast_node": "If",
+        "placement": "before",
+        "anchor_ast_sha256": "fe3b734376188db5dbd5b3b3c180643038a2112b8f0ac989442de807b10cb1d8",
+        "fields": {
+          "logit": "LOGIT",
+          "gates": "GATES",
+          "groups": "G_TE",
+          "group_mask": "GROUP_ROWS",
+          "style_groups": "G_style",
+          "style_mask": "rows_style"
+        }
+      },
+      {
+        "event": "family_gate_applied",
+        "source_line": 943,
+        "source_end_line": 943,
+        "ast_node": "Assign",
+        "placement": "after",
+        "anchor_ast_sha256": "93f0dd8e0dc7e1c0a159ff7f7576f09923e3c25d0e5eebf9f5563f1fcdb8bc06",
+        "fields": {
+          "key": "gate_key",
+          "family": "family",
+          "indices": "idx",
+          "raw_score": "GATES[gate_key]",
+          "gate_log_probability": "gate_lp",
+          "base": "base",
+          "strength": "strength",
+          "family_mass": "family_mass",
+          "logit": "LOGIT"
+        }
+      },
+      {
+        "event": "style_margin",
+        "source_line": 236,
+        "source_end_line": 236,
+        "ast_node": "Call",
+        "placement": "identity_return_wrapper",
+        "anchor_ast_sha256": "03624d989ce0a30bf9b6cef429189b5a3819c8fab8e7b08e7a759aee65e48113",
+        "fields": {
+          "value": "ORIGINAL_CALL; identity return, one original evaluation"
+        }
+      },
+      {
+        "event": "component_end",
+        "source_line": null,
+        "source_end_line": null,
+        "ast_node": "Module",
+        "placement": "module_end",
+        "anchor_ast_sha256": null,
+        "fields": {
+          "logit": "LOGIT",
+          "serialized_logit": "LOGIT.astype(np.float32)",
+          "output_path": "'/kaggle/working/comp_logit.npy'",
+          "meta_path": "'/kaggle/working/comp_meta.json'"
+        }
+      }
+    ]
+  },
+  "array_semantics": {
+    "main_members": "members is the insertion-ordered original LP dict of native-dtype N x18 already weighted contributions; twin/gauss ineligible rows are zero. total is original sum(LP.values()). Preserve order and values; never re-softmax or weight them again.",
+    "main_divisor": "main_probability.divisor is count(abs(v).max()>0) over LP values, not sum of coefficients. Preserve zero arrays separately from absent members.",
+    "main_svc4_margin": "Native unnormalized N x18 decision values in original estimator classes order; this matched+pool model is distinct from EXP018 raw-public svc4.",
+    "member": "probability is the actual argument, log_probability=log(clip(prob,1e-9,1)), weight is scalar, rows is None or the original bool/index selector. Record event sequence; replay the original indexed += operation, not a reordered reduction.",
+    "style_margin": "Each style_margin_context is immediately followed by one style_margin return_array event. Plain has N rows; centred has sum(style_mask) rows in flatnonzero order. Capture classes. TINY training self-tests call decision_function directly and are deliberately not captured as evaluation margins.",
+    "style_routed": "Original full P_style after plain/centred replacement, before its sole 1.516 contribution. Raw margins cannot be recovered exactly from clipped probabilities if this event pair is missing.",
+    "comp_before_gates": "Native N x18 accumulated LOGIT before any family gate; gates contains raw fitted score matrices. groups/masks bind both content+GLM grouping and Stylegram grouping.",
+    "family_gate_applied": "Native arrays for one ordered update: indices=(k,), raw_score/gate_log_probability/base=(N,k), strength/family_mass=(N,), logit=(N,18) after update. Raw Claude-LoRA values are log-probabilities, other gate values are margins. Preserve claude,claude_lora,gpt,gemini,glm order and exact family columns.",
+    "comp_component_end": "logit retains original native precision; serialized_logit must equal logit.astype(float32), matching comp_logit.npy. Main loads/reorders this float32 array and computes COMP_P at that precision.",
+    "atlas_requested": "rows are original global test indices selected at this execution; margin/P are after main+comp mix. Selection is margin<.3 only when configured positive and N>=50; otherwise original all-row branch. No hook expands rows.",
+    "atlas_batch": "local_rows index original requested_rows; global_rows=requested_rows[local_rows]. probability_native uses ATLAS native_labels before label permutation. completed_mask is cumulative request-local mask after this batch. Native labels must be a permutation of the18 canonical labels.",
+    "atlas_returned": "probabilities=(R,18) in canonical LABELS order; completed_mask=(R,) bool; completed_rows=requested_rows[completed_mask]. Unscored entries are zero-filled placeholders, never valid probabilities. Replay uses only completed entries.",
+    "pre_sinkhorn": "probability is normalized P after ATLAS mixing; retain native dtype.",
+    "sinkhorn_applied": "balanced_probability is Q after100 updates; logits=(1-weight)*log(P+1e-12)+weight*log(Q+1e-12). Target is derived anew from predicted marginal and frozen smoothed train prior for each counterfactual; do not freeze baseline target as a new algorithm.",
+    "typography": "logits_before is _v38_before_hard, not any hard-post mutated tot. evidence=(N,18); train_class_counts=(18,), train_marker_hits=(18,M), test_marker_matrix=(N,M), rates=(18,M), global_rate/feature_weights=(M,), word_count and all gates=(N,). Counts/hits/Xte allow Bernoulli evidence reconstruction without saving text. Recompute confidence_gate for changed upstream logits; word_count remains a captured input unless actual texts are independently supplied.",
+    "dtype": "Save every existing numerical array in its original dtype/shape. No universal float32 cast, renormalization, centering, clipping, rounding or changed probability interpretation in recorder. Object arrays must be converted only in recorder-owned identity metadata; never mutate input arrays."
+  },
+  "coverage_requirements": {
+    "main_expected_lp_keys": [
+      "tfidf",
+      "svc4",
+      "distort",
+      "q14v5_gauss",
+      "q14v5",
+      "q14v5_twin",
+      "q8v5_gauss",
+      "q8v5",
+      "q8v5_twin",
+      "ll8v5",
+      "ll8v5_twin",
+      "n14b",
+      "n14b_twin",
+      "q25_14",
+      "q25_14_twin",
+      "deb"
+    ],
+    "comp_nonzero_allrow_members": [
+      "stylegram",
+      "stylometry_lgb",
+      "debv3l",
+      "electl",
+      "desk",
+      "lora24_public",
+      "lora24_seed7",
+      "lora24_claude",
+      "lora20_q25_instyle",
+      "tokattn_q35",
+      "tokattn_deb",
+      "ultrabert"
+    ],
+    "comp_group_conditional_members": [
+      "glm9b_twin",
+      "q3_8b_twin",
+      "q25_7b_twin",
+      "q3_4b_twin",
+      "debv3l_twin",
+      "gauss_q3_8b_L22",
+      "gauss_glm9b_L8",
+      "gauss_q3_4b_L4",
+      "gauss_debv3l_L24",
+      "lora24_public_twin",
+      "lora24_claude_twin"
+    ],
+    "gates": [
+      "claude",
+      "claude_lora",
+      "gpt",
+      "gemini",
+      "glm"
+    ],
+    "empty_groups": "No eligible rows legitimately omit grouped comp contribution calls; record group mask and declare conditional zero contribution. Missing positive-weight all-row members is not this exception.",
+    "completion": "Event presence alone is not completeness. Validate exact keys, sequence, shapes, finite values, probability sums, masks/indices/labels, expected group conditions, output hashes and main/comp identities. Required positive-weight members/gates missing or skipped must block full-stack acceptance.",
+    "atlas_full_baseline": "Every requested row of every active bundle must be completed for full-baseline reusable acceptance. Preserve partial batches/returned masks with PARTIAL status; a zero-filled row or untouched main probability cannot stand in for an ATLAS score.",
+    "counterfactual": "For each later arm, recompute its request set and require requested subset of cached completed rows. Otherwise status NEEDS_ADDITIONAL_ATLAS_SCORES. Capturing only original baseline requests does not guarantee GPU-free A1-A3 replay.",
+    "small_or_fake_data": "SMOKE, fake_test, sim, FAST_COMMIT placeholders and3 public examples are engineering evidence only. They cannot be marked clean OOF, independent validation or complete hidden-test scientific results.",
+    "original_final_output": "main component_end occurs after original typography overwrite and diagnostics. Verify final parquet IDs/predictions against typography logits and atomic cache manifest; an earlier successful parquet write is not final completion."
+  },
+  "storage_requirements": [
+    "Unique run/component output roots and exclusive lock; no overwriting old runs or silent resume.",
+    "Copy mutable arrays synchronously before original code can mutate/reuse them; recorder must not modify flags, dtype, values or RNG state.",
+    "Write arrays/metadata atomically and commit manifest only after required event and final output checks; partial files remain clearly incomplete.",
+    "Record native byte hashes, sizes, shapes, dtypes and full event order; safe NPZ/NPY without pickle.",
+    "Unknown/duplicate unexpected events or mismatched snapshots fail closed rather than borrowing a prior run."
+  ],
+  "original_side_effects": [
+    {
+      "source": "infer.py:132-514",
+      "risk": "A late model failure before main_members loses the aggregate snapshot. main_svc4_margin is early; this implementation does not checkpoint every LP assignment."
+    },
+    {
+      "source": "infer.py:490-493",
+      "risk": "Generic embedding cache names lack input/source hashes. Existing cache may silently feed stale arrays; active l24/enc bypass it. Controller must isolate or independently verify that cache, not bless it by recording."
+    },
+    {
+      "source": "comp_stack.py:337,696-707,782-788",
+      "risk": "Features/classifiers are deleted. Record margins/contributions at their existing computation sites; never recompute later or assume fitted models were persisted."
+    },
+    {
+      "source": "comp_stack.py:322-331,370,731-734,890-898,916-924",
+      "risk": "Missing Claude API/lightgbm/LoRA/token heads/gate shape can silently skip requested branches. Capture and validate actual activation against frozen member plan."
+    },
+    {
+      "source": "comp_stack.py:953-955; infer.py:561-570",
+      "risk": "Fixed comp files are non-atomic and share global names; old matching IDs can pass despite changed texts. Original code catches load errors and continues without comp. Require current-run hashes and text-bound identities."
+    },
+    {
+      "source": "infer.py:535-553,584-590; cell-10.py and cell-12.py",
+      "risk": "Wall-clock budget, invalid scores, probe and broad exceptions can truncate ATLAS. Capture IO changes elapsed time and COMP_SEC; keep original clocks/budgets and report coverage, never compensate the clock silently."
+    },
+    {
+      "source": "infer.py:627-677",
+      "risk": "save_lp is aggregate/pre-typography; first submission is overwritten by typography. Neither alone proves final-stage cache completeness."
+    },
+    {
+      "source": "baseline-v2.ipynb writefile cells; infer.py:9,439",
+      "risk": "Notebook writefile cells can overwrite generated scripts; generated __file__ changes module directory. Stage exact gauss.py and observer/cache dependencies and prevent later overwrite without changing original data paths."
+    },
+    {
+      "source": "cell-10.py:6",
+      "risk": "Shell pipe through grep can hide the model subprocess exit code and warning logs. Controller must verify original process failure plus cache receipt, never rely on grep success."
+    }
+  ],
+  "tests_required_before_runtime": [
+    {
+      "test": "Pinned source and reversible AST",
+      "assertion": "Both exact source SHA values; every AST anchor unique; strip observer import/init/capture and unwrap return_array gives exact original AST. Changed/repeated source and existing destination rejected.",
+      "current_status": "PASS in memory; no generated files or original script execution"
+    },
+    {
+      "test": "Pure snapshot noninterference",
+      "assertion": "Null and file observers leave aliased arrays/dicts, dtype/flags, object identity returned by return_array and RNG states unchanged; missing event, duplicate, disk failure and malformed arrays fail closed."
+    },
+    {
+      "test": "Extracted original numerical blocks",
+      "assertion": "Synthetic native float32/64 arrays cover main sum/divisor, masked comp additions including clipping, ordered family gates, comp float32 disk boundary, ATLAS partial masks, Sinkhorn and typography. Compare original vs instrumented final arrays and argmax, not only cached formulas."
+    },
+    {
+      "test": "No hidden additional model calls",
+      "assertion": "Stub estimators count calls: raw-margin capture uses original decision_function once; no fit/forward/feature call added. Plain/centred context matches exact row indices; training self-test is not evaluation."
+    },
+    {
+      "test": "Branch and failure coverage",
+      "assertion": "No eligible groups, empty requests, N<18/N<50, missing optional head, COMP load failure, invalid/partial ATLAS, capture failure inside try, pre/post typography failure all produce truthful incomplete/synthetic status."
+    },
+    {
+      "test": "Clock and parity boundary",
+      "assertion": "Synthetic tests use deterministic injected/fake clocks outside production source. Real comparison retains clocks and budgets; exact same source/input/model/runtime and full requested coverage required. Near-budget coverage mismatch cannot be hidden by tolerances."
+    },
+    {
+      "test": "Actual runtime parity",
+      "assertion": "Only when separately authorized: observed model execution with matching IDs and required members, native cached arrays replay to original final logits/predictions and final parquet. AST/synthetic checks alone do not establish this."
+    }
+  ],
+  "scientific_limits": [
+    "No current independent full-stack OOF is created by recording full-official-trained checkpoints.",
+    "Historical EXP004 input/model byte identity is still bounded by available bindings.",
+    "This file neither extends source data acceptance nor authorizes GPU, remote operations, submission or A1-A3 execution."
+  ]
+}

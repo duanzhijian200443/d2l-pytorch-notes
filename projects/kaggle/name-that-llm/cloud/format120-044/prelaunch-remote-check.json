@@ -1,0 +1,7 @@
+{
+  "observed_at": "2026-11-01T16:33:56.043598+00:00",
+  "previous_comparison_status": "COMPLETE",
+  "scope": "Authenticated own notebook inventory, all returned pages",
+  "count": 68,
+  "target_absent": true
+}

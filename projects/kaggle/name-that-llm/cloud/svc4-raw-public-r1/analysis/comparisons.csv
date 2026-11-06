@@ -1,0 +1,4 @@
+candidate,reference,contrast,delta_ba,ci95_lower,ci95_upper,bootstrap_draws,bootstrap_seed,fixed_errors,new_errors,prediction_disagreements,both_wrong,positive_folds,negative_folds,tied_folds,multiple_comparison_adjustment
+EXP-018,EXP-017,adding_raw_public_including_feature_fit,0.017805120556798393,0.002997557120879269,0.03222222222222223,2000,42,266,218,1024,1395,4,1,0,none
+EXP-019,EXP-018,public_row_weight_only,-0.00519015659955252,-0.014074074074074072,0.003703703703703703,2000,42,72,86,332,1541,1,4,0,none
+EXP-020,EXP-018,public_row_weight_only,-0.011488938603032628,-0.02037037037037037,-0.002965386527467065,2000,42,56,87,291,1557,1,4,0,none

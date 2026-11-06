@@ -1,0 +1,16 @@
+Use a **“one-page procedure” system** stored in a shared, searchable tool your team already uses—such as Google Drive, Notion, or SharePoint.
+
+Create one short page for each recurring task, using the same template:
+
+- **Purpose:** What outcome does this procedure produce?
+- **Owner:** Who is responsible for keeping it current?
+- **Trigger:** When or how often is it performed?
+- **Steps:** A numbered checklist, ideally 5–10 items.
+- **Resources:** Links to forms, templates, systems, or a brief screen recording.
+- **Last verified:** Date someone last used and confirmed the instructions.
+
+Document procedures **while doing the work**, not in a separate documentation project. The next time someone completes a recurring task—such as invoicing, onboarding an employee, or closing the store—they spend an extra five minutes capturing the actual steps. If a process is easier to demonstrate than explain, record a two-minute video and link it from the page.
+
+Build maintenance into normal operations: whoever follows a procedure should immediately correct anything outdated or unclear. Assign one owner, but let every user suggest or make improvements. Review only high-risk or infrequently used procedures on a schedule; frequently used pages will be maintained through use.
+
+Start with the five tasks that would cause the most disruption if the usual person were unavailable. This creates practical coverage quickly without producing a large manual that becomes obsolete.

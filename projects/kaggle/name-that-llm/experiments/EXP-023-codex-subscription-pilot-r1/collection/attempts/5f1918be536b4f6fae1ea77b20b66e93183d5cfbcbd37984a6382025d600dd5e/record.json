@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0012",
+  "prompt": "Give a beginner a practical plan for learning the names of common birds seen from an ordinary apartment window, without buying specialist equipment. Keep your response near 120 words.",
+  "category": "everyday_advice",
+  "target_words": 120,
+  "prompt_group": "cp0012",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "5f1918be536b4f6fae1ea77b20b66e93183d5cfbcbd37984a6382025d600dd5e",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:38:19.645583+00:00",
+  "ended_at": "2026-11-01T08:38:33.837918+00:00",
+  "prompt_sha256": "55977dd082a07d351363687932ad7730cf13faa7b21369e0f3b4afbaa96d5eff",
+  "text": "Start with a simple goal: learn **one new bird each week**.\n\nSpend 10 minutes at the same window each morning or evening. Note each bird’s:\n\n- Size and shape  \n- Main colors and markings  \n- Beak and tail shape  \n- Behavior—hopping, soaring, climbing, or flocking  \n- Call or song  \n- Time and location seen  \n\nUse a free bird-identification app or local wildlife website to compare your notes. Begin with the five birds you see most often rather than studying a long list.\n\nKeep a window-side notebook and make quick sketches, even imperfect ones. Give uncertain birds temporary labels such as “small brown bird,” then update them later. Photograph birds with your phone if they come close, but don’t worry about image quality.\n\nOnce a week, review your notes and practice recognizing each bird without the app.",
+  "text_sha256": "697771ec110b88f509ff9296cbce6d1e7f98dd46778fa7dbe38900fcb3cfb4c8",
+  "raw_final_sha256": "697771ec110b88f509ff9296cbce6d1e7f98dd46778fa7dbe38900fcb3cfb4c8",
+  "word_count": 136,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4126,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 177,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\5f1918be536b4f6fae1ea77b20b66e93183d5cfbcbd37984a6382025d600dd5e",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

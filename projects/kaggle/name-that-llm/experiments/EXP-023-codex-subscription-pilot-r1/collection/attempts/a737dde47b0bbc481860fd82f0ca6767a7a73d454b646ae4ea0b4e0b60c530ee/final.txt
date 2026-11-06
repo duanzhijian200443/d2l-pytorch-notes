@@ -1,0 +1,5 @@
+A sealed bag of chips can puff up in the mountains because the air pressure outside the bag decreases as you climb. At higher elevations, there is less atmosphere above you, so the surrounding air pushes inward less strongly.
+
+The bag was sealed at a lower elevation, trapping gas at roughly the pressure there. As you travel upward, that gas initially pushes outward harder than the thinner mountain air pushes inward. Because the packaging is flexible, the bag expands. As the trapped gas spreads into a larger volume, its pressure drops until the forces are balanced by the outside air pressure and tension in the packaging.
+
+No extra air needs to enter: the same amount of gas simply occupies more space. Chip bags often contain nitrogen to help keep the chips fresh, but the principle is the same. Temperature changes can also affect how much the bag swells, though the drop in atmospheric pressure is the main mountain-related cause.

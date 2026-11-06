@@ -1,0 +1,9 @@
+{
+  "job_key": "6efe0bcfe484e91819056d63ad96ac7de10cb2a508923919cc71bb0023416eb8",
+  "status": "SUCCEEDED",
+  "started_at": "2026-11-01T08:56:36.249126+00:00",
+  "ended_at": "2026-11-01T08:56:51.642445+00:00",
+  "returncode": 0,
+  "reasons": [],
+  "text_sha256": "d5f65f60f814b47d9bb156ca6275221b87454eaf1ff1aa483281e7d6a7de1545"
+}

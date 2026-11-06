@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0131",
+  "prompt": "Discuss the advantages and drawbacks of requiring reservations for a popular community workshop. Keep your response near 80 words.",
+  "category": "tradeoff_argument",
+  "target_words": 80,
+  "prompt_group": "cp0131",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "fb1965c193f438fd3ca17e158563ee4cca93892f696d60edb00e968dbc0f8e73",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:54:04.001026+00:00",
+  "ended_at": "2026-11-01T09:54:22.501718+00:00",
+  "prompt_sha256": "c9cd89ab1f7ead38d000f0edd7a0b5dfcf0b560c4e074db56857ee9af6d31df8",
+  "text": "Requiring reservations for a popular community workshop helps organizers manage capacity, prepare materials, and ensure participants receive enough attention. It also reduces overcrowding and gives attendees confidence that a place will be available. However, reservations can exclude spontaneous visitors or people with limited internet access. No-shows may leave seats unused while others miss out, and managing bookings adds administrative work. A balanced approach could combine reservations with a few walk-in spaces, an accessible booking method, and a waitlist to fill cancellations.",
+  "text_sha256": "0561e23b5f605dc18edb54cbdb665c3e223f03736d8735ac372484272e3f74ad",
+  "raw_final_sha256": "0561e23b5f605dc18edb54cbdb665c3e223f03736d8735ac372484272e3f74ad",
+  "word_count": 81,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4229,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 102,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\fb1965c193f438fd3ca17e158563ee4cca93892f696d60edb00e968dbc0f8e73",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

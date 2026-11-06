@@ -1,0 +1,5 @@
+An overall satisfaction score is simple, fast, and easy to trend over time. It gives a clear headline metric for executives and can reveal whether the total experience is improving or declining. However, it rarely explains *why* customers feel that way, making action difficult.
+
+A few targeted questions—such as ease of use, staff helpfulness, speed, value, or issue resolution—provide diagnostic detail. They identify the parts of the experience driving satisfaction or dissatisfaction and support more focused improvements. The tradeoff is a longer survey, more analysis, and potential respondent fatigue.
+
+A strong approach often combines both: ask one overall satisfaction question for the headline measure, then include a small number of carefully chosen driver questions. This preserves simplicity while producing actionable insight.

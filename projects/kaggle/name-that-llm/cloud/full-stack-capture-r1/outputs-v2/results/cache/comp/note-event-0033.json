@@ -1,0 +1,1 @@
+{"event":"component_end","payload":{"items":[["logit",{"kind":"array","name":"event-0033-array-0001"}],["serialized_logit",{"kind":"array","name":"event-0033-array-0002"}],["output_path",{"kind":"scalar","value":"/kaggle/working/comp_logit.npy"}],["meta_path",{"kind":"scalar","value":"/kaggle/working/comp_meta.json"}]],"kind":"mapping"},"sequence":33}

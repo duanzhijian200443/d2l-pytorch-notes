@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0129",
+  "prompt": "Compare offering visitors a detailed audio guide with encouraging them to explore a historic site without narration. A response of around 200 words is enough.",
+  "category": "tradeoff_argument",
+  "target_words": 200,
+  "prompt_group": "cp0129",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "6241fb3654e00640f45a7967a2e905d043abb5812db4e0494b4a9a6c2363b003",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:52:23.959112+00:00",
+  "ended_at": "2026-11-01T09:52:46.394745+00:00",
+  "prompt_sha256": "2f05b2f74e6f120f6b6518218ca7462ff682f4c71852bff69181e07a66d2ef64",
+  "text": "A detailed audio guide offers structure, interpretation, and accessibility. It can explain historical context, highlight easily missed features, and connect individual objects or buildings into a coherent story. For visitors unfamiliar with the site, this guidance can make the experience more meaningful and reduce uncertainty about where to go or what to notice. Audio is also useful for people who prefer listening over reading, or who have limited time.\n\nEncouraging unguided exploration offers a different value: freedom. Visitors can move at their own pace, follow curiosity, linger in quiet places, and form personal impressions before hearing an official interpretation. At historic sites, silence and atmosphere can be important; narration may distract from sounds, views, and emotional reflection. An unstructured visit can also invite observation and conversation among companions.\n\nThe best approach is often to offer both. A well-designed optional audio guide lets visitors choose depth and context, while clearly marked routes, concise signs, and quiet areas preserve the possibility of independent discovery. Short, optional audio segments may be especially effective, providing insight without turning the visit into a continuous lecture.",
+  "text_sha256": "e0a0c814192181aebce0776b29fa870e513b665b5b7068cc647f74f28baf6a58",
+  "raw_final_sha256": "e0a0c814192181aebce0776b29fa870e513b665b5b7068cc647f74f28baf6a58",
+  "word_count": 180,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4121,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 220,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\6241fb3654e00640f45a7967a2e905d043abb5812db4e0494b4a9a6c2363b003",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

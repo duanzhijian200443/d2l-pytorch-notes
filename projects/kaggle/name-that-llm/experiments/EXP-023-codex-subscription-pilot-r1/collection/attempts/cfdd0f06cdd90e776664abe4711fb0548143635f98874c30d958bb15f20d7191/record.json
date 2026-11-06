@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0233",
+  "prompt": "Is it better to keep a private journal regularly or write only when something feels important? Present both perspectives. Use approximately 160 words for the response.",
+  "category": "tradeoff_argument",
+  "target_words": 160,
+  "prompt_group": "cp0233",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "cfdd0f06cdd90e776664abe4711fb0548143635f98874c30d958bb15f20d7191",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:23:14.716227+00:00",
+  "ended_at": "2026-11-01T11:23:40.152093+00:00",
+  "prompt_sha256": "581538cc4e12e066600d410af342f6603aaa06e8fdf7a8cf720e1144502b373b",
+  "text": "Keeping a private journal regularly can build a valuable habit of reflection. Writing daily or weekly helps you notice patterns in your moods, relationships, and decisions that might otherwise go unnoticed. Ordinary entries also preserve details that become meaningful later. For some people, a predictable writing routine offers calm and a space to process emotions. However, frequent journaling can feel like homework, especially when there seems to be little to say.\n\nWriting only when something feels important makes journaling more spontaneous and personally relevant. It allows you to focus on major experiences, difficult feelings, or insights without the pressure of maintaining a schedule. This approach may suit people who dislike routines or have limited time. Its drawback is that memorable events can dominate the record, leaving everyday joys and gradual changes undocumented.\n\nNeither approach is inherently better. A flexible compromise—brief, occasional check-ins alongside longer entries when inspiration strikes—can preserve both consistency and freedom. The best choice is whichever feels useful and sustainable.",
+  "text_sha256": "87e35e964a165c8a1f374db80585b18fe43fc48f07a68cd09a2d3c94c44c1347",
+  "raw_final_sha256": "87e35e964a165c8a1f374db80585b18fe43fc48f07a68cd09a2d3c94c44c1347",
+  "word_count": 162,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4237,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 194,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\cfdd0f06cdd90e776664abe4711fb0548143635f98874c30d958bb15f20d7191",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

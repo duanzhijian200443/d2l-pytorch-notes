@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0100",
+  "prompt": "Compare satire that exposes a powerful institution with humor that merely repeats a familiar stereotype. Use approximately 120 words for the response.",
+  "category": "humanities_history",
+  "target_words": 120,
+  "prompt_group": "cp0100",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "0f05875076ee63a7138a43b4c143c6da7ef5f05fdc931a5916f19524ee2def82",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:33:53.221677+00:00",
+  "ended_at": "2026-11-01T09:34:11.836950+00:00",
+  "prompt_sha256": "bf1eaa6481100fce2d761b411ecaf55a5c191155ecbffa1fd33a7deb1789349b",
+  "text": "Satire aimed at a powerful institution uses humor to reveal hypocrisy, abuse, or contradictions that might otherwise remain protected by authority. It “punches up,” inviting audiences to question systems such as governments, corporations, or religious hierarchies. Its exaggeration is purposeful: it makes hidden power visible and accountable.\n\nHumor that simply repeats a familiar stereotype usually does less critical work. Rather than examining why a group is portrayed narrowly, it relies on the audience already accepting the cliché. The joke may feel easy or recognizable, but it can reinforce prejudice by reducing people to a trait or assumption. The distinction is not that satire can never be offensive; it is whether the joke challenges power and received ideas, or asks us to laugh along with them.",
+  "text_sha256": "8d3b7e169a716b9d66c94d3c64e37bad5392aa2290e9070c2406198964a3f16c",
+  "raw_final_sha256": "8d3b7e169a716b9d66c94d3c64e37bad5392aa2290e9070c2406198964a3f16c",
+  "word_count": 125,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4118,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 154,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\0f05875076ee63a7138a43b4c143c6da7ef5f05fdc931a5916f19524ee2def82",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0197",
+  "prompt": "A shelf can hold eight large boxes or twelve small boxes. Explain why this alone does not determine how many mixed-size boxes it can hold. Aim for about 120 words.",
+  "category": "reasoning_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0197",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "027dea15f48076b17ce4d2730a02a5ceecf78a8c5eaf0a6f8ac39e3fc3f93f5f",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:01:28.744472+00:00",
+  "ended_at": "2026-11-01T11:01:48.586066+00:00",
+  "prompt_sha256": "23d6c6aae1b71e935a58cefc89cb556bfd074055b905de7f403a750a79df20ce",
+  "text": "The statement gives two capacities when only one box size is used, but it does not explain how large and small boxes fit together. Capacity might depend on weight, volume, shelf width, or the way boxes can be arranged. These possibilities can produce different answers for mixed loads.\n\nEven if we assume that capacity is based on one shared, additive limit, we still need to know the mixture. Each large box would use one-eighth of the capacity, and each small box one-twelfth. Four large boxes and six small boxes would fill the shelf, giving ten boxes altogether. Two large boxes and nine small boxes would also fill it, giving eleven. Thus, there is no single mixed-box total without further information.",
+  "text_sha256": "b0f125ae127ae0b9af2bce81236f3b1307666f7eae1c11975eeeb6940c24dc76",
+  "raw_final_sha256": "b0f125ae127ae0b9af2bce81236f3b1307666f7eae1c11975eeeb6940c24dc76",
+  "word_count": 120,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4242,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 148,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\027dea15f48076b17ce4d2730a02a5ceecf78a8c5eaf0a6f8ac39e3fc3f93f5f",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

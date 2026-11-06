@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0215",
+  "prompt": "Describe how captions and a written transcript serve overlapping but different needs for a recorded lecture. Keep your response near 120 words.",
+  "category": "technology_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0215",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "a5ed2df7ed029f6c0a2ab9724f7e1edf6cad1da1d87993a7f4fce469c254fcb4",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:12:19.484558+00:00",
+  "ended_at": "2026-11-01T11:12:35.550183+00:00",
+  "prompt_sha256": "ee714dec5d7f0276786122d58bd45f8c3c103708ff99f70f26a0db0b82cab2cc",
+  "text": "Captions and a written transcript both convert a recorded lecture’s speech into text, improving accessibility and helping viewers understand unfamiliar terms, accents, or unclear audio. However, they support different ways of engaging with the material. Captions appear in sync with the video, allowing viewers—especially people who are Deaf or hard of hearing—to follow speech, sound effects, and speaker changes while watching. They also help in noisy or quiet environments. A transcript, by contrast, presents the lecture as a separate, continuous document. It is easier to search, skim, annotate, quote, print, or review without replaying the recording. Captions preserve the timing and audiovisual context of the lecture, while transcripts make its content more convenient for study, reference, and reuse.",
+  "text_sha256": "865c512e5580f4e1a25cf0722ede9fee4a0976a8d8692f2e4260bdb317f72172",
+  "raw_final_sha256": "865c512e5580f4e1a25cf0722ede9fee4a0976a8d8692f2e4260bdb317f72172",
+  "word_count": 118,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4118,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 155,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\a5ed2df7ed029f6c0a2ab9724f7e1edf6cad1da1d87993a7f4fce469c254fcb4",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

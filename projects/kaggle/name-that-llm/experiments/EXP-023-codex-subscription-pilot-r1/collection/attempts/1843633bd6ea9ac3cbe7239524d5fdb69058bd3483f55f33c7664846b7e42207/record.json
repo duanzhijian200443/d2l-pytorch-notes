@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0068",
+  "prompt": "A product team receives many enthusiastic comments about a new feature, but few people use it twice. How should the team interpret the evidence? Aim for about 160 words.",
+  "category": "business_decision",
+  "target_words": 160,
+  "prompt_group": "cp0068",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "1843633bd6ea9ac3cbe7239524d5fdb69058bd3483f55f33c7664846b7e42207",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:13:52.924174+00:00",
+  "ended_at": "2026-11-01T09:14:12.528940+00:00",
+  "prompt_sha256": "483e498fbb527649a46410cd111c09cb718bf652ada497455c2d524e4527de65",
+  "text": "The team should treat the enthusiastic comments as evidence of initial appeal, not proof of lasting value. People may genuinely like the idea, enjoy a demo, or want to be encouraging without finding the feature useful enough to revisit. Low repeat usage is stronger evidence against sustained adoption—provided the feature is intended for frequent use.\n\nBefore concluding that it has failed, the team should check whether users had a reason and opportunity to return. An occasional-use feature should not be judged by daily retention. They should also examine whether onboarding problems, poor discoverability, bugs, or workflow friction prevent repeat use.\n\nNext, compare behavior across user segments and interview both returning users and people who tried it once. Ask about concrete situations: what they hoped to accomplish, what happened, and what they used instead.\n\nThe appropriate conclusion is provisional: the feature attracts interest, but recurring value remains unproven. Prioritize experiments that test repeat usefulness rather than collecting more praise.",
+  "text_sha256": "204c4924180048f8b99687aa91fa3730694a3cc0c7eb32f20ac1f4f0410033bf",
+  "raw_final_sha256": "204c4924180048f8b99687aa91fa3730694a3cc0c7eb32f20ac1f4f0410033bf",
+  "word_count": 158,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4241,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 192,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\1843633bd6ea9ac3cbe7239524d5fdb69058bd3483f55f33c7664846b7e42207",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

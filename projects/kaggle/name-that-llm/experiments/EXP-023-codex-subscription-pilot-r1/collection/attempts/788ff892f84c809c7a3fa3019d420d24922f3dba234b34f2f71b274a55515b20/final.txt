@@ -1,0 +1,5 @@
+Ask for feedback on the plan’s **goals, major assumptions, risks, and trade-offs**, rather than every detail. Share the decisions that are already made and identify the few areas where input could still change the outcome. For example:
+
+> “I’m looking for feedback on whether this plan achieves the main objective, what significant risks or dependencies I may have missed, and whether the proposed priorities are sound. Please focus on issues that would materially affect the outcome, not wording or minor implementation choices. If you suggest a change, explain the problem it addresses and, where possible, propose an alternative. I’ll collect comments until Friday, then decide what to incorporate and document the rationale.”
+
+This creates clear boundaries, makes feedback actionable, and preserves the manager’s responsibility for the final decision.

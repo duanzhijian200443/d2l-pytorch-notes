@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0226",
+  "prompt": "A gardener deliberately leaves a small square of soil unplanted. Reveal the reason through a visitor's questions. Aim for about 80 words.",
+  "category": "creative_short_fiction",
+  "target_words": 80,
+  "prompt_group": "cp0226",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "1d043e995889b5e6a8d7e8ca617da89ae67b100def237efada2a8fcad2336726",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:18:50.051421+00:00",
+  "ended_at": "2026-11-01T11:19:10.899572+00:00",
+  "prompt_sha256": "8ad9627d9bf5e2f45babef15828e70078d733bd3bcbb58cd34d49993323bb5ef",
+  "text": "“Did you run out of seeds?” the visitor asked.\n\n“No,” said the gardener.\n\n“Too much shade?”\n\n“Sun all afternoon.”\n\n“Bad soil?”\n\n“The best in the garden.”\n\nThe visitor studied the small bare square between the roses. “Then what are you saving it for?”\n\nThe gardener leaned on her spade. “My husband always said I planted things too close together.”\n\n“And now?”\n\n“Now everyone tells me to keep busy. Fill the gaps.”\n\n“Does leaving one help?”\n\n“Some mornings I think it does.”",
+  "text_sha256": "ce67d738f72f543a53138dfc89190d01aa6dfcd04e28446b357e17ca46236b3a",
+  "raw_final_sha256": "ce67d738f72f543a53138dfc89190d01aa6dfcd04e28446b357e17ca46236b3a",
+  "word_count": 81,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4236,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 112,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\1d043e995889b5e6a8d7e8ca617da89ae67b100def237efada2a8fcad2336726",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

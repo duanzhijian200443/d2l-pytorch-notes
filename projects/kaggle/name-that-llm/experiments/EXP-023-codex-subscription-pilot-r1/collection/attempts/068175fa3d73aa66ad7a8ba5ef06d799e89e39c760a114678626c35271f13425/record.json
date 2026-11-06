@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0073",
+  "prompt": "A neighborhood market is choosing between one large annual event and several smaller gatherings. Compare the operational advantages of each. Aim for about 160 words.",
+  "category": "business_decision",
+  "target_words": 160,
+  "prompt_group": "cp0073",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "068175fa3d73aa66ad7a8ba5ef06d799e89e39c760a114678626c35271f13425",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:16:33.229240+00:00",
+  "ended_at": "2026-11-01T09:16:48.538703+00:00",
+  "prompt_sha256": "9284e1d67eae74be07a6dc06d269e16b27f2673a596e2d4f8c02f5598b61bbe6",
+  "text": "A single large annual event offers operational simplicity in scheduling and planning. Vendors, permits, security, marketing, equipment, and staffing can be coordinated around one date, allowing organizers to concentrate their budget and negotiating power. A major event may also attract sponsors, media attention, and visitors from outside the neighborhood. Volunteers and staff face one intense work period rather than repeated commitments, and fixed costs such as signage or stage rental are incurred only once.\n\nSeveral smaller gatherings provide different operational advantages. They spread workload, costs, and risk across the year, reducing the impact of bad weather, low attendance, or vendor cancellations on any single occasion. Organizers can test ideas, collect feedback, and improve later events. Smaller crowds usually require fewer staff, simpler security, and less complex traffic management. Recurring gatherings also help maintain regular customer engagement and give local vendors more sales opportunities.\n\nThe best choice depends on capacity: a large event favors concentrated resources, while smaller events favor flexibility, learning, and steady community participation.",
+  "text_sha256": "7296a5ada2cd4c8b2b693bda89de522162007b16627cdc37448e3e8d697d8087",
+  "raw_final_sha256": "7296a5ada2cd4c8b2b693bda89de522162007b16627cdc37448e3e8d697d8087",
+  "word_count": 165,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4122,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 221,
+      "reasoning_output_tokens": 16
+    }
+  ],
+  "attempt_path": "collection\\attempts\\068175fa3d73aa66ad7a8ba5ef06d799e89e39c760a114678626c35271f13425",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

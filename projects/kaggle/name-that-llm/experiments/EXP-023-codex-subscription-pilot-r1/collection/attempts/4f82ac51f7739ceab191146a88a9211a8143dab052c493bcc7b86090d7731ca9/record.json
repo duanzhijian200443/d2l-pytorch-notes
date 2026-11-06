@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0075",
+  "prompt": "A design studio repeatedly accepts tiny last-minute client requests that collectively delay projects. Recommend a clearer change-request process. Please answer in roughly 120 words.",
+  "category": "business_decision",
+  "target_words": 120,
+  "prompt_group": "cp0075",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "4f82ac51f7739ceab191146a88a9211a8143dab052c493bcc7b86090d7731ca9",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:18:01.960094+00:00",
+  "ended_at": "2026-11-01T09:18:24.375717+00:00",
+  "prompt_sha256": "7ae8b666fb0ed73772af491291fa3f4b38a0ae9bc50932da4395629acd74cfb2",
+  "text": "Introduce a simple change-request process that applies even to “tiny” edits:\n\n1. **Set a baseline:** Agree on scope, deliverables, deadlines, and included revision rounds before work starts.\n2. **Use one intake channel:** Ask clients to submit changes through a shared form or project board, rather than scattered messages.\n3. **Assess cumulative impact:** Log each request and estimate its effect on workload, cost, and delivery dates alongside other pending changes.\n4. **Require approval:** Before starting, offer clear choices: swap out existing work, extend the deadline, or approve additional budget where feasible.\n5. **Batch and freeze:** Review requests at scheduled checkpoints and set a final change cutoff, with explicit exceptions for urgent issues.\n\nAppoint one studio contact to enforce the process consistently and explain that it protects quality and predictable delivery.",
+  "text_sha256": "2f931bb3210aa02e50fc0f712795cae1e3ef78c40db5d37f377238c616061a31",
+  "raw_final_sha256": "2f931bb3210aa02e50fc0f712795cae1e3ef78c40db5d37f377238c616061a31",
+  "word_count": 129,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4237,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 171,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\4f82ac51f7739ceab191146a88a9211a8143dab052c493bcc7b86090d7731ca9",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

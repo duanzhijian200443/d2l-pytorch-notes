@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0229",
+  "prompt": "A person rehearses an apology all morning, then finds that the actual conversation takes a different direction. Write the scene without making either character cruel. Use approximately 200 words for the response.",
+  "category": "creative_short_fiction",
+  "target_words": 200,
+  "prompt_group": "cp0229",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "1cbd4fc0a5a3b3b659cf52d4a02cb2fbf4e964bba972dd797de8788b45a006ea",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:20:07.595180+00:00",
+  "ended_at": "2026-11-01T11:20:22.880613+00:00",
+  "prompt_sha256": "84a23b03047c36056d9ae8190ee98a86eba51f510b5ecbe9f759bb1e11f7ffa5",
+  "text": "By noon, Mara had rehearsed the apology so many times it had lost its edges.\n\n“I’m sorry I left without explaining. I was scared, and that wasn’t fair to you.”\n\nShe practiced it in the shower, in the elevator, while stirring her coffee. By the time she knocked on Daniel’s door, the words felt polished enough to belong to someone else.\n\nDaniel opened it wearing an old sweatshirt and an expression she couldn’t read.\n\n“Come in,” he said.\n\nMara stepped inside. “I wanted to say—”\n\n“I got your message,” Daniel interrupted gently. “About the hospital.”\n\nShe blinked. “What?”\n\n“Your sister called me. She said you’ve been sitting with your mother every night.”\n\nMara’s prepared apology shifted uneasily in her chest. “I should still have told you.”\n\n“Yes,” he said. “But I should have asked instead of assuming you were avoiding me.”\n\nThe room seemed to loosen around them.\n\n“I was avoiding you,” Mara admitted. “A little. I didn’t know how to be sad in front of someone.”\n\nDaniel looked down at his hands. “I didn’t know how to stand beside you without making it worse.”\n\nShe gave a small, tired laugh. “We’re both very talented at making things complicated.”\n\n“I brought soup,” he said, gesturing toward the kitchen. “It may be terrible.”\n\n“It probably is.”\n\n“It definitely is.”\n\nMara finally smiled. The apology remained unsaid, but something quieter—and more honest—had begun.",
+  "text_sha256": "bbb89a470355f799a5926ae6a74bdc79ecb8f156a720b8132a46654669de3d44",
+  "raw_final_sha256": "bbb89a470355f799a5926ae6a74bdc79ecb8f156a720b8132a46654669de3d44",
+  "word_count": 231,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2596,
+      "cached_input_tokens": 2432,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 330,
+      "reasoning_output_tokens": 15
+    }
+  ],
+  "attempt_path": "collection\\attempts\\1cbd4fc0a5a3b3b659cf52d4a02cb2fbf4e964bba972dd797de8788b45a006ea",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

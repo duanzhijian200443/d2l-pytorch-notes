@@ -1,0 +1,17 @@
+{
+  "experiment_id": "EXP-054",
+  "ref": "zhjianduan/ntl-apex-zero-054",
+  "kernel_id": 142259135,
+  "saved_version": 1,
+  "run_version": 2,
+  "status": "READY_FOR_SUBMISSION",
+  "observed_at": "2026-11-02T09:12:38.117014+00:00",
+  "save_only_requests": 1,
+  "run_requests": 1,
+  "competition_submissions_by_controller": 0,
+  "source_exact_bytes": true,
+  "script_version_id": 364820326,
+  "submission_sha256": "ef94c7669e36a465bbd3e2dd8cf4905b5e1c2e51e18053a588cb56623086170a",
+  "ready_receipt": "cloud/apex-zero-054/ready-for-submission.json",
+  "competition_submission_owner": "root"
+}

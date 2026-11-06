@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0174",
+  "prompt": "Draft a polite email asking a supplier whether two orders can be combined into one delivery. Do not assume that this will reduce the price. Keep your response near 80 words.",
+  "category": "short_email",
+  "target_words": 80,
+  "prompt_group": "cp0174",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "32f076d8784fe9dade98f89649829e900938799bb96060af1a9f4cd74bb6b484",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:45:03.004106+00:00",
+  "ended_at": "2026-11-01T10:45:22.136131+00:00",
+  "prompt_sha256": "04852f3b0459f07890cb022bfeb4b87f82d46e2a18ee1e672a1c1035b5b5e647",
+  "text": "Subject: Request to Combine Deliveries\n\nDear [Supplier Name],\n\nI hope you’re well. We have two current orders, [Order #1] and [Order #2], and would like to ask whether they could be combined into a single delivery. Please let us know if this is possible and whether there are any logistical requirements or changes to the delivery schedule. We understand this may not affect the total cost.\n\nThank you for your assistance.\n\nBest regards,  \n[Your Name]",
+  "text_sha256": "7084566f7b72ac87d244763ce52eb6d4032c36aa0067096b25ab3b33889f7587",
+  "raw_final_sha256": "7084566f7b72ac87d244763ce52eb6d4032c36aa0067096b25ab3b33889f7587",
+  "word_count": 75,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2593,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 101,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\32f076d8784fe9dade98f89649829e900938799bb96060af1a9f4cd74bb6b484",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

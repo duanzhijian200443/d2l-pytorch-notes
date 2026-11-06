@@ -1,0 +1,3 @@
+A local search index does upfront work: it extracts and organizes document terms so queries can retrieve likely matches quickly. This requires storage, indexing time, and updates when documents change, but delivers low-latency, scalable searches.
+
+Searching every document from scratch avoids maintaining an index and always reads current content. However, each query must scan and analyze the entire collection, making it slower and more resource-intensive as data grows. Indexing is best for frequent searches; full scans suit small, rarely queried, or rapidly changing collections.

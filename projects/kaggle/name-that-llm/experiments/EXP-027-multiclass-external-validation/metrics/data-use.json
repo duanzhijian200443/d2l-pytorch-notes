@@ -1,0 +1,12 @@
+{
+  "experiment": "EXP-027",
+  "observed_at_utc": "2026-11-01T09:11:47.723428+00:00",
+  "rows": 729,
+  "groups": 56,
+  "covered_labels": 17,
+  "evaluation_sha256": "8ec3217f1f469b66170f68f7abdb3ef1973a64e47d983c59b40a4d1ce2094670",
+  "alpha": 0.1,
+  "retuned_on_results": false,
+  "future_status": "Inspected evaluation set; later tuned candidates cannot claim first independent confirmation on it",
+  "scope": "Known/exact two-member isolation only; upstream official eightgram filtering and publisher identity limits retained"
+}

@@ -1,0 +1,3 @@
+When a phone scans a QR code, its camera captures an image and the scanner software finds the square pattern, corrects for angle and lighting, and reads the grid of black-and-white modules. It uses the code’s alignment markers, format information, and error-correction data to reconstruct the encoded bits, then converts those bits into content such as text, contact details, Wi‑Fi credentials, or a URL.
+
+Reading the QR code is therefore a local decoding step: no website needs to be contacted merely to identify its contents. Opening its destination is separate. If the decoded content is a URL, the phone may show a preview or prompt, then a browser or app requests that address over the network.

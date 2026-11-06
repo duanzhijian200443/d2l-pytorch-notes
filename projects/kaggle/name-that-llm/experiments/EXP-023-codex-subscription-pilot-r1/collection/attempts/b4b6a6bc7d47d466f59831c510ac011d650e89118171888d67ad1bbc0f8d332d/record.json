@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0075",
+  "prompt": "A design studio repeatedly accepts tiny last-minute client requests that collectively delay projects. Recommend a clearer change-request process. Please answer in roughly 120 words.",
+  "category": "business_decision",
+  "target_words": 120,
+  "prompt_group": "cp0075",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "b4b6a6bc7d47d466f59831c510ac011d650e89118171888d67ad1bbc0f8d332d",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:17:31.855652+00:00",
+  "ended_at": "2026-11-01T09:17:48.049478+00:00",
+  "prompt_sha256": "7ae8b666fb0ed73772af491291fa3f4b38a0ae9bc50932da4395629acd74cfb2",
+  "text": "Implement a lightweight change-request process that makes small requests visible and consistently evaluated:\n\n1. **Centralize requests:** Require clients to submit every change through one form or shared board, rather than email, chat, or verbal requests.\n2. **Define impact:** Capture the requested change, rationale, priority, deadline, and affected deliverables.\n3. **Estimate before accepting:** Assign a quick estimate for time, cost, dependencies, and schedule impact—even for “tiny” requests.\n4. **Use approval tiers:** Designers may absorb truly minor fixes; anything beyond a defined threshold requires project-lead and client approval.\n5. **Offer explicit options:** Present “approve added time/cost,” “replace another task,” or “defer to the next phase.”\n6. **Batch small changes:** Review minor requests at scheduled checkpoints instead of interrupting active work.\n7. **Track decisions:** Record approvals and update the timeline so scope remains transparent.",
+  "text_sha256": "dc741636e919d022c84f47fb2c8292e0bc2f32549c7777d17cf5f4eb037466c3",
+  "raw_final_sha256": "dc741636e919d022c84f47fb2c8292e0bc2f32549c7777d17cf5f4eb037466c3",
+  "word_count": 131,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2588,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 209,
+      "reasoning_output_tokens": 15
+    }
+  ],
+  "attempt_path": "collection\\attempts\\b4b6a6bc7d47d466f59831c510ac011d650e89118171888d67ad1bbc0f8d332d",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

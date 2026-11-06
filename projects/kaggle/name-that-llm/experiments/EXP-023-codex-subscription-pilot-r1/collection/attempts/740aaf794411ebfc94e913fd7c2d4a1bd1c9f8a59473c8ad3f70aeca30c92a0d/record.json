@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0111",
+  "prompt": "Tell a quiet story about the last customer in a shop that is closing after many years. Aim for about 80 words.",
+  "category": "creative_short_fiction",
+  "target_words": 80,
+  "prompt_group": "cp0111",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "740aaf794411ebfc94e913fd7c2d4a1bd1c9f8a59473c8ad3f70aeca30c92a0d",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:40:42.622811+00:00",
+  "ended_at": "2026-11-01T09:40:57.615043+00:00",
+  "prompt_sha256": "9056a8c9d7fb5787a01cd100d122e1872eb74a7b80f2c5a631418878b59a3383",
+  "text": "The bell gave a tired chime as Mr. Vale entered. Most shelves were bare, their dustless squares marking where things had stood for years. He chose a blue teacup, though he already owned six.\n\n“At last,” said Mara, wrapping it in yesterday’s newspaper.\n\nOutside, evening gathered against the windows. Neither mentioned that tomorrow the sign would come down. Mr. Vale counted exact change, then paused at the door.\n\n“See you,” he said softly.\n\nMara smiled and turned the key after him.",
+  "text_sha256": "926c29e6c1199b270d648141527f61ec9ece342a511c2ba332353baafec2412f",
+  "raw_final_sha256": "926c29e6c1199b270d648141527f61ec9ece342a511c2ba332353baafec2412f",
+  "word_count": 81,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4118,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 125,
+      "reasoning_output_tokens": 13
+    }
+  ],
+  "attempt_path": "collection\\attempts\\740aaf794411ebfc94e913fd7c2d4a1bd1c9f8a59473c8ad3f70aeca30c92a0d",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

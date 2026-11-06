@@ -1,0 +1,29 @@
+Let the number of blue buttons be \(b\). Since there are twice as many red buttons, the number of red buttons is \(2b\).
+
+All buttons together total 18, so add the two quantities:
+
+\[
+b + 2b = 18
+\]
+
+Combine like terms:
+
+\[
+3b = 18
+\]
+
+Divide both sides by 3:
+
+\[
+b = 6
+\]
+
+So there are 6 blue buttons. The red count is twice that amount:
+
+\[
+2 \times 6 = 12
+\]
+
+Therefore, the jar contains **12 red buttons and 6 blue buttons**.
+
+You can also reason without an equation: the buttons are in a ratio of 2 red to 1 blue. That means every group of 3 buttons has 2 red and 1 blue. Since 18 divided by 3 is 6 groups, there are \(6 \times 2 = 12\) red buttons and \(6 \times 1 = 6\) blue buttons.

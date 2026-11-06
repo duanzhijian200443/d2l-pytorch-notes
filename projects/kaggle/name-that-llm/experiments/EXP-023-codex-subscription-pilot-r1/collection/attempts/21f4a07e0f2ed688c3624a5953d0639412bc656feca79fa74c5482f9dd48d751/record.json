@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0006",
+  "prompt": "Offer advice to someone hosting six dinner guests in a tiny apartment who wants the evening to feel relaxed rather than carefully staged. Aim for about 80 words.",
+  "category": "everyday_advice",
+  "target_words": 80,
+  "prompt_group": "cp0006",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "21f4a07e0f2ed688c3624a5953d0639412bc656feca79fa74c5482f9dd48d751",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:34:34.347329+00:00",
+  "ended_at": "2026-11-01T08:34:51.222946+00:00",
+  "prompt_sha256": "6fd1399309207bd176dc975454be48c830e4f748e7b12e8ae1c17d67419c640c",
+  "text": "Keep it simple and slightly imperfect. Serve one generous, mostly make-ahead dish—pasta, stew, or a big roasted tray—plus good bread and a salad. Let guests help themselves to drinks and perch wherever there’s space: chairs, cushions, even the edge of the bed if appropriate. Dim the lights, make a playlist, clear only the essentials, and don’t apologize for the apartment. Warmth, conversation, and an unhurried host matter more than a polished setup.",
+  "text_sha256": "54d0fc343b38c1d6a5dfccdbe6cc50ea5c5d027e506c966e03fe5e1b46bbde33",
+  "raw_final_sha256": "54d0fc343b38c1d6a5dfccdbe6cc50ea5c5d027e506c966e03fe5e1b46bbde33",
+  "word_count": 72,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4124,
+      "cached_input_tokens": 1792,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 104,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\21f4a07e0f2ed688c3624a5953d0639412bc656feca79fa74c5482f9dd48d751",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

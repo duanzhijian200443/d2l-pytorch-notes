@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0054",
+  "prompt": "A wireless headset sounds fine for music but less clear during a call. Explain a plausible technical reason without diagnosing a specific product. Aim for about 200 words.",
+  "category": "technology_explanation",
+  "target_words": 200,
+  "prompt_group": "cp0054",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "1b58e4c6adf737a7c45fafe18545cd5e3ce8e1d3810ad56dc3f043aaccf8cc84",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:04:56.157317+00:00",
+  "ended_at": "2026-11-01T09:05:18.077779+00:00",
+  "prompt_sha256": "900a0185ad00a64e6b192b3cce9c1a0735d7438bc9ca8111de991edc9ed3fe14",
+  "text": "A plausible reason is that wireless headsets often use different Bluetooth audio modes for music and calls.\n\nFor music, the headset may use a high-quality stereo playback profile with relatively high bandwidth and codecs designed for full-range audio. This can preserve bass, treble, stereo separation, and overall detail.\n\nDuring a call, the connection typically switches to a two-way “hands-free” mode so the headset can send microphone audio back to the phone or computer while receiving the caller’s voice. That mode has more limited bandwidth and must reserve capacity for the microphone uplink, reliability features, and low-latency communication. As a result, the received call audio may be mono, more compressed, or limited to a narrower speech-focused frequency range. Voices can therefore sound flatter, less natural, or less distinct than music.\n\nCall clarity can also be affected by signal strength, interference from nearby wireless devices, network call quality, microphone noise reduction, and software settings. These factors do not necessarily indicate a fault: the headset may be operating normally within the trade-offs of a wireless, bidirectional call connection.",
+  "text_sha256": "716966aa1a5744b77354fb1349202fd02b6f6e77d0011d9f9ad731ed209f54b2",
+  "raw_final_sha256": "716966aa1a5744b77354fb1349202fd02b6f6e77d0011d9f9ad731ed209f54b2",
+  "word_count": 175,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4125,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 250,
+      "reasoning_output_tokens": 26
+    }
+  ],
+  "attempt_path": "collection\\attempts\\1b58e4c6adf737a7c45fafe18545cd5e3ce8e1d3810ad56dc3f043aaccf8cc84",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

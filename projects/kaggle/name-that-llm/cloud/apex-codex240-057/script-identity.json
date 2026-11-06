@@ -1,0 +1,22 @@
+{
+  "ref": "zhjianduan/ntl-apex-codex240-057",
+  "version": 2,
+  "script_version_id": 364839816,
+  "file_ids": {
+    "comp_stack.py": 364839816,
+    "deberta_v3_large/encoder/config.json": 364839816,
+    "deberta_v3_large/encoder/model.safetensors": 364839816,
+    "deberta_v3_large/encoder/tokenizer.json": 364839816,
+    "deberta_v3_large/encoder/tokenizer_config.json": 364839816,
+    "deberta_v3_large/head.safetensors": 364839816,
+    "deberta_v3_large/meta.json": 364839816,
+    "gauss.py": 364839816,
+    "infer.py": 364839816,
+    "pool_open_safe.parquet": 364839816,
+    "sibling_style.py": 364839816,
+    "submission.parquet": 364839816,
+    "volume_preflight.json": 364839816
+  },
+  "signed_urls_omitted": true,
+  "observed_at": "2026-11-02T10:25:23.336636+00:00"
+}

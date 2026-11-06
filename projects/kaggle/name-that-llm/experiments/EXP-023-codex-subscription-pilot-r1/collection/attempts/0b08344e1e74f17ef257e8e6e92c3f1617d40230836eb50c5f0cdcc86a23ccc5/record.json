@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0177",
+  "prompt": "Write to a librarian asking whether a donated collection of local photographs would be useful. Mention that some dates are uncertain. A response of around 120 words is enough.",
+  "category": "short_email",
+  "target_words": 120,
+  "prompt_group": "cp0177",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "0b08344e1e74f17ef257e8e6e92c3f1617d40230836eb50c5f0cdcc86a23ccc5",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:47:40.487504+00:00",
+  "ended_at": "2026-11-01T10:48:00.068775+00:00",
+  "prompt_sha256": "e5a9299dd5ac4d2f5f5935567839a30faea0705c7895207178a90f146d1face4",
+  "text": "Dear Librarian,\n\nI’m writing to ask whether the library would be interested in a donation of local photographs from my family’s collection. They show streets, buildings, community events, and everyday life in the area over several decades, and I wondered whether they might be useful for your local history collection.\n\nSome photographs have names and dates written on the back, but others are unlabelled, and a few dates are uncertain. I would be happy to share what I know about their background and help identify any people or locations I recognize.\n\nPlease let me know whether you would like to see a few sample images or arrange a time to look through the collection.\n\nKind regards,\n[Your Name]",
+  "text_sha256": "df6e9de75148ed3a42f9d245f494e3b1a0826881e2c98ba83c21cf2aef25a5bd",
+  "raw_final_sha256": "df6e9de75148ed3a42f9d245f494e3b1a0826881e2c98ba83c21cf2aef25a5bd",
+  "word_count": 118,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4240,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 142,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\0b08344e1e74f17ef257e8e6e92c3f1617d40230836eb50c5f0cdcc86a23ccc5",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

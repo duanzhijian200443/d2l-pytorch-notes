@@ -1,0 +1,50 @@
+{
+  "status": "PASS_RAW_DATA_ONLY",
+  "evidence": {
+    "120": {
+      "rows": 120,
+      "groups": 30,
+      "label_counts": {
+        "gpt-5.6-luna": 30,
+        "gpt-5.6-sol": 30,
+        "gpt-5.6-terra": 30,
+        "gpt-6-astra": 30
+      },
+      "raw_downloaded_original_texts_matched": 120,
+      "holdout_hash_overlap": 0,
+      "old_weight_rows": 13442,
+      "new_per_row": {
+        "gpt-5.6-luna": 0.1016260162601626,
+        "gpt-5.6-sol": 0.1016260162601626,
+        "gpt-5.6-terra": 0.1016260162601626,
+        "gpt-6-astra": 0.10330578512396695
+      },
+      "added_total_mass": 12.245515017133638,
+      "input_sha256": "a4e86314a77f7ed699dbfb107b32a8263a1ff09fc7c3ec92b98d4028d487005d"
+    },
+    "240": {
+      "rows": 240,
+      "groups": 60,
+      "label_counts": {
+        "gpt-5.6-luna": 60,
+        "gpt-5.6-sol": 60,
+        "gpt-5.6-terra": 60,
+        "gpt-6-astra": 60
+      },
+      "raw_downloaded_original_texts_matched": 240,
+      "holdout_hash_overlap": 0,
+      "old_weight_rows": 13442,
+      "new_per_row": {
+        "gpt-5.6-luna": 0.1016260162601626,
+        "gpt-5.6-sol": 0.1016260162601626,
+        "gpt-5.6-terra": 0.1016260162601626,
+        "gpt-6-astra": 0.10330578512396695
+      },
+      "added_total_mass": 24.491030034267276,
+      "input_sha256": "694d91e2536db2d77d81f8d8b32a802763a750a2e9643fdb0ba6a10b76755a01"
+    }
+  },
+  "zero_sha256": "ca4c9e18ed32dcd8168b8118b192d39d657803d30dcd89a564b1c2d1d9c846dd",
+  "cross_arm": "four120 is an ordered exact subset of four240",
+  "limit": "Model identity is requested-only. Exact/known prompt isolation, not exhaustive semantic independence."
+}

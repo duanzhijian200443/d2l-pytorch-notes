@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0116",
+  "prompt": "Write a brief story about two strangers assembling a flat-pack bookshelf in a place where neither of them lives. Aim for about 80 words.",
+  "category": "creative_short_fiction",
+  "target_words": 80,
+  "prompt_group": "cp0116",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "28be6687ac0754096607b6eb6dc49a31766b5b72a4006cf5519d7e3d30a7f2a3",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:44:00.367782+00:00",
+  "ended_at": "2026-11-01T09:44:23.914212+00:00",
+  "prompt_sha256": "8145cc1147d3be34076741e3951da224f924fbb6ee6e8ec96163dd3e457202b8",
+  "text": "The key turned reluctantly in the borrowed apartment’s lock. Mara found the box in the hall; Elias arrived carrying an Allen key he’d inherited from a hotel desk clerk downstairs.\n\nNeither knew whose books would fill the shelves. They worked quietly beneath a flickering kitchen light, passing dowels and apologies. When the last panel clicked into place, the bookshelf leaned slightly but held. Outside, rain pressed against the windows. Inside, two strangers shared tea from mismatched mugs, waiting for someone else to come home.",
+  "text_sha256": "2baa02026faf1deff580027b36db09cdee77fbfd0cfa530a21199fd56a13d19e",
+  "raw_final_sha256": "2baa02026faf1deff580027b36db09cdee77fbfd0cfa530a21199fd56a13d19e",
+  "word_count": 84,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4121,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 106,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\28be6687ac0754096607b6eb6dc49a31766b5b72a4006cf5519d7e3d30a7f2a3",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0234",
+  "prompt": "Should a local history project prioritize a polished final exhibition or a process that involves many residents? A response of around 200 words is enough.",
+  "category": "tradeoff_argument",
+  "target_words": 200,
+  "prompt_group": "cp0234",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "82aaa0f699c7d3006a5ffd2ceca33c1224d621008b20801d5f04225daf815115",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:23:52.478245+00:00",
+  "ended_at": "2026-11-01T11:24:15.706529+00:00",
+  "prompt_sha256": "d64e2f9f80596b92533d83ae1c72112e10c79c6118636ea5e8a51caeefeec2ac",
+  "text": "A local history project should usually prioritize a process that involves many residents, while treating a polished final exhibition as an important secondary goal.\n\nLocal history is not simply a collection of established facts. It also concerns whose experiences are remembered, whose voices are heard, and how a community understands itself. Involving residents through interviews, shared photographs, workshops, and collaborative research can uncover stories that official archives overlook. Participation can also build relationships across generations and give people a stronger sense of ownership over the project.\n\nHowever, participation alone does not guarantee good history. Organizers still need to check evidence, explain conflicting accounts, obtain consent, and ensure that confident or well-connected participants do not dominate. Broad involvement should include deliberate efforts to reach people who rarely attend public meetings.\n\nA polished exhibition matters because clear writing, accessible displays, and thoughtful design help these stories reach a wider audience. Yet an impressive exhibition produced with little community input may look authoritative while presenting a narrow picture.\n\nThe best approach is therefore to make participation the foundation and the exhibition its public expression. If resources force a choice, a modest exhibition built through meaningful collaboration will often leave a more valuable legacy than a spectacular display that residents had little role in shaping.",
+  "text_sha256": "be113fc2c4e963fe4fe7c06ed0c6b8dc7fdf24cfdf2040ced2a7c9ecec4ddf3b",
+  "raw_final_sha256": "be113fc2c4e963fe4fe7c06ed0c6b8dc7fdf24cfdf2040ced2a7c9ecec4ddf3b",
+  "word_count": 211,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4235,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 243,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\82aaa0f699c7d3006a5ffd2ceca33c1224d621008b20801d5f04225daf815115",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

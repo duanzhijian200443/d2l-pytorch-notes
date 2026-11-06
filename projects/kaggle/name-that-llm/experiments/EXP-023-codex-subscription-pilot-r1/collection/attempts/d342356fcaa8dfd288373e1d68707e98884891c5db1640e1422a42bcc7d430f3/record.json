@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0003",
+  "prompt": "My friend tends to arrive twenty minutes early whenever we meet, while I am usually right on time. How could we discuss the mismatch without turning it into an argument? Please answer in roughly 160 words.",
+  "category": "everyday_advice",
+  "target_words": 160,
+  "prompt_group": "cp0003",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "d342356fcaa8dfd288373e1d68707e98884891c5db1640e1422a42bcc7d430f3",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:32:27.133071+00:00",
+  "ended_at": "2026-11-01T08:32:45.720730+00:00",
+  "prompt_sha256": "cfa5b23bccf10651f197d5963f9891228821830a0524690f9e79f6f8dd003345",
+  "text": "Choose a calm moment—not when either of you is waiting—and frame it as a coordination issue rather than a character flaw. You might say:\n\n“I’ve noticed you often arrive about twenty minutes early, while I usually aim to arrive at the agreed time. I appreciate that you’re dependable, but I worry you may feel frustrated waiting for me. Could we talk about what timing feels comfortable for both of us?”\n\nListen for the reason behind their early arrival: they may dislike rushing, need a buffer, or interpret the meeting time differently. Then explain your perspective without defensiveness: “For me, arriving on time means getting there close to the scheduled time, and arriving much earlier is difficult or unnecessary.”\n\nSuggest a concrete compromise. Perhaps agree that the stated time is when you will meet, and that arriving early is fine but not something they should expect you to match. Or choose a “ready by” window, such as arriving between 6:00 and 6:10. Reassure them that punctuality matters to you, while acknowledging that you manage time differently.",
+  "text_sha256": "f8f621bbc7f7a97e800d391ba118733293a1fe9c6c6ad5d0b8493082b22ac89f",
+  "raw_final_sha256": "f8f621bbc7f7a97e800d391ba118733293a1fe9c6c6ad5d0b8493082b22ac89f",
+  "word_count": 175,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2599,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 241,
+      "reasoning_output_tokens": 21
+    }
+  ],
+  "attempt_path": "collection\\attempts\\d342356fcaa8dfd288373e1d68707e98884891c5db1640e1422a42bcc7d430f3",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "observed_at": "2026-11-01T08:16:33.148653+00:00",
+  "inputs": 103,
+  "scenarios": 16,
+  "rows_by_scenario": {
+    "dense": 2699,
+    "m2-repeat0": 300,
+    "m2-repeat1": 300,
+    "m2-repeat2": 300,
+    "m2-repeat3": 300,
+    "m2-repeat4": 300,
+    "m3-repeat0": 450,
+    "m3-repeat1": 450,
+    "m3-repeat2": 450,
+    "m3-repeat3": 450,
+    "m3-repeat4": 450,
+    "m6-repeat0": 900,
+    "m6-repeat1": 900,
+    "m6-repeat2": 900,
+    "m6-repeat3": 900,
+    "m6-repeat4": 900
+  },
+  "stylegram_sparse_npz": 75,
+  "stylegram_dense_fold_npz": 5,
+  "svc4_fold_npz": 5,
+  "source_hashes_bound_to_prior_acceptance": true,
+  "group_mask_checked": true,
+  "uncentred_scores_match_plain": true,
+  "input_manifest_sha256": "aa82b8ed31859b9c0e7ca12bd811ffe370b5554a67eafa4735a85e373f55051f"
+}

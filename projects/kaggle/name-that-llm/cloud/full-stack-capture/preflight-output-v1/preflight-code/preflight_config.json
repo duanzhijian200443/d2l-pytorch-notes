@@ -1,0 +1,196 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-029",
+  "attachment_bindings": [
+    {
+      "kind": "competition",
+      "ref": "name-that-llm",
+      "version": null
+    },
+    {
+      "kind": "dataset",
+      "ref": "dhruvtibarewal/nlm-l24-adapters",
+      "version": 7
+    },
+    {
+      "kind": "dataset",
+      "ref": "seyitkaangunes/ntl-extra-api-passages",
+      "version": 2
+    },
+    {
+      "kind": "dataset",
+      "ref": "zhjianduan/ntl-generations",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "dophuchung/ntl-proxy-generations",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "zbigniewkirchner/ntl-qwen3-8b-lora-claude-head",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "dhruvtibarewal/nlm-matched-clean",
+      "version": 3
+    },
+    {
+      "kind": "dataset",
+      "ref": "dhruvtibarewal/nlm-offline-wheels",
+      "version": 2
+    },
+    {
+      "kind": "dataset",
+      "ref": "josephadamski91/ntl-atlas-qwen3-8b-v1",
+      "version": 3
+    },
+    {
+      "kind": "dataset",
+      "ref": "zhjianduan/ntl-free-proxy-generations",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "nishantdahal/ntl-two-stage-lora",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "nishantdahal/ntl-handwriting-blend",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "dhruvtibarewal/nlm-l24-adapters-v5",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+      "version": 6
+    },
+    {
+      "kind": "dataset",
+      "ref": "pjmathematician/ultrabert-380m-ntl",
+      "version": 1
+    },
+    {
+      "kind": "dataset",
+      "ref": "zhjianduan/llama31-8b-base-verified",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-glm4-9b-trunc25",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-extract-encoders2",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-electra-large-weights",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-desklib-weights",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-train-lora24-s7",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-train-tokattn",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-train-tokattn2",
+      "version": 1
+    },
+    {
+      "kind": "notebook",
+      "ref": "vnton37nguyn/ntl-train-lora-qwen25-instyle",
+      "version": 2
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen-3/Transformers/8b",
+      "version": 1
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen-3/Transformers/4b-base",
+      "version": 1
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen-3/Transformers/8b-base",
+      "version": 1
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen-3/Transformers/14b-base",
+      "version": 1
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen-3/Transformers/14b",
+      "version": 1
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen2.5/Transformers/7b",
+      "version": 1
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen2.5/Transformers/14b",
+      "version": 1
+    }
+  ],
+  "train_sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+  "known_input_sha256": {
+    "ntl-generations/ntl_generations.csv": "83003454e3cc0368cae8b05bca243daf036b64a42a792c3f7bfd5fd91b3db378",
+    "ntl-generations/prompts_used.csv": "b42003b1068ba24de1accf33265e208e1a492d1ca8c81eb581d256b54bdefdbc",
+    "ntl-free-proxy-generations/gen_passages.csv": "d037d212e17a7e98465f9c606f4437225fb221939a5f51b0f8150d15c07c68a5"
+  },
+  "required_globs": [
+    "**/atlas_bundle.json",
+    "**/nlm_pool_v5.parquet",
+    "**/nlm_matched_clean.parquet",
+    "**/heads/q3_8bx.npz",
+    "**/deberta_v3_large/meta.json",
+    "**/lora_qwen3_14b/meta.json",
+    "**/lora_qwen25_14b/meta.json",
+    "**/lora8b_v1/meta.json",
+    "**/lora14b_v1/meta.json",
+    "**/q8v5/heads.pt",
+    "**/q8v5_f0/heads.pt",
+    "**/q8v5_f1/heads.pt",
+    "**/q8v5_f2/heads.pt",
+    "**/q8v5_f3/heads.pt",
+    "**/q8v5_f4/heads.pt",
+    "**/q14v5/heads.pt",
+    "**/q14v5_f0/heads.pt",
+    "**/q14v5_f1/heads.pt",
+    "**/q14v5_f2/heads.pt",
+    "**/q14v5_f3/heads.pt",
+    "**/q14v5_f4/heads.pt",
+    "**/ll8v5/heads.pt",
+    "**/ll8v5_f0/heads.pt",
+    "**/ll8v5_f1/heads.pt",
+    "**/ll8v5_f2/heads.pt",
+    "**/ll8v5_f3/heads.pt",
+    "**/ll8v5_f4/heads.pt"
+  ]
+}

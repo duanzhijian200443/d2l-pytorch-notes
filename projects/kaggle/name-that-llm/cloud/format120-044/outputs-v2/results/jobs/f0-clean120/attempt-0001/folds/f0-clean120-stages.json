@@ -1,0 +1,50 @@
+{
+  "run_id": "exp044-20261101T163138Z",
+  "config_sha256": "2b53034c7489370a387827b9bf21a5dbd5ccc0c5a008f27a1da37ad7aff443d7",
+  "runner_sha256": "2bb7e8376b44b3450cc5fc2b71f315a8cd1acea29b26d05e207bc3d666fbce8d",
+  "legacy_runner_sha256": "de60b60bfd138b834d8723bbd832fd0522453f549c4050256197f6babe4ed45a",
+  "core_sha256": "caa46bd121164aba891c3d78e662540db9294d653db09f53d02833c1b4ab77ef",
+  "identity_sha256": "39f2278d85393948e50d7b8f0a7c3b2a6f8c9ec73c6946e4bf345cf1a2654a57",
+  "stages": [
+    {
+      "fold": 0,
+      "arm": "clean120",
+      "stage": "tfidf_fit_transform",
+      "started_at": "2026-11-01T16:34:42.601504+00:00",
+      "status": "COMPLETE",
+      "seconds": 106.80426236199997
+    },
+    {
+      "fold": 0,
+      "arm": "clean120",
+      "stage": "plain_fit",
+      "started_at": "2026-11-01T16:36:29.406356+00:00",
+      "status": "COMPLETE",
+      "seconds": 33.35986919100003
+    },
+    {
+      "fold": 0,
+      "arm": "clean120",
+      "stage": "centred_fit",
+      "started_at": "2026-11-01T16:37:02.768182+00:00",
+      "status": "COMPLETE",
+      "seconds": 184.72486901800005
+    },
+    {
+      "fold": 0,
+      "arm": "clean120",
+      "stage": "dense_prediction",
+      "started_at": "2026-11-01T16:40:07.499010+00:00",
+      "status": "COMPLETE",
+      "seconds": 0.7838059139999132
+    },
+    {
+      "fold": 0,
+      "arm": "clean120",
+      "stage": "sparse_prediction",
+      "started_at": "2026-11-01T16:40:08.283469+00:00",
+      "status": "COMPLETE",
+      "seconds": 1.4180029330000252
+    }
+  ]
+}

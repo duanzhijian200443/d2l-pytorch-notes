@@ -1,0 +1,64 @@
+{
+  "source_id": "SRC-062",
+  "source_snapshot": "research/datasets/SRC-062-enaimaan-ntl-openai-generated-responses-v3/snapshots/20261101T073434Z.json",
+  "source_snapshot_sha256": "3a4e34109298c54a923a0b7a0665aeb1b4dfd63359a91698b3f5ebe3fa763dee",
+  "live_listing_rechecked": "2026-11-01 via Kaggle MCP list_dataset_files explicit v3; 10 matching names/sizes",
+  "entry": {
+    "ref": "enaimaan/ntl-openai-generated-responses",
+    "version": 3,
+    "file_listing": {
+      "dataset_files": [
+        {
+          "name": "CC-BY-4.0.txt",
+          "creation_date": "2026-10-29T23:03:16.537Z",
+          "total_bytes": "18657"
+        },
+        {
+          "name": "CC-BY-SA-3.0.txt",
+          "creation_date": "2026-10-29T23:03:16.645Z",
+          "total_bytes": "22240"
+        },
+        {
+          "name": "LICENSE.md",
+          "creation_date": "2026-10-29T23:03:16.741Z",
+          "total_bytes": "1818"
+        },
+        {
+          "name": "README.md",
+          "creation_date": "2026-10-29T23:03:16.626Z",
+          "total_bytes": "4735"
+        },
+        {
+          "name": "SHA256SUMS",
+          "creation_date": "2026-10-29T23:03:16.628Z",
+          "total_bytes": "722"
+        },
+        {
+          "name": "attribution.json",
+          "creation_date": "2026-10-29T23:03:16.719Z",
+          "total_bytes": "5547"
+        },
+        {
+          "name": "lineage-aliases.json",
+          "creation_date": "2026-10-29T23:03:16.797Z",
+          "total_bytes": "56923"
+        },
+        {
+          "name": "prompts.jsonl",
+          "creation_date": "2026-10-29T23:03:16.676Z",
+          "total_bytes": "9053172"
+        },
+        {
+          "name": "train.csv",
+          "creation_date": "2026-10-29T23:03:17.091Z",
+          "total_bytes": "12286187"
+        },
+        {
+          "name": "train.parquet",
+          "creation_date": "2026-10-29T23:03:16.915Z",
+          "total_bytes": "5555757"
+        }
+      ]
+    }
+  }
+}

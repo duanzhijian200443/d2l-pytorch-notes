@@ -1,0 +1,42 @@
+{
+  "observed_at": "2026-11-01T08:06:13.842221+00:00",
+  "variants": [
+    {
+      "id": "EXP-017",
+      "variant": "official-only",
+      "public_row_weight": null,
+      "directory": "experiments/EXP-017-svc4-official-only-r1",
+      "retry_of": "EXP-013"
+    },
+    {
+      "id": "EXP-018",
+      "variant": "raw-w035",
+      "public_row_weight": 0.35,
+      "directory": "experiments/EXP-018-svc4-raw-w035-r1",
+      "retry_of": "EXP-014"
+    },
+    {
+      "id": "EXP-019",
+      "variant": "raw-w0175",
+      "public_row_weight": 0.175,
+      "directory": "experiments/EXP-019-svc4-raw-w0175-r1",
+      "retry_of": "EXP-015"
+    },
+    {
+      "id": "EXP-020",
+      "variant": "raw-w070",
+      "public_row_weight": 0.7,
+      "directory": "experiments/EXP-020-svc4-raw-w070-r1",
+      "retry_of": "EXP-016"
+    }
+  ],
+  "baseline_formal": "EXP-004",
+  "shared_wall_seconds": 7080,
+  "original_total_budget_seconds": 7200,
+  "prior_budget_reservation_seconds": 120,
+  "status": "COMPLETE",
+  "retry_of_run": "cloud/svc4-raw-public",
+  "automatic_retry_number": 1,
+  "notebook_version": 4,
+  "result_status": "PASS"
+}

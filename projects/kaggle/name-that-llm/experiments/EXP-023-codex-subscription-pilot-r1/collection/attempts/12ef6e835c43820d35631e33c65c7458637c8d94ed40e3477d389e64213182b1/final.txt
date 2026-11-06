@@ -1,0 +1,3 @@
+Your browser saves copies of website files—like images, styles, and scripts—on your laptop so pages load faster. This is called caching. Sometimes, after a website is updated, the browser reuses older files instead of downloading the new ones, so the site looks unchanged.
+
+Try a hard refresh: Ctrl+Shift+R on Windows or Command+Shift+R on Mac in many browsers. If that doesn’t help, clear that site’s cached data. Sometimes the website’s own servers are caching old content, so the problem isn’t your laptop.

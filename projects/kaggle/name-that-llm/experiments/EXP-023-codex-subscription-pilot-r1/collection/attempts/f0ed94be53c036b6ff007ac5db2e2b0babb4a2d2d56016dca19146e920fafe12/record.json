@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0240",
+  "prompt": "Rewrite this project description for a public noticeboard: 'We are recording residents' memories of the old swimming pool. Interviews take around twenty minutes. Participation is optional. Contributors can choose whether their names appear. Edited extracts will be displayed at the community center.' Keep your response near 160 words.",
+  "category": "rewrite_original_material",
+  "target_words": 160,
+  "prompt_group": "cp0240",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "f0ed94be53c036b6ff007ac5db2e2b0babb4a2d2d56016dca19146e920fafe12",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:27:10.973628+00:00",
+  "ended_at": "2026-11-01T11:27:26.979222+00:00",
+  "prompt_sha256": "4e10d42bd49ca2bd04c957bf5f23035c39896955fe49f63dad09791947a8f627",
+  "text": "**Share Your Memories of the Old Swimming Pool**\n\nDo you remember visiting the old swimming pool—learning to swim, meeting friends, taking part in lessons, or spending summer afternoons there? We are recording local residents’ memories to help preserve the pool’s place in our community’s history.\n\nWe are inviting residents to take part in a short interview lasting approximately 20 minutes. You may talk about any memories, stories, or experiences you would like to share. Participation is entirely optional, and you are free to decline or stop the interview at any time.\n\nBefore taking part, contributors can choose whether their names are included or whether their contributions remain anonymous. With permission, selected extracts from the interviews will be edited and displayed at the community center for others to read and enjoy.\n\nIf you would like to contribute, or would like more information about the project, please contact [name/contact details]. All memories are welcome—whether they are recent or from many years ago.",
+  "text_sha256": "18e9a93469a15e1da949ac2da28067815dffaa3948bdef07b846234cefef8ce4",
+  "raw_final_sha256": "18e9a93469a15e1da949ac2da28067815dffaa3948bdef07b846234cefef8ce4",
+  "word_count": 160,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2617,
+      "cached_input_tokens": 2432,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 224,
+      "reasoning_output_tokens": 27
+    }
+  ],
+  "attempt_path": "collection\\attempts\\f0ed94be53c036b6ff007ac5db2e2b0babb4a2d2d56016dca19146e920fafe12",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

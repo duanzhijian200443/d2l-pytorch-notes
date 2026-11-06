@@ -1,0 +1,14 @@
+{
+  "verified_at": "2026-11-01T08:06:13.842221+00:00",
+  "summary": {
+    "experiment": "EXP-017",
+    "public_row_weight": null,
+    "balanced_accuracy": 0.3844842157593836,
+    "accuracy": 0.3845868840311226,
+    "correct": 1038,
+    "rows": 2699
+  },
+  "paired_comparison": null,
+  "full_analysis_path": "cloud/svc4-raw-public-r1/analysis/verified.json",
+  "formal_leaderboard_result": false
+}

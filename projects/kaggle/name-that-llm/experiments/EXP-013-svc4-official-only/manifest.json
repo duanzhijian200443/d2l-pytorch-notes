@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-013",
+  "created_at": "2026-11-01T07:34:28.656499+00:00",
+  "freeze_status": "FROZEN",
+  "note": "Frozen for the shared CPU sweep; semantic/upstream data limits retained in input audit.",
+  "config": {
+    "path": "experiments/EXP-013-svc4-official-only/config.json",
+    "sha256": "ee332c972526e51ec811769cd9298652fc95ec41808de71462a786fba3d7a2f0"
+  },
+  "config_template": {
+    "path": "configs/svc4-raw-public.json",
+    "sha256": "c16e57adb9296ea42675c8682b23d6f3b22d65a8da225f5f2719e932ac163777"
+  },
+  "inputs": [
+    {
+      "path": "cloud/svc4-raw-public/payload/attribution.md",
+      "sha256": "e66d75d4142e917acfaf82d1bf4c1406f7d1bc920fadeed3fd3ed162760c4373"
+    },
+    {
+      "path": "cloud/svc4-raw-public/payload/config-EXP-013.json",
+      "sha256": "ee332c972526e51ec811769cd9298652fc95ec41808de71462a786fba3d7a2f0"
+    },
+    {
+      "path": "cloud/svc4-raw-public/payload/config-EXP-014.json",
+      "sha256": "4355ae3e7085c40b0949743261385935fe9b1f3fc68a854bafb3d10558369c55"
+    },
+    {
+      "path": "cloud/svc4-raw-public/payload/config-EXP-015.json",
+      "sha256": "7ca017b3c0084d9a874f3c984126736a75af3f984d60ba56dfbb997a58792e3f"
+    },
+    {
+      "path": "cloud/svc4-raw-public/payload/config-EXP-016.json",
+      "sha256": "2a9f04dfbbccb74ef115da42616a38d2fb83430f4ba3a758431bc5e0db8f7efe"
+    },
+    {
+      "path": "cloud/svc4-raw-public/payload/folds.csv",
+      "sha256": "e8ba1e3712852168dc57f56960d4f3e00be612d639ade8a7dcb0f0d8335ce551"
+    },
+    {
+      "path": "cloud/svc4-raw-public/payload/guard.py",
+      "sha256": "eaf2c31758045488eb53ba3f9c7f824c848bfe0a33698fab816d96485f9b6d3b"
+    },
+    {
+      "path": "cloud/svc4-raw-public/payload/input_audit.json",
+      "sha256": "eec44c16af52d290d27c01c5909a4ea65a628cfc291cec8e303ff28793ceb440"
+    },
+    {
+      "path": "cloud/svc4-raw-public/payload/public.csv",
+      "sha256": "0a1e31a0f8b0ece7ca44a961075252fe275107f3710804971838d714a4e77aaa"
+    },
+    {
+      "path": "cloud/svc4-raw-public/payload/runner.py",
+      "sha256": "d2d916f0eeee28b23911c15ab83e096ea6c7a906f6ba4482674ded92c386871f"
+    },
+    {
+      "path": "cloud/svc4-raw-public/payload/svc4.py",
+      "sha256": "80f66aedad27e8017defe31de7f0286c1b54efa5e96ba6e2cb42516a86e73c18"
+    }
+  ],
+  "code": [
+    {
+      "path": "src/svc4.py",
+      "sha256": "80f66aedad27e8017defe31de7f0286c1b54efa5e96ba6e2cb42516a86e73c18"
+    },
+    {
+      "path": "cloud/svc4-raw-public/runner.py",
+      "sha256": "d2d916f0eeee28b23911c15ab83e096ea6c7a906f6ba4482674ded92c386871f"
+    },
+    {
+      "path": "cloud/svc4-raw-public/guard.py",
+      "sha256": "eaf2c31758045488eb53ba3f9c7f824c848bfe0a33698fab816d96485f9b6d3b"
+    },
+    {
+      "path": "cloud/svc4-raw-public/prepare_inputs.py",
+      "sha256": "7f36e7aa306e2d72a56019c22928731cec00b727106e1b16d633c968dccb852b"
+    },
+    {
+      "path": "cloud/svc4-raw-public/build_payload.py",
+      "sha256": "33999c83b445e7ac4c1bcb931378380e6c35da3ca5972d05c98f5eb6ac2ee365"
+    }
+  ],
+  "frozen_at": "2026-11-01T07:41:13.831078+00:00",
+  "protocol": {
+    "path": "cloud/svc4-raw-public/payload/protocol.json",
+    "sha256": "d4d2737031fadaa9a20382813ab215a3ee22f680231d017141eeb706117123b2"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0058",
+  "prompt": "How does a map application balance storing map information on the device with downloading information during use? A response of around 160 words is enough.",
+  "category": "technology_explanation",
+  "target_words": 160,
+  "prompt_group": "cp0058",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "94fbaf50b1c5f407a09ad6292a326e333adb26cc90a344facef760c8aaf758fe",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:07:18.547882+00:00",
+  "ended_at": "2026-11-01T09:07:41.473853+00:00",
+  "prompt_sha256": "bdc930416610dbced5ff7f003b83dcd165e74aedce4bc60e9df96b01111e64b4",
+  "text": "Map applications use a hybrid approach: they store a limited “base map” locally while downloading fresh or detailed information as needed.\n\nOn-device data often includes map tiles for recently viewed places, saved offline areas, road geometry, search history, and essential navigation data. This enables fast rendering, reduces data use, and keeps basic navigation working in poor-signal areas. Users can usually download a city, region, or route in advance for offline travel.\n\nDuring use, the app requests information that changes frequently or would take too much space to store everywhere. Examples include live traffic, accidents, road closures, transit arrivals, business hours, reviews, satellite imagery, and updated routes. Map tiles are also fetched progressively as the user pans or zooms, then cached temporarily.\n\nThe balance is driven by storage limits, network quality, freshness requirements, and privacy. Apps may evict old cached areas when space is needed, compress vector map data, and prefetch likely route segments. This design provides responsive maps without requiring either permanent worldwide downloads or continuous reliable connectivity.",
+  "text_sha256": "8346e1b5aca7cb415ff896a7b391ae06ea2609d35602d569d0c291503a25f36e",
+  "raw_final_sha256": "8346e1b5aca7cb415ff896a7b391ae06ea2609d35602d569d0c291503a25f36e",
+  "word_count": 168,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4121,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 213,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\94fbaf50b1c5f407a09ad6292a326e333adb26cc90a344facef760c8aaf758fe",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

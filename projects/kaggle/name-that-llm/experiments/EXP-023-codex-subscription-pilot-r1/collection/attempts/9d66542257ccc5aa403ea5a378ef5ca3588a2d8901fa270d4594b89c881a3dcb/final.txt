@@ -1,0 +1,7 @@
+The claim that a good explanation should always avoid technical vocabulary is too absolute. Technical terms can make an explanation more precise, concise, and useful—especially when the audience already understands the field or needs to learn its language. For example, explaining an illness to medical students without terms such as “inflammation” or “immune response” would make the discussion unnecessarily vague.
+
+However, technical vocabulary becomes a problem when it is used without regard for the audience. Jargon can obscure meaning, create confusion, or make an explanation seem more authoritative than it really is. A good explanation therefore should not automatically avoid specialist terms; it should introduce them carefully. The speaker might first use familiar language, then give the technical term and define it: “The heart’s upper chambers—called the atria—receive blood.” Analogies and examples can also make difficult concepts accessible without sacrificing accuracy.
+
+The best vocabulary depends on the explanation’s purpose. A beginner may need plain language, whereas an expert may prefer technical precision. Sometimes learning the correct terminology is itself part of understanding the subject.
+
+Thus, clarity—not the absence of technical words—is the better standard. A good explanation uses as much technical vocabulary as necessary, defines unfamiliar terms, and adapts its language to the audience’s knowledge and needs.

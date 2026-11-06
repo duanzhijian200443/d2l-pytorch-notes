@@ -1,0 +1,5 @@
+A workshop owner should compare the lower purchase price against the cost of unreliable delivery. A cheaper supplier can improve margins and reduce cash tied up in materials, especially when demand is stable and the workshop can order well ahead. However, late or uncertain deliveries may stop production, force overtime, delay customer orders, and damage the workshop’s reputation. The owner may also need to hold extra safety stock, which adds storage, insurance, and working-capital costs, or make emergency purchases from another supplier at higher prices.
+
+The key question is the *total cost*, not simply the unit price. Estimate the expected cost of disruptions: lost output, expedited shipping, substitute materials, penalties, and customer dissatisfaction. Consider how critical the material is, how easily alternatives can be sourced, and how much schedule flexibility exists.
+
+A sensible approach may be to use the cheaper supplier for non-urgent or predictable requirements while retaining the dependable supplier for critical items, rush work, or a portion of regular demand.

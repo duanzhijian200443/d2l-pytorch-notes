@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "observed_at": "2026-11-01T08:27:28.654386+00:00",
+  "scope": "fixed standardized-margin blend DEVELOPMENT screening; not independent holdout",
+  "input_bindings_verified": 109,
+  "code_files_verified": 5,
+  "scenarios": 16,
+  "candidate_comparisons": 48,
+  "score_matrices": 64,
+  "prediction_rows": 32847,
+  "alpha_zero_matches_original_in_all_scenarios": true,
+  "constant_rows": 0,
+  "input_code_output_hashes_unchanged": true,
+  "dimension_totals_and_class_macro_recall_verified": true,
+  "core_unit_tests_passed": 9,
+  "independent_review": {
+    "reviewer": "svc4_runtime_review",
+    "status": "PASS",
+    "method": "Reconstruct from parent raw caches, row-normalize and blend independently; compare matrices, predictions, aggregate metrics and paired prompt bootstrap",
+    "matrix_exact_matches": 64,
+    "matrix_max_abs_difference": 0,
+    "bootstrap_comparisons_verified": 48,
+    "prediction_rows_verified": 32847
+  },
+  "primary_alpha": 0.1,
+  "primary_point_estimate_guardrail_met": true,
+  "primary_dense_ba": 0.46896843151876705,
+  "primary_dense_delta_ba": 0.000725826497638471,
+  "primary_dense_ci95": [
+    -0.005555555555555556,
+    0.006666666666666665
+  ],
+  "primary_negative_sparse_scenarios": 2,
+  "official_baseline_promoted": false,
+  "training": false,
+  "gpu": false,
+  "api_generation": false,
+  "competition_submission": false,
+  "manifest_sha256": "232d5aa2a6be17150692210e7c2ecb96b55509826853257e06984780446ed953",
+  "result_sha256": "f5742a2d7827a7946ed1a9e0491862359145ac479ece3092c2e958f8ba926a0c",
+  "report_sha256": "c146c0d0c9981ee490d08a21fa6c1a8d4a9d92be9d14e2ce94b5ab759a938d9b",
+  "core_test_sha256": "ceb394025c345394ea87b8e32b52489fdd7b143bae04c3d9c3444d1cfa75805d",
+  "limitations": [
+    "All scores come from previously inspected development OOF; no independent holdout or nested validation.",
+    "95% prompt intervals are conditional and unadjusted; sparse repeats reuse models/prompts.",
+    "One missing-class bootstrap draw in m2-repeat0 makes its interval null for each candidate.",
+    "The primary point screen is not a non-inferiority test or automatic promotion decision."
+  ]
+}

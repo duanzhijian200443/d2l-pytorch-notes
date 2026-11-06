@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0196",
+  "prompt": "Someone says a bus route is unreliable because it was late on one trip. Explain what additional observations would help evaluate that claim. A response of around 80 words is enough.",
+  "category": "reasoning_explanation",
+  "target_words": 80,
+  "prompt_group": "cp0196",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "f2d80c11196130895cecf863a8b070751087c017c4e4f7e2cafcbda45ebe1150",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:00:46.973622+00:00",
+  "ended_at": "2026-11-01T11:01:08.513514+00:00",
+  "prompt_sha256": "76a42d1e35eaee6514ce0de1e360a527f72fbb6d7cd4bfc62474089247bfd74f",
+  "text": "One late trip is not enough to establish that a bus route is unreliable. Useful observations would include arrival times across many trips, on different days and at different times, compared with the published schedule. Record how often buses are late, how long delays last, and whether trips are canceled or arrive early. Also note unusual conditions, such as severe weather or roadworks. These observations would help distinguish a recurring pattern of unreliable service from an isolated delay.",
+  "text_sha256": "db4bf2c950c579057477acb3d800f52064c09ac7a4f418fb1b7be2aeb6ba52af",
+  "raw_final_sha256": "db4bf2c950c579057477acb3d800f52064c09ac7a4f418fb1b7be2aeb6ba52af",
+  "word_count": 78,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4242,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 93,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\f2d80c11196130895cecf863a8b070751087c017c4e4f7e2cafcbda45ebe1150",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

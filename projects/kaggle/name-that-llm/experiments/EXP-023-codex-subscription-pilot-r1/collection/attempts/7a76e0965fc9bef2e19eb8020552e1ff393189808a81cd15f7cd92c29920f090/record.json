@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0207",
+  "prompt": "Describe how a battery stores usable energy and what changes when it powers a small flashlight, without treating electricity as a substance inside the battery. Please answer in roughly 120 words.",
+  "category": "science_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0207",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "7a76e0965fc9bef2e19eb8020552e1ff393189808a81cd15f7cd92c29920f090",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:06:55.637385+00:00",
+  "ended_at": "2026-11-01T11:07:12.633286+00:00",
+  "prompt_sha256": "04490360bf31964aad8670bdb875c6e9da279fdc5553ca48106c59f7d9b3be32",
+  "text": "A battery stores usable energy as chemical potential energy. Inside it, different materials are arranged so that chemical reactions can separate charge and create an electrical potential difference between the terminals. The battery does not contain a tank of electricity; rather, its chemistry can drive charges through an external circuit.\n\nWhen a small flashlight is switched on, the circuit is completed. Chemical reactions at the battery’s electrodes release energy, pushing charges through the wires, switch, and bulb or LED. In the light source, much of that energy becomes visible light, while some becomes heat. Inside the battery, ions move through the electrolyte to maintain the reactions and balance charge. As the reactions proceed, the reactants change, the voltage may gradually fall, and the battery eventually can no longer deliver useful power.",
+  "text_sha256": "572a51a490a8af78a6eb53fe2925b40df16b1bd9f3104cee1a0a918139332204",
+  "raw_final_sha256": "572a51a490a8af78a6eb53fe2925b40df16b1bd9f3104cee1a0a918139332204",
+  "word_count": 131,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2593,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 192,
+      "reasoning_output_tokens": 32
+    }
+  ],
+  "attempt_path": "collection\\attempts\\7a76e0965fc9bef2e19eb8020552e1ff393189808a81cd15f7cd92c29920f090",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0190",
+  "prompt": "A train is scheduled every fifteen minutes. Explain why arriving at a random time does not mean a passenger will always wait exactly seven and a half minutes. Use approximately 160 words for the response.",
+  "category": "reasoning_explanation",
+  "target_words": 160,
+  "prompt_group": "cp0190",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "d75429b91191752d5597f131de80ef19010b1c406f9ec517f7fe560b509ca8e7",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:56:50.649070+00:00",
+  "ended_at": "2026-11-01T10:57:17.468506+00:00",
+  "prompt_sha256": "182ed290975d3be1d16f4aa29e038beabf6020a313faf91875e33a7d09e0aee2",
+  "text": "If trains arrive exactly every fifteen minutes, a passenger who arrives at a random time can wait anywhere from almost zero to fifteen minutes. Someone reaching the platform just before a train arrives waits only a few seconds; someone arriving just after it leaves waits nearly fifteen minutes.\n\nSeven and a half minutes is the **average waiting time**, not the waiting time for every passenger. Assuming arrivals are equally likely at any point between trains, all waiting times within that fifteen-minute interval are equally likely. Their average is halfway between zero and fifteen: seven and a half minutes.\n\nFor example, one passenger might wait two minutes and another thirteen minutes. Their average wait is seven and a half minutes, although neither actually waits that long.\n\nOver many independent random arrivals, the average wait tends toward seven and a half minutes. Individual waits still vary. This conclusion also assumes trains run precisely on schedule and passengers do not time their arrivals to catch particular trains.",
+  "text_sha256": "1fb184cb5a2595c84bc9dfa09c2940689e8c46b0fbb5ff778f4314d9a63bba90",
+  "raw_final_sha256": "1fb184cb5a2595c84bc9dfa09c2940689e8c46b0fbb5ff778f4314d9a63bba90",
+  "word_count": 164,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4246,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 188,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\d75429b91191752d5597f131de80ef19010b1c406f9ec517f7fe560b509ca8e7",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

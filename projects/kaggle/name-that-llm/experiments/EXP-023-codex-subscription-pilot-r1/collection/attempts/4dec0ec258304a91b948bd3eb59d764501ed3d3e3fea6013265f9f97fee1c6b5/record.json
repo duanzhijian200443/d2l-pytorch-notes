@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0046",
+  "prompt": "Compare a local search index with searching every document from scratch whenever a user types a query. Please answer in roughly 80 words.",
+  "category": "technology_explanation",
+  "target_words": 80,
+  "prompt_group": "cp0046",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "4dec0ec258304a91b948bd3eb59d764501ed3d3e3fea6013265f9f97fee1c6b5",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:59:35.011388+00:00",
+  "ended_at": "2026-11-01T08:59:50.614320+00:00",
+  "prompt_sha256": "ca4b3a784105869db01a9f045781c0b8f043474987a8d4aa4bc7b33a32421b8f",
+  "text": "A local search index does upfront work: it extracts and organizes document terms so queries can retrieve likely matches quickly. This requires storage, indexing time, and updates when documents change, but delivers low-latency, scalable searches.\n\nSearching every document from scratch avoids maintaining an index and always reads current content. However, each query must scan and analyze the entire collection, making it slower and more resource-intensive as data grows. Indexing is best for frequent searches; full scans suit small, rarely queried, or rapidly changing collections.",
+  "text_sha256": "84acc23ad64159fccfd875adfea134c75670b9b065a4e4745724b126eadf56f6",
+  "raw_final_sha256": "84acc23ad64159fccfd875adfea134c75670b9b065a4e4745724b126eadf56f6",
+  "word_count": 84,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4119,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 108,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\4dec0ec258304a91b948bd3eb59d764501ed3d3e3fea6013265f9f97fee1c6b5",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

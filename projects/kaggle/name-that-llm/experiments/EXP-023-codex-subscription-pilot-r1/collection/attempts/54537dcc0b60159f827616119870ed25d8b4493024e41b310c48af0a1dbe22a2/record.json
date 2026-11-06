@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0209",
+  "prompt": "Why does a floating piece of ice not usually make a glass overflow when it melts, assuming the glass contains only water and ice? A response of around 200 words is enough.",
+  "category": "science_explanation",
+  "target_words": 200,
+  "prompt_group": "cp0209",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "54537dcc0b60159f827616119870ed25d8b4493024e41b310c48af0a1dbe22a2",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:08:22.423337+00:00",
+  "ended_at": "2026-11-01T11:08:41.249253+00:00",
+  "prompt_sha256": "2633faa0bb8614f03fc343912aed4121b1f3ff1cf698c1a38dcf3fd5d37ea678",
+  "text": "Floating ice displaces an amount of water equal to its own weight. This is Archimedes’ principle.\n\nBefore melting, the ice pushes aside enough liquid water to support its weight. If the ice has mass \\(m\\), the displaced water has mass \\(m\\), so its volume is:\n\n\\[\nV_{\\text{displaced}}=\\frac{m}{\\rho_{\\text{water}}}\n\\]\n\nWhen the ice melts, it becomes water with the same mass \\(m\\). The meltwater volume is likewise:\n\n\\[\nV_{\\text{melted}}=\\frac{m}{\\rho_{\\text{water}}}\n\\]\n\nThus, the water produced by melting occupies exactly the volume that had already been displaced by the floating ice. The water level therefore stays essentially unchanged, so a glass that was not overflowing beforehand will not overflow merely because the floating ice melts.\n\nThis assumes the ice is ordinary water ice, it is freely floating, and the glass contains only water and ice. Small real-world effects—such as temperature changes, dissolved air, impurities, or surface-tension effects—can cause tiny deviations, but they are normally negligible.",
+  "text_sha256": "af044e9e876db21aa63cac641a43c7bdc05b8e1b9d826516a543e203e99642bb",
+  "raw_final_sha256": "af044e9e876db21aa63cac641a43c7bdc05b8e1b9d826516a543e203e99642bb",
+  "word_count": 151,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4129,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 238,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\54537dcc0b60159f827616119870ed25d8b4493024e41b310c48af0a1dbe22a2",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

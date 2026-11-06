@@ -1,0 +1,2 @@
+2026-11-01T10:42:24.467045Z ERROR codex_models_manager::manager: failed to refresh available models: request timed out
+2026-11-01T10:42:29.205061Z ERROR codex_api::endpoint::responses_websocket: failed to connect to Responses WebSocket stage=Unknown

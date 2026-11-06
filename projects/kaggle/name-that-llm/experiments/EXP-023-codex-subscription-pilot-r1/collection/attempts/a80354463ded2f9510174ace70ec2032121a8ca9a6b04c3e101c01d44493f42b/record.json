@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0099",
+  "prompt": "Explain how a city's street names can function as an unofficial record of its changing priorities. Please answer in roughly 200 words.",
+  "category": "humanities_history",
+  "target_words": 200,
+  "prompt_group": "cp0099",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "a80354463ded2f9510174ace70ec2032121a8ca9a6b04c3e101c01d44493f42b",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:33:32.551525+00:00",
+  "ended_at": "2026-11-01T09:34:02.097863+00:00",
+  "prompt_sha256": "e8db15f978097e99b0755db4ed47264f5a931d9b502ed331fa1dd2658a90d79c",
+  "text": "A city’s street names can serve as an unofficial historical record because they reveal what different generations chose to honor, preserve, or promote. Unlike a formal archive, this record is embedded in everyday life: people repeat it whenever they give directions or write an address.\n\nOlder names often reflect practical concerns. “Mill Road,” “Market Street,” or “Church Lane” may identify the institutions and activities around which a settlement developed. Even after the mill disappears, its name preserves evidence of an earlier economy.\n\nAs a city grows, naming can become more explicitly political. Streets named after monarchs, military leaders, or colonial officials show whose authority once dominated public space. After independence, revolution, or democratic reform, replacing those names with those of national founders, activists, or local figures can signal a change in collective values.\n\nNewer names may reveal priorities such as commercial development, environmental identity, or greater recognition of historically excluded communities. A “Technology Drive” suggests economic ambition, while honoring an overlooked woman or Indigenous leader can broaden the city’s public memory.\n\nThis record is selective and contested, however. Street names reflect the power to make naming decisions, not necessarily universal agreement. Debates over renaming therefore reveal changing priorities just as clearly as the signs themselves.",
+  "text_sha256": "c2aa175dc8fce83bbcaaeffd814b2f6da5638b87e971e71dfc4e003884a1ef9e",
+  "raw_final_sha256": "c2aa175dc8fce83bbcaaeffd814b2f6da5638b87e971e71dfc4e003884a1ef9e",
+  "word_count": 205,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4232,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 254,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\a80354463ded2f9510174ace70ec2032121a8ca9a6b04c3e101c01d44493f42b",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0134",
+  "prompt": "A local festival can invite one famous performer or several less-known local performers for the same budget. Weigh the options. A response of around 200 words is enough.",
+  "category": "tradeoff_argument",
+  "target_words": 200,
+  "prompt_group": "cp0134",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "1aab00fd6a249d4849987799818ff90a6139602025896d7113d9fdbcc41c1812",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:55:25.103772+00:00",
+  "ended_at": "2026-11-01T09:55:42.609582+00:00",
+  "prompt_sha256": "70b19af5b88af7aa2901b366d9ea1b44b0b84ab4b4e58cec18cff870c36f25f6",
+  "text": "A festival choosing between one famous performer and several less-known local artists must consider its goals, audience, and long-term impact.\n\nHiring a famous performer can attract a larger audience and generate publicity. Their reputation may encourage people to travel to the festival, buy tickets, and spend money on food and merchandise. A well-known act can also give the event prestige and make it easier to attract sponsors in future years. However, the performer may be expensive, leaving less money for other activities. In addition, the festival could become focused on one headline act, while local talent receives little attention.\n\nBy contrast, inviting several local performers offers greater variety and gives emerging artists valuable exposure. The programme may feel more connected to the community, and local musicians are likely to bring their own supporters. Using several acts also reduces the risk that one cancellation will ruin the entire event. Nevertheless, lesser-known performers may not attract as many visitors, and the festival might receive less media coverage.\n\nOverall, the best choice depends on the festival’s priorities. If increasing attendance and reputation is most important, a famous performer may be worthwhile. If the aim is to support local culture and create a diverse, community-centred event, several local performers would probably offer better value. A compromise could be to hire one moderately famous act alongside local artists.",
+  "text_sha256": "d29698224f00a580e7b903337eea809ccb649ae1cfa610140e29f5a8069b4e98",
+  "raw_final_sha256": "d29698224f00a580e7b903337eea809ccb649ae1cfa610140e29f5a8069b4e98",
+  "word_count": 223,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2592,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 282,
+      "reasoning_output_tokens": 16
+    }
+  ],
+  "attempt_path": "collection\\attempts\\1aab00fd6a249d4849987799818ff90a6139602025896d7113d9fdbcc41c1812",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

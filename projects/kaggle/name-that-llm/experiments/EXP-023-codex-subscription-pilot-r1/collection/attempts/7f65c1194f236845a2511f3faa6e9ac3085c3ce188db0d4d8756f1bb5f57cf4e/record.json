@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0104",
+  "prompt": "Write a compact story told from the perspective of a borrowed umbrella that keeps moving between neighbors. Use approximately 200 words for the response.",
+  "category": "creative_short_fiction",
+  "target_words": 200,
+  "prompt_group": "cp0104",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "7f65c1194f236845a2511f3faa6e9ac3085c3ce188db0d4d8756f1bb5f57cf4e",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:36:36.901796+00:00",
+  "ended_at": "2026-11-01T09:37:06.147541+00:00",
+  "prompt_sha256": "38de16dc4b18b02518ab2d66fd50481a733779d1f17640ce87fb04bc876d0743",
+  "text": "Mrs. Vale lent me to the boy upstairs on a Tuesday. He promised to return me before dinner, which is how most of my journeys begin: with weather and optimism.\n\nThe boy left me at Mr. Chen’s bakery. Mr. Chen carried me home beneath a rain so fierce it sounded like applause. The next morning, he gave me to his neighbor, who had an interview and shoes made for better circumstances.\n\nShe gripped my handle until her knuckles paled. Coming home, she swung me.\n\nI took that as good news.\n\nAfterward came the twins, a visiting sister, a man who always apologized when he bumped me against doorframes. Someone mended my torn seam with yellow thread. Someone tied a blue ribbon around my handle.\n\nMeanwhile, Mrs. Vale watched the sky from her window.\n\nI worried she had forgotten me.\n\nThen, one wet evening, seven neighbors arrived at her door carrying soup, bread, flowers, and me.\n\n“We heard about your knee,” they said.\n\nMrs. Vale leaned me in my old corner. Her thumb found the yellow stitching.\n\n“I wondered where you’d got to.”\n\nFor three days I stayed home, drying beside her boots.\n\nOn the fourth, somebody knocked.\n\n“Could I borrow—”\n\nMrs. Vale was already reaching for me.",
+  "text_sha256": "1a8e9a0b1e727c4d4fa5d9bbecb3a2434ef0e4e8de77421d4268ad35244f4a28",
+  "raw_final_sha256": "1a8e9a0b1e727c4d4fa5d9bbecb3a2434ef0e4e8de77421d4268ad35244f4a28",
+  "word_count": 207,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4234,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 265,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\7f65c1194f236845a2511f3faa6e9ac3085c3ce188db0d4d8756f1bb5f57cf4e",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

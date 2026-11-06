@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "model": {
+    "name": null,
+    "parameters": {}
+  },
+  "validation": {
+    "split_id": "prompt-group-v1",
+    "seed": 42
+  },
+  "environment": {
+    "platform": null,
+    "accelerator": null
+  },
+  "budget": {
+    "wall_seconds": null,
+    "gpu_seconds": null,
+    "api_usd": null,
+    "colab_cu": null
+  }
+}

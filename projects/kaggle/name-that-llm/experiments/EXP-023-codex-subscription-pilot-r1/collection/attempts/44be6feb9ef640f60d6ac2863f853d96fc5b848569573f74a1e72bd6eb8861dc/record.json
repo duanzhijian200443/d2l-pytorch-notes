@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0063",
+  "prompt": "Two suppliers offer the same materials: one is cheaper but less predictable about delivery dates. Describe the trade-off a workshop owner should examine. Aim for about 160 words.",
+  "category": "business_decision",
+  "target_words": 160,
+  "prompt_group": "cp0063",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "44be6feb9ef640f60d6ac2863f853d96fc5b848569573f74a1e72bd6eb8861dc",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:10:17.040769+00:00",
+  "ended_at": "2026-11-01T09:10:31.631895+00:00",
+  "prompt_sha256": "0d62c4b613573514c82f6e366a9c8fe7c4a40a3c3585dc5f4abd6afd0e050195",
+  "text": "A workshop owner should compare the cheaper supplier’s savings with the operational cost of unreliable deliveries. The lower price may improve margins, but late or inconsistent shipments can interrupt production, delay customer orders, create overtime costs, and damage the workshop’s reputation. The owner should estimate how often delays occur, how long they typically last, and whether materials can be stored in advance without excessive storage or spoilage costs.\n\nThe more reliable supplier may charge more, but predictable delivery can support smoother scheduling, lower safety-stock requirements, and better customer service. The decision also depends on how critical the materials are: delays may be manageable for routine, easily substituted items but costly for specialized materials with no immediate alternative.\n\nA sensible approach is to calculate the total landed cost—not just the purchase price—and consider a split strategy. The workshop could buy most materials from the cheaper supplier while maintaining a smaller, dependable supplier relationship as backup. Contracts, delivery guarantees, penalties, or trial orders may also reduce the risk.",
+  "text_sha256": "ae89a72e620e8411382ca14a93d8a1ea8322d44ce4e748d6ef25b9c5e4191c7c",
+  "raw_final_sha256": "ae89a72e620e8411382ca14a93d8a1ea8322d44ce4e748d6ef25b9c5e4191c7c",
+  "word_count": 166,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2592,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 216,
+      "reasoning_output_tokens": 15
+    }
+  ],
+  "attempt_path": "collection\\attempts\\44be6feb9ef640f60d6ac2863f853d96fc5b848569573f74a1e72bd6eb8861dc",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

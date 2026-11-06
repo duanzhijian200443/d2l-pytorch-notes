@@ -1,0 +1,26 @@
+{
+  "status": "PASS_QUICK_COMMIT_ONLY",
+  "observed_at": "2026-11-01T17:48:06.886747+00:00",
+  "notebook_ref": "zhjianduan/name-that-llm-a1-public-stylegram-046",
+  "version": 2,
+  "rows": 3,
+  "verified": [
+    "32 pinned input configuration and mounted content policy",
+    "T4 x2 CUDA",
+    "A1 synthetic numerical parity",
+    "public placeholder format"
+  ],
+  "not_verified": [
+    "full-data A1 fit",
+    "complete hidden inference",
+    "leaderboard improvement"
+  ],
+  "outputs": {
+    "input_preflight.json": "8d15ead4c08cc012150e9d86324e32d466f5c71ffa90bc005f43f9e46a32b318",
+    "reproduction_environment.json": "786692187d676cd8ca7a367f7898bddfd9d931b7dc8d5b4aac71c6d608329ad7",
+    "a1_synthetic_parity.json": "06ec26c52dd0302209908149f42e19616d5aa35e8ba64d097248d79614aa0757",
+    "availability.json": "a3bdec419e8f4ae132c7fafacbeb9b4b83d7aed1d81fa156e01d951d0a481ea9",
+    "submission_receipt.json": "f389aaa7c708f8d94f384223901243ddce68d6ea6b7ba442b3f6b4ac35e69cfc",
+    "submission.parquet": "ef94c7669e36a465bbd3e2dd8cf4905b5e1c2e51e18053a588cb56623086170a"
+  }
+}

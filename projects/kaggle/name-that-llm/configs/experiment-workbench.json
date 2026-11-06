@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "purpose": "Read-only remote observations; fixed local preparation/diagnostics. No cloud mutations.",
+  "proxy": "http://127.0.0.1:7890",
+  "interpreters": {
+    "analysis": "current",
+    "kaggle": "C:/Users/34331/AppData/Roaming/uv/tools/kaggle/Scripts/python.exe",
+    "parquet": "C:/Users/34331/AppData/Local/uv/cache/environments-v2/audit-e5542b9a7a231d97/Scripts/python.exe"
+  },
+  "experiments": [
+    {
+      "id": "EXP-046",
+      "aliases": [
+        "a1"
+      ],
+      "remote": {
+        "ref": "zhjianduan/name-that-llm-a1-public-stylegram-046",
+        "version": 2,
+        "script_version_id": 364624288,
+        "submission_id": 57879463,
+        "source_path": "cloud/a1-public-stylegram-046/kernel/a1.ipynb",
+        "source_sha256": "cea8f8cbfa382306dbdd7b7361b16d1d68febc09d7ef585dcb01ee1ef9e46625"
+      },
+      "report": "experiments/EXP-046-atlas20-a1-submission/report.md",
+      "expected_parameters": {
+        "atlas_w": 0.2,
+        "comp_w": 0.15,
+        "sinkhorn": 0.45
+      },
+      "receipt_identity": {
+        "experiment_id": "EXP-046"
+      }
+    },
+    {
+      "id": "EXP-048",
+      "aliases": [
+        "codex120"
+      ],
+      "remote": {
+        "ref": "zhjianduan/name-that-llm-a1-codex120-1102",
+        "version": 2,
+        "script_version_id": 364733823,
+        "submission_id": 57893384,
+        "source_path": "tracking/snapshots/20261102T035507208171Z/codex120-latest.ipynb",
+        "source_sha256": "9ba9ab375efad299f8bc568674d30dba276ce72574ee237a784b0a6551a876d6"
+      },
+      "report": "experiments/EXP-048-a1-codex120-controlled/report.md",
+      "expected_parameters": {
+        "atlas_w": 0.2,
+        "comp_w": 0.15,
+        "sinkhorn": 0.45
+      },
+      "receipt_identity": {
+        "run_id": "pending-handoff-stylegram-add120-20261102T014124Z",
+        "baseline_script_version_id": 364624288,
+        "added_data_sha256": "cbb0f2227f7748d9172f04d23c1653403103a192dbb7503d897153d24bb00acd"
+      }
+    },
+    {
+      "id": "EXP-049",
+      "aliases": [
+        "sinkhorn030"
+      ],
+      "remote": null,
+      "report": "experiments/EXP-049-a1-sinkhorn030-ready/report.md",
+      "local_summary": "experiments/EXP-049-a1-sinkhorn030-ready/outputs/summary.json",
+      "local_code_hashes": {
+        "cloud/a1-sinkhorn030-049/prepare_verify.py": "bee724dbd3e5991699b05765e367797999c56e73c8dc8452893b95f20c7c2528",
+        "experiments/EXP-049-a1-sinkhorn030-ready/run_local.py": "3c060d653d783b5a41694f8e772c5922b3cbed755d0e9528367a6afd3fe943c4",
+        "experiments/EXP-049-a1-sinkhorn030-ready/verify_results.py": "e6cec99016e7043ed5f19596908fae4cfb6e6c515dc987e27b56f3f077780106",
+        "src/workbench_local.py": "e4a9cde9e6826034a321adbd9c18c4c193a2ea7e3fad8165700901ff241d11d4"
+      },
+      "package_ready_receipt": "experiments/EXP-049-a1-sinkhorn030-ready/metrics/package-verification.json"
+    },
+    {
+      "id": "EXP-050",
+      "aliases": [
+        "pool-v13"
+      ],
+      "remote": null,
+      "report": "experiments/EXP-050-open-pool-v13-increment-audit/report.md",
+      "local_summary": "experiments/EXP-050-open-pool-v13-increment-audit/metrics/summary.json",
+      "local_code_hashes": {
+        "src/open_pool_audit.py": "f1bfe94ab448ba1a01a32e4fdc8a02b31de7a8eaef0bcb748dcabc3ab5f63e34"
+      }
+    }
+  ]
+}

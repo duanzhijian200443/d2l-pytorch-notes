@@ -1,0 +1,16 @@
+{
+  "comp": {
+    "component": "comp",
+    "full_model_coverage_verified": false,
+    "manifest_sha256": "cc9098a7da21b6c49cb392463018148824985629b8401dacec3dcc7f5a2908bd",
+    "run_id": "exp031-20261101T110842Z",
+    "scope": "exploratory_external"
+  },
+  "main": {
+    "component": "main",
+    "full_model_coverage_verified": false,
+    "manifest_sha256": "07aad0edce0502d4cb8a2dfdf8d6fc23cdc1f29d594df0fa1566de77630b8a79",
+    "run_id": "exp031-20261101T110842Z",
+    "scope": "exploratory_external"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0143",
+  "prompt": "Rewrite this blunt request so it is courteous but still definite: 'Your team keeps sending the files with unclear names. We waste time opening them. Use the project name and date. We need this from next week.' A response of around 120 words is enough.",
+  "category": "rewrite_original_material",
+  "target_words": 120,
+  "prompt_group": "cp0143",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "ca6b918f7b624f8e24b91db6a54dcea87c65d48ab702130a3bbea8dea5a75e4e",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:22:50.119399+00:00",
+  "ended_at": "2026-11-01T10:23:12.665515+00:00",
+  "prompt_sha256": "8b1b37d71a6b3291523e2ed9c7c77ad672453ff45dbe9a4b26e5887146be4510",
+  "text": "Hi [Name],\n\nCould you please ask your team to use clearer file names when sending documents? At present, we often need to open several files to identify their contents, which is causing avoidable delays.\n\nStarting next week, please ensure that every file name includes both the relevant project name and the date. A consistent format such as **ProjectName_YYYY-MM-DD** would make documents much easier to identify, organize, and retrieve.\n\nWe appreciate your team’s cooperation in adopting this naming convention for all future files. Please confirm that the new format will be in place from next week onward. If you have any questions about the preferred format, please let us know before then.\n\nThank you for helping us streamline the process.",
+  "text_sha256": "a382c439eac08759738f35ba5eb8a8be2ea8915179203ac8a6ee88a49a9be289",
+  "raw_final_sha256": "a382c439eac08759738f35ba5eb8a8be2ea8915179203ac8a6ee88a49a9be289",
+  "word_count": 119,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4146,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 167,
+      "reasoning_output_tokens": 17
+    }
+  ],
+  "attempt_path": "collection\\attempts\\ca6b918f7b624f8e24b91db6a54dcea87c65d48ab702130a3bbea8dea5a75e4e",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

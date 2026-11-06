@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0183",
+  "prompt": "A shop offers a ten-percent discount on an item and then adds ten percent to the reduced price. Explain why the result is not the original price, using an item priced at 100 units. Keep your response near 80 words.",
+  "category": "reasoning_explanation",
+  "target_words": 80,
+  "prompt_group": "cp0183",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "dfb998a3b1cefeadf4178602dae1fc08f9ed888825289fe8c05a326280b548ab",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:51:43.505118+00:00",
+  "ended_at": "2026-11-01T10:52:14.786116+00:00",
+  "prompt_sha256": "ced892131e71367f9213347ea967d3c39d402478b969fce9a8caa66559bb6891",
+  "text": "Start with an item priced at 100 units. A ten-percent discount subtracts 10 units, reducing the price to 90 units. The shop then adds ten percent of the reduced price—not ten percent of the original price. Ten percent of 90 is 9, so the new price becomes 99 units. The decrease was 10 units, but the increase was only 9 units because it was calculated from a smaller base. Therefore, the final price is 99 units, not the original 100.",
+  "text_sha256": "9ba3bb60867e7e3eef3f567d1f1afc87176ba68829f7589de464d4d3bcb6572a",
+  "raw_final_sha256": "9ba3bb60867e7e3eef3f567d1f1afc87176ba68829f7589de464d4d3bcb6572a",
+  "word_count": 80,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4140,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 126,
+      "reasoning_output_tokens": 16
+    }
+  ],
+  "attempt_path": "collection\\attempts\\dfb998a3b1cefeadf4178602dae1fc08f9ed888825289fe8c05a326280b548ab",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "status": "PASS_DESTINATION_UNUSED",
+  "observed_at": "2026-11-02T10:10:50.051028+00:00",
+  "ref": "zhjianduan/ntl-apex-codex120-056",
+  "owned_count": 76,
+  "existing_target_notebook": [],
+  "competition_submissions": 9,
+  "existing_target_submission": [],
+  "scope": "Official SDK read-only current target/ref and code-submission duplicate check. Candidate source hash will be checked after package freeze."
+}

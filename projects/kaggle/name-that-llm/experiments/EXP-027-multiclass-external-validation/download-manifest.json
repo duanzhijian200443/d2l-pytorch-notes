@@ -1,0 +1,46 @@
+{
+  "observed_at": "2026-11-01T08:54:44.711884+00:00",
+  "dataset": {
+    "ref": "earthmaker/ntl-own-prompt-generations",
+    "version": 1,
+    "files": [
+      {
+        "name": "README.md",
+        "bytes": 3733,
+        "sha256": "de884bb731f11ebe83208bf11e4fbb178636c801e4dc40e6602e2ad401e99726",
+        "local_path": "data/public-pools/earthmaker/ntl-own-prompt-generations/v1/README.md"
+      },
+      {
+        "name": "passages.csv",
+        "bytes": 741816,
+        "sha256": "4df18d70dfe9e7ca2cd43fa2a8ce45ddf814c97d42c0ec89bdf7692fa49f2a25",
+        "local_path": "data/public-pools/earthmaker/ntl-own-prompt-generations/v1/passages.csv"
+      },
+      {
+        "name": "prompts_pilot.json",
+        "bytes": 2111,
+        "sha256": "8d39f3367507cb6517836fb5e8e0b2e3e3376a63ce7f65b84f229b769b72a760",
+        "local_path": "data/public-pools/earthmaker/ntl-own-prompt-generations/v1/prompts_pilot.json"
+      },
+      {
+        "name": "prompts_v22.json",
+        "bytes": 6420,
+        "sha256": "fdc5730dbe6bcc93030ac943fa02a8e7058b52fbaafa14c441055860b62a779b",
+        "local_path": "data/public-pools/earthmaker/ntl-own-prompt-generations/v1/prompts_v22.json"
+      },
+      {
+        "name": "templates.json",
+        "bytes": 549,
+        "sha256": "e7fe7f8befea11f25ceffee78251e959174099443e34db0b826e93f438b36702",
+        "local_path": "data/public-pools/earthmaker/ntl-own-prompt-generations/v1/templates.json"
+      }
+    ],
+    "status": "READY"
+  },
+  "source_id": "SRC-063",
+  "pinned_listing_sha256": "fead968648d7d97e9a2d28211db78e4c43bb88153cd8fc0ca4c2cefda2f2f895",
+  "downloader": "experiments/EXP-008-public-pool-audit/download_inputs.py",
+  "downloader_sha256": "0d8576dd8043909fc916b0614c74422ceaf95cd3a1788eb5bb28ee292aa4cd0e",
+  "data_gate": "PENDING",
+  "training_or_scoring_performed": false
+}

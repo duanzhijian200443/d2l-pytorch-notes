@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "status": "GENERATED_NOT_EXECUTED",
+  "baseline_sha256": "6c9145f038ccffbe08dc6da6db3d1dcf3d2e0e7d2286927bfc8800ef5148cfb8",
+  "instrument_sha256": "1a3a4f2635139828a6cf3dc4d9e142c9ebd7ac4ceac16f53bec7fd6006f7d569",
+  "components": [
+    {
+      "component": "main",
+      "source_filename": "infer.py",
+      "source_sha256": "022cafd2e6504dd7cf38c8675b9597fb4fbd4c9dd0be69d38918293d9caac9b3",
+      "generated_sha256": "8b97f40e4fedf79c842c886e62419144d2e6d0c2e743779c264f7d3074d5f4f7",
+      "algorithm_ast_equal_after_removing_observers": true,
+      "algorithm_ast_sha256": "9d685f1abeadac702639cfd034ccc16b7ea9a7bfe0f643bc9e9971fb9759f758",
+      "anchors": [
+        {
+          "line": 74,
+          "end_line": 74,
+          "node": "Expr",
+          "placement": "after",
+          "anchor_ast_sha256": "030fd2659d162ac2868f16949756e9f347f9e235adba7023850478b46153cbb2",
+          "observer_statement": "_cache = _cache_observer.from_env('main', test['id'].astype(str).tolist(), test['text'].tolist(), LABELS, {'source_sha256': '022cafd2e6504dd7cf38c8675b9597fb4fbd4c9dd0be69d38918293d9caac9b3', 'args': vars(a), 'data_dir': a.data, 'sim': a.sim, 'fake_test': a.fake_test, 'train_rows': len(train)})"
+        },
+        {
+          "line": 230,
+          "end_line": 230,
+          "node": "Assign",
+          "placement": "after",
+          "anchor_ast_sha256": "56f4a953a769e900a7537ba891e8541bcbad4d2357a9617c66602f4fbe0d472f",
+          "observer_statement": "_cache.capture('main_svc4_margin', margins=_d, classes=_svc.classes_)"
+        },
+        {
+          "line": 514,
+          "end_line": 514,
+          "node": "Assign",
+          "placement": "after",
+          "anchor_ast_sha256": "df9d00836c87a63d29dde63b161ce20967357e4f95754f4c90b0a90f89ec6258",
+          "observer_statement": "_cache.capture('main_members', members=LP, total=tot, specs=specs, args=vars(a), groups=Gte, train_targets=y)"
+        },
+        {
+          "line": 546,
+          "end_line": 546,
+          "node": "Assign",
+          "placement": "after",
+          "anchor_ast_sha256": "fdcd464585d2681361247b88a85f250d27cb11c3ea86aa7dedb439a12d7da6ea",
+          "observer_statement": "_cache.capture('atlas_batch', bundle=bundle, requested_rows=rows, local_rows=_idx, global_rows=rows[_idx], probability_native=_batch, native_labels=_alab, completed_mask=scored)"
+        },
+        {
+          "line": 567,
+          "end_line": 567,
+          "node": "Expr",
+          "placement": "after",
+          "anchor_ast_sha256": "5a2da358d9561a9c2ee579be6b8afe7112465bb9657cdfa2a298710bb3a1a055",
+          "observer_statement": "_cache.capture('comp_loaded', logit=_cl, probability=COMP_P, comp_meta=_cm, path=a.comp_path)"
+        },
+        {
+          "line": 561,
+          "end_line": 570,
+          "node": "If",
+          "placement": "after",
+          "anchor_ast_sha256": "1222aa9ec294a1fc16bfc4fb0f81ac7f7b8153785d7116c60698b65c98064edc",
+          "observer_statement": "_cache.capture('comp_status', probability=COMP_P, requested_weight=a.comp_w, path=a.comp_path)"
+        },
+        {
+          "line": 575,
+          "end_line": 575,
+          "node": "AugAssign",
+          "placement": "after",
+          "anchor_ast_sha256": "74ac3673398a6a569e2daff51a6de94c2349781319844a672ea11796dc566d56",
+          "observer_statement": "_cache.capture('main_probability', probability=P, normalized_logits=lpn, divisor=wsum)"
+        },
+        {
+          "line": 576,
+          "end_line": 576,
+          "node": "If",
+          "placement": "after",
+          "anchor_ast_sha256": "a2616c501ad0ffd31e44c0390fcc9183079f60f536ffa9fe4f8e2fc19b561a62",
+          "observer_statement": "_cache.capture('pre_atlas', probability=P)"
+        },
+        {
+          "line": 579,
+          "end_line": 579,
+          "node": "Assign",
+          "placement": "after",
+          "anchor_ast_sha256": "d2118a3784595879eaded7f6d50769c212613515b10ffea1635911f935a310d3",
+          "observer_statement": "_cache.capture('atlas_requested', rows=rows, margin=_margin, probability=P, bundles=_bundles, weights=_aw, budget=a.atlas_budget, probe=a.atlas_probe)"
+        },
+        {
+          "line": 585,
+          "end_line": 585,
+          "node": "Assign",
+          "placement": "after",
+          "anchor_ast_sha256": "49c9139e299799be41ab9cdc5d621f4e0ef67eeaa731473f584b11ff4dd57a45",
+          "observer_statement": "_cache.capture('atlas_returned', bundle=_bd, weight=_w, requested_rows=rows, probabilities=A_, completed_mask=scored, completed_rows=completed_rows)"
+        },
+        {
+          "line": 592,
+          "end_line": 592,
+          "node": "Assign",
+          "placement": "after",
+          "anchor_ast_sha256": "2015f7d8cb8f90040c9fc36f55d617374ba947bbdc261ee23c0ae8c397f38447",
+          "observer_statement": "_cache.capture('pre_sinkhorn', probability=P)"
+        },
+        {
+          "line": 606,
+          "end_line": 606,
+          "node": "Assign",
+          "placement": "after",
+          "anchor_ast_sha256": "ec9365601fdb588dacbd70022b209f1a04c457d52aa01c2259430461cbd5b0cb",
+          "observer_statement": "_cache.capture('sinkhorn_applied', probability=P, balanced_probability=Q, logits=tot, predicted_marginal=_pred_marg, train_prior=_train_prior, target=_target, target_mix=_rho, weight=a.sinkhorn)"
+        },
+        {
+          "line": 607,
+          "end_line": 607,
+          "node": "Assign",
+          "placement": "after",
+          "anchor_ast_sha256": "e64b052be8552ede5cead4f36690c84313a636385ac0aa0665eb2bf7148c25ae",
+          "observer_statement": "_cache.capture('postprocessing_base', logits=_v38_before_hard, post=a.post, sim=a.sim)"
+        },
+        {
+          "line": 672,
+          "end_line": 672,
+          "node": "Assign",
+          "placement": "after",
+          "anchor_ast_sha256": "a46224b75fd905dde2b015c8f31463d1d4f99d9dcebef006a34370d7a8e624e8",
+          "observer_statement": "_cache.capture('typography', evidence=_evidence, confidence_gate=_confidence_gate, length_gate=_length_gate, coverage_gate=_coverage_gate, gate=_gate, logits_before=_raw, logits_after=_safe_logits, marks=_marks, word_count=_word_count, active_markers=_active_markers, train_rows=len(train), train_class_counts=_freq, train_marker_hits=_hits, test_marker_matrix=_Xte, kappa=_kappa, feature_weights=_fw, rates=_rate, global_rate=_global_rate)"
+        }
+      ],
+      "module_end_observer": "_cache.capture('component_end', output_path=a.out, typography_applied=not bool(a.sim))",
+      "original_script_executed": false,
+      "clock_or_data_paths_changed": false
+    },
+    {
+      "component": "comp",
+      "source_filename": "comp_stack.py",
+      "source_sha256": "b6b6a7b8adbe50580c2d0de5a41d0764ae752fe729e1471872a9197ac956f222",
+      "generated_sha256": "64d061ebe633f2ba328b630041a7ddf1d21f09ac774d7cd818ea629a13bfa194",
+      "algorithm_ast_equal_after_removing_observers": true,
+      "algorithm_ast_sha256": "0e68244874253d0c93c978de865cf67c02caec66f9a84c3cefea64035c12ade4",
+      "anchors": [
+        {
+          "line": 95,
+          "end_line": 95,
+          "node": "Expr",
+          "placement": "after",
+          "anchor_ast_sha256": "1374dc040dcb24ef3d3cc12380eb916f754663fc281b15202e4d4c93bd59d535",
+          "observer_statement": "_cache = _cache_observer.from_env('comp', test['id'].astype(str).tolist(), test['text'].tolist(), LABELS, {'source_sha256': 'b6b6a7b8adbe50580c2d0de5a41d0764ae752fe729e1471872a9197ac956f222', 'smoke': SMOKE, 'tiny': TINY, 'fake_test': os.environ.get('NTL_FAKE_TEST'), 'drop_q35': os.environ.get('NTL_DROP_Q35'), 'data_dir': os.environ.get('NTL_DATA') if SMOKE else str(DATA_DIR), 'train_rows': len(train)})"
+        },
+        {
+          "line": 103,
+          "end_line": 103,
+          "node": "Assign",
+          "placement": "after",
+          "anchor_ast_sha256": "6477d6421ff36547afda6d9c025ba62d40ad60ee81d17d23a89f6c5b960e714d",
+          "observer_statement": "_cache.capture('member', key=key, probability=prob, log_probability=lp, weight=w, rows=rows)"
+        },
+        {
+          "line": 289,
+          "end_line": 289,
+          "node": "Assign",
+          "placement": "before",
+          "anchor_ast_sha256": "9f320e7adeeab4f2d673094e72b4dd0d1557150d01d1d1e38686d3c363021fbb",
+          "observer_statement": "_cache.capture('style_margin_context', role='plain', rows=np.arange(len(TE)), classes=svc_plain.classes_, evaluation=True)"
+        },
+        {
+          "line": 302,
+          "end_line": 302,
+          "node": "Assign",
+          "placement": "before",
+          "anchor_ast_sha256": "0b8c1fcdf008c22dfd7b39417c541910b67337ed12cd23a9b314bbe5003547a9",
+          "observer_statement": "_cache.capture('style_margin_context', role='centred', rows=np.flatnonzero(rows_style), classes=svc_centred.classes_, evaluation=True)"
+        },
+        {
+          "line": 307,
+          "end_line": 307,
+          "node": "Expr",
+          "placement": "before",
+          "anchor_ast_sha256": "c5db8ed04226dcc3ad69e7075c0ec8de3df156e0790de293969b17d417b06424",
+          "observer_statement": "_cache.capture('style_routed', probability=P_style, groups=G_style, mask=rows_style)"
+        },
+        {
+          "line": 947,
+          "end_line": 951,
+          "node": "If",
+          "placement": "before",
+          "anchor_ast_sha256": "fe3b734376188db5dbd5b3b3c180643038a2112b8f0ac989442de807b10cb1d8",
+          "observer_statement": "_cache.capture('comp_before_gates', logit=LOGIT, gates=GATES, groups=G_TE, group_mask=GROUP_ROWS, style_groups=G_style, style_mask=rows_style)"
+        },
+        {
+          "line": 943,
+          "end_line": 943,
+          "node": "Assign",
+          "placement": "after",
+          "anchor_ast_sha256": "93f0dd8e0dc7e1c0a159ff7f7576f09923e3c25d0e5eebf9f5563f1fcdb8bc06",
+          "observer_statement": "_cache.capture('family_gate_applied', key=gate_key, family=family, indices=idx, raw_score=GATES[gate_key], gate_log_probability=gate_lp, base=base, strength=strength, family_mass=family_mass, logit=LOGIT)"
+        },
+        {
+          "line": 236,
+          "end_line": 236,
+          "node": "Call",
+          "placement": "identity_return_wrapper",
+          "anchor_ast_sha256": "03624d989ce0a30bf9b6cef429189b5a3819c8fab8e7b08e7a759aee65e48113",
+          "observer_statement": "_cache.return_array('style_margin', ORIGINAL_CALL)"
+        }
+      ],
+      "module_end_observer": "_cache.capture('component_end', logit=LOGIT, serialized_logit=LOGIT.astype(np.float32), output_path='/kaggle/working/comp_logit.npy', meta_path='/kaggle/working/comp_meta.json')",
+      "original_script_executed": false,
+      "clock_or_data_paths_changed": false
+    }
+  ],
+  "observer_module": "full_stack_observer",
+  "observer_module_copied": false,
+  "limits": [
+    "AST equality is not a real-model runtime equality result.",
+    "Observer IO can change wall-clock-limited ATLAS coverage; no clock is adjusted.",
+    "Only original requested ATLAS rows are scored; future requests need coverage verification."
+  ]
+}

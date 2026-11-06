@@ -1,0 +1,5 @@
+The plant is showing **phototropism**: directional growth in response to light. Light-sensitive proteins in the shoot detect that one side is brighter than the other. This causes the growth hormone **auxin** to redistribute toward the shaded side of the stem.
+
+Auxin makes cells in the stem elongate more. Because cells on the darker side grow longer than cells on the illuminated side, the stem gradually curves toward the window. Turning toward the light helps the leaves receive more light for photosynthesis, allowing the plant to make more sugars for growth.
+
+The bending takes time because it is not a rapid movement like an animal turning its head. The plant must first sense the light direction, move hormones between tissues, activate growth processes, take up water, and build or stretch cell walls. Many cells must elongate by slightly different amounts over hours or days before the curve becomes noticeable. The direction and degree of bending can also change as the light source moves or as the plant grows.

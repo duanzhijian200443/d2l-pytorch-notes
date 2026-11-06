@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0097",
+  "prompt": "Describe the difference between restoring missing parts of an ancient object and displaying its gaps openly. Aim for about 120 words.",
+  "category": "humanities_history",
+  "target_words": 120,
+  "prompt_group": "cp0097",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "8a4c106bdc81b448381896286f8f09aee9e9cbb003d546ab39cdeb5097949ddc",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:31:37.305560+00:00",
+  "ended_at": "2026-11-01T09:31:52.589815+00:00",
+  "prompt_sha256": "d060d19ad4b23589db39244f149a18284efde9317eb50b5410dae33d44cc95e0",
+  "text": "Restoring missing parts of an ancient object means reconstructing or replacing damaged areas so the object appears more complete. This approach may improve visual coherence and help viewers understand its original form, but it can also introduce speculation or blur the boundary between ancient material and modern intervention. Displaying the gaps openly, by contrast, preserves the object’s fragmentary condition and makes its history of damage, survival, and interpretation visible. Missing sections become part of the meaning rather than defects to conceal. This approach is often more honest and reversible, allowing future scholars to distinguish original fabric from later additions. The choice depends on purpose: restoration may support readability or use, while open gaps emphasize authenticity, historical change, and respect for what can no longer be known.",
+  "text_sha256": "a826829f16d74e332fea903b5ba45dec49943fe1d8c833378dd0bf0261214557",
+  "raw_final_sha256": "a826829f16d74e332fea903b5ba45dec49943fe1d8c833378dd0bf0261214557",
+  "word_count": 126,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2582,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 183,
+      "reasoning_output_tokens": 30
+    }
+  ],
+  "attempt_path": "collection\\attempts\\8a4c106bdc81b448381896286f8f09aee9e9cbb003d546ab39cdeb5097949ddc",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

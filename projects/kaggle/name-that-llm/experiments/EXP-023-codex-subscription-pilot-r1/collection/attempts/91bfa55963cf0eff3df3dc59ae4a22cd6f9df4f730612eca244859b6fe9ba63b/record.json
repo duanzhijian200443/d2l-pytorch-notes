@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0050",
+  "prompt": "Describe the trade-off between compressing a photograph into a smaller file and preserving subtle image detail. Keep your response near 120 words.",
+  "category": "technology_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0050",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "91bfa55963cf0eff3df3dc59ae4a22cd6f9df4f730612eca244859b6fe9ba63b",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:02:21.598276+00:00",
+  "ended_at": "2026-11-01T09:02:42.414935+00:00",
+  "prompt_sha256": "763564f27c0ae4a3f168e68b8c493a9bfadfbdafeae1af65a1fe151556b5bc31",
+  "text": "Compressing a photograph reduces its file size, making it faster to upload, download, store, and share. The trade-off is that stronger compression—especially lossy compression such as JPEG—removes visual information considered less noticeable. At moderate settings, the difference may be hard to see, but aggressive compression can erase fine textures, soften edges, flatten subtle color gradients, and introduce blockiness, ringing, or banding. These effects are especially visible in hair, foliage, fabric, shadows, and smooth skies.\n\nThe best balance depends on the photograph’s purpose. A small web preview can tolerate more compression, while images intended for editing, archiving, or large prints should retain more data. Lossless formats preserve all detail but usually produce larger files. Testing several quality settings at the intended viewing size helps identify the smallest acceptable file.",
+  "text_sha256": "af6da3f40bd276b5b6666bd042769eb0cef2068313e44b4afc8b3fc6c3b4382a",
+  "raw_final_sha256": "af6da3f40bd276b5b6666bd042769eb0cef2068313e44b4afc8b3fc6c3b4382a",
+  "word_count": 128,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4120,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 171,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\91bfa55963cf0eff3df3dc59ae4a22cd6f9df4f730612eca244859b6fe9ba63b",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

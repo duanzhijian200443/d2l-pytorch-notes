@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0198",
+  "prompt": "A person selects a book at random from a shelf of ten novels and five biographies. Explain the chance of selecting a biography and one assumption behind that calculation. Keep your response near 80 words.",
+  "category": "reasoning_explanation",
+  "target_words": 80,
+  "prompt_group": "cp0198",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "ca2071359ac039ad97b2397a27c1b753a01b21a93a9fd6f29a2617745c779204",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:01:44.739718+00:00",
+  "ended_at": "2026-11-01T11:01:59.845426+00:00",
+  "prompt_sha256": "49210354fe1e3eb178010d33c6813d2ebce8808e1daf52d326c52759ea012fd0",
+  "text": "There are 15 books altogether: 10 novels and 5 biographies. Assuming each individual book is equally likely to be selected at random, the chance of choosing a biography is:\n\n\\[\n\\frac{5}{15}=\\frac{1}{3}\n\\]\n\nSo the probability is one-third, or about 33.3%. The key assumption is that the person has no preference or bias toward any book, so every book on the shelf has the same chance of being picked.",
+  "text_sha256": "409eb563eb4fbc98c437a291f1088c9c2cbb0bd0bdf2029d17e1679d817d8650",
+  "raw_final_sha256": "409eb563eb4fbc98c437a291f1088c9c2cbb0bd0bdf2029d17e1679d817d8650",
+  "word_count": 68,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4132,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 102,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\ca2071359ac039ad97b2397a27c1b753a01b21a93a9fd6f29a2617745c779204",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

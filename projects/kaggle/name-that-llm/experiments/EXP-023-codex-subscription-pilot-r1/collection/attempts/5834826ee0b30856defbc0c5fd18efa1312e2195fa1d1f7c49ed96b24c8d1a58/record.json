@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0186",
+  "prompt": "A sign says that every member of a club owns a bicycle. Explain why this does not imply that everyone who owns a bicycle belongs to the club. A response of around 80 words is enough.",
+  "category": "reasoning_explanation",
+  "target_words": 80,
+  "prompt_group": "cp0186",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "5834826ee0b30856defbc0c5fd18efa1312e2195fa1d1f7c49ed96b24c8d1a58",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:53:59.975458+00:00",
+  "ended_at": "2026-11-01T10:54:15.712552+00:00",
+  "prompt_sha256": "9075a781148fc86261d027d8149838af2284f59229ee5e420381e00a39c0ad5f",
+  "text": "The sign says that being a club member guarantees owning a bicycle, not that owning a bicycle guarantees club membership. People outside the club may own bicycles too. For example, all 20 club members might own bicycles, while hundreds of other people in the town also own them without joining the club. In logical terms, “If someone is a member, then they own a bicycle” does not imply its converse: “If someone owns a bicycle, then they are a member.”",
+  "text_sha256": "eb11891e15ff0a212327ca1cb0b45e2f3459ea4e02e3c33d2dfed2575b1f7337",
+  "raw_final_sha256": "eb11891e15ff0a212327ca1cb0b45e2f3459ea4e02e3c33d2dfed2575b1f7337",
+  "word_count": 80,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4247,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 99,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\5834826ee0b30856defbc0c5fd18efa1312e2195fa1d1f7c49ed96b24c8d1a58",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

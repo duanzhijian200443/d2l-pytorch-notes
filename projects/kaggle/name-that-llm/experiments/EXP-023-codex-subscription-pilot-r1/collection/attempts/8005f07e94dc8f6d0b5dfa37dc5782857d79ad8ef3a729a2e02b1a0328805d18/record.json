@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0121",
+  "prompt": "Should a public park devote more space to quiet seating or to active games? Present a balanced argument and propose a compromise. Keep your response near 80 words.",
+  "category": "tradeoff_argument",
+  "target_words": 80,
+  "prompt_group": "cp0121",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "8005f07e94dc8f6d0b5dfa37dc5782857d79ad8ef3a729a2e02b1a0328805d18",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:47:23.872647+00:00",
+  "ended_at": "2026-11-01T09:47:42.581858+00:00",
+  "prompt_sha256": "c08a9ac415be0d0b4fcf6fee1f0fc72093fc2d61caa61c5ac0a7fcd1ce82d051",
+  "text": "A public park should support both relaxation and recreation. Quiet seating offers older adults, readers, caregivers, and stressed residents a peaceful place to rest and enjoy nature. Meanwhile, spaces for active games promote exercise, social interaction, and healthy play for children and adults. However, noise and limited land can create conflict. A sensible compromise is to divide the park into clearly separated zones, using trees or gardens as sound buffers, while scheduling certain shared areas for games at specific times.",
+  "text_sha256": "56040a21c60a46f474b97b1291bdda5eec74472c4b1ceab0112edd9c02b95e90",
+  "raw_final_sha256": "56040a21c60a46f474b97b1291bdda5eec74472c4b1ceab0112edd9c02b95e90",
+  "word_count": 80,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4125,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 98,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\8005f07e94dc8f6d0b5dfa37dc5782857d79ad8ef3a729a2e02b1a0328805d18",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

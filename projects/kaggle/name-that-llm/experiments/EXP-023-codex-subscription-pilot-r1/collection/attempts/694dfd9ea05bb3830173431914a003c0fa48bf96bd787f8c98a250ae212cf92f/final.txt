@@ -1,0 +1,5 @@
+A sealed bag of chips can puff up in the mountains because atmospheric pressure decreases as altitude increases. When the bag was sealed—usually at a lower elevation—the air or nitrogen gas inside it was trapped at a pressure close to the surrounding pressure at that location. During the trip upward, no additional gas enters the bag, and the amount of gas inside remains essentially unchanged. However, the outside air pressure becomes lower.
+
+Because the bag is flexible, the trapped gas expands until its internal pressure is roughly balanced by the lower external pressure, along with the tension of the packaging. This expansion makes the bag look inflated, even though nobody added air. The behavior is described approximately by the ideal gas law: for a fixed amount of gas, a decrease in pressure tends to produce an increase in volume, assuming temperature does not change greatly.
+
+Temperature can also affect the bag. Warmer gas expands more, while cooler gas contracts, but the main cause during a mountain trip is the drop in atmospheric pressure.

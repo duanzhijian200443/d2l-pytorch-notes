@@ -1,0 +1,9 @@
+Use a simple impact–effort ranking process. First, define the organization’s immediate goals, such as increasing donations, recruiting volunteers, improving accessibility, or reducing staff workload. Score each proposed improvement from 1–5 on:
+
+- **Mission impact:** How strongly does it support current goals?
+- **User urgency:** How many users are affected, and how serious is the problem?
+- **Effort:** How much developer time and coordination are required?
+- **Risk/dependencies:** Could missing content, approvals, or integrations delay it?
+- **Learning value:** Will it provide evidence that guides later improvements?
+
+Prioritize high-impact, urgent, low-effort work, especially accessibility, security, or broken critical journeys. Validate assumptions with analytics and brief input from volunteers, staff, and users. Give the developer one clearly scoped task at a time, define success metrics, ship a small version, measure results, then rerank the remaining list.

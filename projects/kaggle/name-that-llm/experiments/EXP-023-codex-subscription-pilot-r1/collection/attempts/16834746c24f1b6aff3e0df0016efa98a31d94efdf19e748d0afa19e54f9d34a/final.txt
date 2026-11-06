@@ -1,0 +1,9 @@
+Tides arise because the Moon’s gravity pulls **unequally on different parts of Earth**, not simply because it attracts ocean water.
+
+The Moon pulls most strongly on Earth’s near side, less strongly on its center, and least strongly on its far side. Earth and its oceans are all falling together around their shared center of mass with the Moon. Relative to Earth’s center, near-side water is pulled toward the Moon, while far-side water is effectively left behind. This produces a tidal stretching effect, often pictured as two ocean bulges: one facing the Moon and one facing away.
+
+But Earth rotates, while the Moon moves around Earth much more slowly. Consequently, the direction of this stretching continually changes relative to any particular coastline. In the simplest picture, a location rotates through both bulges, experiencing two high tides per lunar day—about 24 hours and 50 minutes.
+
+Real oceans don’t form two neat bulges that stay fixed beneath the Moon. Continents, ocean depth, friction, and Earth’s rotation turn the tidal forcing into complex waves moving through ocean basins. The Sun contributes additional tidal forcing.
+
+So water doesn’t collect permanently on one side because **the Moon’s pull is largely shared by the whole Earth, and the remaining differential pull continually shifts relative to Earth’s surface**.

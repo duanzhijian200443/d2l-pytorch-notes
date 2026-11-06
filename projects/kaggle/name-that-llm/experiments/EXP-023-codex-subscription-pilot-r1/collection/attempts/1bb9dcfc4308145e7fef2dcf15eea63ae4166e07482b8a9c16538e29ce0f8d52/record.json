@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0245",
+  "prompt": "Write a final project handover email that identifies one completed item, one unresolved question, and where the recipient can find the working files. Use fictional, generic details. Please answer in roughly 160 words.",
+  "category": "short_email",
+  "target_words": 160,
+  "prompt_group": "cp0245",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "1bb9dcfc4308145e7fef2dcf15eea63ae4166e07482b8a9c16538e29ce0f8d52",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:30:20.397080+00:00",
+  "ended_at": "2026-11-01T11:30:35.954796+00:00",
+  "prompt_sha256": "787552ca90c94974b557d1b83833ed2490ee5147387e62275bc24d4aea97e023",
+  "text": "**Subject: Project Handover – Riverside Initiative**\n\nHi Jordan,\n\nI’m writing to formally hand over the Riverside Initiative as I transition off the project.\n\nThe updated client onboarding workflow is now complete. This includes the revised intake form, approval steps, and supporting guidance for the operations team. The materials have been reviewed internally and are ready for use.\n\nOne question remains unresolved: should automated reminder emails be sent after three business days or five? The current draft uses five days, but the final timing should be confirmed with the client before the automation is activated.\n\nAll working files are stored in the shared project drive under **Projects > Riverside Initiative > Handover**. The folder contains the latest project plan, editable source documents, meeting notes, and a brief status tracker. Please use the files labeled “Final Working Version” as the starting point for any further changes.\n\nThanks for your support throughout the project. Please let me know if you need any clarification during the handover.\n\nBest,  \nAlex Morgan",
+  "text_sha256": "dc7d9f5b95ddb665a25be8b6dba6bc2b1f6567f62a4e81ba8213fff383ddb173",
+  "raw_final_sha256": "dc7d9f5b95ddb665a25be8b6dba6bc2b1f6567f62a4e81ba8213fff383ddb173",
+  "word_count": 166,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4134,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 223,
+      "reasoning_output_tokens": 17
+    }
+  ],
+  "attempt_path": "collection\\attempts\\1bb9dcfc4308145e7fef2dcf15eea63ae4166e07482b8a9c16538e29ce0f8d52",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

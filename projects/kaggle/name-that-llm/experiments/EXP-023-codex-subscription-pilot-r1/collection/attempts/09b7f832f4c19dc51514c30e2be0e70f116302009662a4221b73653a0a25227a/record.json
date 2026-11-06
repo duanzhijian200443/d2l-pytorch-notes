@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0084",
+  "prompt": "Why can translating a proverb word for word preserve its images but lose its practical meaning? Please answer in roughly 200 words.",
+  "category": "humanities_history",
+  "target_words": 200,
+  "prompt_group": "cp0084",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "09b7f832f4c19dc51514c30e2be0e70f116302009662a4221b73653a0a25227a",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:24:17.419090+00:00",
+  "ended_at": "2026-11-01T09:24:32.718108+00:00",
+  "prompt_sha256": "1a62dd026c6b86bc8f9c5cb46f3f98cf0b36e6d621182e7bec88c2ac0dbbaaaf",
+  "text": "Translating a proverb word for word can preserve its images because the literal nouns, actions, and comparisons may transfer easily between languages. A proverb about “carrying water,” “planting seeds,” or “crossing a bridge” can therefore retain the same visible scene in translation. Yet its practical meaning depends on more than that scene.\n\nProverbs are culturally established shortcuts. Speakers learn not only what the words describe, but also when the saying is used, what lesson it implies, and whether its tone is humorous, critical, comforting, or cautionary. These associations may not exist in another language. A literal translation can consequently sound like an unusual observation rather than recognizable advice. For example, “Don’t count your chickens before they hatch” is not mainly about poultry; it warns against assuming success too early. A word-for-word version may preserve the chickens and eggs while failing to communicate that warning to readers unfamiliar with the expression.\n\nProverbs also rely on local history, customs, symbolism, rhythm, and shared values. An animal that represents wisdom in one culture may suggest foolishness in another. Effective translation must therefore reproduce the proverb’s function, not merely its imagery. Translators may use an equivalent proverb in the target language, paraphrase the lesson, or preserve the original image while adding enough context to make its intended use clear.",
+  "text_sha256": "6b3ec96b15c1f14aef37994c1b25f70313395bb4e717410d1a78a825100ea6d9",
+  "raw_final_sha256": "6b3ec96b15c1f14aef37994c1b25f70313395bb4e717410d1a78a825100ea6d9",
+  "word_count": 215,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4118,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 272,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\09b7f832f4c19dc51514c30e2be0e70f116302009662a4221b73653a0a25227a",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0048",
+  "prompt": "Explain why deleting a shortcut from a computer's desktop usually does not uninstall the application. A response of around 160 words is enough.",
+  "category": "technology_explanation",
+  "target_words": 160,
+  "prompt_group": "cp0048",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "94d399086560a544c32236d7378e24b2a9f7a511e4ccc31423cdce145c67ac87",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:00:22.506339+00:00",
+  "ended_at": "2026-11-01T09:00:38.810574+00:00",
+  "prompt_sha256": "0c7e481a986ac00b89839f0623f9c7fe871f4eea1e63b4a398cdb1a08000fbba",
+  "text": "Deleting a desktop shortcut usually does not uninstall an application because the shortcut is only a link or pointer to the program. It contains information such as the application’s file location, icon, and startup options, but it is not the application itself.\n\nThe program’s executable files and supporting components are normally stored elsewhere, such as in the “Program Files” folder, an application directory, or a system-managed location. Removing the shortcut only removes one convenient way to launch the program; the application and its associated files remain on the computer. It may still be accessible through the Start menu, Applications folder, search, or by opening its installation directory directly.\n\nTo remove an application properly, use the operating system’s uninstall feature or the application’s dedicated uninstaller. This can remove program files, configuration data, libraries, and system settings such as registry entries. There are exceptions: portable applications may consist of a single folder, so deleting that folder can effectively remove them, though personal settings may still remain elsewhere.",
+  "text_sha256": "20f74c429891c389559a66957eb5efc23e67988e851d4b282a0d482a728a95f9",
+  "raw_final_sha256": "20f74c429891c389559a66957eb5efc23e67988e851d4b282a0d482a728a95f9",
+  "word_count": 165,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2585,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 235,
+      "reasoning_output_tokens": 31
+    }
+  ],
+  "attempt_path": "collection\\attempts\\94d399086560a544c32236d7378e24b2a9f7a511e4ccc31423cdce145c67ac87",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

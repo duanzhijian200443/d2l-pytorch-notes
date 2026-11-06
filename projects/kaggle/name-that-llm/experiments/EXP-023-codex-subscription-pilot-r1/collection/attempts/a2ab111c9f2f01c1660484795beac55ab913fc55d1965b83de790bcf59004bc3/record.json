@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0162",
+  "prompt": "Draft an email to a small bookshop asking whether it could host a reading by three local writers. Mention that the group can provide its own chairs if needed and is flexible about dates. A response of around 120 words is enough.",
+  "category": "short_email",
+  "target_words": 120,
+  "prompt_group": "cp0162",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "a2ab111c9f2f01c1660484795beac55ab913fc55d1965b83de790bcf59004bc3",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:36:25.773931+00:00",
+  "ended_at": "2026-11-01T10:36:54.164804+00:00",
+  "prompt_sha256": "63056631c8dffe0dfb0ab1c26d4aa943b078bf3a67aac13361836620b1fa94d8",
+  "text": "**Subject: Enquiry About Hosting a Reading**\n\nDear [Bookshop Name] Team,\n\nI’m writing on behalf of three local writers who would love to hold a reading at your bookshop. We’re hoping to organize a friendly, informal event where each writer can share a short selection of their work, followed by conversation with attendees.\n\nWould you be open to hosting an event like this? We are flexible about dates and times and would be happy to work around your schedule. We can also provide our own chairs if needed, as well as help with setting up, promoting the event, and tidying afterward.\n\nPlease let us know if this might be of interest and whether there are any requirements, costs, or capacity limits we should consider.\n\nBest wishes,  \n[Your Name]",
+  "text_sha256": "d8c659e40fb3176bf16c7af7fe552fa75710aec04fa73dd2f2f53d3ff072865a",
+  "raw_final_sha256": "d8c659e40fb3176bf16c7af7fe552fa75710aec04fa73dd2f2f53d3ff072865a",
+  "word_count": 127,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4140,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 173,
+      "reasoning_output_tokens": 11
+    }
+  ],
+  "attempt_path": "collection\\attempts\\a2ab111c9f2f01c1660484795beac55ab913fc55d1965b83de790bcf59004bc3",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

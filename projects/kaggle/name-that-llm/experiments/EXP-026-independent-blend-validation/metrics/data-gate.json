@@ -1,0 +1,198 @@
+{
+  "schema_version": 1,
+  "observed_at_utc": "2026-11-01T08:37:29.925537+00:00",
+  "status": "PASS_FOR_EXTERNAL_FOUR_CLASS_CHECK",
+  "experiment_id": "EXP-026",
+  "source": "enaimaan/ntl-openai-generated-responses",
+  "source_version": 3,
+  "selection_rule": "kind=new; every recorded prompt source is databricks/databricks-dolly-15k; exact complete four-label panel per canonical cv_group; no known training ancestry/body/text intersection; shared ancestor components kept intact",
+  "inputs": [
+    {
+      "path": "cloud/svc4-raw-public-r1/payload/protocol.json",
+      "sha256": "9117d147deb4c2ab27a6054655970445095e638bc11a2d506310bf73170f4855",
+      "bytes": 4973
+    },
+    {
+      "path": "cloud/svc4-raw-public-r1/payload/public.csv",
+      "sha256": "0a1e31a0f8b0ece7ca44a961075252fe275107f3710804971838d714a4e77aaa",
+      "bytes": 4711529
+    },
+    {
+      "path": "data/public-pools/enaimaan/ntl-openai-generated-responses/v3/CC-BY-4.0.txt",
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+      "bytes": 18657
+    },
+    {
+      "path": "data/public-pools/enaimaan/ntl-openai-generated-responses/v3/CC-BY-SA-3.0.txt",
+      "sha256": "3f941b3b89cf7b8370ceb83cc76d2120d471b58735d8ca60238a751a48d7f72f",
+      "bytes": 22240
+    },
+    {
+      "path": "data/public-pools/enaimaan/ntl-openai-generated-responses/v3/LICENSE.md",
+      "sha256": "2e59b4158f4f024416630807e7b2d6a8d4ab02616d6b12c6924fca26ec68fa29",
+      "bytes": 1818
+    },
+    {
+      "path": "data/public-pools/enaimaan/ntl-openai-generated-responses/v3/README.md",
+      "sha256": "8b95cf141a91593856b83b2bec5968e8f5a85e001cddc508176d34b742aa02c7",
+      "bytes": 4735
+    },
+    {
+      "path": "data/public-pools/enaimaan/ntl-openai-generated-responses/v3/SHA256SUMS",
+      "sha256": "7e96214635b4b30a5976b39122eb22a01954f4ccc0a75bfb3ef147167f4f3110",
+      "bytes": 722
+    },
+    {
+      "path": "data/public-pools/enaimaan/ntl-openai-generated-responses/v3/attribution.json",
+      "sha256": "e7ff01517c033779765a1e38eaf9a61a106b40a4a8e1414872a381dfa2b18d87",
+      "bytes": 5547
+    },
+    {
+      "path": "data/public-pools/enaimaan/ntl-openai-generated-responses/v3/lineage-aliases.json",
+      "sha256": "9be25ee20aa63d1d474d6cd34248eae642d82e823214a6b0a9fb725a7e88f63d",
+      "bytes": 56923
+    },
+    {
+      "path": "data/public-pools/enaimaan/ntl-openai-generated-responses/v3/prompts.jsonl",
+      "sha256": "7a474ee6af8cdeae8e74f62a5f9e3b3ce65bb0eedc4056660925d02542be735b",
+      "bytes": 9053172
+    },
+    {
+      "path": "data/public-pools/enaimaan/ntl-openai-generated-responses/v3/train.csv",
+      "sha256": "655081a30c30376edba803e48f2031bfc1935d9f0a5e0e4c44fd55dee83acfa3",
+      "bytes": 12286187
+    },
+    {
+      "path": "data/public-pools/enaimaan/ntl-openai-generated-responses/v3/train.parquet",
+      "sha256": "c32483bc5bd17f926313c17e382efb6bfe3001737f7f45632cf884f56a6dbe68",
+      "bytes": 5555757
+    },
+    {
+      "path": "data/public-pools/prvsiyan/prvsiyans-extended-name-that-llm-dataset/v6/prompts.csv",
+      "sha256": "58dabf5d31bb3fd76ff49dda3c4603970aece7553a5afe78d2e2dc4463b98acd",
+      "bytes": 377389
+    },
+    {
+      "path": "data/public-pools/seyitkaangunes/ntl-extra-api-passages/v2/prompts.csv",
+      "sha256": "25df24d4e4ca0f8242bd365cc9ea8039f0056f3eae78fa3dd186bbae5a608395",
+      "bytes": 266160
+    },
+    {
+      "path": "experiments/EXP-008-public-pool-audit/download-manifest.json",
+      "sha256": "5f2da21401efada94e636fd2fb843013c7eff6ae1ed2d07a5a2771c3ed071cfa",
+      "bytes": 8788
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/payload/extra.csv",
+      "sha256": "1e9125fd49b19084842332ede84ea65bc0174ee1bb28c8d48acc8ddbd5e36c0e",
+      "bytes": 8672205
+    },
+    {
+      "path": "experiments/EXP-010-012-stylegram-share/payload/protocol.json",
+      "sha256": "3983ceb881750b9b138ee59a3c03ba1acb2dd0f04c2b56bbe96ec682446ce50c",
+      "bytes": 1759
+    },
+    {
+      "path": "experiments/EXP-026-independent-blend-validation/audit_external.py",
+      "sha256": "94ddaee44ea5cdaf52bb356e3951930e538235c600b8aed4e206d610c9eaa22c",
+      "bytes": 23244
+    },
+    {
+      "path": "experiments/EXP-026-independent-blend-validation/download-manifest.json",
+      "sha256": "6135e8ec91fbb8e144ed53402864ba4ee5445da1f2d37a9d864b39f130a03784",
+      "bytes": 3144
+    },
+    {
+      "path": "train.csv",
+      "sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+      "bytes": 2139418
+    }
+  ],
+  "source_rows": 9719,
+  "source_groups": 2739,
+  "rows": 5200,
+  "groups": 1300,
+  "labels": [
+    "gpt-5.6-luna",
+    "gpt-5.6-sol",
+    "gpt-5.6-terra",
+    "gpt-6-astra"
+  ],
+  "class_counts": {
+    "gpt-5.6-luna": 1300,
+    "gpt-5.6-sol": 1300,
+    "gpt-5.6-terra": 1300,
+    "gpt-6-astra": 1300
+  },
+  "evaluation": {
+    "path": "experiments/EXP-026-independent-blend-validation/evaluation.csv",
+    "bytes": 4383164,
+    "sha256": "72228be3ddaad8feaa1ba232e689537e0cf49ebc72068df4a7e556836f1bdd17"
+  },
+  "excluded_groups": {
+    "path": "experiments/EXP-026-independent-blend-validation/metrics/excluded-groups.csv",
+    "groups": 1439,
+    "sha256": "4f2e5c83128b4b06bba3a3fd7d3457a562b0e55d9067e94d4d8914d79d2555a9",
+    "reason_counts_nonexclusive": {
+      "kind_not_new": 1387,
+      "known_training_prompt_ancestry": 15,
+      "not_dolly_only": 1439,
+      "not_exactly_one_response_for_each_of_four_labels": 431,
+      "source_body_overlap_stylegram": 8,
+      "source_body_overlap_svc4": 9
+    }
+  },
+  "training_exposure": {
+    "stylegram_extra_rows": 10073,
+    "svc4_public_rows": 5400,
+    "official_rows": 2699,
+    "known_public_prompt_ancestors": 763,
+    "official_reconstructed_prompt_bodies": 150
+  },
+  "selected_intersections": {
+    "known_training_prompt_ancestry": 0,
+    "response_text_overlap_stylegram": 0,
+    "response_text_overlap_svc4": 0,
+    "response_text_overlap_official": 0,
+    "source_body_overlap_stylegram": 0,
+    "source_body_overlap_svc4": 0,
+    "source_body_overlap_official_reconstructed": 0
+  },
+  "hash_semantics": {
+    "source_body_sha256": "publisher prompt_hash = SHA256(whitespace-collapsed source body), case preserved; exact new request suffix removed before verification",
+    "comparison_normalization": "NFKC + casefold + collapsed whitespace for both response and source-body exact matching",
+    "messages_sha256": "canonical JSON of ordered role/content messages; contains system wrapper and per-response word target",
+    "application_request_sha256": "canonical JSON of messages + provider_model + reasoning; not a full raw HTTP request or underlying response authentication"
+  },
+  "request_checks": {
+    "one_to_one_response_prompt_rows": 9719,
+    "provider_model_label_matches": 9719,
+    "csv_parquet_equal": true,
+    "new_source_body_hash_matches": 5408,
+    "unique_messages_all_source": 6736,
+    "unique_application_requests_all_source": 9719
+  },
+  "alias_checks": {
+    "entries": 1423,
+    "nonidentity_entries": 0,
+    "cycles": 0,
+    "lineage_components": 2739,
+    "multi_cv_group_components": 0,
+    "note": "Identity-only alias entries do not prove absence of shared ancestors; source-ID and body connections are checked separately."
+  },
+  "publisher_response_license_counts": {
+    "not independently established": 9719
+  },
+  "limits": [
+    "Independent means no exact normalized response/source-body match or known shared prompt ancestry with the two specified fitting pools and documented official reconstructions; semantic overlap was not exhaustively tested and the host's true prompts are unavailable.",
+    "Only four GPT labels and Dolly-derived prompts are covered. This is not an 18-class confirmation or a representative official-distribution estimate.",
+    "Application-supplied messages and publisher provider_model labels are internally consistent; no raw serving-provider response logs independently authenticate the underlying weights.",
+    "The new kind is a collection panel label, not proof of new ancestry. Community-derived new panels and gap requests are excluded from this primary selection.",
+    "Generated-response rights are recorded by the publisher as not independently established; compilation/wrapper CC BY 4.0 and Dolly prompt CC BY-SA 3.0 attribution are preserved. This is a provenance statement, not an approval workflow.",
+    "Response generation used a candidate system instruction and reasoning none for Luna/Sol/Terra, low for Astra; settings are not established as matching competition/provider-community generation.",
+    "This selection uses source/provenance and fixed panel completeness only, with no model predictions, scores, length/style filtering, alpha search, or model fitting. Prior source diagnostics are not a guarantee of a pristine never-inspected population."
+  ],
+  "scoring_performed": false,
+  "training_performed": false,
+  "model_predictions_read": false
+}

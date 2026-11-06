@@ -1,0 +1,37 @@
+{
+  "experiment_id": "EXP-053",
+  "job": "style",
+  "input_hashes": {
+    "source.ipynb": "ca4c9e18ed32dcd8168b8118b192d39d657803d30dcd89a564b1c2d1d9c846dd",
+    "panel.csv": "8eeec7f64e924f0fd79dca57d324d42d269f400bdfbfff76d60b4c168d9ae6f2",
+    "train.csv": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+    "four120.csv": "a4e86314a77f7ed699dbfb107b32a8263a1ff09fc7c3ec92b98d4028d487005d",
+    "four240.csv": "694d91e2536db2d77d81f8d8b32a802763a750a2e9643fdb0ba6a10b76755a01",
+    "folds.csv": "e8ba1e3712852168dc57f56960d4f3e00be612d639ade8a7dcb0f0d8335ce551",
+    "shared.csv": "b98c246578afbc38b9bf3c0be1e666a41cc15d051c64d03e875ab0c85da1bd3b",
+    "regen-fold-map.csv": "2d7680e2001d711d5a7ec92d9cc6c8bd8ef0b197b81a79ee795c298c1a0b56c5",
+    "style_cpu.py": "10e9a7c8faad81d752b7362b4bd2add81610aed52921dea26a91bfbca522dc1d"
+  },
+  "mounted": [
+    "train.csv"
+  ],
+  "required_versions": {
+    "numpy": "2.1.3",
+    "pandas": "2.3.3",
+    "scipy": "1.16.3",
+    "sklearn": "1.6.1"
+  },
+  "author_ref": "synthreaper/ntl-sovereign-gold-apex",
+  "author_version": 1,
+  "author_script_version_id": 364684268,
+  "cpu_budget_seconds": 6600,
+  "residual_scope": "Conditional analysis on old cached heavy members",
+  "reference_scope": "Official five-fold end point is isolated Stylegram. Main panel exposure precludes generalization claims.",
+  "loader_csv": {
+    "ntl_extra_passages_claude.csv": "710dbe484fda23f0dee9b67c20e5bef9376bf754af05584ad142bc17845cd4b9",
+    "ntl_generations.csv": "33a47a1dda5ecc9c3d155d581afe0cb3851433d60deb87f209993162d5d197a5",
+    "ntl_proxy_generations.csv": "593708f7fd55636bd270824c0e129447b2a5808b1e224bb3dbf43bf2383fdf9c",
+    "gen_passages.csv": "b855fc128375984111d51ed4ae6bf23ca0fbec667b58d5ad2370bdb310495271",
+    "passages_clean.csv": "502653b8cc053bc1ef08920d0ddda892e8b656f14229e38e0755d8a2f079eaf9"
+  }
+}

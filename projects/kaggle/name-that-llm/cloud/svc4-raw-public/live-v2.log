@@ -1,0 +1,42 @@
+PREFLIGHT PASS {"numpy": "2.1.3", "pandas": "2.3.3", "scipy": "1.16.3", "sklearn": "1.6.1"}
+FOLD 0 official-only: fitting four-view features
+Traceback (most recent call last):
+  File "/kaggle/input/datasets/zhjianduan/ntl-svc4-raw-public-inputs-v1/runner.py", line 218, in <module>
+    run()
+    ~~~^^
+  File "/kaggle/input/datasets/zhjianduan/ntl-svc4-raw-public-inputs-v1/runner.py", line 147, in run
+    'feature_seconds':feature_seconds,'views':feature_receipt(features)}
+                                              ~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/kaggle/input/datasets/zhjianduan/ntl-svc4-raw-public-inputs-v1/runner.py", line 66, in feature_receipt
+    vocabulary = json.dumps(sorted(vectorizer.vocabulary_.items()), ensure_ascii=False, separators=(',', ':')).encode()
+                 ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/json/__init__.py", line 242, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "/usr/lib/python3.13/json/encoder.py", line 202, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.13/json/encoder.py", line 263, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.13/json/encoder.py", line 182, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type int64 is not JSON serializable
+Traceback (most recent call last):
+  File "/kaggle/src/script.py", line 10, in <module>
+    runpy.run_path(str(target/'guard.py'),run_name='__main__')
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 294, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "/kaggle/input/datasets/zhjianduan/ntl-svc4-raw-public-inputs-v1/guard.py", line 232, in <module>
+    main()
+    ~~~~^^
+  File "/kaggle/input/datasets/zhjianduan/ntl-svc4-raw-public-inputs-v1/guard.py", line 228, in main
+    raise RuntimeError(cause or f'CPU experiment failed ({exit_code})')
+RuntimeError: CHILD_FAILED
+/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+  cells[i][c] = re.sub('\\\\\|', '|', cell)
+/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+  text = re.sub(r'_', '\_', text) # Escape underscores in display text
+[NbConvertApp] Converting notebook __script__.ipynb to html
+[NbConvertApp] Writing 276658 bytes to __results__.html

@@ -1,0 +1,5 @@
+The average increases from **10 to 11**. To see why, remember that an average is the total of all the numbers divided by how many numbers there are. Since the five numbers originally have an average of 10, their total must be \(5 \times 10 = 50\).
+
+When one number increases by 5 and the other four stay unchanged, the total also increases by 5, becoming 55. There are still five numbers, so the new average is \(55 \div 5 = 11\).
+
+The average therefore rises by **1**, not by 5: the increase in the total is spread across all five numbers when calculating the average. It does not matter which number increases; the result is the same.

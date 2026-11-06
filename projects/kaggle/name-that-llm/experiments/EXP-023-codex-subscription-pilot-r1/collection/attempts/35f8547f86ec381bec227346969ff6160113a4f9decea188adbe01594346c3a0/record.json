@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0126",
+  "prompt": "Compare a fixed daily routine with leaving substantial unplanned time. Explain which circumstances favor each. Keep your response near 80 words.",
+  "category": "tradeoff_argument",
+  "target_words": 80,
+  "prompt_group": "cp0126",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "35f8547f86ec381bec227346969ff6160113a4f9decea188adbe01594346c3a0",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:50:26.281874+00:00",
+  "ended_at": "2026-11-01T09:50:41.887594+00:00",
+  "prompt_sha256": "57c1352f066d027921703675d236a0e02abe6af0c3a86ff31fc1818f596f14ae",
+  "text": "A fixed daily routine suits people with demanding obligations, executive-function challenges, or goals requiring steady practice. Predictable blocks reduce decision fatigue, protect priorities, and make habits easier to sustain.\n\nSubstantial unplanned time favors creative work, exploration, recovery, and environments where opportunities change quickly. It leaves room for curiosity, deep focus, and responding to surprises. Many people benefit most from a hybrid: anchor essential commitments and habits, then preserve open periods for flexible work and rest.",
+  "text_sha256": "9f4a022bf01d338cd0ba074e1f4c9f9b72016c8c721be4d38062b4c32f381a1c",
+  "raw_final_sha256": "9f4a022bf01d338cd0ba074e1f4c9f9b72016c8c721be4d38062b4c32f381a1c",
+  "word_count": 75,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4119,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 99,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\35f8547f86ec381bec227346969ff6160113a4f9decea188adbe01594346c3a0",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

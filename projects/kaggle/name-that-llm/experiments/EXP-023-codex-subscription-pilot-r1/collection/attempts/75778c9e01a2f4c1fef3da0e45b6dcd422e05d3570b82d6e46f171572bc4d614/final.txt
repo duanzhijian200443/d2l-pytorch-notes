@@ -1,0 +1,9 @@
+A plausible reason is that a wireless headset changes how it transmits audio when its microphone is used.
+
+With classic Bluetooth, music playback commonly uses **A2DP**, a profile designed for relatively high-quality, one-way stereo audio. Because the headset is mainly receiving sound, the connection can devote its audio capacity to playback.
+
+During a call, the headset also needs to send your voice back to the phone or computer. Many setups switch to a **hands-free profile**, such as HFP, which supports two-way conversation but may use a lower-bandwidth speech codec. That can reduce the range of frequencies you hear, sometimes making voices sound thinner or more “telephone-like.” Playback may also become mono rather than stereo.
+
+Call software adds other variables. It may compress speech, suppress background noise, or apply echo cancellation. Those processes help make conversation intelligible, but they can also remove detail or introduce audible artifacts. Network conditions can further affect quality.
+
+This is not inevitable: newer Bluetooth technologies and better speech codecs can improve call audio substantially. What you hear depends on the combination of headset, phone or computer, software, and negotiated connection mode. So clear music but less-clear calls can reflect a normal change in the audio path—not necessarily faulty hardware.

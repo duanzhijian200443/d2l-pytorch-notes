@@ -1,0 +1,10 @@
+{
+  "status": "FROZEN",
+  "observed_at": "2026-11-01T08:39:01.117458+00:00",
+  "protocol_sha256": "8cada9716782903f6e799374c8bfc7aa7f6beb6f39c74cf0e1d941cac68faaa2",
+  "payload_sha256": "e72823185150478620fbc734e2a4ba5eece2fee704786d43059ccf34f9871cc0",
+  "payload_bytes": 6450191,
+  "evaluation_rows": 5200,
+  "evaluation_groups": 1300,
+  "training_started": false
+}

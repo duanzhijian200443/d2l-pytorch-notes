@@ -1,0 +1,5 @@
+Frame the request around decisions, not open-ended opinions. Briefly state the plan’s purpose, constraints, and what is already settled. Then ask for feedback on a few specific areas—for example: “What risks am I missing?”, “Which assumption seems weakest?”, and “What would prevent your team from executing this?”
+
+Set a deadline and channel, and explain how input will be used: “Please send concise comments by Thursday; I’ll incorporate themes and publish the final plan.” Distinguish feedback from approval and make clear that not every suggestion will be adopted.
+
+You can also invite alternative proposals only when they include the trade-offs they introduce. This keeps feedback practical, surfaces genuine concerns, and avoids turning a draft into a line-by-line negotiation.

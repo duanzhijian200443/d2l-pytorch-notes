@@ -1,0 +1,9 @@
+{
+  "observed_at": "2026-11-01T08:31:56.695510+00:00",
+  "collector_tests_passed": 13,
+  "collector_tests_failed": 0,
+  "finalizer_terminal_checks_passed": 6,
+  "inference_calls": 0,
+  "resumed_successes": 6,
+  "remaining": 994
+}

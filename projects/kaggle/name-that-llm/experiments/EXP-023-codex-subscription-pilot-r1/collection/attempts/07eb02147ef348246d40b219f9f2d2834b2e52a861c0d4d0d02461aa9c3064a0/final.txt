@@ -1,0 +1,7 @@
+The **path taken by water in a river** usually refers to the river’s overall course and the bulk movement of water downstream—from its source, through channels and bends, toward a lake, sea, or another river. At this scale, water appears to follow a relatively smooth route shaped by gravity, the riverbed, banks, obstacles, and the landscape.
+
+An **individual water molecule**, however, does not move smoothly along that route. While it is carried downstream by the river’s overall flow—known as **advection**—it also undergoes constant microscopic motion. It collides with other molecules, moves randomly because of thermal energy, and is pushed in different directions by turbulence. Near rocks, bends, or the riverbed, it may circulate in an eddy, move sideways or briefly upstream, sink deeper, or rise toward the surface.
+
+A molecule may also leave the river’s main flow altogether. It might evaporate into the atmosphere, enter groundwater, freeze, be absorbed by an organism, or remain temporarily trapped in sediment or a quiet pool.
+
+Thus, the river’s path describes the **large-scale average transport of water**, whereas a molecule’s path is a complex, irregular trajectory combining downstream flow, turbulence, diffusion, and possible movement into other parts of the water cycle.

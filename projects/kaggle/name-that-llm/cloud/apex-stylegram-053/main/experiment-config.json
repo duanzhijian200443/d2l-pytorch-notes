@@ -1,0 +1,29 @@
+{
+  "experiment_id": "EXP-053",
+  "job": "main",
+  "input_hashes": {
+    "source.ipynb": "ca4c9e18ed32dcd8168b8118b192d39d657803d30dcd89a564b1c2d1d9c846dd",
+    "panel.csv": "8eeec7f64e924f0fd79dca57d324d42d269f400bdfbfff76d60b4c168d9ae6f2",
+    "train.csv": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+    "nlm_matched_clean.parquet": "000f8d541f7c4c5942a18c4fcf557aa01756882931307414cf2530ac21980482",
+    "ntl_open_pool.parquet": "38e48b40e1db0ab1bf6e4f29d3697e37307c49d1ae5020a7af3cd59c484657d5",
+    "main_cpu.py": "9f82bcf0ed265318731ff1b5dd282c993c25c13d093c229821387e26f2559ea2"
+  },
+  "mounted": [
+    "train.csv",
+    "nlm_matched_clean.parquet",
+    "ntl_open_pool.parquet"
+  ],
+  "required_versions": {
+    "numpy": "2.1.3",
+    "pandas": "2.3.3",
+    "scipy": "1.16.3",
+    "sklearn": "1.6.1"
+  },
+  "author_ref": "synthreaper/ntl-sovereign-gold-apex",
+  "author_version": 1,
+  "author_script_version_id": 364684268,
+  "cpu_budget_seconds": 6600,
+  "residual_scope": "Conditional analysis on old cached heavy members",
+  "reference_scope": "Official five-fold end point is isolated Stylegram. Main panel exposure precludes generalization claims."
+}

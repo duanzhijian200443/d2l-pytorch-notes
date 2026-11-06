@@ -1,0 +1,1 @@
+{"event":"member","payload":{"items":[["key",{"kind":"scalar","value":"lora20_q25_instyle"}],["probability",{"kind":"array","name":"event-0024-array-0001"}],["log_probability",{"kind":"array","name":"event-0024-array-0002"}],["weight",{"kind":"scalar","value":0.17}],["rows",{"kind":"scalar","value":null}]],"kind":"mapping"},"sequence":24}

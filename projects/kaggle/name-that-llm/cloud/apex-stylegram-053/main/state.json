@@ -1,0 +1,12 @@
+{
+  "status": "COMPLETE",
+  "ref": "zhjianduan/ntl-apex-volume-053-main",
+  "run_requests": 1,
+  "prepared_at": "2026-11-02T07:24:34.767912+00:00",
+  "notebook_sha256": "d04b6ff1a34a12c491baf62e31c41677ad9a3cfd16ef34044e8c4b6f1345a547",
+  "metadata_sha256": "96cdcd69ea35ef4a6b39adfee0eae5b3abbb1aeb94bd8560e33f445d0f2ed3f6",
+  "config_sha256": "20e49b6b50a2261f9fc32c938d816971991b22849c4b5ecf389c0ae9371a4c81",
+  "observed_at": "2026-11-02T07:51:10.455087+00:00",
+  "version": 1,
+  "readback_verified": true
+}

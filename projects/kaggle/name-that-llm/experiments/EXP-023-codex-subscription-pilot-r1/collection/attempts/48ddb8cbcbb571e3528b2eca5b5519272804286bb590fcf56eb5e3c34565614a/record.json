@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0222",
+  "prompt": "Explain why a historian may use several incomplete sources rather than searching for one supposedly perfect account. Aim for about 120 words.",
+  "category": "humanities_history",
+  "target_words": 120,
+  "prompt_group": "cp0222",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "48ddb8cbcbb571e3528b2eca5b5519272804286bb590fcf56eb5e3c34565614a",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:16:24.150211+00:00",
+  "ended_at": "2026-11-01T11:16:38.937117+00:00",
+  "prompt_sha256": "b3e925b7ae7645009dc9f145787dd1591a30a76ccb77a7619bba177c1171abdb",
+  "text": "A historian may use several incomplete sources because no single account is perfectly neutral, comprehensive, or accurate. Every source reflects its creator’s position, purpose, knowledge, and circumstances. A government report might provide official statistics but hide political failures; a diary may reveal personal experience but offer only one viewpoint. By comparing different kinds of evidence—letters, newspapers, photographs, records, and oral testimony—the historian can identify agreements, contradictions, omissions, and biases. Sources can also fill one another’s gaps: one may establish when an event occurred, while another explains how people experienced it. Seeking one supposedly perfect account risks accepting its limitations as the whole truth. Combining imperfect sources instead allows historians to cross-check claims and construct a richer, more credible interpretation of the past.",
+  "text_sha256": "1dac62f03c307867d55a52ecc017dd89ed67b9d5eb7bda3cbfd49cc7b62c60a1",
+  "raw_final_sha256": "1dac62f03c307867d55a52ecc017dd89ed67b9d5eb7bda3cbfd49cc7b62c60a1",
+  "word_count": 122,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4118,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 168,
+      "reasoning_output_tokens": 11
+    }
+  ],
+  "attempt_path": "collection\\attempts\\48ddb8cbcbb571e3528b2eca5b5519272804286bb590fcf56eb5e3c34565614a",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0002",
+  "prompt": "A person wants to read more but repeatedly abandons very ambitious reading schedules. Propose a small routine that still works during a busy week. Keep your response near 120 words.",
+  "category": "everyday_advice",
+  "target_words": 120,
+  "prompt_group": "cp0002",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "ed627035f7caeeb3768f5eee475624a291a44f3c4716b85f78011bb98d92903e",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:25:10.576005+00:00",
+  "ended_at": "2026-11-01T08:25:31.582617+00:00",
+  "prompt_sha256": "85dac271382de3ef0babc5a9d2168348de4187a30b49df60359cff89d4cd7676",
+  "text": "Set a “minimum viable reading” goal: **10 minutes or 5 pages daily**, whichever comes first.\n\nAttach it to an existing cue, such as after dinner, during a commute, or before sleep. Keep the current book visible and easy to access—on your pillow, in your bag, or as the first app on your phone.\n\nOn busy days, read only one page. The rule is to preserve the habit, not to catch up.\n\nChoose enjoyable, low-friction books rather than “should” books. Track completed days with a simple checkmark, but never restart a streak: missed days are normal.\n\nOnce a week, take 20–30 relaxed minutes to read more if you want. Over time, frequent small finishes build confidence and make longer reading sessions feel natural.",
+  "text_sha256": "5e0c0ac221fbaae195d3971b4b535d883aebb4aa1f444514a3bd6359c2062910",
+  "raw_final_sha256": "5e0c0ac221fbaae195d3971b4b535d883aebb4aa1f444514a3bd6359c2062910",
+  "word_count": 122,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4129,
+      "cached_input_tokens": 1792,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 163,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\ed627035f7caeeb3768f5eee475624a291a44f3c4716b85f78011bb98d92903e",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

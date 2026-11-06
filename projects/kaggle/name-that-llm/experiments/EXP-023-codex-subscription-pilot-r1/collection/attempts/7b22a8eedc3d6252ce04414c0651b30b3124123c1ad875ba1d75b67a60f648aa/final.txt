@@ -1,0 +1,11 @@
+Communicate early, clearly, and without false precision. State that the original timeline is no longer reliable, explain the cause at an appropriate level, and distinguish known facts from open uncertainties. Avoid announcing a revised date just to reduce discomfort.
+
+For example:
+
+> We’re experiencing a delay in the integration phase due to issues identified in testing. The team is actively resolving them, but we do not yet have enough information to provide a credible revised completion date.  
+>   
+> Our immediate focus is confirming the scope of the remaining work, identifying dependencies, and assessing recovery options. We will provide a progress update by [specific date], including what has been resolved, remaining risks, and—if supportable—a revised forecast.  
+>   
+> We understand this affects downstream planning and are working to minimize disruption. In the meantime, please treat the prior completion date as no longer current. If you have decisions or commitments dependent on this delivery, let us know so we can prioritize the relevant impacts.
+
+Use a firm date for the *next update*, even when the final date is uncertain. Own the issue, share the mitigation plan, and keep stakeholders updated at a predictable cadence.

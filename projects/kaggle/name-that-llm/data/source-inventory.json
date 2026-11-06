@@ -1,0 +1,607 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-10-31T16:46:29.140909+00:00",
+  "origin_experiment": "EXP-007",
+  "manifest_sha256": "5d0aa17129933ba23ae85dca1877914bc7f1e1f17d81ea2514fe291caa07b8d1",
+  "text_sources": [
+    {
+      "source_id": "official-train",
+      "kind": "competition",
+      "ref": "name-that-llm",
+      "url": "https://www.kaggle.com/competitions/name-that-llm/data",
+      "role": "labeled development / fixed OOF",
+      "local_path": "train.csv",
+      "sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+      "rows": 2699,
+      "row_audit": "completed"
+    },
+    {
+      "source_id": "official-test-example",
+      "kind": "competition",
+      "ref": "name-that-llm",
+      "url": "https://www.kaggle.com/competitions/name-that-llm/data",
+      "role": "three public schema examples; no labels, no validation score",
+      "local_path": "test.csv",
+      "sha256": "4545aa3a3459f4c0724f97ad5bd06c4caa3506bdfea5fab905e8203184fc0c57",
+      "rows": 3,
+      "row_audit": "completed"
+    },
+    {
+      "source_id": "seyitkaangunes/ntl-extra-api-passages",
+      "kind": "external_generation_pool",
+      "ref": "seyitkaangunes/ntl-extra-api-passages",
+      "url": "https://www.kaggle.com/datasets/seyitkaangunes/ntl-extra-api-passages/versions/2",
+      "version": 2,
+      "candidate_files": [
+        "ntl_extra_passages_claude.csv"
+      ],
+      "role": "candidate training data",
+      "drive_path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/dataset/seyitkaangunes/ntl-extra-api-passages/2",
+      "sha256": null,
+      "rows": null,
+      "row_audit": "not_read_or_audited_in_exp007",
+      "historical_expected_file_hashes": [],
+      "exact_generator_version_verified": false,
+      "next_audit": "schema, exact generator identity, duplicates across pools/official data, prompt leakage, source confounding"
+    },
+    {
+      "source_id": "abdullah1afify/ntl-generations",
+      "kind": "external_generation_pool",
+      "ref": "abdullah1afify/ntl-generations",
+      "url": "https://www.kaggle.com/datasets/abdullah1afify/ntl-generations/versions/2",
+      "version": 2,
+      "candidate_files": [
+        "ntl_generations.csv"
+      ],
+      "role": "candidate training data",
+      "drive_path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/dataset/abdullah1afify/ntl-generations/2",
+      "sha256": null,
+      "rows": null,
+      "row_audit": "not_read_or_audited_in_exp007",
+      "historical_expected_file_hashes": [
+        {
+          "path": "datasets/abdullah1afify/ntl-generations/ntl_generations.csv",
+          "sha256": "83003454e3cc0368cae8b05bca243daf036b64a42a792c3f7bfd5fd91b3db378"
+        },
+        {
+          "path": "datasets/abdullah1afify/ntl-generations/prompts_used.csv",
+          "sha256": "b42003b1068ba24de1accf33265e208e1a492d1ca8c81eb581d256b54bdefdbc"
+        }
+      ],
+      "exact_generator_version_verified": false,
+      "next_audit": "schema, exact generator identity, duplicates across pools/official data, prompt leakage, source confounding"
+    },
+    {
+      "source_id": "dophuchung/ntl-proxy-generations",
+      "kind": "external_generation_pool",
+      "ref": "dophuchung/ntl-proxy-generations",
+      "url": "https://www.kaggle.com/datasets/dophuchung/ntl-proxy-generations/versions/1",
+      "version": 1,
+      "candidate_files": [
+        "ntl_proxy_generations.csv"
+      ],
+      "role": "candidate training data",
+      "drive_path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/dataset/dophuchung/ntl-proxy-generations/1",
+      "sha256": null,
+      "rows": null,
+      "row_audit": "not_read_or_audited_in_exp007",
+      "historical_expected_file_hashes": [],
+      "exact_generator_version_verified": false,
+      "next_audit": "schema, exact generator identity, duplicates across pools/official data, prompt leakage, source confounding"
+    },
+    {
+      "source_id": "dhruvtibarewal/nlm-matched-clean",
+      "kind": "external_generation_pool",
+      "ref": "dhruvtibarewal/nlm-matched-clean",
+      "url": "https://www.kaggle.com/datasets/dhruvtibarewal/nlm-matched-clean/versions/3",
+      "version": 3,
+      "candidate_files": [
+        "nlm_matched_clean.parquet",
+        "nlm_pool_v5.parquet"
+      ],
+      "role": "candidate training data",
+      "drive_path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/dataset/dhruvtibarewal/nlm-matched-clean/3",
+      "sha256": null,
+      "rows": null,
+      "row_audit": "not_read_or_audited_in_exp007",
+      "historical_expected_file_hashes": [],
+      "exact_generator_version_verified": false,
+      "next_audit": "schema, exact generator identity, duplicates across pools/official data, prompt leakage, source confounding"
+    },
+    {
+      "source_id": "lucasboesen/ntl-free-proxy-generations",
+      "kind": "external_generation_pool",
+      "ref": "lucasboesen/ntl-free-proxy-generations",
+      "url": "https://www.kaggle.com/datasets/lucasboesen/ntl-free-proxy-generations/versions/7",
+      "version": 7,
+      "candidate_files": [
+        "gen_passages.csv"
+      ],
+      "role": "candidate training data",
+      "drive_path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/dataset/lucasboesen/ntl-free-proxy-generations/7",
+      "sha256": null,
+      "rows": null,
+      "row_audit": "not_read_or_audited_in_exp007",
+      "historical_expected_file_hashes": [
+        {
+          "path": "datasets/lucasboesen/ntl-free-proxy-generations/gen_passages.csv",
+          "sha256": "d037d212e17a7e98465f9c606f4437225fb221939a5f51b0f8150d15c07c68a5"
+        }
+      ],
+      "exact_generator_version_verified": false,
+      "next_audit": "schema, exact generator identity, duplicates across pools/official data, prompt leakage, source confounding"
+    },
+    {
+      "source_id": "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+      "kind": "external_generation_pool",
+      "ref": "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+      "url": "https://www.kaggle.com/datasets/prvsiyan/prvsiyans-extended-name-that-llm-dataset/versions/6",
+      "version": 6,
+      "candidate_files": [
+        "passages_clean.csv"
+      ],
+      "role": "candidate training data",
+      "drive_path": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/cli-cache/dataset/prvsiyan/prvsiyans-extended-name-that-llm-dataset/6",
+      "sha256": null,
+      "rows": null,
+      "row_audit": "not_read_or_audited_in_exp007",
+      "historical_expected_file_hashes": [],
+      "exact_generator_version_verified": false,
+      "next_audit": "schema, exact generator identity, duplicates across pools/official data, prompt leakage, source confounding"
+    }
+  ],
+  "input_assets": [
+    {
+      "kind": "dataset",
+      "ref": "dhruvtibarewal/nlm-l24-adapters",
+      "version": 7,
+      "legacy": "name-that-llm/v32-colab/cli-cache/dataset/dhruvtibarewal/nlm-l24-adapters/7",
+      "relocations": [
+        {
+          "source": "Model-Library/02-Adapters-LoRA/Name-That-LLM/NTL-Dhruv-L24-v7-Adapters",
+          "destination": "",
+          "replace_root": true
+        }
+      ],
+      "evidence": "cloud/atlas20-drive/drive-inputs.json",
+      "live_cloud_verified_in_exp007": false,
+      "byte_identity_to_exp004": "not established"
+    },
+    {
+      "kind": "dataset",
+      "ref": "seyitkaangunes/ntl-extra-api-passages",
+      "version": 2,
+      "legacy": "name-that-llm/v32-colab/cli-cache/dataset/seyitkaangunes/ntl-extra-api-passages/2",
+      "relocations": [],
+      "evidence": "cloud/atlas20-drive/drive-inputs.json",
+      "live_cloud_verified_in_exp007": false,
+      "byte_identity_to_exp004": "not established"
+    },
+    {
+      "kind": "dataset",
+      "ref": "abdullah1afify/ntl-generations",
+      "version": 2,
+      "legacy": "name-that-llm/v32-colab/cli-cache/dataset/abdullah1afify/ntl-generations/2",
+      "relocations": [],
+      "evidence": "cloud/atlas20-drive/drive-inputs.json",
+      "live_cloud_verified_in_exp007": false,
+      "byte_identity_to_exp004": "not established"
+    },
+    {
+      "kind": "dataset",
+      "ref": "dophuchung/ntl-proxy-generations",
+      "version": 1,
+      "legacy": "name-that-llm/v32-colab/cli-cache/dataset/dophuchung/ntl-proxy-generations/1",
+      "relocations": [],
+      "evidence": "cloud/atlas20-drive/drive-inputs.json",
+      "live_cloud_verified_in_exp007": false,
+      "byte_identity_to_exp004": "not established"
+    },
+    {
+      "kind": "dataset",
+      "ref": "zbigniewkirchner/ntl-qwen3-8b-lora-claude-head",
+      "version": 1,
+      "legacy": "name-that-llm/v32-colab/cli-cache/dataset/zbigniewkirchner/ntl-qwen3-8b-lora-claude-head/1",
+      "relocations": [
+        {
+          "source": "Model-Library/02-Adapters-LoRA/Name-That-LLM/NTL-Zbigniew-Qwen3-8B-ClaudeHead-LoRA-v1",
+          "destination": "",
+          "replace_root": true
+        }
+      ],
+      "evidence": "cloud/atlas20-drive/drive-inputs.json",
+      "live_cloud_verified_in_exp007": false,
+      "byte_identity_to_exp004": "not established"
+    },
+    {
+      "kind": "dataset",
+      "ref": "dhruvtibarewal/nlm-matched-clean",
+      "version": 3,
+      "legacy": "name-that-llm/v32-colab/cli-cache/dataset/dhruvtibarewal/nlm-matched-clean/3",
+      "relocations": [],
+      "evidence": "cloud/atlas20-drive/drive-inputs.json",
+      "live_cloud_verified_in_exp007": false,
+      "byte_identity_to_exp004": "not established"
+    },
+    {
+      "kind": "dataset",
+      "ref": "dhruvtibarewal/nlm-offline-wheels",
+      "version": 2,
+      "legacy": "name-that-llm/v32-colab/cli-cache/dataset/dhruvtibarewal/nlm-offline-wheels/2",
+      "relocations": [],
+      "evidence": "cloud/atlas20-drive/drive-inputs.json",
+      "live_cloud_verified_in_exp007": false,
+      "byte_identity_to_exp004": "not established"
+    },
+    {
+      "kind": "dataset",
+      "ref": "josephadamski91/ntl-atlas-qwen3-8b-v1",
+      "version": 3,
+      "legacy": "name-that-llm/v32-colab/cli-cache/dataset/josephadamski91/ntl-atlas-qwen3-8b-v1/3",
+      "relocations": [
+        {
+          "source": "Model-Library/02-Adapters-LoRA/Name-That-LLM/NTL-Joseph-ATLAS-Qwen3-8B-v1-dataset-v3",
+          "destination": "",
+          "replace_root": true
+        }
+      ],
+      "evidence": "cloud/atlas20-drive/drive-inputs.json",
+      "live_cloud_verified_in_exp007": false,
+      "byte_identity_to_exp004": "not established"
+    },
+    {
+      "kind": "dataset",
+      "ref": "lucasboesen/ntl-free-proxy-generations",
+      "version": 7,
+      "legacy": "name-that-llm/v32-colab/cli-cache/dataset/lucasboesen/ntl-free-proxy-generations/7",
+      "relocations": [],
+      "evidence": "cloud/atlas20-drive/drive-inputs.json",
+      "live_cloud_verified_in_exp007": false,
+      "byte_identity_to_exp004": "not established"
+    },
+    {
+      "kind": "dataset",
+      "ref": "nishantdahal/ntl-two-stage-lora",
+      "version": 1,
+      "legacy": "name-that-llm/v32-colab/cli-cache/dataset/nishantdahal/ntl-two-stage-lora/1",
+      "relocations": [
+        {
+          "source": "Model-Library/02-Adapters-LoRA/Name-That-LLM/NTL-Nishant-TwoStageLoRA-v1",
+          "destination": "",
+          "replace_root": true
+        }
+      ],
+      "evidence": "cloud/atlas20-drive/drive-inputs.json",
+      "live_cloud_verified_in_exp007": false,
+      "byte_identity_to_exp004": "not established"
+    },
+    {
+      "kind": "dataset",
+      "ref": "nishantdahal/ntl-handwriting-blend",
+      "version": 1,
+      "legacy": "name-that-llm/v32-colab/cli-cache/dataset/nishantdahal/ntl-handwriting-blend/1",
+      "relocations": [
+        {
+          "source": "Model-Library/02-Adapters-LoRA/Name-That-LLM/NTL-Nishant-HandwritingBlend-Qwen3-14B-LoRA",
+          "destination": "lora_qwen3_14b"
+        },
+        {
+          "source": "Model-Library/02-Adapters-LoRA/Name-That-LLM/NTL-Nishant-HandwritingBlend-Qwen2.5-14B-LoRA",
+          "destination": "lora_qwen25_14b"
+        },
+        {
+          "source": "Model-Library/03-Encoders-Classifiers/Name-That-LLM/NTL-Nishant-Handwriting-DeBERTa-v3-Large",
+          "destination": "deberta_v3_large"
+        }
+      ],
+      "evidence": "cloud/atlas20-drive/drive-inputs.json",
+      "live_cloud_verified_in_exp007": false,
+      "byte_identity_to_exp004": "not established"
+    },
+    {
+      "kind": "dataset",
+      "ref": "dhruvtibarewal/nlm-l24-adapters-v5",
+      "version": 1,
+      "legacy": "name-that-llm/v32-colab/cli-cache/dataset/dhruvtibarewal/nlm-l24-adapters-v5/1",
+      "relocations": [
+        {
+          "source": "Model-Library/02-Adapters-LoRA/Name-That-LLM/NTL-Dhruv-L24-v5-Adapters",
+          "destination": "",
+          "replace_root": true
+        }
+      ],
+      "evidence": "cloud/atlas20-drive/drive-inputs.json",
+      "live_cloud_verified_in_exp007": false,
+      "byte_identity_to_exp004": "not established"
+    },
+    {
+      "kind": "dataset",
+      "ref": "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+      "version": 6,
+      "legacy": "name-that-llm/v32-colab/cli-cache/dataset/prvsiyan/prvsiyans-extended-name-that-llm-dataset/6",
+      "relocations": [],
+      "evidence": "cloud/atlas20-drive/drive-inputs.json",
+      "live_cloud_verified_in_exp007": false,
+      "byte_identity_to_exp004": "not established"
+    },
+    {
+      "kind": "dataset",
+      "ref": "pjmathematician/ultrabert-380m-ntl",
+      "version": 1,
+      "legacy": "name-that-llm/v32-colab/cli-cache/dataset/pjmathematician/ultrabert-380m-ntl/1",
+      "relocations": [
+        {
+          "source": "Model-Library/03-Encoders-Classifiers/Name-That-LLM/NTL-UltraBERT-380M-5Fold-v1",
+          "destination": "",
+          "replace_root": true
+        }
+      ],
+      "evidence": "cloud/atlas20-drive/drive-inputs.json",
+      "live_cloud_verified_in_exp007": false,
+      "byte_identity_to_exp004": "not established"
+    },
+    {
+      "kind": "dataset",
+      "ref": "zhjianduan/llama31-8b-base-verified",
+      "version": 1,
+      "legacy": "name-that-llm/models/llama-3.1-8b-base-1f47e50",
+      "relocations": [
+        {
+          "source": "Model-Library/01-Base-Models/NousResearch-Meta-Llama-3.1-8B-Base-BF16-rev1f47e50",
+          "destination": "",
+          "replace_root": true
+        }
+      ],
+      "evidence": "cloud/atlas20-drive/drive-inputs.json",
+      "live_cloud_verified_in_exp007": false,
+      "byte_identity_to_exp004": "not established"
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-glm4-9b-trunc25",
+      "version": 1,
+      "legacy": "name-that-llm/v32-colab/cli-cache/notebook/lucasboesen/name-that-llm-glm4-9b-trunc25/1",
+      "relocations": [
+        {
+          "source": "Model-Library/04-Competition-Snapshots/Name-That-LLM/NTL-Lucas-GLM4-9B-Trunc25-Snapshot",
+          "destination": "glm4-9b-trunc25"
+        }
+      ],
+      "evidence": "cloud/atlas20-drive/drive-inputs.json",
+      "live_cloud_verified_in_exp007": false,
+      "byte_identity_to_exp004": "not established"
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-extract-encoders2",
+      "version": 1,
+      "legacy": "name-that-llm/v32-colab/cli-cache/notebook/lucasboesen/name-that-llm-extract-encoders2/1",
+      "relocations": [
+        {
+          "source": "Model-Library/03-Encoders-Classifiers/Name-That-LLM/NTL-Lucas-DeBERTa-v3-Large-Encoder",
+          "destination": "deberta-v3-large"
+        }
+      ],
+      "evidence": "cloud/atlas20-drive/drive-inputs.json",
+      "live_cloud_verified_in_exp007": false,
+      "byte_identity_to_exp004": "not established"
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-electra-large-weights",
+      "version": 1,
+      "legacy": "name-that-llm/v32-colab/cli-cache/notebook/lucasboesen/name-that-llm-electra-large-weights/1",
+      "relocations": [
+        {
+          "source": "Model-Library/03-Encoders-Classifiers/Name-That-LLM/NTL-Lucas-ELECTRA-Large-Discriminator",
+          "destination": "electra-large-discriminator"
+        }
+      ],
+      "evidence": "cloud/atlas20-drive/drive-inputs.json",
+      "live_cloud_verified_in_exp007": false,
+      "byte_identity_to_exp004": "not established"
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-desklib-weights",
+      "version": 1,
+      "legacy": "name-that-llm/v32-colab/cli-cache/notebook/lucasboesen/name-that-llm-desklib-weights/1",
+      "relocations": [
+        {
+          "source": "Model-Library/03-Encoders-Classifiers/Name-That-LLM/NTL-Lucas-Desklib-Detector",
+          "destination": "desklib-detector"
+        }
+      ],
+      "evidence": "cloud/atlas20-drive/drive-inputs.json",
+      "live_cloud_verified_in_exp007": false,
+      "byte_identity_to_exp004": "not established"
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-train-lora24-s7",
+      "version": 1,
+      "legacy": "name-that-llm/v32-colab/cli-cache/notebook/lucasboesen/name-that-llm-train-lora24-s7/1",
+      "relocations": [
+        {
+          "source": "Model-Library/02-Adapters-LoRA/Name-That-LLM/NTL-Lucas-LoRA24-S7-v1",
+          "destination": "lora_out"
+        }
+      ],
+      "evidence": "cloud/atlas20-drive/drive-inputs.json",
+      "live_cloud_verified_in_exp007": false,
+      "byte_identity_to_exp004": "not established"
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-train-tokattn",
+      "version": 1,
+      "legacy": "name-that-llm/v32-colab/cli-cache/notebook/lucasboesen/name-that-llm-train-tokattn/1",
+      "relocations": [
+        {
+          "source": "Model-Library/03-Encoders-Classifiers/Name-That-LLM/NTL-Lucas-TokenAttention-Classifier-Heads/tokattn_final.pt",
+          "destination": "tokattn_final.pt"
+        }
+      ],
+      "evidence": "cloud/atlas20-drive/drive-inputs.json",
+      "live_cloud_verified_in_exp007": false,
+      "byte_identity_to_exp004": "not established"
+    },
+    {
+      "kind": "notebook",
+      "ref": "lucasboesen/name-that-llm-train-tokattn2",
+      "version": 1,
+      "legacy": "name-that-llm/v32-colab/cli-cache/notebook/lucasboesen/name-that-llm-train-tokattn2/1",
+      "relocations": [
+        {
+          "source": "Model-Library/03-Encoders-Classifiers/Name-That-LLM/NTL-Lucas-TokenAttention-Classifier-Heads/tokattn_debl23_final.pt",
+          "destination": "tokattn_debl23_final.pt"
+        },
+        {
+          "source": "Model-Library/03-Encoders-Classifiers/Name-That-LLM/NTL-Lucas-TokenAttention-Classifier-Heads/tokattn_q8l22_final.pt",
+          "destination": "tokattn_q8l22_final.pt"
+        }
+      ],
+      "evidence": "cloud/atlas20-drive/drive-inputs.json",
+      "live_cloud_verified_in_exp007": false,
+      "byte_identity_to_exp004": "not established"
+    },
+    {
+      "kind": "notebook",
+      "ref": "vnton37nguyn/ntl-train-lora-qwen25-instyle",
+      "version": 2,
+      "legacy": "name-that-llm/v32-colab/cli-cache/notebook/vnton37nguyn/ntl-train-lora-qwen25-instyle/2",
+      "relocations": [
+        {
+          "source": "Model-Library/02-Adapters-LoRA/Name-That-LLM/NTL-Vnton-Qwen2.5-InStyle-LoRA-v2",
+          "destination": "lora_out"
+        }
+      ],
+      "evidence": "cloud/atlas20-drive/drive-inputs.json",
+      "live_cloud_verified_in_exp007": false,
+      "byte_identity_to_exp004": "not established"
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen-3/transformers/8b/1",
+      "version": 1,
+      "legacy": "name-that-llm/v32-colab/cli-cache/model/qwen-lm/qwen-3/transformers/8b/1",
+      "relocations": [
+        {
+          "source": "Model-Library/01-Base-Models/Qwen-Qwen3-8B-Posttrained-BF16",
+          "destination": "",
+          "replace_root": true
+        }
+      ],
+      "evidence": "cloud/atlas20-drive/drive-inputs.json",
+      "live_cloud_verified_in_exp007": false,
+      "byte_identity_to_exp004": "not established"
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen-3/transformers/4b-base/1",
+      "version": 1,
+      "legacy": "name-that-llm/v32-colab/cli-cache/model/qwen-lm/qwen-3/transformers/4b-base/1",
+      "relocations": [
+        {
+          "source": "Model-Library/01-Base-Models/Qwen-Qwen3-4B-Base-BF16",
+          "destination": "",
+          "replace_root": true
+        }
+      ],
+      "evidence": "cloud/atlas20-drive/drive-inputs.json",
+      "live_cloud_verified_in_exp007": false,
+      "byte_identity_to_exp004": "not established"
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen-3/transformers/8b-base/1",
+      "version": 1,
+      "legacy": "name-that-llm/v32-colab/cli-cache/model/qwen-lm/qwen-3/transformers/8b-base/1",
+      "relocations": [
+        {
+          "source": "Model-Library/01-Base-Models/Qwen-Qwen3-8B-Base-BF16",
+          "destination": "",
+          "replace_root": true
+        }
+      ],
+      "evidence": "cloud/atlas20-drive/drive-inputs.json",
+      "live_cloud_verified_in_exp007": false,
+      "byte_identity_to_exp004": "not established"
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen-3/transformers/14b-base/1",
+      "version": 1,
+      "legacy": "name-that-llm/v32-colab/cli-cache/model/qwen-lm/qwen-3/transformers/14b-base/1",
+      "relocations": [
+        {
+          "source": "Model-Library/01-Base-Models/Qwen-Qwen3-14B-Base-BF16",
+          "destination": "",
+          "replace_root": true
+        }
+      ],
+      "evidence": "cloud/atlas20-drive/drive-inputs.json",
+      "live_cloud_verified_in_exp007": false,
+      "byte_identity_to_exp004": "not established"
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen-3/transformers/14b/1",
+      "version": 1,
+      "legacy": "name-that-llm/v32-colab/cli-cache/model/qwen-lm/qwen-3/transformers/14b/1",
+      "relocations": [
+        {
+          "source": "Model-Library/01-Base-Models/Qwen-Qwen3-14B-Posttrained-BF16",
+          "destination": "",
+          "replace_root": true
+        }
+      ],
+      "evidence": "cloud/atlas20-drive/drive-inputs.json",
+      "live_cloud_verified_in_exp007": false,
+      "byte_identity_to_exp004": "not established"
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen2.5/transformers/7b/1",
+      "version": 1,
+      "legacy": "name-that-llm/v32-colab/cli-cache/model/qwen-lm/qwen2.5/transformers/7b/1",
+      "relocations": [
+        {
+          "source": "Model-Library/01-Base-Models/Qwen-Qwen2.5-7B-Base-BF16",
+          "destination": "",
+          "replace_root": true
+        }
+      ],
+      "evidence": "cloud/atlas20-drive/drive-inputs.json",
+      "live_cloud_verified_in_exp007": false,
+      "byte_identity_to_exp004": "not established"
+    },
+    {
+      "kind": "model",
+      "ref": "qwen-lm/qwen2.5/transformers/14b/1",
+      "version": 1,
+      "legacy": "name-that-llm/v32-colab/cli-cache/model/qwen-lm/qwen2.5/transformers/14b/1",
+      "relocations": [
+        {
+          "source": "Model-Library/01-Base-Models/Qwen-Qwen2.5-14B-Base-BF16",
+          "destination": "",
+          "replace_root": true
+        }
+      ],
+      "evidence": "cloud/atlas20-drive/drive-inputs.json",
+      "live_cloud_verified_in_exp007": false,
+      "byte_identity_to_exp004": "not established"
+    },
+    {
+      "kind": "competition",
+      "ref": "name-that-llm",
+      "version": null,
+      "legacy": "name-that-llm/v32-colab/cli-cache/competition/name-that-llm",
+      "relocations": [],
+      "evidence": "cloud/atlas20-drive/drive-inputs.json",
+      "live_cloud_verified_in_exp007": false,
+      "byte_identity_to_exp004": "not established"
+    }
+  ],
+  "scope": "Official CSVs audited; six named external text sources registered from local manifest only. Other assets can also contain data and require later inspection."
+}

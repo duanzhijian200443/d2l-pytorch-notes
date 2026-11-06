@@ -1,0 +1,7 @@
+A software interface that hides complicated internal work behind a small set of actions is designed to make systems easier to use. Instead of requiring people to understand every algorithm, database call, network request, or hardware operation, it provides clear controls such as buttons, commands, or functions.
+
+This is called **abstraction**. For example, pressing “Print” may involve formatting a document, selecting a printer, converting data, and sending it across a network. The user only needs one action because the interface handles those details internally.
+
+Abstraction reduces cognitive load, lowers the chance of mistakes, and lets users focus on their actual goals. It also helps developers: internal implementation can be improved or replaced without changing how other parts of the program interact with it, as long as the interface remains consistent.
+
+Good interfaces expose the options users need while keeping unnecessary complexity hidden.

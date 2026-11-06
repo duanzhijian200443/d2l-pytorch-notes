@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "local_review_sha256": "0a4a2a063c14225ccc2eddb36bbe50127a933af06184e829a885dfa4641e13ac",
+  "candidate_rows_per_arm": 120,
+  "candidate_groups_per_arm": 60,
+  "source": "EXP023 original outputs and EXP043 derived formatting view",
+  "scope": "Known/exact isolation only; semantic independence and backend snapshot are not certified.",
+  "holdout_text_uploaded": false,
+  "formal_pool_accepted": false
+}

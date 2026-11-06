@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0004",
+  "prompt": "Describe a sensible way to pack for a three-day trip when the weather may change and everything must fit in one small backpack. Use approximately 200 words for the response.",
+  "category": "everyday_advice",
+  "target_words": 200,
+  "prompt_group": "cp0004",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "2385dae08e0dfa38fc2e573df4117caba338d0060e406bf913f1d6f146e16f35",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:33:40.171416+00:00",
+  "ended_at": "2026-11-01T08:34:08.307329+00:00",
+  "prompt_sha256": "76a6c6cd2d25f465f7d1ad94f32847a5dd3af039a2ccc255d59207874462e196",
+  "text": "Pack around a small capsule wardrobe rather than three separate outfits. Check the forecast shortly before leaving, but plan for temperature swings and a brief shower.\n\nWear your bulkiest items while travelling: comfortable walking shoes, long trousers, a T-shirt, and a light fleece or sweater. In the backpack, pack two spare tops, one lightweight pair of trousers or shorts, three changes of underwear, three pairs of socks, and compact sleepwear. Choose quick-drying fabrics and colours that mix easily. Add a thin waterproof jacket; it provides rain protection and an extra wind-blocking layer without much bulk.\n\nUse one small packing cube or roll clothing tightly to keep everything organised. Put heavier items close to your back and keep the rain jacket accessible at the top. Limit toiletries to travel-size essentials in a leakproof pouch. Bring necessary medication, your phone, one charging cable, a small charger, identification, and a refillable water bottle.\n\nSkip spare shoes, bulky towels, and “just in case” gadgets unless your itinerary specifically requires them. Check what your accommodation provides before packing.\n\nFinally, test-pack and walk around with the backpack. If it feels cramped or heavy, remove the least versatile item. Leave a little spare room so repacking is easy.",
+  "text_sha256": "dd2cb106fb66a4197c332ab8bd273657ace642c723183645b089e1c8f7977818",
+  "raw_final_sha256": "dd2cb106fb66a4197c332ab8bd273657ace642c723183645b089e1c8f7977818",
+  "word_count": 201,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4241,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 255,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\2385dae08e0dfa38fc2e573df4117caba338d0060e406bf913f1d6f146e16f35",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

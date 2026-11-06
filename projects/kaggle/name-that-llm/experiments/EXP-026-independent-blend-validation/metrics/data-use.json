@@ -1,0 +1,12 @@
+{
+  "experiment": "EXP-026",
+  "observed_at_utc": "2026-11-01T08:51:45.399562+00:00",
+  "evaluation_sha256": "72228be3ddaad8feaa1ba232e689537e0cf49ebc72068df4a7e556836f1bdd17",
+  "rows": 5200,
+  "groups": 1300,
+  "use": "First scored external check of pre-fixed EXP-024 alpha=0.10 full-data refit recipe",
+  "selection_fixed_before_fit_and_score": true,
+  "retuned_on_external_result": false,
+  "future_status": "Inspected evaluation data; no longer untouched for later candidate selection or confirmation",
+  "not_full_18_class_validation": true
+}

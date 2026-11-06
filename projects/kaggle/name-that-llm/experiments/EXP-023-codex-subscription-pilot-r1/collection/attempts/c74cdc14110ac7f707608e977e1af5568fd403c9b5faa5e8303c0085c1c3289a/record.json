@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0217",
+  "prompt": "A team wants to copy a competitor's popular feature. What should it learn about its own users before making that decision? A response of around 120 words is enough.",
+  "category": "business_decision",
+  "target_words": 120,
+  "prompt_group": "cp0217",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "c74cdc14110ac7f707608e977e1af5568fd403c9b5faa5e8303c0085c1c3289a",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:13:44.610231+00:00",
+  "ended_at": "2026-11-01T11:14:05.360855+00:00",
+  "prompt_sha256": "8e9f3175ae17f382fc1a61b3cbe06aa41900d1bee37503a05a0491ea1bdd5c24",
+  "text": "Before copying the feature, the team should learn:\n\n- **Users’ underlying needs:** What goal are users trying to achieve, and what problems get in their way?\n- **Current behavior:** How do they solve the problem today, including workarounds, and where do existing solutions fail?\n- **Reach and importance:** Which user segments experience the problem, how often, and how costly or frustrating is it?\n- **Fit:** Do its users have the same needs and context as the competitor’s users?\n- **Relative priority:** Would solving this problem matter more than other improvements?\n\nUse interviews, observation, usage data, and lightweight prototype tests—not just feature requests. A competitor’s popularity is a clue, not proof of demand. The decision should rest on evidence that the feature would meaningfully improve outcomes for the team’s own users.",
+  "text_sha256": "303c7630e2e04c98af75868f477fd3271c9c864b6fe397a655d4e51c1a2ea479",
+  "raw_final_sha256": "303c7630e2e04c98af75868f477fd3271c9c864b6fe397a655d4e51c1a2ea479",
+  "word_count": 130,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4241,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 171,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\c74cdc14110ac7f707608e977e1af5568fd403c9b5faa5e8303c0085c1c3289a",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

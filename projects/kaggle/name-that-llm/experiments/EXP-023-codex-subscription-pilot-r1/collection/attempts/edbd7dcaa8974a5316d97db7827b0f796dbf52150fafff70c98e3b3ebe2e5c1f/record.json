@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0241",
+  "prompt": "Write to a walking-group organizer suggesting a route with more benches. Frame the suggestion around making the outing comfortable for a wider range of participants. Use approximately 80 words for the response.",
+  "category": "short_email",
+  "target_words": 80,
+  "prompt_group": "cp0241",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "edbd7dcaa8974a5316d97db7827b0f796dbf52150fafff70c98e3b3ebe2e5c1f",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:28:05.643110+00:00",
+  "ended_at": "2026-11-01T11:28:27.081515+00:00",
+  "prompt_sha256": "2fca1f048e80b9f7f2841c217b63915e60e15e4c8bb3c3b9f823c858fe564701",
+  "text": "Could we consider a route with more benches or regular resting points? This would make the outing more comfortable and welcoming for a wider range of participants, including those who may appreciate occasional breaks due to mobility, stamina, or simply wanting time to enjoy the surroundings. A bench-friendly route could help everyone feel able to join at their own pace while keeping the walk social and inclusive.",
+  "text_sha256": "48390683c3eed6c034e869fcb9ab88f6f450c407427a8029f39846a5d9797733",
+  "raw_final_sha256": "48390683c3eed6c034e869fcb9ab88f6f450c407427a8029f39846a5d9797733",
+  "word_count": 67,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4130,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 78,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\edbd7dcaa8974a5316d97db7827b0f796dbf52150fafff70c98e3b3ebe2e5c1f",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "method": "generator verify-materialized plus independent AST/decoded CSV verification",
+  "generator_stdout": "{\"status\": \"PASS_MATERIALIZED\", \"arm\": \"four120\", \"comp_stack_sha256\": \"063cfb6c104836861fcdd406093b1744b00b46bbcb8ed2a7a1acec380cefd795\", \"rows\": 120, \"groups\": 30, \"source_csv_sha256\": \"a4e86314a77f7ed699dbfb107b32a8263a1ff09fc7c3ec92b98d4028d487005d\", \"shared_sha256_required\": \"b98c246578afbc38b9bf3c0be1e666a41cc15d051c64d03e875ab0c85da1bd3b\"}\n",
+  "module_hashes": {
+    "comp_stack.py": "063cfb6c104836861fcdd406093b1744b00b46bbcb8ed2a7a1acec380cefd795",
+    "gauss.py": "908b57113f1a7b8ebdbf204c6be87cbc385f765ba50ac07b4e270c64b7cf1000",
+    "infer.py": "63112c88d43f9d69b3132243315e0db28c40b4bf0f42bac651f73ef07a67f9bb",
+    "sibling_style.py": "8a7f3b3dad7cbe1755b66e8455a157894cac92b8983fc805f5ed6286ea915e66"
+  },
+  "old_module_hashes": {
+    "comp_stack.py": "4a4b800a5380094d78da66d140d224f8a3974d1e3012086783d5bf81b1264514",
+    "gauss.py": "908b57113f1a7b8ebdbf204c6be87cbc385f765ba50ac07b4e270c64b7cf1000",
+    "infer.py": "63112c88d43f9d69b3132243315e0db28c40b4bf0f42bac651f73ef07a67f9bb",
+    "sibling_style.py": "8a7f3b3dad7cbe1755b66e8455a157894cac92b8983fc805f5ed6286ea915e66"
+  },
+  "added_rows": {
+    "rows": 120,
+    "groups": 30,
+    "csv_sha256": "a4e86314a77f7ed699dbfb107b32a8263a1ff09fc7c3ec92b98d4028d487005d",
+    "per_label": {
+      "gpt-5.6-luna": 30,
+      "gpt-5.6-sol": 30,
+      "gpt-5.6-terra": 30,
+      "gpt-6-astra": 30
+    },
+    "full_text_hashes_verified": true,
+    "holdout_rows": 0,
+    "scope": "materialized embedded training input; fast commit does not fit Stylegram"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0184",
+  "prompt": "Two friends each walk the same route. One walks steadily; the other pauses halfway but then walks faster. Explain why knowing only their final arrival times cannot tell us who walked faster throughout. Please answer in roughly 120 words.",
+  "category": "reasoning_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0184",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "7fc713ce042b39e068d1dae0ffa119ec6f2fd83a2dbb5a92290b23f628142caa",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:52:35.456461+00:00",
+  "ended_at": "2026-11-01T10:52:52.219185+00:00",
+  "prompt_sha256": "49c37e8adae1a247846a08f9e2a70bf3909e06e28b43b0fc1ea7fea2dd719e89",
+  "text": "Final arrival times reveal only each friend’s total elapsed time over the route, not how their speed changed along the way. Dividing distance by total time gives an average speed, and that average may include time spent standing still. The steady walker might move at the same moderate speed throughout. The other friend could walk more slowly at first, pause halfway, and then walk much faster to compensate. Either friend could arrive first—or they could arrive together—depending on the pause length and later pace. Yet none of those outcomes shows who was faster at every moment or on every section. To determine that, we would need intermediate times, speeds, or positions. Arrival times alone collapse the entire journey into one number, hiding the different patterns of motion.",
+  "text_sha256": "618959fc200ec6372920f5d5ef03f4cbec3ce8d4c591415afbb314fc30eb572c",
+  "raw_final_sha256": "618959fc200ec6372920f5d5ef03f4cbec3ce8d4c591415afbb314fc30eb572c",
+  "word_count": 127,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4138,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 212,
+      "reasoning_output_tokens": 58
+    }
+  ],
+  "attempt_path": "collection\\attempts\\7fc713ce042b39e068d1dae0ffa119ec6f2fd83a2dbb5a92290b23f628142caa",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

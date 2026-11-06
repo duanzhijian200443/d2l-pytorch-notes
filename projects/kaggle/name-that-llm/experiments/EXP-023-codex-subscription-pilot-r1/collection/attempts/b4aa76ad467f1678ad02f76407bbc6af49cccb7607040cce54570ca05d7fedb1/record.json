@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0065",
+  "prompt": "How should a volunteer organization decide which of ten useful website improvements to tackle first with only one available developer? Please answer in roughly 120 words.",
+  "category": "business_decision",
+  "target_words": 120,
+  "prompt_group": "cp0065",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "b4aa76ad467f1678ad02f76407bbc6af49cccb7607040cce54570ca05d7fedb1",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:12:05.439548+00:00",
+  "ended_at": "2026-11-01T09:12:29.255877+00:00",
+  "prompt_sha256": "88d96a1ff706dec2d1486d923cbdcf5cf4401e317486f86f48f9d130101c0a6a",
+  "text": "Use a simple prioritization process rather than choosing the loudest request.\n\n1. **Agree on the main goal:** more volunteer sign-ups, donations, or easier access to services.\n2. **Score all ten improvements** on expected benefit, number of people helped, urgency, and developer effort. Include accessibility, security, and maintenance needs—not just visible features.\n3. **Validate assumptions** with brief feedback from volunteers and website users, plus any available analytics.\n4. **Prioritize critical fixes first**, then improvements offering the greatest benefit for the least effort. Consider dependencies that could change the order.\n5. **Choose one small, achievable improvement**, define a success measure, and protect the developer from competing requests.\n\nKeep the remaining items in a transparent backlog. Review priorities after each release, using results and updated effort estimates.",
+  "text_sha256": "b24472baa205487487b90634d7990de66e767867904d6e85730fc87adbc51b12",
+  "raw_final_sha256": "b24472baa205487487b90634d7990de66e767867904d6e85730fc87adbc51b12",
+  "word_count": 124,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4236,
+      "cached_input_tokens": 2048,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 169,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\b4aa76ad467f1678ad02f76407bbc6af49cccb7607040cce54570ca05d7fedb1",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

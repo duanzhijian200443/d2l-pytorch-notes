@@ -1,0 +1,7 @@
+Materials spring back or stay bent because their internal structure responds differently to force. Imagine bending a rubber band, a plastic ruler, and a paper clip.
+
+In a rubber band, the long molecular chains stretch and uncoil when pulled. When released, they return to their original arrangement, so the band springs back. A plastic ruler behaves similarly during a gentle bend: its particles shift only slightly and then recover.
+
+Every material has a limit to this recovery. If you bend the ruler too far, its internal structure changes permanently, leaving a crease or causing it to snap. A paper clip illustrates this well. A small bend may spring back, but a strong bend makes tiny layers inside the metal slide past one another. Once they settle into new positions, the clip stays bent.
+
+Temperature and repeated use also matter. Warm plastic often bends more easily, while a paper clip repeatedly bent back and forth becomes weaker and eventually breaks. Thus, springiness depends on the material and how far, how often, and under what conditions it is bent.

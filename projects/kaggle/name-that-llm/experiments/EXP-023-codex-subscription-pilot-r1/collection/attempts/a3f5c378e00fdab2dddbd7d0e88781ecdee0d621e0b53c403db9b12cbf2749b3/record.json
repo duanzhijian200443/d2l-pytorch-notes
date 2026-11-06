@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0120",
+  "prompt": "Tell a short story about a town's annual lost-and-found sale, focusing on one object that nobody wants to sell. A response of around 120 words is enough.",
+  "category": "creative_short_fiction",
+  "target_words": 120,
+  "prompt_group": "cp0120",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "a3f5c378e00fdab2dddbd7d0e88781ecdee0d621e0b53c403db9b12cbf2749b3",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:46:23.997795+00:00",
+  "ended_at": "2026-11-01T09:46:43.096355+00:00",
+  "prompt_sha256": "ce969196063c61b86417fd8a0930b65a3e15e42cbdc5f4f39689efa426cdabf7",
+  "text": "Every spring, Bellwether held its annual lost-and-found sale in the town hall. Tables overflowed with umbrellas, bicycles, gloves, and one surprisingly elegant trombone. By noon, nearly everything had a price tag—except a small red suitcase.\n\nNobody claimed it, though everyone knew where it had come from. It had washed ashore after the flood, its brass latch bent, its handle wrapped in blue string. Inside were children’s drawings, a wool scarf, and a photograph of three people smiling beneath a pear tree.\n\nThe mayor offered it for a dollar. No one moved.\n\nInstead, people gathered around it, adding things: a loaf of bread, a fresh scarf, a note with an address. At closing time, they carried the suitcase together to the train station, hoping its owner was still looking.",
+  "text_sha256": "7a4a1790754921ed5f8ff5d417e0393ac50e5521520cb8c18b2984f31f622e80",
+  "raw_final_sha256": "7a4a1790754921ed5f8ff5d417e0393ac50e5521520cb8c18b2984f31f622e80",
+  "word_count": 128,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2592,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 182,
+      "reasoning_output_tokens": 11
+    }
+  ],
+  "attempt_path": "collection\\attempts\\a3f5c378e00fdab2dddbd7d0e88781ecdee0d621e0b53c403db9b12cbf2749b3",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0199",
+  "prompt": "Two identical clocks begin together. One gains two minutes each day, while the other loses one minute each day. Explain how far apart their readings will be after four days. Please answer in roughly 120 words.",
+  "category": "reasoning_explanation",
+  "target_words": 120,
+  "prompt_group": "cp0199",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "c8fef6bd66d9ec97758c4617541d89a069aeff78146590f6acb8bfdd27eb2f4b",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:02:32.668603+00:00",
+  "ended_at": "2026-11-01T11:02:48.985592+00:00",
+  "prompt_sha256": "5fabeb72a64e59bdd7c8d5e1976bc0a652270e019aeb2ae7e3fd482f33f582be",
+  "text": "The clocks start with the same reading, but their errors accumulate in opposite directions.\n\nThe first clock gains two minutes each day. After four days, it will be \\(2 \\times 4 = 8\\) minutes ahead of the correct time. The second clock loses one minute each day, so after four days it will be \\(1 \\times 4 = 4\\) minutes behind the correct time.\n\nBecause one clock is ahead and the other is behind, we add their errors: \\(8 + 4 = 12\\) minutes.\n\nFor example, if the correct time is noon, the first clock will read 12:08, while the second will read 11:56. Thus, after four days, their readings will be **12 minutes apart**.",
+  "text_sha256": "e48b4981f103a62baa16b3da4b8396b0adfde9a4a41b04cee85aa656dc4a9f0b",
+  "raw_final_sha256": "e48b4981f103a62baa16b3da4b8396b0adfde9a4a41b04cee85aa656dc4a9f0b",
+  "word_count": 115,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4249,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 161,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\c8fef6bd66d9ec97758c4617541d89a069aeff78146590f6acb8bfdd27eb2f4b",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0164",
+  "prompt": "Compose an email to a colleague who shared an unfinished draft too late for a thorough review. Explain what feedback you can still provide before the deadline. Keep your response near 80 words.",
+  "category": "short_email",
+  "target_words": 80,
+  "prompt_group": "cp0164",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "506e5749784a95860f5c4e417e09739c65f9b977af036ef5b10630e5bfcd2cac",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:37:58.995894+00:00",
+  "ended_at": "2026-11-01T10:38:18.522645+00:00",
+  "prompt_sha256": "1129f35b29bd82e53205443334bafee5e8e463c83e581c2ab03ce8180626bc35",
+  "text": "**Subject: Draft Review**\n\nHi [Name],\n\nThanks for sharing the draft. Since it arrived close to the deadline, I won’t have enough time for a thorough review. I can still read it for overall clarity, flag any major gaps or inconsistencies, and suggest quick edits to the introduction and conclusion before submission. I likely won’t be able to verify every detail or provide line-by-line comments. Please send me the final deadline and highlight any sections you’re most concerned about so I can prioritize them.\n\nBest,  \n[Your Name]",
+  "text_sha256": "f74639c1be44f0175cf3d8b4697aa77026487475fc8c959b191e51076588b2db",
+  "raw_final_sha256": "f74639c1be44f0175cf3d8b4697aa77026487475fc8c959b191e51076588b2db",
+  "word_count": 86,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4130,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 113,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\506e5749784a95860f5c4e417e09739c65f9b977af036ef5b10630e5bfcd2cac",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

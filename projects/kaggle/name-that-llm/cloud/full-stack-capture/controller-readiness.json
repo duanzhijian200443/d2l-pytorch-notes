@@ -1,0 +1,7 @@
+{
+  "observed_at_utc": "2026-11-01T10:21:21.615839+00:00",
+  "cpu_status": "KernelWorkerStatus.RUNNING",
+  "gpu_remaining_seconds": 106713.24,
+  "owned_notebooks_count": 25,
+  "gpu_target_exists": false
+}

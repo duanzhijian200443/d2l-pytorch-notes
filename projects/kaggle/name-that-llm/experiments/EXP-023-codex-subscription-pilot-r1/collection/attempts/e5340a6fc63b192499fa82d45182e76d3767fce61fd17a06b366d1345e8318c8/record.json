@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0104",
+  "prompt": "Write a compact story told from the perspective of a borrowed umbrella that keeps moving between neighbors. Use approximately 200 words for the response.",
+  "category": "creative_short_fiction",
+  "target_words": 200,
+  "prompt_group": "cp0104",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "e5340a6fc63b192499fa82d45182e76d3767fce61fd17a06b366d1345e8318c8",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T09:35:57.285918+00:00",
+  "ended_at": "2026-11-01T09:36:11.061061+00:00",
+  "prompt_sha256": "38de16dc4b18b02518ab2d66fd50481a733779d1f17640ce87fb04bc876d0743",
+  "text": "I began beneath Mrs. Alvarez’s bed, folded tight and dreaming of rain.\n\nOne Tuesday, her grandson borrowed me for the walk to school. The sky was clear, but by afternoon it burst open. He passed me to Mr. Chen, whose newspaper had turned to pulp. Mr. Chen passed me to a nurse hurrying home, and she left me beside the gate of Number 12.\n\nBy evening, I belonged to the whole street.\n\nThe baker used me to shield a box of warm rolls. A little girl held me over her dog, who disliked thunder. Two brothers carried me between them, arguing about whose shoulder was wetter. At last, they returned me to Mrs. Alvarez—but only after Mr. Patel borrowed me to fetch his medicine.\n\nDays became weeks. I traveled in generous hands: across fences, through kitchens, from doorbells to porches. I learned the neighborhood by its footsteps—the gardener’s limp, the widow’s quick stride, the twins’ synchronized thump.\n\nThen came a cloudless morning. No one needed me. I was left on the bench beneath the old maple.\n\nA gust lifted me, not far, just across the hedge. There, the new neighbors found me. They had unpacked only one chair and a kettle. Rain began before they could close the windows.\n\nThe woman opened me carefully.\n\n“Someone must have lost this,” she said.\n\n“No,” said her husband, watching the street fill with waving hands. “Someone must have shared it.”",
+  "text_sha256": "f97655f6170b5f0cb86204f95e51122cb00135d7b47838d715d902fb70ce2166",
+  "raw_final_sha256": "f97655f6170b5f0cb86204f95e51122cb00135d7b47838d715d902fb70ce2166",
+  "word_count": 237,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2585,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 323,
+      "reasoning_output_tokens": 15
+    }
+  ],
+  "attempt_path": "collection\\attempts\\e5340a6fc63b192499fa82d45182e76d3767fce61fd17a06b366d1345e8318c8",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "experiment_id": "EXP-021",
+  "freeze_status": "FROZEN_FOR_PILOT",
+  "frozen_at": "2026-11-01T08:20:35.858310+00:00",
+  "config": {
+    "path": "experiments/EXP-021-codex-subscription-pilot/config.json",
+    "sha256": "0175465c037cf4b027d461b48a161fbe3301419446b58eb4908567aa6a6991d1"
+  },
+  "inputs": [
+    {
+      "path": "experiments/EXP-021-codex-subscription-pilot/prompts.jsonl",
+      "sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0"
+    },
+    {
+      "path": "experiments/EXP-021-codex-subscription-pilot/model-instructions.txt",
+      "sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb"
+    }
+  ],
+  "code": [
+    {
+      "path": "experiments/EXP-021-codex-subscription-pilot/code/codex_collect.py",
+      "sha256": "1e407b9461edfdbe75d7377fcb79e6842b6879c4f4b64e3fc29afc1cb8a2cbbc"
+    },
+    {
+      "path": "experiments/EXP-021-codex-subscription-pilot/code/test_codex_collect.py",
+      "sha256": "d897ce97eb0480b0f204bef507cdda5f4568b393af593b7719f364a779c5c933"
+    }
+  ],
+  "runtime": {
+    "cli_version": "0.166.0-alpha.5.1",
+    "executable_sha256": "3097c909fb6d5cd63510d44aceb1d42df9f6e85722a3e447e477def1ecf60e16",
+    "authentication": "ChatGPT subscription; no credentials copied",
+    "model_access": "catalog-visible; actual inference not yet verified"
+  },
+  "sampling": {
+    "unique_prompts": 250,
+    "models": 4,
+    "planned_responses": 1000,
+    "split_prompts": {
+      "train": 200,
+      "holdout": 50
+    },
+    "split_responses": {
+      "train": 800,
+      "holdout": 200
+    }
+  },
+  "validation_scope": "Collection integrity only; no training or API equivalence acceptance",
+  "note": "Prompt semantic overlap with inaccessible official prompts not established; preserve raw responses and quarantine source."
+}

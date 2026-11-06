@@ -1,0 +1,9 @@
+Version control lets two writers improve the same technical document without overwriting each other’s work. Think of a team updating an employee handbook.
+
+Each writer works from the same approved copy. One writer revises the section on remote-work expectations, while the other clarifies the expense-reimbursement policy. Version control records who changed what, when, and why, creating a clear history rather than a confusing chain of emailed attachments such as “Handbook_final_v7_reallyfinal.”
+
+When their edits are combined, version control can usually merge changes made to different sections automatically. If both writers revise the same paragraph—for example, the definition of reimbursable travel—it highlights the conflict instead of silently choosing one person’s wording. The writers can then compare both versions and agree on the final text.
+
+It also supports review. An editor can inspect the exact additions and deletions, leave feedback, and approve changes before they become part of the official handbook. If a new policy creates confusion or an error is discovered later, the team can see the earlier wording and restore it.
+
+This approach makes collaboration safer and more accountable. Writers can experiment freely, reviewers can verify changes, and the published document remains traceable to deliberate decisions rather than accidental overwrites.

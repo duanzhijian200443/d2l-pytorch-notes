@@ -1,0 +1,30 @@
+{
+  "experiment": "EXP-017",
+  "fold": 1,
+  "public_row_weight": null,
+  "ba": 0.36296296296296293,
+  "rows": 540,
+  "training_rows": 2159,
+  "features": 201275,
+  "n_iter": 20,
+  "feature_seconds": 9.71696903100002,
+  "fit_seconds": 5.661428650999994,
+  "prediction_seconds": 0.03131192800003646,
+  "rss_bytes": 435265536,
+  "train_matrix_sha256": "4b40107f0e9dd165e68950bb11592c31d4aa4b41d515ac3113aa605b68a8f0de",
+  "valid_matrix_sha256": "2e77e478bde8721921a1700f1aae23357c56caa65899f9100a8f6fefe5fbedb3",
+  "native_estimator_parameters": {
+    "C": 0.5,
+    "class_weight": "balanced",
+    "dual": "auto",
+    "fit_intercept": true,
+    "intercept_scaling": 1,
+    "loss": "squared_hinge",
+    "max_iter": 5000,
+    "multi_class": "ovr",
+    "penalty": "l2",
+    "random_state": 42,
+    "tol": 0.0001,
+    "verbose": 0
+  }
+}

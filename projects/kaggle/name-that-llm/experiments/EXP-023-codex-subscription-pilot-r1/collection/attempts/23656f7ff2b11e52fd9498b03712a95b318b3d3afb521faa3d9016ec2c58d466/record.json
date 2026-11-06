@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0033",
+  "prompt": "Why do some materials spring back after bending while others stay bent? Use everyday objects rather than mathematical formulas. Use approximately 160 words for the response.",
+  "category": "science_explanation",
+  "target_words": 160,
+  "prompt_group": "cp0033",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "23656f7ff2b11e52fd9498b03712a95b318b3d3afb521faa3d9016ec2c58d466",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:51:15.076193+00:00",
+  "ended_at": "2026-11-01T08:51:32.479700+00:00",
+  "prompt_sha256": "1e68c6adbf355418ce600ac60d9a11f0032e24b489184bff6ebf9a455cd5651f",
+  "text": "Materials spring back when bending only stretches or slightly shifts their internal structure. Like a plastic ruler or a rubber band, their particles are pulled out of place but still “want” to return to their original arrangement, so the object rebounds when released.\n\nIf you bend farther, you can pass the material’s limit. Then parts inside it slide permanently, or tiny structural changes occur. A paper clip bends back a little at first, but bend it enough and it keeps its new shape. That is why repeated bending eventually makes it break.\n\nSome materials are naturally easier to reshape. Modeling clay, soft copper wire, and aluminum foil stay bent because their internal layers can move past one another without strongly pulling back. Others, such as spring steel, are designed to return after significant bending.\n\nThickness and temperature matter too: a thin metal strip bends more readily than a thick one, and warm plastic is usually easier to reshape than cold plastic.",
+  "text_sha256": "1cb78e325f29f8e410a97b7de57219ec9baaa33a7b6eaf2ba1ccd6c6e83c32a8",
+  "raw_final_sha256": "1cb78e325f29f8e410a97b7de57219ec9baaa33a7b6eaf2ba1ccd6c6e83c32a8",
+  "word_count": 161,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4123,
+      "cached_input_tokens": 3840,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 233,
+      "reasoning_output_tokens": 42
+    }
+  ],
+  "attempt_path": "collection\\attempts\\23656f7ff2b11e52fd9498b03712a95b318b3d3afb521faa3d9016ec2c58d466",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

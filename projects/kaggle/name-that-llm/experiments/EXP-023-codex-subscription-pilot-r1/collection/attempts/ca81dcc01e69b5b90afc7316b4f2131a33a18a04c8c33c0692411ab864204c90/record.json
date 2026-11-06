@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0020",
+  "prompt": "A shared calendar has become crowded with vague entries such as 'thing' and 'appointment.' Suggest a few conventions that make it more useful. A response of around 120 words is enough.",
+  "category": "everyday_advice",
+  "target_words": 120,
+  "prompt_group": "cp0020",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "ca81dcc01e69b5b90afc7316b4f2131a33a18a04c8c33c0692411ab864204c90",
+  "model_requested": "gpt-5.6-sol",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:43:27.541182+00:00",
+  "ended_at": "2026-11-01T08:43:44.236084+00:00",
+  "prompt_sha256": "fca1edefeb3b9c5ec8512f5279ee3c35f5caec6e1e2e7a51bbb118649b3c0765",
+  "text": "Use a consistent naming format so entries are understandable at a glance:\n\n- **Start with the purpose:** “Dentist – Alex” or “Project review – Website,” rather than “appointment” or “meeting.”\n- **Include the person responsible:** Add a name or initials when ownership is not obvious.\n- **Add location or meeting link:** Put these in the location field, not only in notes.\n- **Use agreed colors or separate calendars:** For example, work, family, school, travel, and deadlines.\n- **Mark availability accurately:** Distinguish “busy,” “tentative,” and informational events.\n- **Include useful details:** Add preparation notes, booking references, contacts, or required documents in the description.\n- **Set realistic start and end times:** Include travel or setup time when relevant.\n- **Avoid unnecessary duplication:** Assign one organizer and update the existing event when plans change.",
+  "text_sha256": "368090f10fa7be56aeefdae94106f317c53a82b94516ed020c0b08d548c45acb",
+  "raw_final_sha256": "368090f10fa7be56aeefdae94106f317c53a82b94516ed020c0b08d548c45acb",
+  "word_count": 131,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4131,
+      "cached_input_tokens": 3968,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 201,
+      "reasoning_output_tokens": 15
+    }
+  ],
+  "attempt_path": "collection\\attempts\\ca81dcc01e69b5b90afc7316b4f2131a33a18a04c8c33c0692411ab864204c90",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

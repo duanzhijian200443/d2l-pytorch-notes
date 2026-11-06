@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0228",
+  "prompt": "Describe an evening when a restaurant's power goes out and the owner discovers something useful about the regular customers. Please answer in roughly 160 words.",
+  "category": "creative_short_fiction",
+  "target_words": 160,
+  "prompt_group": "cp0228",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "8c8efa14b90de3225a1830c7967524ea99fe8c1a62b70007640874b069d57734",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:19:57.758140+00:00",
+  "ended_at": "2026-11-01T11:20:25.448399+00:00",
+  "prompt_sha256": "58deb5e19a4145bbe9e0c9117dc0e6e6877351c021ad969cbd93dfb9235e00cb",
+  "text": "The lights went out just as Mara carried six bowls of soup into the dining room. The refrigerator stopped humming. Somewhere near the window, a spoon clattered against a plate.\n\n“Everyone stay seated,” she said, hoping she sounded calmer than she felt.\n\nThen her regulars began introducing themselves in ways they never had before.\n\nMr. Bell, who always complained about the music, was a retired electrician. He borrowed her flashlight and checked the breaker panel. Quiet Nina from table four organized candles in sturdy glasses, keeping them clear of napkins. The twins who split one dessert every Thursday fetched blankets from their car.\n\nAnd Arthur, who had eaten alone for three years, stood beside the kitchen door and announced, “I can carry soup if someone points me.”\n\nBy the time the lights returned, everyone had eaten, and Arthur was sitting with the twins.\n\nThe following evening, Mara put an emergency contact sheet beside the register. For once, she knew whom to ask.",
+  "text_sha256": "083b8ae369300899a72aaf4676bd626d1826dedcd3fe90d2b320ecf1ee2ed8cf",
+  "raw_final_sha256": "083b8ae369300899a72aaf4676bd626d1826dedcd3fe90d2b320ecf1ee2ed8cf",
+  "word_count": 162,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4236,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 198,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\8c8efa14b90de3225a1830c7967524ea99fe8c1a62b70007640874b069d57734",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

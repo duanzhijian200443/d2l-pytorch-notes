@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0178",
+  "prompt": "Draft an email requesting a quieter table for a small book-club gathering at a restaurant, while recognizing that the restaurant may not be able to guarantee it. Aim for about 120 words.",
+  "category": "short_email",
+  "target_words": 120,
+  "prompt_group": "cp0178",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "3d6b4f5060327cbfaff99a6fc198d14fb407185603d64c3a3b81c492147bc9de",
+  "model_requested": "gpt-6-astra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T10:48:14.560730+00:00",
+  "ended_at": "2026-11-01T10:48:32.675066+00:00",
+  "prompt_sha256": "571072dad4df415243a7a4194d2861db43208653d8a599cce81999f9f316d9ef",
+  "text": "Subject: Quiet Table Request for Book Club Gathering\n\nHello [Restaurant Name] Team,\n\nI’m writing about our reservation for [number] guests on [date] at [time], under the name [name]. We’re a small book club looking forward to enjoying a meal and discussing our latest read at your restaurant.\n\nIf possible, we’d appreciate a table in a quieter area, perhaps away from speakers, the bar, or heavy foot traffic, so we can hear one another comfortably. We understand that table assignments depend on availability and that you may not be able to guarantee a quiet spot, especially during a busy service.\n\nThank you for considering our request. We appreciate any accommodation you can make and look forward to visiting.\n\nBest regards,  \n[Your Name]",
+  "text_sha256": "e936bc683ec19ea0aee84212a0c37c4f1ff594bf8a904cbbd48ed5a846145b7a",
+  "raw_final_sha256": "e936bc683ec19ea0aee84212a0c37c4f1ff594bf8a904cbbd48ed5a846145b7a",
+  "word_count": 121,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4245,
+      "cached_input_tokens": 3072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 156,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "attempt_path": "collection\\attempts\\3d6b4f5060327cbfaff99a6fc198d14fb407185603d64c3a3b81c492147bc9de",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

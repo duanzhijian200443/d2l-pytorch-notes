@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0223",
+  "prompt": "Describe how silence and empty space can carry meaning in a poem, even though they contain no additional words. Keep your response near 160 words.",
+  "category": "humanities_history",
+  "target_words": 160,
+  "prompt_group": "cp0223",
+  "split": "holdout",
+  "source": "codex_subscription",
+  "job_key": "f048718eb7dfa0eba479addb737f8b210e7c36ecc1b1f36388a21fd2e0948218",
+  "model_requested": "gpt-5.6-luna",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T11:16:40.098175+00:00",
+  "ended_at": "2026-11-01T11:16:53.179777+00:00",
+  "prompt_sha256": "68a3f00b498adbac667e97c05c123e4432cdcec0f56e4f131f354cd7bcb5dd44",
+  "text": "Silence and empty space in a poem can communicate as powerfully as words. A pause created by a line break may slow the reader, suggesting hesitation, grief, suspense, or reflection. A stanza separated by blank space can imply distance—between people, moments, or ideas—or make an absence feel physically present. Even a poem’s refusal to explain something can invite the reader to supply meaning, turning uncertainty into part of the experience.\n\nSilence may also represent what cannot be spoken: trauma, longing, secrecy, or awe. When a poem ends abruptly, the missing conclusion can leave an emotion unresolved, allowing it to continue beyond the page. Short lines and large margins may create a feeling of isolation or fragility, while crowded lines can suggest urgency or emotional pressure.\n\nIn this way, empty space is not merely decoration. It controls rhythm, directs attention, and gives important words room to resonate. What the poem withholds can become as meaningful as what it says.",
+  "text_sha256": "70d7ad90a3fd51a405e9946e2998e3b2d2f216dbdfc85c68b728f5e620e22671",
+  "raw_final_sha256": "70d7ad90a3fd51a405e9946e2998e3b2d2f216dbdfc85c68b728f5e620e22671",
+  "word_count": 158,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 2587,
+      "cached_input_tokens": 1920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 221,
+      "reasoning_output_tokens": 21
+    }
+  ],
+  "attempt_path": "collection\\attempts\\f048718eb7dfa0eba479addb737f8b210e7c36ecc1b1f36388a21fd2e0948218",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}

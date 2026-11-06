@@ -1,0 +1,8 @@
+{
+  "session_id": 13893,
+  "pid": 9708,
+  "mode": "managed_exec_foreground_session",
+  "started_observed_at_utc": "2026-11-01T10:23:24.629976+00:00",
+  "requires_local_process_until_gpu_submitted": true,
+  "not_a_separate_hidden_process": true
+}

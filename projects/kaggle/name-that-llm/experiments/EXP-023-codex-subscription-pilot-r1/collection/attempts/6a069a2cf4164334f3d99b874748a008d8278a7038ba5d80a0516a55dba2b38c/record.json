@@ -1,0 +1,38 @@
+{
+  "prompt_id": "cp0018",
+  "prompt": "How should a casual walking group accommodate members who prefer different speeds while still giving everyone a chance to talk? Please answer in roughly 160 words.",
+  "category": "everyday_advice",
+  "target_words": 160,
+  "prompt_group": "cp0018",
+  "split": "train",
+  "source": "codex_subscription",
+  "job_key": "6a069a2cf4164334f3d99b874748a008d8278a7038ba5d80a0516a55dba2b38c",
+  "model_requested": "gpt-5.6-terra",
+  "model_observed": [],
+  "model_observation_scope": "requested_only",
+  "reasoning_effort": "low",
+  "started_at": "2026-11-01T08:41:58.616277+00:00",
+  "ended_at": "2026-11-01T08:42:23.635722+00:00",
+  "prompt_sha256": "07420761fdd31c79645b1441d98033a734bf00664d04dacbde0e4a2b671ecd29",
+  "text": "Set a relaxed “no one left behind” norm and plan for pace differences rather than treating them as a problem. Start each walk together, then use a **loop or out-and-back route** so faster walkers can go ahead, turn around, and rejoin others naturally. Choose clear regrouping points—such as every 15–20 minutes, at intersections, or at scenic stops—where everyone pauses, chats, and confirms the route.\n\nFor longer walks, split informally into a brisk group and an easy group, with a designated friendly leader and sweep for each. Rotate walking partners at regrouping stops so people do not remain in fixed speed-based cliques. Faster members can add distance through optional side loops, while slower members can take shortcuts without feeling they are holding anyone up.\n\nKeep the route, expected duration, terrain, and pace options clear in advance. Build in a social finish, such as coffee or a park stop, so conversation is not limited to whoever happens to match someone’s stride.",
+  "text_sha256": "f77cfbc7738a0a20fe153b31c839c012be0348ef2690432edf84007e5296180c",
+  "raw_final_sha256": "f77cfbc7738a0a20fe153b31c839c012be0348ef2690432edf84007e5296180c",
+  "word_count": 159,
+  "flags": [],
+  "usage": [
+    {
+      "input_tokens": 4122,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 230,
+      "reasoning_output_tokens": 22
+    }
+  ],
+  "attempt_path": "collection\\attempts\\6a069a2cf4164334f3d99b874748a008d8278a7038ba5d80a0516a55dba2b38c",
+  "binding": {
+    "config_sha256": "f162f03f7bb48f79f6960029211cd181740f68dd1da56f40ce12f08bac867f0e",
+    "prompts_sha256": "dc7495501a3412775902716a40d1b74d13e840b4b73a4c0c9530e28a6080a4d0",
+    "instructions_sha256": "b33fe0624137cd6f190e42a8659046baf16261f3c29cd6455734523ba473afeb",
+    "codex_path": "C:\\Users\\34331\\AppData\\Local\\OpenAI\\Codex\\bin\\22cfb1d302613eae\\codex.exe"
+  }
+}
