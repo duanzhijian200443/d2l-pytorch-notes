@@ -1,0 +1,37 @@
+{
+  "observed_at": "2026-10-31T17:15:31.018520+00:00",
+  "tests": 5,
+  "exit_code": 0,
+  "test_command": [
+    "uv",
+    "run",
+    "--no-project",
+    "--with",
+    "pandas==3.0.6",
+    "--with",
+    "pyarrow==23.0.1",
+    "python",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "experiments\\EXP-009-baseline-data-lineage",
+    "-p",
+    "test_projection.py",
+    "-v"
+  ],
+  "script_sha256": "afc828fd46f7a9d427fc266ed93bd9195d2996139fb185c1bdebdf7d3043e0ff",
+  "test_sha256": "c1d73f4763b0aa642fe47c4eea0b22df26ae1dac64cee1c6cd91b6c55366c4f8",
+  "report_sha256": "67aedb68032a651d9a22ce81f8af7a089c8db6d1f2878c7da8bdf9b26b1ef9ed",
+  "report_links_checked": true,
+  "model_training": false,
+  "GPU_used": false,
+  "artifact_hashes": {
+    "main-members.json": "12e134641edd6fe7e451226237a04ecf9660a7118ff3018eecbcddf5c86e2763",
+    "complement-members.json": "5354dc31a69cc28b2b68d460186665b34157cdc78d17c5fe2151e463109bd868",
+    "checkpoint-evidence.json": "34f7b2b53fc0f4a1452cd2be08882b0c83142eb8838ebfc6d4b3993269064e00",
+    "report.md": "67aedb68032a651d9a22ce81f8af7a089c8db6d1f2878c7da8bdf9b26b1ef9ed"
+  }
+}

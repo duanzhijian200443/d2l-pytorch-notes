@@ -1,0 +1,39 @@
+{
+  "observed_at_utc": "2026-10-29T13:03:55.353090+00:00",
+  "status": "INTERRUPTED_WITHOUT_TERMINAL_ARTIFACT",
+  "gpu_session": "ntl-v32-a100-261029",
+  "backend_sessions_observed": "No active sessions found on server at 2026-10-29T12:54:16Z",
+  "gpu_released_confirmed": true,
+  "user_denies_manual_disconnect": true,
+  "last_drive_log_modified_at_utc": "2026-10-29T12:51:53.089Z",
+  "last_stage": "Qwen3-14B q14v5 second pass: q14v5_f4 complete at main elapsed 2125 seconds; full-data adapter/features and later models not confirmed complete.",
+  "cloud_state_is_stale": {
+    "status": "RUNNING",
+    "output_directory": "/content/drive/MyDrive/Kaggle/name-that-llm/v32-colab/outputs/20261029T112726Z",
+    "started_at": 1793273243.7729683,
+    "watchdog_seconds": 14400
+  },
+  "python_traceback_observed": false,
+  "out_of_memory_error_observed": false,
+  "completion_artifact_present": false,
+  "submission_file_present": false,
+  "failure_file_present": false,
+  "termination_history": [
+    {
+      "timestamp": "2026-10-29T12:54:16.572506+00:00",
+      "event_type": "session_terminated",
+      "reason": "pruned"
+    },
+    {
+      "timestamp": "2026-10-29T12:54:16.806780+00:00",
+      "event_type": "session_terminated",
+      "reason": "pruned"
+    }
+  ],
+  "termination_reason_confirmed": false,
+  "reason_note": "CLI reason pruned means an already absent backend was removed from local session records. It is not the backend termination cause. No terminal result/failure was saved; cannot establish OOM, platform eviction or watchdog parent-death trigger from available evidence.",
+  "hard_deadline_utc": "2026-10-29T15:27:23.772968+00:00",
+  "deadline_reached": false,
+  "automatic_restart_performed": false,
+  "leaderboard_score_verified": false
+}

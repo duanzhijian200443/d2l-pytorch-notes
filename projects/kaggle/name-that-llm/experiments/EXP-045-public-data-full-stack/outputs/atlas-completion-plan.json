@@ -1,0 +1,35 @@
+{
+  "status": "NEEDS_ADDITIONAL_MODEL_INFERENCE",
+  "rows": 4,
+  "panel_sha256": "65135195cc33d52ed7aff7110f34763e7c71c55de21f9608b992aed0c50c0501",
+  "labels": [
+    "claude-fable-5",
+    "claude-opus-4-6",
+    "claude-opus-4-8",
+    "claude-opus-5",
+    "claude-sonnet-5",
+    "gemini-3.1-pro-preview",
+    "gemini-3.6-flash",
+    "gemini-3.7-flash",
+    "gemini-3.8-flash",
+    "glm-5.3",
+    "glm-5.3-flash",
+    "gpt-5.5",
+    "gpt-5.6-luna",
+    "gpt-5.6-sol",
+    "gpt-5.6-terra",
+    "gpt-6-astra",
+    "kimi-k3",
+    "qwen3.8-max"
+  ],
+  "source_run_id": "exp031-20261101T110842Z",
+  "same_atlas_model_and_inference_settings_required": true,
+  "new_gpu_or_cloud_run_started": false,
+  "model_args_path": "cloud/full-stack-capture-r1/outputs-v2/results/model-args.json",
+  "source_captured_input_inventory": "cloud/full-stack-capture-r1/outputs-v2/results/input-availability-check.json",
+  "affected_arms": [
+    "A2",
+    "A3"
+  ],
+  "no_zero_fill_no_old_mask_fallback": true
+}

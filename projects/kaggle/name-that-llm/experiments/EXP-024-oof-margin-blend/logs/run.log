@@ -1,0 +1,17 @@
+BLENDED dense
+BLENDED m2-repeat0
+BLENDED m2-repeat1
+BLENDED m2-repeat2
+BLENDED m2-repeat3
+BLENDED m2-repeat4
+BLENDED m3-repeat0
+BLENDED m3-repeat1
+BLENDED m3-repeat2
+BLENDED m3-repeat3
+BLENDED m3-repeat4
+BLENDED m6-repeat0
+BLENDED m6-repeat1
+BLENDED m6-repeat2
+BLENDED m6-repeat3
+BLENDED m6-repeat4
+{"status": "COMPLETE", "elapsed_seconds": 3.597606099996483, "screening": [{"alpha": 0.05, "primary": false, "dense_delta_ba": -0.000753169276659249, "sparse_mean_delta_ba": {"2": 0.004222538173518575, "3": 0.013572985030372409, "6": 0.002203299332491926}, "point_estimate_guardrail_met": false, "tie_tolerance": 1e-12, "role": "development screening only; no automatic promotion or independent gain claim"}, {"alpha": 0.1, "primary": true, "dense_delta_ba": 0.000725826497638471, "sparse_mean_delta_ba": {"2": 0.0038968544143870632, "3": 0.017797728731209828, "6": 0.003961610973314744}, "point_estimate_guardrail_met": true, "tie_tolerance": 1e-12, "role": "development screening only; no automatic promotion or independent gain claim"}, {"alpha": 0.2, "primary": false, "dense_delta_ba": -1.2428535918485029e-05, "sparse_mean_delta_ba": {"2": 0.019574795537026922, "3": 0.025799194629135526, "6": 0.004162403211418186}, "point_estimate_guardrail_met": false, "tie_tolerance": 1e-12, "role": "development screening only; no automatic promotion or independent gain claim"}]}

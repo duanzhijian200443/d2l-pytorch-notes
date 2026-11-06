@@ -1,0 +1,40 @@
+{
+  "status": "PARTIAL_ATLAS_COVERAGE",
+  "files": [
+    {
+      "path": "experiments/EXP-045-public-data-full-stack/outputs/atlas-completion-plan.json",
+      "sha256": "f92162dab405254862360458989ae448b3483b15430f5c8ce47810aca0166bf0",
+      "bytes": 1022
+    },
+    {
+      "path": "experiments/EXP-045-public-data-full-stack/outputs/atlas-missing-panel.csv",
+      "sha256": "65135195cc33d52ed7aff7110f34763e7c71c55de21f9608b992aed0c50c0501",
+      "bytes": 4294
+    },
+    {
+      "path": "experiments/EXP-045-public-data-full-stack/outputs/baseline-parity.json",
+      "sha256": "92c011b1ea2cf698cb5b3564a338fab2f4d0dd55fa8811ca2f257e479fdd347d",
+      "bytes": 727
+    },
+    {
+      "path": "experiments/EXP-045-public-data-full-stack/outputs/coverage.json",
+      "sha256": "b88cc937a76bc989203eff37b29b40e5dfe47e1b93cc232b37bfe24da1958035",
+      "bytes": 32806
+    },
+    {
+      "path": "experiments/EXP-045-public-data-full-stack/outputs/predictions.csv",
+      "sha256": "40728be16672967e2460f26c532f8d7491c12478e84d0cad5dca9b425c63bac8",
+      "bytes": 130953
+    },
+    {
+      "path": "experiments/EXP-045-public-data-full-stack/outputs/scores.npz",
+      "sha256": "149c5a4e9c0f37b5796d45352fb4c4a104a823a4a7e6741a6efecf0e74ca7e47",
+      "bytes": 214623
+    },
+    {
+      "path": "experiments/EXP-045-public-data-full-stack/outputs/summary.json",
+      "sha256": "9809467b73e8c2aa47a5c1817cc968b389a8593c65949241a7bfc43e958d43ee",
+      "bytes": 41046
+    }
+  ]
+}

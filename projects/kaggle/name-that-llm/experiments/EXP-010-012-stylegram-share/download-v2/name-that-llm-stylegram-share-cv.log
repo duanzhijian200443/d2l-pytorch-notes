@@ -1,0 +1,116 @@
+[{"stream_name":"stdout","time":12.200352335,"data":"FOLD 0: fitting four-view TF-IDF on 2159 official + 10073 public\n"}
+,{"stream_name":"stderr","time":333.290386369,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":333.290454061,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stderr","time":333.520800246,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":333.520874939,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stdout","time":334.172218174,"data":"FIT COMPLETE {\"fold\": 0, \"share\": 0.5, \"rows\": 540, \"ba\": 0.4666666666666667, \"plain_ba\": 0.4, \"centred_rows\": 531, \"features\": 476360, \"plain_n_iter\": 15, \"centred_n_iter\": 13, \"feature_seconds\": 105.191488171, \"plain_fit_seconds\": 32.96835180800002, \"centred_fit_seconds\": 181.852969633}\n"}
+,{"stream_name":"stderr","time":572.617280581,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":572.617470871,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stderr","time":572.850334837,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":572.850377522,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stdout","time":573.504478725,"data":"FIT COMPLETE {\"fold\": 0, \"share\": 0.25, \"rows\": 540, \"ba\": 0.461111111111111, \"plain_ba\": 0.39444444444444443, \"centred_rows\": 531, \"features\": 476360, \"plain_n_iter\": 17, \"centred_n_iter\": 15, \"feature_seconds\": 105.191488171, \"plain_fit_seconds\": 37.76221402500005, \"centred_fit_seconds\": 200.1472306149999}\n"}
+,{"stream_name":"stderr","time":765.816645414,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":765.816794986,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stderr","time":766.046333209,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":766.046388464,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stdout","time":766.752967285,"data":"FIT COMPLETE {\"fold\": 0, \"share\": 0.75, \"rows\": 540, \"ba\": 0.4703703703703704, \"plain_ba\": 0.41111111111111115, \"centred_rows\": 531, \"features\": 476360, \"plain_n_iter\": 13, \"centred_n_iter\": 12, \"feature_seconds\": 105.191488171, \"plain_fit_seconds\": 28.913049617999945, \"centred_fit_seconds\": 162.87947404099998}\n"}
+,{"stream_name":"stdout","time":766.895814734,"data":"FOLD 1: fitting four-view TF-IDF on 2159 official + 10073 public\n"}
+,{"stream_name":"stderr","time":1084.564409108,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":1084.564476689,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stderr","time":1084.626709556,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":1084.626779026,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stderr","time":1084.687829229,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":1084.68788274,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stderr","time":1084.838424627,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":1084.838498412,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stderr","time":1085.294993432,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":1085.295043841,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stdout","time":1085.531703922,"data":"FIT COMPLETE {\"fold\": 1, \"share\": 0.5, \"rows\": 540, \"ba\": 0.43333333333333335, \"plain_ba\": 0.3907407407407407, \"centred_rows\": 537, \"features\": 476520, \"plain_n_iter\": 15, \"centred_n_iter\": 13, \"feature_seconds\": 102.26027165099981, \"plain_fit_seconds\": 32.927865853000185, \"centred_fit_seconds\": 181.588674824}\n"}
+,{"stream_name":"stderr","time":1324.628295766,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":1324.628369694,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stderr","time":1324.691287829,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":1324.691343377,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stderr","time":1324.758157837,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":1324.75823171,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stderr","time":1324.911688448,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":1324.911802089,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stderr","time":1325.367165464,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":1325.367241388,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stdout","time":1325.603049835,"data":"FIT COMPLETE {\"fold\": 1, \"share\": 0.25, \"rows\": 540, \"ba\": 0.412962962962963, \"plain_ba\": 0.3722222222222222, \"centred_rows\": 537, \"features\": 476520, \"plain_n_iter\": 18, \"centred_n_iter\": 15, \"feature_seconds\": 102.26027165099981, \"plain_fit_seconds\": 37.52735480499996, \"centred_fit_seconds\": 201.14810074799993}\n"}
+,{"stream_name":"stderr","time":1523.81535913,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":1523.81544542,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stderr","time":1523.886015003,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":1523.886070043,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stderr","time":1523.951232297,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":1523.951328964,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stderr","time":1524.108607949,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":1524.108658525,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stderr","time":1524.599833732,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":1524.599907875,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stdout","time":1524.849954418,"data":"FIT COMPLETE {\"fold\": 1, \"share\": 0.75, \"rows\": 540, \"ba\": 0.4351851851851851, \"plain_ba\": 0.3925925925925926, \"centred_rows\": 537, \"features\": 476520, \"plain_n_iter\": 13, \"centred_n_iter\": 12, \"feature_seconds\": 102.26027165099981, \"plain_fit_seconds\": 29.428148066000176, \"centred_fit_seconds\": 168.3298952959999}\n"}
+,{"stream_name":"stdout","time":1525.198407885,"data":"FOLD 2: fitting four-view TF-IDF on 2159 official + 10073 public\n"}
+,{"stream_name":"stderr","time":1851.321851534,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":1851.32192187,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stderr","time":1851.357651862,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":1851.357703695,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stderr","time":1851.420008809,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":1851.420082343,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stderr","time":1851.549142085,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":1851.549188526,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stderr","time":1851.650592051,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":1851.650685091,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stdout","time":1852.31296692,"data":"FIT COMPLETE {\"fold\": 2, \"share\": 0.5, \"rows\": 540, \"ba\": 0.47777777777777775, \"plain_ba\": 0.4092592592592592, \"centred_rows\": 533, \"features\": 476360, \"plain_n_iter\": 15, \"centred_n_iter\": 13, \"feature_seconds\": 104.72095438800011, \"plain_fit_seconds\": 33.72620821999999, \"centred_fit_seconds\": 186.72560673399994}\n"}
+,{"stream_name":"stderr","time":2106.236783774,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":2106.237165115,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stderr","time":2106.27105512,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":2106.271141211,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stderr","time":2106.339318102,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":2106.339386745,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stderr","time":2106.467634272,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":2106.467705932,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stderr","time":2106.574446501,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":2106.574501886,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stdout","time":2107.235551034,"data":"FIT COMPLETE {\"fold\": 2, \"share\": 0.25, \"rows\": 540, \"ba\": 0.46481481481481485, \"plain_ba\": 0.4259259259259259, \"centred_rows\": 533, \"features\": 476360, \"plain_n_iter\": 17, \"centred_n_iter\": 16, \"feature_seconds\": 104.72095438800011, \"plain_fit_seconds\": 39.129097277000255, \"centred_fit_seconds\": 214.35338850599965}\n"}
+,{"stream_name":"stderr","time":2315.413923571,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":2315.414187216,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stderr","time":2315.510793636,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":2315.510841119,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stderr","time":2315.639784858,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":2315.639838419,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stderr","time":2315.738327799,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":2315.738383943,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stdout","time":2316.421497166,"data":"FIT COMPLETE {\"fold\": 2, \"share\": 0.75, \"rows\": 540, \"ba\": 0.46851851851851845, \"plain_ba\": 0.41666666666666663, \"centred_rows\": 533, \"features\": 476360, \"plain_n_iter\": 13, \"centred_n_iter\": 12, \"feature_seconds\": 104.72095438800011, \"plain_fit_seconds\": 30.344024353999885, \"centred_fit_seconds\": 177.35213517900002}\n"}
+,{"stream_name":"stdout","time":2316.678434536,"data":"FOLD 3: fitting four-view TF-IDF on 2159 official + 10073 public\n"}
+,{"stream_name":"stderr","time":2643.586224743,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":2643.586320599,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stdout","time":2644.471461439,"data":"FIT COMPLETE {\"fold\": 3, \"share\": 0.5, \"rows\": 540, \"ba\": 0.47777777777777775, \"plain_ba\": 0.42407407407407405, \"centred_rows\": 526, \"features\": 476099, \"plain_n_iter\": 15, \"centred_n_iter\": 13, \"feature_seconds\": 104.88851419000002, \"plain_fit_seconds\": 32.585187614999995, \"centred_fit_seconds\": 188.47420851900006}\n"}
+,{"stream_name":"stderr","time":2893.687319187,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":2893.687377062,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stdout","time":2894.581481564,"data":"FIT COMPLETE {\"fold\": 3, \"share\": 0.25, \"rows\": 540, \"ba\": 0.48148148148148145, \"plain_ba\": 0.41666666666666663, \"centred_rows\": 526, \"features\": 476099, \"plain_n_iter\": 17, \"centred_n_iter\": 16, \"feature_seconds\": 104.88851419000002, \"plain_fit_seconds\": 37.874027002000275, \"centred_fit_seconds\": 210.8446853229998}\n"}
+,{"stream_name":"stderr","time":3100.374015744,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":3100.37409369,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stdout","time":3101.361093122,"data":"FIT COMPLETE {\"fold\": 3, \"share\": 0.75, \"rows\": 540, \"ba\": 0.46481481481481474, \"plain_ba\": 0.4185185185185185, \"centred_rows\": 526, \"features\": 476099, \"plain_n_iter\": 13, \"centred_n_iter\": 12, \"feature_seconds\": 104.88851419000002, \"plain_fit_seconds\": 35.51710862900018, \"centred_fit_seconds\": 169.75834055299993}\n"}
+,{"stream_name":"stdout","time":3101.519106909,"data":"FOLD 4: fitting four-view TF-IDF on 2160 official + 10073 public\n"}
+,{"stream_name":"stderr","time":3417.063351442,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":3417.063422267,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stderr","time":3417.241752764,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":3417.241804613,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stdout","time":3417.930836051,"data":"FIT COMPLETE {\"fold\": 4, \"share\": 0.5, \"rows\": 539, \"ba\": 0.4858876117496808, \"plain_ba\": 0.42637292464878673, \"centred_rows\": 531, \"features\": 476392, \"plain_n_iter\": 15, \"centred_n_iter\": 13, \"feature_seconds\": 104.31252123399963, \"plain_fit_seconds\": 32.368151791999935, \"centred_fit_seconds\": 177.9540734269999}\n"}
+,{"stream_name":"stderr","time":3647.192450104,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":3647.192533925,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stderr","time":3647.368311201,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":3647.368378886,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stdout","time":3648.051382538,"data":"FIT COMPLETE {\"fold\": 4, \"share\": 0.25, \"rows\": 539, \"ba\": 0.47835249042145594, \"plain_ba\": 0.4114303959131546, \"centred_rows\": 531, \"features\": 476392, \"plain_n_iter\": 18, \"centred_n_iter\": 15, \"feature_seconds\": 104.31252123399963, \"plain_fit_seconds\": 35.99327735299994, \"centred_fit_seconds\": 192.83153750199972}\n"}
+,{"stream_name":"stderr","time":3832.816665992,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":3832.816782417,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stderr","time":3832.993503855,"data":"/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true\n"}
+,{"stream_name":"stderr","time":3832.993570264,"data":"  warnings.warn(\"y_pred contains classes not in y_true\")\n"}
+,{"stream_name":"stdout","time":3833.704079999,"data":"FIT COMPLETE {\"fold\": 4, \"share\": 0.75, \"rows\": 539, \"ba\": 0.485823754789272, \"plain_ba\": 0.4228607918263091, \"centred_rows\": 531, \"features\": 476392, \"plain_n_iter\": 14, \"centred_n_iter\": 12, \"feature_seconds\": 104.31252123399963, \"plain_fit_seconds\": 27.110219675999815, \"centred_fit_seconds\": 157.20499861000008}\n"}
+,{"stream_name":"stdout","time":3833.89110958,"data":"EXPERIMENT COMPLETE [{\"share\": 0.5, \"balanced_accuracy\": 0.4682426050211286, \"accuracy\": 0.46832160059281214, \"correct\": 1264}, {\"share\": 0.25, \"balanced_accuracy\": 0.45970917225950786, \"accuracy\": 0.4597999258984809, \"correct\": 1241}, {\"share\": 0.75, \"balanced_accuracy\": 0.46491672880934626, \"accuracy\": 0.4649870322341608, \"correct\": 1255}]\n"}
+,{"stream_name":"stderr","time":3837.70604618,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":3837.706120124,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":3838.22665126,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":3838.226689386,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":3841.209630528,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":3842.777893747,"data":"[NbConvertApp] Writing 277010 bytes to __results__.html\n"}
+]

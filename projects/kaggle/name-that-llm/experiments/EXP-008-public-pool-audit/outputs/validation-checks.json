@@ -1,0 +1,32 @@
+{
+  "observed_at": "2026-10-31T17:00:04.336059+00:00",
+  "test_command": [
+    "uv",
+    "run",
+    "--no-project",
+    "--with",
+    "pandas==3.0.6",
+    "--with",
+    "pyarrow==23.0.1",
+    "python",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "experiments\\EXP-008-public-pool-audit",
+    "-p",
+    "test_audit.py",
+    "-v"
+  ],
+  "exit_code": 0,
+  "tests": 8,
+  "test_source_sha256": "bc03183a831fe216dc09ce88503baeeed64a75ceabefbfb1c98dc621ea2f5e6d",
+  "audit_sha256": "d4e88a90995b74ad0d518d8bdb476b6db62a7b6d963ac6664fd5ee4bc58c291e",
+  "test_log_sha256": "e3f3f6c815522c7f1f5975d9e03e7be23c08321dc7bfdd700ab9665ee7412071",
+  "report_sha256": "3a20bb0ca65b11879b57f5ab52a9911f67743e653500383c8cfda3c25cafbb45",
+  "downloaded_files_verified": 27,
+  "source_claims_reconciled": "Pinned README and CSV take priority over unversioned current metadata; train_regen and partial prompt groups explicitly flagged",
+  "prototype_and_final_run_counts_agree": true
+}

@@ -1,0 +1,23 @@
+{
+  "run_id": "exp042-20261101T143057Z",
+  "config_sha256": "0d24a23932524507dca84d04a40de6688c80e4c92eef7bbc89c3f706b799a4a9",
+  "runner_sha256": "de60b60bfd138b834d8723bbd832fd0522453f549c4050256197f6babe4ed45a",
+  "status": "COMPLETE",
+  "summaries": [
+    {
+      "arm": "control",
+      "balanced_accuracy": 0.4682426050211286,
+      "accuracy": 0.46832160059281214
+    },
+    {
+      "arm": "add120",
+      "balanced_accuracy": 0.46750186428038787,
+      "accuracy": 0.46758058540200076
+    }
+  ],
+  "trained_svms": 20,
+  "folds": 5,
+  "total_seconds": 2892.315908344,
+  "gpu_used": false,
+  "scope": "Stylegram grouped OOF only; not leaderboard or full ensemble"
+}

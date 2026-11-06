@@ -1,0 +1,20 @@
+{
+  "log_records": 9291,
+  "unique_call_ids": 9291,
+  "duplicate_call_ids": [],
+  "status_counts": {
+    "ok": 9290,
+    "error": 1
+  },
+  "route_counts": {
+    "anthropic": 2300,
+    "openrouter": 2218,
+    "google": 1098,
+    "openai": 1025,
+    "kaggle_proxy": 2650
+  },
+  "published_rows": 9290,
+  "published_rows_matching_raw_logs": 9290,
+  "issue_counts": {},
+  "limit": "Checks supplied logs for internal consistency. A proxy echoes its routing slug; even a matching response does not independently authenticate the underlying weights."
+}

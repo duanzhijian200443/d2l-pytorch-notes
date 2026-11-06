@@ -1,0 +1,12 @@
+id,source_id,prompt_id,model,prediction_045,prediction_030,correct_045,correct_030,change
+x27-0a48d7c53dc93ba4aa8f90e2,v22_v22_36_claude-sonnet-5,earthmaker-task:0d18cc58ede4a950d77b0fbb59dbcde1c95759db7d5cf19afeab8b15c9b6d8f2,claude-sonnet-5,claude-sonnet-5,claude-opus-4-6,True,False,new_error_030
+x27-1e75b21be116d637c05ae2d3,pilot_p06_gemini-3.1-pro-preview,earthmaker-task:75d48783471779affd0dbade614cfe1d55e547ca7352e18cdca6a399b1a66ae4,gemini-3.1-pro-preview,gemini-3.6-flash,gemini-3.1-pro-preview,False,True,fixed_by_030
+x27-41ead61200d30dfcc303fb05,pilot_p01_gemini-3.6-flash,earthmaker-task:3f3198b2681a379324f9e176a753a7e3888d45f3ea99b0752ab617bc0ad29252,gemini-3.6-flash,gemini-3.7-flash,gemini-3.6-flash,False,True,fixed_by_030
+x27-4c97bb217e779e1b0f9ac4be,pilot_p04_gemini-3.8-flash,earthmaker-task:e5aba0f23dd681961cf53bb0bfabf2c35f2ffcccea978d2788f6798f2a74ce5c,gemini-3.8-flash,gemini-3.6-flash,gemini-3.1-pro-preview,False,False,both_wrong_changed
+x27-927a1613866924d72a140be7,v22_v22_01_gemini-3.6-flash,earthmaker-task:9d91309a3f606b8ae0faf64b47b72e0611ff629a6565ac7400b29a12d17e2608,gemini-3.6-flash,gemini-3.7-flash,gemini-3.6-flash,False,True,fixed_by_030
+x27-b059c68cd641cb105f78184d,v22_v22_04_gpt-5.6-terra,earthmaker-task:2977c40c615089dcfd89842c770cc82f604c44ea2e048648c2be9499c92b5d85,gpt-5.6-terra,gpt-5.6-terra,gpt-6-astra,True,False,new_error_030
+x27-bdf241cea74c2a08afa28083,v22_v22_27_gpt-5.6-terra,earthmaker-task:cb6d2381a1a97671219091a9b91b386205c4a7ed597a81ae94d9b43d924f1c0c,gpt-5.6-terra,gpt-5.6-terra,gpt-5.6-luna,True,False,new_error_030
+x27-d98f2f557dd96411985ad54a,v22_v22_17_gpt-5.6-sol,earthmaker-task:536bea95e72fa50a81975df42fc6513b8032033539be264f4b5be7a098e6b247,gpt-5.6-sol,qwen3.8-max,gpt-5.6-sol,False,True,fixed_by_030
+x27-dcc95a334d872c3c06d65114,pilot_p05_gpt-5.5,earthmaker-task:a0bfbbe9e6bc0c8a2a714ef5fadac0e3a5299d0a4784b183657f4ae8fb66c8de,gpt-5.5,qwen3.8-max,gpt-5.5,False,True,fixed_by_030
+x27-eab19b148beb2ead11cf73a4,pilot_p01_kimi-k3,earthmaker-task:3f3198b2681a379324f9e176a753a7e3888d45f3ea99b0752ab617bc0ad29252,kimi-k3,glm-5.3-flash,claude-opus-4-8,False,False,both_wrong_changed
+x27-f2cf71f539a01677a8cf3b11,pilot_p19_gemini-3.8-flash,earthmaker-task:91b7e1463a5dabee6fea0f391c47511fa6f55be957f58d707ed7fe1fdb567d1a,gemini-3.8-flash,gemini-3.7-flash,gemini-3.6-flash,False,False,both_wrong_changed
