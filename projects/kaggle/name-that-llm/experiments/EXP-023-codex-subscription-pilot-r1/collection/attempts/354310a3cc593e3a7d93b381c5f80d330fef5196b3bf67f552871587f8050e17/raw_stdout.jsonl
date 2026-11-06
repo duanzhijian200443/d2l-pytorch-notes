@@ -1,6 +1,0 @@
-{"type":"thread.started","thread_id":"01a196b9-acc7-7b71-a63a-1dd87b645171"}
-{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in C:\\Users\\34331\\.codex\\config.toml."}}
-{"type":"item.completed","item":{"id":"item_1","type":"error","message":"Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."}}
-{"type":"turn.started"}
-{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"Subject: Neighborhood Plant Pot Swap\n\nHi neighbors,\n\nDo you have extra plant pots gathering dust? Join us for a friendly pot swap! Bring any clean pots, trays, or planters you no longer need, and take home something new for your plants.\n\nPlease come even if you have nothing to bring—everyone is welcome to browse, chat, and enjoy meeting fellow plant lovers.\n\nHope to see you there!\n\nBest,  \n[Your Name]"}}
-{"type":"turn.completed","usage":{"input_tokens":4127,"cached_input_tokens":3840,"cache_write_input_tokens":0,"output_tokens":93,"reasoning_output_tokens":0}}

@@ -1,5 +1,0 @@
-When a phone scans a QR code, its camera captures an image, and software locates the code’s distinctive square patterns. It then interprets the arrangement of light and dark modules, using error correction to recover the encoded data even if parts are damaged or obscured.
-
-Reading the code simply reveals that data. It might be a web address, plain text, contact details, or Wi-Fi credentials. Scanning does not inherently mean visiting a website.
-
-Opening the destination is a separate step, usually triggered when you tap a notification or preview. For a web address, the phone launches a browser, connects to the site, and requests its content. The QR code supplies the address; the website determines what appears afterward.

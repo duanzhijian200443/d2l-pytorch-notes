@@ -1,7 +1,0 @@
-A workable policy is to reserve most capacity for appointments while keeping a controlled portion available for walk-ins.
-
-For example, schedule appointments in 60–75% of daily labor hours, leaving 25–40% as flexible capacity. Use appointment slots for predictable work such as maintenance, inspections, and repairs requiring ordered parts. Accept walk-ins on a first-come, first-served basis, but triage them immediately: safety-critical issues, vehicles that cannot be driven, and very short jobs receive priority; larger non-urgent jobs are either added to the queue or offered the next appointment.
-
-Set clear customer expectations. Appointments receive a target start time and estimated completion window, though emergency repairs may occasionally cause delays. Walk-ins receive an initial inspection and an honest estimated wait; if the shop is full, staff can book them into the next opening rather than promising same-day service. The shop should review demand weekly and adjust the reserved walk-in capacity by day and season.
-
-The main compromise is efficiency versus accessibility. A fully booked appointment schedule maximizes predictable labor use, but leaves no room for urgent walk-ins. Reserving flexible capacity improves convenience and captures unplanned business, but sometimes leaves technicians temporarily underutilized or makes appointment timing less precise.

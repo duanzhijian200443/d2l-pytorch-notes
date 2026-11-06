@@ -1,7 +1,0 @@
-Ocean water does not simply collect on the Moon-facing side because the **Earth and Moon orbit their common center of mass**. Earth as a whole is continually falling toward the Moon, so most of the Moon’s gravitational pull accelerates the solid Earth and its oceans together.
-
-Tides arise from the small **difference** in lunar gravity across Earth. On the side nearest the Moon, the Moon pulls ocean water slightly more strongly than it pulls Earth’s center, producing a bulge toward the Moon. On the far side, lunar gravity is slightly weaker than at Earth’s center, so the Earth is pulled toward the Moon more strongly than that distant water; relative to Earth, this produces a second bulge away from the Moon.
-
-As Earth rotates beneath these roughly Moon-aligned distortions, locations generally pass through two high-tide and two low-tide regions each lunar day (about 24 hours 50 minutes). The water is therefore continually redistributed rather than permanently accumulating in one place.
-
-Real tides are more complicated than this equilibrium picture. Continents interrupt the flow, ocean depth affects wave speed, friction causes delays, and ocean basins can resonate. The Sun also creates tides, strengthening lunar tides during new and full moons and weakening them near the quarter moons.

@@ -1,7 +1,0 @@
-Materials spring back when bending only stretches or slightly shifts their internal structure. Like a plastic ruler or a rubber band, their particles are pulled out of place but still “want” to return to their original arrangement, so the object rebounds when released.
-
-If you bend farther, you can pass the material’s limit. Then parts inside it slide permanently, or tiny structural changes occur. A paper clip bends back a little at first, but bend it enough and it keeps its new shape. That is why repeated bending eventually makes it break.
-
-Some materials are naturally easier to reshape. Modeling clay, soft copper wire, and aluminum foil stay bent because their internal layers can move past one another without strongly pulling back. Others, such as spring steel, are designed to return after significant bending.
-
-Thickness and temperature matter too: a thin metal strip bends more readily than a thick one, and warm plastic is usually easier to reshape than cold plastic.

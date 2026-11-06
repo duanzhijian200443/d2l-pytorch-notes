@@ -1,5 +1,0 @@
-A small library could run a simple controlled trial over several weeks. First, record baseline borrowing for the books that may appear in the display. Then alternate between the new display and the library’s usual display, using comparable locations, time periods, themes, and book availability. Randomly assign selected titles to each condition and rotate them to reduce the effects of popularity or placement.
-
-Measure discovery through actions, not just attention: books picked up, catalog lookups, QR-code scans, checkouts, holds, and later borrowing of related titles. A short, optional checkout question—“How did you discover this book?”—could show whether the display influenced the choice. Staff might also invite a small sample of visitors to name or describe books they noticed, distinguishing brief glances from meaningful recall.
-
-The strongest outcome would be an increase in borrowing or holds among readers who had not previously sought those titles or authors. Compare rates per visitor and account for events, school holidays, and unavailable books. Protect privacy by using anonymous, aggregated data, and repeat the trial before drawing conclusions.

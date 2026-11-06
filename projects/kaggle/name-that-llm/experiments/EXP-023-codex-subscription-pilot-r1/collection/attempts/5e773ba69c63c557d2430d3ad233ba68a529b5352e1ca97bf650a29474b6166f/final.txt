@@ -1,5 +1,0 @@
-Backup creates a separate, recoverable copy of files—often with version history—so you can restore data after deletion, corruption, ransomware, or device loss. A good backup is independent of the original device and is not immediately changed when a file is altered.
-
-Synchronization keeps current copies on multiple devices aligned. If you edit, rename, or delete a file on one device, those changes usually propagate to the others. Sync improves access and collaboration, but it is not automatically a backup.
-
-For example, someone may use a cloud-sync folder as their only “backup.” If they accidentally delete their thesis folder, the deletion syncs to their laptop, desktop, and cloud folder. Without version retention or a separate backup, every copy is gone.

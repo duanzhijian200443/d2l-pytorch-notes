@@ -1,5 +1,0 @@
-Captions and a written transcript both make a recorded lecture’s spoken content available as text, supporting accessibility and helping learners understand unfamiliar terms or unclear speech. However, they serve different viewing and study needs.
-
-Captions appear in sync with the video, allowing viewers to follow the lecture while watching demonstrations, slides, and gestures. They are especially useful for deaf or hard-of-hearing viewers and anyone watching without sound. Good captions also identify speakers and relevant sounds.
-
-A transcript presents the lecture as a separate, readable document. It makes it easier to scan, search, quote, review key ideas, or study at one’s own pace. Timestamps can connect passages to the recording, but a transcript generally does not provide captions’ immediate connection between text and visuals.

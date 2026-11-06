@@ -1,5 +1,0 @@
-Revise the article around the main example rather than the background material. Start with the example in the opening paragraph, briefly explaining why it matters and what readers will learn from it. Then move any essential context into a short, clearly labeled background section; cut or condense details that do not directly help readers understand the example.
-
-As you revise, check that each section answers a specific question: What is happening in the example? Why is it significant? What context does the reader need? What should they take away? Use transitions to make those connections explicit.
-
-Finally, rewrite the ending so it returns to the example and reinforces the article’s central point. Remove ideas that introduce a new topic or argument unless you develop them earlier in the piece. Before submitting, ask a colleague to read only the introduction, example, and conclusion and summarize the main message; if their summary is unclear or inconsistent, revise the structure again.

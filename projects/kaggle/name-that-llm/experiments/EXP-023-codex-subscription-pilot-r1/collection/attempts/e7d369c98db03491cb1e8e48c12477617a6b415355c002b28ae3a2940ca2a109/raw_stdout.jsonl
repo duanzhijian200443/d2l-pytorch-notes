@@ -1,6 +1,0 @@
-{"type":"thread.started","thread_id":"01a196d5-2e23-71b3-b883-04fcd0cfa08c"}
-{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in C:\\Users\\34331\\.codex\\config.toml."}}
-{"type":"item.completed","item":{"id":"item_1","type":"error","message":"Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."}}
-{"type":"turn.started"}
-{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"“Why is that square bare?” a visitor asked.  \n“Does nothing grow there?”  \n“Plenty might,” said the gardener.  \n“Then why leave it?”  \n“Because beneath it rests a little grave.”  \n“For whom?”  \n“A robin that sang here every dawn.”  \n“Did you bury it?”  \n“My daughter did. She asked that nothing disturb its sleep.”  \n“So this empty patch is a garden too?”  \n“Yes,” said the gardener. “It grows remembrance.”"}}
-{"type":"turn.completed","usage":{"input_tokens":4122,"cached_input_tokens":3840,"cache_write_input_tokens":0,"output_tokens":243,"reasoning_output_tokens":137}}

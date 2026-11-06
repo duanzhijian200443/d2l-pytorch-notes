@@ -1,5 +1,0 @@
-Pulling the arms inward reduces the skater’s moment of inertia—the effective spread of their mass around the spin axis. With negligible external torque, angular momentum stays the same:
-
-**angular momentum = moment of inertia × angular speed.**
-
-So when the moment of inertia decreases, angular speed must increase. The skater spins faster, while their rotational kinetic energy increases because their muscles do work pulling the arms inward.

@@ -1,6 +1,0 @@
-{"type":"thread.started","thread_id":"01a196da-e0e3-70b3-8c41-8d05d7f9a726"}
-{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in C:\\Users\\34331\\.codex\\config.toml."}}
-{"type":"item.completed","item":{"id":"item_1","type":"error","message":"Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."}}
-{"type":"turn.started"}
-{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"I kept the old coat for years, long after it had become too small. One day, I found a cinema ticket tucked inside its pocket. I couldn’t remember the film, but I remembered the friend who had been with me—our laughter, the evening, the feeling of being young. I placed the ticket carefully in a drawer, then donated the coat. Letting it go felt less like losing the past than making room for what remains."}}
-{"type":"turn.completed","usage":{"input_tokens":2617,"cached_input_tokens":2432,"cache_write_input_tokens":0,"output_tokens":94,"reasoning_output_tokens":0}}

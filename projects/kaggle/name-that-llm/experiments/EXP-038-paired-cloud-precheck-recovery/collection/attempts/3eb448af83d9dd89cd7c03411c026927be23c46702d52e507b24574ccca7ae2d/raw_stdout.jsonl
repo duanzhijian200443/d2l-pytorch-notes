@@ -1,6 +1,0 @@
-{"type":"thread.started","thread_id":"01a19733-ad5f-73d2-8b95-4c8d85cac1b0"}
-{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in C:\\Users\\34331\\.codex\\config.toml."}}
-{"type":"item.completed","item":{"id":"item_1","type":"error","message":"Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."}}
-{"type":"turn.started"}
-{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"Dear [Organizer’s Name], I really enjoyed my first rehearsal with the choir and appreciated how welcoming everyone was. Unfortunately, I need to miss the next two rehearsals because of prior commitments. I’m disappointed to be away, but I’m hoping to return as soon as possible. Would it be practical for me to rejoin after those sessions, and is there anything I could review independently to help me catch up? Thank you for your understanding."}}
-{"type":"turn.completed","usage":{"input_tokens":4220,"cached_input_tokens":1792,"cache_write_input_tokens":0,"output_tokens":93,"reasoning_output_tokens":0}}

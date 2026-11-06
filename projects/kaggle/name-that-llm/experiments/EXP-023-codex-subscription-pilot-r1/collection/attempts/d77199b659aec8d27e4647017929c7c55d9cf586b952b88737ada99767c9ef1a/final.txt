@@ -1,9 +1,0 @@
-The original average is 10, so the total of the five numbers is \(5 \times 10 = 50\). When one number increases by 5 and the other four numbers remain unchanged, the total also increases by 5. The new total is therefore \(50 + 5 = 55\).
-
-To find the new average, divide this total by the number of values, which is still five:
-
-\[
-55 \div 5 = 11.
-\]
-
-Therefore, the average increases from 10 to 11—an increase of 1. In general, when one value in a list of five increases by 5, that increase is distributed across all five values when calculating the average. Thus, the average rises by \(5 \div 5 = 1\).

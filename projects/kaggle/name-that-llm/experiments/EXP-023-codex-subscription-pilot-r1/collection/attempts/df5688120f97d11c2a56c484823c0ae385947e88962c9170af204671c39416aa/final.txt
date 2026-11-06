@@ -1,5 +1,0 @@
-Dividing a project by task count assumes that every task requires roughly the same effort, skill, time, and risk. In practice, this is often untrue. One team may receive many small, routine tasks—such as formatting documents, updating labels, or copying data—while the other receives fewer but much more demanding tasks, such as designing an architecture, solving technical failures, conducting research, or integrating complex systems.
-
-Harder tasks may require specialized expertise, extensive planning, repeated testing, and problem-solving when requirements are unclear. They can also create dependencies that delay later work and carry greater consequences if completed incorrectly. A simple count ignores these differences.
-
-A fairer division should consider estimated hours, complexity, uncertainty, required skills, responsibility, and project impact. For example, two difficult engineering tasks might reasonably equal ten straightforward administrative tasks. Therefore, an equal number of tasks does not necessarily mean an equal share of the workload.

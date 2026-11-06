@@ -1,5 +1,0 @@
-Test the display as a small experiment, not just a decoration. Before installing it, record a baseline for several comparable weeks: how many books from the chosen category circulate, how often they are picked up, and how many are returned to the shelf or left on nearby tables. Then place the display in one location for two to four weeks, using a clear theme and a small sign inviting patrons to borrow or ask for recommendations.
-
-Track outcomes that indicate discovery: checkouts, holds, renewals, reader-recommendation requests, and brief staff observations of patrons selecting titles. A simple checkout slip or QR code can ask, “Did you find this book through the display?” Keep the question optional and anonymous.
-
-Compare results with the baseline and, if possible, with a similar category not displayed. Also compare different display locations or themes over time. Count glances and handling as supporting evidence, but treat borrowing, later holds, and positive patron feedback as the primary measures. Review results monthly and retain only displays that produce sustained discovery rather than a short-lived spike.

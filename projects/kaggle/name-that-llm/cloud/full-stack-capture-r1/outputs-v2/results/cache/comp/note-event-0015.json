@@ -1,1 +1,0 @@
-{"event":"member","payload":{"items":[["key",{"kind":"scalar","value":"gauss_q3_4b_L4"}],["probability",{"kind":"array","name":"event-0015-array-0001"}],["log_probability",{"kind":"array","name":"event-0015-array-0002"}],["weight",{"kind":"scalar","value":0.1245}],["rows",{"kind":"array","name":"event-0015-array-0003"}]],"kind":"mapping"},"sequence":15}

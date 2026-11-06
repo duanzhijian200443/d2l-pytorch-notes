@@ -1,7 +1,0 @@
-Ask for feedback with clear boundaries: explain the plan’s purpose, what’s already decided, what’s still open, and which questions reviewers should answer. This invites meaningful challenge without turning every detail into a negotiation.
-
-For example:
-
-“Please review this draft before Thursday. Our goal is to reduce onboarding time; the budget and launch date are fixed. I’d especially value feedback on three things: assumptions that may be wrong, risks we’ve missed, and whether responsibilities are clear. For each concern, describe the likely impact and suggest an alternative where possible. Please label minor wording suggestions separately. I’ll review the input, make the final decisions, and share what changed and why.”
-
-Leave room for concerns outside those categories if they could materially undermine the plan.

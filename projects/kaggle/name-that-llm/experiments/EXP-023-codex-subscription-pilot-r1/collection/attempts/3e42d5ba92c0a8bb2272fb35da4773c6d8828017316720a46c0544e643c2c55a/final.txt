@@ -1,5 +1,0 @@
-Backing up files means creating separate copies that can restore your data after accidental deletion, corruption, theft, or hardware failure. A good backup keeps older versions and remains protected from changes to the originals.
-
-Synchronizing files means keeping files consistent across devices. When you edit, add, or delete a file on one device, the synchronization service usually applies that change to the others. This makes working across a laptop, phone, and tablet convenient, but synchronization alone is not a backup.
-
-For example, you might delete a folder from your laptop, assuming the synchronized copy on your desktop is safe. The service then deletes that copy too. Without a separate backup or recoverable version history, you could lose the folder permanently.

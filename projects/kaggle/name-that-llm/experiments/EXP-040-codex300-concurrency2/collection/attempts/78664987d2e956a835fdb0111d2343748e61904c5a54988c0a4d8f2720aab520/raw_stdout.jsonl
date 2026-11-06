@@ -1,6 +1,0 @@
-{"type":"thread.started","thread_id":"01a19743-c288-7152-b966-a04b97d4f674"}
-{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in C:\\Users\\34331\\.codex\\config.toml."}}
-{"type":"item.completed","item":{"id":"item_1","type":"error","message":"Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."}}
-{"type":"turn.started"}
-{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"Ada arrives first, Cara arrives second, and Ben arrives last. The clue that Ada arrives before Ben establishes that Ada cannot be last and Ben cannot be first. The clue that Cara arrives after Ada places Ada ahead of Cara. Its additional statement that Cara arrives before Ben places Cara ahead of Ben. Together, these constraints form the complete sequence Ada, then Cara, then Ben, with each person’s relative position determined unambiguously."}}
-{"type":"turn.completed","usage":{"input_tokens":4220,"cached_input_tokens":1792,"cache_write_input_tokens":0,"output_tokens":90,"reasoning_output_tokens":0}}

@@ -1,9 +1,0 @@
-Before copying the feature, the team should learn:
-
-- **Users’ underlying needs:** What goal are users trying to achieve, and what problems get in their way?
-- **Current behavior:** How do they solve the problem today, including workarounds, and where do existing solutions fail?
-- **Reach and importance:** Which user segments experience the problem, how often, and how costly or frustrating is it?
-- **Fit:** Do its users have the same needs and context as the competitor’s users?
-- **Relative priority:** Would solving this problem matter more than other improvements?
-
-Use interviews, observation, usage data, and lightweight prototype tests—not just feature requests. A competitor’s popularity is a clue, not proof of demand. The decision should rest on evidence that the feature would meaningfully improve outcomes for the team’s own users.

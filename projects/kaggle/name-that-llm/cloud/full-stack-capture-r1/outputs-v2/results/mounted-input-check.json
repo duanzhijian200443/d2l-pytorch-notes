@@ -1,7 +1,0 @@
-{
-  "files": 531,
-  "small_files_rehashed": 401,
-  "large_files_version_bound": 130,
-  "large_bytes_not_rehashed": 190244277214,
-  "large_file_policy": "CPU full hashes plus identical pre-bound attachment versions and GPU path/size checks; not GPU byte rehash"
-}

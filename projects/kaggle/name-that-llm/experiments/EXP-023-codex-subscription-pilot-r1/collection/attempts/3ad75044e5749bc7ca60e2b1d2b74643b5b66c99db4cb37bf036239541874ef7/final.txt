@@ -1,5 +1,0 @@
-As a lake cools in winter, surface water loses heat to the cold air. Water is unusual because it reaches its greatest density at about 4°C. As water cools from warmer temperatures down to 4°C, it becomes denser and sinks, mixing the lake. But once the surface water cools below 4°C, it becomes *less* dense, so it stays on top. When it reaches 0°C, it freezes.
-
-Ice is also less dense than liquid water, which is why it floats. The floating ice forms a surface layer that slows further heat loss because ice is a relatively poor conductor of heat. Beneath it, much of the lake remains near 4°C and liquid rather than freezing solid.
-
-This density behavior is crucial for aquatic life. If ice sank, lakes could freeze from the bottom upward and may eventually become solid during long winters, killing fish, plants, microorganisms, and other organisms. Instead, the ice cover creates an insulating roof, leaving a liquid-water habitat below where fish and many other organisms can survive. Some aquatic plants and algae can still photosynthesize using limited light passing through the ice, while animals slow their metabolism or move to deeper water.

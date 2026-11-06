@@ -1,3 +1,0 @@
-A shadow’s edge depends on the light source’s apparent size—the angle it spans as seen from the object. A very small, point-like source produces a sharp shadow because light comes from essentially one direction: each spot behind the object either receives light or does not.
-
-An extended source sends light from several directions. Near the shadow’s boundary, the object blocks some parts of the source but not others, creating a partially lit region called the penumbra. Close to the object, this region is narrow, so the edge looks sharp. Farther from the object, it spreads out, making the edge fuzzier. A larger source produces a wider penumbra; a smaller source produces a narrower, sharper one, with distances held fixed.

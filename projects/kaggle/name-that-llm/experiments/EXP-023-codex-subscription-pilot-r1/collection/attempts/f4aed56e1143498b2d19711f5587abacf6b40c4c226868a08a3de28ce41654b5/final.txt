@@ -1,5 +1,0 @@
-A flute and a violin can play the same note at the same loudness, yet sound distinct because their **timbres** differ. Timbre is the sound quality that lets us identify an instrument even when pitch and volume match.
-
-Both instruments produce a fundamental frequency—the note’s main pitch—but they also create different mixtures of higher frequencies called **harmonics** or overtones. A flute’s air column tends to emphasize a relatively simple, smooth set of harmonics, giving it a clear, breathy, rounded tone. A violin’s vibrating strings, bridge, and wooden body produce a richer and more complex collection of harmonics, often making its sound brighter, warmer, or more resonant.
-
-Their sound also changes differently over time. The violin has a bowed attack and can sustain or swell a note continuously, while the flute begins with a burst of air and may include audible breath noise. The instrument’s material, shape, resonance, and playing technique all affect these details, creating their recognizable voices.

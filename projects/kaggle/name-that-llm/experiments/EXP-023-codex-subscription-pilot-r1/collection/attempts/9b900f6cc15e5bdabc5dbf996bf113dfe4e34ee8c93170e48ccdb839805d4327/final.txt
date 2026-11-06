@@ -1,9 +1,0 @@
-A plausible reason is that wireless headsets often use different Bluetooth operating modes for music and calls.
-
-For music, the headset typically uses a high-quality stereo profile such as A2DP. This provides relatively wide bandwidth and supports codecs designed for detailed audio, so music can sound clear and full.
-
-During a call, the headset usually switches to a two-way communication profile, such as HFP or HSP, because it must transmit microphone audio while receiving the caller’s voice. Older or more widely compatible versions of these profiles use narrower bandwidth and lower-quality speech codecs. As a result, sound may become more compressed, muffled, or “telephone-like.” Some systems also reduce playback quality further when the microphone is active.
-
-Call audio can be affected by additional processing, including echo cancellation, noise suppression, automatic gain control, and voice-focused equalization. These processes are useful for intelligibility and feedback prevention but may remove high frequencies or make speech sound less natural.
-
-Interference, distance from the device, and operating-system or application settings can contribute as well. Therefore, music sounding good does not necessarily indicate that call audio will use the same codec, bandwidth, or processing path. The difference can be a normal limitation of the communication mode rather than a hardware defect.

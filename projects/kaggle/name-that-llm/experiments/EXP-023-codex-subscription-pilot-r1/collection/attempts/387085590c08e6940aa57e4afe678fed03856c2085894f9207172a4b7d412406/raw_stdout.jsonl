@@ -1,6 +1,0 @@
-{"type":"thread.started","thread_id":"01a196c2-ed7e-79c2-8ac7-5e2f02d5e2f8"}
-{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in C:\\Users\\34331\\.codex\\config.toml."}}
-{"type":"item.completed","item":{"id":"item_1","type":"error","message":"Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."}}
-{"type":"turn.started"}
-{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"The percentage increase and decrease differ because they use different starting amounts. Attendance rose from 20 to 30, a gain of 10 people. Relative to the original 20, that is 10 ÷ 20 × 100 = 50%. When attendance fell from 30 to 20, the loss was also 10 people, but the starting amount was now 30. Thus, the decrease was 10 ÷ 30 × 100 ≈ 33.3%. The same change represents a smaller percentage of a larger starting amount."}}
-{"type":"turn.completed","usage":{"input_tokens":4243,"cached_input_tokens":3072,"cache_write_input_tokens":0,"output_tokens":116,"reasoning_output_tokens":0}}

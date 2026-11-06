@@ -1,7 +1,0 @@
-A software interface hides complicated internal work by providing users or other programs with a small, clear set of actions. Its purpose is to let callers focus on **what they want to accomplish** rather than **how the system accomplishes it**.
-
-For example, a file-storage interface might offer actions such as `save`, `load`, and `delete`. Behind those actions, the system may handle permissions, disk access, caching, encryption, error recovery, and network communication. Callers do not need to understand or reproduce those details.
-
-This separation reduces cognitive load, makes code easier to use, and prevents different parts of a system from becoming tightly coupled. The internal implementation can often be improved or replaced without requiring callers to change, provided the interface continues to honor the same contract. It also creates a natural place to enforce validation, security rules, and consistent error handling.
-
-In short, such an interface acts as an abstraction boundary: it turns a complex subsystem into a predictable tool with a limited, stable vocabulary.

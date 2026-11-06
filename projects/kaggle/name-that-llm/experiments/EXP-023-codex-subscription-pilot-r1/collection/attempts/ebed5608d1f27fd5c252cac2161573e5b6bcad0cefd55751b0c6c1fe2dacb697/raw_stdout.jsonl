@@ -1,6 +1,0 @@
-{"type":"thread.started","thread_id":"01a196c5-fcdd-7a20-b847-c9bd29368ac6"}
-{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in C:\\Users\\34331\\.codex\\config.toml."}}
-{"type":"item.completed","item":{"id":"item_1","type":"error","message":"Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."}}
-{"type":"turn.started"}
-{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"There are 15 books on the shelf: ten novels and five biographies. The chance of selecting a biography is therefore 5 out of 15, or \\(5/15 = 1/3\\), approximately 33.3%. This means that, over many random selections with the book returned each time, about one-third of the selections would be biographies. One assumption is that every book has an equal chance of being chosen; for example, the person does not favor books because of their size, position, or cover."}}
-{"type":"turn.completed","usage":{"input_tokens":4246,"cached_input_tokens":3072,"cache_write_input_tokens":0,"output_tokens":110,"reasoning_output_tokens":0}}

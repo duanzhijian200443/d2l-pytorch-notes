@@ -1,6 +1,0 @@
-{"type":"thread.started","thread_id":"01a1976a-c738-7fb0-a035-6da99327e63c"}
-{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in C:\\Users\\34331\\.codex\\config.toml."}}
-{"type":"item.completed","item":{"id":"item_1","type":"error","message":"Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."}}
-{"type":"turn.started"}
-{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"“Why have you left that little square of soil bare?” the visitor asked. “Isn’t every inch of the garden precious?” The gardener smiled. “It is, which is why I saved this patch.” “Saved it for what?” “For the children who visit. They dig here, watch worms tunnel, find beetles, and plant seeds of their own choosing.” “So nothing grows there?” “On the contrary,” she replied. “Curiosity grows, patience takes root, and muddy hands bloom into a love of gardening.”"}}
-{"type":"turn.completed","usage":{"input_tokens":2673,"cached_input_tokens":1920,"cache_write_input_tokens":0,"output_tokens":143,"reasoning_output_tokens":28}}

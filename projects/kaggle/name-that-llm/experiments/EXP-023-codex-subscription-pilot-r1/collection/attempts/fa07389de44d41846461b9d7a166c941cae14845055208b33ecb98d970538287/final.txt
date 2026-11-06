@@ -1,9 +1,0 @@
-A search system may return a relevant document even when it does not contain the exact words typed because modern search often focuses on **meaning**, not just literal word matching.
-
-First, the system may recognize synonyms and related terms. A search for “cheap flights,” for example, could match a page describing “low-cost airfare.” It may also reduce words to their base forms, allowing “running” to match “run.”
-
-Many systems use semantic search, which represents queries and documents as numerical vectors based on their meaning. Documents whose vectors are close to the query vector may be retrieved even if they share few or no exact words. Thus, a query about “how to fix a leaking tap” might match a document titled “Repairing a dripping faucet.”
-
-Search engines can also use context, spelling correction, abbreviations, user location, and previous interactions to interpret intent. A query for “apple support” is likely understood as referring to the technology company rather than the fruit.
-
-Finally, ranking systems combine multiple signals, such as document quality, popularity, freshness, links, and metadata. Exact word overlap is only one possible signal. By considering concepts, intent, and context, the system can return documents that answer the user’s underlying question rather than merely repeating the words entered.

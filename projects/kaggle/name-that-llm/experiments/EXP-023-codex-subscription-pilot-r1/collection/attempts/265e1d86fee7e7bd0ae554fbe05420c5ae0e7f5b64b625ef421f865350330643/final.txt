@@ -1,5 +1,0 @@
-One overall customer satisfaction score provides a simple snapshot of how customers feel. It is quick to collect, easy to track over time, and useful for comparing teams or services. However, it can hide important differences: a customer may love the product but dislike delivery, leaving an average score that explains little.
-
-A few specific questions—about product quality, staff helpfulness, ease of use, or delivery—provide more actionable feedback. They help identify strengths, pinpoint problems, and guide improvements. The trade-off is greater effort for respondents and more complex analysis; longer surveys may also reduce completion rates.
-
-A practical approach is to combine one overall rating with a small number of targeted questions, balancing simplicity with useful detail.

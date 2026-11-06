@@ -1,5 +1,0 @@
-Could your team please use a consistent naming format for the files you send us, including the project name and date? Some current file names make it difficult to identify the contents without opening each file, which adds time to our review process.
-
-Starting next week, please use this format for all files: **ProjectName_YYYY-MM-DD**. If you send multiple files for the same project and date, please add a brief description to distinguish them.
-
-This will help us locate the right documents quickly and keep our shared work organized. Please share this requirement with everyone on your team who prepares or sends files. Thank you for your help in making this adjustment.

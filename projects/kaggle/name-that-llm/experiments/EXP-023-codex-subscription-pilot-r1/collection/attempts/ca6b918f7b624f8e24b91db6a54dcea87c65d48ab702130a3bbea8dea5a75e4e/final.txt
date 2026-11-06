@@ -1,9 +1,0 @@
-Hi [Name],
-
-Could you please ask your team to use clearer file names when sending documents? At present, we often need to open several files to identify their contents, which is causing avoidable delays.
-
-Starting next week, please ensure that every file name includes both the relevant project name and the date. A consistent format such as **ProjectName_YYYY-MM-DD** would make documents much easier to identify, organize, and retrieve.
-
-We appreciate your team’s cooperation in adopting this naming convention for all future files. Please confirm that the new format will be in place from next week onward. If you have any questions about the preferred format, please let us know before then.
-
-Thank you for helping us streamline the process.

@@ -1,7 +1,0 @@
-Map applications use a hybrid approach: they store a limited “base map” locally while downloading fresh or detailed information as needed.
-
-On-device data often includes map tiles for recently viewed places, saved offline areas, road geometry, search history, and essential navigation data. This enables fast rendering, reduces data use, and keeps basic navigation working in poor-signal areas. Users can usually download a city, region, or route in advance for offline travel.
-
-During use, the app requests information that changes frequently or would take too much space to store everywhere. Examples include live traffic, accidents, road closures, transit arrivals, business hours, reviews, satellite imagery, and updated routes. Map tiles are also fetched progressively as the user pans or zooms, then cached temporarily.
-
-The balance is driven by storage limits, network quality, freshness requirements, and privacy. Apps may evict old cached areas when space is needed, compress vector map data, and prefetch likely route segments. This design provides responsive maps without requiring either permanent worldwide downloads or continuous reliable connectivity.

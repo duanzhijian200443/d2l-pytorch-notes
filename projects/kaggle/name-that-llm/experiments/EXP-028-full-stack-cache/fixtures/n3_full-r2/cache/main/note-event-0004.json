@@ -1,1 +1,0 @@
-{"event":"comp_status","payload":{"items":[["probability",{"kind":"array","name":"event-0004-array-0001"}],["requested_weight",{"kind":"scalar","value":0.15}],["path",{"kind":"scalar","value":"C:\\计算机学习\\深度学习\\projects\\kaggle\\name-that-llm\\experiments\\EXP-028-full-stack-cache\\fixtures\\n3_full-r2\\instrumented\\comp\\comp_logit.npy"}]],"kind":"mapping"},"sequence":4}

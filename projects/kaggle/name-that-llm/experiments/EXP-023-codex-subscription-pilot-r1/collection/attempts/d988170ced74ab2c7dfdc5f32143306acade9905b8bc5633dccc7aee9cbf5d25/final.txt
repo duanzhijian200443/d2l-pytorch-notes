@@ -1,1 +1,0 @@
-The sign states a one-way condition: if someone is a club member, then they own a bicycle. It does not state the reverse—that owning a bicycle makes someone a member. Many people outside the club may own bicycles for commuting, exercise, or recreation. Therefore, bicycle ownership is required of club members, but it is not proof that a bicycle owner belongs to the club.

@@ -1,3 +1,0 @@
-A digital photo is made of tiny colored squares called pixels. On a phone, the image is displayed at a small size, so those pixels are packed closely together and your eyes see smooth lines and sharp details. When the same photo is enlarged to poster size, it does not automatically gain new detail. The existing pixels are simply stretched over a larger area, making them easier to notice. Edges may look jagged, textures become soft, and the whole image can appear blurry.
-
-The key limitation is the photo’s resolution: how many pixels it contains. A higher-resolution image has more information and can be printed larger while staying sharp. Viewing distance also matters—a poster may look blurry up close but acceptable from farther away.

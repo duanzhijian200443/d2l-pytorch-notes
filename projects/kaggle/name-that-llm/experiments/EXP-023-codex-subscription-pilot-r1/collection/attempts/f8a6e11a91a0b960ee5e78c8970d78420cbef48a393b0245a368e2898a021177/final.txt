@@ -1,7 +1,0 @@
-A volunteer group should choose its decision method based on the stakes, urgency, and team culture.
-
-**Consensus works best** when decisions affect everyone, volunteers have comparable expertise, and long-term commitment matters more than speed. It is especially useful for setting values, choosing major goals, or changing policies. Because volunteers cannot usually be compelled to cooperate, broad agreement can strengthen trust and follow-through. However, consensus needs clear facilitation, a time limit, and a defined meaning—such as “everyone can support the decision,” rather than unanimous enthusiasm. It works poorly when conflict is entrenched or rapid action is required.
-
-**One person should have final responsibility** when decisions are urgent, technical, legally sensitive, or operationally complex. A designated leader can prevent paralysis, maintain consistency, and provide accountability. This approach works best when the leader’s authority is explicit, limited to a defined area, and accompanied by consultation and transparent reasoning.
-
-Many groups benefit from a hybrid: seek meaningful input and consensus first, but let an agreed decision owner decide when time expires or agreement proves impossible.

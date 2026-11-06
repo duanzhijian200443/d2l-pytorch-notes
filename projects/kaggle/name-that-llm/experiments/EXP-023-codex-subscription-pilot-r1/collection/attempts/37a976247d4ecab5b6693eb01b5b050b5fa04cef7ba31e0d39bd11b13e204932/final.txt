@@ -1,7 +1,0 @@
-The order is **Ada, Cara, then Ben**.
-
-- “Ada arrives before Ben” establishes Ada is earlier than Ben.
-- “Cara arrives after Ada” places Cara later than Ada.
-- “Cara arrives before Ben” places Cara earlier than Ben.
-
-Together, the latter two clues put Cara between Ada and Ben, yielding the unique sequence: Ada first, Cara second, Ben last.

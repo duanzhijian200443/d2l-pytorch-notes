@@ -1,7 +1,0 @@
-The Moon’s gravity pulls on every part of Earth, including the oceans. But tides arise mainly from **differences** in that pull across Earth’s diameter—not from the Moon simply dragging all water toward itself.
-
-The Moon pulls more strongly on the ocean on Earth’s near side than it pulls on Earth’s center, creating a bulge facing the Moon. On the far side, the Moon pulls less strongly than it pulls on Earth’s center. Because Earth and Moon orbit their shared center of mass, this difference leaves a second bulge on the far side.
-
-Earth rotates beneath these two broad tidal bulges. As a coastline passes into a bulge, it experiences high tide; between bulges, it experiences low tide. Most places therefore get roughly two high and two low tides each lunar day (about 24 hours 50 minutes).
-
-Water does not permanently accumulate under the Moon because the Moon’s pull acts on the entire Earth, solid ground included. The important effect is only the small *gradient* in gravity from one side to the other. Earth’s rotation, ocean-basin shapes, coastlines, seafloor depth, and friction continually redistribute the water. The Sun also contributes substantial tides—about half as strong as the Moon’s—and can reinforce or partly cancel lunar tides.

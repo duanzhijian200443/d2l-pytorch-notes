@@ -1,5 +1,0 @@
-An unlabeled folder **cannot be blue**. The statement “Every blue folder is labeled” means that being blue guarantees having a label. Therefore, if a folder has no label, it is not blue. This is the valid contrapositive of the first statement.
-
-However, you **cannot conclude that an unlabeled folder is green**, nor that it is not green. “Some labeled folders are green” tells us only that at least one folder is both labeled and green. It does not say that all green folders are labeled or that all nonblue folders are green.
-
-Thus, an unlabeled folder is definitely **not blue**, but its actual color remains undetermined. It could be green or another color without contradicting either premise.

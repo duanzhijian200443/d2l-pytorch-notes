@@ -1,9 +1,0 @@
-A search system may return a relevant document without the exact words you typed because it can match **meaning**, not just text.
-
-Traditional keyword search already uses techniques that broaden matching. For example, stemming or lemmatization can connect “running” with “run,” while synonym handling can connect “car” with “automobile.” Spelling correction and query expansion can also help the system interpret what you intended rather than requiring a literal match.
-
-Modern search systems often go further with **semantic search**. They use machine-learning models to represent queries and documents as numerical vectors, called embeddings. These representations capture patterns of meaning, so a query such as “how to lower electricity bills” can match a document about “reducing household energy costs,” even though the wording differs considerably.
-
-A document may also be found through information outside its main text, such as its title, tags, metadata, or the words other pages use when linking to it. Ranking systems can combine these signals with factors such as freshness, authority, and context to estimate usefulness.
-
-Many systems use a hybrid approach, combining keyword matching with semantic similarity. This helps retrieve both precise matches and useful paraphrases. However, inferred meaning is imperfect: a document can seem conceptually related while still failing to answer your actual question.

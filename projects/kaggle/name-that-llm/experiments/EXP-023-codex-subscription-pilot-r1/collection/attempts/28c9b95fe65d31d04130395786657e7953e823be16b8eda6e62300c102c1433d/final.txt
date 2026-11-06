@@ -1,9 +1,0 @@
-A lake can freeze at the surface while remaining liquid below because **water is densest at about 4°C (39°F)**, rather than at its freezing point.
-
-As a lake cools in autumn, surface water becomes denser and sinks, bringing warmer water upward to cool in turn. However, once surface water cools below 4°C, it becomes *less* dense and stays near the top. This upper layer can then reach 0°C (32°F) and freeze while deeper water remains warmer.
-
-Ice is less dense than liquid water because its molecules form an open crystal structure, so it floats. The floating ice also acts as an **insulating layer**, slowing heat loss from the water below. Snow on top can provide additional insulation. Consequently, many lakes retain liquid water beneath their ice throughout winter, although very shallow lakes can freeze solid.
-
-This matters enormously for aquatic life. The liquid water provides a refuge where fish, invertebrates, and other organisms can survive, often with reduced activity and metabolism. If ice sank, newly formed ice would accumulate at the bottom, allowing much more of the lake to freeze.
-
-Winter survival is not guaranteed, however: ice limits oxygen exchange with the atmosphere, and snow can block sunlight needed for photosynthesis. Oxygen depletion can therefore threaten aquatic organisms during long winters.

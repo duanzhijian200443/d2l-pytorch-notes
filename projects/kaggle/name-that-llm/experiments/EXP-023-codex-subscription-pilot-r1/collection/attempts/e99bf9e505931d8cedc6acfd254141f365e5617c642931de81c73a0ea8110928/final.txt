@@ -1,5 +1,0 @@
-Before scheduling a weekly meeting, clarify the outcome the team needs. Meetings are useful when people must discuss ambiguity, make a shared decision, resolve conflict, or coordinate interdependent work in real time. They are less useful for status updates, announcements, or information that can be handled asynchronously in a document or chat.
-
-Consider the cost: multiply the meeting length by the number of attendees, including preparation and context-switching time. Ask whether that investment is justified by a clear decision or action.
-
-If a meeting is necessary, invite only essential participants, circulate an agenda, define the desired outcome, and keep it short. Consider a trial period rather than making it permanent. After several weeks, review whether the meeting consistently produces value; shorten, reduce the frequency, or cancel it if it does not.

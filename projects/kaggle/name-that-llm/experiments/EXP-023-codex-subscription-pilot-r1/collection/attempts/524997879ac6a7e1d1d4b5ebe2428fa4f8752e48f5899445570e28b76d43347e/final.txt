@@ -1,8 +1,0 @@
-- Use clear, action-oriented titles: “Dentist — Dr. Lee,” “Project Atlas kickoff,” or “Pick up rental car,” not “appointment” or “thing.”  
-- Include the relevant outcome or context in the description: agenda, video link, confirmation number, preparation needed, or contact details.  
-- Use consistent prefixes or categories, such as `WORK:`, `PERSONAL:`, `FAMILY:`, and color-code them if the calendar supports it.  
-- Invite only people who need to attend; use optional attendees for FYI participants.  
-- Set accurate start/end times and mark travel or focus time separately rather than hiding it inside another event.  
-- Use all-day events only for genuinely day-long items, deadlines, or absences.  
-- Add locations consistently, including virtual meeting links.  
-- Review recurring events periodically and remove obsolete ones.

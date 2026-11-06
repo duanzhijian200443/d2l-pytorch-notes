@@ -1,9 +1,0 @@
-The clocks start synchronized, so their readings initially differ by zero. Each day, the first clock gains 2 minutes relative to real time, while the second loses 1 minute. Therefore, the gap between them increases by:
-
-2 − (−1) = 3 minutes per day.
-
-After four days, the total difference is:
-
-4 × 3 = 12 minutes.
-
-Thus, the fast clock will read **12 minutes later** than the slow clock. For example, after exactly four real days (96 hours), the gaining clock will show 96 hours and 8 minutes, while the losing clock will show 95 hours and 56 minutes. The difference between those readings is 12 minutes.

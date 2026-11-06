@@ -1,5 +1,0 @@
-On a clear night, the ground loses heat efficiently by emitting infrared radiation toward the cold upper atmosphere and space. With no clouds to absorb much of this outgoing radiation, the surface cools rapidly. The air directly above it then cools by conduction and mixing, lowering near-surface temperatures.
-
-Clouds act somewhat like a thermal blanket. Water droplets and ice crystals absorb infrared radiation emitted by the ground and re-emit some of it downward. This “back radiation” reduces the surface’s net heat loss, so temperatures fall more slowly and remain higher overnight.
-
-The effect is strongest when winds are light and the air is relatively dry. Strong winds can mix warmer air downward, while high humidity and condensation can also release heat and limit cooling.

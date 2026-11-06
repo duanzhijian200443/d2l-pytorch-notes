@@ -1,5 +1,0 @@
-A software update that changes a **feature** alters what the program can do or how users interact with it. For example, it might add a search option, redesign a menu, or modify how an existing command behaves. The change mainly affects functionality and the user experience.
-
-An update that changes the **format of saved files** alters how data is structured or encoded on disk. This can affect compatibility: files saved by the new version may not open correctly in older versions, and existing files may need conversion or migration. Such changes require careful handling to avoid data loss and may need backward-compatibility support.
-
-In short, feature changes affect software behavior, while file-format changes affect the persistent data exchanged between versions or programs.

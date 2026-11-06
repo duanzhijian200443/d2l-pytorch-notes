@@ -1,9 +1,0 @@
-When the length of every side of a square garden is doubled, its **perimeter doubles**, while its **area becomes four times as large**.
-
-Suppose the original side length is \(s\). Its perimeter is \(4s\). After expansion, each side measures \(2s\), so the new perimeter is \(4(2s)=8s\), twice the original.
-
-The original area is \(s^2\). The expanded area is \((2s)^2=4s^2\), four times the original.
-
-The changes differ because perimeter measures a one-dimensional distance around the boundary, whereas area measures a two-dimensional surface. Doubling both length and width multiplies area by \(2\times2=4\).
-
-For example, a 3-metre-sided garden has perimeter 12 metres and area 9 square metres. After expansion, these become 24 metres and 36 square metres.

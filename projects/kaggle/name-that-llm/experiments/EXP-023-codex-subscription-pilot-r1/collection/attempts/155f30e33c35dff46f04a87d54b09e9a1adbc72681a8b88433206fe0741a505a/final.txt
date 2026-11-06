@@ -1,5 +1,0 @@
-Measuring one sunlit sidewalk patch tells us the temperature of that surface, not the surrounding air. Sunlight heats concrete directly, so it can become much hotter than the air above it. Its temperature also depends on its color, material, moisture, and how long it has been in the sun.
-
-A neighborhood contains many different environments: shaded streets, parks, buildings, parking lots, and areas with more or less wind. These differences affect local temperatures, so one spot cannot represent them all.
-
-To estimate neighborhood air temperature, use properly shielded, ventilated thermometers positioned above the ground, away from direct sunlight and hot surfaces. Measurements from several representative locations, taken at comparable times, provide a much more reliable picture than a single sidewalk reading.

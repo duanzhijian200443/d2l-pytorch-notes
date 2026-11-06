@@ -1,7 +1,0 @@
-A file’s **name** is the label used to identify it, such as `holiday_photo.jpg`. You can usually change this label without changing the file’s contents.
-
-Its **extension** is the suffix after the last dot, such as `.jpg`, `.pdf`, or `.txt`. It signals the expected file type and helps operating systems choose an application to open it. However, an extension is only a convention, not proof of what the file contains.
-
-The **actual internal format** is how data is structured and encoded inside the file. Software may examine headers, signatures, and other content to recognize it.
-
-For example, renaming `photo.jpg` to `photo.png` changes its name and extension, but it remains JPEG data. Creating a genuine PNG requires converting the file’s contents.

@@ -1,9 +1,0 @@
-table,prompts,full18,min_classes,median_classes,max_classes
-abdullah-v2,220,0,2,4.0,7
-dophuchung-v1,80,0,6,7.0,7
-lucas-v7,952,0,1,2.0,8
-pool-v2,1911,334,1,15.0,18
-pool-v5,14962,1069,1,3.0,18
-prvs-clean-v6,288,245,12,18.0,18
-prvs-raw-v6,510,450,12,18.0,18
-seyit-v2,1000,0,4,5.0,5

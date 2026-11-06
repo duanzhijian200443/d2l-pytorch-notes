@@ -1,5 +1,0 @@
-The first room starts with twelve chairs. First, four chairs are moved from that room to a second room. To find how many are left in the first room at this intermediate stage, subtract four from twelve: **12 − 4 = 8 chairs**.
-
-Next, three chairs are brought back from the second room to the first. These returning chairs increase the first room’s count, so add three to the eight chairs already there: **8 + 3 = 11 chairs**.
-
-Therefore, **eleven chairs remain in the first room**. The sequence is twelve chairs initially, eight after four are moved out, and eleven after three return. Overall, the first room has lost just one chair.

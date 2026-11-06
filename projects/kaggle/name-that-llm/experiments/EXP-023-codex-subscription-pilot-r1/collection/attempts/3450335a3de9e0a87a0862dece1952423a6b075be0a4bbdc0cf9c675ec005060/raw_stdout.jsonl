@@ -1,6 +1,0 @@
-{"type":"thread.started","thread_id":"01a19641-5062-7683-95f7-e0cb72a9e5bc"}
-{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in C:\\Users\\34331\\.codex\\config.toml."}}
-{"type":"item.completed","item":{"id":"item_1","type":"error","message":"Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."}}
-{"type":"turn.started"}
-{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"“I’m glad to lend tools when I can, and I appreciate that you return them. Since I sometimes need them unexpectedly, could we agree on a return date before you borrow something? If it looks like you’ll need it longer, please just text me before that date so we can work it out. After two late returns, I need to be a little more careful about lending things out, but I’m happy to help when the timing works.”"}}
-{"type":"turn.completed","usage":{"input_tokens":4126,"cached_input_tokens":1792,"cache_write_input_tokens":0,"output_tokens":94,"reasoning_output_tokens":0}}

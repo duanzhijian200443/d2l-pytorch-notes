@@ -1,3 +1,0 @@
-The justified conclusion is that an unlabeled folder is **not blue**. The statement “every blue folder is labeled” means that being blue guarantees being labeled; therefore, by contraposition, anything unlabeled cannot be blue.
-
-However, no conclusion about its color being green is justified. “Some labeled folders are green” only establishes that at least one folder is both labeled and green. It does not say that all green folders are labeled, nor that unlabeled folders have any particular color. Thus, an unlabeled folder **may be green or not green**. We also cannot infer that it is green because some labeled folders are green, or that it is not green because it is unlabeled. The only color conclusion forced by the premises is that it is not blue.

@@ -1,1 +1,0 @@
-Attendance rose from 20 to 30, a gain of 10. Relative to the original 20, that is a 50% increase. It then fell from 30 to 20, also a change of 10, but now the starting value is 30. Ten is one-third of 30, so the decrease is about 33.3%. Percentages use the current starting amount as their base, so equal numerical changes can have different percentage values.

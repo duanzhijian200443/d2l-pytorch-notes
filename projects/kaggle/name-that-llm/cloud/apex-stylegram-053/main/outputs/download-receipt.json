@@ -1,9 +1,0 @@
-{
-  "status": "COMPLETE",
-  "scriptVersionId": 364792988,
-  "observed_at": "2026-11-02T07:51:16.522430+00:00",
-  "ref": "zhjianduan/ntl-apex-volume-053-main",
-  "version": 1,
-  "archive_sha256": "5ec960a010ea6edb7ed757e0904fd0ab3a82012bfcab3756c828ac3c0357e29f",
-  "config_sha256": "20e49b6b50a2261f9fc32c938d816971991b22849c4b5ecf389c0ae9371a4c81"
-}

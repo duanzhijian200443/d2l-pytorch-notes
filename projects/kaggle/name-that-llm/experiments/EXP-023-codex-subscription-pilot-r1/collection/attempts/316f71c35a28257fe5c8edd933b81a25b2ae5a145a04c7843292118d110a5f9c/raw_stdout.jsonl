@@ -1,6 +1,0 @@
-{"type":"thread.started","thread_id":"01a196c7-6e5e-7911-aef3-4015860407c3"}
-{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in C:\\Users\\34331\\.codex\\config.toml."}}
-{"type":"item.completed","item":{"id":"item_1","type":"error","message":"Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."}}
-{"type":"turn.started"}
-{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"“I’m really enjoying having you here, and I love spending time together. I’ve realized I need about an hour to myself each afternoon to recharge—it’s part of my usual routine, not anything you’ve done. Would you mind if I took some quiet time around three each day? Please make yourself at home, relax, or explore a bit—whatever you’d enjoy. Then we can catch up afterward. I wanted to mention it so my disappearing for a while doesn’t feel unfriendly.”"}}
-{"type":"turn.completed","usage":{"input_tokens":4240,"cached_input_tokens":3072,"cache_write_input_tokens":0,"output_tokens":103,"reasoning_output_tokens":0}}

@@ -1,5 +1,0 @@
-A written definition of “finished” gives everyone the same target. In a small collaborative project, people may otherwise assume that completing code, drafting content, testing, documenting, or getting approval is someone else’s responsibility. This creates gaps, duplicated effort, and frustrating handoffs.
-
-A clear definition can state concrete criteria: required features work, tests pass, documentation is updated, review feedback is addressed, and the result is ready for users or release. It also clarifies who confirms completion and what exceptions are acceptable.
-
-Because the team can check work against shared criteria, discussions become less subjective. Instead of debating whether something is “basically done,” members can identify the remaining requirement. This improves accountability, planning, trust, and the reliability of delivered work.

@@ -1,9 +1,0 @@
-A search system can return a relevant document even when it does not contain the exact words typed because modern search is based on meaning and similarity, not only literal matching.
-
-For example, it may normalize words by lowercasing them, removing punctuation, and treating variants such as “run,” “running,” and “ran” as related. It may also correct spelling mistakes or use fuzzy matching, so a query like “recieve invoice” can still find documents containing “receive invoice.”
-
-Search engines often expand queries with synonyms and related concepts. A search for “car” may match documents about “automobiles” or “vehicles.” Domain-specific dictionaries can make this especially effective: a medical search may know that “heart attack” and “myocardial infarction” refer to the same condition.
-
-Semantic search goes further by representing queries and documents as numerical vectors that capture contextual meaning. A document describing “ways to reduce household energy use” may therefore rank for “how to lower my electricity bill,” despite sharing few exact terms.
-
-Finally, ranking systems combine many signals, such as title terms, headings, metadata, links, user behavior, recency, and document authority. Exact words can help, but relevance is usually determined by the system’s broader estimate of whether a document answers the user’s intent.

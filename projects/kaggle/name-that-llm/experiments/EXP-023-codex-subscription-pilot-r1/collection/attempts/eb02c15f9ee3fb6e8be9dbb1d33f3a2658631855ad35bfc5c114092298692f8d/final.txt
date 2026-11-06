@@ -1,9 +1,0 @@
-A bicycle is easier to balance while moving because several stabilizing effects begin to help at once.
-
-First, steering becomes effective: if the bike starts leaning left, a small leftward turn moves the wheels under the combined center of mass, helping prevent a fall. Riders do this continuously, often without noticing—through tiny handlebar corrections and body movements.
-
-Second, the spinning wheels have angular momentum. This produces gyroscopic effects that can resist changes in the wheels’ orientation and influence how the bicycle steers. These effects are real, but they are not the whole explanation: bicycles with little wheel spin can still be ridden, and some stable designs rely mainly on geometry.
-
-The bicycle’s steering geometry also matters. Features such as trail tend to make a leaning bike steer in a way that tends to recover balance. Forward motion gives this geometry time and distance to work.
-
-Near standstill, there is little opportunity to steer the wheels beneath you, so balance depends much more on rapid body shifts—making it much harder.

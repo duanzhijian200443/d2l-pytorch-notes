@@ -1,5 +1,0 @@
-Some materials spring back because they are **elastic**: when bent, their particles shift slightly but return to their original positions after the force is removed. A rubber band, a diving board, and a paper clip bent gently can all recover their shape. A trampoline also springs back because its fabric and springs store energy and release it.
-
-Other materials stay bent because they are **plastic**: the force pushes their particles into new positions, so they do not return. Modeling clay, a bent aluminum can, and a pipe cleaner behave this way. A metal coat hanger may spring back if bent only a little, but remain crooked if bent too far. In that case, part of it has been permanently changed.
-
-The result depends on both the material and how far it is bent. A wooden ruler may return after a small bend but snap or stay warped after a large one. Thus, springing back means the material stored the bending energy; staying bent means the force caused lasting change.

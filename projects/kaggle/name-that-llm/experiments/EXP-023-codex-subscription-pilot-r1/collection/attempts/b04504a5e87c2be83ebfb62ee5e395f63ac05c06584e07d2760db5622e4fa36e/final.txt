@@ -1,5 +1,0 @@
-An unlabeled folder cannot be blue. This follows from the statement that every blue folder is labeled: if it were blue, it would have to be labeled.
-
-However, no conclusion about whether an unlabeled folder is green is justified. The fact that some labeled folders are green only establishes that at least one folder has both properties; it does not say that all green folders are labeled, or that all labeled folders are green. Thus, an unlabeled folder might be green, or it might not be green.
-
-Likewise, we cannot infer that unlabeled folders share any other feature with blue or labeled folders. The only definite conclusion is: **unlabeled implies not blue**.

@@ -1,9 +1,0 @@
-Prioritize improvements by impact, urgency, effort, and risk. First, list the ten ideas with a clear problem statement and intended outcome. Score each one—for example, 1–5—on:
-
-- Benefit to volunteers, beneficiaries, or donors  
-- Alignment with current organizational goals  
-- Urgency, including security, accessibility, and broken workflows  
-- Developer effort and ongoing maintenance  
-- Dependencies or risk  
-
-Address critical security, legal, accessibility, or reliability issues first. Next, favor small, high-impact changes that remove common friction, such as simplifying donations, sign-ups, event registration, or key information access. Validate assumptions by asking a few representative users and reviewing website analytics or support requests. Choose one well-scoped task, define success metrics, and finish it before starting another. Re-rank the remaining list regularly, since needs and constraints will change.

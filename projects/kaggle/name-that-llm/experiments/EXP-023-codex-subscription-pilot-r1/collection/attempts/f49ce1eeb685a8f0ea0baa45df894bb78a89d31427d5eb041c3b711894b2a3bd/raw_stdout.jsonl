@@ -1,6 +1,0 @@
-{"type":"thread.started","thread_id":"01a196a6-0cad-7181-9e4a-3dee714b9389"}
-{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in C:\\Users\\34331\\.codex\\config.toml."}}
-{"type":"item.completed","item":{"id":"item_1","type":"error","message":"Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."}}
-{"type":"turn.started"}
-{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"Thank you for watering the plants while I was away. It was lovely to come home and see them doing well—the basil actually looks better than it did before I left! I’m also grateful that you noticed the leaking window, sent me a message, and put a towel down. It was reassuring to know you’d spotted it and taken care of things in the moment. I really appreciate the time and care you took while I was gone."}}
-{"type":"turn.completed","usage":{"input_tokens":4263,"cached_input_tokens":3072,"cache_write_input_tokens":0,"output_tokens":92,"reasoning_output_tokens":0}}

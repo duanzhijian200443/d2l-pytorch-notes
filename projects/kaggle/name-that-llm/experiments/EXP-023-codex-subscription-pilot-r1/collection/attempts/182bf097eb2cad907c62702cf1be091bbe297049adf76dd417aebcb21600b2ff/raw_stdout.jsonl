@@ -1,6 +1,0 @@
-{"type":"thread.started","thread_id":"01a196ad-a94c-7d72-a9f2-b2f6c7b2bdb2"}
-{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in C:\\Users\\34331\\.codex\\config.toml."}}
-{"type":"item.completed","item":{"id":"item_1","type":"error","message":"Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."}}
-{"type":"turn.started"}
-{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"Subject: Upcoming Rehearsals\n\nHi [Organizer’s Name],\n\nI really enjoyed the first rehearsal and appreciated how welcoming everyone was. Unfortunately, I need to miss the next two rehearsals due to a prior commitment. Would it be practical for me to return after that, or would I have missed too much? I’m very interested in continuing and would be happy to catch up on anything I miss.\n\nThanks so much for understanding!\n\nBest,  \n[Your Name]"}}
-{"type":"turn.completed","usage":{"input_tokens":2599,"cached_input_tokens":2432,"cache_write_input_tokens":0,"output_tokens":98,"reasoning_output_tokens":0}}

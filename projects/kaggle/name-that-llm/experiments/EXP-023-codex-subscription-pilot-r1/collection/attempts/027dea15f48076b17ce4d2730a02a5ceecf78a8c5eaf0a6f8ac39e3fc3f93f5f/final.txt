@@ -1,3 +1,0 @@
-The statement gives two capacities when only one box size is used, but it does not explain how large and small boxes fit together. Capacity might depend on weight, volume, shelf width, or the way boxes can be arranged. These possibilities can produce different answers for mixed loads.
-
-Even if we assume that capacity is based on one shared, additive limit, we still need to know the mixture. Each large box would use one-eighth of the capacity, and each small box one-twelfth. Four large boxes and six small boxes would fill the shelf, giving ten boxes altogether. Two large boxes and nine small boxes would also fill it, giving eleven. Thus, there is no single mixed-box total without further information.

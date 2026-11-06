@@ -1,5 +1,0 @@
-A written definition of “finished” gives everyone in a small collaborative project the same expectations. Without one, a designer might consider a page finished when it looks right, while a developer expects working links and the project owner expects approved content. These different assumptions can cause delays, frustration, and unexpected extra work.
-
-The definition should list clear, observable conditions, such as completing agreed features, checking for errors, receiving approval, and handing over necessary files or instructions. It should also identify who confirms that these conditions are met.
-
-Agreeing on this checklist early makes progress easier to assess and feedback more specific. If expectations change, the team can update the definition together rather than silently moving the goalposts.

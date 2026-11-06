@@ -1,5 +1,0 @@
-One table seats six people: one at each short end and two on each long side. If there were two separate tables, they would seat \(6 + 6 = 12\) people.
-
-When the tables are joined short-end to short-end, the two touching short ends are no longer accessible. The two people who would have sat at those ends cannot be seated there, because the tables block the space. The outside short ends still seat one person each, and the long sides still seat four people on each table combined, for eight along the long sides. Thus the joined arrangement seats \(8 + 2 = 10\) people.
-
-So the combined seating is less than twice the original because joining removes two end seats.

@@ -1,7 +1,0 @@
-Enthusiastic comments are evidence of **initial appeal**, not necessarily sustained value. The team should treat the pattern as a gap between *stated enthusiasm* and *revealed behavior*: people may find the feature novel, understandable, or socially easy to praise, yet not useful enough to revisit.
-
-Retention is the stronger signal if the product goal is recurring use. Investigate where the second-use journey fails: Does the feature solve an infrequent problem? Is the value clear only after setup? Is it hard to find again, too slow, poorly integrated into existing workflows, or displaced by a simpler alternative?
-
-Segment the evidence rather than averaging it. A small group of repeat users may reveal a high-value use case, while broad one-time use may indicate novelty. Combine quantitative funnel data—activation, time to first value, repeat rate, cohort retention—with follow-up interviews, especially of people who praised it but did not return.
-
-Do not conclude that the feature is bad solely from low repeat use. Conclude that current evidence supports interest, but not yet durable product-market fit or habitual value.

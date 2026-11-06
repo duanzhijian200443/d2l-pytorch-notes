@@ -1,5 +1,0 @@
-A moving bicycle is easier to balance mainly because motion gives the rider a quick way to correct a lean. If the bicycle begins tipping left, the rider can steer slightly left. This moves the wheels back underneath the combined center of mass, preventing the fall. At higher speeds, small steering adjustments produce useful corrections quickly; near a standstill, steering has little effect unless the bicycle also moves forward.
-
-The bicycle’s geometry also helps. The tilted steering axis and “trail”—the distance by which the front wheel’s contact point follows the steering axis—tend to make the front wheel turn in ways that can help correct a lean. The spinning wheels add gyroscopic effects, which can influence steering and stability, especially at speed, but they are not the whole explanation. Experiments show that bicycles can remain rideable even when those effects are greatly reduced.
-
-Rider skill matters too: people continually make tiny, often unconscious steering and body adjustments. When nearly stationary, balancing requires larger, faster corrections, such as deliberate track-standing movements.

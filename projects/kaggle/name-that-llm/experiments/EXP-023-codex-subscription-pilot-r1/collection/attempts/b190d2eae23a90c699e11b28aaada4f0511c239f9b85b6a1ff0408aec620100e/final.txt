@@ -1,7 +1,0 @@
-A software interface hides complicated internal work behind a small, clear set of actions so that people or other programs can use a system without understanding every detail of how it works. This principle is called **abstraction**.
-
-For example, a payment interface might offer actions such as `pay()`, `refund()`, and `checkStatus()`. Behind those actions, the system may validate information, contact banks, encrypt data, handle failures, and record transactions. The caller only needs to know what each action requires and what result to expect.
-
-This separation makes software easier to use, test, and maintain. Developers can change the internal implementation without forcing callers to change their code, provided the interface’s contract remains consistent. A narrow interface also limits accidental misuse by exposing only supported operations.
-
-The goal is not merely to conceal complexity, but to organize it behind a reliable boundary. A good interface makes common tasks straightforward while clearly communicating inputs, outputs, errors, and important limitations.

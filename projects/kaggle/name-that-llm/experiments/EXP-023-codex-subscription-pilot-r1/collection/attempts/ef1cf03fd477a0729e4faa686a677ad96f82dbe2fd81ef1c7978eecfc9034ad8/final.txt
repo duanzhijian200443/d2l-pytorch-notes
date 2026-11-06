@@ -1,3 +1,0 @@
-The arrival order is **Ada first, Cara second, and Ben third**.
-
-The clue “Ada arrives before Ben” establishes their relative order, but alone does not tell us where Cara fits. The second clue, “Cara arrives after Ada but before Ben,” places Cara between the other two: Ada must precede Cara, and Cara must precede Ben. Together, the clues give one clear order: **Ada → Cara → Ben**. In fact, the second clue alone establishes the full order and also implies the first.

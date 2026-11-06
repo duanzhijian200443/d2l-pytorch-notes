@@ -1,7 +1,0 @@
-A map application usually balances **local storage and on-demand downloading** to keep maps responsive without using too much device space or mobile data.
-
-On the device, it stores the app’s essential resources, user preferences, saved places, and a cache of recently viewed map areas. Users may also download entire regions for offline use. These downloads typically include roads, place names, and enough routing information for navigation without an internet connection.
-
-During use, the app downloads information needed for the current location, zoom level, or search. Detailed imagery, unfamiliar areas, live traffic, road closures, and updated business information often require network access because they are large or change frequently.
-
-To manage the balance, the app can preload nearby areas or an upcoming route, compress map data, and remove older cached content when storage is limited. It may favor Wi-Fi for large downloads and adjust fetching to connection quality. This hybrid approach provides reliable offline basics while keeping online information detailed and current.

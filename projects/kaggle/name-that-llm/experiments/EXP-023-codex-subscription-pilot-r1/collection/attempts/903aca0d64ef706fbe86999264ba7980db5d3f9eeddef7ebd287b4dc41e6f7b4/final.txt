@@ -1,9 +1,0 @@
-Materials spring back or stay bent depending on how their internal structure responds to force.
-
-Bend a rubber band or gently flex a plastic ruler, and it usually returns to its original shape. This is **elastic deformation**: the material’s tiny building blocks shift or stretch but retain a structure that pulls them back when you let go. In rubber, long, tangled molecules straighten as you stretch them, then curl up again.
-
-Now bend a paper clip firmly. It stays bent because parts of the metal’s internal structure have slipped into new positions. This is **plastic deformation**: releasing the force doesn’t undo that rearrangement.
-
-The same object can behave both ways. Bend a paper clip just a little, and it springs back; bend it farther, and it keeps the new shape.
-
-Temperature and time matter too. Warm candle wax bends more easily than cold wax, and a plastic shelf may gradually sag under books. Push some materials too far, and they break instead.

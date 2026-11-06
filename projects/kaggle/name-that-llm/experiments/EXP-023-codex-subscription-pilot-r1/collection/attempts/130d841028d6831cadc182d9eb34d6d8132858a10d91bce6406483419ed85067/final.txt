@@ -1,5 +1,0 @@
-A phone screen is small, so it can hide the limits of a photo’s detail. The image may have enough pixels to look crisp when viewed at a few inches wide. But enlarging it for a poster spreads those same pixels across a much bigger area.
-
-When that happens, each pixel becomes more visible, and the picture can look soft, blocky, or blurry. Enlarging software can add or smooth pixels, but it cannot truly recover detail that the camera never captured.
-
-For a sharp poster, you generally need a higher-resolution original image, taken with enough pixels for the intended print size and viewing distance.

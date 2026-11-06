@@ -1,6 +1,0 @@
-{"type":"thread.started","thread_id":"01a1963f-4619-7aa2-9672-dc08bb2e3930"}
-{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in C:\\Users\\34331\\.codex\\config.toml."}}
-{"type":"item.completed","item":{"id":"item_1","type":"error","message":"Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."}}
-{"type":"turn.started"}
-{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"Make room for people, not a perfect setup. Clear one surface for food, borrow a few folding chairs, and let mismatched plates do their job. Cook one big, forgiving dish—a stew or baked pasta—with bread and a salad, so you’re not stuck in the kitchen. Put drinks where guests can help themselves. Keep music low and lighting warm. If someone offers to bring dessert or wash up, say yes. Your ease will set the mood more than any decorations."}}
-{"type":"turn.completed","usage":{"input_tokens":4238,"cached_input_tokens":2048,"cache_write_input_tokens":0,"output_tokens":100,"reasoning_output_tokens":0}}

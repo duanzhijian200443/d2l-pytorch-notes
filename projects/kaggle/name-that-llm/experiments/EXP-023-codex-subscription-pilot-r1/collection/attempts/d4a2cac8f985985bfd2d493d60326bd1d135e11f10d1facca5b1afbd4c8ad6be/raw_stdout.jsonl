@@ -1,6 +1,0 @@
-{"type":"thread.started","thread_id":"01a196a7-330c-7a33-a9ab-0cb4a3b109e7"}
-{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in C:\\Users\\34331\\.codex\\config.toml."}}
-{"type":"item.completed","item":{"id":"item_1","type":"error","message":"Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."}}
-{"type":"turn.started"}
-{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"Rain drove Mara into my little shop that afternoon. I watched her linger over the cracked ceramic bird, turning it carefully in her hands. For a moment, I thought she might take it home, but she chose only a postcard from the rack. As she headed out, she returned the bird to its shelf—not carelessly, but with its unmarred side facing the door. After she left, the shop seemed a little kinder."}}
-{"type":"turn.completed","usage":{"input_tokens":4152,"cached_input_tokens":3840,"cache_write_input_tokens":0,"output_tokens":109,"reasoning_output_tokens":17}}

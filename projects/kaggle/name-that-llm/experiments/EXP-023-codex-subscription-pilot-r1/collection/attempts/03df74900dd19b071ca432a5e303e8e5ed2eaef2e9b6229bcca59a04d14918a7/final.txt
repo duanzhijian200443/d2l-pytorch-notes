@@ -1,5 +1,0 @@
-Starting next week, please use clear, consistent filenames for all files your team sends. Each filename should include the project name and the date so recipients can quickly identify the contents without needing to open multiple files.
-
-The current naming approach often makes it difficult to determine which file is relevant, leading to unnecessary time spent reviewing attachments. A standard format such as `ProjectName_YYYY-MM-DD_Description` would be helpful.
-
-Please ensure this convention is applied to all future submissions beginning next week. Thank you for your cooperation in making file handling more efficient for everyone.

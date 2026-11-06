@@ -1,6 +1,0 @@
-{"type":"thread.started","thread_id":"01a196be-e7f7-7c83-86aa-2afc8c1b3aac"}
-{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in C:\\Users\\34331\\.codex\\config.toml."}}
-{"type":"item.completed","item":{"id":"item_1","type":"error","message":"Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."}}
-{"type":"turn.started"}
-{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"The recipe uses 3 cups of broth for 4 people. To serve 6 people, scale the recipe by \\(6 \\div 4 = 1.5\\). Multiply the broth by the same factor: \\(3 \\times 1.5 = 4.5\\).\n\nSo, you need **4½ cups of broth** for six people. This keeps the ratio of broth to all other ingredients the same, so the recipe should have the same flavor and consistency as the original."}}
-{"type":"turn.completed","usage":{"input_tokens":4131,"cached_input_tokens":3840,"cache_write_input_tokens":0,"output_tokens":105,"reasoning_output_tokens":0}}

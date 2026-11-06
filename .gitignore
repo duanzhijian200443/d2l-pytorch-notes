@@ -1,0 +1,19 @@
+# Python / tooling caches
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Model weights and binary checkpoints
+*.pt
+*.pth
+*.safetensors
+*.ckpt
+*.onnx
+
+# OS / editor artifacts
+.DS_Store
+Thumbs.db

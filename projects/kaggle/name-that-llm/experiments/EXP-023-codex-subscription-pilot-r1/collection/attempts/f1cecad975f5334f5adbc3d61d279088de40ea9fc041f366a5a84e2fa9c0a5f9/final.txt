@@ -1,7 +1,0 @@
-Count unordered pairs of people, since each handshake involves two people and should be counted only once. Choose the first person in 5 ways, then a partner in 4 ways, giving \(5 \times 4 = 20\). This counts every handshake twice—once from each person’s perspective—so divide by 2:  
-
-\[
-\frac{5 \times 4}{2}=10.
-\]
-
-Equivalently, use combinations: \(\binom{5}{2}=10\).

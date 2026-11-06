@@ -1,6 +1,0 @@
-{"type":"thread.started","thread_id":"01a196a9-6e72-7eb2-a20b-76099a9c9b0d"}
-{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in C:\\Users\\34331\\.codex\\config.toml."}}
-{"type":"item.completed","item":{"id":"item_1","type":"error","message":"Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."}}
-{"type":"turn.started"}
-{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"At dawn, the ferry carried us across grey water, its steady hum filling the pauses between a child’s calls as they counted buoys. I held a paper bag of warm bread against my lap, folding back the top to tear off a piece. Each buoy slipped behind us before the next came into view. Ahead, the far shore became distinct so slowly that I kept looking away and back again, trying to catch the moment when a blur became land."}}
-{"type":"turn.completed","usage":{"input_tokens":4258,"cached_input_tokens":3072,"cache_write_input_tokens":0,"output_tokens":95,"reasoning_output_tokens":0}}

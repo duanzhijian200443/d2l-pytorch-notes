@@ -1,6 +1,0 @@
-{"type":"thread.started","thread_id":"01a19644-e259-7553-8421-80cdbfc6a419"}
-{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in C:\\Users\\34331\\.codex\\config.toml."}}
-{"type":"item.completed","item":{"id":"item_1","type":"error","message":"Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."}}
-{"type":"turn.started"}
-{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"Create a brief “closing commute.” Save your work, write tomorrow’s top three tasks, and shut the laptop completely. Put work items into a box, drawer, or bag so the table visibly changes. Wipe the surface, switch off the task light, and change the room’s lighting or music. Then leave the area for five minutes—take a short walk, stretch, or wash your hands. Return with a drink or place setting, signaling that the table is now for home life."}}
-{"type":"turn.completed","usage":{"input_tokens":4126,"cached_input_tokens":3968,"cache_write_input_tokens":0,"output_tokens":103,"reasoning_output_tokens":0}}

@@ -1,7 +1,0 @@
-The clocks start with the same reading, but their errors accumulate in opposite directions.
-
-The first clock gains two minutes each day. After four days, it will be \(2 \times 4 = 8\) minutes ahead of the correct time. The second clock loses one minute each day, so after four days it will be \(1 \times 4 = 4\) minutes behind the correct time.
-
-Because one clock is ahead and the other is behind, we add their errors: \(8 + 4 = 12\) minutes.
-
-For example, if the correct time is noon, the first clock will read 12:08, while the second will read 11:56. Thus, after four days, their readings will be **12 minutes apart**.

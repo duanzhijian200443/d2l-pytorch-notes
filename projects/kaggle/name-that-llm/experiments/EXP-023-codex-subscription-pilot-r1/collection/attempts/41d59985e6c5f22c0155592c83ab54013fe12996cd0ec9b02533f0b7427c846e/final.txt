@@ -1,5 +1,0 @@
-A river’s path describes the overall route that flowing water follows through the landscape: from its source downhill through channels, bends, tributaries, floodplains, and eventually to a lake, sea, or another river. This path is shaped by gravity, terrain, erosion, sediment deposition, and obstacles. It is a large-scale, visible feature that can remain recognizable for years, even though the water within it is constantly replaced.
-
-An individual water molecule behaves differently. It generally travels downstream with the bulk flow, but its exact motion is not a smooth line matching the river channel. Turbulence, friction with the riverbed and banks, eddies, mixing, and collisions with other molecules cause it to move irregularly in three dimensions. A molecule may swirl sideways, briefly move upstream within an eddy, sink or rise, become trapped near sediment or vegetation, or evaporate before reaching the river’s end.
-
-So, the river path is the organized, macroscopic route of the flow, while a molecule’s trajectory is a complex, microscopic and often unpredictable journey within that route.

@@ -1,3 +1,0 @@
-When a phone scans a QR code, its camera first captures the pattern of black and white squares. Software detects the code’s boundaries, corrects for angle or distortion, and decodes the pattern into stored data. This is the **reading** stage: the phone is only extracting information, such as text, contact details, or a web address. Reading a QR code does not itself require visiting a website.
-
-If the decoded data is a URL, the phone typically displays a notification or preview. When the user taps it—or if an app is configured to proceed automatically—the phone hands the URL to a browser or relevant app. That app then connects to the destination over a network and requests its content. This is the separate **opening** stage, where security and privacy risks may arise.

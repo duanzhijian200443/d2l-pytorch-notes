@@ -1,5 +1,0 @@
-A file’s **name** is the label used to identify it, such as `report.pdf`. It can usually be changed without altering the file’s contents.
-
-The **extension** is the suffix after the final period, such as `.pdf`, `.jpg`, or `.txt`. Operating systems and applications use it as a hint about which program should open the file and how it should be interpreted. Renaming `photo.jpg` to `photo.txt` changes only that hint—not the data itself.
-
-The **actual internal format** is the way the file’s bytes are structured. It may include identifying “magic bytes,” headers, metadata, and encoded content. Software can inspect these features to determine the true format. Therefore, a file named `document.pdf` might have a `.pdf` extension while actually containing JPEG image data—or even invalid or malicious data.

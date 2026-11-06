@@ -1,1 +1,0 @@
-Start with 100 units. A 10% discount removes 10 units, leaving 90. Adding 10% afterward means adding 10% of 90, which is only 9 units. The final price is therefore 99 units, not 100. The percentages use different bases: the discount is calculated from 100, while the increase is calculated from the lower price of 90.

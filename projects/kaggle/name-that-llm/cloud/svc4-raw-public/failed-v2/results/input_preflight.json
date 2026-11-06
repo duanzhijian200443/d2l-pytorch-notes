@@ -1,9 +1,0 @@
-{
-  "status": "PASS",
-  "official_rows": 2699,
-  "public_rows": 5400,
-  "public_groups": 300,
-  "folds": 5,
-  "hashes_verified": true,
-  "checked_at": "2026-11-01T07:42:51.369298+00:00"
-}

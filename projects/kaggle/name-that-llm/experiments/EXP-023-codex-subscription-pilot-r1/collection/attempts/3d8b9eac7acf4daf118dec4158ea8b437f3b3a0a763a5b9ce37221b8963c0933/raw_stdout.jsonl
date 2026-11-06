@@ -1,6 +1,0 @@
-{"type":"thread.started","thread_id":"01a19644-c5e4-72d3-b59c-c1a735b63a3b"}
-{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in C:\\Users\\34331\\.codex\\config.toml."}}
-{"type":"item.completed","item":{"id":"item_1","type":"error","message":"Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."}}
-{"type":"turn.started"}
-{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"- Close the laptop, put it in a drawer or sleeve, and clear work items from view.  \n- Change the lighting: switch off the desk lamp and turn on a warmer room light.  \n- Take a five-minute walk, even just around the block or building.  \n- Wash hands and make a drink—tea, sparkling water, or something for dinner.  \n- Play one “end-of-day” song or playlist.  \n- Reset the table with a placemat, candle, or flowers, signaling that it is now for eating and relaxing."}}
-{"type":"turn.completed","usage":{"input_tokens":4126,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":116,"reasoning_output_tokens":0}}

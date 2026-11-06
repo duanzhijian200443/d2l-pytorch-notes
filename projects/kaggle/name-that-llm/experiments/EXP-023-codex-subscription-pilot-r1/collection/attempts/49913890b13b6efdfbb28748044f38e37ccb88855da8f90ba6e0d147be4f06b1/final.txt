@@ -1,5 +1,0 @@
-Dividing a project by task count assumes that every task requires roughly the same amount of effort, time, skill, and responsibility. In practice, tasks often vary greatly. One team might complete ten routine tasks, such as formatting documents or entering data, while the other completes ten tasks involving complex analysis, technical design, troubleshooting, or major decisions. Although both teams finish half of the listed tasks, their workloads are not truly equal.
-
-Task count also ignores uncertainty and risk. Difficult tasks may require specialized expertise, extensive coordination, repeated revisions, or work outside normal hours. They may also carry greater consequences if mistakes occur. Meanwhile, several simple tasks might be completed quickly and predictably.
-
-A fairer division should therefore consider estimated hours, complexity, required expertise, cognitive effort, dependencies, risk, and accountability. Organizations can assign weighted values to tasks or compare the actual time and resources used. Equal numbers of tasks create a visually balanced split, but equality in quantity does not necessarily mean equality in effort or contribution.

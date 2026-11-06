@@ -1,6 +1,0 @@
-{"type":"thread.started","thread_id":"01a19645-0305-7543-9e05-f0c199c04860"}
-{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in C:\\Users\\34331\\.codex\\config.toml."}}
-{"type":"item.completed","item":{"id":"item_1","type":"error","message":"Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."}}
-{"type":"turn.started"}
-{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"Try a five-minute “closing shift”: write down tomorrow’s first task, close your laptop, and tuck work items into a basket or drawer. Wipe the table, then change one detail—add a placemat, flowers, or a lamp with warmer light. Take a short walk or stretch before sitting down again. Changing clothes or putting on a favorite playlist can also signal the switch. Keep it simple and repeatable: the goal is a clear transition, not another chore."}}
-{"type":"turn.completed","usage":{"input_tokens":4240,"cached_input_tokens":2048,"cache_write_input_tokens":0,"output_tokens":100,"reasoning_output_tokens":0}}

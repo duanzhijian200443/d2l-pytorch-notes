@@ -1,6 +1,0 @@
-{"type":"thread.started","thread_id":"01a196c9-fca1-74d2-ad21-90524ece6243"}
-{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in C:\\Users\\34331\\.codex\\config.toml."}}
-{"type":"item.completed","item":{"id":"item_1","type":"error","message":"Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."}}
-{"type":"turn.started"}
-{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"Two stars can appear equally bright because apparent brightness depends on both their true luminosity and their distance from Earth. A very luminous star far away may look as bright as a less luminous star nearby. Other factors, such as interstellar dust absorbing or scattering light and differences in color or wavelength, can also affect how bright they appear to our eyes. Thus, equal apparent brightness does not mean equal energy output."}}
-{"type":"turn.completed","usage":{"input_tokens":2584,"cached_input_tokens":1920,"cache_write_input_tokens":0,"output_tokens":85,"reasoning_output_tokens":0}}

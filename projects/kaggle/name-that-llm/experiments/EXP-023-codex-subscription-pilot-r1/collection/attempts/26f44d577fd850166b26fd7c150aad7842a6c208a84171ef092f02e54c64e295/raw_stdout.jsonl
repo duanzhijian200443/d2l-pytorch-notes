@@ -1,6 +1,0 @@
-{"type":"thread.started","thread_id":"01a196b8-0553-7b51-a4e0-f69435dfbd0c"}
-{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in C:\\Users\\34331\\.codex\\config.toml."}}
-{"type":"item.completed","item":{"id":"item_1","type":"error","message":"Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."}}
-{"type":"turn.started"}
-{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"I’m sorry your idea wasn’t credited during the meeting. You made an important contribution, and I should have acknowledged it clearly when the topic came up. I will correct this by sending a follow-up to the group naming your contribution and clarifying how it informed the discussion. At our next meeting, I’ll also make sure to recognize your work directly and give you space to explain the idea in your own words."}}
-{"type":"turn.completed","usage":{"input_tokens":4127,"cached_input_tokens":3840,"cache_write_input_tokens":0,"output_tokens":87,"reasoning_output_tokens":0}}

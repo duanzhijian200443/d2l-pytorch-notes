@@ -1,6 +1,0 @@
-{"type":"thread.started","thread_id":"01a19641-debb-7a43-ab66-9a63f4c4f192"}
-{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in C:\\Users\\34331\\.codex\\config.toml."}}
-{"type":"item.completed","item":{"id":"item_1","type":"error","message":"Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."}}
-{"type":"turn.started"}
-{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"Use a quick, fair rotation: each person picks a genre or one film suggestion, then draw from the choices randomly. Set a two-minute rule for pitches and a five-minute limit for deciding. Alternate who has the final tie-break each movie night, and keep a shared list so skipped picks carry forward. Occasionally choose a “genre sampler” film that blends interests—comedy-adventure, animated mystery, or action fantasy—so everyone gets something they enjoy."}}
-{"type":"turn.completed","usage":{"input_tokens":4124,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":96,"reasoning_output_tokens":0}}
